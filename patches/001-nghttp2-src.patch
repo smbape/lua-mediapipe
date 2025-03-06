@@ -1,0 +1,176 @@
+diff --git a/cmake/FindLibbrotlidec.cmake b/cmake/FindLibbrotlidec.cmake
+index 59066c64..147412f5 100644
+--- a/cmake/FindLibbrotlidec.cmake
++++ b/cmake/FindLibbrotlidec.cmake
+@@ -1,36 +1,52 @@
+-# - Try to find libbrotlidec
+-# Once done this will define
+-#  LIBBROTLIDEC_FOUND        - System has libbrotlidec
+-#  LIBBROTLIDEC_INCLUDE_DIRS - The libbrotlidec include directories
+-#  LIBBROTLIDEC_LIBRARIES    - The libraries needed to use libbrotlidec
++###########################################################################
++# Find the brotli library
++#
++# Input variables:
++#
++# - `LIBBROTLIDEC_INCLUDE_DIR`:  The brotli include directory.
++# - `LIBBROTLIDEC_LIBRARY`:      Path to `brotlicommon` library.
++#
++# Result variables:
++#
++# - `LIBBROTLIDEC_FOUND`:        System has libbrotlidec
++# - `LIBBROTLIDEC_INCLUDE_DIRS`: The libbrotlidec include directories
++# - `LIBBROTLIDEC_LIBRARIES`:    The libraries needed to use libbrotlidec
+ 
+-find_package(PkgConfig QUIET)
+-pkg_check_modules(PC_LIBBROTLIDEC QUIET libbrotlidec)
++if(NOT DEFINED LIBBROTLIDEC_INCLUDE_DIR AND
++   NOT DEFINED LIBBROTLIDEC_LIBRARY)
++  find_package(PkgConfig QUIET)
++  pkg_check_modules(LIBBROTLIDEC QUIET libbrotlidec)
++endif()
+ 
+-find_path(LIBBROTLIDEC_INCLUDE_DIR
+-  NAMES brotli/decode.h
+-  HINTS ${PC_LIBBROTLIDEC_INCLUDE_DIRS}
+-)
+-find_library(LIBBROTLIDEC_LIBRARY
+-  NAMES brotlidec
+-  HINTS ${PC_LIBBROTLIDEC_LIBRARY_DIRS}
+-)
++if(LIBBROTLIDEC_FOUND)
++  string(REPLACE ";" " " LIBBROTLIDEC_CFLAGS "${LIBBROTLIDEC_CFLAGS}")
++  message(STATUS "Found LIBBROTLIDEC (via pkg-config): ${LIBBROTLIDEC_INCLUDE_DIRS} (found version \"${LIBBROTLIDEC_VERSION}\")")
++else()
++  find_path(LIBBROTLIDEC_INCLUDE_DIR
++    NAMES brotli/decode.h
++    HINTS ${PC_LIBBROTLIDEC_INCLUDE_DIRS}
++  )
++  find_library(LIBBROTLIDEC_LIBRARY
++    NAMES brotlidec
++    HINTS ${PC_LIBBROTLIDEC_LIBRARY_DIRS}
++  )
+ 
+-if(PC_LIBBROTLIDEC_FOUND)
+-  set(LIBBROTLIDEC_VERSION ${PC_LIBBROTLIDEC_VERSION})
+-endif()
++  if(PC_LIBBROTLIDEC_FOUND)
++    set(LIBBROTLIDEC_VERSION ${PC_LIBBROTLIDEC_VERSION})
++  endif()
+ 
+-include(FindPackageHandleStandardArgs)
+-# handle the QUIETLY and REQUIRED arguments and set LIBBROTLIDEC_FOUND
+-# to TRUE if all listed variables are TRUE and the requested version
+-# matches.
+-find_package_handle_standard_args(Libbrotlidec REQUIRED_VARS
+-                                  LIBBROTLIDEC_LIBRARY LIBBROTLIDEC_INCLUDE_DIR
+-                                  VERSION_VAR LIBBROTLIDEC_VERSION)
++  include(FindPackageHandleStandardArgs)
++  # handle the QUIETLY and REQUIRED arguments and set LIBBROTLIDEC_FOUND
++  # to TRUE if all listed variables are TRUE and the requested version
++  # matches.
++  find_package_handle_standard_args(Libbrotlidec REQUIRED_VARS
++                                    LIBBROTLIDEC_LIBRARY LIBBROTLIDEC_INCLUDE_DIR
++                                    VERSION_VAR LIBBROTLIDEC_VERSION)
+ 
+-if(LIBBROTLIDEC_FOUND)
+-  set(LIBBROTLIDEC_LIBRARIES     ${LIBBROTLIDEC_LIBRARY})
+-  set(LIBBROTLIDEC_INCLUDE_DIRS  ${LIBBROTLIDEC_INCLUDE_DIR})
+-endif()
++  if(LIBBROTLIDEC_FOUND)
++    set(LIBBROTLIDEC_LIBRARIES     ${LIBBROTLIDEC_LIBRARY})
++    set(LIBBROTLIDEC_INCLUDE_DIRS  ${LIBBROTLIDEC_INCLUDE_DIR})
++  endif()
+ 
+-mark_as_advanced(LIBBROTLIDEC_INCLUDE_DIR LIBBROTLIDEC_LIBRARY)
++  mark_as_advanced(LIBBROTLIDEC_INCLUDE_DIR LIBBROTLIDEC_LIBRARY)
++endif()
+\ No newline at end of file
+diff --git a/cmake/FindLibbrotlienc.cmake b/cmake/FindLibbrotlienc.cmake
+index acf63343..082501ff 100644
+--- a/cmake/FindLibbrotlienc.cmake
++++ b/cmake/FindLibbrotlienc.cmake
+@@ -1,36 +1,52 @@
+-# - Try to find libbrotlienc
+-# Once done this will define
+-#  LIBBROTLIENC_FOUND        - System has libbrotlienc
+-#  LIBBROTLIENC_INCLUDE_DIRS - The libbrotlienc include directories
+-#  LIBBROTLIENC_LIBRARIES    - The libraries needed to use libbrotlienc
++###########################################################################
++# Find the brotli library
++#
++# Input variables:
++#
++# - `LIBBROTLIENC_INCLUDE_DIR`:  The brotli include directory.
++# - `LIBBROTLIENC_LIBRARY`:      Path to `brotlicommon` library.
++#
++# Result variables:
++#
++# - `LIBBROTLIENC_FOUND`:        System has libbrotlienc
++# - `LIBBROTLIENC_INCLUDE_DIRS`: The libbrotlienc include directories
++# - `LIBBROTLIENC_LIBRARIES`:    The libraries needed to use libbrotlienc
+ 
+-find_package(PkgConfig QUIET)
+-pkg_check_modules(PC_LIBBROTLIENC QUIET libbrotlienc)
++if(NOT DEFINED LIBBROTLIENC_INCLUDE_DIR AND
++   NOT DEFINED LIBBROTLIENC_LIBRARY)
++  find_package(PkgConfig QUIET)
++  pkg_check_modules(LIBBROTLIENC QUIET libbrotlienc)
++endif()
+ 
+-find_path(LIBBROTLIENC_INCLUDE_DIR
+-  NAMES brotli/encode.h
+-  HINTS ${PC_LIBBROTLIENC_INCLUDE_DIRS}
+-)
+-find_library(LIBBROTLIENC_LIBRARY
+-  NAMES brotlienc
+-  HINTS ${PC_LIBBROTLIENC_LIBRARY_DIRS}
+-)
++if(LIBBROTLIENC_FOUND)
++  string(REPLACE ";" " " LIBBROTLIENC_CFLAGS "${LIBBROTLIENC_CFLAGS}")
++  message(STATUS "Found LIBBROTLIENC (via pkg-config): ${LIBBROTLIENC_INCLUDE_DIRS} (found version \"${LIBBROTLIENC_VERSION}\")")
++else()
++  find_path(LIBBROTLIENC_INCLUDE_DIR
++    NAMES brotli/encode.h
++    HINTS ${PC_LIBBROTLIENC_INCLUDE_DIRS}
++  )
++  find_library(LIBBROTLIENC_LIBRARY
++    NAMES brotlienc
++    HINTS ${PC_LIBBROTLIENC_LIBRARY_DIRS}
++  )
+ 
+-if(PC_LIBBROTLIENC_FOUND)
+-  set(LIBBROTLIENC_VERSION ${PC_LIBBROTLIENC_VERSION})
+-endif()
++  if(PC_LIBBROTLIENC_FOUND)
++    set(LIBBROTLIENC_VERSION ${PC_LIBBROTLIENC_VERSION})
++  endif()
+ 
+-include(FindPackageHandleStandardArgs)
+-# handle the QUIETLY and REQUIRED arguments and set LIBBROTLIENC_FOUND
+-# to TRUE if all listed variables are TRUE and the requested version
+-# matches.
+-find_package_handle_standard_args(Libbrotlienc REQUIRED_VARS
+-                                  LIBBROTLIENC_LIBRARY LIBBROTLIENC_INCLUDE_DIR
+-                                  VERSION_VAR LIBBROTLIENC_VERSION)
++  include(FindPackageHandleStandardArgs)
++  # handle the QUIETLY and REQUIRED arguments and set LIBBROTLIENC_FOUND
++  # to TRUE if all listed variables are TRUE and the requested version
++  # matches.
++  find_package_handle_standard_args(Libbrotlienc REQUIRED_VARS
++                                    LIBBROTLIENC_LIBRARY LIBBROTLIENC_INCLUDE_DIR
++                                    VERSION_VAR LIBBROTLIENC_VERSION)
+ 
+-if(LIBBROTLIENC_FOUND)
+-  set(LIBBROTLIENC_LIBRARIES     ${LIBBROTLIENC_LIBRARY})
+-  set(LIBBROTLIENC_INCLUDE_DIRS  ${LIBBROTLIENC_INCLUDE_DIR})
+-endif()
++  if(LIBBROTLIENC_FOUND)
++    set(LIBBROTLIENC_LIBRARIES     ${LIBBROTLIENC_LIBRARY})
++    set(LIBBROTLIENC_INCLUDE_DIRS  ${LIBBROTLIENC_INCLUDE_DIR})
++  endif()
+ 
+-mark_as_advanced(LIBBROTLIENC_INCLUDE_DIR LIBBROTLIENC_LIBRARY)
++  mark_as_advanced(LIBBROTLIENC_INCLUDE_DIR LIBBROTLIENC_LIBRARY)
++endif()
+\ No newline at end of file
