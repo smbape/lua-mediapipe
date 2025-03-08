@@ -303,10 +303,21 @@ function open_git_project() {
     fi
 }
 
+# https://superuser.com/questions/1749781/how-can-i-check-if-the-environment-is-wsl-from-a-shell-script#answer-1749811
+if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+
+function wsl() {
+    bash "$@"
+}
+
+else
+
 WSL="$(command -v wsl)"
 function wsl() {
     "$WSL" -d "$WSL_DISTNAME" -e bash -li "$@"
 }
+
+fi
 
 function docker_run_bash() {
     local name=${1:-${CONTAINER_NAME}}
@@ -368,7 +379,8 @@ function set_url_github() {
 }
 
 function new_version() {
-    npm version patch
+    local new_version="${1:-patch}"
+    npm version "$new_version"
 }
 
 function new_version_rollback() {
@@ -392,6 +404,26 @@ function new_version_rollback() {
     done
 
     set_url_github
+}
+
+function update_new_version() {
+    if git diff-index --quiet HEAD --; then
+        return
+    fi
+
+    local new_version="${1:-patch}"
+    local times_file=$(echo autoit-*-com/build_x64)/times.bin
+
+    git add --renormalize . && \
+    find $(git diff --name-only HEAD --) -mindepth 0 -maxdepth 0 -type f -printf '%A@ %T@ %p\0' > "$times_file" && \
+    git stash push && \
+    new_version_rollback && \
+    git stash pop && \
+    perl -MTime::HiRes=utime -0 -ne 'chomp; my ($atime, $mtime, $file) = split(/ /, $_, 3); utime $atime, $mtime, $file;' < "$times_file" && \
+    git add $(git diff --name-only --diff-filter=M HEAD --) && \
+    git commit --amend --no-edit && \
+    new_version "$new_version" && \
+    rm -f "$times_file"
 }
 
 function push_all() {
@@ -460,12 +492,19 @@ function prepublish_windows() {
 }
 
 function use_luajit_modules() {
-    local sources="$PWD/out/prepublish/build/mediapipe_lua"
-    rm -rf luarocks/lua_modules out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
+    rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luajit --install && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luarocks && \
     ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luajit --install && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luarocks && \
+    ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luarocks || exit $?
+
+    local sources="$PWD/out/prepublish/build/mediapipe_lua"
+    if [ ! -e ${sources} ]; then
+        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec" && \
+        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
+        return $?
+    fi
+
     bash -c "
         cd ${sources}/ && \
         ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luajit --install && \
@@ -478,12 +517,20 @@ function use_luajit_modules() {
 
 function use_lua_modules() {
     local version="${1:-5.4}"
-    local sources="$PWD/out/prepublish/build/mediapipe_lua"
-    rm -rf luarocks/lua_modules out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
+
+    rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target lua --install && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target luarocks && \
     ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target lua --install && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks && \
+    ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks || exit $?
+
+    local sources="$PWD/out/prepublish/build/mediapipe_lua"
+    if [ ! -e ${sources} ]; then
+        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec" && \
+        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
+        return $?
+    fi
+
     bash -c "
         cd ${sources}/ && \
         ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target lua --install && \
@@ -497,9 +544,8 @@ function use_lua_modules() {
 function use_wsl_luajit_modules() {
     wsl -c '
 source scripts/wsl_init.sh || exit $?
-source ${projectDir}/scripts/tasks.sh || exit $?
 
-rm -rf luarocks/lua_modules out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
+rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luajit --install && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luarocks && \
     ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
@@ -510,9 +556,8 @@ rm -rf luarocks/lua_modules out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-
 function use_wsl_lua_modules() {
     local script='
 source scripts/wsl_init.sh || exit $?
-source ${projectDir}/scripts/tasks.sh || exit $?
 
-rm -rf luarocks/lua_modules out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
+rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target lua --install && \
     ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target luarocks && \
     ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
@@ -608,7 +653,6 @@ function set_url_wsl() {
 function prepublish_wsl() {
     wsl -c '
 source scripts/wsl_init.sh || exit $?
-source scripts/tasks.sh && \
 prepublish_any --server="${projectDir}/out/prepublish/server"
 '
 }
@@ -754,17 +798,23 @@ $(build_custom_linux_script)" && \
     new_version_rollback
 }
 
-function build_windows_debug() {
-    if [ ! -e luarocks/lua.bat ]; then
-        use_luajit_modules || exit $?
-    fi
-
+function get_lua_version() {
     local version="$(./luarocks/lua${LUAROCKS_SUFFIX} -v | sed -r -e "s/^([[:alnum:]]+) ([0-9]+\.[0-9]+).+$/target=\1 version=\2/")"
     local target
     eval "$version"
     if [ "${target}" == "LuaJIT" ]; then
         version=luajit-2.1
     fi
+
+    echo "$version"
+}
+
+function build_windows_debug() {
+    if [ ! -e luarocks/lua${LUAROCKS_SUFFIX} ] || ! ./luarocks/lua${LUAROCKS_SUFFIX} -v &> /dev/null; then
+        use_luajit_modules || exit $?
+    fi
+
+    local version="$(get_lua_version)"
 
     time \
         OpenCVLua_DIR="$(realpath "${PWD//mediapipe/opencv}/out/install/x64-Debug")" \
@@ -777,17 +827,11 @@ function build_wsl_debug() {
     local script='
 source scripts/wsl_init.sh || exit $?
 
-if [ ! -x luarocks/lua ]; then
-    source "${projectDir}/scripts/tasks.sh" || exit $?
+if [ ! -e luarocks/lua${LUAROCKS_SUFFIX} ] || ! ./luarocks/lua${LUAROCKS_SUFFIX} -v &> /dev/null; then
     use_wsl_luajit_modules || exit $?
 fi
 
-version="$(./luarocks/lua${LUAROCKS_SUFFIX} -v | sed -r -e "s/^([[:alnum:]]+) ([0-9]+\.[0-9]+).+$/target=\1 version=\2/")"
-target
-eval "$version"
-if [ "${target}" == "LuaJIT" ]; then
-    version=luajit-2.1
-fi
+version="$(get_lua_version)"
 
 time \
     OpenCVLua_DIR="$HOME/.vs/lua-opencv/$OPENCV_WORKSPACE_HASH/src/out/install/Linux-GCC-Debug" \
@@ -1201,12 +1245,12 @@ function compile_debug_wsl() {
 
 function compile_debug_strict_windows() {
     local file="$1"
-    bash -c "cd out/build/x64-Debug/ && ninja ${file}.obj"
+    bash -c "cd out/build/x64-Debug/ && ninja -d explain '${file}.obj'"
 }
 
 function compile_debug_strict_wsl() {
     local file="$1"
-    wsl -c "source scripts/wsl_init.sh && cd out/build/Linux-GCC-Debug/ && ninja ${file}.o"
+    wsl -c "source scripts/wsl_init.sh && cd out/build/Linux-GCC-Debug/ && ninja -d explain '${file}.o'"
 }
 
 function install_build_essentials_wsl_debian() {

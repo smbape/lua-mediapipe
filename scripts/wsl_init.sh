@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+if [ "$workspaceHash" != "12ef9f65-2ade-423d-9b89-793fb036a03a" ]; then
 export PATH="${PATH//\/mnt\/*:/}"
 
 workspaceHash=12ef9f65-2ade-423d-9b89-793fb036a03a
@@ -7,7 +8,7 @@ projectDir="$(wslpath -w "$PWD" | sed -e "s#\(.*\)#/mnt/\L\1#" -e "s#\\\\#/#g" -
 projectDirName=$(basename "$projectDir")
 sources="$HOME/.vs/${projectDirName}/${workspaceHash}/src"
 
-source "${projectDir}/scripts/tasks.sh" && open_git_project "file://${projectDir}" "${sources}"
+source "${projectDir}/scripts/tasks.sh" && open_git_project "file://${projectDir}" "${sources}" || exit $?
 
 rsync -t --delete -v -r \
     --exclude=.git \
@@ -35,3 +36,7 @@ rsync -t --delete -v -r \
     "${projectDir}/" "${sources}" || exit $?
 
 export PATH="/snap/bin:$PATH"
+export workspaceHash projectDir sources
+else
+source "${projectDir}/scripts/tasks.sh" && open_git_project "file://${projectDir}" "${sources}" || exit $?
+fi
