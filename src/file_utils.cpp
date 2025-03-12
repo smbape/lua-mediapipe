@@ -330,15 +330,16 @@ namespace fs_utils {
 						continue;
 					}
 					top_search_absolute = false;
+
+					_findFiles(matches, path, spath, FindFilesKind::FLTA_FILESFOLDERS, false);
+				} else {
+					if (!filter.empty()) {
+						spath = filter / spath;
+					}
+
+					_findFiles(matches, spath / path, root_path, FindFilesKind::FLTA_FILESFOLDERS, false);
 				}
 
-				if (!filter.empty()) {
-					spath = filter / spath;
-				}
-
-				spath /= path;
-
-				_findFiles(matches, spath, root_path, FindFilesKind::FLTA_FILESFOLDERS, false);
 				if (!matches.empty()) {
 					return matches[0];
 				}

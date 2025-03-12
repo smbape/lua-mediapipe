@@ -2,6 +2,99 @@
 #include <file_utils.hpp>
 #include "binding/resource_util.h"
 
+#ifndef OPENCV_LUA_API
+# if (defined _WIN32 || defined WINCE || defined __CYGWIN__)
+#   define OPENCV_LUA_API __declspec(dllimport)
+# else
+#   define OPENCV_LUA_API extern
+# endif
+#endif
+
+namespace opencv_lua {
+	template<typename T>
+	OPENCV_LUA_API std::shared_ptr<T> exported_lua_to(lua_State* L, int index, T* ptr, bool& is_valid);
+
+	template<typename T>
+	OPENCV_LUA_API int exported_lua_push(lua_State* L, T* ptr);
+
+	template<typename T>
+	OPENCV_LUA_API int exported_lua_push(lua_State* L, T&& obj);
+
+	template<typename T>
+	OPENCV_LUA_API int exported_lua_push(lua_State* L, const T& obj);
+}
+
+namespace LUA_MODULE_NAME {
+	const std::string StatusCodeToError(const ::absl::StatusCode& code) {
+		switch (code) {
+		case absl::StatusCode::kInvalidArgument:
+			return "Invalid argument";
+		case absl::StatusCode::kAlreadyExists:
+			return "File already exists";
+		case absl::StatusCode::kUnimplemented:
+			return "Not implemented";
+		default:
+			return "Runtime error";
+		}
+	}
+
+
+	// ================================
+	// cv::Mat
+	// ================================
+
+	std::shared_ptr<cv::Mat> lua_to(lua_State* L, int index, cv::Mat* ptr, bool& is_valid) {
+		return opencv_lua::exported_lua_to(L, index, ptr, is_valid);
+	}
+
+	int lua_push(lua_State* L, cv::Mat* ptr) {
+		return opencv_lua::exported_lua_push(L, ptr);
+	}
+
+	int lua_push(lua_State* L, cv::Mat&& obj) {
+		return opencv_lua::exported_lua_push(L, std::move(obj));
+	}
+
+	int lua_push(lua_State* L, const cv::Mat& obj) {
+		return opencv_lua::exported_lua_push(L, obj);
+	}
+
+
+	// ================================
+	// mediapipe::Timestamp
+	// ================================
+
+	std::shared_ptr<mediapipe::Timestamp> lua_to(lua_State* L, int index, mediapipe::Timestamp*, bool& is_valid) {
+		auto ptr = usertype_info<mediapipe::Timestamp>::lua_userdata_to(L, index, is_valid);
+		if (is_valid) {
+			return ptr;
+		}
+
+		auto timestamp = lua_to(L, index, static_cast<int64_t*>(nullptr), is_valid);
+		if (is_valid) {
+			return std::make_shared<mediapipe::Timestamp>(timestamp);
+		}
+
+		return std::shared_ptr<mediapipe::Timestamp>();
+	}
+
+
+	// ================================
+	// absl::Status
+	// ================================
+
+	int lua_push(lua_State* L, const absl::Status& status) {
+		if (status.ok()) {
+			return 0;
+		}
+
+		std::ostringstream oss;
+		oss << StatusCodeToError(status.code()) << ": " << status.message().data();
+		return luaL_error(L, "%s", oss.str().c_str());
+	}
+
+}
+
 namespace fs = std::filesystem;
 
 #define _stringify(s) #s

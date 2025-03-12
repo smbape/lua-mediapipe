@@ -255,9 +255,10 @@ namespace {
 				return absl::OkStatus();
 			}
 
+			bool is_valid;
 			std::vector<::LUA_MODULE_NAME::Object> field_value_vector;
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(field_value, static_cast<decltype(field_value_vector)*>(nullptr)), field_name << " is not a repeated proto field.");
-			::LUA_MODULE_NAME::lua_to(field_value, field_value_vector);
+			::LUA_MODULE_NAME::lua_to(field_value, field_value_vector, is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, field_name << " is not a repeated proto field.");
 
 			// TODO: Support resetting the entire repeated field
 			// (array-option) and changing the individual values in the repeated
@@ -413,8 +414,9 @@ namespace {
 
 	template<typename T>
 	[[nodiscard]] absl::StatusOr<std::shared_ptr<Packet>> MakePacket(const ::LUA_MODULE_NAME::Object& data, const char* msg) {
-		MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(data, static_cast<T*>(nullptr)), msg);
-		auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<T*>(nullptr));
+		bool is_valid;
+		auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<T*>(nullptr), is_valid);
+		MP_ASSERT_RETURN_IF_ERROR(is_valid, msg);
 		decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<T*>(nullptr));
 		return std::make_shared<Packet>(std::move(mediapipe::MakePacket<T>(value)));
 	}
@@ -431,8 +433,9 @@ namespace {
 		case PacketDataType::BOOL_LIST:
 			return MakePacket<std::vector<bool>>(data, "data is not a bool list");
 		case PacketDataType::INT: {
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(data, static_cast<int64_t*>(nullptr)), "data is not an integer");
-			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<int64_t*>(nullptr));
+			bool is_valid;
+			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<int64_t*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "data is not an integer");
 			decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int64_t*>(nullptr));
 			return packet_creator::create_int(value);
 		}
@@ -443,33 +446,52 @@ namespace {
 		case PacketDataType::FLOAT_LIST:
 			return MakePacket<std::vector<float>>(data, "data is not a float list");
 		case PacketDataType::IMAGE:
-			if (::LUA_MODULE_NAME::lua_is(data, static_cast<Image*>(nullptr))) {
-				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<Image*>(nullptr));
-				decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<Image*>(nullptr));
-				return packet_creator::create_image(value);
-			} else {
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(data, static_cast<cv::Mat*>(nullptr)), "data is not an image");
-				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr));
-				decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
-				return packet_creator::create_image(value);
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<Image*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<Image*>(nullptr));
+					return packet_creator::create_image(value);
+				}
 			}
+
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
+					return packet_creator::create_image(value);
+				}
+			}
+
+			MP_ASSERT_RETURN_IF_ERROR(false, "data is neither a matrix nor an image");
 		case PacketDataType::IMAGE_FRAME:
-			if (::LUA_MODULE_NAME::lua_is(data, static_cast<ImageFrame*>(nullptr))) {
-				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<ImageFrame*>(nullptr));
-				decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<ImageFrame*>(nullptr));
-				return packet_creator::create_image_frame(value);
-			} else {
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(data, static_cast<cv::Mat*>(nullptr)), "data is not an image frame");
-				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr));
-				decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
-				return packet_creator::create_image_frame(value);
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<ImageFrame*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<ImageFrame*>(nullptr));
+					return packet_creator::create_image_frame(value);
+				}
 			}
+
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
+					return packet_creator::create_image_frame(value);
+				}
+			}
+
+			MP_ASSERT_RETURN_IF_ERROR(false, "data is neither a matrix nor an image frame");
 		case PacketDataType::IMAGE_LIST:
 			return MakePacket<std::vector<Image>>(data, "data is not an image list");
 		case PacketDataType::PROTO:{
 			using T = google::protobuf::Message;
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(data, static_cast<T*>(nullptr)), "data is not a protobuf message");
-			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<T*>(nullptr));
+			bool is_valid;
+			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<T*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "data is not a protobuf message");
 			decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<T*>(nullptr));
 			return packet_creator::create_proto(value);
 		}
@@ -607,8 +629,9 @@ namespace {
 
 			for (int i = 0; i < last; i++) {
 				MP_ASSIGN_OR_RETURN(auto val, GetFieldValue(*m, fields[i]));
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(val, static_cast<decltype(m)*>(nullptr)), "property " << fields[i] << " is not a message");
-				m = ::LUA_MODULE_NAME::lua_to(val, static_cast<decltype(m)*>(nullptr));
+				bool is_valid;
+				m = ::LUA_MODULE_NAME::lua_to(val, static_cast<decltype(m)*>(nullptr), is_valid);
+				MP_ASSERT_RETURN_IF_ERROR(is_valid, "property " << fields[i] << " is not a message");
 			}
 
 			const FieldDescriptor* field_descriptor = FindFieldWithOneofs(*m, fields[last]);
@@ -620,8 +643,9 @@ namespace {
 				local_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 
 				std::vector<::LUA_MODULE_NAME::Object> items;
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(value, static_cast<decltype(items)*>(nullptr)), "property " << field << " is not a vector");
-				::LUA_MODULE_NAME::lua_to(value, items);
+				bool is_valid;
+				::LUA_MODULE_NAME::lua_to(value, items, is_valid);
+				MP_ASSERT_RETURN_IF_ERROR(is_valid, "property " << field << " is not a vector");
 
 				std::vector<::LUA_MODULE_NAME::Object> list;
 				MP_RETURN_IF_ERROR(local_container.Splice(list, 0, local_container.size()));
@@ -630,8 +654,9 @@ namespace {
 			}
 			else if (field_descriptor->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE) {
 				std::shared_ptr<Message> other_message;
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(value, static_cast<decltype(other_message)*>(nullptr)), "property " << field << " is not a message");
-				other_message = ::LUA_MODULE_NAME::lua_to(value, static_cast<decltype(other_message)*>(nullptr));
+				bool is_valid;
+				other_message = ::LUA_MODULE_NAME::lua_to(value, static_cast<decltype(other_message)*>(nullptr), is_valid);
+				MP_ASSERT_RETURN_IF_ERROR(is_valid, "property " << field << " is not a message");
 				MP_RETURN_IF_ERROR(CopyFrom(&options_message, other_message.get()));
 			}
 			else {
@@ -798,8 +823,9 @@ namespace mediapipe::lua::solution_base {
 		if (values.count("items")) {
 			using Map = std::map<std::string, ::LUA_MODULE_NAME::Object>;
 			const auto& value = values.at("items");
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(value, static_cast<Map*>(nullptr)), "items property must be a map<string, ::LUA_MODULE_NAME::Object>");
-			auto items_holder = ::LUA_MODULE_NAME::lua_to(value, static_cast<Map*>(nullptr));
+			bool is_valid;
+			auto items_holder = ::LUA_MODULE_NAME::lua_to(value, static_cast<Map*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "items property must be a map<string, ::LUA_MODULE_NAME::Object>");
 			decltype(auto) items = ::LUA_MODULE_NAME::extract_holder(items_holder, static_cast<Map*>(nullptr));
 			MP_RETURN_IF_ERROR(_create_graph_options(*options_message, items));
 		}

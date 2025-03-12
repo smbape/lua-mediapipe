@@ -220,16 +220,16 @@ namespace google::protobuf::lua {
 		const std::vector<::LUA_MODULE_NAME::Object>& items
 	) {
 		size_t i = 0;
+		bool is_valid;
 		for (const auto& item : items) {
 			std::map<std::string, ::LUA_MODULE_NAME::Object> attrs;
-			if (::LUA_MODULE_NAME::lua_is(item, static_cast<decltype(attrs)*>(nullptr))) {
-				::LUA_MODULE_NAME::lua_to(item, attrs);
+			::LUA_MODULE_NAME::lua_to(item, attrs, is_valid);
+			if (is_valid) {
 				MP_RETURN_IF_ERROR(RepeatedField_AddMessage(repeatedField, attrs).status());
 			}
 			else {
-				std::shared_ptr<Element> value;
-				MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(item, static_cast<decltype(value)*>(nullptr)), "item at index " << i << " is of invalid type");
-				value = ::LUA_MODULE_NAME::lua_to(item, static_cast<decltype(value)*>(nullptr));
+				std::shared_ptr<Element> value = ::LUA_MODULE_NAME::lua_to(item, static_cast<Element*>(nullptr), is_valid);
+				MP_ASSERT_RETURN_IF_ERROR(is_valid, "item at index " << i << " is of invalid type");
 				MP_RETURN_IF_ERROR(RepeatedField_AddMessage(repeatedField, value.get()).status());
 			}
 			i++;
@@ -303,8 +303,9 @@ namespace google::protobuf::lua {
 		local_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 
 		std::shared_ptr<_Tr> other;
-		if (::LUA_MODULE_NAME::lua_is(newVal, static_cast<decltype(other)*>(nullptr))) {
-			other = ::LUA_MODULE_NAME::lua_to(newVal, static_cast<decltype(other)*>(nullptr));
+		bool is_valid;
+		other = ::LUA_MODULE_NAME::lua_to(newVal, static_cast<decltype(other)*>(nullptr), is_valid);
+		if (is_valid) {
 			local_container.Clear();
 			repeated_field->Reserve(other->size());
 			std::copy(other->begin(), other->end(), repeated_iterator);
@@ -312,8 +313,8 @@ namespace google::protobuf::lua {
 		}
 
 		std::vector<::LUA_MODULE_NAME::Object> value_items;
-		if (::LUA_MODULE_NAME::lua_is(newVal, static_cast<decltype(value_items)*>(nullptr))) {
-			::LUA_MODULE_NAME::lua_to(newVal, value_items);
+		::LUA_MODULE_NAME::lua_to(newVal, value_items, is_valid);
+		if (is_valid) {
 			local_container.Clear();
 			MP_RETURN_IF_ERROR(local_container.MergeFrom(value_items));
 			return absl::OkStatus();

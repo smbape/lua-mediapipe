@@ -144,43 +144,49 @@ namespace google::protobuf {
 
 			switch (field_descriptor->cpp_type()) {
 				case FieldDescriptor::CPPTYPE_INT32: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<int*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int*>(nullptr));
 					key->SetInt32Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_INT64: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<int64_t*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int64_t*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int64_t*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int64_t*>(nullptr));
 					key->SetInt64Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_UINT32: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<uint*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<uint*>(nullptr));
 					key->SetUInt32Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_UINT64: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<uint64_t*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint64_t*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint64_t*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<uint64_t*>(nullptr));
 					key->SetUInt64Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_BOOL: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<bool*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<bool*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<bool*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<bool*>(nullptr));
 					key->SetBoolValue(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_STRING: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<std::string*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<std::string*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<std::string*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<std::string*>(nullptr));
 					key->SetStringValue(value);
 					break;
@@ -199,64 +205,73 @@ namespace google::protobuf {
 				parent_field_descriptor->message_type()->map_value();
 			switch (field_descriptor->cpp_type()) {
 				case FieldDescriptor::CPPTYPE_INT32: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<int*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int*>(nullptr));
 					value_ref->SetInt32Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_INT64: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<int64_t*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int64_t*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int64_t*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int64_t*>(nullptr));
 					value_ref->SetInt64Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_UINT32: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<uint*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<uint*>(nullptr));
 					value_ref->SetUInt32Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_UINT64: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<uint64_t*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint64_t*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<uint64_t*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<uint64_t*>(nullptr));
 					value_ref->SetUInt64Value(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_FLOAT: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<float*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<float*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<float*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<float*>(nullptr));
 					value_ref->SetFloatValue(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_DOUBLE: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<double*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<double*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<double*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<double*>(nullptr));
 					value_ref->SetDoubleValue(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_BOOL: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<bool*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<bool*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<bool*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<bool*>(nullptr));
 					value_ref->SetBoolValue(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_STRING: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<std::string*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<std::string*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<std::string*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<std::string*>(nullptr));
 					value_ref->SetStringValue(value);
 					break;
 				}
 				case FieldDescriptor::CPPTYPE_ENUM: {
-					MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(arg, static_cast<int*>(nullptr)), "expecting type " << field_descriptor->cpp_type());
-					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr));
+					bool is_valid;
+					auto value_holder = ::LUA_MODULE_NAME::lua_to(arg, static_cast<int*>(nullptr), is_valid);
+					MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting type " << field_descriptor->cpp_type());
 					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<int*>(nullptr));
 					if (allow_unknown_enum_values) {
 						value_ref->SetEnumValue(value);

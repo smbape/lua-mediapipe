@@ -655,6 +655,10 @@
         "iid": "d9313387-86d0-413e-92c0-1935bb337b86",
         "clsid": "8df31c8c-0cb9-4be3-867c-c2e7abbf091a"
     },
+    "mediapipe::GraphRuntimeInfoConfig": {
+        "iid": "57e9f766-6dbf-4acc-a741-409dd3bf715a",
+        "clsid": "fab8db11-3594-4446-a4f1-031f736e69ca"
+    },
     "mediapipe::CalculatorGraphConfig": {
         "iid": "4f37795d-e99b-49a6-84b5-dd28e52d60a9",
         "clsid": "5c22eef5-ae12-4220-85d3-3f5a87511b87"

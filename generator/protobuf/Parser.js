@@ -188,7 +188,7 @@ class Parser {
         this.cache = cache;
 
         const globalOptions = [];
-        const {decls, typedefs} = outputs;
+        const { decls, typedefs } = outputs;
         const { self_get, language } = options;
 
         this.consumeCommentOrSpace();
@@ -287,7 +287,7 @@ class Parser {
                 } else {
                     argtype = `std::shared_ptr<${ cpptype }>`;
                     body.push(`
-                        if (${ field_name }_positional || ${ field_name }_kwarg) {
+                        if (${ field_name }) {
                             MP_RETURN_LUA_ERROR_IF_ERROR(${ cmessage }::CopyFrom(shared_message->mutable_${ field_name }(), ${ field_name }.get()));
                         }
                     `.trim().replace(/^ {24}/mg, ""));
@@ -963,13 +963,13 @@ class Parser {
         fields.push([AnyObject, field_name, "", [
             `/R=mutable_${ field_name }`,
             `/WExpr=
-                auto shared_message = reference_internal(${ self });
+                auto shared_message = ${ self.slice(1) };
                 ${ setter.split("\n").join(`\n${ " ".repeat(16) }`) }
             `.replace(/^ {16}/mg, "").trim()
         ]]);
 
         body.push(`
-            if (${ field_name }_positional || ${ field_name }_kwarg) {
+            if (argc > ${ i + 1 } || has_kwargs && Keywords::has(L, vargc, "${ field_name }")) {
                 ${ setter.split("\n").join(`\n${ " ".repeat(16) }`) };
             }
         `.trim().replace(/^ {12}/mg, "").replaceAll(newVal, field_name));
@@ -1004,13 +1004,13 @@ class Parser {
                 ["int", "index1", "", []],
                 ["int", "index2", "", []],
             ], "", ""],
-            [`${ fqn }.reverse`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_Reverse`, `/Expr=${ self_get() }`], [], "", ""],
+            [`${ fqn }.reverse`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_Reverse`, `/Expr=&(${ self })`], [], "", ""],
 
             [`${ fqn }.table`, "void", ["/Call=lua_push", `/Expr=L, ${ self }`], [], "", ""],
 
-            [`${ fqn }.size`, "int", ["=sol::meta_function::length"], [], "", ""],
+            [`${ fqn }.size`, "int", ["=__len"], [], "", ""],
 
-            [`${ fqn }.${ byref ? "Mutable" : "Get" }`, `${ value_type }${ byref }`, ["=sol::meta_function::index"], [
+            [`${ fqn }.${ byref ? "Mutable" : "Get" }`, `${ value_type }${ byref }`, ["=__index"], [
                 ["int", "index", "", []],
             ], "", ""],
         ]);
@@ -1018,48 +1018,48 @@ class Parser {
         if (byref) {
             decls.push(...[
                 [`${ fqn }.Add`, `${ value_type }*`, ["=add"], [], "", ""],
-                [`${ fqn }.Add`, `${ value_type }*`, ["=add", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.Add`, `${ value_type }*`, ["=add", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=&(${ self }), $0`], [
                     [`${ value_type }*`, "value", "", ["/C"]]
                 ], "", ""],
-                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=&(${ self }), $0`], [
                     [`${ value_type }*`, "value", "", ["/C"]]
                 ], "", ""],
-                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::map<std::string, ${ AnyObject }>`, "attrs", "", []]
                 ], "", ""],
-                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "", []],
-                    [`${ ssize_t }`, "deleteCount", "", []],
+                    [ssize_t, "start", "", []],
+                    [ssize_t, "deleteCount", "", []],
                 ], "", ""],
-                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "0", []],
+                    [ssize_t, "start", "0", []],
                 ], "", ""],
-                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "", []],
-                    [`${ ssize_t }`, "count", "", []],
+                    [ssize_t, "start", "", []],
+                    [ssize_t, "count", "", []],
                 ], "", ""],
-                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "0", []],
+                    [ssize_t, "start", "0", []],
                 ], "", ""],
-                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=&(${ self }), $0`], [
                     [cpptype, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ AnyObject }>`, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.insert`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_InsertMessage`, `/Expr=${ self_get() }, $0`], [
-                    [`${ ssize_t }`, "index", "", []],
+                [`${ fqn }.insert`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_InsertMessage`, `/Expr=&(${ self }), $0`], [
+                    [ssize_t, "index", "", []],
                     [`${ value_type }*`, "item", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.pop`, `std::shared_ptr<${ value_type }>`, [`/Call=::google::protobuf::${ language }::RepeatedField_PopMessage`, `/Expr=${ self_get() }, $0`], [
-                    [`${ ssize_t }`, "index", "-1", []],
+                [`${ fqn }.pop`, `std::shared_ptr<${ value_type }>`, [`/Call=::google::protobuf::${ language }::RepeatedField_PopMessage`, `/Expr=&(${ self }), $0`], [
+                    [ssize_t, "index", "-1", []],
                 ], "", ""],
             ]);
         } else {
@@ -1071,36 +1071,36 @@ class Parser {
                 [`${ fqn }.Add`, "void", ["=append"], [
                     [value_type, "value", "", [is_string ? "/RRef" : "", "/C"]],
                 ], "", ""],
-                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceScalar`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ value_type }>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "", []],
-                    [`${ ssize_t }`, "deleteCount", "", []],
+                    [ssize_t, "start", "", []],
+                    [ssize_t, "deleteCount", "", []],
                 ], "", ""],
-                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceScalar`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ value_type }>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "0", []],
+                    [ssize_t, "start", "0", []],
                 ], "", ""],
-                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceScalar`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ value_type }>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "", []],
-                    [`${ ssize_t }`, "deleteCount", "", []],
+                    [ssize_t, "start", "", []],
+                    [ssize_t, "deleteCount", "", []],
                 ], "", ""],
-                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.slice`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_SliceScalar`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ value_type }>`, "list", "", ["/O"]],
-                    [`${ ssize_t }`, "start", "0", []],
+                    [ssize_t, "start", "0", []],
                 ], "", ""],
-                [`${ fqn }.extend`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.extend`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendScalar`, `/Expr=&(${ self }), $0`], [
                     [cpptype, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.extend`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendScalar`, `/Expr=${ self_get() }, $0`], [
+                [`${ fqn }.extend`, "void", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendScalar`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<${ value_type }>`, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.insert`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_InsertScalar`, `/Expr=${ self_get() }, $0`], [
-                    [`${ ssize_t }`, "index", "", []],
+                [`${ fqn }.insert`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_InsertScalar`, `/Expr=&(${ self }), $0`], [
+                    [ssize_t, "index", "", []],
                     [value_type, "item", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.pop`, value_type, [`/Call=::google::protobuf::${ language }::RepeatedField_PopScalar<${ value_type }>`, `/Expr=${ self_get() }, $0`], [
-                    [`${ ssize_t }`, "index", "-1", []],
+                [`${ fqn }.pop`, value_type, [`/Call=::google::protobuf::${ language }::RepeatedField_PopScalar<${ value_type }>`, `/Expr=&(${ self }), $0`], [
+                    [ssize_t, "index", "-1", []],
                 ], "", ""],
             ]);
         }

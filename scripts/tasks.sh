@@ -165,25 +165,35 @@ while read -r line; do
     break
 done < /proc/version
 
-CONTAINER_NAME_MANY_LINUX=mediapipe-lua-manylinux2014-x86-64
-DOCKER_IMAGE_MANY_LINUX=quay.io/opencv-ci/opencv-python-manylinux2014-x86-64:20241202
+PROJECT_ID=mediapipe
+
+CONTAINER_NAME_MANY_LINUX_x86_64=${PROJECT_ID}-lua-manylinux2014-x86-64
+DOCKER_IMAGE_MANY_LINUX_x86_64=docker/manylinux2014/Dockerfile_x86_64
+
+CONTAINER_NAME_MANY_LINUX_aarch64=${PROJECT_ID}-lua-manylinux2014-aarch64
+DOCKER_IMAGE_MANY_LINUX_aarch64=docker/manylinux2014/Dockerfile_aarch64
 
 DIST_VERSION=${DIST_VERSION:-1}
 WSL_DISTNAME=${WSL_DISTNAME:-Ubuntu}
-MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.14}
-OPENCV_VERSION=${OPENCV_VERSION:-4.10.0}
+MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.21}
+OPENCV_VERSION=${OPENCV_VERSION:-4.11.0}
 OPENCV_WORKSPACE_HASH="${OPENCV_WORKSPACE_HASH:-c0ef0985-b598-4736-af7d-1776141f784c}"
 # WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"'!02-video-capture-camera.lua' '!threshold_inRange.lua' '!objectDetection.lua'"}
-CONTAINER_NAME=${CONTAINER_NAME:-${CONTAINER_NAME_MANY_LINUX}}
-DOCKER_IMAGE=${DOCKER_IMAGE:-${DOCKER_IMAGE_MANY_LINUX}}
+CONTAINER_NAME=${CONTAINER_NAME:-${CONTAINER_NAME_MANY_LINUX_x86_64}}
+DOCKER_IMAGE=${DOCKER_IMAGE:-${DOCKER_IMAGE_MANY_LINUX_x86_64}}
 
 LUA_VERSIONS="${LUA_VERSIONS:-$(echo luajit-2.1 5.{4,3,2,1})}"
+NEW_VERSION_DEFAULT="${NEW_VERSION_DEFAULT:-patch}"
+
+PROJECT_VERSION=${MEDIAPIPE_VERSION}
 
 function export_shared_env() {
     local mount_prefix="$1"
     local projectDir="${2:-${mount_prefix}$PWD}"
 
     echo "
+export PROJECT_ID='${PROJECT_ID}'
+export PROJECT_VERSION='${PROJECT_VERSION}'
 export MEDIAPIPE_VERSION='${MEDIAPIPE_VERSION}'
 export OPENCV_VERSION='${OPENCV_VERSION}'
 export EXE_SUFFIX='${EXE_SUFFIX}'
@@ -196,6 +206,60 @@ export projectDir='${projectDir}'
 
 function install_build_essentials_from_source() {
     echo '
+cpu_arch=""
+case $(uname -m) in
+    i386 | i686)    cpu_arch="i386" ;;
+    x86_64)         cpu_arch="amd64" ;;
+    aarch64)        cpu_arch="arm64" ;;
+    arm)            dpkg --print-cpu_arch | grep -q "arm64" && cpu_arch="arm64" || cpu_arch="arm" ;;
+    *)              echo "Unable to determine system cpu_arch."; exit 1 ;;
+esac
+
+cpu_arch_alt="$cpu_arch"
+case $cpu_arch in
+    amd64)  cpu_arch_alt="x86_64" ;;
+    arm64)  cpu_arch_alt="aarch64" ;;
+    arm)    cpu_arch_alt="aarch32" ;;
+esac
+
+# https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line/865294#865294
+if ! command -v cmake &>/dev/null; then
+    CMAKE_VERSION=3.31.6
+    CMAKE_INSTALL_SCRIPT=/opt/cmake/dl/cmake-${CMAKE_VERSION}-linux-${cpu_arch_alt}.sh
+    case $cpu_arch_alt in
+        x86_64)  CMAKE_VERSION_SHA256=518c76bd18cc4ca5faab891db69b1289dc1bf134f394f0983a19576711b95210 ;;
+        aarch64) CMAKE_VERSION_SHA256=10a0ac7e70b751d9f2aabc5e6c8ca57b0ede7ae1dbdd1ca8075954a0d97a443c ;;
+        *)       echo "Unsupported cpu arch for cmake"; exit 1 ;;
+    esac
+
+    mkdir -p /opt/cmake/dl
+
+    if ! echo "${CMAKE_VERSION_SHA256} ${CMAKE_INSTALL_SCRIPT}" | sha256sum --check --status; then
+        wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-${cpu_arch_alt}.sh -O ${CMAKE_INSTALL_SCRIPT} || exit $?
+        echo "${CMAKE_VERSION_SHA256} ${CMAKE_INSTALL_SCRIPT}" | sha256sum --check --status || exit $?
+    fi
+
+    sh ${CMAKE_INSTALL_SCRIPT} --skip-license --prefix=/opt/cmake && \
+    ln -sf /opt/cmake/bin/ccmake /usr/local/bin/ccmake && \
+    ln -sf /opt/cmake/bin/cmake /usr/local/bin/cmake && \
+    ln -sf /opt/cmake/bin/cmake-gui /usr/local/bin/cmake-gui && \
+    ln -sf /opt/cmake/bin/cpack /usr/local/bin/cpack && \
+    ln -sf /opt/cmake/bin/ctest /usr/local/bin/ctest || exit $?
+fi
+
+if ! command -v ninja &>/dev/null; then
+    NINJA_VERSION=1.12.1
+    mkdir -p /opt/ninja/build /opt/ninja/src && \
+    cd /opt/ninja && \
+    curl -L https://github.com/ninja-build/ninja/archive/refs/tags/v${NINJA_VERSION}.tar.gz -o ninja.tar.gz && \
+    tar -xz -C /opt/ninja/src --strip-components 1 -f ninja.tar.gz && \
+    cmake -S /opt/ninja/src -B /opt/ninja/build -DCMAKE_INSTALL_PREFIX:PATH=/opt/ninja/install && \
+    cmake --build /opt/ninja/build --target ninja -j$(nproc) && \
+    mv /opt/ninja/build/ninja /usr/local/bin/ && \
+    cd /opt/ninja && \
+    rm -rf src build ninja.tar.gz || exit $?
+fi
+
 http_request() {
     local url="$1"
     shift
@@ -232,44 +296,15 @@ get_latest_version_bazel() {
     get_latest_version "$url" "$reg"
 }
 
-# https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line/865294#865294
-if ! command -v cmake &>/dev/null; then
-    CMAKE_VERSION=3.29.5
-    CMAKE_VERSION_SHA256=4f7aaec19167b6400a64082af1d5a7bf2fbfcdb6966524856d38a94d5f173bd2
-    CMAKE_INSTALL_SCRIPT=/opt/cmake/dl/cmake-${CMAKE_VERSION}-linux-x86_64.sh
-
-    mkdir -p /opt/cmake/dl
-
-    if ! echo "${CMAKE_VERSION_SHA256} ${CMAKE_INSTALL_SCRIPT}" | sha256sum --check --status; then
-        wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-x86_64.sh -O ${CMAKE_INSTALL_SCRIPT} || exit $?
-        echo "${CMAKE_VERSION_SHA256} ${CMAKE_INSTALL_SCRIPT}" | sha256sum --check --status || exit $?
-    fi
-
-    sh ${CMAKE_INSTALL_SCRIPT} --skip-license --prefix=/opt/cmake && \
-    ln -s /opt/cmake/bin/ccmake /usr/local/bin/ccmake && \
-    ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake && \
-    ln -s /opt/cmake/bin/cmake-gui /usr/local/bin/cmake-gui && \
-    ln -s /opt/cmake/bin/cpack /usr/local/bin/cpack && \
-    ln -s /opt/cmake/bin/ctest /usr/local/bin/ctest || exit $?
-fi
-
-if ! command -v ninja &>/dev/null; then
-    mkdir -p /opt/ninja
-
-    [ -d /opt/ninja/src ] || git clone --depth 1 --branch release https://github.com/ninja-build/ninja.git /opt/ninja/src
-    cmake -B /opt/ninja/build -S /opt/ninja/src -DCMAKE_INSTALL_PREFIX:PATH=/opt/ninja && \
-    cmake --build /opt/ninja/build --target ninja -j$(nproc) && \
-    ln -s /opt/ninja/build/ninja /usr/local/bin/ninja || exit $?
-fi
-
 if ! command -v bazel &>/dev/null; then
-    mkdir -p /opt/bazelisk
-
-    version=$(get_latest_version_bazel)
-    download "https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-linux-amd64" /opt/bazelisk/bazel && \
+    BAZELISK_VERSION=1.25.0
+    mkdir -p /opt/bazelisk && \
+    cd /opt/bazelisk && \
+    curl -L https://github.com/bazelbuild/bazelisk/releases/download/v${BAZELISK_VERSION}/bazelisk-linux-${cpu_arch} -o bazel && \
     chmod +x /opt/bazelisk/bazel && \
     ln -s /opt/bazelisk/bazel /usr/local/bin/bazel || exit $?
-fi'
+fi
+'
 }
 
 function create_ci_user() {
@@ -291,7 +326,7 @@ function open_git_project() {
     if [ -d "${project}/.git" ]; then
         cd "${project}" && \
         git remote set-url origin "${remote}" && \
-        git reset --hard HEAD && \
+        git reset --hard HEAD -- && \
         git clean -fd && \
         git pull --force
     else
@@ -331,17 +366,28 @@ function docker_run_bash() {
 
         # if it is stopped, then start it
         if [ ${#container_id} -ne 0 ]; then
-            docker start ${name} || exit $?
+            docker start ${name} || return $?
         fi
     fi
 
     if [ ${#container_id} -eq 0 ]; then
+        if [ -e "$image" ]; then
+            # assume it is a docker file
+            local docker_file="$image"
+            image="${PROJECT_ID}-python-${docker_file/Dockerfile[_.]/}"
+            image="${image/docker\//}"
+            image="${image//\//-}"
+            DOCKER_BUILDKIT=1 docker build -f "${docker_file}" -t "${image}" . || return $?
+            image="${image}:latest"
+        fi
+
         # https://stackoverflow.com/questions/73092750/how-to-show-gui-apps-from-docker-desktop-container-on-windows-11/73901260#73901260
         # https://stackoverflow.com/questions/38485607/mount-host-directory-with-a-symbolic-link-inside-in-docker-container#40322275
         local binaries=$(realpath "$PWD/../luarocks-binaries")
-        wsl -c "docker run -it \
+        wsl -c "docker run --gpus all -it \
+-v '/mnt/d/Programs/NVIDIA:/mnt/d/Programs/NVIDIA' \
 -v '/mnt${binaries}:/mnt${binaries}' \
--v '/mnt$(cygpath -u "$PWD"):/src' \
+-v '/mnt$(realpath "$PWD/../"):/mnt/sources' \
 -v '/tmp/.X11-unix:/tmp/.X11-unix' \
 -v '/mnt/wslg:/mnt/wslg' \
 -e DISPLAY -e WAYLAND_DISPLAY -e XDG_RUNTIME_DIR -e PULSE_SERVER \
@@ -358,28 +404,13 @@ function tidy() {
 }
 
 function doctoc() {
-    node node_modules/doctoc/doctoc.js *.md docs/*.md
-}
-
-function set_url() {
-    local url="$1"
-    sed -r 's#url = "[^"]+"#url = "'$url'"#' -i luarocks/mediapipe_lua-scm-1.rockspec || return $?
-    local diff="$(git diff HEAD luarocks/mediapipe_lua-scm-1.rockspec)"
-
-    if [ ${#diff} -eq 0 ]; then
-        return 0
-    fi
-
-    git add luarocks/mediapipe_lua-scm-1.rockspec && \
-    git commit --amend --no-edit
-}
-
-function set_url_github() {
-    set_url "git+https://github.com/smbape/lua-mediapipe.git"
+    node scripts/update-readme.js && \
+    node node_modules/doctoc/doctoc.js *.md docs/*.md && \
+    git add --renormalize .
 }
 
 function new_version() {
-    local new_version="${1:-patch}"
+    local new_version="${1:-${NEW_VERSION:-"${NEW_VERSION_DEFAULT}"}}"
     npm version "$new_version"
 }
 
@@ -387,43 +418,81 @@ function new_version_rollback() {
     local msg version
 
     local continue=1
+    local found_version=0
     while [ $continue -eq 1 ]; do
         continue=0
 
         msg="$(git log -1 --pretty=format:%s)"
-
         if [ "v$msg" == "$(git tag -l "v$msg")" ];  then
             git tag -d "v$msg" || return $?
             continue=1
         fi
 
-        if [ "$msg" == "$(node -pe "require('./package').version")" ]; then
-            git reset --hard HEAD~1 || return $?
+        version="$(node -pe "require('./package').version")"
+        if [ "$msg" == "$version" ]; then
+            if [ $found_version -eq 0 ]; then
+                found_version=1
+                NEW_VERSION_DEFAULT="$version"
+            fi
+            git reset --hard HEAD~1 -- || return $?
             continue=1
         fi
     done
-
-    set_url_github
 }
 
 function update_new_version() {
+    # reset touched files
+    git diff --quiet HEAD --
+
     if git diff-index --quiet HEAD --; then
         return
     fi
 
-    local new_version="${1:-patch}"
-    local times_file=$(echo autoit-*-com/build_x64)/times.bin
+    local times_file=out/build/x64-Debug/times.bin
+    mkdir -p "$(dirname "$times_file")"
 
     git add --renormalize . && \
-    find $(git diff --name-only HEAD --) -mindepth 0 -maxdepth 0 -type f -printf '%A@ %T@ %p\0' > "$times_file" && \
+    find $(git diff --diff-filter=d --name-only HEAD --) -mindepth 0 -maxdepth 0 -type f -printf '%A@ %T@ %p\0' > "$times_file" && \
     git stash push && \
-    new_version_rollback && \
+    new_version_rollback || return $?
+
+    local new_version="${1:-${NEW_VERSION:-"${NEW_VERSION_DEFAULT}"}}"
     git stash pop && \
-    perl -MTime::HiRes=utime -0 -ne 'chomp; my ($atime, $mtime, $file) = split(/ /, $_, 3); utime $atime, $mtime, $file;' < "$times_file" && \
-    git add $(git diff --name-only --diff-filter=M HEAD --) && \
+    perl -MTime::HiRes=utime -0 -ne 'chomp; my ($atime, $mtime, $file) = split(/ /, $_, 3); utime $atime, $mtime, $file;' < "$times_file" || return $?
+
+    for ifile in $(git diff --diff-filter=d --name-only HEAD --); do
+        git add "$ifile" || return $?
+    done
+
+    for ifile in $(git diff --diff-filter=D --name-only HEAD --); do
+        git rm "$ifile" || return $?
+    done
+
     git commit --amend --no-edit && \
-    new_version "$new_version" && \
+    new_version "${new_version}" && \
     rm -f "$times_file"
+}
+
+function set_url() {
+    local url="$1"
+    sed -r 's#url = "[^"]+"#url = "'$url'"#' -i luarocks/${PROJECT_ID}_lua-scm-1.rockspec || return $?
+    local diff="$(git diff HEAD -- luarocks/${PROJECT_ID}_lua-scm-1.rockspec)"
+
+    if [ ${#diff} -eq 0 ]; then
+        return 0
+    fi
+
+    local msg="$(git log -1 --pretty=format:%s)"
+    if [ "v$msg" == "$(git tag -l "v$msg")" ];  then
+        update_new_version
+    else
+        git add luarocks/${PROJECT_ID}_lua-scm-1.rockspec && \
+        git commit --amend --no-edit
+    fi
+}
+
+function set_url_github() {
+    set_url "git+https://github.com/smbape/lua-${PROJECT_ID}.git"
 }
 
 function push_all() {
@@ -431,7 +500,7 @@ function push_all() {
 }
 
 function prepublish_stash_push() {
-    local script='cd out/prepublish/build/mediapipe_lua && git stash push --include-untracked --all -- samples'
+    local script='cd out/prepublish/build/'"${PROJECT_ID}"'_lua && git stash push --include-untracked --all -- samples'
 
     bash -c "
 for version in ${LUA_VERSIONS}; do
@@ -452,7 +521,7 @@ done
 }
 
 function prepublish_stash_pop() {
-    local script='cd ${CWD}/out/prepublish/build/mediapipe_lua && git reset --hard HEAD && git stash pop'
+    local script='cd ${CWD}/out/prepublish/build/'"${PROJECT_ID}"'_lua && git reset --hard HEAD -- && git stash pop'
 
     bash -c "
 for version in ${LUA_VERSIONS}; do
@@ -486,82 +555,98 @@ function prepublish_windows() {
     if [ -d ../luarocks-binaries -a ! -L out/prepublish/server ]; then
         rm -rf out/prepublish/server
         mkdir -p out/prepublish && \
-        cmd.exe //c mklink //j "$(cygpath -w "$PWD/out/prepublish/server")" "$(cygpath -w "${PWD}/../luarocks-binaries")" || exit $?
+        cmd.exe //c mklink //j "$(cygpath -w "$PWD/out/prepublish/server")" "$(cygpath -w "${PWD}/../luarocks-binaries")" || return $?
     fi
     DIST_VERSION=${DIST_VERSION} prepublish_any
 }
 
-function use_luajit_modules() {
-    rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luajit --install && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luarocks && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luajit --install && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luarocks || exit $?
+function reset_luarocks() {
+    local version="$1"
+    local target="$2"
 
-    local sources="$PWD/out/prepublish/build/mediapipe_lua"
-    if [ ! -e ${sources} ]; then
-        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec" && \
-        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
-        return $?
+    find out/build.luaonly \
+        -mindepth 1 \
+        -maxdepth 1 \
+        -type d \( -name 'x64-*' -o -name 'Linux-GCC-*' \) \
+        -exec rm -rf '{}/luarocks/luarocks-prefix/src/luarocks-stamp' \;
+    rm -rf luarocks/lua_modules
+
+    ./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --target "${target}" --install && \
+    ./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --target luarocks || return $?
+
+    find out/build.luaonly \
+        -mindepth 1 \
+        -maxdepth 1 \
+        -type d \( -name 'x64-*' -o -name 'Linux-GCC-*' \) \
+        -exec rm -rf '{}/luarocks/luarocks-prefix/src/luarocks-stamp' \;
+    rm -rf luarocks/lua_modules
+
+    ./build${SCRIPT_SUFFIX} "-DLua_VERSION=${version}" --target "${target}" --install && \
+    ./build${SCRIPT_SUFFIX} "-DLua_VERSION=${version}" --target luarocks
+}
+
+function use_luajit_modules() {
+    local version=luajit-2.1
+    local target=luajit
+    reset_luarocks "${version}" "${target}" || return $?
+
+    local sources="$PWD/out/prepublish/build/${PROJECT_ID}_lua"
+
+    if [ -e ${sources} ]; then
+        bash -c "
+            cd ${sources}/ && \
+            ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target ${target} --install && \
+            ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks" && \
+        rm -rf luarocks/lua_modules && \
+        cmd.exe //c mklink //j "$(cygpath -w "$PWD/luarocks/lua_modules")" "$(cygpath -w "${sources}/luarocks/lua_modules")" || return $?
+    else
+        sources="$PWD"
     fi
 
-    bash -c "
-        cd ${sources}/ && \
-        ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luajit --install && \
-        ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luarocks && \
-        source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
-        source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec" && \
-    rm -rf luarocks/lua_modules && \
-    cmd.exe //c mklink //j "$(cygpath -w "$PWD/luarocks/lua_modules")" "$(cygpath -w "${sources}/luarocks/lua_modules")"
+    bash -c "source scripts/vcvars_restore_start.sh && cd ${sources}/ && \
+        ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
+        ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
 }
 
 function use_lua_modules() {
     local version="${1:-5.4}"
+    local target=lua
+    reset_luarocks "${version}" "${target}" || return $?
 
-    rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/x64-*/luarocks/luarocks-prefix/src/luarocks-stamp && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target lua --install && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target luarocks && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target lua --install && \
-    ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks || exit $?
+    local sources="$PWD/out/prepublish/build/${PROJECT_ID}_lua"
 
-    local sources="$PWD/out/prepublish/build/mediapipe_lua"
-    if [ ! -e ${sources} ]; then
-        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec" && \
-        bash -c "source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
-        return $?
+    if [ -e ${sources} ]; then
+        bash -c "
+            cd ${sources}/ && \
+            ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target ${target} --install && \
+            ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks" && \
+        rm -rf luarocks/lua_modules && \
+        cmd.exe //c mklink //j "$(cygpath -w "$PWD/luarocks/lua_modules")" "$(cygpath -w "${sources}/luarocks/lua_modules")" || return $?
+    else
+        sources="$PWD"
     fi
 
-    bash -c "
-        cd ${sources}/ && \
-        ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target lua --install && \
-        ./build${SCRIPT_SUFFIX} -DLua_VERSION=${version} --target luarocks && \
-        source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
-        source scripts/vcvars_restore_start.sh && ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec" && \
-    rm -rf luarocks/lua_modules && \
-    cmd.exe //c mklink //j "$(cygpath -w "$PWD/luarocks/lua_modules")" "$(cygpath -w "${sources}/luarocks/lua_modules")"
+    bash -c "source scripts/vcvars_restore_start.sh && cd ${sources}/ && \
+        ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
+        ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec"
 }
 
 function use_wsl_luajit_modules() {
     wsl -c '
 source scripts/wsl_init.sh || exit $?
-
-rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luajit --install && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=luajit-2.1 --target luarocks && \
-    ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
-    ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec
+version=luajit-2.1
+target=luajit
+reset_luarocks "${version}" "${target}" && \
+./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec
 '
 }
 
 function use_wsl_lua_modules() {
     local script='
 source scripts/wsl_init.sh || exit $?
-
-rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} out/build.luaonly/Linux-GCC-Debug/luarocks/luarocks-prefix/src/luarocks-stamp && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target lua --install && \
-    ./build${SCRIPT_SUFFIX} -d -DLua_VERSION=${version} --target luarocks && \
-    ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec && \
-    ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec
+target=lua
+reset_luarocks "${version}" "${target}" && \
+./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec
 '
 
     wsl -c "version=${1:-5.4}; ${script}"
@@ -569,14 +654,12 @@ rm -rf luarocks/{lua_modules,lua${LUAROCKS_SUFFIX},luarocks${LUAROCKS_SUFFIX}} o
 
 function build_windows() {
     set_url_windows && \
-    new_version && \
     time prepublish_windows && \
-    new_version_rollback && \
-    use_luajit_modules
+    set_url_github
 }
 
 function set_url_docker() {
-    set_url "git+file:///src"
+    set_url "git+file:///mnt/sources/lua-${PROJECT_ID}"
 }
 
 function make_available_nvs() {
@@ -618,8 +701,8 @@ fi
 }
 
 function prepublish_manylinux() {
-    local name=${CONTAINER_NAME_MANY_LINUX}
-    local image=${DOCKER_IMAGE_MANY_LINUX}
+    local name="${1:-${CONTAINER_NAME_MANY_LINUX_x86_64}}"
+    local image="${2:-${DOCKER_IMAGE_MANY_LINUX_x86_64}}"
 
     docker_run_bash ${name} ${image} && \
     docker exec -it -u 0 "${name}" yum install -y readline-devel zip && \
@@ -630,20 +713,25 @@ function prepublish_manylinux() {
     docker exec -it -u 1000 ${name} bash -c '
 export PATH="$HOME/bin${PATH:+:${PATH}}" && \
 export PATH="${PATH//:\/bin:/:}" && \
-git config --global --add safe.directory /src/.git && \
-source /src/scripts/tasks.sh && \
+git config --global --add safe.directory /mnt/sources/lua-'"${PROJECT_ID}"'/.git && \
+source /mnt/sources/lua-'"${PROJECT_ID}"'/scripts/tasks.sh && \
 make_available_nvs && nvs add 16 && nvs use 16 && \
-open_git_project file:///src /io/mediapipe-lua || exit $?
+open_git_project file:///mnt/sources/lua-'"${PROJECT_ID}"' /io/'"${PROJECT_ID}"'-lua || exit $?
 [ -d node_modules ] || npm ci || exit $?
 test -e out/prepublish && find out/prepublish/ -mindepth 5 -maxdepth 5 -type f -name lockfile.lfs -delete
-node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js --pack --lua-versions '"'${LUA_VERSIONS}'"' --server=/src/out/prepublish/server --repair'
+node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --pack \
+    --lua-versions '"'${LUA_VERSIONS}'"' \
+    --server=/mnt/sources/lua-'"${PROJECT_ID}"'/out/prepublish/server \
+    --repair \
+    --exclude opencv_lua.so'
 }
 
 function build_manylinux() {
     set_url_docker && \
-    new_version && \
-    time prepublish_manylinux && \
-    new_version_rollback
+    time prepublish_manylinux "${CONTAINER_NAME_MANY_LINUX_x86_64}" "${DOCKER_IMAGE_MANY_LINUX_x86_64}" && \
+    # time prepublish_manylinux "${CONTAINER_NAME_MANY_LINUX_aarch64}" "${DOCKER_IMAGE_MANY_LINUX_aarch64}" && \
+    set_url_github
 }
 
 function set_url_wsl() {
@@ -659,30 +747,120 @@ prepublish_any --server="${projectDir}/out/prepublish/server"
 
 function build_wsl() {
     set_url_wsl && \
-    new_version && \
     time prepublish_wsl && \
-    new_version_rollback
+    set_url_github
 }
 
 function build_custom_windows() {
     set_url_windows && \
-    new_version && \
     time bash -c '
 projectDir="$PWD"
 
 source ${projectDir}/scripts/tasks.sh || exit $?
-WORKING_DIRECTORY="/d/mediapipe-lua-custom"
+WORKING_DIRECTORY="/d/luarocks-binaries-custom"
 
 mkdir -p "${WORKING_DIRECTORY}" && \
-open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/build" || exit $?
+open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/lua-'"${PROJECT_ID}"'" || exit $?
 [ -d node_modules ] || npm ci || exit $?
 
-node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js --pack --server="${WORKING_DIRECTORY}/server" --lua-versions luajit-2.1 --name=mediapipe_lua-custom \
-    -DWITH_FREETYPE=ON \
-    -DFREETYPE_DIR=C:/vcpkg/installed/x64-windows \
-    -DHARFBUZZ_DIR=C:/vcpkg/installed/x64-windows
+TMPDIR="${WORKING_DIRECTORY}/tmp" && \
+node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --pack \
+    --server="${WORKING_DIRECTORY}/server" \
+    --lua-versions luajit-2.1 \
+    --name='"${PROJECT_ID}"'_lua-custom \
+    --opencv-server="${WORKING_DIRECTORY}/server" \
+    --opencv-name=opencv_lua-custom
 ' && \
-    new_version_rollback
+    set_url_github
+}
+
+function try_install_cuda_script() {
+    echo '
+if command -v wget &>/dev/null; then
+function resume_download() {
+    wget -c "$@"
+}
+elif command -v curl &>/dev/null; then
+function resume_download() {
+    curl -C "$@"
+}
+fi
+
+if [ -e /etc/os-release -a "$(uname -m)" == "x86_64" ]; then
+    source /etc/os-release
+    case $ID in
+        ubuntu )
+            if [ "$VERSION_ID" == "20.04" -o "$VERSION_ID" == "22.04" -o "$VERSION_ID" == "24.04" ]; then
+                # https://superuser.com/questions/1749781/how-can-i-check-if-the-environment-is-wsl-from-a-shell-script#answer-1749811
+                if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+                    cura_repo=wsl-ubuntu
+                else
+                    cura_repo=ubuntu${VERSION_ID/\./}
+                fi
+
+                # ubuntu 22.04 cuda-toolkit
+                if ! dpkg -l cuda-toolkit-12-8 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cuda/repos/${cura_repo}/x86_64/cuda-keyring_1.1-1_all.deb && \
+                    dpkg -i cuda-keyring_1.1-1_all.deb && \
+                    rm -f cuda-keyring_1.1-1_all.deb && \
+                    apt-get update && \
+                    apt-get -y install cuda-toolkit-12-8 || exit $?
+                fi
+
+                # ubuntu cudnn
+                if ! dpkg -l cudnn9-cuda-12 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb && \
+                    cp /var/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                    apt-get update && \
+                    apt-get -y install cudnn9-cuda-12 && \
+                    rm -f cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb
+                fi
+            fi
+            ;;
+        debian )
+            if [ "$VERSION_ID" == "12" ]; then
+                # debian 12 cuda-toolkit
+                if ! dpkg -l cuda-toolkit-12-8 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb && \
+                    dpkg -i cuda-keyring_1.1-1_all.deb && \
+                    rm -f cuda-keyring_1.1-1_all.deb && \
+                    apt-get update && \
+                    apt-get -y install cuda-toolkit-12-8 || exit $?
+                fi
+
+                # debian 12 cudnn
+                if ! dpkg -l cudnn9-cuda-12 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb && \
+                    cp /var/cuda-repo-debian12-9-8-local/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                    apt-get update && \
+                    apt-get -y install cudnn9-cuda-12 && \
+                    rm -f cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb
+                fi
+            fi
+            ;;
+    esac
+
+    if [ -e /usr/local/cuda/include ]; then
+        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_12.2.72/Interface/*; do
+            filename="$(basename "$ifile")"
+            rm -f "/usr/local/cuda/include/$filename"
+            ln -s "$ifile" "/usr/local/cuda/include/$filename"
+        done
+    fi
+
+    if [ -e /usr/local/cuda/lib64 ]; then
+        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_12.2.72/Lib/linux/stubs/x86_64/*; do
+            filename="$(basename "$ifile")"
+            rm -f "/usr/local/cuda/lib64/$filename" "/usr/local/cuda/lib64/$filename.1"
+            ln -s "$ifile" "/usr/local/cuda/lib64/$filename.1"
+            ln -s "$filename.1" "/usr/local/cuda/lib64/$filename"
+        done
+    fi
+fi
+'
 }
 
 function build_custom_linux_script() {
@@ -691,21 +869,33 @@ source ${projectDir}/scripts/tasks.sh || exit $?
 command -v npm &>/dev/null || make_available_nvs && nvs add 16 && nvs use 16 || exit $?
 
 mkdir -p "${WORKING_DIRECTORY}" && \
-open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/build" || exit $?
+open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/lua-'"${PROJECT_ID}"'" || exit $?
 [ -d node_modules ] || npm ci || exit $?
 
 find out/prepublish/ -mindepth 5 -maxdepth 5 -type f -name lockfile.lfs -delete
 
-node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js --pack --server="${WORKING_DIRECTORY}/server" --lua-versions luajit-2.1 --name=mediapipe_lua-custom \
-    -DWITH_FREETYPE=ON'
+MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA \
+node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --pack \
+    --repair --plat linux_x86_64 --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
+    --server="${WORKING_DIRECTORY}/server" \
+    --opencv-server="${WORKING_DIRECTORY}/server" \
+    --opencv-name=opencv_lua-custom \
+    --lua-versions luajit-2.1 \
+    --name='"${PROJECT_ID}"'_lua-custom \
+    -DWITH_CUDA=ON \
+    -DWITH_CUDNN=ON \
+    -DCUDA_ARCH_BIN=$(nvidia-smi --query-gpu=compute_cap --format=csv | sed /compute_cap/d)
+'
 }
 
 function install_build_essentials_debian_script() {
     echo '
 apt update && \
+apt install -y mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils && \
 apt install -y build-essential curl git libavcodec-dev libavformat-dev libdc1394-dev \
         libjpeg-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev libssl-dev \
-        pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip || exit $?
+        patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip || exit $?
 apt install -y libtbbmalloc2 || apt install -y libtbb2'
 }
 
@@ -714,18 +904,20 @@ function build_custom_debian() {
     local image=$1; shift
 
     docker_run_bash ${name} ${image} && \
-    docker exec -it -u 0 "${name}" bash -c "$(install_build_essentials_debian_script) && apt install -y libfreetype-dev libharfbuzz-dev || exit \$?; $(docker_init_script)" && \
+    docker exec -it -u 0 "${name}" bash -c "$(install_build_essentials_debian_script)" && \
+    docker exec -it -u 0 "${name}" bash -c "$(docker_init_script)" && \
+    docker exec -it -u 0 "${name}" bash -c 'apt install -y libfreetype-dev libharfbuzz-dev' && \
+    docker exec -it -u 0 "${name}" bash -c "$(try_install_cuda_script)" && \
     fix_mounted_volumes_permission_docker ${name} && \
     set_url_docker && \
-    new_version && \
     docker exec -it -u 1000 ${name} bash -c "
-$(export_shared_env '' /src)
-WORKING_DIRECTORY=/io/mediapipe-lua-custom
+$(export_shared_env '' /mnt/sources/lua-${PROJECT_ID})
+WORKING_DIRECTORY=/io/luarocks-binaries-custom
 [ -d \${WORKING_DIRECTORY} ] || mkdir \${WORKING_DIRECTORY} || exit \$?
 [ -d \${projectDir}/out/prepublish/server-${name} ] || mkdir \${projectDir}/out/prepublish/server-${name} || exit \$?
 [ -L \${WORKING_DIRECTORY}/server ] || ln -s \${projectDir}/out/prepublish/server-${name} \${WORKING_DIRECTORY}/server || exit \$?
 $(build_custom_linux_script)" && \
-    new_version_rollback
+    set_url_github
 }
 
 function install_build_essentials_fedora_script() {
@@ -733,7 +925,7 @@ function install_build_essentials_fedora_script() {
 $cpm update -y && \
 $cpm install -y git \
         libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
-        pkg-config python3.12-pip qt5-qtbase-devel unzip wget zip || \
+        patchelf pkg-config python3.12-pip qt5-qtbase-devel unzip wget zip || \
 exit $?
 $cpm install -y python3.12-pip || $cpm install -y python3.11-pip || exit $?
 command -v curl &>/dev/null || $cpm install -y curl || exit $?
@@ -771,31 +963,31 @@ function build_custom_fedora() {
 
     docker_run_bash ${name} ${image} && \
     docker exec -it -u 0 "${name}" bash -c "$(install_build_essentials_fedora_script) && \$cpm install -y freetype-devel harfbuzz-devel || exit \$?; $(docker_init_script)" && \
+    docker exec -it -u 0 "${name}" bash -c "$(try_install_cuda_script)" && \
     fix_mounted_volumes_permission_docker ${name} && \
     set_url_docker && \
-    new_version && \
     docker exec -it -u 1000 ${name} bash -c "
-$(export_shared_env '' /src)
-WORKING_DIRECTORY=/io/mediapipe-lua-custom
+$(export_shared_env '' /mnt/sources/lua-${PROJECT_ID})
+WORKING_DIRECTORY=/io/luarocks-binaries-custom
 [ -d \${WORKING_DIRECTORY} ] || mkdir \${WORKING_DIRECTORY} || exit \$?
 [ -d \${projectDir}/out/prepublish/server-${name} ] || mkdir \${projectDir}/out/prepublish/server-${name} || exit \$?
 [ -L \${WORKING_DIRECTORY}/server ] || ln -s \${projectDir}/out/prepublish/server-${name} \${WORKING_DIRECTORY}/server || exit \$?
 $(build_custom_linux_script)" && \
-    new_version_rollback
+    set_url_github
 }
 
 function build_custom_wsl() {
     local name=wsl
+    install_build_essentials_wsl_debian && \
     set_url_wsl && \
-    new_version && \
     wsl -c "
 $(export_shared_env /mnt); source scripts/wsl_init.sh || exit \$?
-WORKING_DIRECTORY=\${sources}/../mediapipe-lua-custom
+WORKING_DIRECTORY=\${sources}/../luarocks-binaries-custom
 [ -d \${WORKING_DIRECTORY} ] || mkdir \${WORKING_DIRECTORY} || exit \$?
 [ -d \${projectDir}/out/prepublish/server-${name} ] || mkdir \${projectDir}/out/prepublish/server-${name} || exit \$?
 [ -L \${WORKING_DIRECTORY}/server ] || ln -s \${projectDir}/out/prepublish/server-${name} \${WORKING_DIRECTORY}/server || exit \$?
 $(build_custom_linux_script)" && \
-    new_version_rollback
+    set_url_github
 }
 
 function get_lua_version() {
@@ -811,7 +1003,7 @@ function get_lua_version() {
 
 function build_windows_debug() {
     if [ ! -e luarocks/lua${LUAROCKS_SUFFIX} ] || ! ./luarocks/lua${LUAROCKS_SUFFIX} -v &> /dev/null; then
-        use_luajit_modules || exit $?
+        use_luajit_modules || return $?
     fi
 
     local version="$(get_lua_version)"
@@ -834,8 +1026,12 @@ fi
 version="$(get_lua_version)"
 
 time \
-    OpenCVLua_DIR="$HOME/.vs/lua-opencv/$OPENCV_WORKSPACE_HASH/src/out/install/Linux-GCC-Debug" \
-    ./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --install'
+OpenCVLua_DIR="$HOME/.vs/lua-opencv/$OPENCV_WORKSPACE_HASH/src/out/install/Linux-GCC-Debug" \
+MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA \
+./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --install \
+    -DWITH_CUDA=ON \
+    -DWITH_CUDNN=ON \
+    -DCUDA_ARCH_BIN=$(nvidia-smi --query-gpu=compute_cap --format=csv | sed /compute_cap/d)'
 
     for arg in "$@"; do
         script="$script $arg"
@@ -848,9 +1044,16 @@ function build_full() {
     build_windows && \
     build_manylinux && \
     build_custom_windows && \
-    build_custom_debian build-custom-ubuntu-22.04 ubuntu:22.04 && \
-    build_windows_debug && \
-    build_wsl_debug
+    build_custom_debian luarocks-binaries-custom-ubuntu-22.04 ubuntu:22.04 && \
+    install_build_essentials_wsl_debian && \
+    bash -c "cd ../lua-opencv && source scripts/tasks.sh && use_luajit_modules && build_windows_debug" && \
+    use_luajit_modules && build_windows_debug && \
+    bash -c "cd ../lua-opencv && source scripts/tasks.sh && use_lua_modules && build_windows_debug" && \
+    use_lua_modules && build_windows_debug && \
+    bash -c "cd ../lua-opencv && source scripts/tasks.sh && use_wsl_luajit_modules && build_wsl_debug" && \
+    use_wsl_luajit_modules && build_wsl_debug && \
+    bash -c "cd ../lua-opencv && source scripts/tasks.sh && use_wsl_lua_modules && build_wsl_debug" && \
+    use_wsl_lua_modules && build_wsl_debug
 }
 
 function test_rock_script() {
@@ -942,7 +1145,7 @@ function install_local_rock() {
         if [ "${version:0:6}" == luajit ]; then
             rock_version="${rock_version}luajit2.1"
         else
-            rock_version=
+            rock_version="${rock_version}lua${version}"
         fi
     fi
 
@@ -966,7 +1169,7 @@ function install_local_rock() {
 # Install rock
 # ================================
 install_local_rock opencv_lua ${OPENCV_VERSION}
-install_local_rock mediapipe_lua ${MEDIAPIPE_VERSION}
+install_local_rock ${PROJECT_ID}_lua ${PROJECT_VERSION}
 
 # ================================
 # Run the tests
@@ -1081,11 +1284,11 @@ if [ -f /opt/rh/gcc-toolset-12/enable ]; then
     source /opt/rh/gcc-toolset-12/enable || exit \$?
 fi
 
-git config --global --add safe.directory /src/.git && \
-source /src/scripts/tasks.sh && \
+git config --global --add safe.directory /mnt/sources/lua-${PROJECT_ID}/.git && \
+source /mnt/sources/lua-${PROJECT_ID}/scripts/tasks.sh && \
 make_available_nvs && nvs add 16 && nvs use 16 && \
 cd /io || exit \$?
-$(export_shared_env '' /src)
+$(export_shared_env '' /mnt/sources/lua-${PROJECT_ID})
 
 for version in ${versions}; do
     _PATH=\$PATH; pushd \$PWD
@@ -1183,7 +1386,7 @@ function test_prepublished_source_fedora() {
 }
 
 function publish() {
-    ./luarocks/luarocks${LUAROCKS_SUFFIX} upload out/prepublish/server/mediapipe_lua-${MEDIAPIPE_VERSION}-${DIST_VERSION}.rockspec --api-key=${LUA_ROCKS_API_KEY} || return $?
+    ./luarocks/luarocks${LUAROCKS_SUFFIX} upload out/prepublish/server/${PROJECT_ID}_lua-${PROJECT_VERSION}-${DIST_VERSION}.rockspec --api-key=${LUA_ROCKS_API_KEY} || return $?
     echo "Upload the content of $(cygpath -w "$PWD/out/prepublish/server") to github"
 }
 
@@ -1235,12 +1438,8 @@ find out/build/Linux-GCC-Debug/ -type f \( -name CMakeCache.txt \) -delete
 
 function compile_debug_windows() {
     local file="$1"
-    compile_debug_strict_windows "mediapipe_lua/CMakeFiles/mediapipe_lua.dir/__/${file}"
-}
-
-function compile_debug_wsl() {
-    local file="$1"
-    compile_debug_strict_wsl "mediapipe_lua/CMakeFiles/mediapipe_lua.dir/__/${file}"
+    local version="$(get_lua_version)"
+    compile_debug_strict_windows "${PROJECT_ID}_lua/${version}/CMakeFiles/${PROJECT_ID}_lua.dir/__/${file}"
 }
 
 function compile_debug_strict_windows() {
@@ -1248,11 +1447,30 @@ function compile_debug_strict_windows() {
     bash -c "cd out/build/x64-Debug/ && ninja -d explain '${file}.obj'"
 }
 
+function compile_debug_wsl() {
+    local file="$1"
+    wsl -c "
+source scripts/wsl_init.sh && \
+version=\"\$(get_lua_version)\"
+cd out/build/Linux-GCC-Debug/ && \
+ninja -d explain '${PROJECT_ID}_lua/\${version}/CMakeFiles/${PROJECT_ID}_lua.dir/__/${file}.o'
+"
+}
+
 function compile_debug_strict_wsl() {
     local file="$1"
-    wsl -c "source scripts/wsl_init.sh && cd out/build/Linux-GCC-Debug/ && ninja -d explain '${file}.o'"
+    wsl -c "
+source scripts/wsl_init.sh && \
+version=\"\$(get_lua_version)\"
+cd out/build/Linux-GCC-Debug/ && \
+ninja -d explain '${file}.o'
+"
 }
 
 function install_build_essentials_wsl_debian() {
-    "$WSL" -d "$WSL_DISTNAME" -u root -e bash -c "$(install_build_essentials_debian_script) || exit \$?; $(install_build_essentials_from_source)"
+    "$WSL" -d "$WSL_DISTNAME" -u root -e bash -c "
+$(try_install_cuda_script)
+$(install_build_essentials_debian_script) || exit \$?
+$(install_build_essentials_from_source)
+"
 }

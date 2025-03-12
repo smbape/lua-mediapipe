@@ -748,9 +748,9 @@
   - [google.protobuf.Message.SerializeAsString](#googleprotobufmessageserializeasstring)
   - [google.protobuf.Message.SerializeToString](#googleprotobufmessageserializetostring)
   - [google.protobuf.Message.SpaceUsedLong](#googleprotobufmessagespaceusedlong)
+  - [google.protobuf.Message.\_\_tostring](#googleprotobufmessage%5C_%5C_tostring)
   - [google.protobuf.Message.\_\_type](#googleprotobufmessage%5C_%5C_type)
   - [google.protobuf.Message.operator==](#googleprotobufmessageoperator)
-  - [google.protobuf.Message.sol::meta\_function::to\_string](#googleprotobufmessagesolmeta%5C_functionto%5C_string)
 - [google::protobuf::Repeated\_bool](#googleprotobufrepeated%5C_bool)
   - [Repeated\_bool.Count](#repeated%5C_boolcount)
   - [google.protobuf.Repeated\_bool.new](#googleprotobufrepeated%5C_boolnew)
@@ -758,6 +758,8 @@
   - [google.protobuf.Repeated\_bool.MergeFrom](#googleprotobufrepeated%5C_boolmergefrom)
   - [google.protobuf.Repeated\_bool.Swap](#googleprotobufrepeated%5C_boolswap)
   - [google.protobuf.Repeated\_bool.SwapElements](#googleprotobufrepeated%5C_boolswapelements)
+  - [google.protobuf.Repeated\_bool.\_\_index](#googleprotobufrepeated%5C_bool%5C_%5C_index)
+  - [google.protobuf.Repeated\_bool.\_\_len](#googleprotobufrepeated%5C_bool%5C_%5C_len)
   - [google.protobuf.Repeated\_bool.\_\_type](#googleprotobufrepeated%5C_bool%5C_%5C_type)
   - [google.protobuf.Repeated\_bool.append](#googleprotobufrepeated%5C_boolappend)
   - [google.protobuf.Repeated\_bool.clear](#googleprotobufrepeated%5C_boolclear)
@@ -770,8 +772,6 @@
   - [google.protobuf.Repeated\_bool.set](#googleprotobufrepeated%5C_boolset)
   - [google.protobuf.Repeated\_bool.size](#googleprotobufrepeated%5C_boolsize)
   - [google.protobuf.Repeated\_bool.slice](#googleprotobufrepeated%5C_boolslice)
-  - [google.protobuf.Repeated\_bool.sol::meta\_function::index](#googleprotobufrepeated%5C_boolsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_bool.sol::meta\_function::length](#googleprotobufrepeated%5C_boolsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_bool.splice](#googleprotobufrepeated%5C_boolsplice)
   - [google.protobuf.Repeated\_bool.table](#googleprotobufrepeated%5C_booltable)
 - [google::protobuf::Repeated\_float](#googleprotobufrepeated%5C_float)
@@ -781,6 +781,8 @@
   - [google.protobuf.Repeated\_float.MergeFrom](#googleprotobufrepeated%5C_floatmergefrom)
   - [google.protobuf.Repeated\_float.Swap](#googleprotobufrepeated%5C_floatswap)
   - [google.protobuf.Repeated\_float.SwapElements](#googleprotobufrepeated%5C_floatswapelements)
+  - [google.protobuf.Repeated\_float.\_\_index](#googleprotobufrepeated%5C_float%5C_%5C_index)
+  - [google.protobuf.Repeated\_float.\_\_len](#googleprotobufrepeated%5C_float%5C_%5C_len)
   - [google.protobuf.Repeated\_float.\_\_type](#googleprotobufrepeated%5C_float%5C_%5C_type)
   - [google.protobuf.Repeated\_float.append](#googleprotobufrepeated%5C_floatappend)
   - [google.protobuf.Repeated\_float.clear](#googleprotobufrepeated%5C_floatclear)
@@ -793,8 +795,6 @@
   - [google.protobuf.Repeated\_float.set](#googleprotobufrepeated%5C_floatset)
   - [google.protobuf.Repeated\_float.size](#googleprotobufrepeated%5C_floatsize)
   - [google.protobuf.Repeated\_float.slice](#googleprotobufrepeated%5C_floatslice)
-  - [google.protobuf.Repeated\_float.sol::meta\_function::index](#googleprotobufrepeated%5C_floatsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_float.sol::meta\_function::length](#googleprotobufrepeated%5C_floatsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_float.splice](#googleprotobufrepeated%5C_floatsplice)
   - [google.protobuf.Repeated\_float.table](#googleprotobufrepeated%5C_floattable)
 - [google::protobuf::Repeated\_google\_protobuf\_Any](#googleprotobufrepeated%5C_google%5C_protobuf%5C_any)
@@ -804,6 +804,8 @@
   - [google.protobuf.Repeated\_google\_protobuf\_Any.MergeFrom](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anymergefrom)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.Swap](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyswap)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.SwapElements](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyswapelements)
+  - [google.protobuf.Repeated\_google\_protobuf\_Any.\_\_index](#googleprotobufrepeated%5C_google%5C_protobuf%5C_any%5C_%5C_index)
+  - [google.protobuf.Repeated\_google\_protobuf\_Any.\_\_len](#googleprotobufrepeated%5C_google%5C_protobuf%5C_any%5C_%5C_len)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.\_\_type](#googleprotobufrepeated%5C_google%5C_protobuf%5C_any%5C_%5C_type)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.add](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyadd)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.append](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyappend)
@@ -816,8 +818,6 @@
   - [google.protobuf.Repeated\_google\_protobuf\_Any.reverse](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyreverse)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.size](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anysize)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.slice](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anyslice)
-  - [google.protobuf.Repeated\_google\_protobuf\_Any.sol::meta\_function::index](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anysolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_google\_protobuf\_Any.sol::meta\_function::length](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anysolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.splice](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anysplice)
   - [google.protobuf.Repeated\_google\_protobuf\_Any.table](#googleprotobufrepeated%5C_google%5C_protobuf%5C_anytable)
 - [google::protobuf::Repeated\_int](#googleprotobufrepeated%5C_int)
@@ -827,6 +827,8 @@
   - [google.protobuf.Repeated\_int.MergeFrom](#googleprotobufrepeated%5C_intmergefrom)
   - [google.protobuf.Repeated\_int.Swap](#googleprotobufrepeated%5C_intswap)
   - [google.protobuf.Repeated\_int.SwapElements](#googleprotobufrepeated%5C_intswapelements)
+  - [google.protobuf.Repeated\_int.\_\_index](#googleprotobufrepeated%5C_int%5C_%5C_index)
+  - [google.protobuf.Repeated\_int.\_\_len](#googleprotobufrepeated%5C_int%5C_%5C_len)
   - [google.protobuf.Repeated\_int.\_\_type](#googleprotobufrepeated%5C_int%5C_%5C_type)
   - [google.protobuf.Repeated\_int.append](#googleprotobufrepeated%5C_intappend)
   - [google.protobuf.Repeated\_int.clear](#googleprotobufrepeated%5C_intclear)
@@ -839,8 +841,6 @@
   - [google.protobuf.Repeated\_int.set](#googleprotobufrepeated%5C_intset)
   - [google.protobuf.Repeated\_int.size](#googleprotobufrepeated%5C_intsize)
   - [google.protobuf.Repeated\_int.slice](#googleprotobufrepeated%5C_intslice)
-  - [google.protobuf.Repeated\_int.sol::meta\_function::index](#googleprotobufrepeated%5C_intsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_int.sol::meta\_function::length](#googleprotobufrepeated%5C_intsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_int.splice](#googleprotobufrepeated%5C_intsplice)
   - [google.protobuf.Repeated\_int.table](#googleprotobufrepeated%5C_inttable)
 - [google::protobuf::Repeated\_int64](#googleprotobufrepeated%5C_int64)
@@ -850,6 +850,8 @@
   - [google.protobuf.Repeated\_int64.MergeFrom](#googleprotobufrepeated%5C_int64mergefrom)
   - [google.protobuf.Repeated\_int64.Swap](#googleprotobufrepeated%5C_int64swap)
   - [google.protobuf.Repeated\_int64.SwapElements](#googleprotobufrepeated%5C_int64swapelements)
+  - [google.protobuf.Repeated\_int64.\_\_index](#googleprotobufrepeated%5C_int64%5C_%5C_index)
+  - [google.protobuf.Repeated\_int64.\_\_len](#googleprotobufrepeated%5C_int64%5C_%5C_len)
   - [google.protobuf.Repeated\_int64.\_\_type](#googleprotobufrepeated%5C_int64%5C_%5C_type)
   - [google.protobuf.Repeated\_int64.append](#googleprotobufrepeated%5C_int64append)
   - [google.protobuf.Repeated\_int64.clear](#googleprotobufrepeated%5C_int64clear)
@@ -862,8 +864,6 @@
   - [google.protobuf.Repeated\_int64.set](#googleprotobufrepeated%5C_int64set)
   - [google.protobuf.Repeated\_int64.size](#googleprotobufrepeated%5C_int64size)
   - [google.protobuf.Repeated\_int64.slice](#googleprotobufrepeated%5C_int64slice)
-  - [google.protobuf.Repeated\_int64.sol::meta\_function::index](#googleprotobufrepeated%5C_int64solmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_int64.sol::meta\_function::length](#googleprotobufrepeated%5C_int64solmeta%5C_functionlength)
   - [google.protobuf.Repeated\_int64.splice](#googleprotobufrepeated%5C_int64splice)
   - [google.protobuf.Repeated\_int64.table](#googleprotobufrepeated%5C_int64table)
 - [google::protobuf::Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentry)
@@ -873,6 +873,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrymergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryswap)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentry%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentry%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentry%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.add](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryadd)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.append](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryappend)
@@ -885,8 +887,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryreverse)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.size](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrysize)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.slice](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentryslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrysolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrysolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.splice](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrysplice)
   - [google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.table](#googleprotobufrepeated%5C_mediapipe%5C_arblendshapemap%5C_mapentrytable)
 - [google::protobuf::Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinate)
@@ -896,6 +896,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatemergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinateswap)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinateswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinate%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinate%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinate%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.add](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinateadd)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.append](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinateappend)
@@ -908,8 +910,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatereverse)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.size](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatesize)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.slice](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinateslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatesolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatesolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.splice](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatesplice)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.table](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_texturecoordinatetable)
 - [google::protobuf::Repeated\_mediapipe\_ARFaceGeometry\_Vertex](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertex)
@@ -919,6 +919,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexswap)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertex%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertex%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertex%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.add](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexadd)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.append](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexappend)
@@ -931,8 +933,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexreverse)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.size](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexsize)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.slice](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.splice](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertexsplice)
   - [google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.table](#googleprotobufrepeated%5C_mediapipe%5C_arfacegeometry%5C_vertextable)
 - [google::protobuf::Repeated\_mediapipe\_ARPlaneAnchor](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchor)
@@ -942,6 +942,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchormergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorswap)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchor%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchor%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchor%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.add](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchoradd)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.append](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorappend)
@@ -954,8 +956,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorreverse)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.size](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorsize)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.slice](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.splice](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchorsplice)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.table](#googleprotobufrepeated%5C_mediapipe%5C_arplaneanchortable)
 - [google::protobuf::Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinate)
@@ -965,6 +965,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatemergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinateswap)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinateswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinate%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinate%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinate%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.add](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinateadd)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.append](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinateappend)
@@ -977,8 +979,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatereverse)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.size](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatesize)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.slice](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinateslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatesolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatesolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.splice](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatesplice)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.table](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_texturecoordinatetable)
 - [google::protobuf::Repeated\_mediapipe\_ARPlaneGeometry\_Vertex](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertex)
@@ -988,6 +988,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexswap)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertex%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertex%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertex%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.add](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexadd)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.append](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexappend)
@@ -1000,8 +1002,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexreverse)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.size](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexsize)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.slice](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.splice](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertexsplice)
   - [google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.table](#googleprotobufrepeated%5C_mediapipe%5C_arplanegeometry%5C_vertextable)
 - [google::protobuf::Repeated\_mediapipe\_ARPointCloud\_Point](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_point)
@@ -1011,6 +1011,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.Swap](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointswap)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_point%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_point%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_point%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.add](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointadd)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.append](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointappend)
@@ -1023,8 +1025,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.reverse](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointreverse)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.size](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointsize)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.slice](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointslice)
-  - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.splice](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointsplice)
   - [google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.table](#googleprotobufrepeated%5C_mediapipe%5C_arpointcloud%5C_pointtable)
 - [google::protobuf::Repeated\_mediapipe\_AnnotatedKeyPoint](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypoint)
@@ -1034,6 +1034,8 @@
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.Swap](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointswap)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypoint%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypoint%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypoint%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.add](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointadd)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.append](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointappend)
@@ -1046,8 +1048,6 @@
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.reverse](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointreverse)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.size](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointsize)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.slice](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointslice)
-  - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.splice](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointsplice)
   - [google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.table](#googleprotobufrepeated%5C_mediapipe%5C_annotatedkeypointtable)
 - [google::protobuf::Repeated\_mediapipe\_CalculatorGraphConfig\_Node](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_node)
@@ -1057,6 +1057,8 @@
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodemergefrom)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.Swap](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodeswap)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodeswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_node%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_node%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_node%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.add](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodeadd)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.append](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodeappend)
@@ -1069,8 +1071,6 @@
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.reverse](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodereverse)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.size](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodesize)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.slice](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodeslice)
-  - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodesolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodesolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.splice](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodesplice)
   - [google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.table](#googleprotobufrepeated%5C_mediapipe%5C_calculatorgraphconfig%5C_nodetable)
 - [google::protobuf::Repeated\_mediapipe\_Classification](#googleprotobufrepeated%5C_mediapipe%5C_classification)
@@ -1080,6 +1080,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Classification.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_classificationmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Classification.Swap](#googleprotobufrepeated%5C_mediapipe%5C_classificationswap)
   - [google.protobuf.Repeated\_mediapipe\_Classification.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_classificationswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Classification.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_classification%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Classification.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_classification%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Classification.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_classification%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Classification.add](#googleprotobufrepeated%5C_mediapipe%5C_classificationadd)
   - [google.protobuf.Repeated\_mediapipe\_Classification.append](#googleprotobufrepeated%5C_mediapipe%5C_classificationappend)
@@ -1092,8 +1094,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Classification.reverse](#googleprotobufrepeated%5C_mediapipe%5C_classificationreverse)
   - [google.protobuf.Repeated\_mediapipe\_Classification.size](#googleprotobufrepeated%5C_mediapipe%5C_classificationsize)
   - [google.protobuf.Repeated\_mediapipe\_Classification.slice](#googleprotobufrepeated%5C_mediapipe%5C_classificationslice)
-  - [google.protobuf.Repeated\_mediapipe\_Classification.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_classificationsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Classification.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_classificationsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Classification.splice](#googleprotobufrepeated%5C_mediapipe%5C_classificationsplice)
   - [google.protobuf.Repeated\_mediapipe\_Classification.table](#googleprotobufrepeated%5C_mediapipe%5C_classificationtable)
 - [google::protobuf::Repeated\_mediapipe\_ClassificationList](#googleprotobufrepeated%5C_mediapipe%5C_classificationlist)
@@ -1103,6 +1103,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.Swap](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistswap)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_classificationlist%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_classificationlist%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_classificationlist%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.add](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistadd)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.append](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistappend)
@@ -1115,8 +1117,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.reverse](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistreverse)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.size](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistsize)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.slice](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistslice)
-  - [google.protobuf.Repeated\_mediapipe\_ClassificationList.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ClassificationList.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.splice](#googleprotobufrepeated%5C_mediapipe%5C_classificationlistsplice)
   - [google.protobuf.Repeated\_mediapipe\_ClassificationList.table](#googleprotobufrepeated%5C_mediapipe%5C_classificationlisttable)
 - [google::protobuf::Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacket)
@@ -1126,6 +1126,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.Swap](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketswap)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacket%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacket%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacket%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.add](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketadd)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.append](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketappend)
@@ -1138,8 +1140,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.reverse](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketreverse)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.size](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketsize)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.slice](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketslice)
-  - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.splice](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepacketsplice)
   - [google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.table](#googleprotobufrepeated%5C_mediapipe%5C_constantsidepacketcalculatoroptions%5C_constantsidepackettable)
 - [google::protobuf::Repeated\_mediapipe\_Detection](#googleprotobufrepeated%5C_mediapipe%5C_detection)
@@ -1149,6 +1149,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Detection.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_detectionmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Detection.Swap](#googleprotobufrepeated%5C_mediapipe%5C_detectionswap)
   - [google.protobuf.Repeated\_mediapipe\_Detection.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_detectionswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Detection.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Detection.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Detection.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Detection.add](#googleprotobufrepeated%5C_mediapipe%5C_detectionadd)
   - [google.protobuf.Repeated\_mediapipe\_Detection.append](#googleprotobufrepeated%5C_mediapipe%5C_detectionappend)
@@ -1161,8 +1163,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Detection.reverse](#googleprotobufrepeated%5C_mediapipe%5C_detectionreverse)
   - [google.protobuf.Repeated\_mediapipe\_Detection.size](#googleprotobufrepeated%5C_mediapipe%5C_detectionsize)
   - [google.protobuf.Repeated\_mediapipe\_Detection.slice](#googleprotobufrepeated%5C_mediapipe%5C_detectionslice)
-  - [google.protobuf.Repeated\_mediapipe\_Detection.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_detectionsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Detection.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_detectionsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Detection.splice](#googleprotobufrepeated%5C_mediapipe%5C_detectionsplice)
   - [google.protobuf.Repeated\_mediapipe\_Detection.table](#googleprotobufrepeated%5C_mediapipe%5C_detectiontable)
 - [google::protobuf::Repeated\_mediapipe\_Detection\_AssociatedDetection](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetection)
@@ -1172,6 +1172,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.Swap](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionswap)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetection%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetection%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetection%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.add](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionadd)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.append](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionappend)
@@ -1184,8 +1186,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.reverse](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionreverse)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.size](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionsize)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.slice](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionslice)
-  - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.splice](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectionsplice)
   - [google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.table](#googleprotobufrepeated%5C_mediapipe%5C_detection%5C_associateddetectiontable)
 - [google::protobuf::Repeated\_mediapipe\_Edge](#googleprotobufrepeated%5C_mediapipe%5C_edge)
@@ -1195,6 +1195,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Edge.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_edgemergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Edge.Swap](#googleprotobufrepeated%5C_mediapipe%5C_edgeswap)
   - [google.protobuf.Repeated\_mediapipe\_Edge.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_edgeswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Edge.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_edge%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Edge.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_edge%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Edge.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_edge%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Edge.add](#googleprotobufrepeated%5C_mediapipe%5C_edgeadd)
   - [google.protobuf.Repeated\_mediapipe\_Edge.append](#googleprotobufrepeated%5C_mediapipe%5C_edgeappend)
@@ -1207,8 +1209,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Edge.reverse](#googleprotobufrepeated%5C_mediapipe%5C_edgereverse)
   - [google.protobuf.Repeated\_mediapipe\_Edge.size](#googleprotobufrepeated%5C_mediapipe%5C_edgesize)
   - [google.protobuf.Repeated\_mediapipe\_Edge.slice](#googleprotobufrepeated%5C_mediapipe%5C_edgeslice)
-  - [google.protobuf.Repeated\_mediapipe\_Edge.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_edgesolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Edge.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_edgesolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Edge.splice](#googleprotobufrepeated%5C_mediapipe%5C_edgesplice)
   - [google.protobuf.Repeated\_mediapipe\_Edge.table](#googleprotobufrepeated%5C_mediapipe%5C_edgetable)
 - [google::protobuf::Repeated\_mediapipe\_ExecutorConfig](#googleprotobufrepeated%5C_mediapipe%5C_executorconfig)
@@ -1218,6 +1218,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.Swap](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigswap)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_executorconfig%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_executorconfig%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_executorconfig%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.add](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigadd)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.append](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigappend)
@@ -1230,8 +1232,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.reverse](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigreverse)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.size](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigsize)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.slice](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigslice)
-  - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.splice](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigsplice)
   - [google.protobuf.Repeated\_mediapipe\_ExecutorConfig.table](#googleprotobufrepeated%5C_mediapipe%5C_executorconfigtable)
 - [google::protobuf::Repeated\_mediapipe\_FrameAnnotation](#googleprotobufrepeated%5C_mediapipe%5C_frameannotation)
@@ -1241,6 +1241,8 @@
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.Swap](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationswap)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_frameannotation%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_frameannotation%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_frameannotation%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.add](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationadd)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.append](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationappend)
@@ -1253,8 +1255,6 @@
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.reverse](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationreverse)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.size](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationsize)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.slice](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationslice)
-  - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.splice](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationsplice)
   - [google.protobuf.Repeated\_mediapipe\_FrameAnnotation.table](#googleprotobufrepeated%5C_mediapipe%5C_frameannotationtable)
 - [google::protobuf::Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink)
@@ -1264,6 +1264,8 @@
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.Swap](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkswap)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.add](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkadd)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.append](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkappend)
@@ -1276,8 +1278,6 @@
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.reverse](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkreverse)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.size](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksize)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.slice](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkslice)
-  - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.splice](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksplice)
   - [google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.table](#googleprotobufrepeated%5C_mediapipe%5C_inferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinktable)
 - [google::protobuf::Repeated\_mediapipe\_InputCollection](#googleprotobufrepeated%5C_mediapipe%5C_inputcollection)
@@ -1287,6 +1287,8 @@
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.Swap](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionswap)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_inputcollection%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_inputcollection%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_inputcollection%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.add](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionadd)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.append](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionappend)
@@ -1299,8 +1301,6 @@
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.reverse](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionreverse)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.size](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionsize)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.slice](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionslice)
-  - [google.protobuf.Repeated\_mediapipe\_InputCollection.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_InputCollection.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.splice](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectionsplice)
   - [google.protobuf.Repeated\_mediapipe\_InputCollection.table](#googleprotobufrepeated%5C_mediapipe%5C_inputcollectiontable)
 - [google::protobuf::Repeated\_mediapipe\_InputStreamInfo](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfo)
@@ -1310,6 +1310,8 @@
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfomergefrom)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.Swap](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfoswap)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfoswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfo%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfo%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfo%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.add](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfoadd)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.append](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfoappend)
@@ -1322,8 +1324,6 @@
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.reverse](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminforeverse)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.size](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfosize)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.slice](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfoslice)
-  - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfosolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfosolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.splice](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfosplice)
   - [google.protobuf.Repeated\_mediapipe\_InputStreamInfo.table](#googleprotobufrepeated%5C_mediapipe%5C_inputstreaminfotable)
 - [google::protobuf::Repeated\_mediapipe\_KeyPoint](#googleprotobufrepeated%5C_mediapipe%5C_keypoint)
@@ -1333,6 +1333,8 @@
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_keypointmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.Swap](#googleprotobufrepeated%5C_mediapipe%5C_keypointswap)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_keypointswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_keypoint%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_keypoint%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_keypoint%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.add](#googleprotobufrepeated%5C_mediapipe%5C_keypointadd)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.append](#googleprotobufrepeated%5C_mediapipe%5C_keypointappend)
@@ -1345,8 +1347,6 @@
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.reverse](#googleprotobufrepeated%5C_mediapipe%5C_keypointreverse)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.size](#googleprotobufrepeated%5C_mediapipe%5C_keypointsize)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.slice](#googleprotobufrepeated%5C_mediapipe%5C_keypointslice)
-  - [google.protobuf.Repeated\_mediapipe\_KeyPoint.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_keypointsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_KeyPoint.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_keypointsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.splice](#googleprotobufrepeated%5C_mediapipe%5C_keypointsplice)
   - [google.protobuf.Repeated\_mediapipe\_KeyPoint.table](#googleprotobufrepeated%5C_mediapipe%5C_keypointtable)
 - [google::protobuf::Repeated\_mediapipe\_Landmark](#googleprotobufrepeated%5C_mediapipe%5C_landmark)
@@ -1356,6 +1356,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Landmark.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_landmarkmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.Swap](#googleprotobufrepeated%5C_mediapipe%5C_landmarkswap)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_landmarkswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Landmark.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_landmark%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Landmark.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_landmark%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_landmark%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.add](#googleprotobufrepeated%5C_mediapipe%5C_landmarkadd)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.append](#googleprotobufrepeated%5C_mediapipe%5C_landmarkappend)
@@ -1368,8 +1370,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Landmark.reverse](#googleprotobufrepeated%5C_mediapipe%5C_landmarkreverse)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.size](#googleprotobufrepeated%5C_mediapipe%5C_landmarksize)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.slice](#googleprotobufrepeated%5C_mediapipe%5C_landmarkslice)
-  - [google.protobuf.Repeated\_mediapipe\_Landmark.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_landmarksolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Landmark.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_landmarksolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.splice](#googleprotobufrepeated%5C_mediapipe%5C_landmarksplice)
   - [google.protobuf.Repeated\_mediapipe\_Landmark.table](#googleprotobufrepeated%5C_mediapipe%5C_landmarktable)
 - [google::protobuf::Repeated\_mediapipe\_LandmarkList](#googleprotobufrepeated%5C_mediapipe%5C_landmarklist)
@@ -1379,6 +1379,8 @@
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.Swap](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistswap)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_landmarklist%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_landmarklist%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_landmarklist%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.add](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistadd)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.append](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistappend)
@@ -1391,8 +1393,6 @@
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.reverse](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistreverse)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.size](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistsize)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.slice](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistslice)
-  - [google.protobuf.Repeated\_mediapipe\_LandmarkList.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_LandmarkList.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.splice](#googleprotobufrepeated%5C_mediapipe%5C_landmarklistsplice)
   - [google.protobuf.Repeated\_mediapipe\_LandmarkList.table](#googleprotobufrepeated%5C_mediapipe%5C_landmarklisttable)
 - [google::protobuf::Repeated\_mediapipe\_LocationData\_RelativeKeypoint](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypoint)
@@ -1402,6 +1402,8 @@
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.Swap](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointswap)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypoint%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypoint%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypoint%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.add](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointadd)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.append](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointappend)
@@ -1414,8 +1416,6 @@
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.reverse](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointreverse)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.size](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointsize)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.slice](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointslice)
-  - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.splice](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointsplice)
   - [google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.table](#googleprotobufrepeated%5C_mediapipe%5C_locationdata%5C_relativekeypointtable)
 - [google::protobuf::Repeated\_mediapipe\_NormalizedLandmark](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmark)
@@ -1425,6 +1425,8 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.Swap](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkswap)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmark%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmark%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmark%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.add](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkadd)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.append](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkappend)
@@ -1437,8 +1439,6 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.reverse](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkreverse)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.size](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarksize)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.slice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarkslice)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarksolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarksolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.splice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarksplice)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.table](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarktable)
 - [google::protobuf::Repeated\_mediapipe\_NormalizedLandmarkList](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklist)
@@ -1448,6 +1448,8 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.Swap](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistswap)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklist%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklist%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklist%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.add](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistadd)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.append](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistappend)
@@ -1460,8 +1462,6 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.reverse](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistreverse)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.size](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistsize)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.slice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistslice)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.splice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklistsplice)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.table](#googleprotobufrepeated%5C_mediapipe%5C_normalizedlandmarklisttable)
 - [google::protobuf::Repeated\_mediapipe\_NormalizedRect](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrect)
@@ -1471,6 +1471,8 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.Swap](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectswap)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrect%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrect%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrect%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.add](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectadd)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.append](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectappend)
@@ -1483,8 +1485,6 @@
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.reverse](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectreverse)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.size](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectsize)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.slice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectslice)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.splice](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrectsplice)
   - [google.protobuf.Repeated\_mediapipe\_NormalizedRect.table](#googleprotobufrepeated%5C_mediapipe%5C_normalizedrecttable)
 - [google::protobuf::Repeated\_mediapipe\_Object](#googleprotobufrepeated%5C_mediapipe%5C_object)
@@ -1494,6 +1494,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Object.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_objectmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Object.Swap](#googleprotobufrepeated%5C_mediapipe%5C_objectswap)
   - [google.protobuf.Repeated\_mediapipe\_Object.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_objectswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Object.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_object%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Object.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_object%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Object.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_object%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Object.add](#googleprotobufrepeated%5C_mediapipe%5C_objectadd)
   - [google.protobuf.Repeated\_mediapipe\_Object.append](#googleprotobufrepeated%5C_mediapipe%5C_objectappend)
@@ -1506,8 +1508,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Object.reverse](#googleprotobufrepeated%5C_mediapipe%5C_objectreverse)
   - [google.protobuf.Repeated\_mediapipe\_Object.size](#googleprotobufrepeated%5C_mediapipe%5C_objectsize)
   - [google.protobuf.Repeated\_mediapipe\_Object.slice](#googleprotobufrepeated%5C_mediapipe%5C_objectslice)
-  - [google.protobuf.Repeated\_mediapipe\_Object.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_objectsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Object.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_objectsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Object.splice](#googleprotobufrepeated%5C_mediapipe%5C_objectsplice)
   - [google.protobuf.Repeated\_mediapipe\_Object.table](#googleprotobufrepeated%5C_mediapipe%5C_objecttable)
 - [google::protobuf::Repeated\_mediapipe\_ObjectAnnotation](#googleprotobufrepeated%5C_mediapipe%5C_objectannotation)
@@ -1517,6 +1517,8 @@
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.Swap](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationswap)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_objectannotation%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_objectannotation%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_objectannotation%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.add](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationadd)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.append](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationappend)
@@ -1529,8 +1531,6 @@
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.reverse](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationreverse)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.size](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationsize)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.slice](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationslice)
-  - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.splice](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationsplice)
   - [google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.table](#googleprotobufrepeated%5C_mediapipe%5C_objectannotationtable)
 - [google::protobuf::Repeated\_mediapipe\_PacketFactoryConfig](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfig)
@@ -1540,6 +1540,8 @@
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.Swap](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigswap)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfig%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfig%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfig%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.add](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigadd)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.append](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigappend)
@@ -1552,8 +1554,6 @@
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.reverse](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigreverse)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.size](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigsize)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.slice](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigslice)
-  - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.splice](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigsplice)
   - [google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.table](#googleprotobufrepeated%5C_mediapipe%5C_packetfactoryconfigtable)
 - [google::protobuf::Repeated\_mediapipe\_PacketGeneratorConfig](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfig)
@@ -1563,6 +1563,8 @@
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.Swap](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigswap)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfig%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfig%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfig%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.add](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigadd)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.append](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigappend)
@@ -1575,8 +1577,6 @@
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.reverse](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigreverse)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.size](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigsize)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.slice](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigslice)
-  - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.splice](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigsplice)
   - [google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.table](#googleprotobufrepeated%5C_mediapipe%5C_packetgeneratorconfigtable)
 - [google::protobuf::Repeated\_mediapipe\_Rasterization\_Interval](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_interval)
@@ -1586,6 +1586,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.Swap](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalswap)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_interval%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_interval%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_interval%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.add](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervaladd)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.append](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalappend)
@@ -1598,8 +1600,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.reverse](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalreverse)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.size](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalsize)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.slice](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalslice)
-  - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.splice](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervalsplice)
   - [google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.table](#googleprotobufrepeated%5C_mediapipe%5C_rasterization%5C_intervaltable)
 - [google::protobuf::Repeated\_mediapipe\_RenderAnnotation](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation)
@@ -1609,6 +1609,8 @@
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.Swap](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationswap)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.add](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationadd)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.append](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationappend)
@@ -1621,8 +1623,6 @@
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.reverse](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationreverse)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.size](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationsize)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.slice](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationslice)
-  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.splice](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationsplice)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation.table](#googleprotobufrepeated%5C_mediapipe%5C_renderannotationtable)
 - [google::protobuf::Repeated\_mediapipe\_RenderAnnotation\_Point](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_point)
@@ -1632,6 +1632,8 @@
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.Swap](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointswap)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_point%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_point%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_point%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.add](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointadd)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.append](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointappend)
@@ -1644,8 +1646,6 @@
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.reverse](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointreverse)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.size](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointsize)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.slice](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointslice)
-  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.splice](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointsplice)
   - [google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.table](#googleprotobufrepeated%5C_mediapipe%5C_renderannotation%5C_pointtable)
 - [google::protobuf::Repeated\_mediapipe\_Skeleton](#googleprotobufrepeated%5C_mediapipe%5C_skeleton)
@@ -1655,6 +1655,8 @@
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_skeletonmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.Swap](#googleprotobufrepeated%5C_mediapipe%5C_skeletonswap)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_skeletonswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_skeleton%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_skeleton%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_skeleton%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.add](#googleprotobufrepeated%5C_mediapipe%5C_skeletonadd)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.append](#googleprotobufrepeated%5C_mediapipe%5C_skeletonappend)
@@ -1667,8 +1669,6 @@
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.reverse](#googleprotobufrepeated%5C_mediapipe%5C_skeletonreverse)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.size](#googleprotobufrepeated%5C_mediapipe%5C_skeletonsize)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.slice](#googleprotobufrepeated%5C_mediapipe%5C_skeletonslice)
-  - [google.protobuf.Repeated\_mediapipe\_Skeleton.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_skeletonsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_Skeleton.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_skeletonsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.splice](#googleprotobufrepeated%5C_mediapipe%5C_skeletonsplice)
   - [google.protobuf.Repeated\_mediapipe\_Skeleton.table](#googleprotobufrepeated%5C_mediapipe%5C_skeletontable)
 - [google::protobuf::Repeated\_mediapipe\_StatusHandlerConfig](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfig)
@@ -1678,6 +1678,8 @@
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.Swap](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigswap)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfig%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfig%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfig%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.add](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigadd)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.append](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigappend)
@@ -1690,8 +1692,6 @@
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.reverse](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigreverse)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.size](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigsize)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.slice](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigslice)
-  - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.splice](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigsplice)
   - [google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.table](#googleprotobufrepeated%5C_mediapipe%5C_statushandlerconfigtable)
 - [google::protobuf::Repeated\_mediapipe\_TemplateArgument](#googleprotobufrepeated%5C_mediapipe%5C_templateargument)
@@ -1701,6 +1701,8 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.Swap](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentswap)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_templateargument%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_templateargument%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_templateargument%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.add](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentadd)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.append](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentappend)
@@ -1713,8 +1715,6 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.reverse](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentreverse)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.size](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentsize)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.slice](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentslice)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.splice](#googleprotobufrepeated%5C_mediapipe%5C_templateargumentsplice)
   - [google.protobuf.Repeated\_mediapipe\_TemplateArgument.table](#googleprotobufrepeated%5C_mediapipe%5C_templateargumenttable)
 - [google::protobuf::Repeated\_mediapipe\_TemplateDict\_Parameter](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameter)
@@ -1724,6 +1724,8 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametermergefrom)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.Swap](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameterswap)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameterswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameter%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameter%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameter%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.add](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameteradd)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.append](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameterappend)
@@ -1736,8 +1738,6 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.reverse](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameterreverse)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.size](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametersize)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.slice](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parameterslice)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametersolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametersolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.splice](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametersplice)
   - [google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.table](#googleprotobufrepeated%5C_mediapipe%5C_templatedict%5C_parametertable)
 - [google::protobuf::Repeated\_mediapipe\_TemplateExpression](#googleprotobufrepeated%5C_mediapipe%5C_templateexpression)
@@ -1747,6 +1747,8 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.Swap](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionswap)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_templateexpression%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_templateexpression%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_templateexpression%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.add](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionadd)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.append](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionappend)
@@ -1759,8 +1761,6 @@
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.reverse](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionreverse)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.size](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionsize)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.slice](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionslice)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.splice](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressionsplice)
   - [google.protobuf.Repeated\_mediapipe\_TemplateExpression.table](#googleprotobufrepeated%5C_mediapipe%5C_templateexpressiontable)
 - [google::protobuf::Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classifications)
@@ -1770,6 +1770,8 @@
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.Swap](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsswap)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classifications%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classifications%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classifications%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.add](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsadd)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.append](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsappend)
@@ -1782,8 +1784,6 @@
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.reverse](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsreverse)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.size](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationssize)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.slice](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationsslice)
-  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationssolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationssolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.splice](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationssplice)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.table](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_classificationstable)
 - [google::protobuf::Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embedding)
@@ -1793,6 +1793,8 @@
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.MergeFrom](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingmergefrom)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.Swap](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingswap)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.SwapElements](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingswapelements)
+  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_index](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embedding%5C_%5C_index)
+  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_len](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embedding%5C_%5C_len)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_type](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embedding%5C_%5C_type)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.add](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingadd)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.append](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingappend)
@@ -1805,8 +1807,6 @@
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.reverse](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingreverse)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.size](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingsize)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.slice](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingslice)
-  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.sol::meta\_function::index](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.sol::meta\_function::length](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.splice](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingsplice)
   - [google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.table](#googleprotobufrepeated%5C_mediapipe%5C_tasks%5C_components%5C_containers%5C_proto%5C_embeddingtable)
 - [google::protobuf::Repeated\_std\_string](#googleprotobufrepeated%5C_std%5C_string)
@@ -1816,6 +1816,8 @@
   - [google.protobuf.Repeated\_std\_string.MergeFrom](#googleprotobufrepeated%5C_std%5C_stringmergefrom)
   - [google.protobuf.Repeated\_std\_string.Swap](#googleprotobufrepeated%5C_std%5C_stringswap)
   - [google.protobuf.Repeated\_std\_string.SwapElements](#googleprotobufrepeated%5C_std%5C_stringswapelements)
+  - [google.protobuf.Repeated\_std\_string.\_\_index](#googleprotobufrepeated%5C_std%5C_string%5C_%5C_index)
+  - [google.protobuf.Repeated\_std\_string.\_\_len](#googleprotobufrepeated%5C_std%5C_string%5C_%5C_len)
   - [google.protobuf.Repeated\_std\_string.\_\_type](#googleprotobufrepeated%5C_std%5C_string%5C_%5C_type)
   - [google.protobuf.Repeated\_std\_string.append](#googleprotobufrepeated%5C_std%5C_stringappend)
   - [google.protobuf.Repeated\_std\_string.clear](#googleprotobufrepeated%5C_std%5C_stringclear)
@@ -1828,8 +1830,6 @@
   - [google.protobuf.Repeated\_std\_string.set](#googleprotobufrepeated%5C_std%5C_stringset)
   - [google.protobuf.Repeated\_std\_string.size](#googleprotobufrepeated%5C_std%5C_stringsize)
   - [google.protobuf.Repeated\_std\_string.slice](#googleprotobufrepeated%5C_std%5C_stringslice)
-  - [google.protobuf.Repeated\_std\_string.sol::meta\_function::index](#googleprotobufrepeated%5C_std%5C_stringsolmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_std\_string.sol::meta\_function::length](#googleprotobufrepeated%5C_std%5C_stringsolmeta%5C_functionlength)
   - [google.protobuf.Repeated\_std\_string.splice](#googleprotobufrepeated%5C_std%5C_stringsplice)
   - [google.protobuf.Repeated\_std\_string.table](#googleprotobufrepeated%5C_std%5C_stringtable)
 - [google::protobuf::Repeated\_uint32](#googleprotobufrepeated%5C_uint32)
@@ -1839,6 +1839,8 @@
   - [google.protobuf.Repeated\_uint32.MergeFrom](#googleprotobufrepeated%5C_uint32mergefrom)
   - [google.protobuf.Repeated\_uint32.Swap](#googleprotobufrepeated%5C_uint32swap)
   - [google.protobuf.Repeated\_uint32.SwapElements](#googleprotobufrepeated%5C_uint32swapelements)
+  - [google.protobuf.Repeated\_uint32.\_\_index](#googleprotobufrepeated%5C_uint32%5C_%5C_index)
+  - [google.protobuf.Repeated\_uint32.\_\_len](#googleprotobufrepeated%5C_uint32%5C_%5C_len)
   - [google.protobuf.Repeated\_uint32.\_\_type](#googleprotobufrepeated%5C_uint32%5C_%5C_type)
   - [google.protobuf.Repeated\_uint32.append](#googleprotobufrepeated%5C_uint32append)
   - [google.protobuf.Repeated\_uint32.clear](#googleprotobufrepeated%5C_uint32clear)
@@ -1851,8 +1853,6 @@
   - [google.protobuf.Repeated\_uint32.set](#googleprotobufrepeated%5C_uint32set)
   - [google.protobuf.Repeated\_uint32.size](#googleprotobufrepeated%5C_uint32size)
   - [google.protobuf.Repeated\_uint32.slice](#googleprotobufrepeated%5C_uint32slice)
-  - [google.protobuf.Repeated\_uint32.sol::meta\_function::index](#googleprotobufrepeated%5C_uint32solmeta%5C_functionindex)
-  - [google.protobuf.Repeated\_uint32.sol::meta\_function::length](#googleprotobufrepeated%5C_uint32solmeta%5C_functionlength)
   - [google.protobuf.Repeated\_uint32.splice](#googleprotobufrepeated%5C_uint32splice)
   - [google.protobuf.Repeated\_uint32.table](#googleprotobufrepeated%5C_uint32table)
 - [google::protobuf::TextFormat](#googleprotobuftextformat)
@@ -2253,6 +2253,7 @@
   - [CalculatorGraphConfig.output\_side\_packet](#calculatorgraphconfigoutput%5C_side%5C_packet)
   - [CalculatorGraphConfig.max\_queue\_size](#calculatorgraphconfigmax%5C_queue%5C_size)
   - [CalculatorGraphConfig.report\_deadlock](#calculatorgraphconfigreport%5C_deadlock)
+  - [CalculatorGraphConfig.runtime\_info](#calculatorgraphconfigruntime%5C_info)
   - [CalculatorGraphConfig.input\_stream\_handler](#calculatorgraphconfiginput%5C_stream%5C_handler)
   - [CalculatorGraphConfig.output\_stream\_handler](#calculatorgraphconfigoutput%5C_stream%5C_handler)
   - [CalculatorGraphConfig.executor](#calculatorgraphconfigexecutor)
@@ -2437,6 +2438,11 @@
   - [GpuOrigin.TOP\_LEFT](#gpuorigintop%5C_left)
   - [mediapipe.GpuOrigin.new](#mediapipegpuoriginnew)
   - [mediapipe.GpuOrigin.\_\_type](#mediapipegpuorigin%5C_%5C_type)
+- [mediapipe::GraphRuntimeInfoConfig](#mediapipegraphruntimeinfoconfig)
+  - [GraphRuntimeInfoConfig.enable\_graph\_runtime\_info](#graphruntimeinfoconfigenable%5C_graph%5C_runtime%5C_info)
+  - [GraphRuntimeInfoConfig.capture\_period\_msec](#graphruntimeinfoconfigcapture%5C_period%5C_msec)
+  - [mediapipe.GraphRuntimeInfoConfig.new](#mediapipegraphruntimeinfoconfignew)
+  - [mediapipe.GraphRuntimeInfoConfig.\_\_type](#mediapipegraphruntimeinfoconfig%5C_%5C_type)
 - [mediapipe::Image](#mediapipeimage)
   - [Image.width](#imagewidth)
   - [Image.height](#imageheight)
@@ -2571,6 +2577,7 @@
   - [mediapipe.InferenceCalculatorOptions.Delegate.TfLite.\_\_type](#mediapipeinferencecalculatoroptionsdelegatetflite%5C_%5C_type)
 - [mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack](#mediapipeinferencecalculatoroptionsdelegatexnnpack)
   - [Xnnpack.num\_threads](#xnnpacknum%5C_threads)
+  - [Xnnpack.enable\_zero\_copy\_tensor\_io](#xnnpackenable%5C_zero%5C_copy%5C_tensor%5C_io)
   - [mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.new](#mediapipeinferencecalculatoroptionsdelegatexnnpacknew)
   - [mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.\_\_type](#mediapipeinferencecalculatoroptionsdelegatexnnpack%5C_%5C_type)
 - [mediapipe::InferenceCalculatorOptions::InputOutputConfig](#mediapipeinferencecalculatoroptionsinputoutputconfig)
@@ -2819,11 +2826,11 @@
 - [mediapipe::Packet](#mediapipepacket)
   - [Packet.timestamp](#packettimestamp)
   - [mediapipe.Packet.new](#mediapipepacketnew)
+  - [mediapipe.Packet.\_\_tostring](#mediapipepacket%5C_%5C_tostring)
   - [mediapipe.Packet.\_\_type](#mediapipepacket%5C_%5C_type)
   - [mediapipe.Packet.at](#mediapipepacketat)
   - [mediapipe.Packet.is\_empty](#mediapipepacketis%5C_empty)
   - [mediapipe.Packet.operator==](#mediapipepacketoperator)
-  - [mediapipe.Packet.sol::meta\_function::to\_string](#mediapipepacketsolmeta%5C_functionto%5C_string)
 - [mediapipe::PacketFactoryConfig](#mediapipepacketfactoryconfig)
   - [PacketFactoryConfig.packet\_factory](#packetfactoryconfigpacket%5C_factory)
   - [PacketFactoryConfig.output\_side\_packet](#packetfactoryconfigoutput%5C_side%5C_packet)
@@ -3155,6 +3162,7 @@
   - [Timestamp.POSTSTREAM](#timestamppoststream)
   - [Timestamp.DONE](#timestampdone)
   - [mediapipe.Timestamp.new](#mediapipetimestampnew)
+  - [mediapipe.Timestamp.\_\_tostring](#mediapipetimestamp%5C_%5C_tostring)
   - [mediapipe.Timestamp.\_\_type](#mediapipetimestamp%5C_%5C_type)
   - [mediapipe.Timestamp.from\_seconds](#mediapipetimestampfrom%5C_seconds)
   - [mediapipe.Timestamp.is\_allowed\_in\_stream](#mediapipetimestampis%5C_allowed%5C_in%5C_stream)
@@ -3165,7 +3173,6 @@
   - [mediapipe.Timestamp.operator<=](#mediapipetimestampoperator)
   - [mediapipe.Timestamp.operator==](#mediapipetimestampoperator)
   - [mediapipe.Timestamp.seconds](#mediapipetimestampseconds)
-  - [mediapipe.Timestamp.sol::meta\_function::to\_string](#mediapipetimestampsolmeta%5C_functionto%5C_string)
 - [mediapipe::ValidatedGraphConfig](#mediapipevalidatedgraphconfig)
   - [ValidatedGraphConfig.text\_config](#validatedgraphconfigtext%5C_config)
   - [ValidatedGraphConfig.binary\_config](#validatedgraphconfigbinary%5C_config)
@@ -3202,6 +3209,7 @@
   - [calculator\_pb2.InputCollectionSet](#calculator%5C_pb2inputcollectionset)
   - [calculator\_pb2.InputStreamInfo](#calculator%5C_pb2inputstreaminfo)
   - [calculator\_pb2.ProfilerConfig](#calculator%5C_pb2profilerconfig)
+  - [calculator\_pb2.GraphRuntimeInfoConfig](#calculator%5C_pb2graphruntimeinfoconfig)
   - [calculator\_pb2.CalculatorGraphConfig](#calculator%5C_pb2calculatorgraphconfig)
 - [mediapipe::framework::deps::proto\_descriptor\_pb2](#mediapipeframeworkdepsproto%5C_descriptor%5C_pb2)
   - [proto\_descriptor\_pb2.FieldDescriptorProto](#proto%5C_descriptor%5C_pb2fielddescriptorproto)
@@ -4646,6 +4654,8 @@
   - [ObjectDetectorOptions.score\_threshold](#objectdetectoroptionsscore%5C_threshold-1)
   - [ObjectDetectorOptions.category\_allowlist](#objectdetectoroptionscategory%5C_allowlist-1)
   - [ObjectDetectorOptions.category\_denylist](#objectdetectoroptionscategory%5C_denylist-1)
+  - [ObjectDetectorOptions.multiclass\_nms](#objectdetectoroptionsmulticlass%5C_nms)
+  - [ObjectDetectorOptions.min\_suppression\_threshold](#objectdetectoroptionsmin%5C_suppression%5C_threshold)
   - [ObjectDetectorOptions.ext](#objectdetectoroptionsext)
   - [mediapipe.tasks.vision.object\_detector.proto.ObjectDetectorOptions.new](#mediapipetasksvisionobject%5C_detectorprotoobjectdetectoroptionsnew)
   - [mediapipe.tasks.vision.object\_detector.proto.ObjectDetectorOptions.\_\_type](#mediapipetasksvisionobject%5C_detectorprotoobjectdetectoroptions%5C_%5C_type)
@@ -11924,6 +11934,14 @@ lua:
     oMessage:SpaceUsedLong() -> retval
 ```
 
+### google.protobuf.Message.\_\_tostring
+
+```cpp
+absl::Status google::protobuf::Message::__tostring( std::string* output );
+lua:
+    oMessage:__tostring( [output] ) -> retval, output
+```
+
 ### google.protobuf.Message.\_\_type
 
 ```cpp
@@ -11945,14 +11963,6 @@ lua:
 bool google::protobuf::Message::operator==( const google::protobuf::Message& other );
 lua:
     oMessage:__eq( other ) -> retval
-```
-
-### google.protobuf.Message.sol::meta\_function::to\_string
-
-```cpp
-absl::Status google::protobuf::Message::ToStr( std::string* output );
-lua:
-    oMessage:__tostring( [output] ) -> retval, output
 ```
 
 ## google::protobuf::Repeated\_bool
@@ -12005,6 +12015,22 @@ void google::protobuf::Repeated_bool::SwapElements( int index1,
                                                     int index2 );
 lua:
     oRepeated_bool:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_bool.\_\_index
+
+```cpp
+bool google::protobuf::Repeated_bool::Get( int index );
+lua:
+    oRepeated_bool:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_bool.\_\_len
+
+```cpp
+int google::protobuf::Repeated_bool::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_bool:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_bool.\_\_type
@@ -12126,22 +12152,6 @@ lua:
     oRepeated_bool:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_bool.sol::meta\_function::index
-
-```cpp
-bool google::protobuf::Repeated_bool::Get( int index );
-lua:
-    oRepeated_bool:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_bool.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_bool::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_bool:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_bool.splice
 
 ```cpp
@@ -12217,6 +12227,22 @@ void google::protobuf::Repeated_float::SwapElements( int index1,
                                                      int index2 );
 lua:
     oRepeated_float:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_float.\_\_index
+
+```cpp
+float google::protobuf::Repeated_float::Get( int index );
+lua:
+    oRepeated_float:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_float.\_\_len
+
+```cpp
+int google::protobuf::Repeated_float::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_float:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_float.\_\_type
@@ -12338,22 +12364,6 @@ lua:
     oRepeated_float:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_float.sol::meta\_function::index
-
-```cpp
-float google::protobuf::Repeated_float::Get( int index );
-lua:
-    oRepeated_float:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_float.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_float::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_float:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_float.splice
 
 ```cpp
@@ -12429,6 +12439,22 @@ void google::protobuf::Repeated_google_protobuf_Any::SwapElements( int index1,
                                                                    int index2 );
 lua:
     oRepeated_google_protobuf_Any:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_google\_protobuf\_Any.\_\_index
+
+```cpp
+google::protobuf::Any* google::protobuf::Repeated_google_protobuf_Any::Mutable( int index );
+lua:
+    oRepeated_google_protobuf_Any:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_google\_protobuf\_Any.\_\_len
+
+```cpp
+int google::protobuf::Repeated_google_protobuf_Any::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_google_protobuf_Any:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_google\_protobuf\_Any.\_\_type
@@ -12567,22 +12593,6 @@ lua:
     oRepeated_google_protobuf_Any:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_google\_protobuf\_Any.sol::meta\_function::index
-
-```cpp
-google::protobuf::Any* google::protobuf::Repeated_google_protobuf_Any::Mutable( int index );
-lua:
-    oRepeated_google_protobuf_Any:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_google\_protobuf\_Any.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_google_protobuf_Any::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_google_protobuf_Any:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_google\_protobuf\_Any.splice
 
 ```cpp
@@ -12658,6 +12668,22 @@ void google::protobuf::Repeated_int::SwapElements( int index1,
                                                    int index2 );
 lua:
     oRepeated_int:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_int.\_\_index
+
+```cpp
+int google::protobuf::Repeated_int::Get( int index );
+lua:
+    oRepeated_int:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_int.\_\_len
+
+```cpp
+int google::protobuf::Repeated_int::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_int:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_int.\_\_type
@@ -12779,22 +12805,6 @@ lua:
     oRepeated_int:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_int.sol::meta\_function::index
-
-```cpp
-int google::protobuf::Repeated_int::Get( int index );
-lua:
-    oRepeated_int:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_int.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_int::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_int:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_int.splice
 
 ```cpp
@@ -12870,6 +12880,22 @@ void google::protobuf::Repeated_int64::SwapElements( int index1,
                                                      int index2 );
 lua:
     oRepeated_int64:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_int64.\_\_index
+
+```cpp
+int64_t google::protobuf::Repeated_int64::Get( int index );
+lua:
+    oRepeated_int64:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_int64.\_\_len
+
+```cpp
+int google::protobuf::Repeated_int64::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_int64:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_int64.\_\_type
@@ -12991,22 +13017,6 @@ lua:
     oRepeated_int64:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_int64.sol::meta\_function::index
-
-```cpp
-int64_t google::protobuf::Repeated_int64::Get( int index );
-lua:
-    oRepeated_int64:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_int64.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_int64::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_int64:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_int64.splice
 
 ```cpp
@@ -13082,6 +13092,22 @@ void google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::SwapElements
                                                                                   int index2 );
 lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_index
+
+```cpp
+mediapipe::ARBlendShapeMap::MapEntry* google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_type
@@ -13220,22 +13246,6 @@ lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.sol::meta\_function::index
-
-```cpp
-mediapipe::ARBlendShapeMap::MapEntry* google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.splice
 
 ```cpp
@@ -13311,6 +13321,22 @@ void google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::Swap
                                                                                           int index2 );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_index
+
+```cpp
+mediapipe::ARFaceGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_type
@@ -13449,22 +13475,6 @@ lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.sol::meta\_function::index
-
-```cpp
-mediapipe::ARFaceGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.splice
 
 ```cpp
@@ -13540,6 +13550,22 @@ void google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::SwapElements( i
                                                                                int index2 );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_index
+
+```cpp
+mediapipe::ARFaceGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARFaceGeometry_Vertex:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARFaceGeometry_Vertex:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_type
@@ -13678,22 +13704,6 @@ lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.sol::meta\_function::index
-
-```cpp
-mediapipe::ARFaceGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARFaceGeometry_Vertex:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARFaceGeometry_Vertex:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.splice
 
 ```cpp
@@ -13769,6 +13779,22 @@ void google::protobuf::Repeated_mediapipe_ARPlaneAnchor::SwapElements( int index
                                                                        int index2 );
 lua:
     oRepeated_mediapipe_ARPlaneAnchor:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_index
+
+```cpp
+mediapipe::ARPlaneAnchor* google::protobuf::Repeated_mediapipe_ARPlaneAnchor::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARPlaneAnchor:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARPlaneAnchor::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARPlaneAnchor:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_type
@@ -13907,22 +13933,6 @@ lua:
     oRepeated_mediapipe_ARPlaneAnchor:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.sol::meta\_function::index
-
-```cpp
-mediapipe::ARPlaneAnchor* google::protobuf::Repeated_mediapipe_ARPlaneAnchor::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARPlaneAnchor:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneAnchor::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARPlaneAnchor:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.splice
 
 ```cpp
@@ -13998,6 +14008,22 @@ void google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::Swa
                                                                                            int index2 );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_index
+
+```cpp
+mediapipe::ARPlaneGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_type
@@ -14136,22 +14162,6 @@ lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.sol::meta\_function::index
-
-```cpp
-mediapipe::ARPlaneGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.splice
 
 ```cpp
@@ -14227,6 +14237,22 @@ void google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::SwapElements( 
                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_index
+
+```cpp
+mediapipe::ARPlaneGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARPlaneGeometry_Vertex:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARPlaneGeometry_Vertex:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_type
@@ -14365,22 +14391,6 @@ lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.sol::meta\_function::index
-
-```cpp
-mediapipe::ARPlaneGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARPlaneGeometry_Vertex:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARPlaneGeometry_Vertex:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.splice
 
 ```cpp
@@ -14456,6 +14466,22 @@ void google::protobuf::Repeated_mediapipe_ARPointCloud_Point::SwapElements( int 
                                                                             int index2 );
 lua:
     oRepeated_mediapipe_ARPointCloud_Point:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_index
+
+```cpp
+mediapipe::ARPointCloud::Point* google::protobuf::Repeated_mediapipe_ARPointCloud_Point::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ARPointCloud_Point:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ARPointCloud_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ARPointCloud_Point:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_type
@@ -14594,22 +14620,6 @@ lua:
     oRepeated_mediapipe_ARPointCloud_Point:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.sol::meta\_function::index
-
-```cpp
-mediapipe::ARPointCloud::Point* google::protobuf::Repeated_mediapipe_ARPointCloud_Point::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ARPointCloud_Point:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ARPointCloud_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ARPointCloud_Point:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.splice
 
 ```cpp
@@ -14685,6 +14695,22 @@ void google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::SwapElements( int i
                                                                            int index2 );
 lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_index
+
+```cpp
+mediapipe::AnnotatedKeyPoint* google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::Mutable( int index );
+lua:
+    oRepeated_mediapipe_AnnotatedKeyPoint:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_AnnotatedKeyPoint:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_type
@@ -14823,22 +14849,6 @@ lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.sol::meta\_function::index
-
-```cpp
-mediapipe::AnnotatedKeyPoint* google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::Mutable( int index );
-lua:
-    oRepeated_mediapipe_AnnotatedKeyPoint:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_AnnotatedKeyPoint:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.splice
 
 ```cpp
@@ -14914,6 +14924,22 @@ void google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::SwapElemen
                                                                                     int index2 );
 lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_index
+
+```cpp
+mediapipe::CalculatorGraphConfig::Node* google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::Mutable( int index );
+lua:
+    oRepeated_mediapipe_CalculatorGraphConfig_Node:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_CalculatorGraphConfig_Node:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_type
@@ -15052,22 +15078,6 @@ lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.sol::meta\_function::index
-
-```cpp
-mediapipe::CalculatorGraphConfig::Node* google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::Mutable( int index );
-lua:
-    oRepeated_mediapipe_CalculatorGraphConfig_Node:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_CalculatorGraphConfig_Node:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.splice
 
 ```cpp
@@ -15143,6 +15153,22 @@ void google::protobuf::Repeated_mediapipe_Classification::SwapElements( int inde
                                                                         int index2 );
 lua:
     oRepeated_mediapipe_Classification:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Classification.\_\_index
+
+```cpp
+mediapipe::Classification* google::protobuf::Repeated_mediapipe_Classification::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Classification:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Classification.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Classification::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Classification:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Classification.\_\_type
@@ -15281,22 +15307,6 @@ lua:
     oRepeated_mediapipe_Classification:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Classification.sol::meta\_function::index
-
-```cpp
-mediapipe::Classification* google::protobuf::Repeated_mediapipe_Classification::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Classification:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Classification.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Classification::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Classification:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Classification.splice
 
 ```cpp
@@ -15372,6 +15382,22 @@ void google::protobuf::Repeated_mediapipe_ClassificationList::SwapElements( int 
                                                                             int index2 );
 lua:
     oRepeated_mediapipe_ClassificationList:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_index
+
+```cpp
+mediapipe::ClassificationList* google::protobuf::Repeated_mediapipe_ClassificationList::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ClassificationList:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ClassificationList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ClassificationList:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_type
@@ -15510,22 +15536,6 @@ lua:
     oRepeated_mediapipe_ClassificationList:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ClassificationList.sol::meta\_function::index
-
-```cpp
-mediapipe::ClassificationList* google::protobuf::Repeated_mediapipe_ClassificationList::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ClassificationList:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ClassificationList.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ClassificationList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ClassificationList:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ClassificationList.splice
 
 ```cpp
@@ -15601,6 +15611,22 @@ void google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_Co
                                                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_index
+
+```cpp
+mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket* google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_type
@@ -15739,22 +15765,6 @@ lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::index
-
-```cpp
-mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket* google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.splice
 
 ```cpp
@@ -15830,6 +15840,22 @@ void google::protobuf::Repeated_mediapipe_Detection::SwapElements( int index1,
                                                                    int index2 );
 lua:
     oRepeated_mediapipe_Detection:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Detection.\_\_index
+
+```cpp
+mediapipe::Detection* google::protobuf::Repeated_mediapipe_Detection::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Detection:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Detection.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Detection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Detection:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Detection.\_\_type
@@ -15968,22 +15994,6 @@ lua:
     oRepeated_mediapipe_Detection:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Detection.sol::meta\_function::index
-
-```cpp
-mediapipe::Detection* google::protobuf::Repeated_mediapipe_Detection::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Detection:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Detection.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Detection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Detection:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Detection.splice
 
 ```cpp
@@ -16059,6 +16069,22 @@ void google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::SwapEle
                                                                                        int index2 );
 lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_index
+
+```cpp
+mediapipe::Detection::AssociatedDetection* google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Detection_AssociatedDetection:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Detection_AssociatedDetection:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_type
@@ -16197,22 +16223,6 @@ lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.sol::meta\_function::index
-
-```cpp
-mediapipe::Detection::AssociatedDetection* google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Detection_AssociatedDetection:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Detection_AssociatedDetection:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.splice
 
 ```cpp
@@ -16288,6 +16298,22 @@ void google::protobuf::Repeated_mediapipe_Edge::SwapElements( int index1,
                                                               int index2 );
 lua:
     oRepeated_mediapipe_Edge:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Edge.\_\_index
+
+```cpp
+mediapipe::Edge* google::protobuf::Repeated_mediapipe_Edge::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Edge:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Edge.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Edge::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Edge:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Edge.\_\_type
@@ -16426,22 +16452,6 @@ lua:
     oRepeated_mediapipe_Edge:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Edge.sol::meta\_function::index
-
-```cpp
-mediapipe::Edge* google::protobuf::Repeated_mediapipe_Edge::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Edge:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Edge.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Edge::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Edge:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Edge.splice
 
 ```cpp
@@ -16517,6 +16527,22 @@ void google::protobuf::Repeated_mediapipe_ExecutorConfig::SwapElements( int inde
                                                                         int index2 );
 lua:
     oRepeated_mediapipe_ExecutorConfig:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_index
+
+```cpp
+mediapipe::ExecutorConfig* google::protobuf::Repeated_mediapipe_ExecutorConfig::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ExecutorConfig:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ExecutorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ExecutorConfig:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_type
@@ -16655,22 +16681,6 @@ lua:
     oRepeated_mediapipe_ExecutorConfig:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.sol::meta\_function::index
-
-```cpp
-mediapipe::ExecutorConfig* google::protobuf::Repeated_mediapipe_ExecutorConfig::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ExecutorConfig:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ExecutorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ExecutorConfig:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.splice
 
 ```cpp
@@ -16746,6 +16756,22 @@ void google::protobuf::Repeated_mediapipe_FrameAnnotation::SwapElements( int ind
                                                                          int index2 );
 lua:
     oRepeated_mediapipe_FrameAnnotation:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_index
+
+```cpp
+mediapipe::FrameAnnotation* google::protobuf::Repeated_mediapipe_FrameAnnotation::Mutable( int index );
+lua:
+    oRepeated_mediapipe_FrameAnnotation:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_FrameAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_FrameAnnotation:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_type
@@ -16884,22 +16910,6 @@ lua:
     oRepeated_mediapipe_FrameAnnotation:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.sol::meta\_function::index
-
-```cpp
-mediapipe::FrameAnnotation* google::protobuf::Repeated_mediapipe_FrameAnnotation::Mutable( int index );
-lua:
-    oRepeated_mediapipe_FrameAnnotation:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_FrameAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_FrameAnnotation:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.splice
 
 ```cpp
@@ -16975,6 +16985,22 @@ void google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutput
                                                                                                                          int index2 );
 lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_index
+
+```cpp
+mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink* google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::Mutable( int index );
+lua:
+    oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_type
@@ -17113,22 +17139,6 @@ lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::index
-
-```cpp
-mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink* google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::Mutable( int index );
-lua:
-    oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.splice
 
 ```cpp
@@ -17204,6 +17214,22 @@ void google::protobuf::Repeated_mediapipe_InputCollection::SwapElements( int ind
                                                                          int index2 );
 lua:
     oRepeated_mediapipe_InputCollection:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_index
+
+```cpp
+mediapipe::InputCollection* google::protobuf::Repeated_mediapipe_InputCollection::Mutable( int index );
+lua:
+    oRepeated_mediapipe_InputCollection:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_InputCollection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_InputCollection:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_type
@@ -17342,22 +17368,6 @@ lua:
     oRepeated_mediapipe_InputCollection:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_InputCollection.sol::meta\_function::index
-
-```cpp
-mediapipe::InputCollection* google::protobuf::Repeated_mediapipe_InputCollection::Mutable( int index );
-lua:
-    oRepeated_mediapipe_InputCollection:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_InputCollection.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_InputCollection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_InputCollection:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_InputCollection.splice
 
 ```cpp
@@ -17433,6 +17443,22 @@ void google::protobuf::Repeated_mediapipe_InputStreamInfo::SwapElements( int ind
                                                                          int index2 );
 lua:
     oRepeated_mediapipe_InputStreamInfo:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_index
+
+```cpp
+mediapipe::InputStreamInfo* google::protobuf::Repeated_mediapipe_InputStreamInfo::Mutable( int index );
+lua:
+    oRepeated_mediapipe_InputStreamInfo:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_InputStreamInfo::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_InputStreamInfo:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_type
@@ -17571,22 +17597,6 @@ lua:
     oRepeated_mediapipe_InputStreamInfo:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.sol::meta\_function::index
-
-```cpp
-mediapipe::InputStreamInfo* google::protobuf::Repeated_mediapipe_InputStreamInfo::Mutable( int index );
-lua:
-    oRepeated_mediapipe_InputStreamInfo:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_InputStreamInfo::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_InputStreamInfo:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.splice
 
 ```cpp
@@ -17662,6 +17672,22 @@ void google::protobuf::Repeated_mediapipe_KeyPoint::SwapElements( int index1,
                                                                   int index2 );
 lua:
     oRepeated_mediapipe_KeyPoint:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_index
+
+```cpp
+mediapipe::KeyPoint* google::protobuf::Repeated_mediapipe_KeyPoint::Mutable( int index );
+lua:
+    oRepeated_mediapipe_KeyPoint:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_KeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_KeyPoint:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_type
@@ -17800,22 +17826,6 @@ lua:
     oRepeated_mediapipe_KeyPoint:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_KeyPoint.sol::meta\_function::index
-
-```cpp
-mediapipe::KeyPoint* google::protobuf::Repeated_mediapipe_KeyPoint::Mutable( int index );
-lua:
-    oRepeated_mediapipe_KeyPoint:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_KeyPoint.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_KeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_KeyPoint:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_KeyPoint.splice
 
 ```cpp
@@ -17891,6 +17901,22 @@ void google::protobuf::Repeated_mediapipe_Landmark::SwapElements( int index1,
                                                                   int index2 );
 lua:
     oRepeated_mediapipe_Landmark:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Landmark.\_\_index
+
+```cpp
+mediapipe::Landmark* google::protobuf::Repeated_mediapipe_Landmark::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Landmark:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Landmark.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Landmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Landmark:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Landmark.\_\_type
@@ -18029,22 +18055,6 @@ lua:
     oRepeated_mediapipe_Landmark:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Landmark.sol::meta\_function::index
-
-```cpp
-mediapipe::Landmark* google::protobuf::Repeated_mediapipe_Landmark::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Landmark:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Landmark.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Landmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Landmark:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Landmark.splice
 
 ```cpp
@@ -18120,6 +18130,22 @@ void google::protobuf::Repeated_mediapipe_LandmarkList::SwapElements( int index1
                                                                       int index2 );
 lua:
     oRepeated_mediapipe_LandmarkList:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_index
+
+```cpp
+mediapipe::LandmarkList* google::protobuf::Repeated_mediapipe_LandmarkList::Mutable( int index );
+lua:
+    oRepeated_mediapipe_LandmarkList:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_LandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_LandmarkList:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_type
@@ -18258,22 +18284,6 @@ lua:
     oRepeated_mediapipe_LandmarkList:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_LandmarkList.sol::meta\_function::index
-
-```cpp
-mediapipe::LandmarkList* google::protobuf::Repeated_mediapipe_LandmarkList::Mutable( int index );
-lua:
-    oRepeated_mediapipe_LandmarkList:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_LandmarkList.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_LandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_LandmarkList:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_LandmarkList.splice
 
 ```cpp
@@ -18349,6 +18359,22 @@ void google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::SwapEle
                                                                                        int index2 );
 lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_index
+
+```cpp
+mediapipe::LocationData::RelativeKeypoint* google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::Mutable( int index );
+lua:
+    oRepeated_mediapipe_LocationData_RelativeKeypoint:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_LocationData_RelativeKeypoint:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_type
@@ -18487,22 +18513,6 @@ lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.sol::meta\_function::index
-
-```cpp
-mediapipe::LocationData::RelativeKeypoint* google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::Mutable( int index );
-lua:
-    oRepeated_mediapipe_LocationData_RelativeKeypoint:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_LocationData_RelativeKeypoint:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.splice
 
 ```cpp
@@ -18578,6 +18588,22 @@ void google::protobuf::Repeated_mediapipe_NormalizedLandmark::SwapElements( int 
                                                                             int index2 );
 lua:
     oRepeated_mediapipe_NormalizedLandmark:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_index
+
+```cpp
+mediapipe::NormalizedLandmark* google::protobuf::Repeated_mediapipe_NormalizedLandmark::Mutable( int index );
+lua:
+    oRepeated_mediapipe_NormalizedLandmark:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_NormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_NormalizedLandmark:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_type
@@ -18716,22 +18742,6 @@ lua:
     oRepeated_mediapipe_NormalizedLandmark:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.sol::meta\_function::index
-
-```cpp
-mediapipe::NormalizedLandmark* google::protobuf::Repeated_mediapipe_NormalizedLandmark::Mutable( int index );
-lua:
-    oRepeated_mediapipe_NormalizedLandmark:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_NormalizedLandmark:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.splice
 
 ```cpp
@@ -18807,6 +18817,22 @@ void google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::SwapElements( 
                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_NormalizedLandmarkList:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_index
+
+```cpp
+mediapipe::NormalizedLandmarkList* google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::Mutable( int index );
+lua:
+    oRepeated_mediapipe_NormalizedLandmarkList:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_NormalizedLandmarkList:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_type
@@ -18945,22 +18971,6 @@ lua:
     oRepeated_mediapipe_NormalizedLandmarkList:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.sol::meta\_function::index
-
-```cpp
-mediapipe::NormalizedLandmarkList* google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::Mutable( int index );
-lua:
-    oRepeated_mediapipe_NormalizedLandmarkList:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_NormalizedLandmarkList:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.splice
 
 ```cpp
@@ -19036,6 +19046,22 @@ void google::protobuf::Repeated_mediapipe_NormalizedRect::SwapElements( int inde
                                                                         int index2 );
 lua:
     oRepeated_mediapipe_NormalizedRect:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_index
+
+```cpp
+mediapipe::NormalizedRect* google::protobuf::Repeated_mediapipe_NormalizedRect::Mutable( int index );
+lua:
+    oRepeated_mediapipe_NormalizedRect:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_NormalizedRect::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_NormalizedRect:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_type
@@ -19174,22 +19200,6 @@ lua:
     oRepeated_mediapipe_NormalizedRect:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_NormalizedRect.sol::meta\_function::index
-
-```cpp
-mediapipe::NormalizedRect* google::protobuf::Repeated_mediapipe_NormalizedRect::Mutable( int index );
-lua:
-    oRepeated_mediapipe_NormalizedRect:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_NormalizedRect.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedRect::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_NormalizedRect:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_NormalizedRect.splice
 
 ```cpp
@@ -19265,6 +19275,22 @@ void google::protobuf::Repeated_mediapipe_Object::SwapElements( int index1,
                                                                 int index2 );
 lua:
     oRepeated_mediapipe_Object:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Object.\_\_index
+
+```cpp
+mediapipe::Object* google::protobuf::Repeated_mediapipe_Object::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Object:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Object.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Object:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Object.\_\_type
@@ -19403,22 +19429,6 @@ lua:
     oRepeated_mediapipe_Object:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Object.sol::meta\_function::index
-
-```cpp
-mediapipe::Object* google::protobuf::Repeated_mediapipe_Object::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Object:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Object.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Object:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Object.splice
 
 ```cpp
@@ -19494,6 +19504,22 @@ void google::protobuf::Repeated_mediapipe_ObjectAnnotation::SwapElements( int in
                                                                           int index2 );
 lua:
     oRepeated_mediapipe_ObjectAnnotation:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_index
+
+```cpp
+mediapipe::ObjectAnnotation* google::protobuf::Repeated_mediapipe_ObjectAnnotation::Mutable( int index );
+lua:
+    oRepeated_mediapipe_ObjectAnnotation:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_ObjectAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_ObjectAnnotation:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_type
@@ -19632,22 +19658,6 @@ lua:
     oRepeated_mediapipe_ObjectAnnotation:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.sol::meta\_function::index
-
-```cpp
-mediapipe::ObjectAnnotation* google::protobuf::Repeated_mediapipe_ObjectAnnotation::Mutable( int index );
-lua:
-    oRepeated_mediapipe_ObjectAnnotation:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_ObjectAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_ObjectAnnotation:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.splice
 
 ```cpp
@@ -19723,6 +19733,22 @@ void google::protobuf::Repeated_mediapipe_PacketFactoryConfig::SwapElements( int
                                                                              int index2 );
 lua:
     oRepeated_mediapipe_PacketFactoryConfig:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_index
+
+```cpp
+mediapipe::PacketFactoryConfig* google::protobuf::Repeated_mediapipe_PacketFactoryConfig::Mutable( int index );
+lua:
+    oRepeated_mediapipe_PacketFactoryConfig:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_PacketFactoryConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_PacketFactoryConfig:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_type
@@ -19861,22 +19887,6 @@ lua:
     oRepeated_mediapipe_PacketFactoryConfig:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.sol::meta\_function::index
-
-```cpp
-mediapipe::PacketFactoryConfig* google::protobuf::Repeated_mediapipe_PacketFactoryConfig::Mutable( int index );
-lua:
-    oRepeated_mediapipe_PacketFactoryConfig:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_PacketFactoryConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_PacketFactoryConfig:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.splice
 
 ```cpp
@@ -19952,6 +19962,22 @@ void google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::SwapElements( i
                                                                                int index2 );
 lua:
     oRepeated_mediapipe_PacketGeneratorConfig:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_index
+
+```cpp
+mediapipe::PacketGeneratorConfig* google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::Mutable( int index );
+lua:
+    oRepeated_mediapipe_PacketGeneratorConfig:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_PacketGeneratorConfig:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_type
@@ -20090,22 +20116,6 @@ lua:
     oRepeated_mediapipe_PacketGeneratorConfig:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.sol::meta\_function::index
-
-```cpp
-mediapipe::PacketGeneratorConfig* google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::Mutable( int index );
-lua:
-    oRepeated_mediapipe_PacketGeneratorConfig:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_PacketGeneratorConfig:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.splice
 
 ```cpp
@@ -20181,6 +20191,22 @@ void google::protobuf::Repeated_mediapipe_Rasterization_Interval::SwapElements( 
                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_Rasterization_Interval:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_index
+
+```cpp
+mediapipe::Rasterization::Interval* google::protobuf::Repeated_mediapipe_Rasterization_Interval::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Rasterization_Interval:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Rasterization_Interval::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Rasterization_Interval:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_type
@@ -20319,22 +20345,6 @@ lua:
     oRepeated_mediapipe_Rasterization_Interval:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.sol::meta\_function::index
-
-```cpp
-mediapipe::Rasterization::Interval* google::protobuf::Repeated_mediapipe_Rasterization_Interval::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Rasterization_Interval:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Rasterization_Interval::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Rasterization_Interval:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.splice
 
 ```cpp
@@ -20410,6 +20420,22 @@ void google::protobuf::Repeated_mediapipe_RenderAnnotation::SwapElements( int in
                                                                           int index2 );
 lua:
     oRepeated_mediapipe_RenderAnnotation:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_index
+
+```cpp
+mediapipe::RenderAnnotation* google::protobuf::Repeated_mediapipe_RenderAnnotation::Mutable( int index );
+lua:
+    oRepeated_mediapipe_RenderAnnotation:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_RenderAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_RenderAnnotation:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_type
@@ -20548,22 +20574,6 @@ lua:
     oRepeated_mediapipe_RenderAnnotation:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.sol::meta\_function::index
-
-```cpp
-mediapipe::RenderAnnotation* google::protobuf::Repeated_mediapipe_RenderAnnotation::Mutable( int index );
-lua:
-    oRepeated_mediapipe_RenderAnnotation:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_RenderAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_RenderAnnotation:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.splice
 
 ```cpp
@@ -20639,6 +20649,22 @@ void google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::SwapElements( 
                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_RenderAnnotation_Point:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_index
+
+```cpp
+mediapipe::RenderAnnotation::Point* google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::Mutable( int index );
+lua:
+    oRepeated_mediapipe_RenderAnnotation_Point:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_RenderAnnotation_Point:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_type
@@ -20777,22 +20803,6 @@ lua:
     oRepeated_mediapipe_RenderAnnotation_Point:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.sol::meta\_function::index
-
-```cpp
-mediapipe::RenderAnnotation::Point* google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::Mutable( int index );
-lua:
-    oRepeated_mediapipe_RenderAnnotation_Point:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_RenderAnnotation_Point:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.splice
 
 ```cpp
@@ -20868,6 +20878,22 @@ void google::protobuf::Repeated_mediapipe_Skeleton::SwapElements( int index1,
                                                                   int index2 );
 lua:
     oRepeated_mediapipe_Skeleton:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_index
+
+```cpp
+mediapipe::Skeleton* google::protobuf::Repeated_mediapipe_Skeleton::Mutable( int index );
+lua:
+    oRepeated_mediapipe_Skeleton:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_Skeleton::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_Skeleton:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_type
@@ -21006,22 +21032,6 @@ lua:
     oRepeated_mediapipe_Skeleton:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_Skeleton.sol::meta\_function::index
-
-```cpp
-mediapipe::Skeleton* google::protobuf::Repeated_mediapipe_Skeleton::Mutable( int index );
-lua:
-    oRepeated_mediapipe_Skeleton:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_Skeleton.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_Skeleton::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_Skeleton:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_Skeleton.splice
 
 ```cpp
@@ -21097,6 +21107,22 @@ void google::protobuf::Repeated_mediapipe_StatusHandlerConfig::SwapElements( int
                                                                              int index2 );
 lua:
     oRepeated_mediapipe_StatusHandlerConfig:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_index
+
+```cpp
+mediapipe::StatusHandlerConfig* google::protobuf::Repeated_mediapipe_StatusHandlerConfig::Mutable( int index );
+lua:
+    oRepeated_mediapipe_StatusHandlerConfig:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_StatusHandlerConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_StatusHandlerConfig:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_type
@@ -21235,22 +21261,6 @@ lua:
     oRepeated_mediapipe_StatusHandlerConfig:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.sol::meta\_function::index
-
-```cpp
-mediapipe::StatusHandlerConfig* google::protobuf::Repeated_mediapipe_StatusHandlerConfig::Mutable( int index );
-lua:
-    oRepeated_mediapipe_StatusHandlerConfig:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_StatusHandlerConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_StatusHandlerConfig:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.splice
 
 ```cpp
@@ -21326,6 +21336,22 @@ void google::protobuf::Repeated_mediapipe_TemplateArgument::SwapElements( int in
                                                                           int index2 );
 lua:
     oRepeated_mediapipe_TemplateArgument:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_index
+
+```cpp
+mediapipe::TemplateArgument* google::protobuf::Repeated_mediapipe_TemplateArgument::Mutable( int index );
+lua:
+    oRepeated_mediapipe_TemplateArgument:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_TemplateArgument::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_TemplateArgument:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_type
@@ -21464,22 +21490,6 @@ lua:
     oRepeated_mediapipe_TemplateArgument:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_TemplateArgument.sol::meta\_function::index
-
-```cpp
-mediapipe::TemplateArgument* google::protobuf::Repeated_mediapipe_TemplateArgument::Mutable( int index );
-lua:
-    oRepeated_mediapipe_TemplateArgument:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_TemplateArgument.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_TemplateArgument::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_TemplateArgument:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_TemplateArgument.splice
 
 ```cpp
@@ -21555,6 +21565,22 @@ void google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::SwapElements( 
                                                                                 int index2 );
 lua:
     oRepeated_mediapipe_TemplateDict_Parameter:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_index
+
+```cpp
+mediapipe::TemplateDict::Parameter* google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::Mutable( int index );
+lua:
+    oRepeated_mediapipe_TemplateDict_Parameter:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_TemplateDict_Parameter:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_type
@@ -21693,22 +21719,6 @@ lua:
     oRepeated_mediapipe_TemplateDict_Parameter:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.sol::meta\_function::index
-
-```cpp
-mediapipe::TemplateDict::Parameter* google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::Mutable( int index );
-lua:
-    oRepeated_mediapipe_TemplateDict_Parameter:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_TemplateDict_Parameter:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.splice
 
 ```cpp
@@ -21784,6 +21794,22 @@ void google::protobuf::Repeated_mediapipe_TemplateExpression::SwapElements( int 
                                                                             int index2 );
 lua:
     oRepeated_mediapipe_TemplateExpression:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_index
+
+```cpp
+mediapipe::TemplateExpression* google::protobuf::Repeated_mediapipe_TemplateExpression::Mutable( int index );
+lua:
+    oRepeated_mediapipe_TemplateExpression:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_TemplateExpression::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_TemplateExpression:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_type
@@ -21922,22 +21948,6 @@ lua:
     oRepeated_mediapipe_TemplateExpression:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_TemplateExpression.sol::meta\_function::index
-
-```cpp
-mediapipe::TemplateExpression* google::protobuf::Repeated_mediapipe_TemplateExpression::Mutable( int index );
-lua:
-    oRepeated_mediapipe_TemplateExpression:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_TemplateExpression.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_TemplateExpression::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_TemplateExpression:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_TemplateExpression.splice
 
 ```cpp
@@ -22013,6 +22023,22 @@ void google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Clas
                                                                                                            int index2 );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_index
+
+```cpp
+mediapipe::tasks::components::containers::proto::Classifications* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::Mutable( int index );
+lua:
+    oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_type
@@ -22151,22 +22177,6 @@ lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.sol::meta\_function::index
-
-```cpp
-mediapipe::tasks::components::containers::proto::Classifications* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::Mutable( int index );
-lua:
-    oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.splice
 
 ```cpp
@@ -22242,6 +22252,22 @@ void google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embe
                                                                                                      int index2 );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_index
+
+```cpp
+mediapipe::tasks::components::containers::proto::Embedding* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::Mutable( int index );
+lua:
+    oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_len
+
+```cpp
+int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_type
@@ -22380,22 +22406,6 @@ lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.sol::meta\_function::index
-
-```cpp
-mediapipe::tasks::components::containers::proto::Embedding* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::Mutable( int index );
-lua:
-    oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.splice
 
 ```cpp
@@ -22471,6 +22481,22 @@ void google::protobuf::Repeated_std_string::SwapElements( int index1,
                                                           int index2 );
 lua:
     oRepeated_std_string:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_std\_string.\_\_index
+
+```cpp
+std::string google::protobuf::Repeated_std_string::Get( int index );
+lua:
+    oRepeated_std_string:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_std\_string.\_\_len
+
+```cpp
+int google::protobuf::Repeated_std_string::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_std_string:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_std\_string.\_\_type
@@ -22592,22 +22618,6 @@ lua:
     oRepeated_std_string:slice( [start[, list]] ) -> list
 ```
 
-### google.protobuf.Repeated\_std\_string.sol::meta\_function::index
-
-```cpp
-std::string google::protobuf::Repeated_std_string::Get( int index );
-lua:
-    oRepeated_std_string:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_std\_string.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_std_string::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_std_string:__len( unused ) -> retval
-```
-
 ### google.protobuf.Repeated\_std\_string.splice
 
 ```cpp
@@ -22683,6 +22693,22 @@ void google::protobuf::Repeated_uint32::SwapElements( int index1,
                                                       int index2 );
 lua:
     oRepeated_uint32:SwapElements( index1, index2 ) -> None
+```
+
+### google.protobuf.Repeated\_uint32.\_\_index
+
+```cpp
+uint32_t google::protobuf::Repeated_uint32::Get( int index );
+lua:
+    oRepeated_uint32:__index( index ) -> retval
+```
+
+### google.protobuf.Repeated\_uint32.\_\_len
+
+```cpp
+int google::protobuf::Repeated_uint32::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oRepeated_uint32:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_uint32.\_\_type
@@ -22802,22 +22828,6 @@ void google::protobuf::Repeated_uint32::slice( std::vector<uint32_t>            
                                                ::google::protobuf::lua::ssize_t start = 0 );
 lua:
     oRepeated_uint32:slice( [start[, list]] ) -> list
-```
-
-### google.protobuf.Repeated\_uint32.sol::meta\_function::index
-
-```cpp
-uint32_t google::protobuf::Repeated_uint32::Get( int index );
-lua:
-    oRepeated_uint32:__index( index ) -> retval
-```
-
-### google.protobuf.Repeated\_uint32.sol::meta\_function::length
-
-```cpp
-int google::protobuf::Repeated_uint32::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oRepeated_uint32:__len( unused ) -> retval
 ```
 
 ### google.protobuf.Repeated\_uint32.splice
@@ -26055,6 +26065,14 @@ lua:
     [propget, propput] oCalculatorGraphConfig.report_deadlock
 ```
 
+### CalculatorGraphConfig.runtime\_info
+
+```cpp
+std::shared_ptr<mediapipe::GraphRuntimeInfoConfig> mediapipe::CalculatorGraphConfig::runtime_info
+lua:
+    [propget, propput] oCalculatorGraphConfig.runtime_info
+```
+
 ### CalculatorGraphConfig.input\_stream\_handler
 
 ```cpp
@@ -26133,6 +26151,7 @@ mediapipe::CalculatorGraphConfig( ::LUA_MODULE_NAME::Object                     
                                   ::LUA_MODULE_NAME::Object                             output_side_packet = ::LUA_MODULE_NAME::Object(),
                                   std::optional<int>                                    max_queue_size = std::optional<int>(),
                                   std::optional<bool>                                   report_deadlock = std::optional<bool>(),
+                                  std::shared_ptr<mediapipe::GraphRuntimeInfoConfig>    runtime_info = std::shared_ptr<mediapipe::GraphRuntimeInfoConfig>(),
                                   std::shared_ptr<mediapipe::InputStreamHandlerConfig>  input_stream_handler = std::shared_ptr<mediapipe::InputStreamHandlerConfig>(),
                                   std::shared_ptr<mediapipe::OutputStreamHandlerConfig> output_stream_handler = std::shared_ptr<mediapipe::OutputStreamHandlerConfig>(),
                                   ::LUA_MODULE_NAME::Object                             executor = ::LUA_MODULE_NAME::Object(),
@@ -26142,8 +26161,8 @@ mediapipe::CalculatorGraphConfig( ::LUA_MODULE_NAME::Object                     
                                   std::shared_ptr<mediapipe::MediaPipeOptions>          options = std::shared_ptr<mediapipe::MediaPipeOptions>(),
                                   ::LUA_MODULE_NAME::Object                             graph_options = ::LUA_MODULE_NAME::Object() );
 lua:
-    mediapipe.CalculatorGraphConfig.new( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
-    mediapipe.CalculatorGraphConfig( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
+    mediapipe.CalculatorGraphConfig.new( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, runtime_info[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
+    mediapipe.CalculatorGraphConfig( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, runtime_info[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
 ```
 
 ### mediapipe.CalculatorGraphConfig.\_\_type
@@ -27724,6 +27743,42 @@ lua:
     mediapipe.GpuOrigin.__type() -> retval
 ```
 
+## mediapipe::GraphRuntimeInfoConfig
+
+### GraphRuntimeInfoConfig.enable\_graph\_runtime\_info
+
+```cpp
+bool mediapipe::GraphRuntimeInfoConfig::enable_graph_runtime_info
+lua:
+    [propget, propput] oGraphRuntimeInfoConfig.enable_graph_runtime_info
+```
+
+### GraphRuntimeInfoConfig.capture\_period\_msec
+
+```cpp
+uint32_t mediapipe::GraphRuntimeInfoConfig::capture_period_msec
+lua:
+    [propget, propput] oGraphRuntimeInfoConfig.capture_period_msec
+```
+
+### mediapipe.GraphRuntimeInfoConfig.new
+
+```cpp
+mediapipe::GraphRuntimeInfoConfig( std::optional<bool>     enable_graph_runtime_info = std::optional<bool>(),
+                                   std::optional<uint32_t> capture_period_msec = std::optional<uint32_t>() );
+lua:
+    mediapipe.GraphRuntimeInfoConfig.new( [enable_graph_runtime_info[, capture_period_msec]] ) -> <mediapipe::GraphRuntimeInfoConfig object>
+    mediapipe.GraphRuntimeInfoConfig( [enable_graph_runtime_info[, capture_period_msec]] ) -> <mediapipe::GraphRuntimeInfoConfig object>
+```
+
+### mediapipe.GraphRuntimeInfoConfig.\_\_type
+
+```cpp
+static std::string mediapipe::GraphRuntimeInfoConfig::__type();
+lua:
+    mediapipe.GraphRuntimeInfoConfig.__type() -> retval
+```
+
 ## mediapipe::Image
 
 ### Image.width
@@ -28809,13 +28864,22 @@ lua:
     [propget, propput] oXnnpack.num_threads
 ```
 
+### Xnnpack.enable\_zero\_copy\_tensor\_io
+
+```cpp
+bool mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack::enable_zero_copy_tensor_io
+lua:
+    [propget, propput] oXnnpack.enable_zero_copy_tensor_io
+```
+
 ### mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.new
 
 ```cpp
-mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack( std::optional<int> num_threads = std::optional<int>() );
+mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack( std::optional<int>  num_threads = std::optional<int>(),
+                                                          std::optional<bool> enable_zero_copy_tensor_io = std::optional<bool>() );
 lua:
-    mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.new( [num_threads] ) -> <mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack object>
-    mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack( [num_threads] ) -> <mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack object>
+    mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.new( [num_threads[, enable_zero_copy_tensor_io]] ) -> <mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack object>
+    mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack( [num_threads[, enable_zero_copy_tensor_io]] ) -> <mediapipe::InferenceCalculatorOptions::Delegate::Xnnpack object>
 ```
 
 ### mediapipe.InferenceCalculatorOptions.Delegate.Xnnpack.\_\_type
@@ -30703,6 +30767,14 @@ lua:
     mediapipe.Packet( Packet ) -> <mediapipe::Packet object>
 ```
 
+### mediapipe.Packet.\_\_tostring
+
+```cpp
+std::string mediapipe::Packet::__tostring();
+lua:
+    oPacket:__tostring() -> retval
+```
+
 ### mediapipe.Packet.\_\_type
 
 ```cpp
@@ -30745,14 +30817,6 @@ lua:
 bool mediapipe::Packet::operator==( ::LUA_MODULE_NAME::Object other );
 lua:
     oPacket:__eq( other ) -> retval
-```
-
-### mediapipe.Packet.sol::meta\_function::to\_string
-
-```cpp
-std::string mediapipe::Packet::sol::meta_function::to_string();
-lua:
-    oPacket:__tostring() -> retval
 ```
 
 ## mediapipe::PacketFactoryConfig
@@ -33341,6 +33405,14 @@ lua:
     mediapipe.Timestamp( timestamp ) -> <mediapipe::Timestamp object>
 ```
 
+### mediapipe.Timestamp.\_\_tostring
+
+```cpp
+std::string mediapipe::Timestamp::__tostring();
+lua:
+    oTimestamp:__tostring() -> retval
+```
+
 ### mediapipe.Timestamp.\_\_type
 
 ```cpp
@@ -33440,14 +33512,6 @@ lua:
 double mediapipe::Timestamp::Seconds();
 lua:
     oTimestamp:seconds() -> retval
-```
-
-### mediapipe.Timestamp.sol::meta\_function::to\_string
-
-```cpp
-std::string mediapipe::Timestamp::sol::meta_function::to_string();
-lua:
-    oTimestamp:__tostring() -> retval
 ```
 
 ## mediapipe::ValidatedGraphConfig
@@ -33683,6 +33747,14 @@ lua:
 mediapipe::ProfilerConfig
 lua:
     [propget] calculator_pb2.ProfilerConfig
+```
+
+### calculator\_pb2.GraphRuntimeInfoConfig
+
+```cpp
+mediapipe::GraphRuntimeInfoConfig
+lua:
+    [propget] calculator_pb2.GraphRuntimeInfoConfig
 ```
 
 ### calculator\_pb2.CalculatorGraphConfig
@@ -34607,13 +34679,35 @@ lua:
 ### mediapipe.lua.solutions.download\_utils.download
 
 ```cpp
-absl::Status mediapipe::lua::solutions::download_utils::download( const std::string& url,
-                                                                  const std::string& file,
-                                                                  const std::string& hash = std::string(),
-                                                                  const bool         force = false,
-                                                                  const bool         verbose = false );
+absl::Status mediapipe::lua::solutions::download_utils::download( const std::string&               url,
+                                                                  const std::string&               file,
+                                                                  const std::string&               hash = std::string(),
+                                                                  const bool                       force = false,
+                                                                  const std::optional<std::string> abstract_unix_socket = std::nullopt,
+                                                                  const std::string&               altsvc = std::string(),
+                                                                  const bool                       anyauth = false,
+                                                                  const std::optional<std::string> aws_sigv4 = std::nullopt,
+                                                                  const bool                       basic = false,
+                                                                  const bool                       ca_native = false,
+                                                                  const std::optional<std::string> cacert = std::nullopt,
+                                                                  const std::optional<std::string> capath = std::nullopt,
+                                                                  const std::optional<std::string> cert = std::nullopt,
+                                                                  const bool                       cert_status = false,
+                                                                  const std::optional<std::string> cert_type = std::nullopt,
+                                                                  const std::optional<std::string> cipher_list = std::nullopt,
+                                                                  const bool                       compressed = false,
+                                                                  const std::optional<long>        connect_timeout = std::nullopt,
+                                                                  const std::vector<std::string>&  connect_to = std::vector<std::string>(),
+                                                                  const std::vector<std::string>&  cookies = std::vector<std::string>(),
+                                                                  const std::optional<std::string> cookie_jar = std::nullopt,
+                                                                  const std::optional<std::string> crlfile = std::nullopt,
+                                                                  const std::optional<std::string> curves = std::nullopt,
+                                                                  const std::optional<std::string> data = std::nullopt,
+                                                                  const std::optional<bool>        digest = std::nullopt,
+                                                                  const bool                       disallow_username_in_url = false,
+                                                                  const bool                       verbose = false );
 lua:
-    mediapipe.lua.solutions.download_utils.download( url, file[, hash[, force[, verbose]]] ) -> retval
+    mediapipe.lua.solutions.download_utils.download( url, file[, hash[, force[, abstract_unix_socket[, altsvc[, anyauth[, aws_sigv4[, basic[, ca_native[, cacert[, capath[, cert[, cert_status[, cert_type[, cipher_list[, compressed[, connect_timeout[, connect_to[, cookies[, cookie_jar[, crlfile[, curves[, data[, digest[, disallow_username_in_url[, verbose]]]]]]]]]]]]]]]]]]]]]]]]] ) -> retval
 ```
 
 ### mediapipe.lua.solutions.download\_utils.download\_oss\_model
@@ -45211,6 +45305,22 @@ lua:
     [propget, propput] oObjectDetectorOptions.category_denylist
 ```
 
+### ObjectDetectorOptions.multiclass\_nms
+
+```cpp
+bool mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::multiclass_nms
+lua:
+    [propget, propput] oObjectDetectorOptions.multiclass_nms
+```
+
+### ObjectDetectorOptions.min\_suppression\_threshold
+
+```cpp
+float mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::min_suppression_threshold
+lua:
+    [propget, propput] oObjectDetectorOptions.min_suppression_threshold
+```
+
 ### ObjectDetectorOptions.ext
 
 ```cpp
@@ -45227,10 +45337,12 @@ mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions( std::sh
                                                                          std::optional<int>                                          max_results = std::optional<int>(),
                                                                          std::optional<float>                                        score_threshold = std::optional<float>(),
                                                                          ::LUA_MODULE_NAME::Object                                   category_allowlist = ::LUA_MODULE_NAME::Object(),
-                                                                         ::LUA_MODULE_NAME::Object                                   category_denylist = ::LUA_MODULE_NAME::Object() );
+                                                                         ::LUA_MODULE_NAME::Object                                   category_denylist = ::LUA_MODULE_NAME::Object(),
+                                                                         std::optional<bool>                                         multiclass_nms = std::optional<bool>(),
+                                                                         std::optional<float>                                        min_suppression_threshold = std::optional<float>() );
 lua:
-    mediapipe.tasks.vision.object_detector.proto.ObjectDetectorOptions.new( [base_options[, display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist]]]]]] ) -> <mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions object>
-    mediapipe.tasks.vision.object_detector.proto.ObjectDetectorOptions( [base_options[, display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist]]]]]] ) -> <mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions object>
+    mediapipe.tasks.vision.object_detector.proto.ObjectDetectorOptions.new( [base_options[, display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist[, multiclass_nms[, min_suppression_threshold]]]]]]]] ) -> <mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions object>
+    mediapipe.tasks.vision.object_detector.proto.ObjectDetectorOptions( [base_options[, display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist[, multiclass_nms[, min_suppression_threshold]]]]]]]] ) -> <mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions object>
 ```
 
 ### mediapipe.tasks.vision.object\_detector.proto.ObjectDetectorOptions.\_\_type

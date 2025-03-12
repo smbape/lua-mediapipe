@@ -6,7 +6,7 @@ namespace {
 
 	void register_version(lua_State* L) {
 		lua_pushliteral(L, "version");
-		lua_pushliteral(L, "Lua bindings " LUA_MODULE_QUOTE_STRING(LUA_MODULE_VERSION) " for Mediapipe " LUA_MODULE_QUOTE_STRING(LUA_MODULE_LIB_VERSION));
+		lua_pushliteral(L, "Lua bindings " LUA_MODULE_QUOTE_STRING(LUA_MODULE_VERSION) " for OpenCV " LUA_MODULE_QUOTE_STRING(LUA_MODULE_LIB_VERSION));
 		lua_rawset(L, -3);
 	}
 
@@ -22,24 +22,27 @@ namespace {
 		auto vargc = lua_gettop(L);
 
 		if (vargc == 1) {
-			if (!lua_is(L, 1, static_cast<double*>(nullptr))) {
+			bool is_valid;
+			auto num = lua_to(L, 1, static_cast<double*>(nullptr), is_valid);
+			if (!is_valid) {
 				return luaL_typeerror(L, 1, "number");
 			}
-			auto num = lua_to(L, 1, static_cast<double*>(nullptr));
 			return lua_push(L, std::round(num));
 		}
 
 		if (vargc == 2) {
-			if (!lua_is(L, 1, static_cast<double*>(nullptr))) {
+			bool is_valid;
+
+			auto num = lua_to(L, 1, static_cast<double*>(nullptr), is_valid);
+			if (!is_valid) {
 				return luaL_typeerror(L, 1, "number");
 			}
 
-			if (!lua_is(L, 2, static_cast<int32_t*>(nullptr))) {
-				return luaL_typeerror(L, 1, "integer");
+			auto n = lua_to(L, 2, static_cast<int32_t*>(nullptr), is_valid);
+			if (!is_valid) {
+				return luaL_typeerror(L, 2, "integer");
 			}
 
-			auto num = lua_to(L, 1, static_cast<double*>(nullptr));
-			auto n = lua_to(L, 2, static_cast<int32_t*>(nullptr));
 			double mult = std::pow((double)10, (double)n);
 			return lua_push(L, std::round(num * mult) / mult);
 		}
@@ -51,10 +54,11 @@ namespace {
 		auto vargc = lua_gettop(L);
 
 		if (vargc == 1) {
-			if (!lua_is(L, 1, static_cast<double*>(nullptr))) {
+			bool is_valid;
+			auto num = lua_to(L, 1, static_cast<double*>(nullptr), is_valid);
+			if (!is_valid) {
 				return luaL_typeerror(L, 1, "number");
 			}
-			auto num = lua_to(L, 1, static_cast<double*>(nullptr));
 			return lua_push(L, static_cast<int>(num));
 		}
 
@@ -95,7 +99,6 @@ namespace {
 		void* userdata = nullptr;
 	};
 
-	// order is important, first in, first called
 	std::map<int, CallbackHandler> registered_callbacks;
 	std::vector<int> once_ids;
 	int _callback_id = 0;

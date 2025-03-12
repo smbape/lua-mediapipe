@@ -113,8 +113,9 @@ namespace mediapipe::lua::solutions::objectron {
 	}
 
 	::LUA_MODULE_NAME::Object _convert_format(::LUA_MODULE_NAME::Object input_objects) {
-		MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(input_objects, static_cast<FrameAnnotation*>(nullptr)), "expecting a FrameAnnotation");
-		auto inputs_holder = ::LUA_MODULE_NAME::lua_to(input_objects, static_cast<FrameAnnotation*>(nullptr));
+		bool is_valid;
+		auto inputs_holder = ::LUA_MODULE_NAME::lua_to(input_objects, static_cast<FrameAnnotation*>(nullptr), is_valid);
+		MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting a FrameAnnotation");
 		decltype(auto) inputs = ::LUA_MODULE_NAME::extract_holder(inputs_holder, static_cast<FrameAnnotation*>(nullptr));
 
 		std::vector<ObjectronOutputs> new_outputs;

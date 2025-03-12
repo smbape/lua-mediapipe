@@ -5,12 +5,12 @@ module.exports = ({language}) => {
 
     return [
         [`mediapipe.${ language }.solutions.holistic.`, "", ["/Properties"], [
-            ["std::vector<std::tuple<int, int>>", "FACEMESH_CONTOURS", "", [`/RExpr=${ ns_face_mesh_connections }::FACEMESH_CONTOURS`]],
-            ["std::vector<std::tuple<int, int>>", "FACEMESH_TESSELATION", "", [`/RExpr=${ ns_face_mesh_connections }::FACEMESH_TESSELATION`]],
+            ["std::vector<std::tuple<int, int>>", "FACEMESH_CONTOURS", "", [`/RExpr=${ ns_face_mesh_connections }::FACEMESH_CONTOURS`, "/C"]],
+            ["std::vector<std::tuple<int, int>>", "FACEMESH_TESSELATION", "", [`/RExpr=${ ns_face_mesh_connections }::FACEMESH_TESSELATION`, "/C"]],
             [`mediapipe::${ language }::solutions::hands::HandLandmark`, "HandLandmark", "", ["/R", "=this", "/S"]],
-            ["std::vector<std::tuple<int, int>>", "HAND_CONNECTIONS", "", [`/RExpr=${ ns_hands_connections }::HAND_CONNECTIONS`]],
+            ["std::vector<std::tuple<int, int>>", "HAND_CONNECTIONS", "", [`/RExpr=${ ns_hands_connections }::HAND_CONNECTIONS`, "/C"]],
             [`mediapipe::${ language }::solutions::pose::PoseLandmark`, "PoseLandmark", "", ["/R", "=this", "/S"]],
-            ["std::vector<std::tuple<int, int>>", "POSE_CONNECTIONS", "", [`/RExpr=${ ns_pose_connections }::POSE_CONNECTIONS`]],
+            ["std::vector<std::tuple<int, int>>", "POSE_CONNECTIONS", "", [`/RExpr=${ ns_pose_connections }::POSE_CONNECTIONS`, "/C"]],
         ], "", ""],
     ];
 };

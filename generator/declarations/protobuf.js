@@ -10,11 +10,11 @@ module.exports = ({self, self_get, language}) => [
         ["Message", "other", "", ["/Ref", "/C"]],
     ], "", ""],
 
-    ["google.protobuf.Message.ToStr", "absl::Status", ["=sol::meta_function::to_string", `/Call=google::protobuf::${ language }::Print`, `/Expr=${ self }, $0`], [
+    ["google.protobuf.Message.__tostring", "absl::Status", [ `/Call=google::protobuf::${ language }::Print`, `/Expr=${ self }, $0`], [
         ["std::string*", "output", "", ["/O"]],
     ], "", ""],
 
-    ["google.protobuf.Message.CopyFrom", "absl::Status", [`/Call=google::protobuf::${ language }::cmessage::CopyFrom`, `/Expr=${ self_get() }, $0`], [
+    ["google.protobuf.Message.CopyFrom", "absl::Status", [`/Call=google::protobuf::${ language }::cmessage::CopyFrom`, `/Expr=&(${ self }), $0`], [
         ["google::protobuf::Message*", "other_message", "", ["/C"]],
     ], "", ""],
 

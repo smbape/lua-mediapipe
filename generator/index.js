@@ -7,40 +7,11 @@ const { spawn } = require("node:child_process");
 const os = require("node:os");
 
 const { mkdirp } = require("mkdirp");
-const eachOfLimit = require("async/eachOfLimit");
 const waterfall = require("async/waterfall");
 const { explore } = require("fs-explorer");
 const Parser = require("./protobuf/Parser");
 
-const Mediapipe_VERSION = "0.10.14";
-
 const Python3_EXECUTABLE = process.env.Python3_EXECUTABLE ? process.env.Python3_EXECUTABLE : "python";
-
-/** Function that count occurrences of a substring in a string;
- * @param {String} str               The string
- * @param {String} substr            The sub string to search for
- * @param {Boolean} [allowOverlapping]  Optional. (Default:false)
- *
- * @author Vitim.us https://gist.github.com/victornpb/7736865
- * @see Unit Test https://jsfiddle.net/Victornpb/5axuh96u/
- * @see https://stackoverflow.com/a/7924240/938822
- */
-const occurrences = (str, substr, allowOverlapping = false) => {
-    if (substr.length === 0) {
-        return str.length + 1;
-    }
-
-    let n = 0;
-    let pos = 0;
-    const step = allowOverlapping ? 1 : substr.length;
-
-    while ((pos = str.indexOf(substr, pos)) !== -1) {
-        n++;
-        pos += step;
-    }
-
-    return n;
-};
 
 const getOptions = output => {
     const language = "lua";
@@ -373,14 +344,13 @@ waterfall([
             print(json.dumps({"decls": all_decls, "namespaces": sorted(parser.namespaces)}, indent=4))
         `.trim().replace(/^ {12}/mg, "");
 
-        // fs.writeFileSync(sysPath.join(PROJECT_DIR, "gen.py"), code);
-
         child.stdin.write(code);
         child.stdin.end();
+
+        // fs.writeFileSync(sysPath.join(PROJECT_DIR, "gen.py"), code.replace("# parser.print_decls", "parser.print_decls").replace("print(json.dumps", "# print(json.dumps"));
     },
 
     (processor, configuration, next) => {
-        // func_modifiers = ["=readMat"]
         const generator = new LuaGenerator();
         generator.generate(processor, configuration, options, next);
     },

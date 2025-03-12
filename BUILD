@@ -50,9 +50,12 @@ add_library(OUTPUT_NAME + "_lib",
         "LUA_MODULE_LIB_VERSION=$(LUA_MODULE_LIB_VERSION)",
 
         # LINK : warning LNK4217: symbol 'curl_global_init' defined in 'libcurl.lo.lib(easy.obj)' is imported by 'download_utils.obj' in function '"public: __cdecl `"'
-        "BUILDING_LIBCURL"
+        "BUILDING_LIBCURL",
+
+        # libcurl embeded configuration is in curl_config.h
+        "HAVE_CONFIG_H",
     ],
-    deps = ["@lua//:lua", "@curl//:libcurl", "@curl//:libcurl_sha256"],
+    deps = ["@lua//:lua", "@libcurl//:libcurl_tool"],
 )
 
 alias(

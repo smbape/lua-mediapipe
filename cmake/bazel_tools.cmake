@@ -1,3 +1,8 @@
+if(POLICY CMP0174)
+    cmake_policy(SET CMP0174 NEW) # CMake 3.31+: cmake_parse_arguments(PARSE_ARGV) always defines a variable for each keyword given in the arguments
+endif()
+
+
 function(list_to_json_array list_NAME)
     set(options)
     set(oneValueArgs OUTPUT_VARIABLE INDENT)
@@ -274,7 +279,7 @@ function(get_bazel_library)
     list(REMOVE_ITEM library_SOURCES ${library_SYSTEM_LIBRARIES})
 
     if (library_SOURCES)
-        # Many linux libraries (nghttp2) assumes -iquote .
+        # Some linux libraries (brotli, nghttp2) assumes -iquote .
         # However, bazel sandbox will not find related heades
         # If they are not in the include directories.
         # Therefores, manually add those headers to srcs attribute
@@ -598,7 +603,7 @@ function(_generate_bazel_library generated_list_var)
 
     foreach(item IN LISTS library_LINK_LIBRARIES)
         # TODO : avoid rechecking the samme library
-        if (item MATCHES "(^-l|\\${CMAKE_SHARED_LIBRARY_SUFFIX}$|\\${CMAKE_STATIC_LIBRARY_SUFFIX}$)")
+        if (item MATCHES "(^-|\\${CMAKE_SHARED_LIBRARY_SUFFIX}$|\\${CMAKE_STATIC_LIBRARY_SUFFIX}$)")
             list(APPEND library_LINKOPTS "${item}")
             continue()
         endif()

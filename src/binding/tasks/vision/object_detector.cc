@@ -35,7 +35,7 @@ namespace {
 
 		auto detection_result = std::make_shared<ObjectDetectorResult>();
 
-		MP_PACKET_ASSIGN_OR_RETURN(const auto& detection_proto_list, std::vector<mediapipe::Detection>, output_packets.at(_DETECTIONS_OUT_STREAM_NAME));
+		MP_PACKET_ASSIGN_OR_RETURN(const auto& detection_proto_list, std::vector<mediapipe::Detection>, detector_out_packet);
 		for (const auto& detection : detection_proto_list) {
 			detection_result->detections.push_back(std::move(Detection::create_from_pb2(detection)));
 		}

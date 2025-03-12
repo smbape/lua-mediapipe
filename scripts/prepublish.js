@@ -9,7 +9,8 @@ const waterfall = require("async/waterfall");
 const prepublishRoot = sysPath.resolve(__dirname, "..", "out", "prepublish");
 const wrapperSuffix = os.platform() === "win32" ? ".bat" : "";
 const shellSuffix = os.platform() === "win32" ? ".bat" : ".sh";
-const OpenCV_NAME_VERSION = "opencv-4.10.0";
+const { auditwheelOptions } = require("./pack");
+const OpenCV_NAME_VERSION = "opencv-4.11.0";
 const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
 
 const unixEscape = (arg, verbatim = true) => {
@@ -84,7 +85,7 @@ const spawnExec = (cmd, args, options, next) => {
 };
 
 const prepublish = (target, version, options, next) => {
-    const { name, cmake_build_args, branch, pack, repair } = options;
+    const { name, cmake_build_args, branch } = options;
     const workspaceRoot = sysPath.join(prepublishRoot, "build");
     const projectRoot = sysPath.join(workspaceRoot, name);
     const originalRockSpec = sysPath.join(projectRoot, "luarocks", "mediapipe_lua-scm-1.rockspec");
@@ -163,22 +164,38 @@ const prepublish = (target, version, options, next) => {
 
         next => {
             const luarocks = sysPath.join("luarocks", `luarocks${ wrapperSuffix }`);
+            const opencvServer = options["opencv-server"] || options.server;
+            const opencvName = options["opencv-name"] || "opencv_lua";
+            const rockVersion = version.startsWith("luajit") ? version.replaceAll("-", "") : `lua${ version }`;
 
             const tasks = [
                 [sysPath.join(projectRoot, `build${ shellSuffix }`), [`-DLua_VERSION=${ version }`, "--target", target, "--install"]],
                 [sysPath.join(projectRoot, `build${ shellSuffix }`), [`-DLua_VERSION=${ version }`, "--target", "luarocks"]],
-                [luarocks, ["install", `--only-server=${ options.server }`, "opencv_lua", `${ OpenCV_VERSION }${ version.startsWith("lua") ? version : `lua${ version }` }`, "--force"]],
+                [luarocks, ["install", `--only-server=${ opencvServer }`, opencvName, `${ OpenCV_VERSION }${ rockVersion }`, "--force"]],
                 [luarocks, ["make", scmRockSpec]],
             ];
 
-            if (pack) {
+            if (options.pack) {
                 const args = [sysPath.join("scripts", "pack.js"), "--rockspec", scmRockSpec];
-                if (repair) {
-                    args.push("--repair");
-                }
 
                 if (options.server) {
                     args.push("--server", options.server);
+                }
+
+                if (os.platform() !== "win32" && options.repair) {
+                    args.push("--repair");
+
+                    for (const flag of auditwheelOptions.flags) {
+                        if (options[flag.slice("--".length)]) {
+                            args.push(flag);
+                        }
+                    }
+
+                    for (const option of auditwheelOptions.options) {
+                        if (Object.hasOwn(options, option.slice("--".length))) {
+                            args.push(option, options[option.slice("--".length)]);
+                        }
+                    }
                 }
 
                 tasks.push(["node", args]);
@@ -209,6 +226,26 @@ const options = {
     server: process.env.LUAROCKS_SERVER ? sysPath.resolve(process.env.LUAROCKS_SERVER) : sysPath.join(prepublishRoot, "server"),
 };
 
+const aliases = new Map([
+    ...auditwheelOptions.aliases,
+]);
+
+const optionValueKeys = new Set([
+    "--pack",
+    "--repair",
+    ...auditwheelOptions.flags,
+]);
+
+const oneValueKeys = new Set([
+    "--branch",
+    "--server",
+    "--name",
+    "--opencv-server",
+    "--opencv-name",
+    "--lua-versions",
+    ...auditwheelOptions.options,
+]);
+
 const argv = process.argv.slice(2);
 
 for (let i = 0; i < argv.length; i++) {
@@ -225,46 +262,50 @@ for (let i = 0; i < argv.length; i++) {
         value = arg.slice(eq + 1);
     }
 
-    switch (key) {
-        case "--pack":
-        case "--repair":
-            options[key.slice("--".length)] = value;
-            break;
-        case "--branch":
-        case "--server":
-        case "--name":
-        case "--lua-versions":
-            if (eq === -1) {
-                value = argv[++i];
-            }
-            options[key.slice("--".length)] = value;
-            break;
-        default:
-            if (key === "-D") {
-                if (++i === argv.length) {
-                    throw new Error(`Unknown option ${ arg }`);
-                }
-
-                if (!argv[i].includes("=")) {
-                    throw new Error(`Value missing for option ${ argv[i] }`);
-                }
-
-                argv[i] = key + argv[i];
-                continue;
-            }
-
-            if (key.startsWith("-D")) {
-                if (eq === -1) {
-                    value = argv[++i];
-                }
-                const colon = key.indexOf(":");
-                const arg_name = key.slice("-D".length, colon === -1 ? key.length : colon);
-                options.cmake_build_args.push(`${ arg_name } = "${ value.replaceAll("\"", "\\\"") }"`);
-                continue;
-            }
-
-            throw new Error(`Unknown option ${ arg }`);
+    if (aliases.has(key)) {
+        key = aliases.get(key);
     }
+
+    if (optionValueKeys.has(key)) {
+        if (value !== true) {
+            throw new Error(`${ key } is a flag not, therefore, cannot have a value`);
+        }
+        options[key.slice("--".length)] = value;
+        continue;
+    }
+
+    if (oneValueKeys.has(key)) {
+        if (eq === -1) {
+            value = argv[++i];
+        }
+        options[key.slice("--".length)] = value;
+        continue;
+    }
+
+    if (key === "-D") {
+        if (++i === argv.length) {
+            throw new Error(`Unknown option ${ arg }`);
+        }
+
+        if (!argv[i].includes("=")) {
+            throw new Error(`Value missing for option ${ argv[i] }`);
+        }
+
+        argv[i] = key + argv[i];
+        continue;
+    }
+
+    if (key.startsWith("-D")) {
+        if (eq === -1) {
+            value = argv[++i];
+        }
+        const colon = key.indexOf(":");
+        const arg_name = key.slice("-D".length, colon === -1 ? key.length : colon);
+        options.cmake_build_args.push(`${ arg_name } = "${ value.replaceAll("\"", "\\\"") }"`);
+        continue;
+    }
+
+    throw new Error(`Unknown option ${ arg }`);
 }
 
 const versions = options["lua-versions"] ? options["lua-versions"].trim().split(/[\s,]+/) : [];

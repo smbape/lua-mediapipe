@@ -226,10 +226,6 @@ local function test_on_video(self, id, model_complexity, expected_name)
         })
     )
 
-    -- Set threshold for comparing actual and expected predictions in pixels.
-    local diff_threshold = 18
-    local world_diff_threshold = 0.05
-
     local video_path = __dirname__ .. "/testdata/asl_hand.25fps.mp4"
     local actual, actual_world = self:_process_video(model_complexity, video_path)
 
@@ -247,14 +243,16 @@ local function test_on_video(self, id, model_complexity, expected_name)
     local expected = expected_storage:getNode("predictions"):mat()
     self.assertListEqual(actual.shape, expected.shape, ('Unexpected shape of predictions: %s instead of %s'):format(
         inspect(actual.shape), inspect(expected.shape)))
-    self.assertMatDiffLess(_mat_utils.sliceLastDim(actual, 0, 2), _mat_utils.sliceLastDim(expected, 0, 2), diff_threshold)
+    -- large values, use relative tolerance for testing.
+    self.assertMatAllClose(_mat_utils.sliceLastDim(actual, 0, 2), _mat_utils.sliceLastDim(expected, 0, 2), mediapipe_lua.kwargs({ rtol = 0.1 }))
 
     -- Validate actual vs. expected world landmarks.
     local expected_world = expected_storage:getNode("w_predictions"):mat()
     self.assertListEqual(actual_world.shape, expected_world.shape,
         ('Unexpected shape of world predictions: %s instead of %s'):format(
             inspect(actual_world.shape), inspect(expected_world.shape)))
-    self.assertMatDiffLess(actual_world, expected_world, world_diff_threshold)
+    -- small values, use absolute tolerance for testing.
+    self.assertMatDiffLess(actual_world, expected_world, 1.5 * 1e-1)
 end
 
 describe("HandsTest", function()

@@ -10,19 +10,19 @@
 #include <optional>
 
 namespace mediapipe::tasks::lua::core::base_options {
-	enum class BaseOptions_Delegate {
-		CPU = 0,
-		GPU = 1,
-	};
-
 	struct CV_EXPORTS_W_SIMPLE BaseOptions {
+		enum class Delegate {
+			CPU = 0,
+			GPU = 1,
+		};
+
 		CV_WRAP BaseOptions(const BaseOptions& other) = default;
 		BaseOptions& operator=(const BaseOptions& other) = default;
 
 		CV_WRAP BaseOptions(
 			const std::string& model_asset_path = "",
 			const std::string& model_asset_buffer = "",
-			const std::optional<BaseOptions_Delegate>& delegate = std::optional<BaseOptions_Delegate>()
+			const std::optional<Delegate>& delegate = std::optional<Delegate>()
 		) : model_asset_path(model_asset_path), model_asset_buffer(model_asset_buffer), delegate(delegate) {}
 
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<mediapipe::tasks::core::proto::BaseOptions>> to_pb2() const;
@@ -30,6 +30,6 @@ namespace mediapipe::tasks::lua::core::base_options {
 
 		CV_PROP_RW std::string model_asset_path;
 		CV_PROP_RW std::string model_asset_buffer;
-		CV_PROP_RW std::optional<BaseOptions_Delegate> delegate;
+		CV_PROP_RW std::optional<Delegate> delegate;
 	};
 }

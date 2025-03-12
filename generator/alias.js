@@ -19,13 +19,6 @@ exports.makeExpansion = (str, ...args) => {
     return str;
 };
 
-const useNamspace = (namespaces, namespace) => {
-    const parts = namespace.split("::");
-    for (let i = 0; i < parts.length; i++) {
-        namespaces.add(`using namespace ${ parts.slice(0, parts.length - i).join("::") };`);
-    }
-};
-
 exports.useNamespaces = (body, method, processor, coclass) => {
     const namespaces = new Set();
 
@@ -78,7 +71,8 @@ exports.getTypeDef = (type, options) => {
         .replaceAll("std::vector", "VectorOf")
         .replaceAll("std::shared_ptr", "SharedPtrOf")
         .replaceAll(options.shared_ptr, "SharedPtrOf")
-        .replaceAll("std::variant", "VariantOf");
+        .replaceAll("std::variant", "VariantOf")
+        .replaceAll("cv::util::variant", "CvVariantOf");
 
     type_def = exports.removeNamespaces(type_def, options)
         .replace(/\b_variant_t\b/g, "Variant")

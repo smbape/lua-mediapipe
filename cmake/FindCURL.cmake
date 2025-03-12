@@ -14,9 +14,9 @@ set(ZLIB_VERSION_SHA256 38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa7
 
 include(FetchContent)
 FetchContent_Populate(zlib
-  URL           https://github.com/madler/zlib/releases/download/v${ZLIB_VERSION}/zlib-${ZLIB_VERSION}.tar.xz
-  URL_HASH      SHA256=${ZLIB_VERSION_SHA256}
-  PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-zlib-src.patch"
+    URL           https://github.com/madler/zlib/releases/download/v${ZLIB_VERSION}/zlib-${ZLIB_VERSION}.tar.xz
+    URL_HASH      SHA256=${ZLIB_VERSION_SHA256}
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-zlib-src.patch"
 )
 
 set(SKIP_INSTALL_ALL ON)
@@ -43,8 +43,8 @@ set(ZSTD_VERSION_SHA256 eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7e
 
 include(FetchContent)
 FetchContent_Populate(zstd
-  URL           https://github.com/facebook/zstd/releases/download/v${ZSTD_VERSION}/zstd-${ZSTD_VERSION}.tar.gz
-  URL_HASH      SHA256=${ZSTD_VERSION_SHA256}
+    URL         https://github.com/facebook/zstd/releases/download/v${ZSTD_VERSION}/zstd-${ZSTD_VERSION}.tar.gz
+    URL_HASH    SHA256=${ZSTD_VERSION_SHA256}
 )
 
 # Hack to ensure that zstd is built with BUILD_SHARED_LIBS OFF
@@ -71,8 +71,8 @@ set(BROTLI_VERSION_SHA256 e720a6ca29428b803f4ad165371771f5398faba397edf6778837a1
 
 include(FetchContent)
 FetchContent_Populate(brotli
-  URL           https://github.com/google/brotli/archive/refs/tags/v${BROTLI_VERSION}.tar.gz
-  URL_HASH      SHA256=${BROTLI_VERSION_SHA256}
+    URL         https://github.com/google/brotli/archive/refs/tags/v${BROTLI_VERSION}.tar.gz
+    URL_HASH    SHA256=${BROTLI_VERSION_SHA256}
 )
 
 set(BROTLI_DISABLE_TESTS ON)
@@ -82,7 +82,12 @@ set(BUILD_SHARED_LIBS_BACKUP ${BUILD_SHARED_LIBS})
 set(BUILD_SHARED_LIBS OFF)
 add_subdirectory("${brotli_SOURCE_DIR}" "${brotli_BINARY_DIR}")
 set_property(DIRECTORY "${brotli_SOURCE_DIR}" PROPERTY EXCLUDE_FROM_ALL TRUE)
-set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_BACKUP}) 
+set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_BACKUP})
+
+# Fix common not in include directories
+# Bazel is strict about it
+target_include_directories(brotlidec PRIVATE "${brotli_SOURCE_DIR}/c/common")
+target_include_directories(brotlienc PRIVATE "${brotli_SOURCE_DIR}/c/common")
 
 # For curl
 unset(BROTLI_INCLUDE_DIRS)
@@ -124,9 +129,9 @@ set(NGHTTP2_VERSION_SHA256 f1b9df5f02e9942b31247e3d415483553bc4ac501c87aa39340b6
 
 include(FetchContent)
 FetchContent_Populate(nghttp2
-  URL           https://github.com/nghttp2/nghttp2/releases/download/v${NGHTTP2_VERSION}/nghttp2-${NGHTTP2_VERSION}.tar.xz
-  URL_HASH      SHA256=${NGHTTP2_VERSION_SHA256}
-  PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-nghttp2-src.patch"
+    URL           https://github.com/nghttp2/nghttp2/releases/download/v${NGHTTP2_VERSION}/nghttp2-${NGHTTP2_VERSION}.tar.xz
+    URL_HASH      SHA256=${NGHTTP2_VERSION_SHA256}
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-nghttp2-src.patch"
 )
 
 # Hack to ensure that nghttp2 is built with BUILD_SHARED_LIBS OFF
@@ -157,10 +162,10 @@ string(REPLACE "." "_" CURL_VERSION_UNDERSCORE ${CURL_VERSION})
 
 include(FetchContent)
 FetchContent_Populate(curl
-  URL           https://curl.se/download/curl-${CURL_VERSION}.tar.xz
-                https://github.com/curl/curl/releases/download/curl-${CURL_VERSION_UNDERSCORE}/curl-${CURL_VERSION}.tar.xz
-  URL_HASH      SHA256=${CURL_VERSION_SHA256}
-  PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-curl-src.patch"
+    URL           https://curl.se/download/curl-${CURL_VERSION}.tar.xz
+                  https://github.com/curl/curl/releases/download/curl-${CURL_VERSION_UNDERSCORE}/curl-${CURL_VERSION}.tar.xz
+    URL_HASH      SHA256=${CURL_VERSION_SHA256}
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-curl-src.patch"
 )
 
 # https://gitlab.kitware.com/cmake/cmake/-/blob/v3.31.6/Utilities/cmcurl/CMakeLists.txt
@@ -180,7 +185,7 @@ set(USE_LIBIDN2 OFF)
 set(SHARE_LIB_OBJECT OFF)
 
 if (WIN32)
-  set(CURL_USE_SCHANNEL ON)
+    set(CURL_USE_SCHANNEL ON)
 endif()
 
 # Hack to ensure that curl is built with BUILD_SHARED_LIBS OFF

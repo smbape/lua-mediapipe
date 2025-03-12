@@ -11,14 +11,14 @@ description = {
 
       Linux/Windows users:
       I recommend you to try installing the prebuilt binary with
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 
       Or to specify the target lua version with one of the following commands
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14luajit2.1
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14lua5.4
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14lua5.3
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14lua5.2
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14lua5.1
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21luajit2.1
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.4
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.3
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.2
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.1
 
       Those prebuilt binaries should work on windows and many linux distributions and have been tested on:
         - Windows 11
@@ -40,7 +40,7 @@ description = {
       Otherwise, follow the instructions at https://github.com/smbape/lua-mediapipe/tree/v0.0.0#prerequisites-to-source-rock-install
       before attempting to install the source rock with
 
-      luarocks install --server=https://raw.githubusercontent.com/smbape/lua-opencv/refs/heads/main mediapipe_lua 0.10.14
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21
    ]],
    homepage = "https://github.com/smbape/lua-mediapipe",
    issues_url = "git+https://github.com/smbape/lua-mediapipe.git",

@@ -105,12 +105,14 @@ namespace mediapipe::lua::solutions::holistic {
 			{ "image", ::LUA_MODULE_NAME::Object(image) }
 		}, solution_outputs));
 
+		bool is_valid;
+
 		if (
 			solution_outputs.count("pose_landmarks")
 			&& !solution_outputs["pose_landmarks"].isnil()
 		) {
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(solution_outputs["pose_landmarks"], static_cast<NormalizedLandmarkList*>(nullptr)), "expecting a NormalizedLandmarkList at pose_landmarks");
-			auto pose_landmarks_holder = ::LUA_MODULE_NAME::lua_to(solution_outputs["pose_landmarks"], static_cast<NormalizedLandmarkList*>(nullptr));
+			auto pose_landmarks_holder = ::LUA_MODULE_NAME::lua_to(solution_outputs["pose_landmarks"], static_cast<NormalizedLandmarkList*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting a NormalizedLandmarkList at pose_landmarks");
 			decltype(auto) pose_landmarks = ::LUA_MODULE_NAME::extract_holder(pose_landmarks_holder, static_cast<NormalizedLandmarkList*>(nullptr));
 			for (auto& landmark : *pose_landmarks.mutable_landmark()) {
 				MP_RETURN_IF_ERROR(ClearField(landmark, "presence"));
@@ -121,8 +123,8 @@ namespace mediapipe::lua::solutions::holistic {
 			solution_outputs.count("pose_world_landmarks")
 			&& !solution_outputs["pose_world_landmarks"].isnil()
 		) {
-			MP_ASSERT_RETURN_IF_ERROR(::LUA_MODULE_NAME::lua_is(solution_outputs["pose_world_landmarks"], static_cast<LandmarkList*>(nullptr)), "expecting a LandmarkList at pose_world_landmarks");
-			auto pose_world_landmarks_holder = ::LUA_MODULE_NAME::lua_to(solution_outputs["pose_world_landmarks"], static_cast<LandmarkList*>(nullptr));
+			auto pose_world_landmarks_holder = ::LUA_MODULE_NAME::lua_to(solution_outputs["pose_world_landmarks"], static_cast<LandmarkList*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting a LandmarkList at pose_world_landmarks");
 			decltype(auto) pose_world_landmarks = ::LUA_MODULE_NAME::extract_holder(pose_world_landmarks_holder, static_cast<LandmarkList*>(nullptr));
 			for (auto& landmark : *pose_world_landmarks.mutable_landmark()) {
 				MP_RETURN_IF_ERROR(ClearField(landmark, "presence"));

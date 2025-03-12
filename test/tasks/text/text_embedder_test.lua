@@ -80,7 +80,7 @@ end
 
 function _assert._check_embedding_value(self, result, expected_first_value)
     -- Check embedding first value.
-    self.assertAlmostIn(
+    self.assertAlmostEqual(
         result.embeddings[0 + INDEX_BASE].embedding[0], expected_first_value,
         mediapipe_lua.kwargs({ delta = _EPSILON }))
 end
@@ -101,7 +101,7 @@ function _assert._check_cosine_similarity(self, result0, result1, expected_simil
     -- Checks cosine similarity.
     local similarity = _TextEmbedder.cosine_similarity(result0.embeddings[0 + INDEX_BASE],
         result1.embeddings[0 + INDEX_BASE])
-    self.assertAlmostIn(
+    self.assertAlmostEqual(
         similarity, expected_similarity, mediapipe_lua.kwargs({ delta = _SIMILARITY_TOLERANCE }))
 end
 
@@ -189,18 +189,18 @@ describe("TextEmbedderTest", function()
             false,
             _BERT_MODEL_FILE,
             ModelFileType.FILE_NAME,
-            { 0.969514, 0.971417 },
+            0.962427,
             512,
-            { { 19.9016, 21.214868 }, 22.626251 },
+            { 21.2054, 19.684337 },
         },
         {
             true,
             false,
             _BERT_MODEL_FILE,
             ModelFileType.FILE_NAME,
-            { 0.969514, 0.971417 },
+            0.962427,
             512,
-            { { 0.0585837, 0.061687 }, 0.0723035 },
+            { 0.0625787, 0.0673937 },
         },
         {
             false,

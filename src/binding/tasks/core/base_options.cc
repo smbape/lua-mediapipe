@@ -17,14 +17,14 @@ namespace mediapipe::tasks::lua::core::base_options {
 		options->mutable_model_asset()->set_file_content(model_asset_buffer);
 
 		if (delegate) {
-			if (*delegate == BaseOptions_Delegate::GPU) {
+			if (*delegate == Delegate::GPU) {
 #ifdef _MSC_VER
-				MP_ASSERT_RETURN_IF_ERROR(false, "GPU BaseOptions_Delegate is not yet supported for Windows");
+				MP_ASSERT_RETURN_IF_ERROR(false, "GPU Delegate is not yet supported for Windows");
 #else
 				options->mutable_acceleration()->mutable_gpu();
 #endif
 			}
-			else if (*delegate == BaseOptions_Delegate::CPU) {
+			else if (*delegate == Delegate::CPU) {
 				options->mutable_acceleration()->mutable_tflite();
 			}
 		}
@@ -33,13 +33,13 @@ namespace mediapipe::tasks::lua::core::base_options {
 	}
 
 	std::shared_ptr<BaseOptions> BaseOptions::create_from_pb2(const mediapipe::tasks::core::proto::BaseOptions& pb2_obj) {
-		std::optional<BaseOptions_Delegate> delegate;
+		std::optional<Delegate> delegate;
 		if (pb2_obj.has_acceleration() && pb2_obj.acceleration().delegate_case() != DelegateCase::DELEGATE_NOT_SET) {
 			if (pb2_obj.acceleration().has_gpu()) {
-				delegate = BaseOptions_Delegate::GPU;
+				delegate = Delegate::GPU;
 			}
 			else {
-				delegate = BaseOptions_Delegate::CPU;
+				delegate = Delegate::CPU;
 			}
 		}
 

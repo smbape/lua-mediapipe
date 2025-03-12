@@ -1,0 +1,92 @@
+# A docker image that contains the PyPA manylinux2014 toolchain
+#
+# Usage:
+# $ DOCKER_BUILDKIT=1 docker build -f docker/manylinux2014/Dockerfile_aarch64 -t mp_manylinux .
+# $ docker run -it --name mp_pip_package_container -d mp_manylinux:latest bash
+
+# Make a container for MediaPipe
+FROM quay.io/pypa/manylinux2014_aarch64:2025.03.22-2
+
+
+ARG BAZELISK_VERSION=1.25.0
+ARG NINJA_VERSION=1.12.1
+ARG OPENSSL_VERSION=1_1_1w
+ARG PROTOBUF_VERSION=30.1
+
+
+# Install OpenSSL
+RUN mkdir -p /opt/openssl/build /opt/openssl/src && \
+    cd /opt/openssl && \
+    curl -L https://github.com/openssl/openssl/archive/OpenSSL_${OPENSSL_VERSION}.tar.gz -o openssl.tar.gz && \
+    tar -xf openssl.tar.gz -C /opt/openssl/src --strip-components 1 && \
+    cd /opt/openssl/build && \
+    ../src/config --prefix="/opt/openssl/install" --openssldir="/opt/openssl/install" no-pinshared shared zlib && \
+    make -j$(getconf _NPROCESSORS_ONLN) && \
+    # skip installing documentation
+    make install_sw && \
+    cd /opt/openssl && \
+    rm -rf src build openssl.tar.gz
+
+
+# Install Ninja
+RUN mkdir -p /opt/ninja/build /opt/ninja/src && \
+    cd /opt/ninja && \
+    curl -L https://github.com/ninja-build/ninja/archive/refs/tags/v${NINJA_VERSION}.tar.gz -o ninja.tar.gz && \
+    tar -xf ninja.tar.gz -C /opt/ninja/src --strip-components 1 && \
+    cmake -S /opt/ninja/src -B /opt/ninja/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=/opt/ninja/install && \
+    cmake --build /opt/ninja/build --target ninja -j$(nproc) && \
+    mv /opt/ninja/build/ninja /usr/local/bin/ && \
+    cd /opt/ninja && \
+    rm -rf src build ninja.tar.gz
+
+
+# Install Bazelisk
+RUN mkdir -p /opt/bazelisk && \
+    cd /opt/bazelisk && \
+    curl -L https://github.com/bazelbuild/bazelisk/releases/download/v${BAZELISK_VERSION}/bazelisk-linux-arm64 -o bazel && \
+    chmod +x /opt/bazelisk/bazel && \
+    ln -s /opt/bazelisk/bazel /usr/local/bin/bazel
+
+
+# Install OpenGL
+RUN yum install -y mesa-libGL mesa-libGL-devel mesa-libEGL mesa-libEGL-devel && \
+    yum install -y mesa-libGLES-devel && \
+    # Install emacs, java, portaudio and zip.
+    yum install -y epel-release && \
+    yum install -y emacs java-11-openjdk-devel portaudio-devel zip && \
+    yum clean all
+
+
+# Copy Protobuf Compiler binary
+RUN mkdir  /opt/protoc && \
+    cd  /opt/protoc && \
+    curl -L https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-aarch_64.zip -o protoc.zip && \
+    unzip -o protoc.zip -d /usr/local bin/protoc && \
+    unzip -o protoc.zip -d /usr/local 'include/*' && \
+    rm -rf  /opt/protoc
+
+
+# Prioritize /usr/local
+ENV PATH="/usr/local/bin:$PATH"
+ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+
+# GitHub Actions user`s UID is 1001
+RUN useradd ci -m -s /bin/bash -G users --uid=1001 && \
+    mkdir /io && \
+    chown -R ci:ci /io && \
+    # This calls in mutlibuild scripts and cannot be run without permissions
+    chown -R ci:ci /opt/_internal/pipx/venvs/auditwheel
+
+USER ci
+
+
+# Git security vulnerability: https://github.blog/2022-04-12-git-security-vulnerability-announced
+RUN git config --global --add safe.directory /io
+
+
+# Allow openssl to be found
+ENV LDFLAGS="-L/opt/openssl/install/lib"
+ENV PKG_CONFIG_PATH="/opt/openssl/install/lib/pkgconfig:$PKG_CONFIG_PATH"
+

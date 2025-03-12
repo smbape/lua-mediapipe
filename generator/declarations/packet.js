@@ -25,7 +25,7 @@ module.exports = ({self, self_get, language}) => [
         ["Timestamp", "ts", "", []],
     ], "", ""],
 
-    ["mediapipe.Packet.sol::meta_function::to_string", "std::string", ["/Call=Packet__tostring", `/Expr=${ self }`], [], "", ""],
+    ["mediapipe.Packet.__tostring", "std::string", ["/Call=Packet__tostring", `/Expr=${ self }`], [], "", ""],
 
     // expose a packet property like in mediapipe python
     [`mediapipe.${ language }._framework_bindings.packet.`, "", ["/Properties"], [

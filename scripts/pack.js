@@ -1,3 +1,21 @@
+const auditwheelOptions = {
+    aliases: new Map([]),
+    flags: new Set([
+        "--strip",
+        "--only-plat",
+        "--disable-isa-ext-check",
+    ]),
+    options: new Set([
+        "--plat",
+        "--exclude",
+    ]),
+};
+
+if (module !== require.main) {
+    exports.auditwheelOptions = auditwheelOptions;
+    return;
+}
+
 const { spawn, spawnSync } = require("node:child_process");
 const sysPath = require("node:path");
 const fs = require("fs-extra");
@@ -7,7 +25,7 @@ const waterfall = require("async/waterfall");
 const pkg = require("../package.json");
 
 const version = process.env.npm_package_version || pkg.version;
-const Mediapipe_NAME_VERSION = "mediapipe-0.10.14";
+const Mediapipe_NAME_VERSION = "mediapipe-0.10.21";
 const Mediapipe_VERSION = Mediapipe_NAME_VERSION.slice("mediapipe-".length);
 const distVersion = process.env.DIST_VERSION || "1"; // TODO : find a way to automatically update it
 const workspaceRoot = sysPath.resolve(__dirname, "..");
@@ -65,8 +83,25 @@ const options = {
     rockspec: process.env.ROCKSPEC ? sysPath.resolve(process.env.ROCKSPEC) : sysPath.join(luarocksDir, `${ pkg.name }-scm-1.rockspec`),
 };
 
-for (let i = 2; i < process.argv.length; i++) {
-    const arg = process.argv[i];
+const aliases = new Map([
+    ...auditwheelOptions.aliases,
+]);
+
+const optionValueKeys = new Set([
+    "--repair",
+    ...auditwheelOptions.flags,
+]);
+
+const oneValueKeys = new Set([
+    "--server",
+    "--rockspec",
+    ...auditwheelOptions.options,
+]);
+
+const argv = process.argv.slice(2);
+
+for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
     const eq = arg.indexOf("=");
 
     let key, value;
@@ -79,20 +114,27 @@ for (let i = 2; i < process.argv.length; i++) {
         value = arg.slice(eq + 1);
     }
 
-    switch (key) {
-        case "--repair":
-            options[key.slice("--".length)] = value;
-            break;
-        case "--server":
-        case "--rockspec":
-            if (eq === -1) {
-                value = process.argv[++i];
-            }
-            options[key.slice("--".length)] = value;
-            break;
-        default:
-            throw new Error(`Unknown option ${ arg }`);
+    if (aliases.has(key)) {
+        key = aliases.get(key);
     }
+
+    if (optionValueKeys.has(key)) {
+        if (value !== true) {
+            throw new Error(`${ key } is a flag not, therefore, cannot have a value`);
+        }
+        options[key.slice("--".length)] = value;
+        continue;
+    }
+
+    if (oneValueKeys.has(key)) {
+        if (eq === -1) {
+            value = argv[++i];
+        }
+        options[key.slice("--".length)] = value;
+        continue;
+    }
+
+    throw new Error(`Unknown option ${ arg }`);
 }
 
 waterfall([
@@ -179,8 +221,21 @@ waterfall([
         waterfall([
             next => {
                 const args = [new_version, options.rockspec, binary, abi, "--platform", os.platform()];
-                if (options.repair) {
+
+                if (os.platform() !== "win32" && options.repair) {
                     args.push("--repair");
+
+                    for (const flag of auditwheelOptions.flags) {
+                        if (options[flag.slice("--".length)]) {
+                            args.push(flag);
+                        }
+                    }
+
+                    for (const option of auditwheelOptions.options) {
+                        if (Object.hasOwn(options, option.slice("--".length))) {
+                            args.push(option, options[option.slice("--".length)]);
+                        }
+                    }
                 }
 
                 spawnExec(lua, args, {
