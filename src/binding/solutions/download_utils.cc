@@ -15,13 +15,32 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifdef _UNICODE
+
+#if defined(__GNUC__) || defined(__clang__)
+/* GCC does not know about wmain() */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+#pragma GCC diagnostic ignored "-Wmissing-declarations"
+#endif
+
+int tool_wmain(int argc, wchar_t *argv[]);
+#pragma GCC diagnostic pop
+
+#else /* _UNICODE */
+int tool_main(int argc, char *argv[]);
+#endif /* _UNICODE */
+
 #include <curl_tool/lib/curl_sha256.h>
-#include <curl_tool/lib/curl_setup.h>
-#include <curl_tool/lib/dynbuf.h>
-#include <curl_tool/src/tool_libinfo.h>
 #ifdef __cplusplus
 }
 #endif
+
+#define check_setopt( handle, option, parameter ) do { \
+	CURLcode res = curl_easy_setopt(handle, option, parameter); \
+	MP_ASSERT_RETURN_IF_ERROR(res == CURLE_OK, "curl_easy_setopt failed: " << curl_easy_strerror(res)); \
+} while(0)
 
 namespace fs = std::filesystem;
 
@@ -109,11 +128,10 @@ namespace {
 		return is_valid;
 	}
 
-#ifdef CURL_CA_BUNDLE
-	std::string anonymous_cacert;
-	bool cacert_set = false;
+#if defined(CURL_CA_BUNDLE) || !defined(_WIN32)
+	std::optional<std::string> anonymous_cacert;
 	const std::string& get_default_cacert() {
-		if (!cacert_set) {
+		if (!anonymous_cacert) {
 			if (fs::exists("/etc/ssl/certs/ca-certificates.crt")) {
 				anonymous_cacert = "/etc/ssl/certs/ca-certificates.crt";
 			}
@@ -129,488 +147,187 @@ namespace {
 			else if (fs::exists("/etc/ssl/cert.pem")) {
 				anonymous_cacert = "/etc/ssl/cert.pem";
 			}
-			cacert_set = true;
+			else {
+				anonymous_cacert = "";
+			}
 		}
-		return anonymous_cacert;
+		return *anonymous_cacert;
 	}
 #endif
 
-#ifdef CURL_CA_PATH
-	constexpr auto DEFAULT_CURL_CA_PATH = "/etc/ssl/certs";
-	std::string anonymous_capath;
-	bool capath_set = false;
+#if defined(CURL_CA_PATH) || !defined(_WIN32)
+	std::optional<std::string> anonymous_capath;
 	const std::string& get_default_capath() {
-		if (!capath_set) {
-			auto status = fs::symlink_status(DEFAULT_CURL_CA_PATH);
-			if (fs::is_directory(status)) {
-				for (auto const& dir_entry : fs::directory_iterator{ DEFAULT_CURL_CA_PATH }) {
-					// checking existence of a file [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].0
-					const auto& filename = dir_entry.path().filename().native();
-					if (filename.size() != 10) {
-						continue;
-					}
+		if (!anonymous_capath) {
+			anonymous_capath = "";
 
-					fs::path::string_type::size_type i = 0;
+			const auto status = fs::symlink_status("/etc/ssl/certs");
+			if (!fs::is_directory(status)) {
+				return *anonymous_capath;
+			}
 
-					for (; i < 8; ++i) {
-						if (!(filename[i] >= 'a' && filename[i] <= 'z' || filename[i] >= '0' && filename[i] <= '9')) {
-							break;
-						}
-					}
+			for (const auto& dir_entry : fs::directory_iterator{ "/etc/ssl/certs" }) {
+				// checking existence of a file [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].0
+				const auto& filename = dir_entry.path().filename().native();
+				if (filename.size() != 10) {
+					continue;
+				}
 
-					if (i == 8 && filename[i] == '.' && filename[i + 1] == '0') {
-						anonymous_capath = DEFAULT_CURL_CA_PATH;
+				fs::path::string_type::size_type i = 0;
+
+				for (; i < 8; ++i) {
+					if (!(filename[i] >= 'a' && filename[i] <= 'z' || filename[i] >= '0' && filename[i] <= '9')) {
 						break;
 					}
 				}
+
+				if (i == 8 && filename[i] == '.' && filename[i + 1] == '0') {
+					anonymous_capath = "/etc/ssl/certs";
+					break;
+				}
 			}
-			capath_set = true;
 		}
-		return anonymous_capath;
+		return *anonymous_capath;
 	}
 #endif
-
-	class CurlGuard {
-	public:
-		CurlGuard() {
-			/* init the curl session */
-			curl_global_init(CURL_GLOBAL_ALL);
-			curl = curl_easy_init();
-		}
-
-		~CurlGuard() {
-			cleanup();
-		}
-
-		CURL* get() {
-			curl_easy_reset(curl);
-			return curl;
-		}
-
-		void cleanup() {
-			/* cleanup curl stuff */
-			if (curl) {
-				curl_easy_cleanup(curl);
-				curl_global_cleanup();
-				curl = nullptr;
-			}
-		}
-
-	private:
-		CURL* curl;
-	};
-
-	class FileOpenGuard {
-	public:
-		FileOpenGuard(const char* filename, const char* mode) {
-			/* open the file */
-			file = fopen(filename, mode);
-		}
-
-		~FileOpenGuard() {
-			close();
-		}
-
-		std::FILE* get() {
-			return file;
-		}
-
-		void close() {
-			/* close the file */
-			if (file) {
-				std::fclose(file);
-				file = nullptr;
-			}
-		}
-
-	private:
-		std::FILE* file;
-	};
-
-	size_t write_data(void* ptr, size_t size, size_t nmemb, void* stream) {
-		return fwrite(ptr, size, nmemb, (std::FILE*)stream);
-	}
-
-	/* return current SSL backend name, chop off multissl */
-	char* ssl_backend() {
-		static char ssl_ver[80] = "no ssl";
-		static bool already = FALSE;
-		if (!already) { /* if there is no existing version */
-			const char* v = curl_version_info(CURLVERSION_NOW)->ssl_version;
-			if (v) {
-				curl_msnprintf(ssl_ver, sizeof(ssl_ver), "%.*s", (int)strcspn(v, " "), v);
-			}
-			already = TRUE;
-		}
-		return ssl_ver;
-	}
-
-	struct CurlList {
-		struct curl_slist* slist;
-
-		CurlList(const std::vector<std::string>& svector) {
-			struct curl_slist* temp = nullptr;
-			for (const auto& v : svector) {
-				temp = curl_slist_append(slist, v.c_str());
-				if (!temp) {
-					this->~CurlList();
-					return;
-				}
-				slist = temp;
-			}
-		}
-
-		~CurlList() {
-			if (slist) {
-				curl_slist_free_all(slist);
-				slist = nullptr;
-			}
-		}
-	};
-
-	struct CurlxDynBuf {
-		struct dynbuf buffer;
-
-		CurlxDynBuf(int size) {
-			Curl_dyn_init(&buffer, size);
-		}
-
-		~CurlxDynBuf() {
-			Curl_dyn_free(&buffer);
-		}
-	};
-
-	constexpr auto MAX_COOKIE_LINE = 8200;
 }
 
 namespace mediapipe::lua::solutions::download_utils {
 	constexpr auto _GCS_URL_PREFIX = "https://storage.googleapis.com/mediapipe-assets/";
 
-	absl::Status download_oss_model(const std::string& model_path, const std::string& hash, const bool force, const bool verbose) {
+	absl::Status download_oss_model(
+		const std::string& model_path,
+		const std::string& hash,
+		const bool force,
+		const char verbose
+	) {
 		fs::path mp_root_path(mediapipe::lua::_framework_bindings::resource_util::get_resource_dir());
 		auto model_abspath = fs::absolute(mp_root_path / model_path);
 
 		auto pos_end = model_path.find_last_of('/');
 		auto model_url = _GCS_URL_PREFIX + model_path.substr(pos_end == std::string::npos ? 0 : pos_end + 1);
 
-		return download({
-			.url = model_url,
-			.file = model_abspath.string(),
-			.hash = hash,
-			.force = force,
-			.verbose = verbose,
-			});
+		return download(
+			model_url,
+			model_abspath.string(),
+			hash,
+			force,
+			verbose
+		);
 	}
 
-	absl::Status download(const DownloadParams& params) {
-		auto file_abspath = fs::absolute(fs::path(params.file));
+	absl::Status curl(const std::vector<std::string>& _argv) {
+		char *env = curl_getenv("CURL_CA_BUNDLE");
+		if (env) {
+			goto after_env;
+		}
 
-		MP_ASSIGN_OR_RETURN(auto exists, check_hash(file_abspath, params.hash, params.force, false));
+		env = curl_getenv("SSL_CERT_DIR");
+		if (env) {
+			goto after_env;
+		}
+
+		env = curl_getenv("SSL_CERT_FILE");
+		if (env) {
+			goto after_env;
+		}
+
+after_env:
+
+		if (env) {
+			curl_free(env);
+			env = nullptr;
+		} else {
+#if defined(CURL_CA_BUNDLE) || !defined(_WIN32)
+			const auto& cacert = get_default_cacert();
+			if (!cacert.empty()) {
+#if _WIN32
+				SetEnvironmentVariableA("CURL_CA_BUNDLE", cacert.c_str());
+#else
+				setenv("CURL_CA_BUNDLE", cacert.c_str(), 0); // does not overwrite
+#endif
+			}
+#endif
+
+#if defined(CURL_CA_PATH) || !defined(_WIN32)
+			const auto& capath = get_default_capath();
+			if (!capath.empty()) {
+#if _WIN32
+				SetEnvironmentVariableA("SSL_CERT_DIR", capath.c_str());
+#else
+				setenv("SSL_CERT_DIR", capath.c_str(), 0); // does not overwrite
+#endif
+			}
+#endif
+		}
+
+#ifdef _UNICODE
+		std::vector<std::wstring> argv;
+		argv.reserve(_argv.size());
+		for (const auto& arg : _argv) {
+			std::wstring wstr; LUA_MODULE_NAME::wide_char::utf8_to_wcs(arg, wstr);
+			argv.push(std::move(wstr));
+		}
+
+		std::vector<wchar_t*> cstrings;
+		cstrings.reserve(argv.size());
+		for (const auto& arg : argv) {
+			cstrings.push_back(const_cast<wchar_t*>(arg.c_str()));
+		}
+
+		CURLcode res = static_cast<CURLcode>(tool_wmain(cstrings.size(), cstrings.size() == 0 ? nullptr : &cstrings[0]));
+#else
+		const auto& argv = _argv;
+		std::vector<char*> cstrings;
+		cstrings.reserve(argv.size());
+		for (const auto& arg : argv) {
+			cstrings.push_back(const_cast<char*>(arg.c_str()));
+		}
+
+		CURLcode res = static_cast<CURLcode>(tool_main(cstrings.size(), cstrings.size() == 0 ? nullptr : &cstrings[0]));
+#endif
+
+		MP_ASSERT_RETURN_IF_ERROR(res == CURLE_OK, "curl_easy_perform() failed: " << curl_easy_strerror(res));
+		return absl::OkStatus();
+	}
+
+	absl::Status download(
+		const std::string& url,
+		const std::string& output,
+		const std::string& hash,
+		const bool force,
+		const char verbose
+	) {
+		auto file_abspath = fs::absolute(fs::path(output));
+
+		MP_ASSIGN_OR_RETURN(auto exists, check_hash(file_abspath, hash, force, false));
 
 		if (exists) {
-			if (params.verbose) {
+			if (verbose > 0) {
 				LUA_MODULE_INFO("Keeping existing " << file_abspath);
 			}
 			return absl::OkStatus();
 		}
 
-		LUA_MODULE_INFO("Downloading " << params.url << " to " << file_abspath);
+		LUA_MODULE_INFO("Downloading " << url << " to " << file_abspath);
 
-		// create directory tree
-		fs::create_directories(file_abspath.parent_path());
+		std::vector<std::string> argv = {
+			"--url", url,
+			"--output", output,
+			"-L",
+			"--create-dirs",
+		};
 
-		auto sFileNameL = file_abspath.string();
-
-		long authtype = 0;
-		std::string key_passwd;
-
-		CurlGuard curl_guard;
-		CURL* curl = curl_guard.get();
-
-		if (params.verbose) {
-			curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+		if (verbose > 0) {
+			argv.push_back("-" + std::string(verbose, 'v'));
+		} else if (verbose < 0) {
+			argv.push_back("--silent");
 		}
 
-		/* set URL to get here */
-		curl_easy_setopt(curl, CURLOPT_URL, params.url.c_str());
+		MP_RETURN_IF_ERROR(curl(argv));
 
-		/* Connect via abstract Unix domain socket */
-		if (params.abstract_unix_socket) {
-			// MP_ASSERT_RETURN_IF_ERROR(!params.unix_socket, "abstract_unix_socket is mutually exclusive with unix_socket");
-			MP_ASSERT_RETURN_IF_ERROR(!params.abstract_unix_socket->empty(), "abstract_unix_socket cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_ABSTRACT_UNIX_SOCKET, params.abstract_unix_socket->c_str());
-		}
-
-		/* Enable alt-svc with this cache file */
-		if (!params.altsvc.empty()) {
-			MP_ASSERT_RETURN_IF_ERROR(feature_altsvc, "the installed libcurl version does not support alt-svc");
-			curl_easy_setopt(curl, CURLOPT_ALTSVC, params.altsvc.c_str());
-		}
-
-		/* Pick any authentication method */
-		if (params.anyauth) {
-			authtype = CURLAUTH_ANY;
-		}
-
-		/* AWS V4 signature auth */
-		if (params.aws_sigv4) {
-			authtype |= CURLAUTH_AWS_SIGV4;
-			MP_ASSERT_RETURN_IF_ERROR(!params.aws_sigv4->empty(), "aws_sigv4 cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_AWS_SIGV4, params.aws_sigv4->c_str());
-		}
-
-		/* HTTP Basic Authentication */
-		if (params.basic) {
-			MP_ASSERT_RETURN_IF_ERROR(feature_ssl, "the installed libcurl version does not support basic authentication");
-			authtype |= CURLAUTH_BASIC;
-		}
-		else {
-			authtype &= ~CURLAUTH_BASIC;
-		}
-
-		// {
-		// 	long mask =
-		// 		(params.ssl_allow_beast ?
-		// 			CURLSSLOPT_ALLOW_BEAST : 0) |
-		// 		(params.ssl_allow_earlydata ?
-		// 			CURLSSLOPT_EARLYDATA : 0) |
-		// 		(params.ssl_no_revoke ?
-		// 			CURLSSLOPT_NO_REVOKE : 0) |
-		// 		(params.ssl_revoke_best_effort ?
-		// 			CURLSSLOPT_REVOKE_BEST_EFFORT : 0) |
-		// 		(params.ca_native ?
-		// 			CURLSSLOPT_NATIVE_CA : 0) |
-		// 		(params.ssl_auto_client_cert ?
-		// 			CURLSSLOPT_AUTO_CLIENT_CERT : 0);
-
-		// 	if (mask) {
-		// 		curl_easy_setopt(curl, CURLOPT_SSL_OPTIONS, mask);
-		// 	}
-		// }
-
-		/* CA certificate to verify peer against */
-		if (params.cacert) {
-			MP_ASSERT_RETURN_IF_ERROR(!params.cacert->empty(), "cacert cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_CAINFO, params.cacert->c_str());
-		}
-#ifdef CURL_CA_BUNDLE
-		else {
-			const auto& cacert = get_default_cacert();
-			if (!cacert.empty()) {
-				curl_easy_setopt(curl, CURLOPT_CAINFO, cacert.c_str());
-			}
-		}
-#endif
-
-		/* CA directory to verify peer against */
-		if (params.capath) {
-			MP_ASSERT_RETURN_IF_ERROR(!params.capath->empty(), "capath cannot be empty");
-			CURLcode res = curl_easy_setopt(curl, CURLOPT_CAPATH, params.capath->c_str());
-			MP_ASSERT_RETURN_IF_ERROR(res == CURLE_OK, "set capath failed: " << curl_easy_strerror(res));
-		}
-#ifdef CURL_CA_PATH
-		else {
-			const auto& capath = get_default_capath();
-			if (!capath.empty()) {
-				curl_easy_setopt(curl, CURLOPT_CAPATH, capath.c_str());
-			}
-		}
-#endif
-
-		if (feature_ssl) {
-			/* Client certificate file and password */
-			if (params.cert) {
-				MP_ASSERT_RETURN_IF_ERROR(!params.cert->empty(), "cert cannot be empty");
-				curl_easy_setopt(curl, CURLOPT_SSLCERT, params.cert->c_str());
-			}
-
-			/* Certificate type (DER/PEM/ENG/PROV/P12) */
-			if (params.cert_type) {
-				MP_ASSERT_RETURN_IF_ERROR(!params.cert_type->empty(), "cert_type cannot be empty");
-				curl_easy_setopt(curl, CURLOPT_SSLCERTTYPE, params.cert_type->c_str());
-			}
-		}
-
-		/* Verify server cert status OCSP-staple */
-		if (params.cert_status) {
-			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYSTATUS, 1L);
-		}
-
-		/* TLS 1.2 (1.1, 1.0) ciphers to use */
-		if (params.cipher_list) {
-			CURLcode res = curl_easy_setopt(curl, CURLOPT_SSL_CIPHER_LIST, params.cipher_list->c_str());
-			if (res == CURLE_NOT_BUILT_IN) {
-				LUA_MODULE_WARN("ignoring --ciphers, not supported by libcurl with " << ssl_backend());
-			}
-		}
-
-		/* Request compressed response */
-		if (params.compressed) {
-			MP_ASSERT_RETURN_IF_ERROR(feature_libz || feature_brotli || feature_zstd, "the installed libcurl version does not support compressed");
-			curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "");
-		}
-
-		/* Maximum time allowed to connect */
-		if (params.connect_timeout) {
-			curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT_MS, (*params.connect_timeout) * 1000);
-		}
-
-		/* Connect to host2 instead of host1 */
-		if (!params.connect_to.empty()) {
-			CurlList connect_to(params.connect_to);
-			curl_easy_setopt(curl, CURLOPT_CONNECT_TO, connect_to.slist);
-		}
-
-		// Send cookies from string/load from file
-		if (!params.cookies.empty()) {
-			CurlxDynBuf cookies(MAX_COOKIE_LINE);
-
-			/* The maximum size needs to match MAX_NAME in cookie.h */
-			Curl_dyn_init(&cookies.buffer, MAX_COOKIE_LINE);
-
-			for (const auto& cookie : params.cookies) {
-				if (strchr(cookie.c_str(), '=')) {
-					CURLcode res = Curl_dyn_addf(&cookies.buffer, "%s;", cookie.c_str());
-					MP_ASSERT_RETURN_IF_ERROR(res == CURLE_OK,
-						"skipped provided cookie, the cookie header "
-						"would go over " << MAX_COOKIE_LINE << " bytes");
-				}
-				else {
-					curl_easy_setopt(curl, CURLOPT_COOKIEFILE, cookie.c_str());
-				}
-			}
-
-			curl_easy_setopt(curl, CURLOPT_COOKIE, Curl_dyn_ptr(&cookies.buffer));
-		}
-
-		/* Save cookies to <filename> after operation */
-		if (params.cookie_jar) {
-			MP_ASSERT_RETURN_IF_ERROR(!params.cookie_jar->empty(), "cookie_jar cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_COOKIEJAR, params.cookie_jar->c_str());
-		}
-
-		/* Certificate Revocation list */
-		if (params.crlfile) {
-			MP_ASSERT_RETURN_IF_ERROR(!params.crlfile->empty(), "crlfile cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_CRLFILE, params.crlfile->c_str());
-		}
-
-		/* (EC) TLS key exchange algorithms to request */
-		if (params.curves) {
-			MP_ASSERT_RETURN_IF_ERROR(!params.curves->empty(), "curves cannot be empty");
-			curl_easy_setopt(curl, CURLOPT_SSL_EC_CURVES, params.curves->c_str());
-		}
-
-		/* HTTP POST data */
-		if (params.data) {
-			curl_easy_setopt(curl, CURLOPT_POSTFIELDS, params.data->c_str());
-			curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE_LARGE, params.data->size());
-		}
-
-		/* HTTP Digest Authentication */
-		if (params.digest) {
-			if (*params.digest) {
-				authtype |= CURLAUTH_DIGEST;
-			}
-			else {
-				authtype &= ~CURLAUTH_DIGEST;
-			}
-		}
-
-		/* Disallow username in URL */
-		if (params.disallow_username_in_url) {
-			curl_easy_setopt(curl, CURLOPT_DISALLOW_USERNAME_IN_URL, 1L);
-		}
-
-		/* follow redirections */
-		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-
-		/* disable progress meter, set to 0L to enable it */
-		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
-
-		if (authtype != 0) {
-			curl_easy_setopt(curl, CURLOPT_HTTPAUTH, authtype);
-		}
-
-		/* send all data to this function  */
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-
-		/* open the file */
-		FileOpenGuard file_guard(sFileNameL.c_str(), "wb");
-		MP_ASSERT_RETURN_IF_ERROR(static_cast<bool>(file_guard.get()), "unable to open file " << sFileNameL);
-
-		/* write the page body to this file handle */
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, file_guard.get());
-
-		/* get it! */
-		CURLcode res = curl_easy_perform(curl);
-		MP_ASSERT_RETURN_IF_ERROR(res == CURLE_OK, "curl_easy_perform() failed: " << curl_easy_strerror(res));
-		file_guard.close();
-
-		MP_ASSIGN_OR_RETURN(exists, check_hash(file_abspath, params.hash, params.force, true));
-		MP_ASSERT_RETURN_IF_ERROR(exists, "Downloading " << params.url << " to " << file_abspath << " failed");
+		MP_ASSIGN_OR_RETURN(exists, check_hash(file_abspath, hash, force, true));
 
 		return absl::OkStatus();
-	}
-
-
-	absl::Status download(
-		const std::string& url,
-		const std::string& file,
-		const std::string& hash,
-		const bool force,
-		const std::optional<std::string> abstract_unix_socket,
-		const std::string& altsvc,
-		const bool anyauth,
-		const std::optional<std::string> aws_sigv4,
-		const bool basic,
-		const bool ca_native,
-		const std::optional<std::string> cacert,
-		const std::optional<std::string> capath,
-		const std::optional<std::string> cert,
-		const bool cert_status,
-		const std::optional<std::string> cert_type,
-		const std::optional<std::string> cipher_list,
-		const bool compressed,
-		const std::optional<long> connect_timeout,
-		const std::vector<std::string>& connect_to,
-		const std::vector<std::string>& cookies,
-		const std::optional<std::string> cookie_jar,
-		const std::optional<std::string> crlfile,
-		const std::optional<std::string> curves,
-		const std::optional<std::string> data,
-		const std::optional<bool> digest,
-		const bool disallow_username_in_url,
-		const bool verbose
-	) {
-		return download({
-			.url = url,
-			.file = file,
-			.hash = hash,
-			.force = force,
-			.abstract_unix_socket = abstract_unix_socket,
-			.altsvc = altsvc,
-			.anyauth = anyauth,
-			.aws_sigv4 = aws_sigv4,
-			.basic = basic,
-			.ca_native = ca_native,
-			.cacert = cacert,
-			.capath = capath,
-			.cert = cert,
-			.cert_status = cert_status,
-			.cert_type = cert_type,
-			.cipher_list = cipher_list,
-			.compressed = compressed,
-			.connect_timeout = connect_timeout,
-			.connect_to = connect_to,
-			.cookies = cookies,
-			.cookie_jar = cookie_jar,
-			.crlfile = crlfile,
-			.curves = curves,
-			.data = data,
-			.digest = digest,
-			.disallow_username_in_url = disallow_username_in_url,
-			.verbose = verbose
-		});
 	}
 }

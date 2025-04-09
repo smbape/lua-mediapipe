@@ -423,7 +423,7 @@ function module.assertNotIn(member, container, msg)
 end
 
 function module.assertListEqual(first, second, msg)
-    module.assertEqual(#first, #second)
+    module.assertEqual(#first, #second, "expecting sizes to be equal")
 
     for i = 1, #first do
         local imsg = msg

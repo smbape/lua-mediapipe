@@ -49,7 +49,7 @@ eachOfLimit(files, cpus, (file, i, next) => {
                     }
 
                     return match;
-                });
+                }).replace(/int (w?main\(int )/g, "int tool_$1");
 
                 if (dstContent === dstBuffer.toString()) {
                     next();

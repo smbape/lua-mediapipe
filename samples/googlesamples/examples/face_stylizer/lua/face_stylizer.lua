@@ -65,12 +65,12 @@ local MODEL_HASH = "sha256=c22ae91703d9c3432f00b419c93590f3be3f3b98f7714b22431a7
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },

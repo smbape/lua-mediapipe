@@ -77,25 +77,45 @@ function module.get_test_data_path(file_or_dirname_path)
     return nil
 end
 
+local sha = require("sha2")
+
+---@param file string
+function module.sha256(file)
+    local f = io.open(file, "rb")
+    if f == nil then
+        error(file)
+        return
+    end
+
+    local sha256 = sha.sha256()  -- create calculation instance #1
+    for message_part in function() return f:read(4096) end do  -- "f:lines(4096)" is shorter but incompatible with Lua 5.1
+       sha256(message_part)
+    end
+    f:close()
+    print(sha256(), file)
+end
+
 ---@param _TEST_DATA_DIR string
 ---@param test_files (string|table)[]
 function module.download_test_files(_TEST_DATA_DIR, test_files)
     for _, kwargs in ipairs(test_files) do
-
         if type(kwargs) == "string" then
             kwargs = {
                 url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs,
-                file = kwargs,
+                output = kwargs,
             }
+        elseif kwargs.url == nil then
+            kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
         end
 
         kwargs = mediapipe_lua.kwargs(kwargs)
 
-        if type(kwargs.file) == "string" then
-            kwargs.file = _TEST_DATA_DIR .. "/" .. kwargs.file
+        if type(kwargs.output) == "string" then
+            kwargs.output = _TEST_DATA_DIR .. "/" .. kwargs.output
         end
 
         download_utils.download(kwargs)
+        -- module.sha256(kwargs.output)
     end
 end
 

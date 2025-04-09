@@ -2,7 +2,7 @@ rockspec_format = "3.0"
 package = "mediapipe_lua"
 version = "scm-1"
 source = {
-   url = "git+https://github.com/smbape/lua-mediapipe.git"
+   url = "git+file://D:/development/git/lua-mediapipe"
 }
 description = {
    summary = "Mediapipe bindings for lua",
@@ -14,11 +14,11 @@ description = {
       luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 
       Or to specify the target lua version with one of the following commands
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21luajit2.1
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.4
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.3
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.2
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.1
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.4
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.3
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.2
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.1
 
       Those prebuilt binaries should work on windows and many linux distributions and have been tested on:
         - Windows 11
@@ -35,20 +35,22 @@ description = {
         - Almalinux 9
 
       If the prebuilt binary does not work or you want a custom build, then I recommend you to host your own binary rocks by following the instructions at
-      https://github.com/smbape/lua-mediapipe/tree/v0.0.0#hosting-you-own-binary-rocks
+      https://github.com/smbape/lua-mediapipe/tree/v0.1.0#hosting-you-own-binary-rocks
 
-      Otherwise, follow the instructions at https://github.com/smbape/lua-mediapipe/tree/v0.0.0#prerequisites-to-source-rock-install
+      Otherwise, follow the instructions at https://github.com/smbape/lua-mediapipe/tree/v0.1.0#prerequisites-to-source-rock-install
       before attempting to install the source rock with
 
-      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0
+      luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22
    ]],
    homepage = "https://github.com/smbape/lua-mediapipe",
-   issues_url = "git+https://github.com/smbape/lua-mediapipe.git",
+   issues_url = "git+file://D:/development/git/lua-mediapipe",
    license = "MIT",
    labels = { "mediapipe" },
 }
 dependencies = {
-   "lua >= 5.1, < 5.5"
+   "lua >= 5.1, < 5.5",
+   "opencv_lua >= 4.11.0, < 5.0.0"
 }
 build = {
    type = "cmake",

@@ -171,7 +171,7 @@ FetchContent_Populate(curl
 # https://gitlab.kitware.com/cmake/cmake/-/blob/v3.31.6/Utilities/cmcurl/CMakeLists.txt
 
 # Unneeded options
-set(BUILD_CURL_EXE OFF)
+set(BUILD_CURL_EXE ON)
 set(BUILD_EXAMPLES OFF)
 set(BUILD_LIBCURL_DOCS OFF)
 set(BUILD_MISC_DOCS OFF)

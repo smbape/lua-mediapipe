@@ -2017,8 +2017,8 @@
   - [mediapipe.packet\_creator](#mediapipepacket%5C_creator)
   - [mediapipe.packet\_getter](#mediapipepacket%5C_getter)
   - [mediapipe.\_framework\_bindings](#mediapipe%5C_framework%5C_bindings)
-  - [mediapipe.solution\_base](#mediapipesolution%5C_base)
   - [mediapipe.solutions](#mediapipesolutions)
+  - [mediapipe.solution\_base](#mediapipesolution%5C_base)
 - [mediapipe::ARBlendShapeMap](#mediapipearblendshapemap)
   - [ARBlendShapeMap.entries](#arblendshapemapentries)
   - [mediapipe.ARBlendShapeMap.new](#mediapipearblendshapemapnew)
@@ -3368,7 +3368,6 @@
 - [mediapipe::lua::solutions::face\_detection::FaceDetection](#mediapipeluasolutionsface%5C_detectionfacedetection)
   - [mediapipe.lua.solutions.face\_detection.FaceDetection.new](#mediapipeluasolutionsface%5C_detectionfacedetectionnew)
   - [mediapipe.lua.solutions.face\_detection.FaceDetection.\_\_type](#mediapipeluasolutionsface%5C_detectionfacedetection%5C_%5C_type)
-  - [mediapipe.lua.solutions.face\_detection.FaceDetection.operator==](#mediapipeluasolutionsface%5C_detectionfacedetectionoperator)
   - [mediapipe.lua.solutions.face\_detection.FaceDetection.process](#mediapipeluasolutionsface%5C_detectionfacedetectionprocess)
 - [mediapipe::lua::solutions::face\_mesh](#mediapipeluasolutionsface%5C_mesh)
   - [face\_mesh.FACEMESH\_NUM\_LANDMARKS](#face%5C_meshfacemesh%5C_num%5C_landmarks)
@@ -3388,7 +3387,6 @@
 - [mediapipe::lua::solutions::face\_mesh::FaceMesh](#mediapipeluasolutionsface%5C_meshfacemesh)
   - [mediapipe.lua.solutions.face\_mesh.FaceMesh.new](#mediapipeluasolutionsface%5C_meshfacemeshnew)
   - [mediapipe.lua.solutions.face\_mesh.FaceMesh.\_\_type](#mediapipeluasolutionsface%5C_meshfacemesh%5C_%5C_type)
-  - [mediapipe.lua.solutions.face\_mesh.FaceMesh.operator==](#mediapipeluasolutionsface%5C_meshfacemeshoperator)
   - [mediapipe.lua.solutions.face\_mesh.FaceMesh.process](#mediapipeluasolutionsface%5C_meshfacemeshprocess)
 - [mediapipe::lua::solutions::face\_mesh\_connections](#mediapipeluasolutionsface%5C_mesh%5C_connections)
   - [face\_mesh\_connections.FACEMESH\_LIPS](#face%5C_mesh%5C_connectionsfacemesh%5C_lips)
@@ -3408,7 +3406,6 @@
 - [mediapipe::lua::solutions::hands::Hands](#mediapipeluasolutionshandshands)
   - [mediapipe.lua.solutions.hands.Hands.new](#mediapipeluasolutionshandshandsnew)
   - [mediapipe.lua.solutions.hands.Hands.\_\_type](#mediapipeluasolutionshandshands%5C_%5C_type)
-  - [mediapipe.lua.solutions.hands.Hands.operator==](#mediapipeluasolutionshandshandsoperator)
   - [mediapipe.lua.solutions.hands.Hands.process](#mediapipeluasolutionshandshandsprocess)
 - [mediapipe::lua::solutions::hands\_connections](#mediapipeluasolutionshands%5C_connections)
   - [hands\_connections.HAND\_PALM\_CONNECTIONS](#hands%5C_connectionshand%5C_palm%5C_connections)
@@ -3428,7 +3425,6 @@
 - [mediapipe::lua::solutions::holistic::Holistic](#mediapipeluasolutionsholisticholistic)
   - [mediapipe.lua.solutions.holistic.Holistic.new](#mediapipeluasolutionsholisticholisticnew)
   - [mediapipe.lua.solutions.holistic.Holistic.\_\_type](#mediapipeluasolutionsholisticholistic%5C_%5C_type)
-  - [mediapipe.lua.solutions.holistic.Holistic.operator==](#mediapipeluasolutionsholisticholisticoperator)
   - [mediapipe.lua.solutions.holistic.Holistic.process](#mediapipeluasolutionsholisticholisticprocess)
 - [mediapipe::lua::solutions::objectron](#mediapipeluasolutionsobjectron)
   - [objectron.BOX\_CONNECTIONS](#objectronbox%5C_connections)
@@ -3447,7 +3443,6 @@
 - [mediapipe::lua::solutions::objectron::Objectron](#mediapipeluasolutionsobjectronobjectron)
   - [mediapipe.lua.solutions.objectron.Objectron.new](#mediapipeluasolutionsobjectronobjectronnew)
   - [mediapipe.lua.solutions.objectron.Objectron.\_\_type](#mediapipeluasolutionsobjectronobjectron%5C_%5C_type)
-  - [mediapipe.lua.solutions.objectron.Objectron.operator==](#mediapipeluasolutionsobjectronobjectronoperator)
   - [mediapipe.lua.solutions.objectron.Objectron.process](#mediapipeluasolutionsobjectronobjectronprocess)
 - [mediapipe::lua::solutions::objectron::ObjectronModel](#mediapipeluasolutionsobjectronobjectronmodel)
   - [ObjectronModel.model\_path](#objectronmodelmodel%5C_path)
@@ -3473,14 +3468,12 @@
 - [mediapipe::lua::solutions::pose::Pose](#mediapipeluasolutionsposepose)
   - [mediapipe.lua.solutions.pose.Pose.new](#mediapipeluasolutionsposeposenew)
   - [mediapipe.lua.solutions.pose.Pose.\_\_type](#mediapipeluasolutionsposepose%5C_%5C_type)
-  - [mediapipe.lua.solutions.pose.Pose.operator==](#mediapipeluasolutionsposeposeoperator)
   - [mediapipe.lua.solutions.pose.Pose.process](#mediapipeluasolutionsposeposeprocess)
 - [mediapipe::lua::solutions::pose\_connections](#mediapipeluasolutionspose%5C_connections)
   - [pose\_connections.POSE\_CONNECTIONS](#pose%5C_connectionspose%5C_connections)
 - [mediapipe::lua::solutions::selfie\_segmentation::SelfieSegmentation](#mediapipeluasolutionsselfie%5C_segmentationselfiesegmentation)
   - [mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.new](#mediapipeluasolutionsselfie%5C_segmentationselfiesegmentationnew)
   - [mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.\_\_type](#mediapipeluasolutionsselfie%5C_segmentationselfiesegmentation%5C_%5C_type)
-  - [mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.operator==](#mediapipeluasolutionsselfie%5C_segmentationselfiesegmentationoperator)
   - [mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.process](#mediapipeluasolutionsselfie%5C_segmentationselfiesegmentationprocess)
 - [mediapipe::modules::face\_detection::face\_detection\_pb2](#mediapipemodulesface%5C_detectionface%5C_detection%5C_pb2)
   - [face\_detection\_pb2.FaceDetectionOptions](#face%5C_detection%5C_pb2facedetectionoptions)
@@ -3981,6 +3974,7 @@
   - [mediapipe.tasks.lua.text.language\_detector.LanguageDetector.create\_from\_model\_path](#mediapipetasksluatextlanguage%5C_detectorlanguagedetectorcreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.text.language\_detector.LanguageDetector.create\_from\_options](#mediapipetasksluatextlanguage%5C_detectorlanguagedetectorcreate%5C_from%5C_options)
   - [mediapipe.tasks.lua.text.language\_detector.LanguageDetector.detect](#mediapipetasksluatextlanguage%5C_detectorlanguagedetectordetect)
+  - [mediapipe.tasks.lua.text.language\_detector.LanguageDetector.operator==](#mediapipetasksluatextlanguage%5C_detectorlanguagedetectoroperator)
 - [mediapipe::tasks::lua::text::language\_detector::LanguageDetectorOptions](#mediapipetasksluatextlanguage%5C_detectorlanguagedetectoroptions)
   - [LanguageDetectorOptions.base\_options](#languagedetectoroptionsbase%5C_options)
   - [LanguageDetectorOptions.display\_names\_locale](#languagedetectoroptionsdisplay%5C_names%5C_locale)
@@ -4009,6 +4003,7 @@
   - [mediapipe.tasks.lua.text.text\_classifier.TextClassifier.classify](#mediapipetasksluatexttext%5C_classifiertextclassifierclassify)
   - [mediapipe.tasks.lua.text.text\_classifier.TextClassifier.create\_from\_model\_path](#mediapipetasksluatexttext%5C_classifiertextclassifiercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.text.text\_classifier.TextClassifier.create\_from\_options](#mediapipetasksluatexttext%5C_classifiertextclassifiercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.text.text\_classifier.TextClassifier.operator==](#mediapipetasksluatexttext%5C_classifiertextclassifieroperator)
 - [mediapipe::tasks::lua::text::text\_classifier::TextClassifierOptions](#mediapipetasksluatexttext%5C_classifiertextclassifieroptions)
   - [TextClassifierOptions.base\_options](#textclassifieroptionsbase%5C_options)
   - [TextClassifierOptions.display\_names\_locale](#textclassifieroptionsdisplay%5C_names%5C_locale)
@@ -4027,6 +4022,7 @@
   - [mediapipe.tasks.lua.text.text\_embedder.TextEmbedder.create\_from\_model\_path](#mediapipetasksluatexttext%5C_embeddertextembeddercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.text.text\_embedder.TextEmbedder.create\_from\_options](#mediapipetasksluatexttext%5C_embeddertextembeddercreate%5C_from%5C_options)
   - [mediapipe.tasks.lua.text.text\_embedder.TextEmbedder.embed](#mediapipetasksluatexttext%5C_embeddertextembedderembed)
+  - [mediapipe.tasks.lua.text.text\_embedder.TextEmbedder.operator==](#mediapipetasksluatexttext%5C_embeddertextembedderoperator)
 - [mediapipe::tasks::lua::text::text\_embedder::TextEmbedderOptions](#mediapipetasksluatexttext%5C_embeddertextembedderoptions)
   - [TextEmbedderOptions.base\_options](#textembedderoptionsbase%5C_options)
   - [TextEmbedderOptions.l2\_normalize](#textembedderoptionsl2%5C_normalize)
@@ -4102,6 +4098,7 @@
   - [mediapipe.tasks.lua.vision.face\_aligner.FaceAligner.align](#mediapipetasksluavisionface%5C_alignerfacealigneralign)
   - [mediapipe.tasks.lua.vision.face\_aligner.FaceAligner.create\_from\_model\_path](#mediapipetasksluavisionface%5C_alignerfacealignercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.face\_aligner.FaceAligner.create\_from\_options](#mediapipetasksluavisionface%5C_alignerfacealignercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.vision.face\_aligner.FaceAligner.operator==](#mediapipetasksluavisionface%5C_alignerfacealigneroperator)
 - [mediapipe::tasks::lua::vision::face\_aligner::FaceAlignerOptions](#mediapipetasksluavisionface%5C_alignerfacealigneroptions)
   - [FaceAlignerOptions.base\_options](#facealigneroptionsbase%5C_options)
   - [mediapipe.tasks.lua.vision.face\_aligner.FaceAlignerOptions.new](#mediapipetasksluavisionface%5C_alignerfacealigneroptionsnew)
@@ -4118,6 +4115,7 @@
   - [mediapipe.tasks.lua.vision.face\_detector.FaceDetector.detect](#mediapipetasksluavisionface%5C_detectorfacedetectordetect)
   - [mediapipe.tasks.lua.vision.face\_detector.FaceDetector.detect\_async](#mediapipetasksluavisionface%5C_detectorfacedetectordetect%5C_async)
   - [mediapipe.tasks.lua.vision.face\_detector.FaceDetector.detect\_for\_video](#mediapipetasksluavisionface%5C_detectorfacedetectordetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.face\_detector.FaceDetector.operator==](#mediapipetasksluavisionface%5C_detectorfacedetectoroperator)
 - [mediapipe::tasks::lua::vision::face\_detector::FaceDetectorOptions](#mediapipetasksluavisionface%5C_detectorfacedetectoroptions)
   - [FaceDetectorOptions.base\_options](#facedetectoroptionsbase%5C_options)
   - [FaceDetectorOptions.running\_mode](#facedetectoroptionsrunning%5C_mode)
@@ -4136,6 +4134,7 @@
   - [mediapipe.tasks.lua.vision.face\_landmarker.FaceLandmarker.detect](#mediapipetasksluavisionface%5C_landmarkerfacelandmarkerdetect)
   - [mediapipe.tasks.lua.vision.face\_landmarker.FaceLandmarker.detect\_async](#mediapipetasksluavisionface%5C_landmarkerfacelandmarkerdetect%5C_async)
   - [mediapipe.tasks.lua.vision.face\_landmarker.FaceLandmarker.detect\_for\_video](#mediapipetasksluavisionface%5C_landmarkerfacelandmarkerdetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.face\_landmarker.FaceLandmarker.operator==](#mediapipetasksluavisionface%5C_landmarkerfacelandmarkeroperator)
 - [mediapipe::tasks::lua::vision::face\_landmarker::FaceLandmarkerOptions](#mediapipetasksluavisionface%5C_landmarkerfacelandmarkeroptions)
   - [FaceLandmarkerOptions.base\_options](#facelandmarkeroptionsbase%5C_options)
   - [FaceLandmarkerOptions.running\_mode](#facelandmarkeroptionsrunning%5C_mode)
@@ -4182,6 +4181,7 @@
   - [mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.\_\_type](#mediapipetasksluavisionface%5C_stylizerfacestylizer%5C_%5C_type)
   - [mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.create\_from\_model\_path](#mediapipetasksluavisionface%5C_stylizerfacestylizercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.create\_from\_options](#mediapipetasksluavisionface%5C_stylizerfacestylizercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.operator==](#mediapipetasksluavisionface%5C_stylizerfacestylizeroperator)
   - [mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.stylize](#mediapipetasksluavisionface%5C_stylizerfacestylizerstylize)
 - [mediapipe::tasks::lua::vision::face\_stylizer::FaceStylizerOptions](#mediapipetasksluavisionface%5C_stylizerfacestylizeroptions)
   - [FaceStylizerOptions.base\_options](#facestylizeroptionsbase%5C_options)
@@ -4194,6 +4194,7 @@
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.\_\_type](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizer%5C_%5C_type)
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.create\_from\_model\_path](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.create\_from\_options](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.operator==](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizeroperator)
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.recognize](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizerrecognize)
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.recognize\_async](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizerrecognize%5C_async)
   - [mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.recognize\_for\_video](#mediapipetasksluavisiongesture%5C_recognizergesturerecognizerrecognize%5C_for%5C_video)
@@ -4227,6 +4228,7 @@
   - [mediapipe.tasks.lua.vision.hand\_landmarker.HandLandmarker.detect](#mediapipetasksluavisionhand%5C_landmarkerhandlandmarkerdetect)
   - [mediapipe.tasks.lua.vision.hand\_landmarker.HandLandmarker.detect\_async](#mediapipetasksluavisionhand%5C_landmarkerhandlandmarkerdetect%5C_async)
   - [mediapipe.tasks.lua.vision.hand\_landmarker.HandLandmarker.detect\_for\_video](#mediapipetasksluavisionhand%5C_landmarkerhandlandmarkerdetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.hand\_landmarker.HandLandmarker.operator==](#mediapipetasksluavisionhand%5C_landmarkerhandlandmarkeroperator)
 - [mediapipe::tasks::lua::vision::hand\_landmarker::HandLandmarkerOptions](#mediapipetasksluavisionhand%5C_landmarkerhandlandmarkeroptions)
   - [HandLandmarkerOptions.base\_options](#handlandmarkeroptionsbase%5C_options)
   - [HandLandmarkerOptions.running\_mode](#handlandmarkeroptionsrunning%5C_mode)
@@ -4271,6 +4273,7 @@
   - [mediapipe.tasks.lua.vision.holistic\_landmarker.HolisticLandmarker.detect](#mediapipetasksluavisionholistic%5C_landmarkerholisticlandmarkerdetect)
   - [mediapipe.tasks.lua.vision.holistic\_landmarker.HolisticLandmarker.detect\_async](#mediapipetasksluavisionholistic%5C_landmarkerholisticlandmarkerdetect%5C_async)
   - [mediapipe.tasks.lua.vision.holistic\_landmarker.HolisticLandmarker.detect\_for\_video](#mediapipetasksluavisionholistic%5C_landmarkerholisticlandmarkerdetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.holistic\_landmarker.HolisticLandmarker.operator==](#mediapipetasksluavisionholistic%5C_landmarkerholisticlandmarkeroperator)
 - [mediapipe::tasks::lua::vision::holistic\_landmarker::HolisticLandmarkerOptions](#mediapipetasksluavisionholistic%5C_landmarkerholisticlandmarkeroptions)
   - [HolisticLandmarkerOptions.base\_options](#holisticlandmarkeroptionsbase%5C_options)
   - [HolisticLandmarkerOptions.running\_mode](#holisticlandmarkeroptionsrunning%5C_mode)
@@ -4312,6 +4315,7 @@
   - [mediapipe.tasks.lua.vision.image\_classifier.ImageClassifier.classify\_for\_video](#mediapipetasksluavisionimage%5C_classifierimageclassifierclassify%5C_for%5C_video)
   - [mediapipe.tasks.lua.vision.image\_classifier.ImageClassifier.create\_from\_model\_path](#mediapipetasksluavisionimage%5C_classifierimageclassifiercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.image\_classifier.ImageClassifier.create\_from\_options](#mediapipetasksluavisionimage%5C_classifierimageclassifiercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.vision.image\_classifier.ImageClassifier.operator==](#mediapipetasksluavisionimage%5C_classifierimageclassifieroperator)
 - [mediapipe::tasks::lua::vision::image\_classifier::ImageClassifierOptions](#mediapipetasksluavisionimage%5C_classifierimageclassifieroptions)
   - [ImageClassifierOptions.base\_options](#imageclassifieroptionsbase%5C_options)
   - [ImageClassifierOptions.running\_mode](#imageclassifieroptionsrunning%5C_mode)
@@ -4336,6 +4340,7 @@
   - [mediapipe.tasks.lua.vision.image\_embedder.ImageEmbedder.embed](#mediapipetasksluavisionimage%5C_embedderimageembedderembed)
   - [mediapipe.tasks.lua.vision.image\_embedder.ImageEmbedder.embed\_async](#mediapipetasksluavisionimage%5C_embedderimageembedderembed%5C_async)
   - [mediapipe.tasks.lua.vision.image\_embedder.ImageEmbedder.embed\_for\_video](#mediapipetasksluavisionimage%5C_embedderimageembedderembed%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.image\_embedder.ImageEmbedder.operator==](#mediapipetasksluavisionimage%5C_embedderimageembedderoperator)
 - [mediapipe::tasks::lua::vision::image\_embedder::ImageEmbedderOptions](#mediapipetasksluavisionimage%5C_embedderimageembedderoptions)
   - [ImageEmbedderOptions.base\_options](#imageembedderoptionsbase%5C_options)
   - [ImageEmbedderOptions.running\_mode](#imageembedderoptionsrunning%5C_mode)
@@ -4355,6 +4360,7 @@
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.create\_from\_model\_path](#mediapipetasksluavisionimage%5C_segmenterimagesegmentercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.create\_from\_options](#mediapipetasksluavisionimage%5C_segmenterimagesegmentercreate%5C_from%5C_options)
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.get\_labels](#mediapipetasksluavisionimage%5C_segmenterimagesegmenterget%5C_labels)
+  - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.operator==](#mediapipetasksluavisionimage%5C_segmenterimagesegmenteroperator)
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.segment](#mediapipetasksluavisionimage%5C_segmenterimagesegmentersegment)
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.segment\_async](#mediapipetasksluavisionimage%5C_segmenterimagesegmentersegment%5C_async)
   - [mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.segment\_for\_video](#mediapipetasksluavisionimage%5C_segmenterimagesegmentersegment%5C_for%5C_video)
@@ -4382,6 +4388,7 @@
   - [mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.\_\_type](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmenter%5C_%5C_type)
   - [mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_model\_path](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmentercreate%5C_from%5C_model%5C_path)
   - [mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_options](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmentercreate%5C_from%5C_options)
+  - [mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.operator==](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmenteroperator)
   - [mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.segment](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmentersegment)
 - [mediapipe::tasks::lua::vision::interactive\_segmenter::InteractiveSegmenterOptions](#mediapipetasksluavisioninteractive%5C_segmenterinteractivesegmenteroptions)
   - [InteractiveSegmenterOptions.base\_options](#interactivesegmenteroptionsbase%5C_options)
@@ -4413,6 +4420,7 @@
   - [mediapipe.tasks.lua.vision.object\_detector.ObjectDetector.detect](#mediapipetasksluavisionobject%5C_detectorobjectdetectordetect)
   - [mediapipe.tasks.lua.vision.object\_detector.ObjectDetector.detect\_async](#mediapipetasksluavisionobject%5C_detectorobjectdetectordetect%5C_async)
   - [mediapipe.tasks.lua.vision.object\_detector.ObjectDetector.detect\_for\_video](#mediapipetasksluavisionobject%5C_detectorobjectdetectordetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.object\_detector.ObjectDetector.operator==](#mediapipetasksluavisionobject%5C_detectorobjectdetectoroperator)
 - [mediapipe::tasks::lua::vision::object\_detector::ObjectDetectorOptions](#mediapipetasksluavisionobject%5C_detectorobjectdetectoroptions)
   - [ObjectDetectorOptions.base\_options](#objectdetectoroptionsbase%5C_options)
   - [ObjectDetectorOptions.running\_mode](#objectdetectoroptionsrunning%5C_mode)
@@ -4434,6 +4442,7 @@
   - [mediapipe.tasks.lua.vision.pose\_landmarker.PoseLandmarker.detect](#mediapipetasksluavisionpose%5C_landmarkerposelandmarkerdetect)
   - [mediapipe.tasks.lua.vision.pose\_landmarker.PoseLandmarker.detect\_async](#mediapipetasksluavisionpose%5C_landmarkerposelandmarkerdetect%5C_async)
   - [mediapipe.tasks.lua.vision.pose\_landmarker.PoseLandmarker.detect\_for\_video](#mediapipetasksluavisionpose%5C_landmarkerposelandmarkerdetect%5C_for%5C_video)
+  - [mediapipe.tasks.lua.vision.pose\_landmarker.PoseLandmarker.operator==](#mediapipetasksluavisionpose%5C_landmarkerposelandmarkeroperator)
 - [mediapipe::tasks::lua::vision::pose\_landmarker::PoseLandmarkerOptions](#mediapipetasksluavisionpose%5C_landmarkerposelandmarkeroptions)
   - [PoseLandmarkerOptions.base\_options](#poselandmarkeroptionsbase%5C_options)
   - [PoseLandmarkerOptions.running\_mode](#poselandmarkeroptionsrunning%5C_mode)
@@ -24185,20 +24194,20 @@ lua:
     [propget] mediapipe._framework_bindings
 ```
 
-### mediapipe.solution\_base
-
-```cpp
-mediapipe::lua::solution_base
-lua:
-    [propget] mediapipe.solution_base
-```
-
 ### mediapipe.solutions
 
 ```cpp
 mediapipe::lua::solutions
 lua:
     [propget] mediapipe.solutions
+```
+
+### mediapipe.solution\_base
+
+```cpp
+mediapipe::lua::solution_base
+lua:
+    [propget] mediapipe.solution_base
 ```
 
 ## mediapipe::ARBlendShapeMap
@@ -26425,6 +26434,18 @@ lua:
 ```
 
 ```cpp
+mediapipe::InferenceCalculatorOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_InferenceCalculatorOptions& vKey );
+lua:
+    oCalculatorOptions:get_Extensions( vKey ) -> retval
+```
+
+```cpp
+mediapipe::FaceDetectionOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FaceDetectionOptions& vKey );
+lua:
+    oCalculatorOptions:get_Extensions( vKey ) -> retval
+```
+
+```cpp
 mediapipe::ConstantSidePacketCalculatorOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ConstantSidePacketCalculatorOptions& vKey );
 lua:
     oCalculatorOptions:get_Extensions( vKey ) -> retval
@@ -26462,18 +26483,6 @@ lua:
 
 ```cpp
 mediapipe::Lift2DFrameAnnotationTo3DCalculatorOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_Lift2DFrameAnnotationTo3DCalculatorOptions& vKey );
-lua:
-    oCalculatorOptions:get_Extensions( vKey ) -> retval
-```
-
-```cpp
-mediapipe::InferenceCalculatorOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_InferenceCalculatorOptions& vKey );
-lua:
-    oCalculatorOptions:get_Extensions( vKey ) -> retval
-```
-
-```cpp
-mediapipe::FaceDetectionOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FaceDetectionOptions& vKey );
 lua:
     oCalculatorOptions:get_Extensions( vKey ) -> retval
 ```
@@ -34679,35 +34688,13 @@ lua:
 ### mediapipe.lua.solutions.download\_utils.download
 
 ```cpp
-absl::Status mediapipe::lua::solutions::download_utils::download( const std::string&               url,
-                                                                  const std::string&               file,
-                                                                  const std::string&               hash = std::string(),
-                                                                  const bool                       force = false,
-                                                                  const std::optional<std::string> abstract_unix_socket = std::nullopt,
-                                                                  const std::string&               altsvc = std::string(),
-                                                                  const bool                       anyauth = false,
-                                                                  const std::optional<std::string> aws_sigv4 = std::nullopt,
-                                                                  const bool                       basic = false,
-                                                                  const bool                       ca_native = false,
-                                                                  const std::optional<std::string> cacert = std::nullopt,
-                                                                  const std::optional<std::string> capath = std::nullopt,
-                                                                  const std::optional<std::string> cert = std::nullopt,
-                                                                  const bool                       cert_status = false,
-                                                                  const std::optional<std::string> cert_type = std::nullopt,
-                                                                  const std::optional<std::string> cipher_list = std::nullopt,
-                                                                  const bool                       compressed = false,
-                                                                  const std::optional<long>        connect_timeout = std::nullopt,
-                                                                  const std::vector<std::string>&  connect_to = std::vector<std::string>(),
-                                                                  const std::vector<std::string>&  cookies = std::vector<std::string>(),
-                                                                  const std::optional<std::string> cookie_jar = std::nullopt,
-                                                                  const std::optional<std::string> crlfile = std::nullopt,
-                                                                  const std::optional<std::string> curves = std::nullopt,
-                                                                  const std::optional<std::string> data = std::nullopt,
-                                                                  const std::optional<bool>        digest = std::nullopt,
-                                                                  const bool                       disallow_username_in_url = false,
-                                                                  const bool                       verbose = false );
+absl::Status mediapipe::lua::solutions::download_utils::download( const std::string& url,
+                                                                  const std::string& output,
+                                                                  const std::string& hash = std::string(),
+                                                                  const bool         force = false,
+                                                                  const char         verbose = 0 );
 lua:
-    mediapipe.lua.solutions.download_utils.download( url, file[, hash[, force[, abstract_unix_socket[, altsvc[, anyauth[, aws_sigv4[, basic[, ca_native[, cacert[, capath[, cert[, cert_status[, cert_type[, cipher_list[, compressed[, connect_timeout[, connect_to[, cookies[, cookie_jar[, crlfile[, curves[, data[, digest[, disallow_username_in_url[, verbose]]]]]]]]]]]]]]]]]]]]]]]]] ) -> retval
+    mediapipe.lua.solutions.download_utils.download( url, output[, hash[, force[, verbose]]] ) -> retval
 ```
 
 ### mediapipe.lua.solutions.download\_utils.download\_oss\_model
@@ -34716,7 +34703,7 @@ lua:
 absl::Status mediapipe::lua::solutions::download_utils::download_oss_model( const std::string& model_path,
                                                                             const std::string& hash = std::string(),
                                                                             const bool         force = false,
-                                                                            const bool         verbose = false );
+                                                                            const char         verbose = 0 );
 lua:
     mediapipe.lua.solutions.download_utils.download_oss_model( model_path[, hash[, force[, verbose]]] ) -> retval
 ```
@@ -34981,20 +34968,6 @@ lua:
     mediapipe.lua.solutions.face_detection.FaceDetection.__type() -> retval
 ```
 
-### mediapipe.lua.solutions.face\_detection.FaceDetection.operator==
-
-```cpp
-bool mediapipe::lua::solutions::face_detection::FaceDetection::operator==( const mediapipe::lua::solutions::face_detection::FaceDetection& other );
-lua:
-    oFaceDetection:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::face_detection::FaceDetection::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oFaceDetection:__eq( other ) -> retval
-```
-
 ### mediapipe.lua.solutions.face\_detection.FaceDetection.process
 
 ```cpp
@@ -35140,20 +35113,6 @@ lua:
     mediapipe.lua.solutions.face_mesh.FaceMesh.__type() -> retval
 ```
 
-### mediapipe.lua.solutions.face\_mesh.FaceMesh.operator==
-
-```cpp
-bool mediapipe::lua::solutions::face_mesh::FaceMesh::operator==( const mediapipe::lua::solutions::face_mesh::FaceMesh& other );
-lua:
-    oFaceMesh:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::face_mesh::FaceMesh::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oFaceMesh:__eq( other ) -> retval
-```
-
 ### mediapipe.lua.solutions.face\_mesh.FaceMesh.process
 
 ```cpp
@@ -35291,20 +35250,6 @@ lua:
 static std::string mediapipe::lua::solutions::hands::Hands::__type();
 lua:
     mediapipe.lua.solutions.hands.Hands.__type() -> retval
-```
-
-### mediapipe.lua.solutions.hands.Hands.operator==
-
-```cpp
-bool mediapipe::lua::solutions::hands::Hands::operator==( const mediapipe::lua::solutions::hands::Hands& other );
-lua:
-    oHands:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::hands::Hands::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oHands:__eq( other ) -> retval
 ```
 
 ### mediapipe.lua.solutions.hands.Hands.process
@@ -35449,20 +35394,6 @@ lua:
     mediapipe.lua.solutions.holistic.Holistic.__type() -> retval
 ```
 
-### mediapipe.lua.solutions.holistic.Holistic.operator==
-
-```cpp
-bool mediapipe::lua::solutions::holistic::Holistic::operator==( const mediapipe::lua::solutions::holistic::Holistic& other );
-lua:
-    oHolistic:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::holistic::Holistic::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oHolistic:__eq( other ) -> retval
-```
-
 ### mediapipe.lua.solutions.holistic.Holistic.process
 
 ```cpp
@@ -35604,20 +35535,6 @@ lua:
 static std::string mediapipe::lua::solutions::objectron::Objectron::__type();
 lua:
     mediapipe.lua.solutions.objectron.Objectron.__type() -> retval
-```
-
-### mediapipe.lua.solutions.objectron.Objectron.operator==
-
-```cpp
-bool mediapipe::lua::solutions::objectron::Objectron::operator==( const mediapipe::lua::solutions::objectron::Objectron& other );
-lua:
-    oObjectron:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::objectron::Objectron::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oObjectron:__eq( other ) -> retval
 ```
 
 ### mediapipe.lua.solutions.objectron.Objectron.process
@@ -35818,20 +35735,6 @@ lua:
     mediapipe.lua.solutions.pose.Pose.__type() -> retval
 ```
 
-### mediapipe.lua.solutions.pose.Pose.operator==
-
-```cpp
-bool mediapipe::lua::solutions::pose::Pose::operator==( const mediapipe::lua::solutions::pose::Pose& other );
-lua:
-    oPose:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::pose::Pose::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oPose:__eq( other ) -> retval
-```
-
 ### mediapipe.lua.solutions.pose.Pose.process
 
 ```cpp
@@ -35867,20 +35770,6 @@ lua:
 static std::string mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation::__type();
 lua:
     mediapipe.lua.solutions.selfie_segmentation.SelfieSegmentation.__type() -> retval
-```
-
-### mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.operator==
-
-```cpp
-bool mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation::operator==( const mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation& other );
-lua:
-    oSelfieSegmentation:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oSelfieSegmentation:__eq( other ) -> retval
 ```
 
 ### mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.process
@@ -39415,7 +39304,7 @@ lua:
 ### BaseOptions.delegate
 
 ```cpp
-std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions_Delegate> mediapipe::tasks::lua::core::base_options::BaseOptions::delegate
+std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions::Delegate> mediapipe::tasks::lua::core::base_options::BaseOptions::delegate
 lua:
     [propget, propput] oBaseOptions.delegate
 ```
@@ -39430,9 +39319,9 @@ lua:
 ```
 
 ```cpp
-mediapipe::tasks::lua::core::base_options::BaseOptions( const std::string&                                                                    model_asset_path = "",
-                                                        const std::string&                                                                    model_asset_buffer = "",
-                                                        const std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions_Delegate>& delegate = std::optional<BaseOptions_Delegate>() );
+mediapipe::tasks::lua::core::base_options::BaseOptions( const std::string&                                                                     model_asset_path = "",
+                                                        const std::string&                                                                     model_asset_buffer = "",
+                                                        const std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions::Delegate>& delegate = std::optional<Delegate>() );
 lua:
     mediapipe.tasks.lua.core.base_options.BaseOptions.new( [model_asset_path[, model_asset_buffer[, delegate]]] ) -> <mediapipe::tasks::lua::core::base_options::BaseOptions object>
     mediapipe.tasks.lua.core.base_options.BaseOptions( [model_asset_path[, model_asset_buffer[, delegate]]] ) -> <mediapipe::tasks::lua::core::base_options::BaseOptions object>
@@ -39715,6 +39604,20 @@ lua:
     oLanguageDetector:detect( text ) -> retval
 ```
 
+### mediapipe.tasks.lua.text.language\_detector.LanguageDetector.operator==
+
+```cpp
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetector::operator==( const mediapipe::tasks::lua::text::language_detector::LanguageDetector& other );
+lua:
+    oLanguageDetector:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetector::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oLanguageDetector:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::text::language\_detector::LanguageDetectorOptions
 
 ### LanguageDetectorOptions.base\_options
@@ -39963,6 +39866,20 @@ lua:
     mediapipe.tasks.lua.text.text_classifier.TextClassifier.create_from_options( options ) -> retval
 ```
 
+### mediapipe.tasks.lua.text.text\_classifier.TextClassifier.operator==
+
+```cpp
+bool mediapipe::tasks::lua::text::text_classifier::TextClassifier::operator==( const mediapipe::tasks::lua::text::text_classifier::TextClassifier& other );
+lua:
+    oTextClassifier:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::text::text_classifier::TextClassifier::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oTextClassifier:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::text::text\_classifier::TextClassifierOptions
 
 ### TextClassifierOptions.base\_options
@@ -40113,6 +40030,20 @@ lua:
 absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult>> mediapipe::tasks::lua::text::text_embedder::TextEmbedder::embed( const std::string& text );
 lua:
     oTextEmbedder:embed( text ) -> retval
+```
+
+### mediapipe.tasks.lua.text.text\_embedder.TextEmbedder.operator==
+
+```cpp
+bool mediapipe::tasks::lua::text::text_embedder::TextEmbedder::operator==( const mediapipe::tasks::lua::text::text_embedder::TextEmbedder& other );
+lua:
+    oTextEmbedder:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::text::text_embedder::TextEmbedder::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oTextEmbedder:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua::text::text\_embedder::TextEmbedderOptions
@@ -40729,6 +40660,20 @@ lua:
     mediapipe.tasks.lua.vision.face_aligner.FaceAligner.create_from_options( options ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.face\_aligner.FaceAligner.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_aligner::FaceAligner::operator==( const mediapipe::tasks::lua::vision::face_aligner::FaceAligner& other );
+lua:
+    oFaceAligner:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_aligner::FaceAligner::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oFaceAligner:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::vision::face\_aligner::FaceAlignerOptions
 
 ### FaceAlignerOptions.base\_options
@@ -40858,6 +40803,20 @@ absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::components::containers::de
                                                                                                                                                                                           std::shared_ptr<mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions> image_processing_options = std::shared_ptr<core::image_processing_options::ImageProcessingOptions>() );
 lua:
     oFaceDetector:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.face\_detector.FaceDetector.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_detector::FaceDetector::operator==( const mediapipe::tasks::lua::vision::face_detector::FaceDetector& other );
+lua:
+    oFaceDetector:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_detector::FaceDetector::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oFaceDetector:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua::vision::face\_detector::FaceDetectorOptions
@@ -41015,6 +40974,20 @@ absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::vision::face_landmarker::F
                                                                                                                                                                                         std::shared_ptr<mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions> image_processing_options = std::shared_ptr<core::image_processing_options::ImageProcessingOptions>() );
 lua:
     oFaceLandmarker:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.face\_landmarker.FaceLandmarker.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarker::operator==( const mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarker& other );
+lua:
+    oFaceLandmarker:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oFaceLandmarker:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua::vision::face\_landmarker::FaceLandmarkerOptions
@@ -41417,6 +41390,20 @@ lua:
     mediapipe.tasks.lua.vision.face_stylizer.FaceStylizer.create_from_options( options ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizer::operator==( const mediapipe::tasks::lua::vision::face_stylizer::FaceStylizer& other );
+lua:
+    oFaceStylizer:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizer::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oFaceStylizer:__eq( other ) -> retval
+```
+
 ### mediapipe.tasks.lua.vision.face\_stylizer.FaceStylizer.stylize
 
 ```cpp
@@ -41516,6 +41503,20 @@ lua:
 static absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer>> mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer::create_from_options( std::shared_ptr<mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizerOptions> options );
 lua:
     mediapipe.tasks.lua.vision.gesture_recognizer.GestureRecognizer.create_from_options( options ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer::operator==( const mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer& other );
+lua:
+    oGestureRecognizer:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oGestureRecognizer:__eq( other ) -> retval
 ```
 
 ### mediapipe.tasks.lua.vision.gesture\_recognizer.GestureRecognizer.recognize
@@ -41813,6 +41814,20 @@ absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::vision::hand_landmarker::H
                                                                                                                                                                                         std::shared_ptr<mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions> image_processing_options = std::shared_ptr<core::image_processing_options::ImageProcessingOptions>() );
 lua:
     oHandLandmarker:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.hand\_landmarker.HandLandmarker.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarker::operator==( const mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarker& other );
+lua:
+    oHandLandmarker:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oHandLandmarker:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua::vision::hand\_landmarker::HandLandmarkerOptions
@@ -42202,6 +42217,20 @@ lua:
     oHolisticLandmarker:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.holistic\_landmarker.HolisticLandmarker.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarker::operator==( const mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarker& other );
+lua:
+    oHolisticLandmarker:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oHolisticLandmarker:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::vision::holistic\_landmarker::HolisticLandmarkerOptions
 
 ### HolisticLandmarkerOptions.base\_options
@@ -42560,6 +42589,20 @@ lua:
     mediapipe.tasks.lua.vision.image_classifier.ImageClassifier.create_from_options( options ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.image\_classifier.ImageClassifier.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifier::operator==( const mediapipe::tasks::lua::vision::image_classifier::ImageClassifier& other );
+lua:
+    oImageClassifier:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifier::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oImageClassifier:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::vision::image\_classifier::ImageClassifierOptions
 
 ### ImageClassifierOptions.base\_options
@@ -42763,6 +42806,20 @@ lua:
     oImageEmbedder:embed_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.image\_embedder.ImageEmbedder.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedder::operator==( const mediapipe::tasks::lua::vision::image_embedder::ImageEmbedder& other );
+lua:
+    oImageEmbedder:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedder::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oImageEmbedder:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::vision::image\_embedder::ImageEmbedderOptions
 
 ### ImageEmbedderOptions.base\_options
@@ -42915,6 +42972,20 @@ lua:
 void mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter::get_labels( std::vector<std::string>& labels );
 lua:
     oImageSegmenter:get_labels( [labels] ) -> labels
+```
+
+### mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter::operator==( const mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter& other );
+lua:
+    oImageSegmenter:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oImageSegmenter:__eq( other ) -> retval
 ```
 
 ### mediapipe.tasks.lua.vision.image\_segmenter.ImageSegmenter.segment
@@ -43147,6 +43218,20 @@ lua:
 static absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter>> mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter::create_from_options( std::shared_ptr<mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenterOptions> options );
 lua:
     mediapipe.tasks.lua.vision.interactive_segmenter.InteractiveSegmenter.create_from_options( options ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter::operator==( const mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter& other );
+lua:
+    oInteractiveSegmenter:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oInteractiveSegmenter:__eq( other ) -> retval
 ```
 
 ### mediapipe.tasks.lua.vision.interactive\_segmenter.InteractiveSegmenter.segment
@@ -43422,6 +43507,20 @@ lua:
     oObjectDetector:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
 ```
 
+### mediapipe.tasks.lua.vision.object\_detector.ObjectDetector.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::object_detector::ObjectDetector::operator==( const mediapipe::tasks::lua::vision::object_detector::ObjectDetector& other );
+lua:
+    oObjectDetector:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::object_detector::ObjectDetector::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oObjectDetector:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::lua::vision::object\_detector::ObjectDetectorOptions
 
 ### ObjectDetectorOptions.base\_options
@@ -43604,6 +43703,20 @@ absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::vision::pose_landmarker::P
                                                                                                                                                                                         std::shared_ptr<mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions> image_processing_options = std::shared_ptr<core::image_processing_options::ImageProcessingOptions>() );
 lua:
     oPoseLandmarker:detect_for_video( image, timestamp_ms[, image_processing_options] ) -> retval
+```
+
+### mediapipe.tasks.lua.vision.pose\_landmarker.PoseLandmarker.operator==
+
+```cpp
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarker::operator==( const mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarker& other );
+lua:
+    oPoseLandmarker:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+lua:
+    oPoseLandmarker:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua::vision::pose\_landmarker::PoseLandmarkerOptions

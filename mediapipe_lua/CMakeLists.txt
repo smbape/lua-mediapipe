@@ -43,6 +43,20 @@ if (WIN32)
     # Avoid long paths on windows
     # https://bazel.build/remote/output-directories#layout
     set(OUTPUT_USER_ROOT "C:/_bazel_" CACHE PATH "Bazel output user root")
+elseif(FALSE)
+    # Avoid remaining temp files with installing from source with luarocks
+    # Having OUTPUT_USER_ROOT inside CMAKE_SOURCE_DIR will cause an infinite Re-running CMake...
+    # because bazel sets some of its file modification time in the future.
+    # Changing those file modification time will cause bazel to say it is corrupted
+    set(OUTPUT_USER_ROOT "${CMAKE_SOURCE_DIR}/.cache/_bazel_" CACHE PATH "Bazel output user root")
+
+    if (EXISTS "${OUTPUT_USER_ROOT}")
+        # Avoid infinite Re-running CMake...
+        # because bazel files are in the future
+        execute_process(
+            COMMAND find "${OUTPUT_USER_ROOT}/install" -newermt "+0 days" -exec touch -r "${CMAKE_BINARY_DIR}/CMakeCache.txt" {} ";"
+        )
+    endif()
 endif()
 
 find_program(BAZEL_EXECUTABLE
@@ -51,7 +65,7 @@ find_program(BAZEL_EXECUTABLE
     REQUIRED
 )
 
-cmake_dependent_option(MEDIAPIPE_DISABLE_GPU "Disable GPU support" ON "WIN32" OFF)
+option(MEDIAPIPE_DISABLE_GPU "Disable GPU support" ON)
 
 if (WIN32 AND NOT MEDIAPIPE_DISABLE_GPU)
     message(FATAL_ERROR "GPU Delegate is not yet supported for Windows")
@@ -69,6 +83,14 @@ if (DEFINED OUTPUT_BASE)
     list(APPEND BAZEL_BUILD "--output_base=${OUTPUT_BASE}")
 endif()
 
+if (UNIX)
+    # [Running bazel in a subshell causes subshell to hang](https://github.com/bazelbuild/bazel/issues/19309)
+    execute_process(
+        COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" -- ${BAZEL_BUILD} info server_pid
+        WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+    )
+endif()
+
 list(APPEND BAZEL_BUILD
     build -c ${COMPILATION_MODE}
     --strip=never
@@ -78,8 +100,6 @@ list(APPEND BAZEL_BUILD
     --verbose_failures
 
     # --keep_going
-
-    # --sandbox_debug
 
     # https://github.com/bazelbuild/bazel/issues/8444#issuecomment-513204396
     # --spawn_strategy=local
@@ -139,7 +159,16 @@ endif()
 if (MEDIAPIPE_DISABLE_GPU)
     list(APPEND BAZEL_BUILD --define MEDIAPIPE_DISABLE_GPU=1)
 else()
-    list(APPEND BAZEL_BUILD --copt -DMESA_EGL_NO_X11_HEADERS --copt -DEGL_NO_X11)
+    list(APPEND BAZEL_BUILD
+        --copt=-DTFLITE_GPU_EXTRA_GLES_DEPS
+        --copt=-DMEDIAPIPE_OMIT_EGL_WINDOW_BIT
+        --copt=-DMESA_EGL_NO_X11_HEADERS
+        --copt=-DEGL_NO_X11
+    )
+
+    if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+        list(APPEND BAZEL_BUILD --copt=-DMEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER)
+    endif()
 endif()
 
 if (ENABLE_ODML_CONVERTER)
@@ -181,6 +210,12 @@ else()
     set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/${CMAKE_SHARED_LIBRARY_PREFIX}inference_calculator_options_registry${CMAKE_SHARED_LIBRARY_SUFFIX}")
 endif()
 
+# Make sure bazel-out is a symbolic link
+# add_custom_command will create the directory needed to store OUTPUT.
+# However, bazel creates bazel-out as a symbolic link in the output_user_root directory.
+# If bazel-out already exists, bazel won't touch it, and generated files will be inacessible.
+# The choosen work around is to delete bazel-out if it is not a symbolic link.
+# Therefore, allowing bazel to create the symbolic link
 set(ensure_SYMBOLIC_BAZEL_OUT "${CMAKE_COMMAND}" -E)
 if (IS_SYMLINK "${mediapipe_SOURCE_DIR}/bazel-out")
     list(APPEND ensure_SYMBOLIC_BAZEL_OUT echo)
@@ -188,14 +223,13 @@ endif()
 list(APPEND ensure_SYMBOLIC_BAZEL_OUT rm -rf "${mediapipe_SOURCE_DIR}/bazel-out")
 
 add_custom_command(OUTPUT "${builtin_calculators_OUTPUT}"
-    # Make sure bazel-out is a symbolic link
     COMMAND           ${ensure_SYMBOLIC_BAZEL_OUT}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} mediapipe/python:builtin_calculators
     COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" -- ${BAZEL_BUILD} mediapipe/python:builtin_calculators
     COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${builtin_calculators_OUTPUT}"
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     VERBATIM
-    USES_TERMINAL
+    USES_TERMINAL # bazel 6.5.0 hangs with this option
 )
 add_custom_target(${target_name}_builtin_calculators DEPENDS "${builtin_calculators_OUTPUT}")
 
@@ -223,7 +257,7 @@ add_custom_command(OUTPUT "${generated_OUTPUT}"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
     DEPENDS           ${project_source_headers} ${target_name}_builtin_calculators ${generator_files}
     VERBATIM
-    USES_TERMINAL
+    USES_TERMINAL # bazel 6.5.0 hangs with this option
 )
 add_custom_target(${target_name}_generated DEPENDS "${generated_OUTPUT}")
 
@@ -274,7 +308,7 @@ add_custom_command(OUTPUT "${BAZEL_OUPUT_LIBRARY}"
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     DEPENDS           ${project_source_files} ${project_rules_files} ${target_name}_generated
     VERBATIM
-    USES_TERMINAL
+    USES_TERMINAL # bazel 6.5.0 hangs with this option
 )
 add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUPUT_LIBRARY}")
 
@@ -310,9 +344,10 @@ else()
     set(TARGET_FILE "${LIBRARY_OUTPUT_PATH}/${OUPUT_LIBRARY_NAME}")
 
     add_custom_command(TARGET ${target_name} POST_BUILD
-        COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-            "${BAZEL_OUPUT_LIBRARY}"
-            "${TARGET_FILE}"
+        COMMAND "${CMAKE_COMMAND}"
+            "-DORIGIN_FILE=${BAZEL_OUPUT_LIBRARY}"
+            "-DTARGET_FILE=${TARGET_FILE}"
+            -P "${CMAKE_CURRENT_SOURCE_DIR}/copy_soname.cmake"
 
         COMMENT "Copy outputs ..." 
     )
@@ -365,24 +400,22 @@ if (WIN32)
     )
 endif()
 
-if (WITH_LUA_ROCKS AND CMAKE_INSTALL_PREFIX)
+if (WITH_LUA_ROCKS)
     install(CODE "set(CMAKE_BINARY_DIR \"${CMAKE_BINARY_DIR}\")")
     install(CODE "set(CMAKE_CURRENT_BINARY_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")")
     install(CODE "set(CMAKE_CURRENT_SOURCE_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")")
     install(CODE "set(CMAKE_INSTALL_LIBDIR \"lib\")")
-    install(CODE "set(CMAKE_INSTALL_PREFIX \"${CMAKE_INSTALL_PREFIX}\")")
     install(CODE "set(CMAKE_SOURCE_DIR \"${CMAKE_SOURCE_DIR}\")")
 
     install(CODE "set(mediapipe_SOURCE_DIR \"${mediapipe_SOURCE_DIR}\")")
     install(CODE "set(mediapipe_BINARY_DIR \"${mediapipe_BINARY_DIR}\")")
+    install(CODE "set(TARGET_FILE \"${TARGET_FILE}\")")
     install(SCRIPT "install_generated_files.cmake")
 
     if (UNIX)
         # Add any variables you need during post install.
         install(CODE "set(PROJECT_VERSION \"${PROJECT_VERSION}\")")
         install(CODE "set(Python3_EXECUTABLE \"${Python3_EXECUTABLE}\")")
-        install(CODE "set(TARGET_FILE \"${TARGET_FILE}\")")
-        install(CODE "set(ORIGIN_FILE \"${BAZEL_OUPUT_LIBRARY}\")")
         install(CODE "set(target_name \"${target_name}\")")
 
         # CMake will execute this last in the build.

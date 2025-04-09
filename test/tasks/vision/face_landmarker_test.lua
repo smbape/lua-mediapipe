@@ -19,6 +19,7 @@ local test_utils = require("test_utils")
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 local google = mediapipe_lua.google
+local std = mediapipe_lua.std
 
 local text_format = google.protobuf.text_format
 local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
@@ -325,9 +326,14 @@ local function test_detect_async_calls(
     }))
 
     local landmarker = _FaceLandmarker.create_from_options(options)
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         landmarker:detect_async(test_image, timestamp)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end

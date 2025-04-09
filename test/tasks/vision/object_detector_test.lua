@@ -19,6 +19,7 @@ local test_utils = require("test_utils")
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
+local std = mediapipe_lua.std
 
 local image_module = mediapipe.lua._framework_bindings.image
 local bounding_box_module = mediapipe.tasks.lua.components.containers.bounding_box
@@ -325,9 +326,14 @@ local function test_detect_async_calls(self, threshold, expected_result)
     }))
     local detector = _ObjectDetector.create_from_options(options)
 
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         detector:detect_async(self.test_image, timestamp)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end

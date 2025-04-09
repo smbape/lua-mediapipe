@@ -53,23 +53,23 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "burger.jpg",      hash = "sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf" },
-    { file = "burger_crop.jpg", hash = "sha256=8f58de573f0bf59a49c3d86cfabb9ad4061481f574aa049177e8da3963dddc50" },
+    { output = "burger.jpg",      hash = "sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf" },
+    { output = "burger_crop.jpg", hash = "sha256=8f58de573f0bf59a49c3d86cfabb9ad4061481f574aa049177e8da3963dddc50" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/mobilenet_v3_small.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_embedder/mobilenet_v3_small/float32/1/mobilenet_v3_small.tflite"
 local MODEL_HASH = "sha256=bbbb4c51a55a53905af1daec995ca1aae355046f8839bb8c9f5ce9271394bc40"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))

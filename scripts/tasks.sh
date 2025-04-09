@@ -175,7 +175,7 @@ DOCKER_IMAGE_MANY_LINUX_aarch64=docker/manylinux2014/Dockerfile_aarch64
 
 DIST_VERSION=${DIST_VERSION:-1}
 WSL_DISTNAME=${WSL_DISTNAME:-Ubuntu}
-MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.21}
+MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.22}
 OPENCV_VERSION=${OPENCV_VERSION:-4.11.0}
 OPENCV_WORKSPACE_HASH="${OPENCV_WORKSPACE_HASH:-c0ef0985-b598-4736-af7d-1776141f784c}"
 # WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"'!02-video-capture-camera.lua' '!threshold_inRange.lua' '!objectDetection.lua'"}
@@ -724,7 +724,7 @@ node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
     --lua-versions '"'${LUA_VERSIONS}'"' \
     --server=/mnt/sources/lua-'"${PROJECT_ID}"'/out/prepublish/server \
     --repair \
-    --exclude opencv_lua.so'
+    --exclude "opencv_lua.so;libGL*;libEGL.so.*"'
 }
 
 function build_manylinux() {
@@ -874,7 +874,6 @@ open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/lua-'"${PROJECT_ID
 
 find out/prepublish/ -mindepth 5 -maxdepth 5 -type f -name lockfile.lfs -delete
 
-MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA \
 node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
     --pack \
     --repair --plat linux_x86_64 --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
@@ -883,6 +882,7 @@ node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
     --opencv-name=opencv_lua-custom \
     --lua-versions luajit-2.1 \
     --name='"${PROJECT_ID}"'_lua-custom \
+    -DMEDIAPIPE_DISABLE_GPU=OFF \
     -DWITH_CUDA=ON \
     -DWITH_CUDNN=ON \
     -DCUDA_ARCH_BIN=$(nvidia-smi --query-gpu=compute_cap --format=csv | sed /compute_cap/d)
@@ -925,7 +925,7 @@ function install_build_essentials_fedora_script() {
 $cpm update -y && \
 $cpm install -y git \
         libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
-        patchelf pkg-config python3.12-pip qt5-qtbase-devel unzip wget zip || \
+        pkg-config python3.12-pip qt5-qtbase-devel unzip wget zip || \
 exit $?
 $cpm install -y python3.12-pip || $cpm install -y python3.11-pip || exit $?
 command -v curl &>/dev/null || $cpm install -y curl || exit $?
@@ -946,12 +946,12 @@ if [ ${#ALMALINUX_VERSION} -ne 0 ]; then
     $cpm update -y || exit $?
 
     if [ ${ALMALINUX_VERSION} -eq 8 ]; then
-        $cpm install -y gcc-toolset-12-gcc gcc-toolset-12-gcc-c++ ffmpeg-devel || exit $?
+        $cpm install -y gcc-toolset-12-gcc gcc-toolset-12-gcc-c++ ffmpeg-devel patchelf || exit $?
     else
-        $cpm install -y gcc gcc-c++ libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel || exit $?
+        $cpm install -y gcc gcc-c++ libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel patchelf || exit $?
     fi
 else
-    $cpm install -y gcc gcc-c++ libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel || exit $?
+    $cpm install -y gcc gcc-c++ libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel patchelf || exit $?
 fi'
 
     echo "$(get_current_package_manager); ${script}"
@@ -1027,8 +1027,8 @@ version="$(get_lua_version)"
 
 time \
 OpenCVLua_DIR="$HOME/.vs/lua-opencv/$OPENCV_WORKSPACE_HASH/src/out/install/Linux-GCC-Debug" \
-MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA \
 ./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --install \
+    -DMEDIAPIPE_DISABLE_GPU=OFF \
     -DWITH_CUDA=ON \
     -DWITH_CUDNN=ON \
     -DCUDA_ARCH_BIN=$(nvidia-smi --query-gpu=compute_cap --format=csv | sed /compute_cap/d)'
@@ -1136,9 +1136,18 @@ fi
 ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec || exit $?
 ./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec || exit $?
 
+function uninstall_local_rock() {
+    local rock_name="$1"
+    local rock_installed="$(./luarocks/luarocks${LUAROCKS_SUFFIX} list --porcelain ${rock_name}${suffix})"
+    if [ ${#rock_installed} -ne 0 ]; then
+        ./luarocks/luarocks${LUAROCKS_SUFFIX} remove ${rock_name}${suffix}
+    fi
+}
+
 function install_local_rock() {
     local rock_name="$1"
     local rock_version="$2"
+    local rock_type="${3:-$rock_type}"
 
     # Should we use an exact version?
     if [ "${rock_type}" == "binary" ]; then
@@ -1161,15 +1170,17 @@ function install_local_rock() {
         fi
     fi
 
-    [ ${remove_rock} -eq 0 ]  || ./luarocks/luarocks${LUAROCKS_SUFFIX} remove  ${rock_name}${suffix} || exit $?
-    [ ${install_rock} -eq 0 ] || ./luarocks/luarocks${LUAROCKS_SUFFIX} install ${rock_name}${suffix} ${rock_version} "--only-server=${projectDir}/out/prepublish/server" --force || exit $?
+    [ ${remove_rock} -eq 0 ]  || ./luarocks/luarocks${LUAROCKS_SUFFIX} remove  ${rock_name}${suffix} || return $?
+    [ ${install_rock} -eq 0 ] || ./luarocks/luarocks${LUAROCKS_SUFFIX} install ${rock_name}${suffix} ${rock_version} "--only-server=${projectDir}/out/prepublish/server" --force || return $?
 }
 
 # ================================
 # Install rock
 # ================================
-install_local_rock opencv_lua ${OPENCV_VERSION}
-install_local_rock ${PROJECT_ID}_lua ${PROJECT_VERSION}
+[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock ${PROJECT_ID}_lua || exit $?
+[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock opencv_lua || exit $?
+[ "${rock_type}" == "binary" ] || install_local_rock opencv_lua ${OPENCV_VERSION} || exit $?
+install_local_rock ${PROJECT_ID}_lua ${PROJECT_VERSION} || exit $?
 
 # ================================
 # Run the tests
@@ -1304,10 +1315,11 @@ function install_test_essentials_debian() {
 
     docker_run_bash ${name} ${image} && \
     docker exec -it -u 0 ${name} bash -c "
+export DEBIAN_FRONTEND=noninteractive
+export TZ=Europe/Paris
 apt update && \
 apt install -y curl g++ gcc git libgl1 libglib2.0-0 libreadline-dev libsm6 libxext6 make python3-pip python3-venv unzip wget \
 || exit \$?
-
 $(docker_init_script)"
 }
 

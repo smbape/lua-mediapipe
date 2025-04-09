@@ -3,7 +3,150 @@
 #include <luadef.hpp>
 #include <Keywords.hpp>
 
+#ifdef _MSC_VER
+#pragma push_macro("NOMINMAX")
+#pragma push_macro("STRICT")
+#pragma push_macro("RELATIVE")
+#pragma push_macro("ABSOLUTE")
+#define NOMINMAX
+#define STRICT
+#include <Windows.h>
+#pragma pop_macro("NOMINMAX")
+#pragma pop_macro("STRICT")
+#pragma pop_macro("RELATIVE")
+#pragma pop_macro("ABSOLUTE")
+#endif
+
 namespace LUA_MODULE_NAME {
+#ifdef _MSC_VER
+	namespace wide_char {
+		template <typename char_type>
+		inline bool null_or_empty(const char_type* s) {
+			return s == nullptr || *s == 0;
+		}
+
+		/**
+		 * Maps a character string to a UTF-16 (wide character) string. The character string is not necessarily from a multibyte character set.
+		 *
+		 * @param codePage    [in]  Code page to use in performing the conversion.
+		 * @param c_str       [in]  Pointer to the character string to convert.
+		 * @param cbMultiByte [in]  Size, in bytes, of the string indicated by the c_str parameter. Alternatively, this parameter can be set to -1 if the string is null-terminated.
+		 * @param wstr        [out] Pointer to a buffer that receives the converted string.
+		 * @return 	          The number of characters written to the buffer pointed to by wstr.
+		 * @see               https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar/59617138#59617138
+		 *                    https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar
+		 */
+		inline int mbs_to_wcs(UINT codePage, const char* c_str, int cbMultiByte, std::wstring& wstr) {
+			if (null_or_empty(c_str)) {
+				wstr.clear();
+				return 0;
+			}
+
+			int size = MultiByteToWideChar(codePage, 0, c_str, cbMultiByte, nullptr, 0);
+			wstr.assign(size, 0);
+			return MultiByteToWideChar(codePage, 0, c_str, cbMultiByte, &wstr[0], size + 1);
+		}
+
+		/**
+		 * Maps a character string to a UTF-16 (wide character) string. The character string is not necessarily from a multibyte character set.
+		 *
+		 * @param codePage  [in]  Code page to use in performing the conversion.
+		 * @param  str      [in]  The string to convert.
+		 * @param  wstr     [out] Pointer to a buffer that receives the converted string.
+		 * @see             https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar/59617138#59617138
+		 *                  https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar
+		 */
+		inline int mbs_to_wcs(UINT codePage, const std::string& str, std::wstring& wstr) {
+			return mbs_to_wcs(codePage, str.c_str(), str.length(), wstr);
+		}
+
+		/**
+		 * Maps a UTF-16 (wide character) string to a new character string. The new character string is not necessarily from a multibyte character set.
+		 *
+		 * @param  codePage    Code page to use in performing the conversion.
+		 * @param  c_wstr      Pointer to the Unicode string to convert.
+		 * @param  cchWideChar Size, in characters, of the string indicated by c_wstr parameter.
+		 * @param  str         Pointer to a buffer that receives the converted string.
+		 * @return             The number of bytes written to the buffer pointed to by c_str.
+		 * @see                https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte
+		 */
+		inline int wcs_to_mbs(UINT codePage, const WCHAR* c_wstr, int cchWideChar, std::string& str) {
+			if (null_or_empty(c_wstr)) {
+				str.clear();
+				return 0;
+			}
+
+			int size = WideCharToMultiByte(codePage, 0, c_wstr, cchWideChar, nullptr, 0, nullptr, nullptr);
+			str.assign(size, 0);
+			return WideCharToMultiByte(codePage, 0, c_wstr, cchWideChar, &str[0], size + 1, nullptr, nullptr);
+		}
+
+		/**
+		 * Maps a UTF-16 (wide character) string to a new character string. The new character string is not necessarily from a multibyte character set.
+		 *
+		 * @param  codePage Code page to use in performing the conversion.
+		 * @param  wstr     Pointer to the Unicode string to convert.
+		 * @param  str      Pointer to a buffer that receives the converted string.
+		 * @return          The number of bytes written to the buffer pointed to by str.
+		 * @see             https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte
+		 */
+		inline int wcs_to_mbs(UINT codePage, const std::wstring& wstr, std::string& str) {
+			return wcs_to_mbs(codePage, wstr.c_str(), wstr.length(), str);
+		}
+
+		/**
+		 * Maps a character string to a UTF-16 (wide character) string. The character string is not necessarily from a multibyte character set.
+		 *
+		 * @param c_str     [in]  Pointer to the character string to convert.
+		 * @param length    [in]  Size, in bytes, of the string indicated by the c_str parameter. Alternatively, this parameter can be set to -1 if the string is null-terminated.
+		 * @param wstr      [out] Pointer to a buffer that receives the converted string.
+		 * @return 	        The number of characters written
+		 * @see             https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar/59617138#59617138
+		 *                  https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar
+		 */
+		inline int utf8_to_wcs(const char* c_str, int length, std::wstring& wstr) {
+			return mbs_to_wcs(CP_UTF8, c_str, length, wstr);
+		}
+
+		/**
+		 * Maps a character string to a UTF-16 (wide character) string. The character string is not necessarily from a multibyte character set.
+		 *
+		 * @param  str      [in]  The string to convert.
+		 * @param  wstr     [out] Pointer to a buffer that receives the converted string.
+		 * @see             https://stackoverflow.com/questions/6693010/how-do-i-use-multibytetowidechar/59617138#59617138
+		 *                  https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar
+		 */
+		inline int utf8_to_wcs(const std::string& str, std::wstring& wstr) {
+			return mbs_to_wcs(CP_UTF8, str, wstr);
+		}
+
+		/**
+		 * Maps a UTF-16 (wide character) string to a new character string. The new character string is not necessarily from a multibyte character set.
+		 * 
+		 * @param  c_wstr      Pointer to the Unicode string to convert.
+		 * @param  cchWideChar Size, in characters, of the string indicated by c_wstr parameter.
+		 * @param  str         Pointer to a buffer that receives the converted string.
+		 * @return             The number of bytes written to the buffer pointed to by c_str.
+		 * @see                https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte
+		 */
+		inline int wcs_to_utf8(const WCHAR* c_wstr, int cchWideChar, std::string& str) {
+			return wcs_to_mbs(CP_UTF8, c_wstr, cchWideChar, str);
+		}
+
+		/**
+		 * Maps a UTF-16 (wide character) string to a new character string. The new character string is not necessarily from a multibyte character set.
+		 * 
+		 * @param  wstr     Pointer to the Unicode string to convert.
+		 * @param  str      Pointer to a buffer that receives the converted string.
+		 * @return          The number of bytes written to the buffer pointed to by str.
+		 * @see             https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte
+		 */
+		inline int wcs_to_utf8(const std::wstring& wstr, std::string& str) {
+			return wcs_to_mbs(CP_UTF8, wstr, str);
+		}
+	}
+#endif
+
 	lua_State* get_global_state();
 	void init_global_state(lua_State* L);
 
@@ -118,14 +261,38 @@ namespace LUA_MODULE_NAME {
 		}
 
 		size_t len;
-		auto str = lua_tolstring(L, index, &len);
-		return std::string(str, len);
+		auto c_str = lua_tolstring(L, index, &len);
+		return std::string(c_str, len);
 	}
 
 	inline int lua_push(lua_State* L, const std::string& str) {
 		lua_pushlstring(L, str.c_str(), str.size());
 		return 1;
 	}
+
+#ifdef _MSC_VER
+	inline std::wstring lua_to(lua_State* L, int index, std::wstring*, bool& is_valid) {
+		is_valid = lua_isnil(L, index);
+		if (is_valid) {
+			return std::wstring();
+		}
+
+		is_valid = lua_type(L, index) == LUA_TSTRING;
+		if (!is_valid) {
+			return L"";
+		}
+
+		size_t len;
+		auto c_str = lua_tolstring(L, index, &len);
+		std::wstring wstr; wide_char::utf8_to_wcs(c_str, len, wstr);
+		return wstr;
+	}
+
+	inline int lua_push(lua_State* L, const std::wstring& wstr) {
+		std::string str; wide_char::wcs_to_utf8(wstr, str);
+		return lua_push(L, str);
+	}
+#endif
 
 	inline unsigned char* lua_to(lua_State* L, int index, unsigned char**, bool& is_valid) {
 		is_valid = lua_islightuserdata(L, index);

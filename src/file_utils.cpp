@@ -1,15 +1,17 @@
 #include <file_utils.hpp>
 
 #ifdef _MSC_VER
-#ifndef NOMINMAX
+#pragma push_macro("NOMINMAX")
+#pragma push_macro("STRICT")
+#pragma push_macro("RELATIVE")
+#pragma push_macro("ABSOLUTE")
 #define NOMINMAX
-#endif
-
-#ifndef STRICT
 #define STRICT
-#endif
-
-#include <windows.h>
+#include <Windows.h>
+#pragma pop_macro("NOMINMAX")
+#pragma pop_macro("STRICT")
+#pragma pop_macro("RELATIVE")
+#pragma pop_macro("ABSOLUTE")
 #endif
 
 namespace fs = std::filesystem;

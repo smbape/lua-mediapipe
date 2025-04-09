@@ -30,9 +30,7 @@ const unixCmd = argv => {
 };
 
 const spawnExec = (cmd, args, options, next) => {
-    const {
-        stdio
-    } = options;
+    const {stdio} = options;
 
     if (stdio === "tee") {
         options.stdio = ["inherit", "pipe", "pipe"];
@@ -62,14 +60,14 @@ const spawnExec = (cmd, args, options, next) => {
             return;
         }
 
-        if (stdio === "tee") {
+        if (stdio === "pipe" || stdio === "tee") {
             next(code, Buffer.concat(stdout, stdout.nread), Buffer.concat(stderr, stderr.nread));
         } else {
             next(code);
         }
     });
 
-    if (stdio === "tee") {
+    if (stdio === "pipe" || stdio === "tee") {
         child.stdout.on("data", chunk => {
             stdout.push(chunk);
             stdout.nread += chunk.length;
@@ -138,6 +136,11 @@ const prepublish = (target, version, options, next) => {
                         rockspec = rockspec.replaceAll("mediapipe_lua", name);
                     }
 
+                    const opencvName = options["opencv-name"] || "opencv_lua";
+                    if (opencvName !== "opencv_lua") {
+                        rockspec = rockspec.replaceAll("opencv_lua", opencvName);
+                    }
+
                     if (cmake_build_args.length !== 0) {
                         rockspec = rockspec.replace("LUA_INCDIR = \"$(LUA_INCDIR)\",", `LUA_INCDIR = "$(LUA_INCDIR)",\n${ indent }${ cmake_build_args.join(`,\n${ indent }`) },`);
                     }
@@ -164,6 +167,40 @@ const prepublish = (target, version, options, next) => {
 
         next => {
             const luarocks = sysPath.join("luarocks", `luarocks${ wrapperSuffix }`);
+            const opencvName = options["opencv-name"] || "opencv_lua";
+
+            waterfall([
+                next => {
+                    fs.access(luarocks, fs.constants.X_OK, next);
+                },
+
+                next => {
+                    spawnExec(luarocks, ["list", "--porcelain", opencvName], {
+                        stdio: "tee",
+                        cwd: projectRoot,
+                        env: process.env
+                    }, next);
+                },
+
+                (_stdout, _stderr, next) => {
+                    if (_stdout.length === 0) {
+                        next();
+                        return;
+                    }
+
+                    spawnExec(luarocks, ["remove", opencvName, "--force"], {
+                        stdio: "inherit",
+                        cwd: projectRoot,
+                        env: process.env
+                    }, next);
+                },
+            ], err => {
+                next();
+            });
+        },
+
+        next => {
+            const luarocks = sysPath.join("luarocks", `luarocks${ wrapperSuffix }`);
             const opencvServer = options["opencv-server"] || options.server;
             const opencvName = options["opencv-name"] || "opencv_lua";
             const rockVersion = version.startsWith("luajit") ? version.replaceAll("-", "") : `lua${ version }`;
@@ -178,8 +215,10 @@ const prepublish = (target, version, options, next) => {
             if (options.pack) {
                 const args = [sysPath.join("scripts", "pack.js"), "--rockspec", scmRockSpec];
 
-                if (options.server) {
-                    args.push("--server", options.server);
+                for (const key of ["server", "opencv-server", "opencv-name"]) {
+                    if (options[key]) {
+                        args.push(`--${ key }`, options[key]);
+                    }
                 }
 
                 if (os.platform() !== "win32" && options.repair) {
@@ -204,7 +243,7 @@ const prepublish = (target, version, options, next) => {
             if (os.platform() !== "win32") {
                 tasks.splice(2, 0, ...[
                     [luarocks, ["config", "--scope", "project", "cmake_generator", "Ninja"]],
-                    [luarocks, ["config", "--scope", "project", "cmake_build_args", "--", `-j${ os.cpus().length }`]],
+                    [luarocks, ["config", "--scope", "project", "cmake_build_args", "--", `-j${ os.cpus().length } -- -d explain`]],
                 ]);
             }
 

@@ -64,6 +64,9 @@ if it already exists.]], util.see_also())
                            "See https://github.com/pypa/auditwheel/pull/411#issuecomment-1500826281 (can contain wildcards, for example libfoo.so.*)")
    cmd:flag("--only-plat", "Do not check for higher policy compatibility.")
    cmd:flag("--disable-isa-ext-check", "Do not check for extended ISA compatibility (e.g. x86_64_v2)")
+
+   cmd:option("--opencv-name", "OpenCV rock name.")
+   cmd:option("--opencv-version", "OpenCV rock version.")
 end
 
 local function dump_table_as_python_array(tbl)
@@ -219,6 +222,17 @@ function new_version.command(args)
             end
 
             install_lib[module_name] = include
+         end
+      end
+
+      if args.opencv_version then
+         local opencv_name = args.opencv_name or "opencv_lua"
+
+         for k, dependency in pairs(dependencies) do
+            if dependency:sub(1, 11) == "opencv_lua " or dependency:sub(1, #opencv_name + 1) == opencv_name .. " " then
+               local opencv_version = args.opencv_version or dependency:sub(12, -1)
+               dependencies[k] = opencv_name .. " == " .. opencv_version
+            end
          end
       end
 

@@ -9,6 +9,27 @@ set(${var_name} \"${${var_name}}\")
 endmacro()
 
 if (NOT ENABLE_REPAIR)
+    get_filename_component(SONAME "${TARGET_FILE}" NAME)
+
+    execute_process(
+        COMMAND patchelf --print-rpath "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/${SONAME}"
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+        OUTPUT_VARIABLE LD_LIBRARY_PATH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        COMMAND_ERROR_IS_FATAL ANY
+    )
+
+    string(REPLACE ":" ";" LD_LIBRARY_PATH "${LD_LIBRARY_PATH}")
+    list(APPEND LD_LIBRARY_PATH "$ORIGIN")
+    list(REMOVE_DUPLICATES LD_LIBRARY_PATH)
+    string(REPLACE ";" ":" LD_LIBRARY_PATH "${LD_LIBRARY_PATH}")
+
+    execute_process(
+        COMMAND patchelf --force-rpath --set-rpath "${LD_LIBRARY_PATH}" "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/${SONAME}"
+        COMMAND_ECHO STDERR
+        COMMAND_ERROR_IS_FATAL ANY
+    )
+
     #
     # Save variables that are needed when repairing
     #
@@ -50,10 +71,9 @@ endif()
 
 # get LD_LIBRARY_PATH
 execute_process(
-    COMMAND readelf -d "${TARGET_FILE}"
+    COMMAND patchelf --print-rpath "${TARGET_FILE}"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-    OUTPUT_VARIABLE ELF_SYMBOLS
-    COMMAND_ECHO STDERR
+    OUTPUT_VARIABLE library_RPATH
     OUTPUT_STRIP_TRAILING_WHITESPACE
     COMMAND_ERROR_IS_FATAL ANY
 )
@@ -64,8 +84,7 @@ else()
     cmake_path(GET TARGET_FILE PARENT_PATH origin_TARGET_FILE)
 endif()
 
-string(REGEX MATCH "Library r(un)?path: \\[([^]]+)\\]" LD_LIBRARY_PATH "${ELF_SYMBOLS}")
-string(REPLACE "$ORIGIN" "${origin_TARGET_FILE}" LD_LIBRARY_PATH "${CMAKE_MATCH_2}")
+string(REPLACE "$ORIGIN" "${origin_TARGET_FILE}" LD_LIBRARY_PATH "${library_RPATH}")
 
 string(REPLACE ":" ";" LD_LIBRARY_PATH "${LD_LIBRARY_PATH}")
 set(search_PATHS)
@@ -125,7 +144,7 @@ list_intersection(repaired_NOT_FOUND repaired_NOT_FOUND_1 repaired_NOT_FOUND_2)
 
 if (repaired_NOT_FOUND)
     string(REPLACE ";" "\n    " repaired_NOT_FOUND "${repaired_NOT_FOUND}")
-    message(FATAL_ERROR "${TARGET_FILE} cannot be repaired:\n    ${repaired_NOT_FOUND}")
+    message(WARNING "${TARGET_FILE} may not be repaired:\n    ${repaired_NOT_FOUND}")
 endif()
 
 get_filename_component(SONAME "${TARGET_FILE}" NAME)

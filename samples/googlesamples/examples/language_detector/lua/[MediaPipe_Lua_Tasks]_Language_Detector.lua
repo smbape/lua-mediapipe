@@ -19,7 +19,7 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/language_detector.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/language_detector/language_detector/float32/latest/language_detector.tflite"
 local MODEL_HASH = "sha256=7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))

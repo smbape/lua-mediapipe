@@ -25,7 +25,9 @@ const waterfall = require("async/waterfall");
 const pkg = require("../package.json");
 
 const version = process.env.npm_package_version || pkg.version;
-const Mediapipe_NAME_VERSION = "mediapipe-0.10.21";
+const OpenCV_NAME_VERSION = "opencv-4.11.0";
+const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
+const Mediapipe_NAME_VERSION = "mediapipe-0.10.22";
 const Mediapipe_VERSION = Mediapipe_NAME_VERSION.slice("mediapipe-".length);
 const distVersion = process.env.DIST_VERSION || "1"; // TODO : find a way to automatically update it
 const workspaceRoot = sysPath.resolve(__dirname, "..");
@@ -39,7 +41,6 @@ const new_version = sysPath.join(__dirname, "new_version.lua");
 let srcRockSpec;
 
 const spawnExec = (cmd, args, options, next) => {
-    console.log(cmd, `'${ args.join("' '") }'`);
     const {stdio} = options;
 
     if (stdio === "tee") {
@@ -49,21 +50,35 @@ const spawnExec = (cmd, args, options, next) => {
     const stdout = Object.assign([], {
         nread: 0
     });
+
     const stderr = Object.assign([], {
         nread: 0
     });
 
+    console.log(cmd, `'${ args.join("' '") }'`);
+
+    let err = false;
+
     const child = spawn(cmd, args, options);
-    child.on("error", next);
+
+    child.on("error", _err => {
+        err = true;
+        next(_err);
+    });
+
     child.on("close", code => {
-        if (stdio === "tee") {
+        if (err) {
+            return;
+        }
+
+        if (stdio === "pipe" || stdio === "tee") {
             next(code, Buffer.concat(stdout, stdout.nread), Buffer.concat(stderr, stderr.nread));
         } else {
             next(code);
         }
     });
 
-    if (stdio === "tee") {
+    if (stdio === "pipe" || stdio === "tee") {
         child.stdout.on("data", chunk => {
             stdout.push(chunk);
             stdout.nread += chunk.length;
@@ -95,6 +110,8 @@ const optionValueKeys = new Set([
 const oneValueKeys = new Set([
     "--server",
     "--rockspec",
+    "--opencv-server",
+    "--opencv-name",
     ...auditwheelOptions.options,
 ]);
 
@@ -182,8 +199,14 @@ waterfall([
     },
 
     next => {
-        const has_luarocks = os.platform() !== "win32" || spawnSync(luarocks, ["list", "luarocks"]).stdout.toString().trim().includes("luarocks");
-        if (has_luarocks) {
+        spawnExec(luarocks, ["list", "--porcelain", "luarocks"], {
+            stdio: "pipe",
+            cwd: workspaceRoot
+        }, next);
+    },
+
+    (_stdout, _stderr, next) => {
+        if (_stdout.toString().trim().includes("luarocks")) {
             next();
             return;
         }
@@ -213,14 +236,18 @@ waterfall([
     (_stdout, _stderr, next) => {
         const [, target, ver] = (_stdout.length === 0 ? _stderr : _stdout).toString().trim().toLowerCase().match(/(\w+) (\d+\.\d+)/);
         const abi = target === "luajit" ? "5.1" : ver;
+        options.abi = abi;
 
+        const opencvServer = options["opencv-server"] || options.server;
+        const opencvName = options["opencv-name"] || "opencv_lua";
+        const opencvVersion = `${ OpenCV_VERSION }${ target }${ ver }`;
         const binary = `${ Mediapipe_VERSION }${ target }${ ver }-${ distVersion }`;
         const binaryRockSpec = `${ srcRockSpec.slice(0, -`${ Mediapipe_VERSION }-${ distVersion }.rockspec`.length) }${ binary }.rockspec`;
         const lua_modules = sysPath.join(luarocksDir, "lua_modules");
 
         waterfall([
             next => {
-                const args = [new_version, options.rockspec, binary, abi, "--platform", os.platform()];
+                const args = [new_version, options.rockspec, binary, abi, "--platform", os.platform(), "--opencv-name", opencvName, "--opencv-version", opencvVersion];
 
                 if (os.platform() !== "win32" && options.repair) {
                     args.push("--repair");
@@ -245,7 +272,7 @@ waterfall([
             },
 
             next => {
-                spawnExec(luarocks, ["make", "--pack-binary-rock", binaryRockSpec], {
+                spawnExec(luarocks, ["make", `--only-server=${ opencvServer }`, "--pack-binary-rock", binaryRockSpec], {
                     stdio: "tee",
                     cwd: lua_modules
                 }, next);
@@ -269,20 +296,37 @@ waterfall([
     },
 
     next => {
-        fs.readFile(luarocks, next);
+        const luarocks_admin = sysPath.join(luarocksDir, "lua_modules", "bin", `luarocks-admin${ batchSuffix }`);
+        fs.readFile(luarocks_admin, next);
     },
 
     (buffer, next) => {
         const content = buffer.toString();
-        const pos = content.indexOf(" --project-tree ");
-        const quote = os.platform() === "win32" ? "\"" : "'";
-        const end = content.lastIndexOf(quote, pos - 1);
-        const start = content.lastIndexOf(quote, end - 1) + quote.length;
-        const exe = content.slice(start, end);
 
-        spawnExec(exe.replace(/(?<=^|[/\\])luarocks([^/\\]*)$/, "luarocks-admin$1"), ["make-manifest", options.server], {
+        let lua_admin;
+
+        if (os.platform() === "win32") {
+            const end = content.indexOf("\" %*");
+            const start = content.lastIndexOf("\"", end - 1) + 1;
+            lua_admin = content.slice(start, end).replace(/rocks-\d\.\d/, `rocks-${ options.abi }`);
+        } else {
+            const end = content.indexOf("' \"$@\"");
+            const start = content.lastIndexOf("'", end - 1) + 1;
+            lua_admin = content.slice(start, end).replace(/rocks-\d\.\d/, `rocks-${ options.abi }`);
+        }
+
+        const init_argv = [
+            "-e",
+            [
+                `package.path='${ [
+                    `${ sysPath.join(luarocksDir, "src") }/?.lua`,
+                ].join(";").replace(/[\\]/g, "/") };'..package.path`,
+            ].join(";"),
+        ];
+
+        spawnExec(lua, [...init_argv, lua_admin, "make-manifest", options.server], {
             stdio: "inherit",
-            cwd: luarocksDir
+            cwd: luarocksDir,
         }, next);
     },
 ], err => {

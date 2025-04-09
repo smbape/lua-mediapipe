@@ -2,10 +2,11 @@ cmake_minimum_required(VERSION 3.25)
 
 project(mediapipe)
 
-set(Mediapipe_VERSION 0.10.21 CACHE STRING "Choose the mediapipe version.")
-set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.21" "0.10.20")
+set(Mediapipe_VERSION 0.10.22 CACHE STRING "Choose the mediapipe version.")
+set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.22" "0.10.21" "0.10.20")
 string(REPLACE "." "" Mediapipe_DLLVERSION ${Mediapipe_VERSION})
 
+set(Mediapipe_URL_HASH_SHA256_01022 25af3c4cc44dfe929eea226ab6cd0dd53a54fbb199db877cc96aa63d0e45d745)
 set(Mediapipe_URL_HASH_SHA256_01021 6492ad36697cca309fe9526c64d65c8844e8128aebc85c390a97c375008d1c34)
 set(Mediapipe_URL_HASH_SHA256_01020 ae0abfc544a37a46f46e20f73010ddbe43cf12b0853701b763d3df1ab986dd36)
 
@@ -47,29 +48,92 @@ FetchContent_Populate(mediapipe
 
 file(CREATE_LINK "${CMAKE_SOURCE_DIR}" "${mediapipe_SOURCE_DIR}/${MEDIAPIPE_ADDON_PACKAGE}" SYMBOLIC)
 
-if (EXISTS "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch")
-    execute_process(
-        COMMAND ${CMAKE_COMMAND} -E compare_files "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch" "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch"
-        COMMAND "${PATCH_EXECUTABLE}" -p 1 -i "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch" -R --dry-run
-        RESULT_VARIABLE compare_result
+function(revert_old_patch_and_apply_new_patch)
+    set(options)
+    set(oneValueArgs
+        EXECUTABLE
+        OLD_PATCHFILE
+        NEW_PATCHFILE
+        WORKING_DIRECTORY
     )
-    if (NOT compare_result EQUAL 0)
+    set(multiValueArgs)
+    cmake_parse_arguments(PARSE_ARGV 0 patch
+        "${options}" "${oneValueArgs}" "${multiValueArgs}"
+    )
+
+    if (patch_UNPARSED_ARGUMENTS)
+        string(REPLACE ";" ", " patch_UNPARSED_ARGUMENTS "${patch_UNPARSED_ARGUMENTS}")
+        message(FATAL_ERROR "Unknown arguments [${patch_UNPARSED_ARGUMENTS}]")
+    endif()
+
+    foreach(keyword IN ITEMS EXECUTABLE OLD_PATCHFILE NEW_PATCHFILE WORKING_DIRECTORY)
+        if (NOT patch_${keyword})
+            message(FATAL_ERROR "${keyword} argument is missing")
+        endif()
+    endforeach()
+
+    foreach(arg IN LISTS options)
+        if (patch_${arg})
+            set(patch_${arg} ${arg})
+        else()
+            unset(patch_${arg})
+        endif()
+    endforeach()
+
+
+    # check if patch_NEW_PATCHFILE has been applied
+    execute_process(
+        COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}" -R --dry-run -s
+        WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
+        RESULT_VARIABLE new_patchfile_applied_result
+    )
+
+    if (NOT new_patchfile_applied_result EQUAL 0)
+        if (EXISTS "${patch_OLD_PATCHFILE}")
+            # check if the previous patch can be reversed
+            execute_process(
+                COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_OLD_PATCHFILE}" -R --dry-run -s
+                WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
+                RESULT_VARIABLE old_patchfile_applied_result
+            )
+
+            if (old_patchfile_applied_result EQUAL 0)
+                # reverse the previous patch
+                execute_process(
+                    COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_OLD_PATCHFILE}" -R
+                    WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
+                    COMMAND_ECHO STDERR
+                    COMMAND_ERROR_IS_FATAL ANY
+                )
+            endif()
+        endif()
+
+        # check that the new patch can be applied
         execute_process(
-            COMMAND "${PATCH_EXECUTABLE}" -p 1 -i "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch" -R
-            WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+            COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}" --dry-run -s
+            WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
             COMMAND_ECHO STDERR
             COMMAND_ERROR_IS_FATAL ANY
         )
+
+        # apply the new patch
         execute_process(
-            COMMAND "${PATCH_EXECUTABLE}" -p 1 -i "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch"
-            WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+            COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}"
+            WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
             COMMAND_ECHO STDERR
             COMMAND_ERROR_IS_FATAL ANY
         )
     endif()
-endif()
 
-configure_file("${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch.in" "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch" @ONLY)
+    configure_file("${patch_NEW_PATCHFILE}" "${patch_OLD_PATCHFILE}" COPYONLY)
+endfunction()
+
+revert_old_patch_and_apply_new_patch(
+    EXECUTABLE        "${PATCH_EXECUTABLE}"
+    OLD_PATCHFILE     "${CMAKE_BINARY_DIR}/patches/001-mediapipe-src.patch"
+    NEW_PATCHFILE     "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch"
+    WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+)
 
 include(../cmake/bazel_tools.cmake)
 
@@ -111,44 +175,27 @@ function(create_link file src dst)
     file(CREATE_LINK "${src}" "${dst}" SYMBOLIC)
 endfunction()
 
+get_target_property(curl_SOURCE_FILES curl SOURCES)
+list(FILTER curl_SOURCE_FILES INCLUDE REGEX "\\.c(c|pp|xx)?$")
+list(TRANSFORM curl_SOURCE_FILES PREPEND "${curl_SOURCE_DIR}/src/")
+list(TRANSFORM curl_SOURCE_FILES REPLACE "/src/../" "/")
+
 file(GLOB curl_tool_SOURCE_FILES
     "${curl_SOURCE_DIR}/lib/*.h"
+    "${curl_SOURCE_DIR}/lib/*.hh"
+    "${curl_SOURCE_DIR}/lib/*.hpp"
+    "${curl_SOURCE_DIR}/lib/*.hxx"
     "${curl_SOURCE_DIR}/src/*.h"
-    "${curl_SOURCE_DIR}/src/tool_libinfo.c"
+    "${curl_SOURCE_DIR}/src/*.hh"
+    "${curl_SOURCE_DIR}/src/*.hpp"
+    "${curl_SOURCE_DIR}/src/*.hxx"
 )
-list(TRANSFORM curl_tool_SOURCE_FILES REPLACE "${curl_SOURCE_DIR}/" "")
 
-# set(curl_tool_SOURCE_FILES
-#     lib/config-win32.h
-#     lib/curl_ctype.h
-#     lib/curl_hmac.h
-#     lib/curl_multibyte.h
-#     lib/curl_printf.h
-#     lib/curl_setup.h
-#     lib/curl_setup.h
-#     lib/curl_setup_once.h
-#     lib/curl_sha256.h
-#     lib/curlx.h
-#     lib/functypes.h
-#     lib/memdebug.h
-#     lib/nonblock.h
-#     lib/setup-win32.h
-#     lib/strcase.h
-#     lib/strtoofft.h
-#     lib/version_win32.h
-#     lib/warnless.h
-#     src/tool_getparam.c
-#     src/tool_libinfo.c
-#     src/tool_libinfo.h
-#     src/tool_setup.h
-# )
+list(APPEND curl_tool_SOURCE_FILES ${curl_SOURCE_FILES})
+list(TRANSFORM curl_tool_SOURCE_FILES REPLACE "${curl_SOURCE_DIR}/" "")
 
 set(curl_tool_SOURCE_DIR "${mediapipe_BINARY_DIR}/curl_tool/curl_tool")
 file(REMOVE_RECURSE "${curl_tool_SOURCE_DIR}")
-
-# foreach(file IN LISTS curl_tool_SOURCE_FILES)
-#     create_link("${file}" "${curl_SOURCE_DIR}" "${curl_tool_SOURCE_DIR}")
-# endforeach()
 
 execute_process(
     COMMAND "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings scripts/copy_relocate_includes.js "${curl_SOURCE_DIR}" "${curl_tool_SOURCE_DIR}" ${curl_tool_SOURCE_FILES}
@@ -159,10 +206,6 @@ execute_process(
 
 set(curl_tool_BINARY_FILES lib/curl_config.h)
 list(APPEND curl_tool_SOURCE_FILES ${curl_tool_BINARY_FILES})
-
-# foreach(file IN LISTS curl_tool_BINARY_FILES)
-#     create_link("${file}" "${curl_BINARY_DIR}" "${curl_tool_SOURCE_DIR}")
-# endforeach()
 
 execute_process(
     COMMAND "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings scripts/copy_relocate_includes.js "${curl_BINARY_DIR}" "${curl_tool_SOURCE_DIR}" ${curl_tool_BINARY_FILES}

@@ -4,7 +4,7 @@ Mediapipe bindings for luajit and lua 5.1/5.2/5.3/5.4.
 
 The aim is to make it as easy to use as [mediapipe-python](https://pypi.org/project/mediapipe/).
 
-Therefore the [Mediapipe documentation](https://google.github.io/mediapipe/) should be the reference.
+Therefore the [Mediapipe documentation](https://github.com/google-ai-edge/mediapipe) should be the reference.
 
 ## Table Of Contents
 
@@ -82,7 +82,7 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
 ```sh
 sudo apt install -y build-essential curl git libavcodec-dev libavformat-dev libdc1394-dev \
         libjpeg-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev libssl-dev \
-        pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip
+        patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip
 sudo apt install -y libtbbmalloc2 || apt install -y libtbb2
 ```
 
@@ -92,7 +92,7 @@ sudo apt install -y libtbbmalloc2 || apt install -y libtbb2
 sudo dnf install -y curl gcc gcc-c++ git \
         libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
         libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel \
-        pkg-config python3-pip qt5-qtbase-devel unzip wget zip
+        patchelf pkg-config python3-pip qt5-qtbase-devel unzip wget zip
 ```
 
 ##### Almalinux 8
@@ -106,7 +106,7 @@ sudo dnf install -y epel-release && \
 sudo dnf install -y https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
 sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm && \
 sudo dnf update -y && \
-sudo dnf install -y ffmpeg-devel && \
+sudo dnf install -y ffmpeg-devel patchelf && \
 source /opt/rh/gcc-toolset-12/enable
 ```
 
@@ -121,7 +121,7 @@ sudo dnf install -y epel-release && \
 sudo dnf install -y https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm
 sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-9.noarch.rpm && \
 sudo dnf update -y && \
-sudo dnf install -y libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel
+sudo dnf install -y libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel patchelf
 ```
 
 ### How to install
@@ -129,27 +129,17 @@ sudo dnf install -y libavcodec-free-devel libavformat-free-devel libdc1394-devel
 I recommend you to try installing the prebuilt binary, if you are not using luajit, with
 
 ```sh
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua
 luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 ```
 
 Or to specify the target lua version with one of the following commands
 
 ```sh
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0luajit2.1
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21luajit2.1
-
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0lua5.4
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.4
-
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0lua5.3
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.3
-
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0lua5.2
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.2
-
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0lua5.1
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21lua5.1
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.4
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.3
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.2
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.1
 ```
 
 Those prebuilt binaries should work on Windows and many linux distributions and have been tested on:
@@ -170,7 +160,7 @@ If none of the above works for you, then install the source rock with
 
 ```sh
 luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22
 ```
 
 ## Examples
@@ -265,12 +255,12 @@ local MODEL_HASH = "sha256=b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -450,12 +440,12 @@ local MODEL_HASH = "sha256=64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -609,12 +599,12 @@ local MODEL_HASH = "sha256=c22ae91703d9c3432f00b419c93590f3be3f3b98f7714b22431a7
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -702,25 +692,25 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "thumbs_down.jpg", hash = "sha256=080b589bf3b91ba10cc6c03645be3b5b491a8ca8c8f7d65b5f32c563ae266af9" },
-    { file = "victory.jpg",     hash = "sha256=6ac265f3ace6a6c4ac4a9079b63fcce4ab6517272afb1e430857f55ef324fde6" },
-    { file = "thumbs_up.jpg",   hash = "sha256=2aee0e3a69ba5f0d3287597e61d265f4f3ac2a44ccec198dddd2639b0c8ef7ba" },
-    { file = "pointing_up.jpg", hash = "sha256=f4a701316b63dd8fa56e622f2b3042766369ccc189f0d89513f803cd985b993b" },
+    { output = "thumbs_down.jpg", hash = "sha256=080b589bf3b91ba10cc6c03645be3b5b491a8ca8c8f7d65b5f32c563ae266af9" },
+    { output = "victory.jpg",     hash = "sha256=6ac265f3ace6a6c4ac4a9079b63fcce4ab6517272afb1e430857f55ef324fde6" },
+    { output = "thumbs_up.jpg",   hash = "sha256=2aee0e3a69ba5f0d3287597e61d265f4f3ac2a44ccec198dddd2639b0c8ef7ba" },
+    { output = "pointing_up.jpg", hash = "sha256=f4a701316b63dd8fa56e622f2b3042766369ccc189f0d89513f803cd985b993b" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/gesture_recognizer/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/gesture_recognizer/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/gesture_recognizer.task"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task"
 local MODEL_HASH = "sha256=97952348cf6a6a4915c2ea1496b4b37ebabc50cbbf80571435643c455f2b0482"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -859,12 +849,12 @@ local MODEL_HASH = "sha256=fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -1009,23 +999,23 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "burger.jpg", hash = "sha256=08151ebb48f30a6cfbea02168ec0f3c0f1694d64c8d0f75ca08a63a89302853f" },
-    { file = "cat.jpg",    hash = "sha256=a83aa74a3d1d9bbc8bf92065e6e4d1ba217438a9f4a95f35287b2e8316e83859" },
+    { output = "burger.jpg", hash = "sha256=08151ebb48f30a6cfbea02168ec0f3c0f1694d64c8d0f75ca08a63a89302853f" },
+    { output = "cat.jpg",    hash = "sha256=a83aa74a3d1d9bbc8bf92065e6e4d1ba217438a9f4a95f35287b2e8316e83859" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/image_classifier/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/image_classifier/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/efficientnet_lite0.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_classifier/efficientnet_lite0/float32/1/efficientnet_lite0.tflite"
 local MODEL_HASH = "sha256=6c7ab0a6e5dcbf38a8c33b960996a55a3b4300b36a018c4545801de3a3c8bde0"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1114,23 +1104,23 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "burger.jpg",      hash = "sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf" },
-    { file = "burger_crop.jpg", hash = "sha256=8f58de573f0bf59a49c3d86cfabb9ad4061481f574aa049177e8da3963dddc50" },
+    { output = "burger.jpg",      hash = "sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf" },
+    { output = "burger_crop.jpg", hash = "sha256=8f58de573f0bf59a49c3d86cfabb9ad4061481f574aa049177e8da3963dddc50" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/mobilenet_v3_small.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_embedder/mobilenet_v3_small/float32/1/mobilenet_v3_small.tflite"
 local MODEL_HASH = "sha256=bbbb4c51a55a53905af1daec995ca1aae355046f8839bb8c9f5ce9271394bc40"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1223,22 +1213,22 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "segmentation_input_rotation0.jpg", hash = "sha256=5bf58d8af1f1c33224f3f3bc0ce451c8daf0739cc15a86d59d8c3bf2879afb97" },
+    { output = "segmentation_input_rotation0.jpg", hash = "sha256=5bf58d8af1f1c33224f3f3bc0ce451c8daf0739cc15a86d59d8c3bf2879afb97" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/deeplab_v3.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_segmenter/deeplab_v3/float32/1/deeplab_v3.tflite"
 local MODEL_HASH = "sha256=ff36e24d40547fe9e645e2f4e8745d1876d6e38b332d39a82f0bf0f5d1d561b3"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1351,22 +1341,22 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "cats_and_dogs.jpg", hash = "sha256=a2eaa7ad3a1aae4e623dd362a5f737e8a88d122597ecd1a02b3e1444db56df9c" },
+    { output = "cats_and_dogs.jpg", hash = "sha256=a2eaa7ad3a1aae4e623dd362a5f737e8a88d122597ecd1a02b3e1444db56df9c" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/magic_touch.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/interactive_segmenter/magic_touch/float32/1/magic_touch.tflite"
 local MODEL_HASH = "sha256=e24338a717c1b7ad8d159666677ef400babb7f33b8ad60c4d96db4ecf694cd25"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1528,7 +1518,7 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/language_detector.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/language_detector/language_detector/float32/latest/language_detector.tflite"
 local MODEL_HASH = "sha256=7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1629,12 +1619,12 @@ local MODEL_HASH = "sha256=0720bf247bd76e6594ea28fa9c6f7c5242be774818997dbbeffc4
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -1781,12 +1771,12 @@ local MODEL_HASH = "sha256=64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318
 
 download_test_files({
     {
-        file = IMAGE_FILE,
+        output = IMAGE_FILE,
         url = IMAGE_URL,
         hash = IMAGE_HASH,
     },
     {
-        file = MODEL_FILE,
+        output = MODEL_FILE,
         url = MODEL_URL,
         hash = MODEL_HASH,
     },
@@ -1879,7 +1869,7 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/bert_classifier.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/text_classifier/bert_classifier/float32/1/bert_classifier.tflite"
 local MODEL_HASH = "sha256=9b45012ab143d88d61e10ea501d6c8763f7202b86fa987711519d89bfa2a88b1"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -1930,7 +1920,7 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/bert_embedder.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/text_embedder/bert_embedder/float32/1/bert_embedder.tflite"
 local MODEL_HASH = "sha256=02ae6279faf86c2cd4ff18f61876c878bcc0b572b472f0678897a184c4ac7ef6"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))
@@ -2003,9 +1993,7 @@ cd lua-mediapipe
 @REM available versions are 5.1, 5.2, 5.3, 5.4
 build.bat "-DLua_VERSION=5.4" --target lua --install
 build.bat "-DLua_VERSION=5.4" --target luarocks
-@REM luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0luajit2.1
-@REM luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21luajit2.1
-luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua
+@REM luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
 luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 luarocks\luarocks.bat install --deps-only samples\samples-scm-1.rockspec
 npm ci
@@ -2021,9 +2009,7 @@ cd lua-mediapipe
 # available versions are 5.1, 5.2, 5.3, 5.4
 ./build.sh "-DLua_VERSION=5.4" --target lua --install
 ./build.sh "-DLua_VERSION=5.4" --target luarocks
-# ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0luajit2.1
-# ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.21luajit2.1
-./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua
+# ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
 ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 ./luarocks/luarocks install --deps-only samples/samples-scm-1.rockspec
 npm ci

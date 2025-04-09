@@ -108,7 +108,7 @@ setlocal
 IF "%*"=="" (set I=-i) ELSE (set I=)
 set "LUAROCKS_SYSCONFDIR=C:\Program Files\luarocks"
 set LUA_MODULES=%~dp0lua_modules
-set "PATH=%LUA_MODULES%\bin;%APPDATA%\luarocks\bin"
+set "PATH=%LUA_MODULES%\lib\lua\5.1;%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;C:\vcpkg\installed\x64-windows\bin;%PATH%"
 "D:\luarocks-binaries-custom\lua-mediapipe\out\prepublish\build\mediapipe_lua-custom\out\install\x64-Release\bin\luajit.exe" -e "package.path=\"%LUA_MODULES:\=\\%\\share\\lua\\5.1\\?.lua;%LUA_MODULES:\=\\%\\share\\lua\\5.1\\?\\init.lua;%APPDATA:\=\\%\\luarocks\\share\\lua\\5.1\\?.lua;%APPDATA:\=\\%\\luarocks\\share\\lua\\5.1\\?\\init.lua;\"..package.path;package.cpath=\"%LUA_MODULES:\=\\%\\lib\\lua\\5.1\\?.dll;%APPDATA:\=\\%\\luarocks\\lib\\lua\\5.1\\?.dll;\"..package.cpath" %I% %*
 exit /b %ERRORLEVEL%
 ```

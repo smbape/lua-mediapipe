@@ -18,6 +18,7 @@ local test_utils = require("test_utils")
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
+local std = mediapipe_lua.std
 
 local opencv_lua = require("opencv_lua")
 local cv2 = opencv_lua.cv
@@ -114,7 +115,7 @@ local ModelFileType = {
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
         {
-            file = _MODEL_FILE,
+            output = _MODEL_FILE,
             url = "https://storage.googleapis.com/mediapipe-models/image_segmenter/deeplab_v3/float32/1/deeplab_v3.tflite",
         },
         _IMAGE_FILE,
@@ -345,9 +346,14 @@ local function test_segment_async_calls_in_category_mask_mode(self)
     }))
     local segmenter = _ImageSegmenter.create_from_options(options)
 
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         segmenter:segment_async(self.test_image, timestamp)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end
@@ -396,9 +402,14 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
 
     local segmenter = _ImageSegmenter.create_from_options(options)
 
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         segmenter:segment_async(test_image, timestamp)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end

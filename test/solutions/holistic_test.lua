@@ -98,8 +98,9 @@ end
 
 local function test_on_image(self, id, static_image_mode, model_complexity,
                              refine_face_landmarks, num_frames)
+    -- https://teleprogramma.org/stars/star-hist/540493-doch-sheyk-i-kupera-rastet-na-russkih-640
     download_utils.download(
-        "https://teleprogramma.pro/sites/default/files/styles/post_850x666/public/nodes/node_540493_1653677473.jpg",
+        "https://teleprogramma.org/sites/default/files/styles/post_850x666/public/nodes/node_540493_1653677473.jpg",
         __dirname__ .. "/testdata/holistic.jpg",
         mediapipe_lua.kwargs({
             hash="sha256=bdf944c6d894cdb0670559ee79da1b1b1f080a0159c9c272a5c7ab012cf20037"

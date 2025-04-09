@@ -51,22 +51,22 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "segmentation_input_rotation0.jpg", hash = "sha256=5bf58d8af1f1c33224f3f3bc0ce451c8daf0739cc15a86d59d8c3bf2879afb97" },
+    { output = "segmentation_input_rotation0.jpg", hash = "sha256=5bf58d8af1f1c33224f3f3bc0ce451c8daf0739cc15a86d59d8c3bf2879afb97" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-assets/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/deeplab_v3.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_segmenter/deeplab_v3/float32/1/deeplab_v3.tflite"
 local MODEL_HASH = "sha256=ff36e24d40547fe9e645e2f4e8745d1876d6e38b332d39a82f0bf0f5d1d561b3"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))

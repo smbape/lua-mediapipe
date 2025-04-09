@@ -21,7 +21,7 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/bert_embedder.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/text_embedder/bert_embedder/float32/1/bert_embedder.tflite"
 local MODEL_HASH = "sha256=02ae6279faf86c2cd4ff18f61876c878bcc0b572b472f0678897a184c4ac7ef6"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))

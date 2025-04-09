@@ -53,25 +53,25 @@ local download_utils = mediapipe.lua.solutions.download_utils
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
 local IMAGE_DOWNLOADS = {
-    { file = "thumbs_down.jpg", hash = "sha256=080b589bf3b91ba10cc6c03645be3b5b491a8ca8c8f7d65b5f32c563ae266af9" },
-    { file = "victory.jpg",     hash = "sha256=6ac265f3ace6a6c4ac4a9079b63fcce4ab6517272afb1e430857f55ef324fde6" },
-    { file = "thumbs_up.jpg",   hash = "sha256=2aee0e3a69ba5f0d3287597e61d265f4f3ac2a44ccec198dddd2639b0c8ef7ba" },
-    { file = "pointing_up.jpg", hash = "sha256=f4a701316b63dd8fa56e622f2b3042766369ccc189f0d89513f803cd985b993b" },
+    { output = "thumbs_down.jpg", hash = "sha256=080b589bf3b91ba10cc6c03645be3b5b491a8ca8c8f7d65b5f32c563ae266af9" },
+    { output = "victory.jpg",     hash = "sha256=6ac265f3ace6a6c4ac4a9079b63fcce4ab6517272afb1e430857f55ef324fde6" },
+    { output = "thumbs_up.jpg",   hash = "sha256=2aee0e3a69ba5f0d3287597e61d265f4f3ac2a44ccec198dddd2639b0c8ef7ba" },
+    { output = "pointing_up.jpg", hash = "sha256=f4a701316b63dd8fa56e622f2b3042766369ccc189f0d89513f803cd985b993b" },
 }
 
 local IMAGE_FILENAMES = {}
 for i, kwargs in ipairs(IMAGE_DOWNLOADS) do
-    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/gesture_recognizer/" .. kwargs.file
-    kwargs.file = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.file
+    kwargs.url = "https://storage.googleapis.com/mediapipe-tasks/gesture_recognizer/" .. kwargs.output
+    kwargs.output = MEDIAPIPE_SAMPLES_DATA_PATH .. "/" .. kwargs.output
     download_utils.download(mediapipe_lua.kwargs(kwargs))
-    IMAGE_FILENAMES[i] = kwargs.file
+    IMAGE_FILENAMES[i] = kwargs.output
 end
 
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/gesture_recognizer.task"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task"
 local MODEL_HASH = "sha256=97952348cf6a6a4915c2ea1496b4b37ebabc50cbbf80571435643c455f2b0482"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
+    output = MODEL_FILE,
     url = MODEL_URL,
     hash = MODEL_HASH,
 }))

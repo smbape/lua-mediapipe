@@ -19,6 +19,7 @@ local test_utils = require("test_utils")
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
+local std = mediapipe_lua.std
 
 local opencv_lua = require("opencv_lua")
 local cv2 = opencv_lua.cv
@@ -311,9 +312,14 @@ local function test_embed_async_calls(self)
 
     local embedder = _ImageEmbedder.create_from_options(options)
 
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         embedder:embed_async(self.test_image, timestamp)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end
@@ -354,10 +360,14 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
     }))
     local embedder = _ImageEmbedder.create_from_options(options)
 
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
-        embedder:embed_async(self.test_image, timestamp,
-            image_processing_options)
-        mediapipe_lua.notifyCallbacks()
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
+        embedder:embed_async(self.test_image, timestamp, image_processing_options)
     end
 
     -- wait for detection end

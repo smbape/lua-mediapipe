@@ -20,6 +20,7 @@ local test_utils = require("test_utils")
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 local google = mediapipe_lua.google
+local std = mediapipe_lua.std
 
 local text_format = google.protobuf.text_format
 local image_module = mediapipe.lua._framework_bindings.image
@@ -80,7 +81,7 @@ end
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
         {
-            file = _HAND_LANDMARKER_BUNDLE_ASSET_FILE,
+            output = _HAND_LANDMARKER_BUNDLE_ASSET_FILE,
             url = "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
         },
         _NO_HANDS_IMAGE,
@@ -310,9 +311,14 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
     }))
 
     local landmarker = _HandLandmarker.create_from_options(options)
+    local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
+        if timestamp > 0 then
+            mediapipe_lua.notifyCallbacks()
+            std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
+        end
+
         landmarker:detect_async(test_image, timestamp, image_processing_options)
-        mediapipe_lua.notifyCallbacks()
     end
 
     -- wait for detection end

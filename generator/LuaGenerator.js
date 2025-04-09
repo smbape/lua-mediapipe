@@ -919,6 +919,7 @@ class LuaGenerator {
                     const argi = i + offset;
                     const argn = argi + 1;
                     const nd_mat = arg_modifiers.includes("/ND");
+                    const defarg = `${ argname }__`;
 
                     if (is_out_arg && is_array) {
                         is_optional = true;
@@ -943,7 +944,7 @@ class LuaGenerator {
                         const ref = defval !== "" && is_by_ref && !defval.includes("(") && !defval.includes("'") && !defval.includes("\"") && !/^(?:\.|\d+\.)\d+$/.test(defval) ? "&" : "";
                         const copy = ref || is_out_arg || defval === "" || defval.includes("(");
                         if (!is_array || defval !== "") {
-                            extractors.push(`${ copy ? "" : "static " }${ cpptype }${ ref } ${ argname }_default${ defval !== "" ? ` = ${ defval }` : "" };`);
+                            extractors.push(`${ copy ? "" : "static " }${ cpptype }${ ref } ${ defarg }${ defval !== "" ? ` = ${ defval }` : "" };`);
                         }
                     }
 
@@ -985,7 +986,7 @@ class LuaGenerator {
                         } else if (defval !== "") {
                             extractors.push(`
                                 else {
-                                    ${ argname }_${ arrtype } = ${ argname }_default;
+                                    ${ argname }_${ arrtype } = ${ defarg };
                                 }
                             `.replace(/^ {32}/mg, "").trim());
                         }
@@ -1029,7 +1030,7 @@ class LuaGenerator {
                         } else {
                             extractors.push(`
                                 else {
-                                    ${ argname } = ${ argname }_default;
+                                    ${ argname } = ${ defarg };
                                 }
                             `.replace(/^ {32}/mg, "").trim());
                         }
@@ -1073,7 +1074,7 @@ class LuaGenerator {
 
                         extractors.push("", `
                             decltype(auto) ${ argname } = extract_holder(${ argname }_holder, ${
-                                is_optional ? `${ argname }_default, !is_valid` : `static_cast<${ var_type }*>(nullptr)`
+                                is_optional ? `${ defarg }, !is_valid` : `static_cast<${ var_type }*>(nullptr)`
                             });
                         `.replace(/^ {28}/mg, "").trim());
                     }
