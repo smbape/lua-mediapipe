@@ -135,11 +135,11 @@ luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-bina
 Or to specify the target lua version with one of the following commands
 
 ```sh
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.4
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.3
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.2
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22lua5.1
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23luajit2.1
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23lua5.4
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23lua5.3
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23lua5.2
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23lua5.1
 ```
 
 Those prebuilt binaries should work on Windows and many linux distributions and have been tested on:
@@ -160,7 +160,7 @@ If none of the above works for you, then install the source rock with
 
 ```sh
 luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main opencv_lua 4.11.0
-luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22
+luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23
 ```
 
 ## Examples
@@ -1993,7 +1993,7 @@ cd lua-mediapipe
 @REM available versions are 5.1, 5.2, 5.3, 5.4
 build.bat "-DLua_VERSION=5.4" --target lua --install
 build.bat "-DLua_VERSION=5.4" --target luarocks
-@REM luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
+@REM luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23luajit2.1
 luarocks\luarocks.bat install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 luarocks\luarocks.bat install --deps-only samples\samples-scm-1.rockspec
 npm ci
@@ -2009,7 +2009,7 @@ cd lua-mediapipe
 # available versions are 5.1, 5.2, 5.3, 5.4
 ./build.sh "-DLua_VERSION=5.4" --target lua --install
 ./build.sh "-DLua_VERSION=5.4" --target luarocks
-# ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.22luajit2.1
+# ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua 0.10.23luajit2.1
 ./luarocks/luarocks install --server=https://raw.githubusercontent.com/smbape/luarocks-binaries/refs/heads/main mediapipe_lua
 ./luarocks/luarocks install --deps-only samples/samples-scm-1.rockspec
 npm ci

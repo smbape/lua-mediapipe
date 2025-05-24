@@ -69,22 +69,22 @@
   - [MapOfStringAndPacketDataType.sol::meta\_function::length](#mapofstringandpacketdatatypesolmeta%5C_functionlength)
   - [MapOfStringAndPacketDataType.sol::meta\_function::new\_index](#mapofstringandpacketdatatypesolmeta%5C_functionnew%5C_index)
   - [MapOfStringAndPacketDataType.table](#mapofstringandpacketdatatypetable)
-- [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object](#mapofstringand%5C_lua%5C_module%5C_name%5C_object)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.new](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectnew)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.\_\_type](#mapofstringand%5C_lua%5C_module%5C_name%5C_object%5C_%5C_type)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.contains](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectcontains)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.count](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectcount)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.delete](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectdelete)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.erase](#mapofstringand%5C_lua%5C_module%5C_name%5C_objecterase)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.has](#mapofstringand%5C_lua%5C_module%5C_name%5C_objecthas)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.keys](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectkeys)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.merge](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectmerge)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.operator==](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectoperator)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.remove](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectremove)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionindex)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionlength)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index](#mapofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionnew%5C_index)
-  - [MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.table](#mapofstringand%5C_lua%5C_module%5C_name%5C_objecttable)
+- [MapOfStringAnd\_mediapipe\_lua\_Object](#mapofstringand%5C_mediapipe%5C_lua%5C_object)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.new](#mapofstringand%5C_mediapipe%5C_lua%5C_objectnew)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.\_\_type](#mapofstringand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.contains](#mapofstringand%5C_mediapipe%5C_lua%5C_objectcontains)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.count](#mapofstringand%5C_mediapipe%5C_lua%5C_objectcount)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.delete](#mapofstringand%5C_mediapipe%5C_lua%5C_objectdelete)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.erase](#mapofstringand%5C_mediapipe%5C_lua%5C_objecterase)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.has](#mapofstringand%5C_mediapipe%5C_lua%5C_objecthas)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.keys](#mapofstringand%5C_mediapipe%5C_lua%5C_objectkeys)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.merge](#mapofstringand%5C_mediapipe%5C_lua%5C_objectmerge)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.operator==](#mapofstringand%5C_mediapipe%5C_lua%5C_objectoperator)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.remove](#mapofstringand%5C_mediapipe%5C_lua%5C_objectremove)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::length](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionlength)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionnew%5C_index)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.table](#mapofstringand%5C_mediapipe%5C_lua%5C_objecttable)
 - [VectorOfBool](#vectorofbool)
   - [VectorOfBool.new](#vectorofboolnew)
   - [VectorOfBool.\_\_type](#vectorofbool%5C_%5C_type)
@@ -181,22 +181,22 @@
   - [VectorOfPairOfStringAndPacketDataType.sol::meta\_function::length](#vectorofpairofstringandpacketdatatypesolmeta%5C_functionlength)
   - [VectorOfPairOfStringAndPacketDataType.sol::meta\_function::new\_index](#vectorofpairofstringandpacketdatatypesolmeta%5C_functionnew%5C_index)
   - [VectorOfPairOfStringAndPacketDataType.table](#vectorofpairofstringandpacketdatatypetable)
-- [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_object)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.new](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objectnew)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.\_\_type](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_object%5C_%5C_type)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.operator==](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objectoperator)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionindex)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionlength)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionnew%5C_index)
-  - [VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.table](#vectorofpairofstringand%5C_lua%5C_module%5C_name%5C_objecttable)
-- [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_object)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.new](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objectnew)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.\_\_type](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_object%5C_%5C_type)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.operator==](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objectoperator)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionindex)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionlength)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionnew%5C_index)
-  - [VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.table](#vectorofpairof%5C_lua%5C_module%5C_name%5C_objectand%5C_lua%5C_module%5C_name%5C_objecttable)
+- [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.new](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectnew)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.\_\_type](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.operator==](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectoperator)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::length](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionlength)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionnew%5C_index)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.table](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objecttable)
+- [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.new](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectnew)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.\_\_type](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.operator==](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectoperator)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::length](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionlength)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionnew%5C_index)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.table](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objecttable)
 - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry](#vectorofsharedptrofarblendshapemap%5C_mapentry)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.new](#vectorofsharedptrofarblendshapemap%5C_mapentrynew)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.\_\_type](#vectorofsharedptrofarblendshapemap%5C_mapentry%5C_%5C_type)
@@ -349,6 +349,14 @@
   - [VectorOfSharedPtrOfImage.sol::meta\_function::length](#vectorofsharedptrofimagesolmeta%5C_functionlength)
   - [VectorOfSharedPtrOfImage.sol::meta\_function::new\_index](#vectorofsharedptrofimagesolmeta%5C_functionnew%5C_index)
   - [VectorOfSharedPtrOfImage.table](#vectorofsharedptrofimagetable)
+- [VectorOfSharedPtrOfImageFrame](#vectorofsharedptrofimageframe)
+  - [VectorOfSharedPtrOfImageFrame.new](#vectorofsharedptrofimageframenew)
+  - [VectorOfSharedPtrOfImageFrame.\_\_type](#vectorofsharedptrofimageframe%5C_%5C_type)
+  - [VectorOfSharedPtrOfImageFrame.operator==](#vectorofsharedptrofimageframeoperator)
+  - [VectorOfSharedPtrOfImageFrame.sol::meta\_function::index](#vectorofsharedptrofimageframesolmeta%5C_functionindex)
+  - [VectorOfSharedPtrOfImageFrame.sol::meta\_function::length](#vectorofsharedptrofimageframesolmeta%5C_functionlength)
+  - [VectorOfSharedPtrOfImageFrame.sol::meta\_function::new\_index](#vectorofsharedptrofimageframesolmeta%5C_functionnew%5C_index)
+  - [VectorOfSharedPtrOfImageFrame.table](#vectorofsharedptrofimageframetable)
 - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.new](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinknew)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_type](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink%5C_%5C_type)
@@ -709,14 +717,14 @@
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::length](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksolmeta%5C_functionlength)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::new\_index](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksolmeta%5C_functionnew%5C_index)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.table](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarktable)
-- [VectorOf\_LUA\_MODULE\_NAME\_Object](#vectorof%5C_lua%5C_module%5C_name%5C_object)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.new](#vectorof%5C_lua%5C_module%5C_name%5C_objectnew)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.\_\_type](#vectorof%5C_lua%5C_module%5C_name%5C_object%5C_%5C_type)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.operator==](#vectorof%5C_lua%5C_module%5C_name%5C_objectoperator)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index](#vectorof%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionindex)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length](#vectorof%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionlength)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index](#vectorof%5C_lua%5C_module%5C_name%5C_objectsolmeta%5C_functionnew%5C_index)
-  - [VectorOf\_LUA\_MODULE\_NAME\_Object.table](#vectorof%5C_lua%5C_module%5C_name%5C_objecttable)
+- [VectorOf\_mediapipe\_lua\_Object](#vectorof%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOf\_mediapipe\_lua\_Object.new](#vectorof%5C_mediapipe%5C_lua%5C_objectnew)
+  - [VectorOf\_mediapipe\_lua\_Object.\_\_type](#vectorof%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
+  - [VectorOf\_mediapipe\_lua\_Object.operator==](#vectorof%5C_mediapipe%5C_lua%5C_objectoperator)
+  - [VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorof%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
+  - [VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::length](#vectorof%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionlength)
+  - [VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::new\_index](#vectorof%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionnew%5C_index)
+  - [VectorOf\_mediapipe\_lua\_Object.table](#vectorof%5C_mediapipe%5C_lua%5C_objecttable)
 - [fs\_utils](#fs%5C_utils)
   - [fs\_utils.absolute](#fs%5C_utilsabsolute)
   - [fs\_utils.current\_path](#fs%5C_utilscurrent%5C_path)
@@ -3294,6 +3302,7 @@
   - [mediapipe.lua.packet\_creator.create\_float\_vector](#mediapipeluapacket%5C_creatorcreate%5C_float%5C_vector)
   - [mediapipe.lua.packet\_creator.create\_image](#mediapipeluapacket%5C_creatorcreate%5C_image)
   - [mediapipe.lua.packet\_creator.create\_image\_frame](#mediapipeluapacket%5C_creatorcreate%5C_image%5C_frame)
+  - [mediapipe.lua.packet\_creator.create\_image\_frame\_vector](#mediapipeluapacket%5C_creatorcreate%5C_image%5C_frame%5C_vector)
   - [mediapipe.lua.packet\_creator.create\_image\_vector](#mediapipeluapacket%5C_creatorcreate%5C_image%5C_vector)
   - [mediapipe.lua.packet\_creator.create\_int](#mediapipeluapacket%5C_creatorcreate%5C_int)
   - [mediapipe.lua.packet\_creator.create\_int16](#mediapipeluapacket%5C_creatorcreate%5C_int16)
@@ -3319,6 +3328,7 @@
   - [mediapipe.lua.packet\_getter.get\_float\_list](#mediapipeluapacket%5C_getterget%5C_float%5C_list)
   - [mediapipe.lua.packet\_getter.get\_image](#mediapipeluapacket%5C_getterget%5C_image)
   - [mediapipe.lua.packet\_getter.get\_image\_frame](#mediapipeluapacket%5C_getterget%5C_image%5C_frame)
+  - [mediapipe.lua.packet\_getter.get\_image\_frame\_list](#mediapipeluapacket%5C_getterget%5C_image%5C_frame%5C_list)
   - [mediapipe.lua.packet\_getter.get\_image\_list](#mediapipeluapacket%5C_getterget%5C_image%5C_list)
   - [mediapipe.lua.packet\_getter.get\_int](#mediapipeluapacket%5C_getterget%5C_int)
   - [mediapipe.lua.packet\_getter.get\_int\_list](#mediapipeluapacket%5C_getterget%5C_int%5C_list)
@@ -3338,6 +3348,7 @@
   - [mediapipe.lua.solution\_base.SolutionBase.process](#mediapipeluasolution%5C_basesolutionbaseprocess)
   - [mediapipe.lua.solution\_base.SolutionBase.reset](#mediapipeluasolution%5C_basesolutionbasereset)
 - [mediapipe::lua::solutions::download\_utils](#mediapipeluasolutionsdownload%5C_utils)
+  - [mediapipe.lua.solutions.download\_utils.curl](#mediapipeluasolutionsdownload%5C_utilscurl)
   - [mediapipe.lua.solutions.download\_utils.download](#mediapipeluasolutionsdownload%5C_utilsdownload)
   - [mediapipe.lua.solutions.download\_utils.download\_oss\_model](#mediapipeluasolutionsdownload%5C_utilsdownload%5C_oss%5C_model)
 - [mediapipe::lua::solutions::drawing\_styles](#mediapipeluasolutionsdrawing%5C_styles)
@@ -4700,6 +4711,106 @@
   - [render\_data\_pb2.RenderData](#render%5C_data%5C_pb2renderdata)
   - [render\_data\_pb2.RenderAnnotation](#render%5C_data%5C_pb2renderannotation)
   - [render\_data\_pb2.RenderViewport](#render%5C_data%5C_pb2renderviewport)
+- [std::chrono::days](#stdchronodays)
+  - [std.chrono.days.new](#stdchronodaysnew)
+  - [std.chrono.days.\_\_type](#stdchronodays%5C_%5C_type)
+  - [std.chrono.days.count](#stdchronodayscount)
+  - [std.chrono.days.operator*](#stdchronodaysoperator)
+  - [std.chrono.days.operator+](#stdchronodaysoperator)
+  - [std.chrono.days.operator-](#stdchronodaysoperator-)
+  - [std.chrono.days.operator/](#stdchronodaysoperator)
+  - [std.chrono.days.operator<](#stdchronodaysoperator)
+  - [std.chrono.days.operator<=](#stdchronodaysoperator)
+  - [std.chrono.days.operator==](#stdchronodaysoperator)
+- [std::chrono::hours](#stdchronohours)
+  - [std.chrono.hours.new](#stdchronohoursnew)
+  - [std.chrono.hours.\_\_type](#stdchronohours%5C_%5C_type)
+  - [std.chrono.hours.count](#stdchronohourscount)
+  - [std.chrono.hours.operator*](#stdchronohoursoperator)
+  - [std.chrono.hours.operator+](#stdchronohoursoperator)
+  - [std.chrono.hours.operator-](#stdchronohoursoperator-)
+  - [std.chrono.hours.operator/](#stdchronohoursoperator)
+  - [std.chrono.hours.operator<](#stdchronohoursoperator)
+  - [std.chrono.hours.operator<=](#stdchronohoursoperator)
+  - [std.chrono.hours.operator==](#stdchronohoursoperator)
+- [std::chrono::microseconds](#stdchronomicroseconds)
+  - [std.chrono.microseconds.new](#stdchronomicrosecondsnew)
+  - [std.chrono.microseconds.\_\_type](#stdchronomicroseconds%5C_%5C_type)
+  - [std.chrono.microseconds.count](#stdchronomicrosecondscount)
+  - [std.chrono.microseconds.operator*](#stdchronomicrosecondsoperator)
+  - [std.chrono.microseconds.operator+](#stdchronomicrosecondsoperator)
+  - [std.chrono.microseconds.operator-](#stdchronomicrosecondsoperator-)
+  - [std.chrono.microseconds.operator/](#stdchronomicrosecondsoperator)
+  - [std.chrono.microseconds.operator<](#stdchronomicrosecondsoperator)
+  - [std.chrono.microseconds.operator<=](#stdchronomicrosecondsoperator)
+  - [std.chrono.microseconds.operator==](#stdchronomicrosecondsoperator)
+- [std::chrono::milliseconds](#stdchronomilliseconds)
+  - [std.chrono.milliseconds.new](#stdchronomillisecondsnew)
+  - [std.chrono.milliseconds.\_\_type](#stdchronomilliseconds%5C_%5C_type)
+  - [std.chrono.milliseconds.count](#stdchronomillisecondscount)
+  - [std.chrono.milliseconds.operator*](#stdchronomillisecondsoperator)
+  - [std.chrono.milliseconds.operator+](#stdchronomillisecondsoperator)
+  - [std.chrono.milliseconds.operator-](#stdchronomillisecondsoperator-)
+  - [std.chrono.milliseconds.operator/](#stdchronomillisecondsoperator)
+  - [std.chrono.milliseconds.operator<](#stdchronomillisecondsoperator)
+  - [std.chrono.milliseconds.operator<=](#stdchronomillisecondsoperator)
+  - [std.chrono.milliseconds.operator==](#stdchronomillisecondsoperator)
+- [std::chrono::minutes](#stdchronominutes)
+  - [std.chrono.minutes.new](#stdchronominutesnew)
+  - [std.chrono.minutes.\_\_type](#stdchronominutes%5C_%5C_type)
+  - [std.chrono.minutes.count](#stdchronominutescount)
+  - [std.chrono.minutes.operator*](#stdchronominutesoperator)
+  - [std.chrono.minutes.operator+](#stdchronominutesoperator)
+  - [std.chrono.minutes.operator-](#stdchronominutesoperator-)
+  - [std.chrono.minutes.operator/](#stdchronominutesoperator)
+  - [std.chrono.minutes.operator<](#stdchronominutesoperator)
+  - [std.chrono.minutes.operator<=](#stdchronominutesoperator)
+  - [std.chrono.minutes.operator==](#stdchronominutesoperator)
+- [std::chrono::nanoseconds](#stdchrononanoseconds)
+  - [std.chrono.nanoseconds.new](#stdchrononanosecondsnew)
+  - [std.chrono.nanoseconds.\_\_type](#stdchrononanoseconds%5C_%5C_type)
+  - [std.chrono.nanoseconds.count](#stdchrononanosecondscount)
+  - [std.chrono.nanoseconds.operator*](#stdchrononanosecondsoperator)
+  - [std.chrono.nanoseconds.operator+](#stdchrononanosecondsoperator)
+  - [std.chrono.nanoseconds.operator-](#stdchrononanosecondsoperator-)
+  - [std.chrono.nanoseconds.operator/](#stdchrononanosecondsoperator)
+  - [std.chrono.nanoseconds.operator<](#stdchrononanosecondsoperator)
+  - [std.chrono.nanoseconds.operator<=](#stdchrononanosecondsoperator)
+  - [std.chrono.nanoseconds.operator==](#stdchrononanosecondsoperator)
+- [std::chrono::seconds](#stdchronoseconds)
+  - [std.chrono.seconds.new](#stdchronosecondsnew)
+  - [std.chrono.seconds.\_\_type](#stdchronoseconds%5C_%5C_type)
+  - [std.chrono.seconds.count](#stdchronosecondscount)
+  - [std.chrono.seconds.operator*](#stdchronosecondsoperator)
+  - [std.chrono.seconds.operator+](#stdchronosecondsoperator)
+  - [std.chrono.seconds.operator-](#stdchronosecondsoperator-)
+  - [std.chrono.seconds.operator/](#stdchronosecondsoperator)
+  - [std.chrono.seconds.operator<](#stdchronosecondsoperator)
+  - [std.chrono.seconds.operator<=](#stdchronosecondsoperator)
+  - [std.chrono.seconds.operator==](#stdchronosecondsoperator)
+- [std::chrono::steady\_clock](#stdchronosteady%5C_clock)
+  - [std.chrono.steady\_clock.now](#stdchronosteady%5C_clocknow)
+- [std::chrono::steady\_clock::time\_point](#stdchronosteady%5C_clocktime%5C_point)
+  - [std.chrono.steady\_clock.time\_point.\_\_type](#stdchronosteady%5C_clocktime%5C_point%5C_%5C_type)
+  - [std.chrono.steady\_clock.time\_point.operator+](#stdchronosteady%5C_clocktime%5C_pointoperator)
+  - [std.chrono.steady\_clock.time\_point.operator-](#stdchronosteady%5C_clocktime%5C_pointoperator-)
+  - [std.chrono.steady\_clock.time\_point.operator<](#stdchronosteady%5C_clocktime%5C_pointoperator)
+  - [std.chrono.steady\_clock.time\_point.operator<=](#stdchronosteady%5C_clocktime%5C_pointoperator)
+  - [std.chrono.steady\_clock.time\_point.operator==](#stdchronosteady%5C_clocktime%5C_pointoperator)
+- [std::chrono::weeks](#stdchronoweeks)
+  - [std.chrono.weeks.new](#stdchronoweeksnew)
+  - [std.chrono.weeks.\_\_type](#stdchronoweeks%5C_%5C_type)
+  - [std.chrono.weeks.count](#stdchronoweekscount)
+  - [std.chrono.weeks.operator*](#stdchronoweeksoperator)
+  - [std.chrono.weeks.operator+](#stdchronoweeksoperator)
+  - [std.chrono.weeks.operator-](#stdchronoweeksoperator-)
+  - [std.chrono.weeks.operator/](#stdchronoweeksoperator)
+  - [std.chrono.weeks.operator<](#stdchronoweeksoperator)
+  - [std.chrono.weeks.operator<=](#stdchronoweeksoperator)
+  - [std.chrono.weeks.operator==](#stdchronoweeksoperator)
+- [std::this\_thread](#stdthis%5C_thread)
+  - [std.this\_thread.sleep\_for](#stdthis%5C_threadsleep%5C_for)
+  - [std.this\_thread.sleep\_until](#stdthis%5C_threadsleep%5C_until)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -4793,7 +4904,7 @@ lua:
 ```
 
 ```cpp
-bool MapOfIntAndDrawing_utils_DrawingSpec::operator==( ::LUA_MODULE_NAME::Object other );
+bool MapOfIntAndDrawing_utils_DrawingSpec::operator==( ::mediapipe_lua::Object other );
 lua:
     oMapOfIntAndDrawing_utils_DrawingSpec:__eq( other ) -> retval
 ```
@@ -4817,7 +4928,7 @@ lua:
 ### MapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length
 
 ```cpp
-size_t MapOfIntAndDrawing_utils_DrawingSpec::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t MapOfIntAndDrawing_utils_DrawingSpec::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oMapOfIntAndDrawing_utils_DrawingSpec:__len( unused ) -> retval
 ```
@@ -4929,7 +5040,7 @@ lua:
 ```
 
 ```cpp
-bool MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator==( ::LUA_MODULE_NAME::Object other );
+bool MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator==( ::mediapipe_lua::Object other );
 lua:
     oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:__eq( other ) -> retval
 ```
@@ -4953,7 +5064,7 @@ lua:
 ### MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length
 
 ```cpp
-size_t MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:__len( unused ) -> retval
 ```
@@ -5065,7 +5176,7 @@ lua:
 ```
 
 ```cpp
-bool MapOfStringAndPacket::operator==( ::LUA_MODULE_NAME::Object other );
+bool MapOfStringAndPacket::operator==( ::mediapipe_lua::Object other );
 lua:
     oMapOfStringAndPacket:__eq( other ) -> retval
 ```
@@ -5089,7 +5200,7 @@ lua:
 ### MapOfStringAndPacket.sol::meta\_function::length
 
 ```cpp
-size_t MapOfStringAndPacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t MapOfStringAndPacket::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oMapOfStringAndPacket:__len( unused ) -> retval
 ```
@@ -5201,7 +5312,7 @@ lua:
 ```
 
 ```cpp
-bool MapOfStringAndPacketDataType::operator==( ::LUA_MODULE_NAME::Object other );
+bool MapOfStringAndPacketDataType::operator==( ::mediapipe_lua::Object other );
 lua:
     oMapOfStringAndPacketDataType:__eq( other ) -> retval
 ```
@@ -5225,7 +5336,7 @@ lua:
 ### MapOfStringAndPacketDataType.sol::meta\_function::length
 
 ```cpp
-size_t MapOfStringAndPacketDataType::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t MapOfStringAndPacketDataType::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oMapOfStringAndPacketDataType:__len( unused ) -> retval
 ```
@@ -5247,140 +5358,140 @@ lua:
     oMapOfStringAndPacketDataType:table() -> None
 ```
 
-## MapOfStringAnd\_LUA\_MODULE\_NAME\_Object
+## MapOfStringAnd\_mediapipe\_lua\_Object
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.new
+### MapOfStringAnd\_mediapipe\_lua\_Object.new
 
 ```cpp
-std::map<std::string, ::LUA_MODULE_NAME::Object>();
+std::map<std::string, ::mediapipe_lua::Object>();
 lua:
-    MapOfStringAnd_LUA_MODULE_NAME_Object.new() -> <std::map<std::string, ::LUA_MODULE_NAME::Object> object>
-    MapOfStringAnd_LUA_MODULE_NAME_Object() -> <std::map<std::string, ::LUA_MODULE_NAME::Object> object>
+    MapOfStringAnd_mediapipe_lua_Object.new() -> <std::map<std::string, ::mediapipe_lua::Object> object>
+    MapOfStringAnd_mediapipe_lua_Object() -> <std::map<std::string, ::mediapipe_lua::Object> object>
 ```
 
 ```cpp
-static std::shared_ptr<MapOfStringAnd_LUA_MODULE_NAME_Object> MapOfStringAnd_LUA_MODULE_NAME_Object::new( std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> pairs );
+static std::shared_ptr<MapOfStringAnd_mediapipe_lua_Object> MapOfStringAnd_mediapipe_lua_Object::new( std::vector<std::pair<std::string, ::mediapipe_lua::Object>> pairs );
 lua:
-    MapOfStringAnd_LUA_MODULE_NAME_Object.new( pairs ) -> retval
+    MapOfStringAnd_mediapipe_lua_Object.new( pairs ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.\_\_type
+### MapOfStringAnd\_mediapipe\_lua\_Object.\_\_type
 
 ```cpp
-static std::string MapOfStringAnd_LUA_MODULE_NAME_Object::__type();
+static std::string MapOfStringAnd_mediapipe_lua_Object::__type();
 lua:
-    MapOfStringAnd_LUA_MODULE_NAME_Object.__type() -> retval
+    MapOfStringAnd_mediapipe_lua_Object.__type() -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.contains
+### MapOfStringAnd\_mediapipe\_lua\_Object.contains
 
 ```cpp
-bool MapOfStringAnd_LUA_MODULE_NAME_Object::count( std::string key );
+bool MapOfStringAnd_mediapipe_lua_Object::count( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:contains( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:contains( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.count
+### MapOfStringAnd\_mediapipe\_lua\_Object.count
 
 ```cpp
-size_t MapOfStringAnd_LUA_MODULE_NAME_Object::count( std::string key );
+size_t MapOfStringAnd_mediapipe_lua_Object::count( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:count( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:count( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.delete
+### MapOfStringAnd\_mediapipe\_lua\_Object.delete
 
 ```cpp
-size_t MapOfStringAnd_LUA_MODULE_NAME_Object::erase( std::string key );
+size_t MapOfStringAnd_mediapipe_lua_Object::erase( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:delete( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:delete( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.erase
+### MapOfStringAnd\_mediapipe\_lua\_Object.erase
 
 ```cpp
-size_t MapOfStringAnd_LUA_MODULE_NAME_Object::erase( std::string key );
+size_t MapOfStringAnd_mediapipe_lua_Object::erase( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:erase( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:erase( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.has
+### MapOfStringAnd\_mediapipe\_lua\_Object.has
 
 ```cpp
-bool MapOfStringAnd_LUA_MODULE_NAME_Object::count( std::string key );
+bool MapOfStringAnd_mediapipe_lua_Object::count( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:has( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:has( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.keys
+### MapOfStringAnd\_mediapipe\_lua\_Object.keys
 
 ```cpp
-void MapOfStringAnd_LUA_MODULE_NAME_Object::keys( std::vector<std::string>& keys );
+void MapOfStringAnd_mediapipe_lua_Object::keys( std::vector<std::string>& keys );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:keys( [keys] ) -> keys
+    oMapOfStringAnd_mediapipe_lua_Object:keys( [keys] ) -> keys
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.merge
+### MapOfStringAnd\_mediapipe\_lua\_Object.merge
 
 ```cpp
-void MapOfStringAnd_LUA_MODULE_NAME_Object::merge( MapOfStringAnd_LUA_MODULE_NAME_Object other );
+void MapOfStringAnd_mediapipe_lua_Object::merge( MapOfStringAnd_mediapipe_lua_Object other );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:merge( other ) -> None
+    oMapOfStringAnd_mediapipe_lua_Object:merge( other ) -> None
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.operator==
+### MapOfStringAnd\_mediapipe\_lua\_Object.operator==
 
 ```cpp
-bool MapOfStringAnd_LUA_MODULE_NAME_Object::operator==( const MapOfStringAnd_LUA_MODULE_NAME_Object& other );
+bool MapOfStringAnd_mediapipe_lua_Object::operator==( const MapOfStringAnd_mediapipe_lua_Object& other );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
 ```cpp
-bool MapOfStringAnd_LUA_MODULE_NAME_Object::operator==( ::LUA_MODULE_NAME::Object other );
+bool MapOfStringAnd_mediapipe_lua_Object::operator==( ::mediapipe_lua::Object other );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.remove
+### MapOfStringAnd\_mediapipe\_lua\_Object.remove
 
 ```cpp
-size_t MapOfStringAnd_LUA_MODULE_NAME_Object::erase( std::string key );
+size_t MapOfStringAnd_mediapipe_lua_Object::erase( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:remove( key ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:remove( key ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index
+### MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index
 
 ```cpp
-void MapOfStringAnd_LUA_MODULE_NAME_Object::sol::meta_function::index( std::string key );
+void MapOfStringAnd_mediapipe_lua_Object::sol::meta_function::index( std::string key );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:__index( key ) -> None
+    oMapOfStringAnd_mediapipe_lua_Object:__index( key ) -> None
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length
+### MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::length
 
 ```cpp
-size_t MapOfStringAnd_LUA_MODULE_NAME_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t MapOfStringAnd_mediapipe_lua_Object::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:__len( unused ) -> retval
+    oMapOfStringAnd_mediapipe_lua_Object:__len( unused ) -> retval
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index
+### MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index
 
 ```cpp
-void MapOfStringAnd_LUA_MODULE_NAME_Object::insert_or_assign( std::string               key,
-                                                              ::LUA_MODULE_NAME::Object value );
+void MapOfStringAnd_mediapipe_lua_Object::insert_or_assign( std::string             key,
+                                                            ::mediapipe_lua::Object value );
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:__newindex( key, value ) -> None
+    oMapOfStringAnd_mediapipe_lua_Object:__newindex( key, value ) -> None
 ```
 
-### MapOfStringAnd\_LUA\_MODULE\_NAME\_Object.table
+### MapOfStringAnd\_mediapipe\_lua\_Object.table
 
 ```cpp
-void MapOfStringAnd_LUA_MODULE_NAME_Object::table();
+void MapOfStringAnd_mediapipe_lua_Object::table();
 lua:
-    oMapOfStringAnd_LUA_MODULE_NAME_Object:table() -> None
+    oMapOfStringAnd_mediapipe_lua_Object:table() -> None
 ```
 
 ## VectorOfBool
@@ -5425,7 +5536,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfBool::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfBool::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfBool:__eq( other ) -> retval
 ```
@@ -5441,7 +5552,7 @@ lua:
 ### VectorOfBool.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfBool::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfBool::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfBool:__len( unused ) -> retval
 ```
@@ -5505,7 +5616,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfFloat::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfFloat::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfFloat:__eq( other ) -> retval
 ```
@@ -5521,7 +5632,7 @@ lua:
 ### VectorOfFloat.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfFloat::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfFloat::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfFloat:__len( unused ) -> retval
 ```
@@ -5585,7 +5696,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfImage::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfImage::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfImage:__eq( other ) -> retval
 ```
@@ -5601,7 +5712,7 @@ lua:
 ### VectorOfImage.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfImage::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfImage::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfImage:__len( unused ) -> retval
 ```
@@ -5665,7 +5776,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfInt::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfInt::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfInt:__eq( other ) -> retval
 ```
@@ -5681,7 +5792,7 @@ lua:
 ### VectorOfInt.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfInt::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfInt::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfInt:__len( unused ) -> retval
 ```
@@ -5745,7 +5856,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfInt64::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfInt64::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfInt64:__eq( other ) -> retval
 ```
@@ -5761,7 +5872,7 @@ lua:
 ### VectorOfInt64.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfInt64::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfInt64::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfInt64:__len( unused ) -> retval
 ```
@@ -5825,7 +5936,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfMat::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfMat::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfMat:__eq( other ) -> retval
 ```
@@ -5841,7 +5952,7 @@ lua:
 ### VectorOfMat.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfMat::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfMat::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfMat:__len( unused ) -> retval
 ```
@@ -5905,7 +6016,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfObjectron_ObjectronOutputs::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfObjectron_ObjectronOutputs::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfObjectron_ObjectronOutputs:__eq( other ) -> retval
 ```
@@ -5921,7 +6032,7 @@ lua:
 ### VectorOfObjectron\_ObjectronOutputs.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfObjectron_ObjectronOutputs::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfObjectron_ObjectronOutputs::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfObjectron_ObjectronOutputs:__len( unused ) -> retval
 ```
@@ -5985,7 +6096,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfPacket::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfPacket::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfPacket:__eq( other ) -> retval
 ```
@@ -6001,7 +6112,7 @@ lua:
 ### VectorOfPacket.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfPacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfPacket::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfPacket:__len( unused ) -> retval
 ```
@@ -6065,7 +6176,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfPairOfIntAndDrawing_utils_DrawingSpec::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfPairOfIntAndDrawing_utils_DrawingSpec::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:__eq( other ) -> retval
 ```
@@ -6081,7 +6192,7 @@ lua:
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfPairOfIntAndDrawing_utils_DrawingSpec::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfPairOfIntAndDrawing_utils_DrawingSpec::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:__len( unused ) -> retval
 ```
@@ -6145,7 +6256,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:__eq( other ) -> retval
 ```
@@ -6161,7 +6272,7 @@ lua:
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:__len( unused ) -> retval
 ```
@@ -6225,7 +6336,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfPairOfStringAndPacket::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfPairOfStringAndPacket::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfPairOfStringAndPacket:__eq( other ) -> retval
 ```
@@ -6241,7 +6352,7 @@ lua:
 ### VectorOfPairOfStringAndPacket.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfPairOfStringAndPacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfPairOfStringAndPacket::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfPairOfStringAndPacket:__len( unused ) -> retval
 ```
@@ -6305,7 +6416,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfPairOfStringAndPacketDataType::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfPairOfStringAndPacketDataType::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfPairOfStringAndPacketDataType:__eq( other ) -> retval
 ```
@@ -6321,7 +6432,7 @@ lua:
 ### VectorOfPairOfStringAndPacketDataType.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfPairOfStringAndPacketDataType::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfPairOfStringAndPacketDataType::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfPairOfStringAndPacketDataType:__len( unused ) -> retval
 ```
@@ -6343,164 +6454,164 @@ lua:
     oVectorOfPairOfStringAndPacketDataType:table() -> None
 ```
 
-## VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object
+## VectorOfPairOfStringAnd\_mediapipe\_lua\_Object
 
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.new
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.new
 
 ```cpp
-std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>>();
+std::vector<std::pair<std::string, ::mediapipe_lua::Object>>();
 lua:
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object.new() -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object() -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.new() -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object() -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
 ```
 
 ```cpp
-std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>>( size_t size );
+std::vector<std::pair<std::string, ::mediapipe_lua::Object>>( size_t size );
 lua:
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object.new( size ) -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object( size ) -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.new( size ) -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object( size ) -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
 ```
 
 ```cpp
-std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>>( std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> other );
+std::vector<std::pair<std::string, ::mediapipe_lua::Object>>( std::vector<std::pair<std::string, ::mediapipe_lua::Object>> other );
 lua:
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object.new( other ) -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object( other ) -> <std::vector<std::pair<std::string, ::LUA_MODULE_NAME::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.new( other ) -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
+    VectorOfPairOfStringAnd_mediapipe_lua_Object( other ) -> <std::vector<std::pair<std::string, ::mediapipe_lua::Object>> object>
 ```
 
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.\_\_type
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.\_\_type
 
 ```cpp
-static std::string VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::__type();
+static std::string VectorOfPairOfStringAnd_mediapipe_lua_Object::__type();
 lua:
-    VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object.__type() -> retval
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.__type() -> retval
 ```
 
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.operator==
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.operator==
 
 ```cpp
-bool VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::operator==( const VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object& other );
+bool VectorOfPairOfStringAnd_mediapipe_lua_Object::operator==( const VectorOfPairOfStringAnd_mediapipe_lua_Object& other );
 lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
-```
-
-```cpp
-bool VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::operator==( ::LUA_MODULE_NAME::Object other );
-lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
-```
-
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index
-
-```cpp
-std::pair<std::string, ::LUA_MODULE_NAME::Object> VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::sol::meta_function::index( size_t index );
-lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:__index( index ) -> retval
-```
-
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length
-
-```cpp
-size_t VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
-lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:__len( unused ) -> retval
-```
-
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index
-
-```cpp
-void VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::sol::meta_function::new_index( size_t                                            index,
-                                                                                    std::pair<std::string, ::LUA_MODULE_NAME::Object> value );
-lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:__newindex( index, value ) -> None
-```
-
-### VectorOfPairOfStringAnd\_LUA\_MODULE\_NAME\_Object.table
-
-```cpp
-void VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object::table();
-lua:
-    oVectorOfPairOfStringAnd_LUA_MODULE_NAME_Object:table() -> None
-```
-
-## VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object
-
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.new
-
-```cpp
-std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>>();
-lua:
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object.new() -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object() -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
 ```cpp
-std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>>( size_t size );
+bool VectorOfPairOfStringAnd_mediapipe_lua_Object::operator==( ::mediapipe_lua::Object other );
 lua:
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object.new( size ) -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object( size ) -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:__eq( other ) -> retval
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index
+
+```cpp
+std::pair<std::string, ::mediapipe_lua::Object> VectorOfPairOfStringAnd_mediapipe_lua_Object::sol::meta_function::index( size_t index );
+lua:
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:__index( index ) -> retval
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::length
+
+```cpp
+size_t VectorOfPairOfStringAnd_mediapipe_lua_Object::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:__len( unused ) -> retval
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index
+
+```cpp
+void VectorOfPairOfStringAnd_mediapipe_lua_Object::sol::meta_function::new_index( size_t                                          index,
+                                                                                  std::pair<std::string, ::mediapipe_lua::Object> value );
+lua:
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:__newindex( index, value ) -> None
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.table
+
+```cpp
+void VectorOfPairOfStringAnd_mediapipe_lua_Object::table();
+lua:
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:table() -> None
+```
+
+## VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.new
+
+```cpp
+std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>();
+lua:
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.new() -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object() -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
 ```
 
 ```cpp
-std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>>( std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> other );
+std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>( size_t size );
 lua:
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object.new( other ) -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object( other ) -> <std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> object>
-```
-
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.\_\_type
-
-```cpp
-static std::string VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::__type();
-lua:
-    VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object.__type() -> retval
-```
-
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.operator==
-
-```cpp
-bool VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::operator==( const VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object& other );
-lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.new( size ) -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object( size ) -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
 ```
 
 ```cpp
-bool VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::operator==( ::LUA_MODULE_NAME::Object other );
+std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>( std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> other );
 lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.new( other ) -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object( other ) -> <std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>> object>
 ```
 
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.\_\_type
 
 ```cpp
-std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object> VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::sol::meta_function::index( size_t index );
+static std::string VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::__type();
 lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:__index( index ) -> retval
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.__type() -> retval
 ```
 
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.operator==
 
 ```cpp
-size_t VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+bool VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::operator==( const VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object& other );
 lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:__len( unused ) -> retval
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index
-
 ```cpp
-void VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::sol::meta_function::new_index( size_t                                                          index,
-                                                                                                     std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object> value );
+bool VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::operator==( ::mediapipe_lua::Object other );
 lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:__newindex( index, value ) -> None
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
-### VectorOfPairOf\_LUA\_MODULE\_NAME\_ObjectAnd\_LUA\_MODULE\_NAME\_Object.table
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::index
 
 ```cpp
-void VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object::table();
+std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object> VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::sol::meta_function::index( size_t index );
 lua:
-    oVectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object:table() -> None
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:__index( index ) -> retval
+```
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::length
+
+```cpp
+size_t VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:__len( unused ) -> retval
+```
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index
+
+```cpp
+void VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::sol::meta_function::new_index( size_t                                                      index,
+                                                                                                 std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object> value );
+lua:
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:__newindex( index, value ) -> None
+```
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.table
+
+```cpp
+void VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::table();
+lua:
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:table() -> None
 ```
 
 ## VectorOfSharedPtrOfARBlendShapeMap\_MapEntry
@@ -6545,7 +6656,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARBlendShapeMap_MapEntry::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARBlendShapeMap_MapEntry::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:__eq( other ) -> retval
 ```
@@ -6561,7 +6672,7 @@ lua:
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARBlendShapeMap_MapEntry::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARBlendShapeMap_MapEntry::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:__len( unused ) -> retval
 ```
@@ -6625,7 +6736,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:__eq( other ) -> retval
 ```
@@ -6641,7 +6752,7 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
@@ -6705,7 +6816,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARFaceGeometry_Vertex::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARFaceGeometry_Vertex::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:__eq( other ) -> retval
 ```
@@ -6721,7 +6832,7 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARFaceGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARFaceGeometry_Vertex::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:__len( unused ) -> retval
 ```
@@ -6785,7 +6896,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARPlaneAnchor::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARPlaneAnchor::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARPlaneAnchor:__eq( other ) -> retval
 ```
@@ -6801,7 +6912,7 @@ lua:
 ### VectorOfSharedPtrOfARPlaneAnchor.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARPlaneAnchor::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARPlaneAnchor::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARPlaneAnchor:__len( unused ) -> retval
 ```
@@ -6865,7 +6976,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:__eq( other ) -> retval
 ```
@@ -6881,7 +6992,7 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
@@ -6945,7 +7056,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARPlaneGeometry_Vertex::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARPlaneGeometry_Vertex::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:__eq( other ) -> retval
 ```
@@ -6961,7 +7072,7 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARPlaneGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARPlaneGeometry_Vertex::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:__len( unused ) -> retval
 ```
@@ -7025,7 +7136,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfARPointCloud_Point::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfARPointCloud_Point::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfARPointCloud_Point:__eq( other ) -> retval
 ```
@@ -7041,7 +7152,7 @@ lua:
 ### VectorOfSharedPtrOfARPointCloud\_Point.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfARPointCloud_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfARPointCloud_Point::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfARPointCloud_Point:__len( unused ) -> retval
 ```
@@ -7105,7 +7216,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfAnnotatedKeyPoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfAnnotatedKeyPoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:__eq( other ) -> retval
 ```
@@ -7121,7 +7232,7 @@ lua:
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfAnnotatedKeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfAnnotatedKeyPoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:__len( unused ) -> retval
 ```
@@ -7185,7 +7296,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfAny::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfAny::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfAny:__eq( other ) -> retval
 ```
@@ -7201,7 +7312,7 @@ lua:
 ### VectorOfSharedPtrOfAny.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfAny::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfAny::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfAny:__len( unused ) -> retval
 ```
@@ -7265,7 +7376,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfCalculatorGraphConfig_Node::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfCalculatorGraphConfig_Node::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:__eq( other ) -> retval
 ```
@@ -7281,7 +7392,7 @@ lua:
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfCalculatorGraphConfig_Node::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfCalculatorGraphConfig_Node::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:__len( unused ) -> retval
 ```
@@ -7345,7 +7456,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfClassification::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfClassification::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfClassification:__eq( other ) -> retval
 ```
@@ -7361,7 +7472,7 @@ lua:
 ### VectorOfSharedPtrOfClassification.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfClassification::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfClassification::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfClassification:__len( unused ) -> retval
 ```
@@ -7425,7 +7536,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfClassificationList::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfClassificationList::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfClassificationList:__eq( other ) -> retval
 ```
@@ -7441,7 +7552,7 @@ lua:
 ### VectorOfSharedPtrOfClassificationList.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfClassificationList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfClassificationList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfClassificationList:__len( unused ) -> retval
 ```
@@ -7505,7 +7616,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:__eq( other ) -> retval
 ```
@@ -7521,7 +7632,7 @@ lua:
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:__len( unused ) -> retval
 ```
@@ -7585,7 +7696,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfDetection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfDetection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfDetection:__eq( other ) -> retval
 ```
@@ -7601,7 +7712,7 @@ lua:
 ### VectorOfSharedPtrOfDetection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfDetection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfDetection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfDetection:__len( unused ) -> retval
 ```
@@ -7665,7 +7776,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfDetection_AssociatedDetection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfDetection_AssociatedDetection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:__eq( other ) -> retval
 ```
@@ -7681,7 +7792,7 @@ lua:
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfDetection_AssociatedDetection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfDetection_AssociatedDetection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:__len( unused ) -> retval
 ```
@@ -7745,7 +7856,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfEdge::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfEdge::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfEdge:__eq( other ) -> retval
 ```
@@ -7761,7 +7872,7 @@ lua:
 ### VectorOfSharedPtrOfEdge.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfEdge::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfEdge::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfEdge:__len( unused ) -> retval
 ```
@@ -7825,7 +7936,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfExecutorConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfExecutorConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfExecutorConfig:__eq( other ) -> retval
 ```
@@ -7841,7 +7952,7 @@ lua:
 ### VectorOfSharedPtrOfExecutorConfig.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfExecutorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfExecutorConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfExecutorConfig:__len( unused ) -> retval
 ```
@@ -7905,7 +8016,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfFrameAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfFrameAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfFrameAnnotation:__eq( other ) -> retval
 ```
@@ -7921,7 +8032,7 @@ lua:
 ### VectorOfSharedPtrOfFrameAnnotation.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfFrameAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfFrameAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfFrameAnnotation:__len( unused ) -> retval
 ```
@@ -7985,7 +8096,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfImage::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfImage::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfImage:__eq( other ) -> retval
 ```
@@ -8001,7 +8112,7 @@ lua:
 ### VectorOfSharedPtrOfImage.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfImage::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfImage::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfImage:__len( unused ) -> retval
 ```
@@ -8021,6 +8132,86 @@ lua:
 void VectorOfSharedPtrOfImage::table();
 lua:
     oVectorOfSharedPtrOfImage:table() -> None
+```
+
+## VectorOfSharedPtrOfImageFrame
+
+### VectorOfSharedPtrOfImageFrame.new
+
+```cpp
+std::vector<std::shared_ptr<mediapipe::ImageFrame>>();
+lua:
+    VectorOfSharedPtrOfImageFrame.new() -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+    VectorOfSharedPtrOfImageFrame() -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+```
+
+```cpp
+std::vector<std::shared_ptr<mediapipe::ImageFrame>>( size_t size );
+lua:
+    VectorOfSharedPtrOfImageFrame.new( size ) -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+    VectorOfSharedPtrOfImageFrame( size ) -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+```
+
+```cpp
+std::vector<std::shared_ptr<mediapipe::ImageFrame>>( std::vector<std::shared_ptr<mediapipe::ImageFrame>> other );
+lua:
+    VectorOfSharedPtrOfImageFrame.new( other ) -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+    VectorOfSharedPtrOfImageFrame( other ) -> <std::vector<std::shared_ptr<mediapipe::ImageFrame>> object>
+```
+
+### VectorOfSharedPtrOfImageFrame.\_\_type
+
+```cpp
+static std::string VectorOfSharedPtrOfImageFrame::__type();
+lua:
+    VectorOfSharedPtrOfImageFrame.__type() -> retval
+```
+
+### VectorOfSharedPtrOfImageFrame.operator==
+
+```cpp
+bool VectorOfSharedPtrOfImageFrame::operator==( const VectorOfSharedPtrOfImageFrame& other );
+lua:
+    oVectorOfSharedPtrOfImageFrame:__eq( other ) -> retval
+```
+
+```cpp
+bool VectorOfSharedPtrOfImageFrame::operator==( ::mediapipe_lua::Object other );
+lua:
+    oVectorOfSharedPtrOfImageFrame:__eq( other ) -> retval
+```
+
+### VectorOfSharedPtrOfImageFrame.sol::meta\_function::index
+
+```cpp
+std::shared_ptr<mediapipe::ImageFrame> VectorOfSharedPtrOfImageFrame::sol::meta_function::index( size_t index );
+lua:
+    oVectorOfSharedPtrOfImageFrame:__index( index ) -> retval
+```
+
+### VectorOfSharedPtrOfImageFrame.sol::meta\_function::length
+
+```cpp
+size_t VectorOfSharedPtrOfImageFrame::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
+lua:
+    oVectorOfSharedPtrOfImageFrame:__len( unused ) -> retval
+```
+
+### VectorOfSharedPtrOfImageFrame.sol::meta\_function::new\_index
+
+```cpp
+void VectorOfSharedPtrOfImageFrame::sol::meta_function::new_index( size_t                                 index,
+                                                                   std::shared_ptr<mediapipe::ImageFrame> value );
+lua:
+    oVectorOfSharedPtrOfImageFrame:__newindex( index, value ) -> None
+```
+
+### VectorOfSharedPtrOfImageFrame.table
+
+```cpp
+void VectorOfSharedPtrOfImageFrame::table();
+lua:
+    oVectorOfSharedPtrOfImageFrame:table() -> None
 ```
 
 ## VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink
@@ -8065,7 +8256,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__eq( other ) -> retval
 ```
@@ -8081,7 +8272,7 @@ lua:
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__len( unused ) -> retval
 ```
@@ -8145,7 +8336,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfInputCollection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfInputCollection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfInputCollection:__eq( other ) -> retval
 ```
@@ -8161,7 +8352,7 @@ lua:
 ### VectorOfSharedPtrOfInputCollection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfInputCollection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfInputCollection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfInputCollection:__len( unused ) -> retval
 ```
@@ -8225,7 +8416,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfInputStreamInfo::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfInputStreamInfo::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfInputStreamInfo:__eq( other ) -> retval
 ```
@@ -8241,7 +8432,7 @@ lua:
 ### VectorOfSharedPtrOfInputStreamInfo.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfInputStreamInfo::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfInputStreamInfo::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfInputStreamInfo:__len( unused ) -> retval
 ```
@@ -8305,7 +8496,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfKeyPoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfKeyPoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfKeyPoint:__eq( other ) -> retval
 ```
@@ -8321,7 +8512,7 @@ lua:
 ### VectorOfSharedPtrOfKeyPoint.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfKeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfKeyPoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfKeyPoint:__len( unused ) -> retval
 ```
@@ -8385,7 +8576,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfLandmark:__eq( other ) -> retval
 ```
@@ -8401,7 +8592,7 @@ lua:
 ### VectorOfSharedPtrOfLandmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfLandmark:__len( unused ) -> retval
 ```
@@ -8465,7 +8656,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfLandmarkList::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfLandmarkList::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfLandmarkList:__eq( other ) -> retval
 ```
@@ -8481,7 +8672,7 @@ lua:
 ### VectorOfSharedPtrOfLandmarkList.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfLandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfLandmarkList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfLandmarkList:__len( unused ) -> retval
 ```
@@ -8545,7 +8736,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfLocationData_RelativeKeypoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfLocationData_RelativeKeypoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:__eq( other ) -> retval
 ```
@@ -8561,7 +8752,7 @@ lua:
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfLocationData_RelativeKeypoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfLocationData_RelativeKeypoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:__len( unused ) -> retval
 ```
@@ -8625,7 +8816,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfMessage::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfMessage::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfMessage:__eq( other ) -> retval
 ```
@@ -8641,7 +8832,7 @@ lua:
 ### VectorOfSharedPtrOfMessage.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfMessage::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfMessage::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfMessage:__len( unused ) -> retval
 ```
@@ -8705,7 +8896,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfNormalizedLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfNormalizedLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmark:__eq( other ) -> retval
 ```
@@ -8721,7 +8912,7 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfNormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfNormalizedLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmark:__len( unused ) -> retval
 ```
@@ -8785,7 +8976,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfNormalizedLandmarkList::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfNormalizedLandmarkList::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:__eq( other ) -> retval
 ```
@@ -8801,7 +8992,7 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmarkList.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfNormalizedLandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfNormalizedLandmarkList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:__len( unused ) -> retval
 ```
@@ -8865,7 +9056,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfNormalizedRect::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfNormalizedRect::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfNormalizedRect:__eq( other ) -> retval
 ```
@@ -8881,7 +9072,7 @@ lua:
 ### VectorOfSharedPtrOfNormalizedRect.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfNormalizedRect::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfNormalizedRect::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfNormalizedRect:__len( unused ) -> retval
 ```
@@ -8945,7 +9136,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfObject::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfObject::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfObject:__eq( other ) -> retval
 ```
@@ -8961,7 +9152,7 @@ lua:
 ### VectorOfSharedPtrOfObject.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfObject::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfObject::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfObject:__len( unused ) -> retval
 ```
@@ -9025,7 +9216,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfObjectAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfObjectAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfObjectAnnotation:__eq( other ) -> retval
 ```
@@ -9041,7 +9232,7 @@ lua:
 ### VectorOfSharedPtrOfObjectAnnotation.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfObjectAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfObjectAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfObjectAnnotation:__len( unused ) -> retval
 ```
@@ -9105,7 +9296,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfPacketFactoryConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfPacketFactoryConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:__eq( other ) -> retval
 ```
@@ -9121,7 +9312,7 @@ lua:
 ### VectorOfSharedPtrOfPacketFactoryConfig.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfPacketFactoryConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfPacketFactoryConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:__len( unused ) -> retval
 ```
@@ -9185,7 +9376,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfPacketGeneratorConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfPacketGeneratorConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:__eq( other ) -> retval
 ```
@@ -9201,7 +9392,7 @@ lua:
 ### VectorOfSharedPtrOfPacketGeneratorConfig.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfPacketGeneratorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfPacketGeneratorConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:__len( unused ) -> retval
 ```
@@ -9265,7 +9456,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfRasterization_Interval::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfRasterization_Interval::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfRasterization_Interval:__eq( other ) -> retval
 ```
@@ -9281,7 +9472,7 @@ lua:
 ### VectorOfSharedPtrOfRasterization\_Interval.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfRasterization_Interval::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfRasterization_Interval::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfRasterization_Interval:__len( unused ) -> retval
 ```
@@ -9345,7 +9536,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfRenderAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfRenderAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation:__eq( other ) -> retval
 ```
@@ -9361,7 +9552,7 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfRenderAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfRenderAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation:__len( unused ) -> retval
 ```
@@ -9425,7 +9616,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfRenderAnnotation_Point::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfRenderAnnotation_Point::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:__eq( other ) -> retval
 ```
@@ -9441,7 +9632,7 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfRenderAnnotation_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfRenderAnnotation_Point::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:__len( unused ) -> retval
 ```
@@ -9505,7 +9696,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfSkeleton::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfSkeleton::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfSkeleton:__eq( other ) -> retval
 ```
@@ -9521,7 +9712,7 @@ lua:
 ### VectorOfSharedPtrOfSkeleton.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfSkeleton::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfSkeleton::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfSkeleton:__len( unused ) -> retval
 ```
@@ -9585,7 +9776,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfStatusHandlerConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfStatusHandlerConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:__eq( other ) -> retval
 ```
@@ -9601,7 +9792,7 @@ lua:
 ### VectorOfSharedPtrOfStatusHandlerConfig.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfStatusHandlerConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfStatusHandlerConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:__len( unused ) -> retval
 ```
@@ -9665,7 +9856,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:__eq( other ) -> retval
 ```
@@ -9681,7 +9872,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:__len( unused ) -> retval
 ```
@@ -9745,7 +9936,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:__eq( other ) -> retval
 ```
@@ -9761,7 +9952,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:__len( unused ) -> retval
 ```
@@ -9825,7 +10016,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:__eq( other ) -> retval
 ```
@@ -9841,7 +10032,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:__len( unused ) -> retval
 ```
@@ -9905,7 +10096,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:__eq( other ) -> retval
 ```
@@ -9921,7 +10112,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:__len( unused ) -> retval
 ```
@@ -9985,7 +10176,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:__eq( other ) -> retval
 ```
@@ -10001,7 +10192,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:__len( unused ) -> retval
 ```
@@ -10065,7 +10256,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:__eq( other ) -> retval
 ```
@@ -10081,7 +10272,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:__len( unused ) -> retval
 ```
@@ -10145,7 +10336,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:__eq( other ) -> retval
 ```
@@ -10161,7 +10352,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:__len( unused ) -> retval
 ```
@@ -10225,7 +10416,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:__eq( other ) -> retval
 ```
@@ -10241,7 +10432,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:__len( unused ) -> retval
 ```
@@ -10305,7 +10496,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:__eq( other ) -> retval
 ```
@@ -10321,7 +10512,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:__len( unused ) -> retval
 ```
@@ -10385,7 +10576,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:__eq( other ) -> retval
 ```
@@ -10401,7 +10592,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:__len( unused ) -> retval
 ```
@@ -10465,7 +10656,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:__eq( other ) -> retval
 ```
@@ -10481,7 +10672,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:__len( unused ) -> retval
 ```
@@ -10545,7 +10736,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:__eq( other ) -> retval
 ```
@@ -10561,7 +10752,7 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:__len( unused ) -> retval
 ```
@@ -10625,7 +10816,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTemplateArgument::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTemplateArgument::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTemplateArgument:__eq( other ) -> retval
 ```
@@ -10641,7 +10832,7 @@ lua:
 ### VectorOfSharedPtrOfTemplateArgument.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTemplateArgument::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTemplateArgument::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTemplateArgument:__len( unused ) -> retval
 ```
@@ -10705,7 +10896,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTemplateDict_Parameter::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTemplateDict_Parameter::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:__eq( other ) -> retval
 ```
@@ -10721,7 +10912,7 @@ lua:
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTemplateDict_Parameter::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTemplateDict_Parameter::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:__len( unused ) -> retval
 ```
@@ -10785,7 +10976,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfSharedPtrOfTemplateExpression::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfSharedPtrOfTemplateExpression::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfSharedPtrOfTemplateExpression:__eq( other ) -> retval
 ```
@@ -10801,7 +10992,7 @@ lua:
 ### VectorOfSharedPtrOfTemplateExpression.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfSharedPtrOfTemplateExpression::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfSharedPtrOfTemplateExpression::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfSharedPtrOfTemplateExpression:__len( unused ) -> retval
 ```
@@ -10865,7 +11056,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfString::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfString::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfString:__eq( other ) -> retval
 ```
@@ -10881,7 +11072,7 @@ lua:
 ### VectorOfString.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfString::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfString::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfString:__len( unused ) -> retval
 ```
@@ -10945,7 +11136,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:__eq( other ) -> retval
 ```
@@ -10961,7 +11152,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:__len( unused ) -> retval
 ```
@@ -11025,7 +11216,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:__eq( other ) -> retval
 ```
@@ -11041,7 +11232,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:__len( unused ) -> retval
 ```
@@ -11105,7 +11296,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:__eq( other ) -> retval
 ```
@@ -11121,7 +11312,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:__len( unused ) -> retval
 ```
@@ -11185,7 +11376,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfTupleIntAndInt::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfTupleIntAndInt::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfTupleIntAndInt:__eq( other ) -> retval
 ```
@@ -11201,7 +11392,7 @@ lua:
 ### VectorOfTupleIntAndInt.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfTupleIntAndInt::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfTupleIntAndInt::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfTupleIntAndInt:__len( unused ) -> retval
 ```
@@ -11265,7 +11456,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:__eq( other ) -> retval
 ```
@@ -11281,7 +11472,7 @@ lua:
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:__len( unused ) -> retval
 ```
@@ -11345,7 +11536,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfUint32::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfUint32::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfUint32:__eq( other ) -> retval
 ```
@@ -11361,7 +11552,7 @@ lua:
 ### VectorOfUint32.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfUint32::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfUint32::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfUint32:__len( unused ) -> retval
 ```
@@ -11425,7 +11616,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:__eq( other ) -> retval
 ```
@@ -11441,7 +11632,7 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:__len( unused ) -> retval
 ```
@@ -11505,7 +11696,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:__eq( other ) -> retval
 ```
@@ -11521,7 +11712,7 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:__len( unused ) -> retval
 ```
@@ -11585,7 +11776,7 @@ lua:
 ```
 
 ```cpp
-bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:__eq( other ) -> retval
 ```
@@ -11601,7 +11792,7 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::length
 
 ```cpp
-size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:__len( unused ) -> retval
 ```
@@ -11623,84 +11814,84 @@ lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:table() -> None
 ```
 
-## VectorOf\_LUA\_MODULE\_NAME\_Object
+## VectorOf\_mediapipe\_lua\_Object
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.new
+### VectorOf\_mediapipe\_lua\_Object.new
 
 ```cpp
-std::vector<::LUA_MODULE_NAME::Object>();
+std::vector<::mediapipe_lua::Object>();
 lua:
-    VectorOf_LUA_MODULE_NAME_Object.new() -> <std::vector<::LUA_MODULE_NAME::Object> object>
-    VectorOf_LUA_MODULE_NAME_Object() -> <std::vector<::LUA_MODULE_NAME::Object> object>
+    VectorOf_mediapipe_lua_Object.new() -> <std::vector<::mediapipe_lua::Object> object>
+    VectorOf_mediapipe_lua_Object() -> <std::vector<::mediapipe_lua::Object> object>
 ```
 
 ```cpp
-std::vector<::LUA_MODULE_NAME::Object>( size_t size );
+std::vector<::mediapipe_lua::Object>( size_t size );
 lua:
-    VectorOf_LUA_MODULE_NAME_Object.new( size ) -> <std::vector<::LUA_MODULE_NAME::Object> object>
-    VectorOf_LUA_MODULE_NAME_Object( size ) -> <std::vector<::LUA_MODULE_NAME::Object> object>
+    VectorOf_mediapipe_lua_Object.new( size ) -> <std::vector<::mediapipe_lua::Object> object>
+    VectorOf_mediapipe_lua_Object( size ) -> <std::vector<::mediapipe_lua::Object> object>
 ```
 
 ```cpp
-std::vector<::LUA_MODULE_NAME::Object>( std::vector<::LUA_MODULE_NAME::Object> other );
+std::vector<::mediapipe_lua::Object>( std::vector<::mediapipe_lua::Object> other );
 lua:
-    VectorOf_LUA_MODULE_NAME_Object.new( other ) -> <std::vector<::LUA_MODULE_NAME::Object> object>
-    VectorOf_LUA_MODULE_NAME_Object( other ) -> <std::vector<::LUA_MODULE_NAME::Object> object>
+    VectorOf_mediapipe_lua_Object.new( other ) -> <std::vector<::mediapipe_lua::Object> object>
+    VectorOf_mediapipe_lua_Object( other ) -> <std::vector<::mediapipe_lua::Object> object>
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.\_\_type
+### VectorOf\_mediapipe\_lua\_Object.\_\_type
 
 ```cpp
-static std::string VectorOf_LUA_MODULE_NAME_Object::__type();
+static std::string VectorOf_mediapipe_lua_Object::__type();
 lua:
-    VectorOf_LUA_MODULE_NAME_Object.__type() -> retval
+    VectorOf_mediapipe_lua_Object.__type() -> retval
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.operator==
+### VectorOf\_mediapipe\_lua\_Object.operator==
 
 ```cpp
-bool VectorOf_LUA_MODULE_NAME_Object::operator==( const VectorOf_LUA_MODULE_NAME_Object& other );
+bool VectorOf_mediapipe_lua_Object::operator==( const VectorOf_mediapipe_lua_Object& other );
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    oVectorOf_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
 ```cpp
-bool VectorOf_LUA_MODULE_NAME_Object::operator==( ::LUA_MODULE_NAME::Object other );
+bool VectorOf_mediapipe_lua_Object::operator==( ::mediapipe_lua::Object other );
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:__eq( other ) -> retval
+    oVectorOf_mediapipe_lua_Object:__eq( other ) -> retval
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::index
+### VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::index
 
 ```cpp
-::LUA_MODULE_NAME::Object VectorOf_LUA_MODULE_NAME_Object::sol::meta_function::index( size_t index );
+::mediapipe_lua::Object VectorOf_mediapipe_lua_Object::sol::meta_function::index( size_t index );
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:__index( index ) -> retval
+    oVectorOf_mediapipe_lua_Object:__index( index ) -> retval
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::length
+### VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::length
 
 ```cpp
-size_t VectorOf_LUA_MODULE_NAME_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+size_t VectorOf_mediapipe_lua_Object::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:__len( unused ) -> retval
+    oVectorOf_mediapipe_lua_Object:__len( unused ) -> retval
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.sol::meta\_function::new\_index
+### VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::new\_index
 
 ```cpp
-void VectorOf_LUA_MODULE_NAME_Object::sol::meta_function::new_index( size_t                    index,
-                                                                     ::LUA_MODULE_NAME::Object value );
+void VectorOf_mediapipe_lua_Object::sol::meta_function::new_index( size_t                  index,
+                                                                   ::mediapipe_lua::Object value );
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:__newindex( index, value ) -> None
+    oVectorOf_mediapipe_lua_Object:__newindex( index, value ) -> None
 ```
 
-### VectorOf\_LUA\_MODULE\_NAME\_Object.table
+### VectorOf\_mediapipe\_lua\_Object.table
 
 ```cpp
-void VectorOf_LUA_MODULE_NAME_Object::table();
+void VectorOf_mediapipe_lua_Object::table();
 lua:
-    oVectorOf_LUA_MODULE_NAME_Object:table() -> None
+    oVectorOf_mediapipe_lua_Object:table() -> None
 ```
 
 ## fs\_utils
@@ -11848,7 +12039,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::FieldDescriptor::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::FieldDescriptor::operator==( ::mediapipe_lua::Object other );
 lua:
     oFieldDescriptor:__eq( other ) -> retval
 ```
@@ -12037,7 +12228,7 @@ lua:
 ### google.protobuf.Repeated\_bool.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_bool::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_bool::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_bool:__len( unused ) -> retval
 ```
@@ -12106,7 +12297,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_bool::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_bool::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_bool:__eq( other ) -> retval
 ```
@@ -12249,7 +12440,7 @@ lua:
 ### google.protobuf.Repeated\_float.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_float::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_float::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_float:__len( unused ) -> retval
 ```
@@ -12318,7 +12509,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_float::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_float::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_float:__eq( other ) -> retval
 ```
@@ -12461,7 +12652,7 @@ lua:
 ### google.protobuf.Repeated\_google\_protobuf\_Any.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_google_protobuf_Any::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_google_protobuf_Any::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_google_protobuf_Any:__len( unused ) -> retval
 ```
@@ -12497,7 +12688,7 @@ lua:
 ```
 
 ```cpp
-google::protobuf::Any* google::protobuf::Repeated_google_protobuf_Any::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+google::protobuf::Any* google::protobuf::Repeated_google_protobuf_Any::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_google_protobuf_Any:append( attrs ) -> retval
 ```
@@ -12533,7 +12724,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_google_protobuf_Any::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_google_protobuf_Any::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_google_protobuf_Any:extend( items ) -> retval
 ```
@@ -12556,7 +12747,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_google_protobuf_Any::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_google_protobuf_Any::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_google_protobuf_Any:__eq( other ) -> retval
 ```
@@ -12690,7 +12881,7 @@ lua:
 ### google.protobuf.Repeated\_int.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_int::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_int::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_int:__len( unused ) -> retval
 ```
@@ -12759,7 +12950,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_int::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_int::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_int:__eq( other ) -> retval
 ```
@@ -12902,7 +13093,7 @@ lua:
 ### google.protobuf.Repeated\_int64.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_int64::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_int64::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_int64:__len( unused ) -> retval
 ```
@@ -12971,7 +13162,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_int64::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_int64::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_int64:__eq( other ) -> retval
 ```
@@ -13114,7 +13305,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARBlendShapeMap\_MapEntry.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__len( unused ) -> retval
 ```
@@ -13150,7 +13341,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARBlendShapeMap::MapEntry* google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARBlendShapeMap::MapEntry* google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:append( attrs ) -> retval
 ```
@@ -13186,7 +13377,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:extend( items ) -> retval
 ```
@@ -13209,7 +13400,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARBlendShapeMap_MapEntry::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARBlendShapeMap_MapEntry:__eq( other ) -> retval
 ```
@@ -13343,7 +13534,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_TextureCoordinate.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
@@ -13379,7 +13570,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARFaceGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARFaceGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:append( attrs ) -> retval
 ```
@@ -13415,7 +13606,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:extend( items ) -> retval
 ```
@@ -13438,7 +13629,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARFaceGeometry_TextureCoordinate::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_TextureCoordinate:__eq( other ) -> retval
 ```
@@ -13572,7 +13763,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARFaceGeometry\_Vertex.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:__len( unused ) -> retval
 ```
@@ -13608,7 +13799,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARFaceGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARFaceGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:append( attrs ) -> retval
 ```
@@ -13644,7 +13835,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:extend( items ) -> retval
 ```
@@ -13667,7 +13858,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARFaceGeometry_Vertex::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARFaceGeometry_Vertex:__eq( other ) -> retval
 ```
@@ -13801,7 +13992,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneAnchor.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneAnchor::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARPlaneAnchor::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARPlaneAnchor:__len( unused ) -> retval
 ```
@@ -13837,7 +14028,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARPlaneAnchor* google::protobuf::Repeated_mediapipe_ARPlaneAnchor::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARPlaneAnchor* google::protobuf::Repeated_mediapipe_ARPlaneAnchor::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARPlaneAnchor:append( attrs ) -> retval
 ```
@@ -13873,7 +14064,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARPlaneAnchor::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARPlaneAnchor::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARPlaneAnchor:extend( items ) -> retval
 ```
@@ -13896,7 +14087,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARPlaneAnchor::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARPlaneAnchor::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARPlaneAnchor:__eq( other ) -> retval
 ```
@@ -14030,7 +14221,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_TextureCoordinate.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__len( unused ) -> retval
 ```
@@ -14066,7 +14257,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARPlaneGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARPlaneGeometry::TextureCoordinate* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:append( attrs ) -> retval
 ```
@@ -14102,7 +14293,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:extend( items ) -> retval
 ```
@@ -14125,7 +14316,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARPlaneGeometry_TextureCoordinate::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_TextureCoordinate:__eq( other ) -> retval
 ```
@@ -14259,7 +14450,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARPlaneGeometry\_Vertex.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:__len( unused ) -> retval
 ```
@@ -14295,7 +14486,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARPlaneGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARPlaneGeometry::Vertex* google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:append( attrs ) -> retval
 ```
@@ -14331,7 +14522,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:extend( items ) -> retval
 ```
@@ -14354,7 +14545,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARPlaneGeometry_Vertex::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARPlaneGeometry_Vertex:__eq( other ) -> retval
 ```
@@ -14488,7 +14679,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ARPointCloud\_Point.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ARPointCloud_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ARPointCloud_Point::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ARPointCloud_Point:__len( unused ) -> retval
 ```
@@ -14524,7 +14715,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ARPointCloud::Point* google::protobuf::Repeated_mediapipe_ARPointCloud_Point::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ARPointCloud::Point* google::protobuf::Repeated_mediapipe_ARPointCloud_Point::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ARPointCloud_Point:append( attrs ) -> retval
 ```
@@ -14560,7 +14751,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ARPointCloud_Point::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ARPointCloud_Point::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ARPointCloud_Point:extend( items ) -> retval
 ```
@@ -14583,7 +14774,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ARPointCloud_Point::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ARPointCloud_Point::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ARPointCloud_Point:__eq( other ) -> retval
 ```
@@ -14717,7 +14908,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_AnnotatedKeyPoint.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:__len( unused ) -> retval
 ```
@@ -14753,7 +14944,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::AnnotatedKeyPoint* google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::AnnotatedKeyPoint* google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:append( attrs ) -> retval
 ```
@@ -14789,7 +14980,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:extend( items ) -> retval
 ```
@@ -14812,7 +15003,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_AnnotatedKeyPoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_AnnotatedKeyPoint:__eq( other ) -> retval
 ```
@@ -14946,7 +15137,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_CalculatorGraphConfig\_Node.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:__len( unused ) -> retval
 ```
@@ -14982,7 +15173,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::CalculatorGraphConfig::Node* google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::CalculatorGraphConfig::Node* google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:append( attrs ) -> retval
 ```
@@ -15018,7 +15209,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:extend( items ) -> retval
 ```
@@ -15041,7 +15232,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_CalculatorGraphConfig_Node::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_CalculatorGraphConfig_Node:__eq( other ) -> retval
 ```
@@ -15175,7 +15366,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Classification.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Classification::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Classification::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Classification:__len( unused ) -> retval
 ```
@@ -15211,7 +15402,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Classification* google::protobuf::Repeated_mediapipe_Classification::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Classification* google::protobuf::Repeated_mediapipe_Classification::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Classification:append( attrs ) -> retval
 ```
@@ -15247,7 +15438,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Classification::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Classification::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Classification:extend( items ) -> retval
 ```
@@ -15270,7 +15461,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Classification::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Classification::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Classification:__eq( other ) -> retval
 ```
@@ -15404,7 +15595,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ClassificationList.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ClassificationList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ClassificationList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ClassificationList:__len( unused ) -> retval
 ```
@@ -15440,7 +15631,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ClassificationList* google::protobuf::Repeated_mediapipe_ClassificationList::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ClassificationList* google::protobuf::Repeated_mediapipe_ClassificationList::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ClassificationList:append( attrs ) -> retval
 ```
@@ -15476,7 +15667,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ClassificationList::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ClassificationList::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ClassificationList:extend( items ) -> retval
 ```
@@ -15499,7 +15690,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ClassificationList::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ClassificationList::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ClassificationList:__eq( other ) -> retval
 ```
@@ -15633,7 +15824,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__len( unused ) -> retval
 ```
@@ -15669,7 +15860,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket* google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket* google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:append( attrs ) -> retval
 ```
@@ -15705,7 +15896,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:extend( items ) -> retval
 ```
@@ -15728,7 +15919,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ConstantSidePacketCalculatorOptions_ConstantSidePacket:__eq( other ) -> retval
 ```
@@ -15862,7 +16053,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Detection.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Detection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Detection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Detection:__len( unused ) -> retval
 ```
@@ -15898,7 +16089,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Detection* google::protobuf::Repeated_mediapipe_Detection::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Detection* google::protobuf::Repeated_mediapipe_Detection::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Detection:append( attrs ) -> retval
 ```
@@ -15934,7 +16125,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Detection::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Detection::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Detection:extend( items ) -> retval
 ```
@@ -15957,7 +16148,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Detection::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Detection::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Detection:__eq( other ) -> retval
 ```
@@ -16091,7 +16282,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Detection\_AssociatedDetection.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:__len( unused ) -> retval
 ```
@@ -16127,7 +16318,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Detection::AssociatedDetection* google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Detection::AssociatedDetection* google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:append( attrs ) -> retval
 ```
@@ -16163,7 +16354,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:extend( items ) -> retval
 ```
@@ -16186,7 +16377,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Detection_AssociatedDetection::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Detection_AssociatedDetection:__eq( other ) -> retval
 ```
@@ -16320,7 +16511,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Edge.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Edge::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Edge::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Edge:__len( unused ) -> retval
 ```
@@ -16356,7 +16547,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Edge* google::protobuf::Repeated_mediapipe_Edge::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Edge* google::protobuf::Repeated_mediapipe_Edge::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Edge:append( attrs ) -> retval
 ```
@@ -16392,7 +16583,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Edge::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Edge::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Edge:extend( items ) -> retval
 ```
@@ -16415,7 +16606,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Edge::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Edge::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Edge:__eq( other ) -> retval
 ```
@@ -16549,7 +16740,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ExecutorConfig.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ExecutorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ExecutorConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ExecutorConfig:__len( unused ) -> retval
 ```
@@ -16585,7 +16776,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ExecutorConfig* google::protobuf::Repeated_mediapipe_ExecutorConfig::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ExecutorConfig* google::protobuf::Repeated_mediapipe_ExecutorConfig::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ExecutorConfig:append( attrs ) -> retval
 ```
@@ -16621,7 +16812,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ExecutorConfig::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ExecutorConfig::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ExecutorConfig:extend( items ) -> retval
 ```
@@ -16644,7 +16835,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ExecutorConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ExecutorConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ExecutorConfig:__eq( other ) -> retval
 ```
@@ -16778,7 +16969,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_FrameAnnotation.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_FrameAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_FrameAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_FrameAnnotation:__len( unused ) -> retval
 ```
@@ -16814,7 +17005,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::FrameAnnotation* google::protobuf::Repeated_mediapipe_FrameAnnotation::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::FrameAnnotation* google::protobuf::Repeated_mediapipe_FrameAnnotation::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_FrameAnnotation:append( attrs ) -> retval
 ```
@@ -16850,7 +17041,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_FrameAnnotation::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_FrameAnnotation::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_FrameAnnotation:extend( items ) -> retval
 ```
@@ -16873,7 +17064,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_FrameAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_FrameAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_FrameAnnotation:__eq( other ) -> retval
 ```
@@ -17007,7 +17198,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_InferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__len( unused ) -> retval
 ```
@@ -17043,7 +17234,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink* google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink* google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:append( attrs ) -> retval
 ```
@@ -17079,7 +17270,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:extend( items ) -> retval
 ```
@@ -17102,7 +17293,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_InferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:__eq( other ) -> retval
 ```
@@ -17236,7 +17427,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_InputCollection.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_InputCollection::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_InputCollection::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_InputCollection:__len( unused ) -> retval
 ```
@@ -17272,7 +17463,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::InputCollection* google::protobuf::Repeated_mediapipe_InputCollection::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::InputCollection* google::protobuf::Repeated_mediapipe_InputCollection::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_InputCollection:append( attrs ) -> retval
 ```
@@ -17308,7 +17499,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_InputCollection::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_InputCollection::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_InputCollection:extend( items ) -> retval
 ```
@@ -17331,7 +17522,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_InputCollection::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_InputCollection::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_InputCollection:__eq( other ) -> retval
 ```
@@ -17465,7 +17656,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_InputStreamInfo.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_InputStreamInfo::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_InputStreamInfo::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_InputStreamInfo:__len( unused ) -> retval
 ```
@@ -17501,7 +17692,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::InputStreamInfo* google::protobuf::Repeated_mediapipe_InputStreamInfo::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::InputStreamInfo* google::protobuf::Repeated_mediapipe_InputStreamInfo::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_InputStreamInfo:append( attrs ) -> retval
 ```
@@ -17537,7 +17728,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_InputStreamInfo::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_InputStreamInfo::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_InputStreamInfo:extend( items ) -> retval
 ```
@@ -17560,7 +17751,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_InputStreamInfo::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_InputStreamInfo::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_InputStreamInfo:__eq( other ) -> retval
 ```
@@ -17694,7 +17885,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_KeyPoint.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_KeyPoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_KeyPoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_KeyPoint:__len( unused ) -> retval
 ```
@@ -17730,7 +17921,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::KeyPoint* google::protobuf::Repeated_mediapipe_KeyPoint::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::KeyPoint* google::protobuf::Repeated_mediapipe_KeyPoint::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_KeyPoint:append( attrs ) -> retval
 ```
@@ -17766,7 +17957,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_KeyPoint::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_KeyPoint::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_KeyPoint:extend( items ) -> retval
 ```
@@ -17789,7 +17980,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_KeyPoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_KeyPoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_KeyPoint:__eq( other ) -> retval
 ```
@@ -17923,7 +18114,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Landmark.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Landmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Landmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Landmark:__len( unused ) -> retval
 ```
@@ -17959,7 +18150,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Landmark* google::protobuf::Repeated_mediapipe_Landmark::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Landmark* google::protobuf::Repeated_mediapipe_Landmark::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Landmark:append( attrs ) -> retval
 ```
@@ -17995,7 +18186,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Landmark::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Landmark::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Landmark:extend( items ) -> retval
 ```
@@ -18018,7 +18209,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Landmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Landmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Landmark:__eq( other ) -> retval
 ```
@@ -18152,7 +18343,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_LandmarkList.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_LandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_LandmarkList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_LandmarkList:__len( unused ) -> retval
 ```
@@ -18188,7 +18379,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::LandmarkList* google::protobuf::Repeated_mediapipe_LandmarkList::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::LandmarkList* google::protobuf::Repeated_mediapipe_LandmarkList::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_LandmarkList:append( attrs ) -> retval
 ```
@@ -18224,7 +18415,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_LandmarkList::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_LandmarkList::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_LandmarkList:extend( items ) -> retval
 ```
@@ -18247,7 +18438,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_LandmarkList::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_LandmarkList::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_LandmarkList:__eq( other ) -> retval
 ```
@@ -18381,7 +18572,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_LocationData\_RelativeKeypoint.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:__len( unused ) -> retval
 ```
@@ -18417,7 +18608,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::LocationData::RelativeKeypoint* google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::LocationData::RelativeKeypoint* google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:append( attrs ) -> retval
 ```
@@ -18453,7 +18644,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:extend( items ) -> retval
 ```
@@ -18476,7 +18667,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_LocationData_RelativeKeypoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_LocationData_RelativeKeypoint:__eq( other ) -> retval
 ```
@@ -18610,7 +18801,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmark.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedLandmark::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_NormalizedLandmark::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_NormalizedLandmark:__len( unused ) -> retval
 ```
@@ -18646,7 +18837,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::NormalizedLandmark* google::protobuf::Repeated_mediapipe_NormalizedLandmark::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::NormalizedLandmark* google::protobuf::Repeated_mediapipe_NormalizedLandmark::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_NormalizedLandmark:append( attrs ) -> retval
 ```
@@ -18682,7 +18873,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_NormalizedLandmark::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_NormalizedLandmark::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_NormalizedLandmark:extend( items ) -> retval
 ```
@@ -18705,7 +18896,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_NormalizedLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_NormalizedLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_NormalizedLandmark:__eq( other ) -> retval
 ```
@@ -18839,7 +19030,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_NormalizedLandmarkList.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_NormalizedLandmarkList:__len( unused ) -> retval
 ```
@@ -18875,7 +19066,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::NormalizedLandmarkList* google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::NormalizedLandmarkList* google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_NormalizedLandmarkList:append( attrs ) -> retval
 ```
@@ -18911,7 +19102,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_NormalizedLandmarkList:extend( items ) -> retval
 ```
@@ -18934,7 +19125,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_NormalizedLandmarkList::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_NormalizedLandmarkList:__eq( other ) -> retval
 ```
@@ -19068,7 +19259,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_NormalizedRect.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_NormalizedRect::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_NormalizedRect::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_NormalizedRect:__len( unused ) -> retval
 ```
@@ -19104,7 +19295,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::NormalizedRect* google::protobuf::Repeated_mediapipe_NormalizedRect::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::NormalizedRect* google::protobuf::Repeated_mediapipe_NormalizedRect::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_NormalizedRect:append( attrs ) -> retval
 ```
@@ -19140,7 +19331,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_NormalizedRect::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_NormalizedRect::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_NormalizedRect:extend( items ) -> retval
 ```
@@ -19163,7 +19354,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_NormalizedRect::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_NormalizedRect::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_NormalizedRect:__eq( other ) -> retval
 ```
@@ -19297,7 +19488,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Object.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Object::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Object::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Object:__len( unused ) -> retval
 ```
@@ -19333,7 +19524,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Object* google::protobuf::Repeated_mediapipe_Object::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Object* google::protobuf::Repeated_mediapipe_Object::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Object:append( attrs ) -> retval
 ```
@@ -19369,7 +19560,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Object::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Object::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Object:extend( items ) -> retval
 ```
@@ -19392,7 +19583,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Object::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Object::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Object:__eq( other ) -> retval
 ```
@@ -19526,7 +19717,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_ObjectAnnotation.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_ObjectAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_ObjectAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_ObjectAnnotation:__len( unused ) -> retval
 ```
@@ -19562,7 +19753,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::ObjectAnnotation* google::protobuf::Repeated_mediapipe_ObjectAnnotation::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::ObjectAnnotation* google::protobuf::Repeated_mediapipe_ObjectAnnotation::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_ObjectAnnotation:append( attrs ) -> retval
 ```
@@ -19598,7 +19789,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_ObjectAnnotation::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_ObjectAnnotation::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_ObjectAnnotation:extend( items ) -> retval
 ```
@@ -19621,7 +19812,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_ObjectAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_ObjectAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_ObjectAnnotation:__eq( other ) -> retval
 ```
@@ -19755,7 +19946,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_PacketFactoryConfig.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_PacketFactoryConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_PacketFactoryConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_PacketFactoryConfig:__len( unused ) -> retval
 ```
@@ -19791,7 +19982,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::PacketFactoryConfig* google::protobuf::Repeated_mediapipe_PacketFactoryConfig::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::PacketFactoryConfig* google::protobuf::Repeated_mediapipe_PacketFactoryConfig::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_PacketFactoryConfig:append( attrs ) -> retval
 ```
@@ -19827,7 +20018,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_PacketFactoryConfig::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_PacketFactoryConfig::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_PacketFactoryConfig:extend( items ) -> retval
 ```
@@ -19850,7 +20041,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_PacketFactoryConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_PacketFactoryConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_PacketFactoryConfig:__eq( other ) -> retval
 ```
@@ -19984,7 +20175,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_PacketGeneratorConfig.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_PacketGeneratorConfig:__len( unused ) -> retval
 ```
@@ -20020,7 +20211,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::PacketGeneratorConfig* google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::PacketGeneratorConfig* google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_PacketGeneratorConfig:append( attrs ) -> retval
 ```
@@ -20056,7 +20247,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_PacketGeneratorConfig:extend( items ) -> retval
 ```
@@ -20079,7 +20270,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_PacketGeneratorConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_PacketGeneratorConfig:__eq( other ) -> retval
 ```
@@ -20213,7 +20404,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Rasterization\_Interval.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Rasterization_Interval::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Rasterization_Interval::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Rasterization_Interval:__len( unused ) -> retval
 ```
@@ -20249,7 +20440,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Rasterization::Interval* google::protobuf::Repeated_mediapipe_Rasterization_Interval::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Rasterization::Interval* google::protobuf::Repeated_mediapipe_Rasterization_Interval::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Rasterization_Interval:append( attrs ) -> retval
 ```
@@ -20285,7 +20476,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Rasterization_Interval::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Rasterization_Interval::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Rasterization_Interval:extend( items ) -> retval
 ```
@@ -20308,7 +20499,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Rasterization_Interval::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Rasterization_Interval::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Rasterization_Interval:__eq( other ) -> retval
 ```
@@ -20442,7 +20633,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_RenderAnnotation::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_RenderAnnotation::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_RenderAnnotation:__len( unused ) -> retval
 ```
@@ -20478,7 +20669,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::RenderAnnotation* google::protobuf::Repeated_mediapipe_RenderAnnotation::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::RenderAnnotation* google::protobuf::Repeated_mediapipe_RenderAnnotation::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_RenderAnnotation:append( attrs ) -> retval
 ```
@@ -20514,7 +20705,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_RenderAnnotation::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_RenderAnnotation::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_RenderAnnotation:extend( items ) -> retval
 ```
@@ -20537,7 +20728,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_RenderAnnotation::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_RenderAnnotation::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_RenderAnnotation:__eq( other ) -> retval
 ```
@@ -20671,7 +20862,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_RenderAnnotation\_Point.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_RenderAnnotation_Point:__len( unused ) -> retval
 ```
@@ -20707,7 +20898,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::RenderAnnotation::Point* google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::RenderAnnotation::Point* google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_RenderAnnotation_Point:append( attrs ) -> retval
 ```
@@ -20743,7 +20934,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_RenderAnnotation_Point:extend( items ) -> retval
 ```
@@ -20766,7 +20957,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_RenderAnnotation_Point::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_RenderAnnotation_Point:__eq( other ) -> retval
 ```
@@ -20900,7 +21091,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_Skeleton.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_Skeleton::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_Skeleton::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_Skeleton:__len( unused ) -> retval
 ```
@@ -20936,7 +21127,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::Skeleton* google::protobuf::Repeated_mediapipe_Skeleton::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::Skeleton* google::protobuf::Repeated_mediapipe_Skeleton::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_Skeleton:append( attrs ) -> retval
 ```
@@ -20972,7 +21163,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_Skeleton::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_Skeleton::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_Skeleton:extend( items ) -> retval
 ```
@@ -20995,7 +21186,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_Skeleton::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_Skeleton::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_Skeleton:__eq( other ) -> retval
 ```
@@ -21129,7 +21320,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_StatusHandlerConfig.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_StatusHandlerConfig::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_StatusHandlerConfig::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_StatusHandlerConfig:__len( unused ) -> retval
 ```
@@ -21165,7 +21356,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::StatusHandlerConfig* google::protobuf::Repeated_mediapipe_StatusHandlerConfig::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::StatusHandlerConfig* google::protobuf::Repeated_mediapipe_StatusHandlerConfig::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_StatusHandlerConfig:append( attrs ) -> retval
 ```
@@ -21201,7 +21392,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_StatusHandlerConfig::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_StatusHandlerConfig::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_StatusHandlerConfig:extend( items ) -> retval
 ```
@@ -21224,7 +21415,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_StatusHandlerConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_StatusHandlerConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_StatusHandlerConfig:__eq( other ) -> retval
 ```
@@ -21358,7 +21549,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_TemplateArgument.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_TemplateArgument::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_TemplateArgument::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_TemplateArgument:__len( unused ) -> retval
 ```
@@ -21394,7 +21585,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::TemplateArgument* google::protobuf::Repeated_mediapipe_TemplateArgument::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::TemplateArgument* google::protobuf::Repeated_mediapipe_TemplateArgument::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_TemplateArgument:append( attrs ) -> retval
 ```
@@ -21430,7 +21621,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_TemplateArgument::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_TemplateArgument::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_TemplateArgument:extend( items ) -> retval
 ```
@@ -21453,7 +21644,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_TemplateArgument::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_TemplateArgument::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_TemplateArgument:__eq( other ) -> retval
 ```
@@ -21587,7 +21778,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_TemplateDict\_Parameter.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_TemplateDict_Parameter:__len( unused ) -> retval
 ```
@@ -21623,7 +21814,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::TemplateDict::Parameter* google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::TemplateDict::Parameter* google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_TemplateDict_Parameter:append( attrs ) -> retval
 ```
@@ -21659,7 +21850,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_TemplateDict_Parameter:extend( items ) -> retval
 ```
@@ -21682,7 +21873,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_TemplateDict_Parameter::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_TemplateDict_Parameter:__eq( other ) -> retval
 ```
@@ -21816,7 +22007,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_TemplateExpression.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_TemplateExpression::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_TemplateExpression::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_TemplateExpression:__len( unused ) -> retval
 ```
@@ -21852,7 +22043,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::TemplateExpression* google::protobuf::Repeated_mediapipe_TemplateExpression::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::TemplateExpression* google::protobuf::Repeated_mediapipe_TemplateExpression::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_TemplateExpression:append( attrs ) -> retval
 ```
@@ -21888,7 +22079,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_TemplateExpression::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_TemplateExpression::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_TemplateExpression:extend( items ) -> retval
 ```
@@ -21911,7 +22102,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_TemplateExpression::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_TemplateExpression::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_TemplateExpression:__eq( other ) -> retval
 ```
@@ -22045,7 +22236,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Classifications.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__len( unused ) -> retval
 ```
@@ -22081,7 +22272,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::tasks::components::containers::proto::Classifications* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::tasks::components::containers::proto::Classifications* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:append( attrs ) -> retval
 ```
@@ -22117,7 +22308,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:extend( items ) -> retval
 ```
@@ -22140,7 +22331,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Classifications::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Classifications:__eq( other ) -> retval
 ```
@@ -22274,7 +22465,7 @@ lua:
 ### google.protobuf.Repeated\_mediapipe\_tasks\_components\_containers\_proto\_Embedding.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__len( unused ) -> retval
 ```
@@ -22310,7 +22501,7 @@ lua:
 ```
 
 ```cpp
-mediapipe::tasks::components::containers::proto::Embedding* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::Add( std::map<std::string, ::LUA_MODULE_NAME::Object> attrs );
+mediapipe::tasks::components::containers::proto::Embedding* google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::Add( std::map<std::string, ::mediapipe_lua::Object> attrs );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:append( attrs ) -> retval
 ```
@@ -22346,7 +22537,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:extend( items ) -> retval
 ```
@@ -22369,7 +22560,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_mediapipe_tasks_components_containers_proto_Embedding::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_mediapipe_tasks_components_containers_proto_Embedding:__eq( other ) -> retval
 ```
@@ -22503,7 +22694,7 @@ lua:
 ### google.protobuf.Repeated\_std\_string.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_std_string::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_std_string::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_std_string:__len( unused ) -> retval
 ```
@@ -22572,7 +22763,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_std_string::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_std_string::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_std_string:__eq( other ) -> retval
 ```
@@ -22715,7 +22906,7 @@ lua:
 ### google.protobuf.Repeated\_uint32.\_\_len
 
 ```cpp
-int google::protobuf::Repeated_uint32::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() );
+int google::protobuf::Repeated_uint32::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() );
 lua:
     oRepeated_uint32:__len( unused ) -> retval
 ```
@@ -22784,7 +22975,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::Repeated_uint32::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::Repeated_uint32::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeated_uint32:__eq( other ) -> retval
 ```
@@ -22940,7 +23131,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ConstantSidePacketCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ConstantSidePacketCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_ConstantSidePacketCalculatorOptions:__eq( other ) -> retval
 ```
@@ -22964,7 +23155,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FaceDetectionOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FaceDetectionOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_FaceDetectionOptions:__eq( other ) -> retval
 ```
@@ -22988,7 +23179,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FlowLimiterCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_FlowLimiterCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_FlowLimiterCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23012,7 +23203,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ImageTransformationCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ImageTransformationCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_ImageTransformationCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23036,7 +23227,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_InferenceCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_InferenceCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_InferenceCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23060,7 +23251,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_LandmarksSmoothingCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_LandmarksSmoothingCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_LandmarksSmoothingCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23084,7 +23275,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_Lift2DFrameAnnotationTo3DCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_Lift2DFrameAnnotationTo3DCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_Lift2DFrameAnnotationTo3DCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23108,7 +23299,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_LogicCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_LogicCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_LogicCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23132,7 +23323,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_TemplateSubgraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_TemplateSubgraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_TemplateSubgraphOptions:__eq( other ) -> retval
 ```
@@ -23156,7 +23347,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_TensorsToDetectionsCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_TensorsToDetectionsCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_TensorsToDetectionsCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23180,7 +23371,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ThresholdingCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ThresholdingCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_ThresholdingCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23204,7 +23395,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_TensorsToSegmentationCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_TensorsToSegmentationCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_TensorsToSegmentationCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23228,7 +23419,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_classifier_proto_AudioClassifierGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_classifier_proto_AudioClassifierGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_classifier_proto_AudioClassifierGraphOptions:__eq( other ) -> retval
 ```
@@ -23252,7 +23443,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_embedder_proto_AudioEmbedderGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_embedder_proto_AudioEmbedderGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_audio_audio_embedder_proto_AudioEmbedderGraphOptions:__eq( other ) -> retval
 ```
@@ -23276,7 +23467,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_classifier_proto_TextClassifierGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_classifier_proto_TextClassifierGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_classifier_proto_TextClassifierGraphOptions:__eq( other ) -> retval
 ```
@@ -23300,7 +23491,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_embedder_proto_TextEmbedderGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_embedder_proto_TextEmbedderGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_text_text_embedder_proto_TextEmbedderGraphOptions:__eq( other ) -> retval
 ```
@@ -23324,7 +23515,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_detector_proto_FaceDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_detector_proto_FaceDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_detector_proto_FaceDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23348,7 +23539,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_FaceGeometryPipelineCalculatorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_FaceGeometryPipelineCalculatorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_FaceGeometryPipelineCalculatorOptions:__eq( other ) -> retval
 ```
@@ -23372,7 +23563,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_proto_FaceGeometryGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_proto_FaceGeometryGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_geometry_proto_FaceGeometryGraphOptions:__eq( other ) -> retval
 ```
@@ -23396,7 +23587,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceBlendshapesGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceBlendshapesGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceBlendshapesGraphOptions:__eq( other ) -> retval
 ```
@@ -23420,7 +23611,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarkerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarkerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarkerGraphOptions:__eq( other ) -> retval
 ```
@@ -23444,7 +23635,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarksDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarksDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_landmarker_proto_FaceLandmarksDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23468,7 +23659,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_stylizer_proto_FaceStylizerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_stylizer_proto_FaceStylizerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_face_stylizer_proto_FaceStylizerGraphOptions:__eq( other ) -> retval
 ```
@@ -23492,7 +23683,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureClassifierGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureClassifierGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureClassifierGraphOptions:__eq( other ) -> retval
 ```
@@ -23516,7 +23707,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureEmbedderGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureEmbedderGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureEmbedderGraphOptions:__eq( other ) -> retval
 ```
@@ -23540,7 +23731,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureRecognizerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureRecognizerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_GestureRecognizerGraphOptions:__eq( other ) -> retval
 ```
@@ -23564,7 +23755,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_HandGestureRecognizerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_HandGestureRecognizerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_gesture_recognizer_proto_HandGestureRecognizerGraphOptions:__eq( other ) -> retval
 ```
@@ -23588,7 +23779,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_detector_proto_HandDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_detector_proto_HandDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_detector_proto_HandDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23612,7 +23803,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarkerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarkerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarkerGraphOptions:__eq( other ) -> retval
 ```
@@ -23636,7 +23827,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarksDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarksDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_hand_landmarker_proto_HandLandmarksDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23660,7 +23851,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_classifier_proto_ImageClassifierGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_classifier_proto_ImageClassifierGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_classifier_proto_ImageClassifierGraphOptions:__eq( other ) -> retval
 ```
@@ -23684,7 +23875,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_embedder_proto_ImageEmbedderGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_embedder_proto_ImageEmbedderGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_embedder_proto_ImageEmbedderGraphOptions:__eq( other ) -> retval
 ```
@@ -23708,7 +23899,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_segmenter_proto_ImageSegmenterGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_segmenter_proto_ImageSegmenterGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_image_segmenter_proto_ImageSegmenterGraphOptions:__eq( other ) -> retval
 ```
@@ -23732,7 +23923,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_object_detector_proto_ObjectDetectorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_object_detector_proto_ObjectDetectorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_object_detector_proto_ObjectDetectorOptions:__eq( other ) -> retval
 ```
@@ -23756,7 +23947,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_detector_proto_PoseDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_detector_proto_PoseDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_detector_proto_PoseDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23780,7 +23971,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarkerGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarkerGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarkerGraphOptions:__eq( other ) -> retval
 ```
@@ -23804,7 +23995,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarksDetectorGraphOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarksDetectorGraphOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarksDetectorGraphOptions:__eq( other ) -> retval
 ```
@@ -23838,7 +24029,7 @@ lua:
 ### google.protobuf.lua.MapContainer.\_\_index
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::MapContainer::GetItem( ::LUA_MODULE_NAME::Object key ) const;
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::MapContainer::GetItem( ::mediapipe_lua::Object key ) const;
 lua:
     oMapContainer:__index( key ) -> retval
 ```
@@ -23846,8 +24037,8 @@ lua:
 ### google.protobuf.lua.MapContainer.\_\_newindex
 
 ```cpp
-absl::Status google::protobuf::lua::MapContainer::SetItem( ::LUA_MODULE_NAME::Object key,
-                                                           ::LUA_MODULE_NAME::Object arg );
+absl::Status google::protobuf::lua::MapContainer::SetItem( ::mediapipe_lua::Object key,
+                                                           ::mediapipe_lua::Object arg );
 lua:
     oMapContainer:__newindex( key, arg ) -> retval
 ```
@@ -23879,7 +24070,7 @@ lua:
 ### google.protobuf.lua.MapContainer.contains
 
 ```cpp
-absl::StatusOr<bool> google::protobuf::lua::MapContainer::Contains( ::LUA_MODULE_NAME::Object key ) const;
+absl::StatusOr<bool> google::protobuf::lua::MapContainer::Contains( ::mediapipe_lua::Object key ) const;
 lua:
     oMapContainer:contains( key ) -> retval
 ```
@@ -23887,8 +24078,8 @@ lua:
 ### google.protobuf.lua.MapContainer.get
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::MapContainer::Get( ::LUA_MODULE_NAME::Object key,
-                                                                                    ::LUA_MODULE_NAME::Object default_value = ::LUA_MODULE_NAME::lua_nil ) const;
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::MapContainer::Get( ::mediapipe_lua::Object key,
+                                                                                  ::mediapipe_lua::Object default_value = ::LUA_MODULE_NAME::lua_nil ) const;
 lua:
     oMapContainer:get( key[, default_value] ) -> retval
 ```
@@ -23910,7 +24101,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::MapContainer::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::MapContainer::operator==( ::mediapipe_lua::Object other );
 lua:
     oMapContainer:__eq( other ) -> retval
 ```
@@ -23918,7 +24109,7 @@ lua:
 ### google.protobuf.lua.MapContainer.setFields
 
 ```cpp
-absl::Status google::protobuf::lua::MapContainer::SetFields( std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>>& fields );
+absl::Status google::protobuf::lua::MapContainer::SetFields( std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>& fields );
 lua:
     oMapContainer:setFields( fields ) -> retval
 ```
@@ -23958,7 +24149,7 @@ lua:
 ```
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::MergeFrom( const std::vector<::LUA_MODULE_NAME::Object>& other );
+absl::Status google::protobuf::lua::RepeatedContainer::MergeFrom( const std::vector<::mediapipe_lua::Object>& other );
 lua:
     oRepeatedContainer:MergeFrom( other ) -> retval
 ```
@@ -23966,7 +24157,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.\_\_index
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::RepeatedContainer::GetItem( ssize_t index ) const;
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::RepeatedContainer::GetItem( ssize_t index ) const;
 lua:
     oRepeatedContainer:__index( index ) -> retval
 ```
@@ -23974,7 +24165,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.\_\_len
 
 ```cpp
-size_t google::protobuf::lua::RepeatedContainer::size( ::LUA_MODULE_NAME::Object unused = ::LUA_MODULE_NAME::Object() ) const;
+size_t google::protobuf::lua::RepeatedContainer::size( ::mediapipe_lua::Object unused = ::LUA_MODULE_NAME::Object() ) const;
 lua:
     oRepeatedContainer:__len( unused ) -> retval
 ```
@@ -23982,8 +24173,8 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.\_\_newindex
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::SetItem( ssize_t                   index,
-                                                                ::LUA_MODULE_NAME::Object arg );
+absl::Status google::protobuf::lua::RepeatedContainer::SetItem( ssize_t                 index,
+                                                                ::mediapipe_lua::Object arg );
 lua:
     oRepeatedContainer:__newindex( index, arg ) -> retval
 ```
@@ -24007,7 +24198,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.add
 
 ```cpp
-absl::StatusOr<google::protobuf::Message*> google::protobuf::lua::RepeatedContainer::Add( const std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs = std::map<std::string, ::LUA_MODULE_NAME::Object>() );
+absl::StatusOr<google::protobuf::Message*> google::protobuf::lua::RepeatedContainer::Add( const std::map<std::string, ::mediapipe_lua::Object>& attrs = std::map<std::string, ::LUA_MODULE_NAME::Object>() );
 lua:
     oRepeatedContainer:add( [attrs] ) -> retval
 ```
@@ -24015,7 +24206,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.append
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Append( ::LUA_MODULE_NAME::Object item );
+absl::Status google::protobuf::lua::RepeatedContainer::Append( ::mediapipe_lua::Object item );
 lua:
     oRepeatedContainer:append( item ) -> retval
 ```
@@ -24031,7 +24222,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.deepcopy
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::RepeatedContainer::DeepCopy();
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::RepeatedContainer::DeepCopy();
 lua:
     oRepeatedContainer:deepcopy() -> retval
 ```
@@ -24039,7 +24230,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.extend
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Extend( const std::vector<::LUA_MODULE_NAME::Object>& items );
+absl::Status google::protobuf::lua::RepeatedContainer::Extend( const std::vector<::mediapipe_lua::Object>& items );
 lua:
     oRepeatedContainer:extend( items ) -> retval
 ```
@@ -24047,14 +24238,14 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.insert
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Insert( ssize_t                   index,
-                                                               ::LUA_MODULE_NAME::Object item );
+absl::Status google::protobuf::lua::RepeatedContainer::Insert( ssize_t                 index,
+                                                               ::mediapipe_lua::Object item );
 lua:
     oRepeatedContainer:insert( index, item ) -> retval
 ```
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Insert( std::tuple<ssize_t, ::LUA_MODULE_NAME::Object>& args );
+absl::Status google::protobuf::lua::RepeatedContainer::Insert( std::tuple<ssize_t, ::mediapipe_lua::Object>& args );
 lua:
     oRepeatedContainer:insert( args ) -> retval
 ```
@@ -24076,7 +24267,7 @@ lua:
 ```
 
 ```cpp
-bool google::protobuf::lua::RepeatedContainer::operator==( ::LUA_MODULE_NAME::Object other );
+bool google::protobuf::lua::RepeatedContainer::operator==( ::mediapipe_lua::Object other );
 lua:
     oRepeatedContainer:__eq( other ) -> retval
 ```
@@ -24084,7 +24275,7 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.pop
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::RepeatedContainer::Pop( ssize_t index = -1 );
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::RepeatedContainer::Pop( ssize_t index = -1 );
 lua:
     oRepeatedContainer:pop( [index] ) -> retval
 ```
@@ -24100,16 +24291,16 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.slice
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Slice( std::vector<::LUA_MODULE_NAME::Object>& list,
-                                                              ssize_t                                 start = 0 ) const;
+absl::Status google::protobuf::lua::RepeatedContainer::Slice( std::vector<::mediapipe_lua::Object>& list,
+                                                              ssize_t                               start = 0 ) const;
 lua:
     oRepeatedContainer:slice( [start[, list]] ) -> retval, list
 ```
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Slice( std::vector<::LUA_MODULE_NAME::Object>& list,
-                                                              ssize_t                                 start,
-                                                              ssize_t                                 count ) const;
+absl::Status google::protobuf::lua::RepeatedContainer::Slice( std::vector<::mediapipe_lua::Object>& list,
+                                                              ssize_t                               start,
+                                                              ssize_t                               count ) const;
 lua:
     oRepeatedContainer:slice( start, count[, list] ) -> retval, list
 ```
@@ -24125,16 +24316,16 @@ lua:
 ### google.protobuf.lua.RepeatedContainer.splice
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Splice( std::vector<::LUA_MODULE_NAME::Object>& list,
-                                                               ssize_t                                 start = 0 );
+absl::Status google::protobuf::lua::RepeatedContainer::Splice( std::vector<::mediapipe_lua::Object>& list,
+                                                               ssize_t                               start = 0 );
 lua:
     oRepeatedContainer:splice( [start[, list]] ) -> retval, list
 ```
 
 ```cpp
-absl::Status google::protobuf::lua::RepeatedContainer::Splice( std::vector<::LUA_MODULE_NAME::Object>& list,
-                                                               ssize_t                                 start,
-                                                               ssize_t                                 deleteCount );
+absl::Status google::protobuf::lua::RepeatedContainer::Splice( std::vector<::mediapipe_lua::Object>& list,
+                                                               ssize_t                               start,
+                                                               ssize_t                               deleteCount );
 lua:
     oRepeatedContainer:splice( start, deleteCount[, list] ) -> retval, list
 ```
@@ -24144,8 +24335,8 @@ lua:
 ### google.protobuf.lua.cmessage.GetFieldValue
 
 ```cpp
-absl::StatusOr<::LUA_MODULE_NAME::Object> google::protobuf::lua::cmessage::GetFieldValue( google::protobuf::Message& message,
-                                                                                          const std::string&         field_name );
+absl::StatusOr<::mediapipe_lua::Object> google::protobuf::lua::cmessage::GetFieldValue( google::protobuf::Message& message,
+                                                                                        const std::string&         field_name );
 lua:
     google.protobuf.lua.cmessage.GetFieldValue( message, field_name ) -> retval
 ```
@@ -24161,9 +24352,9 @@ lua:
 ### google.protobuf.lua.cmessage.SetFieldValue
 
 ```cpp
-absl::StatusOr<int> google::protobuf::lua::cmessage::SetFieldValue( google::protobuf::Message&       message,
-                                                                    const std::string&               field_name,
-                                                                    const ::LUA_MODULE_NAME::Object& arg );
+absl::StatusOr<int> google::protobuf::lua::cmessage::SetFieldValue( google::protobuf::Message&     message,
+                                                                    const std::string&             field_name,
+                                                                    const ::mediapipe_lua::Object& arg );
 lua:
     google.protobuf.lua.cmessage.SetFieldValue( message, field_name, arg ) -> retval
 ```
@@ -24215,7 +24406,7 @@ lua:
 ### ARBlendShapeMap.entries
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARBlendShapeMap::entries
+::mediapipe_lua::Object mediapipe::ARBlendShapeMap::entries
 lua:
     [propget, propput] oARBlendShapeMap.entries
 ```
@@ -24223,7 +24414,7 @@ lua:
 ### mediapipe.ARBlendShapeMap.new
 
 ```cpp
-mediapipe::ARBlendShapeMap( ::LUA_MODULE_NAME::Object entries = ::LUA_MODULE_NAME::Object() );
+mediapipe::ARBlendShapeMap( ::mediapipe_lua::Object entries = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ARBlendShapeMap.new( [entries] ) -> <mediapipe::ARBlendShapeMap object>
     mediapipe.ARBlendShapeMap( [entries] ) -> <mediapipe::ARBlendShapeMap object>
@@ -24294,7 +24485,7 @@ lua:
 ### ARCamera.transform
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARCamera::transform
+::mediapipe_lua::Object mediapipe::ARCamera::transform
 lua:
     [propget, propput] oARCamera.transform
 ```
@@ -24326,7 +24517,7 @@ lua:
 ### ARCamera.intrinsics
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARCamera::intrinsics
+::mediapipe_lua::Object mediapipe::ARCamera::intrinsics
 lua:
     [propget, propput] oARCamera.intrinsics
 ```
@@ -24334,7 +24525,7 @@ lua:
 ### ARCamera.projection\_matrix
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARCamera::projection_matrix
+::mediapipe_lua::Object mediapipe::ARCamera::projection_matrix
 lua:
     [propget, propput] oARCamera.projection_matrix
 ```
@@ -24342,7 +24533,7 @@ lua:
 ### ARCamera.view\_matrix
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARCamera::view_matrix
+::mediapipe_lua::Object mediapipe::ARCamera::view_matrix
 lua:
     [propget, propput] oARCamera.view_matrix
 ```
@@ -24432,13 +24623,13 @@ lua:
 ```cpp
 mediapipe::ARCamera( std::optional<mediapipe::ARCamera::TrackingState>       tracking_state = std::optional<mediapipe::ARCamera::TrackingState>(),
                      std::optional<mediapipe::ARCamera::TrackingStateReason> tracking_state_reason = std::optional<mediapipe::ARCamera::TrackingStateReason>(),
-                     ::LUA_MODULE_NAME::Object                               transform = ::LUA_MODULE_NAME::Object(),
+                     ::mediapipe_lua::Object                                 transform = ::LUA_MODULE_NAME::Object(),
                      std::shared_ptr<mediapipe::ARCamera::EulerAngles>       euler_angles = std::shared_ptr<mediapipe::ARCamera::EulerAngles>(),
                      std::optional<int>                                      image_resolution_width = std::optional<int>(),
                      std::optional<int>                                      image_resolution_height = std::optional<int>(),
-                     ::LUA_MODULE_NAME::Object                               intrinsics = ::LUA_MODULE_NAME::Object(),
-                     ::LUA_MODULE_NAME::Object                               projection_matrix = ::LUA_MODULE_NAME::Object(),
-                     ::LUA_MODULE_NAME::Object                               view_matrix = ::LUA_MODULE_NAME::Object() );
+                     ::mediapipe_lua::Object                                 intrinsics = ::LUA_MODULE_NAME::Object(),
+                     ::mediapipe_lua::Object                                 projection_matrix = ::LUA_MODULE_NAME::Object(),
+                     ::mediapipe_lua::Object                                 view_matrix = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ARCamera.new( [tracking_state[, tracking_state_reason[, transform[, euler_angles[, image_resolution_width[, image_resolution_height[, intrinsics[, projection_matrix[, view_matrix]]]]]]]]] ) -> <mediapipe::ARCamera object>
     mediapipe.ARCamera( [tracking_state[, tracking_state_reason[, transform[, euler_angles[, image_resolution_width[, image_resolution_height[, intrinsics[, projection_matrix[, view_matrix]]]]]]]]] ) -> <mediapipe::ARCamera object>
@@ -24518,7 +24709,7 @@ lua:
 ### ARFaceAnchor.transform
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARFaceAnchor::transform
+::mediapipe_lua::Object mediapipe::ARFaceAnchor::transform
 lua:
     [propget, propput] oARFaceAnchor.transform
 ```
@@ -24536,7 +24727,7 @@ lua:
 ```cpp
 mediapipe::ARFaceAnchor( std::shared_ptr<mediapipe::ARFaceGeometry>  geometry = std::shared_ptr<mediapipe::ARFaceGeometry>(),
                          std::shared_ptr<mediapipe::ARBlendShapeMap> blend_shapes = std::shared_ptr<mediapipe::ARBlendShapeMap>(),
-                         ::LUA_MODULE_NAME::Object                   transform = ::LUA_MODULE_NAME::Object(),
+                         ::mediapipe_lua::Object                     transform = ::LUA_MODULE_NAME::Object(),
                          std::optional<bool>                         is_tracked = std::optional<bool>() );
 lua:
     mediapipe.ARFaceAnchor.new( [geometry[, blend_shapes[, transform[, is_tracked]]]] ) -> <mediapipe::ARFaceAnchor object>
@@ -24556,7 +24747,7 @@ lua:
 ### ARFaceGeometry.vertices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARFaceGeometry::vertices
+::mediapipe_lua::Object mediapipe::ARFaceGeometry::vertices
 lua:
     [propget, propput] oARFaceGeometry.vertices
 ```
@@ -24572,7 +24763,7 @@ lua:
 ### ARFaceGeometry.texture\_coordinates
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARFaceGeometry::texture_coordinates
+::mediapipe_lua::Object mediapipe::ARFaceGeometry::texture_coordinates
 lua:
     [propget, propput] oARFaceGeometry.texture_coordinates
 ```
@@ -24588,7 +24779,7 @@ lua:
 ### ARFaceGeometry.triangle\_indices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARFaceGeometry::triangle_indices
+::mediapipe_lua::Object mediapipe::ARFaceGeometry::triangle_indices
 lua:
     [propget, propput] oARFaceGeometry.triangle_indices
 ```
@@ -24604,12 +24795,12 @@ lua:
 ### mediapipe.ARFaceGeometry.new
 
 ```cpp
-mediapipe::ARFaceGeometry( ::LUA_MODULE_NAME::Object vertices = ::LUA_MODULE_NAME::Object(),
-                           std::optional<int>        vertex_count = std::optional<int>(),
-                           ::LUA_MODULE_NAME::Object texture_coordinates = ::LUA_MODULE_NAME::Object(),
-                           std::optional<int>        texture_coordinate_count = std::optional<int>(),
-                           ::LUA_MODULE_NAME::Object triangle_indices = ::LUA_MODULE_NAME::Object(),
-                           std::optional<int>        triangle_count = std::optional<int>() );
+mediapipe::ARFaceGeometry( ::mediapipe_lua::Object vertices = ::LUA_MODULE_NAME::Object(),
+                           std::optional<int>      vertex_count = std::optional<int>(),
+                           ::mediapipe_lua::Object texture_coordinates = ::LUA_MODULE_NAME::Object(),
+                           std::optional<int>      texture_coordinate_count = std::optional<int>(),
+                           ::mediapipe_lua::Object triangle_indices = ::LUA_MODULE_NAME::Object(),
+                           std::optional<int>      triangle_count = std::optional<int>() );
 lua:
     mediapipe.ARFaceGeometry.new( [vertices[, vertex_count[, texture_coordinates[, texture_coordinate_count[, triangle_indices[, triangle_count]]]]]] ) -> <mediapipe::ARFaceGeometry object>
     mediapipe.ARFaceGeometry( [vertices[, vertex_count[, texture_coordinates[, texture_coordinate_count[, triangle_indices[, triangle_count]]]]]] ) -> <mediapipe::ARFaceGeometry object>
@@ -24757,7 +24948,7 @@ lua:
 ### ARFrame.plane\_anchor
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARFrame::plane_anchor
+::mediapipe_lua::Object mediapipe::ARFrame::plane_anchor
 lua:
     [propget, propput] oARFrame.plane_anchor
 ```
@@ -24779,7 +24970,7 @@ mediapipe::ARFrame( std::optional<double>                       timestamp = std:
                     std::shared_ptr<mediapipe::ARCamera>        camera = std::shared_ptr<mediapipe::ARCamera>(),
                     std::shared_ptr<mediapipe::ARLightEstimate> light_estimate = std::shared_ptr<mediapipe::ARLightEstimate>(),
                     std::shared_ptr<mediapipe::ARFaceAnchor>    face_anchor = std::shared_ptr<mediapipe::ARFaceAnchor>(),
-                    ::LUA_MODULE_NAME::Object                   plane_anchor = ::LUA_MODULE_NAME::Object(),
+                    ::mediapipe_lua::Object                     plane_anchor = ::LUA_MODULE_NAME::Object(),
                     std::shared_ptr<mediapipe::ARPointCloud>    raw_feature_points = std::shared_ptr<mediapipe::ARPointCloud>() );
 lua:
     mediapipe.ARFrame.new( [timestamp[, depth_data[, depth_data_timestamp[, camera[, light_estimate[, face_anchor[, plane_anchor[, raw_feature_points]]]]]]]] ) -> <mediapipe::ARFrame object>
@@ -24815,7 +25006,7 @@ lua:
 ### ARLightEstimate.spherical\_harmonics\_coefficients
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARLightEstimate::spherical_harmonics_coefficients
+::mediapipe_lua::Object mediapipe::ARLightEstimate::spherical_harmonics_coefficients
 lua:
     [propget, propput] oARLightEstimate.spherical_harmonics_coefficients
 ```
@@ -24841,7 +25032,7 @@ lua:
 ```cpp
 mediapipe::ARLightEstimate( std::optional<double>                                        ambient_intensity = std::optional<double>(),
                             std::optional<double>                                        ambient_color_temperature = std::optional<double>(),
-                            ::LUA_MODULE_NAME::Object                                    spherical_harmonics_coefficients = ::LUA_MODULE_NAME::Object(),
+                            ::mediapipe_lua::Object                                      spherical_harmonics_coefficients = ::LUA_MODULE_NAME::Object(),
                             std::shared_ptr<mediapipe::ARLightEstimate::DirectionVector> primary_light_direction = std::shared_ptr<mediapipe::ARLightEstimate::DirectionVector>(),
                             std::optional<float>                                         primary_light_intensity = std::optional<float>() );
 lua:
@@ -24915,7 +25106,7 @@ lua:
 ### ARPlaneAnchor.transform
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPlaneAnchor::transform
+::mediapipe_lua::Object mediapipe::ARPlaneAnchor::transform
 lua:
     [propget, propput] oARPlaneAnchor.transform
 ```
@@ -25084,7 +25275,7 @@ lua:
 
 ```cpp
 mediapipe::ARPlaneAnchor( std::optional<std::string>                                         identifier = std::optional<std::string>(),
-                          ::LUA_MODULE_NAME::Object                                          transform = ::LUA_MODULE_NAME::Object(),
+                          ::mediapipe_lua::Object                                            transform = ::LUA_MODULE_NAME::Object(),
                           std::optional<mediapipe::ARPlaneAnchor::Alignment>                 alignment = std::optional<mediapipe::ARPlaneAnchor::Alignment>(),
                           std::shared_ptr<mediapipe::ARPlaneGeometry>                        geometry = std::shared_ptr<mediapipe::ARPlaneGeometry>(),
                           std::shared_ptr<mediapipe::ARPlaneAnchor::PlaneVector>             center = std::shared_ptr<mediapipe::ARPlaneAnchor::PlaneVector>(),
@@ -25155,7 +25346,7 @@ lua:
 ### ARPlaneGeometry.vertices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPlaneGeometry::vertices
+::mediapipe_lua::Object mediapipe::ARPlaneGeometry::vertices
 lua:
     [propget, propput] oARPlaneGeometry.vertices
 ```
@@ -25171,7 +25362,7 @@ lua:
 ### ARPlaneGeometry.texture\_coordinates
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPlaneGeometry::texture_coordinates
+::mediapipe_lua::Object mediapipe::ARPlaneGeometry::texture_coordinates
 lua:
     [propget, propput] oARPlaneGeometry.texture_coordinates
 ```
@@ -25187,7 +25378,7 @@ lua:
 ### ARPlaneGeometry.triangle\_indices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPlaneGeometry::triangle_indices
+::mediapipe_lua::Object mediapipe::ARPlaneGeometry::triangle_indices
 lua:
     [propget, propput] oARPlaneGeometry.triangle_indices
 ```
@@ -25203,7 +25394,7 @@ lua:
 ### ARPlaneGeometry.boundary\_vertices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPlaneGeometry::boundary_vertices
+::mediapipe_lua::Object mediapipe::ARPlaneGeometry::boundary_vertices
 lua:
     [propget, propput] oARPlaneGeometry.boundary_vertices
 ```
@@ -25219,14 +25410,14 @@ lua:
 ### mediapipe.ARPlaneGeometry.new
 
 ```cpp
-mediapipe::ARPlaneGeometry( ::LUA_MODULE_NAME::Object vertices = ::LUA_MODULE_NAME::Object(),
-                            std::optional<int>        vertex_count = std::optional<int>(),
-                            ::LUA_MODULE_NAME::Object texture_coordinates = ::LUA_MODULE_NAME::Object(),
-                            std::optional<int>        texture_coordinate_count = std::optional<int>(),
-                            ::LUA_MODULE_NAME::Object triangle_indices = ::LUA_MODULE_NAME::Object(),
-                            std::optional<int>        triangle_count = std::optional<int>(),
-                            ::LUA_MODULE_NAME::Object boundary_vertices = ::LUA_MODULE_NAME::Object(),
-                            std::optional<int>        boundary_vertex_count = std::optional<int>() );
+mediapipe::ARPlaneGeometry( ::mediapipe_lua::Object vertices = ::LUA_MODULE_NAME::Object(),
+                            std::optional<int>      vertex_count = std::optional<int>(),
+                            ::mediapipe_lua::Object texture_coordinates = ::LUA_MODULE_NAME::Object(),
+                            std::optional<int>      texture_coordinate_count = std::optional<int>(),
+                            ::mediapipe_lua::Object triangle_indices = ::LUA_MODULE_NAME::Object(),
+                            std::optional<int>      triangle_count = std::optional<int>(),
+                            ::mediapipe_lua::Object boundary_vertices = ::LUA_MODULE_NAME::Object(),
+                            std::optional<int>      boundary_vertex_count = std::optional<int>() );
 lua:
     mediapipe.ARPlaneGeometry.new( [vertices[, vertex_count[, texture_coordinates[, texture_coordinate_count[, triangle_indices[, triangle_count[, boundary_vertices[, boundary_vertex_count]]]]]]]] ) -> <mediapipe::ARPlaneGeometry object>
     mediapipe.ARPlaneGeometry( [vertices[, vertex_count[, texture_coordinates[, texture_coordinate_count[, triangle_indices[, triangle_count[, boundary_vertices[, boundary_vertex_count]]]]]]]] ) -> <mediapipe::ARPlaneGeometry object>
@@ -25334,7 +25525,7 @@ lua:
 ### ARPointCloud.point
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPointCloud::point
+::mediapipe_lua::Object mediapipe::ARPointCloud::point
 lua:
     [propget, propput] oARPointCloud.point
 ```
@@ -25342,7 +25533,7 @@ lua:
 ### ARPointCloud.identifier
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ARPointCloud::identifier
+::mediapipe_lua::Object mediapipe::ARPointCloud::identifier
 lua:
     [propget, propput] oARPointCloud.identifier
 ```
@@ -25350,9 +25541,9 @@ lua:
 ### mediapipe.ARPointCloud.new
 
 ```cpp
-mediapipe::ARPointCloud( std::optional<int>        count = std::optional<int>(),
-                         ::LUA_MODULE_NAME::Object point = ::LUA_MODULE_NAME::Object(),
-                         ::LUA_MODULE_NAME::Object identifier = ::LUA_MODULE_NAME::Object() );
+mediapipe::ARPointCloud( std::optional<int>      count = std::optional<int>(),
+                         ::mediapipe_lua::Object point = ::LUA_MODULE_NAME::Object(),
+                         ::mediapipe_lua::Object identifier = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ARPointCloud.new( [count[, point[, identifier]]] ) -> <mediapipe::ARPointCloud object>
     mediapipe.ARPointCloud( [count[, point[, identifier]]] ) -> <mediapipe::ARPointCloud object>
@@ -25416,7 +25607,7 @@ lua:
 ### AVCameraCalibrationData.intrinsic\_matrix
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::AVCameraCalibrationData::intrinsic_matrix
+::mediapipe_lua::Object mediapipe::AVCameraCalibrationData::intrinsic_matrix
 lua:
     [propget, propput] oAVCameraCalibrationData.intrinsic_matrix
 ```
@@ -25440,7 +25631,7 @@ lua:
 ### AVCameraCalibrationData.extrinsic\_matrix
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::AVCameraCalibrationData::extrinsic_matrix
+::mediapipe_lua::Object mediapipe::AVCameraCalibrationData::extrinsic_matrix
 lua:
     [propget, propput] oAVCameraCalibrationData.extrinsic_matrix
 ```
@@ -25456,7 +25647,7 @@ lua:
 ### AVCameraCalibrationData.lens\_distortion\_lookup\_values
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::AVCameraCalibrationData::lens_distortion_lookup_values
+::mediapipe_lua::Object mediapipe::AVCameraCalibrationData::lens_distortion_lookup_values
 lua:
     [propget, propput] oAVCameraCalibrationData.lens_distortion_lookup_values
 ```
@@ -25464,7 +25655,7 @@ lua:
 ### AVCameraCalibrationData.inverse\_lens\_distortion\_lookup\_values
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::AVCameraCalibrationData::inverse_lens_distortion_lookup_values
+::mediapipe_lua::Object mediapipe::AVCameraCalibrationData::inverse_lens_distortion_lookup_values
 lua:
     [propget, propput] oAVCameraCalibrationData.inverse_lens_distortion_lookup_values
 ```
@@ -25488,15 +25679,15 @@ lua:
 ### mediapipe.AVCameraCalibrationData.new
 
 ```cpp
-mediapipe::AVCameraCalibrationData( ::LUA_MODULE_NAME::Object intrinsic_matrix = ::LUA_MODULE_NAME::Object(),
-                                    std::optional<float>      intrinsic_matrix_reference_dimension_width = std::optional<float>(),
-                                    std::optional<float>      intrinsic_matrix_reference_dimension_height = std::optional<float>(),
-                                    ::LUA_MODULE_NAME::Object extrinsic_matrix = ::LUA_MODULE_NAME::Object(),
-                                    std::optional<float>      pixel_size = std::optional<float>(),
-                                    ::LUA_MODULE_NAME::Object lens_distortion_lookup_values = ::LUA_MODULE_NAME::Object(),
-                                    ::LUA_MODULE_NAME::Object inverse_lens_distortion_lookup_values = ::LUA_MODULE_NAME::Object(),
-                                    std::optional<float>      lens_distortion_center_x = std::optional<float>(),
-                                    std::optional<float>      lens_distortion_center_y = std::optional<float>() );
+mediapipe::AVCameraCalibrationData( ::mediapipe_lua::Object intrinsic_matrix = ::LUA_MODULE_NAME::Object(),
+                                    std::optional<float>    intrinsic_matrix_reference_dimension_width = std::optional<float>(),
+                                    std::optional<float>    intrinsic_matrix_reference_dimension_height = std::optional<float>(),
+                                    ::mediapipe_lua::Object extrinsic_matrix = ::LUA_MODULE_NAME::Object(),
+                                    std::optional<float>    pixel_size = std::optional<float>(),
+                                    ::mediapipe_lua::Object lens_distortion_lookup_values = ::LUA_MODULE_NAME::Object(),
+                                    ::mediapipe_lua::Object inverse_lens_distortion_lookup_values = ::LUA_MODULE_NAME::Object(),
+                                    std::optional<float>    lens_distortion_center_x = std::optional<float>(),
+                                    std::optional<float>    lens_distortion_center_y = std::optional<float>() );
 lua:
     mediapipe.AVCameraCalibrationData.new( [intrinsic_matrix[, intrinsic_matrix_reference_dimension_width[, intrinsic_matrix_reference_dimension_height[, extrinsic_matrix[, pixel_size[, lens_distortion_lookup_values[, inverse_lens_distortion_lookup_values[, lens_distortion_center_x[, lens_distortion_center_y]]]]]]]]] ) -> <mediapipe::AVCameraCalibrationData object>
     mediapipe.AVCameraCalibrationData( [intrinsic_matrix[, intrinsic_matrix_reference_dimension_width[, intrinsic_matrix_reference_dimension_height[, extrinsic_matrix[, pixel_size[, lens_distortion_lookup_values[, inverse_lens_distortion_lookup_values[, lens_distortion_center_x[, lens_distortion_center_y]]]]]]]]] ) -> <mediapipe::AVCameraCalibrationData object>
@@ -25947,7 +26138,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::CalculatorGraph::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::CalculatorGraph::operator==( ::mediapipe_lua::Object other );
 lua:
     oCalculatorGraph:__eq( other ) -> retval
 ```
@@ -25989,7 +26180,7 @@ lua:
 ### CalculatorGraphConfig.node
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::node
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::node
 lua:
     [propget, propput] oCalculatorGraphConfig.node
 ```
@@ -25997,7 +26188,7 @@ lua:
 ### CalculatorGraphConfig.packet\_factory
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::packet_factory
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::packet_factory
 lua:
     [propget, propput] oCalculatorGraphConfig.packet_factory
 ```
@@ -26005,7 +26196,7 @@ lua:
 ### CalculatorGraphConfig.packet\_generator
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::packet_generator
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::packet_generator
 lua:
     [propget, propput] oCalculatorGraphConfig.packet_generator
 ```
@@ -26021,7 +26212,7 @@ lua:
 ### CalculatorGraphConfig.status\_handler
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::status_handler
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::status_handler
 lua:
     [propget, propput] oCalculatorGraphConfig.status_handler
 ```
@@ -26029,7 +26220,7 @@ lua:
 ### CalculatorGraphConfig.input\_stream
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::input_stream
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::input_stream
 lua:
     [propget, propput] oCalculatorGraphConfig.input_stream
 ```
@@ -26037,7 +26228,7 @@ lua:
 ### CalculatorGraphConfig.output\_stream
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::output_stream
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::output_stream
 lua:
     [propget, propput] oCalculatorGraphConfig.output_stream
 ```
@@ -26045,7 +26236,7 @@ lua:
 ### CalculatorGraphConfig.input\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::input_side_packet
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::input_side_packet
 lua:
     [propget, propput] oCalculatorGraphConfig.input_side_packet
 ```
@@ -26053,7 +26244,7 @@ lua:
 ### CalculatorGraphConfig.output\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::output_side_packet
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::output_side_packet
 lua:
     [propget, propput] oCalculatorGraphConfig.output_side_packet
 ```
@@ -26101,7 +26292,7 @@ lua:
 ### CalculatorGraphConfig.executor
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::executor
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::executor
 lua:
     [propget, propput] oCalculatorGraphConfig.executor
 ```
@@ -26141,7 +26332,7 @@ lua:
 ### CalculatorGraphConfig.graph\_options
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::graph_options
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::graph_options
 lua:
     [propget, propput] oCalculatorGraphConfig.graph_options
 ```
@@ -26149,26 +26340,26 @@ lua:
 ### mediapipe.CalculatorGraphConfig.new
 
 ```cpp
-mediapipe::CalculatorGraphConfig( ::LUA_MODULE_NAME::Object                             node = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             packet_factory = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             packet_generator = ::LUA_MODULE_NAME::Object(),
+mediapipe::CalculatorGraphConfig( ::mediapipe_lua::Object                               node = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               packet_factory = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               packet_generator = ::LUA_MODULE_NAME::Object(),
                                   std::optional<int>                                    num_threads = std::optional<int>(),
-                                  ::LUA_MODULE_NAME::Object                             status_handler = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             input_stream = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             output_stream = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             input_side_packet = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                             output_side_packet = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               status_handler = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               input_stream = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               output_stream = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               input_side_packet = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               output_side_packet = ::LUA_MODULE_NAME::Object(),
                                   std::optional<int>                                    max_queue_size = std::optional<int>(),
                                   std::optional<bool>                                   report_deadlock = std::optional<bool>(),
                                   std::shared_ptr<mediapipe::GraphRuntimeInfoConfig>    runtime_info = std::shared_ptr<mediapipe::GraphRuntimeInfoConfig>(),
                                   std::shared_ptr<mediapipe::InputStreamHandlerConfig>  input_stream_handler = std::shared_ptr<mediapipe::InputStreamHandlerConfig>(),
                                   std::shared_ptr<mediapipe::OutputStreamHandlerConfig> output_stream_handler = std::shared_ptr<mediapipe::OutputStreamHandlerConfig>(),
-                                  ::LUA_MODULE_NAME::Object                             executor = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                               executor = ::LUA_MODULE_NAME::Object(),
                                   std::shared_ptr<mediapipe::ProfilerConfig>            profiler_config = std::shared_ptr<mediapipe::ProfilerConfig>(),
                                   std::optional<std::string>                            package = std::optional<std::string>(),
                                   std::optional<std::string>                            type = std::optional<std::string>(),
                                   std::shared_ptr<mediapipe::MediaPipeOptions>          options = std::shared_ptr<mediapipe::MediaPipeOptions>(),
-                                  ::LUA_MODULE_NAME::Object                             graph_options = ::LUA_MODULE_NAME::Object() );
+                                  ::mediapipe_lua::Object                               graph_options = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.CalculatorGraphConfig.new( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, runtime_info[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
     mediapipe.CalculatorGraphConfig( [node[, packet_factory[, packet_generator[, num_threads[, status_handler[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, max_queue_size[, report_deadlock[, runtime_info[, input_stream_handler[, output_stream_handler[, executor[, profiler_config[, package[, type[, options[, graph_options]]]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig object>
@@ -26203,7 +26394,7 @@ lua:
 ### Node.input\_stream
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::input_stream
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::input_stream
 lua:
     [propget, propput] oNode.input_stream
 ```
@@ -26211,7 +26402,7 @@ lua:
 ### Node.output\_stream
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::output_stream
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::output_stream
 lua:
     [propget, propput] oNode.output_stream
 ```
@@ -26219,7 +26410,7 @@ lua:
 ### Node.input\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::input_side_packet
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::input_side_packet
 lua:
     [propget, propput] oNode.input_side_packet
 ```
@@ -26227,7 +26418,7 @@ lua:
 ### Node.output\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::output_side_packet
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::output_side_packet
 lua:
     [propget, propput] oNode.output_side_packet
 ```
@@ -26243,7 +26434,7 @@ lua:
 ### Node.node\_options
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::node_options
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::node_options
 lua:
     [propget, propput] oNode.node_options
 ```
@@ -26283,7 +26474,7 @@ lua:
 ### Node.input\_stream\_info
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::input_stream_info
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::input_stream_info
 lua:
     [propget, propput] oNode.input_stream_info
 ```
@@ -26315,7 +26506,7 @@ lua:
 ### Node.option\_value
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::option_value
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::option_value
 lua:
     [propget, propput] oNode.option_value
 ```
@@ -26323,7 +26514,7 @@ lua:
 ### Node.external\_input
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphConfig::Node::external_input
+::mediapipe_lua::Object mediapipe::CalculatorGraphConfig::Node::external_input
 lua:
     [propget, propput] oNode.external_input
 ```
@@ -26333,22 +26524,22 @@ lua:
 ```cpp
 mediapipe::CalculatorGraphConfig::Node( std::optional<std::string>                            name = std::optional<std::string>(),
                                         std::optional<std::string>                            calculator = std::optional<std::string>(),
-                                        ::LUA_MODULE_NAME::Object                             input_stream = ::LUA_MODULE_NAME::Object(),
-                                        ::LUA_MODULE_NAME::Object                             output_stream = ::LUA_MODULE_NAME::Object(),
-                                        ::LUA_MODULE_NAME::Object                             input_side_packet = ::LUA_MODULE_NAME::Object(),
-                                        ::LUA_MODULE_NAME::Object                             output_side_packet = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               input_stream = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               output_stream = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               input_side_packet = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               output_side_packet = ::LUA_MODULE_NAME::Object(),
                                         std::shared_ptr<mediapipe::CalculatorOptions>         options = std::shared_ptr<mediapipe::CalculatorOptions>(),
-                                        ::LUA_MODULE_NAME::Object                             node_options = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               node_options = ::LUA_MODULE_NAME::Object(),
                                         std::optional<int>                                    source_layer = std::optional<int>(),
                                         std::optional<int>                                    buffer_size_hint = std::optional<int>(),
                                         std::shared_ptr<mediapipe::InputStreamHandlerConfig>  input_stream_handler = std::shared_ptr<mediapipe::InputStreamHandlerConfig>(),
                                         std::shared_ptr<mediapipe::OutputStreamHandlerConfig> output_stream_handler = std::shared_ptr<mediapipe::OutputStreamHandlerConfig>(),
-                                        ::LUA_MODULE_NAME::Object                             input_stream_info = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               input_stream_info = ::LUA_MODULE_NAME::Object(),
                                         std::optional<std::string>                            executor = std::optional<std::string>(),
                                         std::shared_ptr<mediapipe::ProfilerConfig>            profiler_config = std::shared_ptr<mediapipe::ProfilerConfig>(),
                                         std::optional<int>                                    max_in_flight = std::optional<int>(),
-                                        ::LUA_MODULE_NAME::Object                             option_value = ::LUA_MODULE_NAME::Object(),
-                                        ::LUA_MODULE_NAME::Object                             external_input = ::LUA_MODULE_NAME::Object() );
+                                        ::mediapipe_lua::Object                               option_value = ::LUA_MODULE_NAME::Object(),
+                                        ::mediapipe_lua::Object                               external_input = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.CalculatorGraphConfig.Node.new( [name[, calculator[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, options[, node_options[, source_layer[, buffer_size_hint[, input_stream_handler[, output_stream_handler[, input_stream_info[, executor[, profiler_config[, max_in_flight[, option_value[, external_input]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig::Node object>
     mediapipe.CalculatorGraphConfig.Node( [name[, calculator[, input_stream[, output_stream[, input_side_packet[, output_side_packet[, options[, node_options[, source_layer[, buffer_size_hint[, input_stream_handler[, output_stream_handler[, input_stream_info[, executor[, profiler_config[, max_in_flight[, option_value[, external_input]]]]]]]]]]]]]]]]]] ) -> <mediapipe::CalculatorGraphConfig::Node object>
@@ -26375,7 +26566,7 @@ lua:
 ### CalculatorGraphTemplate.rule
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::CalculatorGraphTemplate::rule
+::mediapipe_lua::Object mediapipe::CalculatorGraphTemplate::rule
 lua:
     [propget, propput] oCalculatorGraphTemplate.rule
 ```
@@ -26384,7 +26575,7 @@ lua:
 
 ```cpp
 mediapipe::CalculatorGraphTemplate( std::shared_ptr<mediapipe::CalculatorGraphConfig> config = std::shared_ptr<mediapipe::CalculatorGraphConfig>(),
-                                    ::LUA_MODULE_NAME::Object                         rule = ::LUA_MODULE_NAME::Object() );
+                                    ::mediapipe_lua::Object                           rule = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.CalculatorGraphTemplate.new( [config[, rule]] ) -> <mediapipe::CalculatorGraphTemplate object>
     mediapipe.CalculatorGraphTemplate( [config[, rule]] ) -> <mediapipe::CalculatorGraphTemplate object>
@@ -26708,7 +26899,7 @@ lua:
 ### ClassificationList.classification
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ClassificationList::classification
+::mediapipe_lua::Object mediapipe::ClassificationList::classification
 lua:
     [propget, propput] oClassificationList.classification
 ```
@@ -26716,7 +26907,7 @@ lua:
 ### mediapipe.ClassificationList.new
 
 ```cpp
-mediapipe::ClassificationList( ::LUA_MODULE_NAME::Object classification = ::LUA_MODULE_NAME::Object() );
+mediapipe::ClassificationList( ::mediapipe_lua::Object classification = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ClassificationList.new( [classification] ) -> <mediapipe::ClassificationList object>
     mediapipe.ClassificationList( [classification] ) -> <mediapipe::ClassificationList object>
@@ -26735,7 +26926,7 @@ lua:
 ### ClassificationListCollection.classification\_list
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ClassificationListCollection::classification_list
+::mediapipe_lua::Object mediapipe::ClassificationListCollection::classification_list
 lua:
     [propget, propput] oClassificationListCollection.classification_list
 ```
@@ -26743,7 +26934,7 @@ lua:
 ### mediapipe.ClassificationListCollection.new
 
 ```cpp
-mediapipe::ClassificationListCollection( ::LUA_MODULE_NAME::Object classification_list = ::LUA_MODULE_NAME::Object() );
+mediapipe::ClassificationListCollection( ::mediapipe_lua::Object classification_list = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ClassificationListCollection.new( [classification_list] ) -> <mediapipe::ClassificationListCollection object>
     mediapipe.ClassificationListCollection( [classification_list] ) -> <mediapipe::ClassificationListCollection object>
@@ -26826,7 +27017,7 @@ lua:
 ### ConstantSidePacketCalculatorOptions.packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ConstantSidePacketCalculatorOptions::packet
+::mediapipe_lua::Object mediapipe::ConstantSidePacketCalculatorOptions::packet
 lua:
     [propget, propput] oConstantSidePacketCalculatorOptions.packet
 ```
@@ -26842,7 +27033,7 @@ lua:
 ### mediapipe.ConstantSidePacketCalculatorOptions.new
 
 ```cpp
-mediapipe::ConstantSidePacketCalculatorOptions( ::LUA_MODULE_NAME::Object packet = ::LUA_MODULE_NAME::Object() );
+mediapipe::ConstantSidePacketCalculatorOptions( ::mediapipe_lua::Object packet = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ConstantSidePacketCalculatorOptions.new( [packet] ) -> <mediapipe::ConstantSidePacketCalculatorOptions object>
     mediapipe.ConstantSidePacketCalculatorOptions( [packet] ) -> <mediapipe::ConstantSidePacketCalculatorOptions object>
@@ -26987,7 +27178,7 @@ lua:
 ### StringVector.string\_value
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ConstantSidePacketCalculatorOptions::StringVector::string_value
+::mediapipe_lua::Object mediapipe::ConstantSidePacketCalculatorOptions::StringVector::string_value
 lua:
     [propget, propput] oStringVector.string_value
 ```
@@ -26995,7 +27186,7 @@ lua:
 ### mediapipe.ConstantSidePacketCalculatorOptions.StringVector.new
 
 ```cpp
-mediapipe::ConstantSidePacketCalculatorOptions::StringVector( ::LUA_MODULE_NAME::Object string_value = ::LUA_MODULE_NAME::Object() );
+mediapipe::ConstantSidePacketCalculatorOptions::StringVector( ::mediapipe_lua::Object string_value = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ConstantSidePacketCalculatorOptions.StringVector.new( [string_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::StringVector object>
     mediapipe.ConstantSidePacketCalculatorOptions.StringVector( [string_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::StringVector object>
@@ -27014,7 +27205,7 @@ lua:
 ### Detection.label
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Detection::label
+::mediapipe_lua::Object mediapipe::Detection::label
 lua:
     [propget, propput] oDetection.label
 ```
@@ -27022,7 +27213,7 @@ lua:
 ### Detection.label\_id
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Detection::label_id
+::mediapipe_lua::Object mediapipe::Detection::label_id
 lua:
     [propget, propput] oDetection.label_id
 ```
@@ -27030,7 +27221,7 @@ lua:
 ### Detection.score
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Detection::score
+::mediapipe_lua::Object mediapipe::Detection::score
 lua:
     [propget, propput] oDetection.score
 ```
@@ -27070,7 +27261,7 @@ lua:
 ### Detection.associated\_detections
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Detection::associated_detections
+::mediapipe_lua::Object mediapipe::Detection::associated_detections
 lua:
     [propget, propput] oDetection.associated_detections
 ```
@@ -27078,7 +27269,7 @@ lua:
 ### Detection.display\_name
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Detection::display_name
+::mediapipe_lua::Object mediapipe::Detection::display_name
 lua:
     [propget, propput] oDetection.display_name
 ```
@@ -27094,15 +27285,15 @@ lua:
 ### mediapipe.Detection.new
 
 ```cpp
-mediapipe::Detection( ::LUA_MODULE_NAME::Object                label = ::LUA_MODULE_NAME::Object(),
-                      ::LUA_MODULE_NAME::Object                label_id = ::LUA_MODULE_NAME::Object(),
-                      ::LUA_MODULE_NAME::Object                score = ::LUA_MODULE_NAME::Object(),
+mediapipe::Detection( ::mediapipe_lua::Object                  label = ::LUA_MODULE_NAME::Object(),
+                      ::mediapipe_lua::Object                  label_id = ::LUA_MODULE_NAME::Object(),
+                      ::mediapipe_lua::Object                  score = ::LUA_MODULE_NAME::Object(),
                       std::shared_ptr<mediapipe::LocationData> location_data = std::shared_ptr<mediapipe::LocationData>(),
                       std::optional<std::string>               feature_tag = std::optional<std::string>(),
                       std::optional<std::string>               track_id = std::optional<std::string>(),
                       std::optional<int64_t>                   detection_id = std::optional<int64_t>(),
-                      ::LUA_MODULE_NAME::Object                associated_detections = ::LUA_MODULE_NAME::Object(),
-                      ::LUA_MODULE_NAME::Object                display_name = ::LUA_MODULE_NAME::Object(),
+                      ::mediapipe_lua::Object                  associated_detections = ::LUA_MODULE_NAME::Object(),
+                      ::mediapipe_lua::Object                  display_name = ::LUA_MODULE_NAME::Object(),
                       std::optional<int64_t>                   timestamp_usec = std::optional<int64_t>() );
 lua:
     mediapipe.Detection.new( [label[, label_id[, score[, location_data[, feature_tag[, track_id[, detection_id[, associated_detections[, display_name[, timestamp_usec]]]]]]]]]] ) -> <mediapipe::Detection object>
@@ -27158,7 +27349,7 @@ lua:
 ### DetectionList.detection
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::DetectionList::detection
+::mediapipe_lua::Object mediapipe::DetectionList::detection
 lua:
     [propget, propput] oDetectionList.detection
 ```
@@ -27166,7 +27357,7 @@ lua:
 ### mediapipe.DetectionList.new
 
 ```cpp
-mediapipe::DetectionList( ::LUA_MODULE_NAME::Object detection = ::LUA_MODULE_NAME::Object() );
+mediapipe::DetectionList( ::mediapipe_lua::Object detection = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.DetectionList.new( [detection] ) -> <mediapipe::DetectionList object>
     mediapipe.DetectionList( [detection] ) -> <mediapipe::DetectionList object>
@@ -27306,7 +27497,7 @@ lua:
 ### FaceDetectionOptions.strides
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::FaceDetectionOptions::strides
+::mediapipe_lua::Object mediapipe::FaceDetectionOptions::strides
 lua:
     [propget, propput] oFaceDetectionOptions.strides
 ```
@@ -27391,7 +27582,7 @@ mediapipe::FaceDetectionOptions( std::optional<std::string>                     
                                  std::optional<int>                                               tensor_width = std::optional<int>(),
                                  std::optional<int>                                               tensor_height = std::optional<int>(),
                                  std::optional<int>                                               num_layers = std::optional<int>(),
-                                 ::LUA_MODULE_NAME::Object                                        strides = ::LUA_MODULE_NAME::Object(),
+                                 ::mediapipe_lua::Object                                          strides = ::LUA_MODULE_NAME::Object(),
                                  std::optional<float>                                             interpolated_scale_aspect_ratio = std::optional<float>(),
                                  std::optional<int>                                               num_boxes = std::optional<int>(),
                                  std::optional<float>                                             x_scale = std::optional<float>(),
@@ -27650,7 +27841,7 @@ lua:
 ### FrameAnnotation.annotations
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::FrameAnnotation::annotations
+::mediapipe_lua::Object mediapipe::FrameAnnotation::annotations
 lua:
     [propget, propput] oFrameAnnotation.annotations
 ```
@@ -27674,7 +27865,7 @@ lua:
 ### FrameAnnotation.plane\_center
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::FrameAnnotation::plane_center
+::mediapipe_lua::Object mediapipe::FrameAnnotation::plane_center
 lua:
     [propget, propput] oFrameAnnotation.plane_center
 ```
@@ -27682,7 +27873,7 @@ lua:
 ### FrameAnnotation.plane\_normal
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::FrameAnnotation::plane_normal
+::mediapipe_lua::Object mediapipe::FrameAnnotation::plane_normal
 lua:
     [propget, propput] oFrameAnnotation.plane_normal
 ```
@@ -27691,11 +27882,11 @@ lua:
 
 ```cpp
 mediapipe::FrameAnnotation( std::optional<int>                   frame_id = std::optional<int>(),
-                            ::LUA_MODULE_NAME::Object            annotations = ::LUA_MODULE_NAME::Object(),
+                            ::mediapipe_lua::Object              annotations = ::LUA_MODULE_NAME::Object(),
                             std::shared_ptr<mediapipe::ARCamera> camera = std::shared_ptr<mediapipe::ARCamera>(),
                             std::optional<double>                timestamp = std::optional<double>(),
-                            ::LUA_MODULE_NAME::Object            plane_center = ::LUA_MODULE_NAME::Object(),
-                            ::LUA_MODULE_NAME::Object            plane_normal = ::LUA_MODULE_NAME::Object() );
+                            ::mediapipe_lua::Object              plane_center = ::LUA_MODULE_NAME::Object(),
+                            ::mediapipe_lua::Object              plane_normal = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.FrameAnnotation.new( [frame_id[, annotations[, camera[, timestamp[, plane_center[, plane_normal]]]]]] ) -> <mediapipe::FrameAnnotation object>
     mediapipe.FrameAnnotation( [frame_id[, annotations[, camera[, timestamp[, plane_center[, plane_normal]]]]]] ) -> <mediapipe::FrameAnnotation object>
@@ -27925,7 +28116,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::Image::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::Image::operator==( ::mediapipe_lua::Object other );
 lua:
     oImage:__eq( other ) -> retval
 ```
@@ -28313,7 +28504,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::ImageFrame::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::ImageFrame::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageFrame:__eq( other ) -> retval
 ```
@@ -28936,7 +29127,7 @@ lua:
 ### InputOutputConfig.feedback\_tensor\_links
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::feedback_tensor_links
+::mediapipe_lua::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::feedback_tensor_links
 lua:
     [propget, propput] oInputOutputConfig.feedback_tensor_links
 ```
@@ -28948,7 +29139,7 @@ mediapipe::InferenceCalculatorOptions::InputOutputConfig( std::shared_ptr<mediap
                                                           std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap>   input_tensor_names_map = std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap>(),
                                                           std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap> output_tensor_indices_map = std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap>(),
                                                           std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap>   output_tensor_names_map = std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap>(),
-                                                          ::LUA_MODULE_NAME::Object                                                                   feedback_tensor_links = ::LUA_MODULE_NAME::Object() );
+                                                          ::mediapipe_lua::Object                                                                     feedback_tensor_links = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.InferenceCalculatorOptions.InputOutputConfig.new( [input_tensor_indices_map[, input_tensor_names_map[, output_tensor_indices_map[, output_tensor_names_map[, feedback_tensor_links]]]]] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig object>
     mediapipe.InferenceCalculatorOptions.InputOutputConfig( [input_tensor_indices_map[, input_tensor_names_map[, output_tensor_indices_map[, output_tensor_names_map[, feedback_tensor_links]]]]] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig object>
@@ -29003,7 +29194,7 @@ lua:
 ### TensorIndicesMap.model\_tensor\_indices
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap::model_tensor_indices
+::mediapipe_lua::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap::model_tensor_indices
 lua:
     [propget, propput] oTensorIndicesMap.model_tensor_indices
 ```
@@ -29011,7 +29202,7 @@ lua:
 ### mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorIndicesMap.new
 
 ```cpp
-mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap( ::LUA_MODULE_NAME::Object model_tensor_indices = ::LUA_MODULE_NAME::Object() );
+mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap( ::mediapipe_lua::Object model_tensor_indices = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorIndicesMap.new( [model_tensor_indices] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap object>
     mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorIndicesMap( [model_tensor_indices] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorIndicesMap object>
@@ -29030,7 +29221,7 @@ lua:
 ### TensorNamesMap.tensor\_names
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap::tensor_names
+::mediapipe_lua::Object mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap::tensor_names
 lua:
     [propget, propput] oTensorNamesMap.tensor_names
 ```
@@ -29038,7 +29229,7 @@ lua:
 ### mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorNamesMap.new
 
 ```cpp
-mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap( ::LUA_MODULE_NAME::Object tensor_names = ::LUA_MODULE_NAME::Object() );
+mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap( ::mediapipe_lua::Object tensor_names = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorNamesMap.new( [tensor_names] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap object>
     mediapipe.InferenceCalculatorOptions.InputOutputConfig.TensorNamesMap( [tensor_names] ) -> <mediapipe::InferenceCalculatorOptions::InputOutputConfig::TensorNamesMap object>
@@ -29065,7 +29256,7 @@ lua:
 ### InputCollection.side\_packet\_name
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InputCollection::side_packet_name
+::mediapipe_lua::Object mediapipe::InputCollection::side_packet_name
 lua:
     [propget, propput] oInputCollection.side_packet_name
 ```
@@ -29073,7 +29264,7 @@ lua:
 ### InputCollection.external\_input\_name
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InputCollection::external_input_name
+::mediapipe_lua::Object mediapipe::InputCollection::external_input_name
 lua:
     [propget, propput] oInputCollection.external_input_name
 ```
@@ -29138,8 +29329,8 @@ lua:
 
 ```cpp
 mediapipe::InputCollection( std::optional<std::string>                           name = std::optional<std::string>(),
-                            ::LUA_MODULE_NAME::Object                            side_packet_name = ::LUA_MODULE_NAME::Object(),
-                            ::LUA_MODULE_NAME::Object                            external_input_name = ::LUA_MODULE_NAME::Object(),
+                            ::mediapipe_lua::Object                              side_packet_name = ::LUA_MODULE_NAME::Object(),
+                            ::mediapipe_lua::Object                              external_input_name = ::LUA_MODULE_NAME::Object(),
                             std::optional<mediapipe::InputCollection::InputType> input_type = std::optional<mediapipe::InputCollection::InputType>(),
                             std::optional<std::string>                           file_name = std::optional<std::string>() );
 lua:
@@ -29160,7 +29351,7 @@ lua:
 ### InputCollectionSet.input\_collection
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::InputCollectionSet::input_collection
+::mediapipe_lua::Object mediapipe::InputCollectionSet::input_collection
 lua:
     [propget, propput] oInputCollectionSet.input_collection
 ```
@@ -29168,7 +29359,7 @@ lua:
 ### mediapipe.InputCollectionSet.new
 
 ```cpp
-mediapipe::InputCollectionSet( ::LUA_MODULE_NAME::Object input_collection = ::LUA_MODULE_NAME::Object() );
+mediapipe::InputCollectionSet( ::mediapipe_lua::Object input_collection = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.InputCollectionSet.new( [input_collection] ) -> <mediapipe::InputCollectionSet object>
     mediapipe.InputCollectionSet( [input_collection] ) -> <mediapipe::InputCollectionSet object>
@@ -29347,7 +29538,7 @@ lua:
 ### LabelMapItem.child\_name
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::LabelMapItem::child_name
+::mediapipe_lua::Object mediapipe::LabelMapItem::child_name
 lua:
     [propget, propput] oLabelMapItem.child_name
 ```
@@ -29357,7 +29548,7 @@ lua:
 ```cpp
 mediapipe::LabelMapItem( std::optional<std::string> name = std::optional<std::string>(),
                          std::optional<std::string> display_name = std::optional<std::string>(),
-                         ::LUA_MODULE_NAME::Object  child_name = ::LUA_MODULE_NAME::Object() );
+                         ::mediapipe_lua::Object    child_name = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.LabelMapItem.new( [name[, display_name[, child_name]]] ) -> <mediapipe::LabelMapItem object>
     mediapipe.LabelMapItem( [name[, display_name[, child_name]]] ) -> <mediapipe::LabelMapItem object>
@@ -29439,7 +29630,7 @@ lua:
 ### LandmarkList.landmark
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::LandmarkList::landmark
+::mediapipe_lua::Object mediapipe::LandmarkList::landmark
 lua:
     [propget, propput] oLandmarkList.landmark
 ```
@@ -29447,7 +29638,7 @@ lua:
 ### mediapipe.LandmarkList.new
 
 ```cpp
-mediapipe::LandmarkList( ::LUA_MODULE_NAME::Object landmark = ::LUA_MODULE_NAME::Object() );
+mediapipe::LandmarkList( ::mediapipe_lua::Object landmark = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.LandmarkList.new( [landmark] ) -> <mediapipe::LandmarkList object>
     mediapipe.LandmarkList( [landmark] ) -> <mediapipe::LandmarkList object>
@@ -29466,7 +29657,7 @@ lua:
 ### LandmarkListCollection.landmark\_list
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::LandmarkListCollection::landmark_list
+::mediapipe_lua::Object mediapipe::LandmarkListCollection::landmark_list
 lua:
     [propget, propput] oLandmarkListCollection.landmark_list
 ```
@@ -29474,7 +29665,7 @@ lua:
 ### mediapipe.LandmarkListCollection.new
 
 ```cpp
-mediapipe::LandmarkListCollection( ::LUA_MODULE_NAME::Object landmark_list = ::LUA_MODULE_NAME::Object() );
+mediapipe::LandmarkListCollection( ::mediapipe_lua::Object landmark_list = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.LandmarkListCollection.new( [landmark_list] ) -> <mediapipe::LandmarkListCollection object>
     mediapipe.LandmarkListCollection( [landmark_list] ) -> <mediapipe::LandmarkListCollection object>
@@ -29794,7 +29985,7 @@ lua:
 ### LocationData.relative\_keypoints
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::LocationData::relative_keypoints
+::mediapipe_lua::Object mediapipe::LocationData::relative_keypoints
 lua:
     [propget, propput] oLocationData.relative_keypoints
 ```
@@ -29838,7 +30029,7 @@ mediapipe::LocationData( std::optional<mediapipe::LocationData::Format>         
                          std::shared_ptr<mediapipe::LocationData::BoundingBox>         bounding_box = std::shared_ptr<mediapipe::LocationData::BoundingBox>(),
                          std::shared_ptr<mediapipe::LocationData::RelativeBoundingBox> relative_bounding_box = std::shared_ptr<mediapipe::LocationData::RelativeBoundingBox>(),
                          std::shared_ptr<mediapipe::LocationData::BinaryMask>          mask = std::shared_ptr<mediapipe::LocationData::BinaryMask>(),
-                         ::LUA_MODULE_NAME::Object                                     relative_keypoints = ::LUA_MODULE_NAME::Object() );
+                         ::mediapipe_lua::Object                                       relative_keypoints = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.LocationData.new( [format[, bounding_box[, relative_bounding_box[, mask[, relative_keypoints]]]]] ) -> <mediapipe::LocationData object>
     mediapipe.LocationData( [format[, bounding_box[, relative_bounding_box[, mask[, relative_keypoints]]]]] ) -> <mediapipe::LocationData object>
@@ -30080,7 +30271,7 @@ lua:
 ### LogicCalculatorOptions.input\_value
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::LogicCalculatorOptions::input_value
+::mediapipe_lua::Object mediapipe::LogicCalculatorOptions::input_value
 lua:
     [propget, propput] oLogicCalculatorOptions.input_value
 ```
@@ -30122,7 +30313,7 @@ lua:
 ```cpp
 mediapipe::LogicCalculatorOptions( std::optional<mediapipe::LogicCalculatorOptions::Operation> op = std::optional<mediapipe::LogicCalculatorOptions::Operation>(),
                                    std::optional<bool>                                         negate = std::optional<bool>(),
-                                   ::LUA_MODULE_NAME::Object                                   input_value = ::LUA_MODULE_NAME::Object() );
+                                   ::mediapipe_lua::Object                                     input_value = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.LogicCalculatorOptions.new( [op[, negate[, input_value]]] ) -> <mediapipe::LogicCalculatorOptions object>
     mediapipe.LogicCalculatorOptions( [op[, negate[, input_value]]] ) -> <mediapipe::LogicCalculatorOptions object>
@@ -30157,7 +30348,7 @@ lua:
 ### MatrixData.packed\_data
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::MatrixData::packed_data
+::mediapipe_lua::Object mediapipe::MatrixData::packed_data
 lua:
     [propget, propput] oMatrixData.packed_data
 ```
@@ -30191,7 +30382,7 @@ lua:
 ```cpp
 mediapipe::MatrixData( std::optional<int>                           rows = std::optional<int>(),
                        std::optional<int>                           cols = std::optional<int>(),
-                       ::LUA_MODULE_NAME::Object                    packed_data = ::LUA_MODULE_NAME::Object(),
+                       ::mediapipe_lua::Object                      packed_data = ::LUA_MODULE_NAME::Object(),
                        std::optional<mediapipe::MatrixData::Layout> layout = std::optional<mediapipe::MatrixData::Layout>() );
 lua:
     mediapipe.MatrixData.new( [rows[, cols[, packed_data[, layout]]]] ) -> <mediapipe::MatrixData object>
@@ -30329,7 +30520,7 @@ lua:
 ### NormalizedLandmarkList.landmark
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::NormalizedLandmarkList::landmark
+::mediapipe_lua::Object mediapipe::NormalizedLandmarkList::landmark
 lua:
     [propget, propput] oNormalizedLandmarkList.landmark
 ```
@@ -30337,7 +30528,7 @@ lua:
 ### mediapipe.NormalizedLandmarkList.new
 
 ```cpp
-mediapipe::NormalizedLandmarkList( ::LUA_MODULE_NAME::Object landmark = ::LUA_MODULE_NAME::Object() );
+mediapipe::NormalizedLandmarkList( ::mediapipe_lua::Object landmark = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.NormalizedLandmarkList.new( [landmark] ) -> <mediapipe::NormalizedLandmarkList object>
     mediapipe.NormalizedLandmarkList( [landmark] ) -> <mediapipe::NormalizedLandmarkList object>
@@ -30356,7 +30547,7 @@ lua:
 ### NormalizedLandmarkListCollection.landmark\_list
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::NormalizedLandmarkListCollection::landmark_list
+::mediapipe_lua::Object mediapipe::NormalizedLandmarkListCollection::landmark_list
 lua:
     [propget, propput] oNormalizedLandmarkListCollection.landmark_list
 ```
@@ -30364,7 +30555,7 @@ lua:
 ### mediapipe.NormalizedLandmarkListCollection.new
 
 ```cpp
-mediapipe::NormalizedLandmarkListCollection( ::LUA_MODULE_NAME::Object landmark_list = ::LUA_MODULE_NAME::Object() );
+mediapipe::NormalizedLandmarkListCollection( ::mediapipe_lua::Object landmark_list = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.NormalizedLandmarkListCollection.new( [landmark_list] ) -> <mediapipe::NormalizedLandmarkListCollection object>
     mediapipe.NormalizedLandmarkListCollection( [landmark_list] ) -> <mediapipe::NormalizedLandmarkListCollection object>
@@ -30524,7 +30715,7 @@ lua:
 ### Object.rotation
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Object::rotation
+::mediapipe_lua::Object mediapipe::Object::rotation
 lua:
     [propget, propput] oObject.rotation
 ```
@@ -30532,7 +30723,7 @@ lua:
 ### Object.translation
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Object::translation
+::mediapipe_lua::Object mediapipe::Object::translation
 lua:
     [propget, propput] oObject.translation
 ```
@@ -30540,7 +30731,7 @@ lua:
 ### Object.scale
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Object::scale
+::mediapipe_lua::Object mediapipe::Object::scale
 lua:
     [propget, propput] oObject.scale
 ```
@@ -30548,7 +30739,7 @@ lua:
 ### Object.keypoints
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Object::keypoints
+::mediapipe_lua::Object mediapipe::Object::keypoints
 lua:
     [propget, propput] oObject.keypoints
 ```
@@ -30615,10 +30806,10 @@ lua:
 mediapipe::Object( std::optional<int>                       id = std::optional<int>(),
                    std::optional<std::string>               category = std::optional<std::string>(),
                    std::optional<mediapipe::Object::Type>   type = std::optional<mediapipe::Object::Type>(),
-                   ::LUA_MODULE_NAME::Object                rotation = ::LUA_MODULE_NAME::Object(),
-                   ::LUA_MODULE_NAME::Object                translation = ::LUA_MODULE_NAME::Object(),
-                   ::LUA_MODULE_NAME::Object                scale = ::LUA_MODULE_NAME::Object(),
-                   ::LUA_MODULE_NAME::Object                keypoints = ::LUA_MODULE_NAME::Object(),
+                   ::mediapipe_lua::Object                  rotation = ::LUA_MODULE_NAME::Object(),
+                   ::mediapipe_lua::Object                  translation = ::LUA_MODULE_NAME::Object(),
+                   ::mediapipe_lua::Object                  scale = ::LUA_MODULE_NAME::Object(),
+                   ::mediapipe_lua::Object                  keypoints = ::LUA_MODULE_NAME::Object(),
                    std::optional<mediapipe::Object::Method> method = std::optional<mediapipe::Object::Method>() );
 lua:
     mediapipe.Object.new( [id[, category[, type[, rotation[, translation[, scale[, keypoints[, method]]]]]]]] ) -> <mediapipe::Object object>
@@ -30646,7 +30837,7 @@ lua:
 ### ObjectAnnotation.keypoints
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ObjectAnnotation::keypoints
+::mediapipe_lua::Object mediapipe::ObjectAnnotation::keypoints
 lua:
     [propget, propput] oObjectAnnotation.keypoints
 ```
@@ -30662,7 +30853,7 @@ lua:
 ### ObjectAnnotation.rotation
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ObjectAnnotation::rotation
+::mediapipe_lua::Object mediapipe::ObjectAnnotation::rotation
 lua:
     [propget, propput] oObjectAnnotation.rotation
 ```
@@ -30670,7 +30861,7 @@ lua:
 ### ObjectAnnotation.translation
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ObjectAnnotation::translation
+::mediapipe_lua::Object mediapipe::ObjectAnnotation::translation
 lua:
     [propget, propput] oObjectAnnotation.translation
 ```
@@ -30678,7 +30869,7 @@ lua:
 ### ObjectAnnotation.scale
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ObjectAnnotation::scale
+::mediapipe_lua::Object mediapipe::ObjectAnnotation::scale
 lua:
     [propget, propput] oObjectAnnotation.scale
 ```
@@ -30686,12 +30877,12 @@ lua:
 ### mediapipe.ObjectAnnotation.new
 
 ```cpp
-mediapipe::ObjectAnnotation( std::optional<int>        object_id = std::optional<int>(),
-                             ::LUA_MODULE_NAME::Object keypoints = ::LUA_MODULE_NAME::Object(),
-                             std::optional<float>      visibility = std::optional<float>(),
-                             ::LUA_MODULE_NAME::Object rotation = ::LUA_MODULE_NAME::Object(),
-                             ::LUA_MODULE_NAME::Object translation = ::LUA_MODULE_NAME::Object(),
-                             ::LUA_MODULE_NAME::Object scale = ::LUA_MODULE_NAME::Object() );
+mediapipe::ObjectAnnotation( std::optional<int>      object_id = std::optional<int>(),
+                             ::mediapipe_lua::Object keypoints = ::LUA_MODULE_NAME::Object(),
+                             std::optional<float>    visibility = std::optional<float>(),
+                             ::mediapipe_lua::Object rotation = ::LUA_MODULE_NAME::Object(),
+                             ::mediapipe_lua::Object translation = ::LUA_MODULE_NAME::Object(),
+                             ::mediapipe_lua::Object scale = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.ObjectAnnotation.new( [object_id[, keypoints[, visibility[, rotation[, translation[, scale]]]]]] ) -> <mediapipe::ObjectAnnotation object>
     mediapipe.ObjectAnnotation( [object_id[, keypoints[, visibility[, rotation[, translation[, scale]]]]]] ) -> <mediapipe::ObjectAnnotation object>
@@ -30718,7 +30909,7 @@ lua:
 ### OutputStreamHandlerConfig.input\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::OutputStreamHandlerConfig::input_side_packet
+::mediapipe_lua::Object mediapipe::OutputStreamHandlerConfig::input_side_packet
 lua:
     [propget, propput] oOutputStreamHandlerConfig.input_side_packet
 ```
@@ -30735,7 +30926,7 @@ lua:
 
 ```cpp
 mediapipe::OutputStreamHandlerConfig( std::optional<std::string>                   output_stream_handler = std::optional<std::string>(),
-                                      ::LUA_MODULE_NAME::Object                    input_side_packet = ::LUA_MODULE_NAME::Object(),
+                                      ::mediapipe_lua::Object                      input_side_packet = ::LUA_MODULE_NAME::Object(),
                                       std::shared_ptr<mediapipe::MediaPipeOptions> options = std::shared_ptr<mediapipe::MediaPipeOptions>() );
 lua:
     mediapipe.OutputStreamHandlerConfig.new( [output_stream_handler[, input_side_packet[, options]]] ) -> <mediapipe::OutputStreamHandlerConfig object>
@@ -30823,7 +31014,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::Packet::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::Packet::operator==( ::mediapipe_lua::Object other );
 lua:
     oPacket:__eq( other ) -> retval
 ```
@@ -30914,7 +31105,7 @@ lua:
 ### PacketGeneratorConfig.input\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::PacketGeneratorConfig::input_side_packet
+::mediapipe_lua::Object mediapipe::PacketGeneratorConfig::input_side_packet
 lua:
     [propget, propput] oPacketGeneratorConfig.input_side_packet
 ```
@@ -30922,7 +31113,7 @@ lua:
 ### PacketGeneratorConfig.external\_input
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::PacketGeneratorConfig::external_input
+::mediapipe_lua::Object mediapipe::PacketGeneratorConfig::external_input
 lua:
     [propget, propput] oPacketGeneratorConfig.external_input
 ```
@@ -30930,7 +31121,7 @@ lua:
 ### PacketGeneratorConfig.output\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::PacketGeneratorConfig::output_side_packet
+::mediapipe_lua::Object mediapipe::PacketGeneratorConfig::output_side_packet
 lua:
     [propget, propput] oPacketGeneratorConfig.output_side_packet
 ```
@@ -30938,7 +31129,7 @@ lua:
 ### PacketGeneratorConfig.external\_output
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::PacketGeneratorConfig::external_output
+::mediapipe_lua::Object mediapipe::PacketGeneratorConfig::external_output
 lua:
     [propget, propput] oPacketGeneratorConfig.external_output
 ```
@@ -30955,10 +31146,10 @@ lua:
 
 ```cpp
 mediapipe::PacketGeneratorConfig( std::optional<std::string>                         packet_generator = std::optional<std::string>(),
-                                  ::LUA_MODULE_NAME::Object                          input_side_packet = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                          external_input = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                          output_side_packet = ::LUA_MODULE_NAME::Object(),
-                                  ::LUA_MODULE_NAME::Object                          external_output = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                            input_side_packet = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                            external_input = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                            output_side_packet = ::LUA_MODULE_NAME::Object(),
+                                  ::mediapipe_lua::Object                            external_output = ::LUA_MODULE_NAME::Object(),
                                   std::shared_ptr<mediapipe::PacketGeneratorOptions> options = std::shared_ptr<mediapipe::PacketGeneratorOptions>() );
 lua:
     mediapipe.PacketGeneratorConfig.new( [packet_generator[, input_side_packet[, external_input[, output_side_packet[, external_output[, options]]]]]] ) -> <mediapipe::PacketGeneratorConfig object>
@@ -31005,7 +31196,7 @@ lua:
 ### PacketManagerConfig.packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::PacketManagerConfig::packet
+::mediapipe_lua::Object mediapipe::PacketManagerConfig::packet
 lua:
     [propget, propput] oPacketManagerConfig.packet
 ```
@@ -31013,7 +31204,7 @@ lua:
 ### mediapipe.PacketManagerConfig.new
 
 ```cpp
-mediapipe::PacketManagerConfig( ::LUA_MODULE_NAME::Object packet = ::LUA_MODULE_NAME::Object() );
+mediapipe::PacketManagerConfig( ::mediapipe_lua::Object packet = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.PacketManagerConfig.new( [packet] ) -> <mediapipe::PacketManagerConfig object>
     mediapipe.PacketManagerConfig( [packet] ) -> <mediapipe::PacketManagerConfig object>
@@ -31133,7 +31324,7 @@ lua:
 ### ProfilerConfig.trace\_event\_types\_disabled
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::ProfilerConfig::trace_event_types_disabled
+::mediapipe_lua::Object mediapipe::ProfilerConfig::trace_event_types_disabled
 lua:
     [propget, propput] oProfilerConfig.trace_event_types_disabled
 ```
@@ -31228,7 +31419,7 @@ mediapipe::ProfilerConfig( std::optional<int64_t>     histogram_interval_size_us
                            std::optional<bool>        enable_stream_latency = std::optional<bool>(),
                            std::optional<bool>        use_packet_timestamp_for_added_packet = std::optional<bool>(),
                            std::optional<int64_t>     trace_log_capacity = std::optional<int64_t>(),
-                           ::LUA_MODULE_NAME::Object  trace_event_types_disabled = ::LUA_MODULE_NAME::Object(),
+                           ::mediapipe_lua::Object    trace_event_types_disabled = ::LUA_MODULE_NAME::Object(),
                            std::optional<std::string> trace_log_path = std::optional<std::string>(),
                            std::optional<int>         trace_log_count = std::optional<int>(),
                            std::optional<int64_t>     trace_log_interval_usec = std::optional<int64_t>(),
@@ -31257,7 +31448,7 @@ lua:
 ### Rasterization.interval
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Rasterization::interval
+::mediapipe_lua::Object mediapipe::Rasterization::interval
 lua:
     [propget, propput] oRasterization.interval
 ```
@@ -31265,7 +31456,7 @@ lua:
 ### mediapipe.Rasterization.new
 
 ```cpp
-mediapipe::Rasterization( ::LUA_MODULE_NAME::Object interval = ::LUA_MODULE_NAME::Object() );
+mediapipe::Rasterization( ::mediapipe_lua::Object interval = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.Rasterization.new( [interval] ) -> <mediapipe::Rasterization object>
     mediapipe.Rasterization( [interval] ) -> <mediapipe::Rasterization object>
@@ -32100,7 +32291,7 @@ lua:
 ### Scribble.point
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::RenderAnnotation::Scribble::point
+::mediapipe_lua::Object mediapipe::RenderAnnotation::Scribble::point
 lua:
     [propget, propput] oScribble.point
 ```
@@ -32108,7 +32299,7 @@ lua:
 ### mediapipe.RenderAnnotation.Scribble.new
 
 ```cpp
-mediapipe::RenderAnnotation::Scribble( ::LUA_MODULE_NAME::Object point = ::LUA_MODULE_NAME::Object() );
+mediapipe::RenderAnnotation::Scribble( ::mediapipe_lua::Object point = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.RenderAnnotation.Scribble.new( [point] ) -> <mediapipe::RenderAnnotation::Scribble object>
     mediapipe.RenderAnnotation.Scribble( [point] ) -> <mediapipe::RenderAnnotation::Scribble object>
@@ -32235,7 +32426,7 @@ lua:
 ### RenderData.render\_annotations
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::RenderData::render_annotations
+::mediapipe_lua::Object mediapipe::RenderData::render_annotations
 lua:
     [propget, propput] oRenderData.render_annotations
 ```
@@ -32259,7 +32450,7 @@ lua:
 ### mediapipe.RenderData.new
 
 ```cpp
-mediapipe::RenderData( ::LUA_MODULE_NAME::Object                  render_annotations = ::LUA_MODULE_NAME::Object(),
+mediapipe::RenderData( ::mediapipe_lua::Object                    render_annotations = ::LUA_MODULE_NAME::Object(),
                        std::optional<std::string>                 scene_class = std::optional<std::string>(),
                        std::shared_ptr<mediapipe::RenderViewport> scene_viewport = std::shared_ptr<mediapipe::RenderViewport>() );
 lua:
@@ -32444,7 +32635,7 @@ lua:
 ### Sequence.objects
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Sequence::objects
+::mediapipe_lua::Object mediapipe::Sequence::objects
 lua:
     [propget, propput] oSequence.objects
 ```
@@ -32452,7 +32643,7 @@ lua:
 ### Sequence.frame\_annotations
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Sequence::frame_annotations
+::mediapipe_lua::Object mediapipe::Sequence::frame_annotations
 lua:
     [propget, propput] oSequence.frame_annotations
 ```
@@ -32460,8 +32651,8 @@ lua:
 ### mediapipe.Sequence.new
 
 ```cpp
-mediapipe::Sequence( ::LUA_MODULE_NAME::Object objects = ::LUA_MODULE_NAME::Object(),
-                     ::LUA_MODULE_NAME::Object frame_annotations = ::LUA_MODULE_NAME::Object() );
+mediapipe::Sequence( ::mediapipe_lua::Object objects = ::LUA_MODULE_NAME::Object(),
+                     ::mediapipe_lua::Object frame_annotations = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.Sequence.new( [objects[, frame_annotations]] ) -> <mediapipe::Sequence object>
     mediapipe.Sequence( [objects[, frame_annotations]] ) -> <mediapipe::Sequence object>
@@ -32496,7 +32687,7 @@ lua:
 ### Skeleton.keypoints
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Skeleton::keypoints
+::mediapipe_lua::Object mediapipe::Skeleton::keypoints
 lua:
     [propget, propput] oSkeleton.keypoints
 ```
@@ -32504,7 +32695,7 @@ lua:
 ### Skeleton.edges
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Skeleton::edges
+::mediapipe_lua::Object mediapipe::Skeleton::edges
 lua:
     [propget, propput] oSkeleton.edges
 ```
@@ -32514,8 +32705,8 @@ lua:
 ```cpp
 mediapipe::Skeleton( std::optional<int>         reference_keypoint = std::optional<int>(),
                      std::optional<std::string> category = std::optional<std::string>(),
-                     ::LUA_MODULE_NAME::Object  keypoints = ::LUA_MODULE_NAME::Object(),
-                     ::LUA_MODULE_NAME::Object  edges = ::LUA_MODULE_NAME::Object() );
+                     ::mediapipe_lua::Object    keypoints = ::LUA_MODULE_NAME::Object(),
+                     ::mediapipe_lua::Object    edges = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.Skeleton.new( [reference_keypoint[, category[, keypoints[, edges]]]] ) -> <mediapipe::Skeleton object>
     mediapipe.Skeleton( [reference_keypoint[, category[, keypoints[, edges]]]] ) -> <mediapipe::Skeleton object>
@@ -32534,7 +32725,7 @@ lua:
 ### Skeletons.object
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::Skeletons::object
+::mediapipe_lua::Object mediapipe::Skeletons::object
 lua:
     [propget, propput] oSkeletons.object
 ```
@@ -32542,7 +32733,7 @@ lua:
 ### mediapipe.Skeletons.new
 
 ```cpp
-mediapipe::Skeletons( ::LUA_MODULE_NAME::Object object = ::LUA_MODULE_NAME::Object() );
+mediapipe::Skeletons( ::mediapipe_lua::Object object = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.Skeletons.new( [object] ) -> <mediapipe::Skeletons object>
     mediapipe.Skeletons( [object] ) -> <mediapipe::Skeletons object>
@@ -32569,7 +32760,7 @@ lua:
 ### StatusHandlerConfig.input\_side\_packet
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::StatusHandlerConfig::input_side_packet
+::mediapipe_lua::Object mediapipe::StatusHandlerConfig::input_side_packet
 lua:
     [propget, propput] oStatusHandlerConfig.input_side_packet
 ```
@@ -32577,7 +32768,7 @@ lua:
 ### StatusHandlerConfig.external\_input
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::StatusHandlerConfig::external_input
+::mediapipe_lua::Object mediapipe::StatusHandlerConfig::external_input
 lua:
     [propget, propput] oStatusHandlerConfig.external_input
 ```
@@ -32594,8 +32785,8 @@ lua:
 
 ```cpp
 mediapipe::StatusHandlerConfig( std::optional<std::string>                   status_handler = std::optional<std::string>(),
-                                ::LUA_MODULE_NAME::Object                    input_side_packet = ::LUA_MODULE_NAME::Object(),
-                                ::LUA_MODULE_NAME::Object                    external_input = ::LUA_MODULE_NAME::Object(),
+                                ::mediapipe_lua::Object                      input_side_packet = ::LUA_MODULE_NAME::Object(),
+                                ::mediapipe_lua::Object                      external_input = ::LUA_MODULE_NAME::Object(),
                                 std::shared_ptr<mediapipe::MediaPipeOptions> options = std::shared_ptr<mediapipe::MediaPipeOptions>() );
 lua:
     mediapipe.StatusHandlerConfig.new( [status_handler[, input_side_packet[, external_input[, options]]]] ) -> <mediapipe::StatusHandlerConfig object>
@@ -32639,7 +32830,7 @@ lua:
 ### TemplateArgument.element
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TemplateArgument::element
+::mediapipe_lua::Object mediapipe::TemplateArgument::element
 lua:
     [propget, propput] oTemplateArgument.element
 ```
@@ -32650,7 +32841,7 @@ lua:
 mediapipe::TemplateArgument( std::optional<std::string>               str = std::optional<std::string>(),
                              std::optional<double>                    num = std::optional<double>(),
                              std::shared_ptr<mediapipe::TemplateDict> dict = std::shared_ptr<mediapipe::TemplateDict>(),
-                             ::LUA_MODULE_NAME::Object                element = ::LUA_MODULE_NAME::Object() );
+                             ::mediapipe_lua::Object                  element = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.TemplateArgument.new( [str[, num[, dict[, element]]]] ) -> <mediapipe::TemplateArgument object>
     mediapipe.TemplateArgument( [str[, num[, dict[, element]]]] ) -> <mediapipe::TemplateArgument object>
@@ -32669,7 +32860,7 @@ lua:
 ### TemplateDict.arg
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TemplateDict::arg
+::mediapipe_lua::Object mediapipe::TemplateDict::arg
 lua:
     [propget, propput] oTemplateDict.arg
 ```
@@ -32677,7 +32868,7 @@ lua:
 ### mediapipe.TemplateDict.new
 
 ```cpp
-mediapipe::TemplateDict( ::LUA_MODULE_NAME::Object arg = ::LUA_MODULE_NAME::Object() );
+mediapipe::TemplateDict( ::mediapipe_lua::Object arg = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.TemplateDict.new( [arg] ) -> <mediapipe::TemplateDict object>
     mediapipe.TemplateDict( [arg] ) -> <mediapipe::TemplateDict object>
@@ -32748,7 +32939,7 @@ lua:
 ### TemplateExpression.arg
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TemplateExpression::arg
+::mediapipe_lua::Object mediapipe::TemplateExpression::arg
 lua:
     [propget, propput] oTemplateExpression.arg
 ```
@@ -32772,7 +32963,7 @@ lua:
 ### TemplateExpression.key\_type
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TemplateExpression::key_type
+::mediapipe_lua::Object mediapipe::TemplateExpression::key_type
 lua:
     [propget, propput] oTemplateExpression.key_type
 ```
@@ -32790,10 +32981,10 @@ lua:
 ```cpp
 mediapipe::TemplateExpression( std::optional<std::string>                           param = std::optional<std::string>(),
                                std::optional<std::string>                           op = std::optional<std::string>(),
-                               ::LUA_MODULE_NAME::Object                            arg = ::LUA_MODULE_NAME::Object(),
+                               ::mediapipe_lua::Object                              arg = ::LUA_MODULE_NAME::Object(),
                                std::optional<std::string>                           path = std::optional<std::string>(),
                                std::optional<mediapipe::FieldDescriptorProto::Type> field_type = std::optional<mediapipe::FieldDescriptorProto::Type>(),
-                               ::LUA_MODULE_NAME::Object                            key_type = ::LUA_MODULE_NAME::Object(),
+                               ::mediapipe_lua::Object                              key_type = ::LUA_MODULE_NAME::Object(),
                                std::optional<std::string>                           field_value = std::optional<std::string>() );
 lua:
     mediapipe.TemplateExpression.new( [param[, op[, arg[, path[, field_type[, key_type[, field_value]]]]]]] ) -> <mediapipe::TemplateExpression object>
@@ -32952,7 +33143,7 @@ lua:
 ### TensorsToDetectionsCalculatorOptions.ignore\_classes
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TensorsToDetectionsCalculatorOptions::ignore_classes
+::mediapipe_lua::Object mediapipe::TensorsToDetectionsCalculatorOptions::ignore_classes
 lua:
     [propget, propput] oTensorsToDetectionsCalculatorOptions.ignore_classes
 ```
@@ -32960,7 +33151,7 @@ lua:
 ### TensorsToDetectionsCalculatorOptions.allow\_classes
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::TensorsToDetectionsCalculatorOptions::allow_classes
+::mediapipe_lua::Object mediapipe::TensorsToDetectionsCalculatorOptions::allow_classes
 lua:
     [propget, propput] oTensorsToDetectionsCalculatorOptions.allow_classes
 ```
@@ -33093,8 +33284,8 @@ mediapipe::TensorsToDetectionsCalculatorOptions( std::optional<int>             
                                                  std::optional<float>                                                                   h_scale = std::optional<float>(),
                                                  std::optional<bool>                                                                    apply_exponential_on_box_size = std::optional<bool>(),
                                                  std::optional<bool>                                                                    reverse_output_order = std::optional<bool>(),
-                                                 ::LUA_MODULE_NAME::Object                                                              ignore_classes = ::LUA_MODULE_NAME::Object(),
-                                                 ::LUA_MODULE_NAME::Object                                                              allow_classes = ::LUA_MODULE_NAME::Object(),
+                                                 ::mediapipe_lua::Object                                                                ignore_classes = ::LUA_MODULE_NAME::Object(),
+                                                 ::mediapipe_lua::Object                                                                allow_classes = ::LUA_MODULE_NAME::Object(),
                                                  std::optional<bool>                                                                    sigmoid_score = std::optional<bool>(),
                                                  std::optional<float>                                                                   score_clipping_thresh = std::optional<float>(),
                                                  std::optional<bool>                                                                    flip_vertically = std::optional<bool>(),
@@ -33595,7 +33786,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::ValidatedGraphConfig::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::ValidatedGraphConfig::operator==( ::mediapipe_lua::Object other );
 lua:
     oValidatedGraphConfig:__eq( other ) -> retval
 ```
@@ -34318,6 +34509,14 @@ lua:
     mediapipe.lua.packet_creator.create_image_frame( data, image_format[, copy] ) -> retval
 ```
 
+### mediapipe.lua.packet\_creator.create\_image\_frame\_vector
+
+```cpp
+std::shared_ptr<mediapipe::Packet> mediapipe::lua::packet_creator::create_image_frame_vector( const std::vector<std::shared_ptr<mediapipe::ImageFrame>>& image_frame_list );
+lua:
+    mediapipe.lua.packet_creator.create_image_frame_vector( image_frame_list ) -> retval
+```
+
 ### mediapipe.lua.packet\_creator.create\_image\_vector
 
 ```cpp
@@ -34513,6 +34712,15 @@ lua:
     mediapipe.lua.packet_getter.get_image_frame( packet ) -> retval
 ```
 
+### mediapipe.lua.packet\_getter.get\_image\_frame\_list
+
+```cpp
+absl::Status mediapipe::lua::packet_getter::get_image_frame_list( const mediapipe::Packet&                             packet,
+                                                                  std::vector<std::shared_ptr<mediapipe::ImageFrame>>& image_frame_list );
+lua:
+    mediapipe.lua.packet_getter.get_image_frame_list( packet[, image_frame_list] ) -> retval, image_frame_list
+```
+
 ### mediapipe.lua.packet\_getter.get\_image\_list
 
 ```cpp
@@ -34600,9 +34808,9 @@ lua:
 
 ```cpp
 static absl::StatusOr<std::shared_ptr<mediapipe::lua::solution_base::SolutionBase>> mediapipe::lua::solution_base::SolutionBase::create( const std::string&                                                          binary_graph_path,
-                                                                                                                                         const std::map<std::string, ::LUA_MODULE_NAME::Object>&                     calculator_params = noMap(),
+                                                                                                                                         const std::map<std::string, ::mediapipe_lua::Object>&                       calculator_params = noMap(),
                                                                                                                                          const std::shared_ptr<google::protobuf::Message>&                           graph_options = std::shared_ptr<google::protobuf::Message>(),
-                                                                                                                                         const std::map<std::string, ::LUA_MODULE_NAME::Object>&                     side_inputs = noMap(),
+                                                                                                                                         const std::map<std::string, ::mediapipe_lua::Object>&                       side_inputs = noMap(),
                                                                                                                                          const std::vector<std::string>&                                             outputs = noVector(),
                                                                                                                                          const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap() );
 lua:
@@ -34611,9 +34819,9 @@ lua:
 
 ```cpp
 static absl::StatusOr<std::shared_ptr<mediapipe::lua::solution_base::SolutionBase>> mediapipe::lua::solution_base::SolutionBase::create( const mediapipe::CalculatorGraphConfig&                                     graph_config,
-                                                                                                                                         const std::map<std::string, ::LUA_MODULE_NAME::Object>&                     calculator_params = noMap(),
+                                                                                                                                         const std::map<std::string, ::mediapipe_lua::Object>&                       calculator_params = noMap(),
                                                                                                                                          const std::shared_ptr<google::protobuf::Message>&                           graph_options = std::shared_ptr<google::protobuf::Message>(),
-                                                                                                                                         const std::map<std::string, ::LUA_MODULE_NAME::Object>&                     side_inputs = noMap(),
+                                                                                                                                         const std::map<std::string, ::mediapipe_lua::Object>&                       side_inputs = noMap(),
                                                                                                                                          const std::vector<std::string>&                                             outputs = noVector(),
                                                                                                                                          const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap() );
 lua:
@@ -34639,8 +34847,8 @@ lua:
 ### mediapipe.lua.solution\_base.SolutionBase.create\_graph\_options
 
 ```cpp
-static absl::StatusOr<std::shared_ptr<google::protobuf::Message>> mediapipe::lua::solution_base::SolutionBase::create_graph_options( std::shared_ptr<google::protobuf::Message>              options_message,
-                                                                                                                                     const std::map<std::string, ::LUA_MODULE_NAME::Object>& values );
+static absl::StatusOr<std::shared_ptr<google::protobuf::Message>> mediapipe::lua::solution_base::SolutionBase::create_graph_options( std::shared_ptr<google::protobuf::Message>            options_message,
+                                                                                                                                     const std::map<std::string, ::mediapipe_lua::Object>& values );
 lua:
     mediapipe.lua.solution_base.SolutionBase.create_graph_options( options_message, values ) -> retval
 ```
@@ -34654,7 +34862,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solution_base::SolutionBase::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solution_base::SolutionBase::operator==( ::mediapipe_lua::Object other );
 lua:
     oSolutionBase:__eq( other ) -> retval
 ```
@@ -34662,15 +34870,15 @@ lua:
 ### mediapipe.lua.solution\_base.SolutionBase.process
 
 ```cpp
-absl::Status mediapipe::lua::solution_base::SolutionBase::process( const cv::Mat&                                    input_data,
-                                                                   std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solution_base::SolutionBase::process( const cv::Mat&                                  input_data,
+                                                                   std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oSolutionBase:process( input_data[, solution_outputs] ) -> retval, solution_outputs
 ```
 
 ```cpp
-absl::Status mediapipe::lua::solution_base::SolutionBase::process( const std::map<std::string, ::LUA_MODULE_NAME::Object>& input_data,
-                                                                   std::map<std::string, ::LUA_MODULE_NAME::Object>&       solution_outputs );
+absl::Status mediapipe::lua::solution_base::SolutionBase::process( const std::map<std::string, ::mediapipe_lua::Object>& input_data,
+                                                                   std::map<std::string, ::mediapipe_lua::Object>&       solution_outputs );
 lua:
     oSolutionBase:process( input_data[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -34684,6 +34892,14 @@ lua:
 ```
 
 ## mediapipe::lua::solutions::download\_utils
+
+### mediapipe.lua.solutions.download\_utils.curl
+
+```cpp
+absl::Status mediapipe::lua::solutions::download_utils::curl( const std::vector<std::string>& argv );
+lua:
+    mediapipe.lua.solutions.download_utils.curl( argv ) -> retval
+```
 
 ### mediapipe.lua.solutions.download\_utils.download
 
@@ -34933,7 +35149,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::drawing_utils::DrawingSpec::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::drawing_utils::DrawingSpec::operator==( ::mediapipe_lua::Object other );
 lua:
     oDrawingSpec:__eq( other ) -> retval
 ```
@@ -34971,8 +35187,8 @@ lua:
 ### mediapipe.lua.solutions.face\_detection.FaceDetection.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::face_detection::FaceDetection::process( const cv::Mat&                                    image,
-                                                                                std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::face_detection::FaceDetection::process( const cv::Mat&                                  image,
+                                                                                std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oFaceDetection:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35116,8 +35332,8 @@ lua:
 ### mediapipe.lua.solutions.face\_mesh.FaceMesh.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::face_mesh::FaceMesh::process( const cv::Mat&                                    image,
-                                                                      std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::face_mesh::FaceMesh::process( const cv::Mat&                                  image,
+                                                                      std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oFaceMesh:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35255,8 +35471,8 @@ lua:
 ### mediapipe.lua.solutions.hands.Hands.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::hands::Hands::process( const cv::Mat&                                    image,
-                                                               std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::hands::Hands::process( const cv::Mat&                                  image,
+                                                               std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oHands:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35397,8 +35613,8 @@ lua:
 ### mediapipe.lua.solutions.holistic.Holistic.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::holistic::Holistic::process( const cv::Mat&                                    image,
-                                                                     std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::holistic::Holistic::process( const cv::Mat&                                  image,
+                                                                     std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oHolistic:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35441,7 +35657,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::CameraModel::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::CameraModel::operator==( ::mediapipe_lua::Object other );
 lua:
     oCameraModel:__eq( other ) -> retval
 ```
@@ -35474,7 +35690,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::ChairModel::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::ChairModel::operator==( ::mediapipe_lua::Object other );
 lua:
     oChairModel:__eq( other ) -> retval
 ```
@@ -35507,7 +35723,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::CupModel::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::CupModel::operator==( ::mediapipe_lua::Object other );
 lua:
     oCupModel:__eq( other ) -> retval
 ```
@@ -35540,8 +35756,8 @@ lua:
 ### mediapipe.lua.solutions.objectron.Objectron.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::objectron::Objectron::process( const cv::Mat&                                    image,
-                                                                       std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::objectron::Objectron::process( const cv::Mat&                                  image,
+                                                                       std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oObjectron:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35590,7 +35806,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::ObjectronModel::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::ObjectronModel::operator==( ::mediapipe_lua::Object other );
 lua:
     oObjectronModel:__eq( other ) -> retval
 ```
@@ -35663,7 +35879,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::ObjectronOutputs::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::ObjectronOutputs::operator==( ::mediapipe_lua::Object other );
 lua:
     oObjectronOutputs:__eq( other ) -> retval
 ```
@@ -35696,7 +35912,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::lua::solutions::objectron::ShoeModel::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::lua::solutions::objectron::ShoeModel::operator==( ::mediapipe_lua::Object other );
 lua:
     oShoeModel:__eq( other ) -> retval
 ```
@@ -35738,8 +35954,8 @@ lua:
 ### mediapipe.lua.solutions.pose.Pose.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::pose::Pose::process( const cv::Mat&                                    image,
-                                                             std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::pose::Pose::process( const cv::Mat&                                  image,
+                                                             std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oPose:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -35775,8 +35991,8 @@ lua:
 ### mediapipe.lua.solutions.selfie\_segmentation.SelfieSegmentation.process
 
 ```cpp
-absl::Status mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation::process( const cv::Mat&                                    image,
-                                                                                          std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs );
+absl::Status mediapipe::lua::solutions::selfie_segmentation::SelfieSegmentation::process( const cv::Mat&                                  image,
+                                                                                          std::map<std::string, ::mediapipe_lua::Object>& solution_outputs );
 lua:
     oSelfieSegmentation:process( image[, solution_outputs] ) -> retval, solution_outputs
 ```
@@ -36586,7 +36802,7 @@ lua:
 ### ClassificationResult.classifications
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::components::containers::proto::ClassificationResult::classifications
+::mediapipe_lua::Object mediapipe::tasks::components::containers::proto::ClassificationResult::classifications
 lua:
     [propget, propput] oClassificationResult.classifications
 ```
@@ -36602,8 +36818,8 @@ lua:
 ### mediapipe.tasks.components.containers.proto.ClassificationResult.new
 
 ```cpp
-mediapipe::tasks::components::containers::proto::ClassificationResult( ::LUA_MODULE_NAME::Object classifications = ::LUA_MODULE_NAME::Object(),
-                                                                       std::optional<int64_t>    timestamp_ms = std::optional<int64_t>() );
+mediapipe::tasks::components::containers::proto::ClassificationResult( ::mediapipe_lua::Object classifications = ::LUA_MODULE_NAME::Object(),
+                                                                       std::optional<int64_t>  timestamp_ms = std::optional<int64_t>() );
 lua:
     mediapipe.tasks.components.containers.proto.ClassificationResult.new( [classifications[, timestamp_ms]] ) -> <mediapipe::tasks::components::containers::proto::ClassificationResult object>
     mediapipe.tasks.components.containers.proto.ClassificationResult( [classifications[, timestamp_ms]] ) -> <mediapipe::tasks::components::containers::proto::ClassificationResult object>
@@ -36721,7 +36937,7 @@ lua:
 ### EmbeddingResult.embeddings
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::components::containers::proto::EmbeddingResult::embeddings
+::mediapipe_lua::Object mediapipe::tasks::components::containers::proto::EmbeddingResult::embeddings
 lua:
     [propget, propput] oEmbeddingResult.embeddings
 ```
@@ -36737,8 +36953,8 @@ lua:
 ### mediapipe.tasks.components.containers.proto.EmbeddingResult.new
 
 ```cpp
-mediapipe::tasks::components::containers::proto::EmbeddingResult( ::LUA_MODULE_NAME::Object embeddings = ::LUA_MODULE_NAME::Object(),
-                                                                  std::optional<int64_t>    timestamp_ms = std::optional<int64_t>() );
+mediapipe::tasks::components::containers::proto::EmbeddingResult( ::mediapipe_lua::Object embeddings = ::LUA_MODULE_NAME::Object(),
+                                                                  std::optional<int64_t>  timestamp_ms = std::optional<int64_t>() );
 lua:
     mediapipe.tasks.components.containers.proto.EmbeddingResult.new( [embeddings[, timestamp_ms]] ) -> <mediapipe::tasks::components::containers::proto::EmbeddingResult object>
     mediapipe.tasks.components.containers.proto.EmbeddingResult( [embeddings[, timestamp_ms]] ) -> <mediapipe::tasks::components::containers::proto::EmbeddingResult object>
@@ -36757,7 +36973,7 @@ lua:
 ### FloatEmbedding.values
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::components::containers::proto::FloatEmbedding::values
+::mediapipe_lua::Object mediapipe::tasks::components::containers::proto::FloatEmbedding::values
 lua:
     [propget, propput] oFloatEmbedding.values
 ```
@@ -36765,7 +36981,7 @@ lua:
 ### mediapipe.tasks.components.containers.proto.FloatEmbedding.new
 
 ```cpp
-mediapipe::tasks::components::containers::proto::FloatEmbedding( ::LUA_MODULE_NAME::Object values = ::LUA_MODULE_NAME::Object() );
+mediapipe::tasks::components::containers::proto::FloatEmbedding( ::mediapipe_lua::Object values = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.tasks.components.containers.proto.FloatEmbedding.new( [values] ) -> <mediapipe::tasks::components::containers::proto::FloatEmbedding object>
     mediapipe.tasks.components.containers.proto.FloatEmbedding( [values] ) -> <mediapipe::tasks::components::containers::proto::FloatEmbedding object>
@@ -36835,7 +37051,7 @@ lua:
 ### ClassifierOptions.category\_allowlist
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::components::processors::proto::ClassifierOptions::category_allowlist
+::mediapipe_lua::Object mediapipe::tasks::components::processors::proto::ClassifierOptions::category_allowlist
 lua:
     [propget, propput] oClassifierOptions.category_allowlist
 ```
@@ -36843,7 +37059,7 @@ lua:
 ### ClassifierOptions.category\_denylist
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::components::processors::proto::ClassifierOptions::category_denylist
+::mediapipe_lua::Object mediapipe::tasks::components::processors::proto::ClassifierOptions::category_denylist
 lua:
     [propget, propput] oClassifierOptions.category_denylist
 ```
@@ -36854,8 +37070,8 @@ lua:
 mediapipe::tasks::components::processors::proto::ClassifierOptions( std::optional<std::string> display_names_locale = std::optional<std::string>(),
                                                                     std::optional<int>         max_results = std::optional<int>(),
                                                                     std::optional<float>       score_threshold = std::optional<float>(),
-                                                                    ::LUA_MODULE_NAME::Object  category_allowlist = ::LUA_MODULE_NAME::Object(),
-                                                                    ::LUA_MODULE_NAME::Object  category_denylist = ::LUA_MODULE_NAME::Object() );
+                                                                    ::mediapipe_lua::Object    category_allowlist = ::LUA_MODULE_NAME::Object(),
+                                                                    ::mediapipe_lua::Object    category_denylist = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.tasks.components.processors.proto.ClassifierOptions.new( [display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist]]]]] ) -> <mediapipe::tasks::components::processors::proto::ClassifierOptions object>
     mediapipe.tasks.components.processors.proto.ClassifierOptions( [display_names_locale[, max_results[, score_threshold[, category_allowlist[, category_denylist]]]]] ) -> <mediapipe::tasks::components::processors::proto::ClassifierOptions object>
@@ -36964,7 +37180,7 @@ lua:
 ### MultiLandmarksDetectionResult.landmarks
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::landmarks
+::mediapipe_lua::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::landmarks
 lua:
     [propget, propput] oMultiLandmarksDetectionResult.landmarks
 ```
@@ -36972,7 +37188,7 @@ lua:
 ### MultiLandmarksDetectionResult.classifications
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::classifications
+::mediapipe_lua::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::classifications
 lua:
     [propget, propput] oMultiLandmarksDetectionResult.classifications
 ```
@@ -36980,7 +37196,7 @@ lua:
 ### MultiLandmarksDetectionResult.world\_landmarks
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::world_landmarks
+::mediapipe_lua::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::world_landmarks
 lua:
     [propget, propput] oMultiLandmarksDetectionResult.world_landmarks
 ```
@@ -36988,7 +37204,7 @@ lua:
 ### MultiLandmarksDetectionResult.rects
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::rects
+::mediapipe_lua::Object mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult::rects
 lua:
     [propget, propput] oMultiLandmarksDetectionResult.rects
 ```
@@ -36996,10 +37212,10 @@ lua:
 ### mediapipe.tasks.containers.proto.MultiLandmarksDetectionResult.new
 
 ```cpp
-mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult( ::LUA_MODULE_NAME::Object landmarks = ::LUA_MODULE_NAME::Object(),
-                                                                    ::LUA_MODULE_NAME::Object classifications = ::LUA_MODULE_NAME::Object(),
-                                                                    ::LUA_MODULE_NAME::Object world_landmarks = ::LUA_MODULE_NAME::Object(),
-                                                                    ::LUA_MODULE_NAME::Object rects = ::LUA_MODULE_NAME::Object() );
+mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult( ::mediapipe_lua::Object landmarks = ::LUA_MODULE_NAME::Object(),
+                                                                    ::mediapipe_lua::Object classifications = ::LUA_MODULE_NAME::Object(),
+                                                                    ::mediapipe_lua::Object world_landmarks = ::LUA_MODULE_NAME::Object(),
+                                                                    ::mediapipe_lua::Object rects = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.tasks.containers.proto.MultiLandmarksDetectionResult.new( [landmarks[, classifications[, world_landmarks[, rects]]]] ) -> <mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult object>
     mediapipe.tasks.containers.proto.MultiLandmarksDetectionResult( [landmarks[, classifications[, world_landmarks[, rects]]]] ) -> <mediapipe::tasks::containers::proto::MultiLandmarksDetectionResult object>
@@ -37057,7 +37273,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::core::TaskRunner::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::core::TaskRunner::operator==( ::mediapipe_lua::Object other );
 lua:
     oTaskRunner:__eq( other ) -> retval
 ```
@@ -37567,7 +37783,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::audio::audio_classifier::AudioClassifierOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::audio::audio_classifier::AudioClassifierOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oAudioClassifierOptions:__eq( other ) -> retval
 ```
@@ -37732,7 +37948,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::audio::audio_embedder::AudioEmbedderOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::audio::audio_embedder::AudioEmbedderOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oAudioEmbedderOptions:__eq( other ) -> retval
 ```
@@ -37807,7 +38023,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::audio::core::base_audio_task_api::BaseAudioTaskApi::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::audio::core::base_audio_task_api::BaseAudioTaskApi::operator==( ::mediapipe_lua::Object other );
 lua:
     oBaseAudioTaskApi:__eq( other ) -> retval
 ```
@@ -37982,7 +38198,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::audio_data::AudioData::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::audio_data::AudioData::operator==( ::mediapipe_lua::Object other );
 lua:
     oAudioData:__eq( other ) -> retval
 ```
@@ -38039,7 +38255,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::audio_data::AudioDataFormat::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::audio_data::AudioDataFormat::operator==( ::mediapipe_lua::Object other );
 lua:
     oAudioDataFormat:__eq( other ) -> retval
 ```
@@ -38122,7 +38338,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::bounding_box::BoundingBox::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::bounding_box::BoundingBox::operator==( ::mediapipe_lua::Object other );
 lua:
     oBoundingBox:__eq( other ) -> retval
 ```
@@ -38213,7 +38429,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::category::Category::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::category::Category::operator==( ::mediapipe_lua::Object other );
 lua:
     oCategory:__eq( other ) -> retval
 ```
@@ -38286,7 +38502,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oClassificationResult:__eq( other ) -> retval
 ```
@@ -38368,7 +38584,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::classification_result::Classifications::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::classification_result::Classifications::operator==( ::mediapipe_lua::Object other );
 lua:
     oClassifications:__eq( other ) -> retval
 ```
@@ -38450,7 +38666,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::detections::Detection::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::detections::Detection::operator==( ::mediapipe_lua::Object other );
 lua:
     oDetection:__eq( other ) -> retval
 ```
@@ -38514,7 +38730,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::detections::DetectionResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::detections::DetectionResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oDetectionResult:__eq( other ) -> retval
 ```
@@ -38596,7 +38812,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::embedding_result::Embedding::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::embedding_result::Embedding::operator==( ::mediapipe_lua::Object other );
 lua:
     oEmbedding:__eq( other ) -> retval
 ```
@@ -38661,7 +38877,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oEmbeddingResult:__eq( other ) -> retval
 ```
@@ -38744,7 +38960,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint::operator==( ::mediapipe_lua::Object other );
 lua:
     oNormalizedKeypoint:__eq( other ) -> retval
 ```
@@ -38844,7 +39060,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::landmark::Landmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::landmark::Landmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oLandmark:__eq( other ) -> retval
 ```
@@ -38944,7 +39160,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark::operator==( ::mediapipe_lua::Object other );
 lua:
     oNormalizedLandmark:__eq( other ) -> retval
 ```
@@ -39035,7 +39251,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::landmark_detection_result::LandmarksDetectionResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::landmark_detection_result::LandmarksDetectionResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oLandmarksDetectionResult:__eq( other ) -> retval
 ```
@@ -39096,7 +39312,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::rect::NormalizedRect::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::rect::NormalizedRect::operator==( ::mediapipe_lua::Object other );
 lua:
     oNormalizedRect:__eq( other ) -> retval
 ```
@@ -39147,7 +39363,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::containers::rect::Rect::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::containers::rect::Rect::operator==( ::mediapipe_lua::Object other );
 lua:
     oRect:__eq( other ) -> retval
 ```
@@ -39259,7 +39475,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::components::processors::classifier_options::ClassifierOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::components::processors::classifier_options::ClassifierOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oClassifierOptions:__eq( other ) -> retval
 ```
@@ -39352,7 +39568,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::core::base_options::BaseOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::core::base_options::BaseOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oBaseOptions:__eq( other ) -> retval
 ```
@@ -39443,7 +39659,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::core::task_info::TaskInfo::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::core::task_info::TaskInfo::operator==( ::mediapipe_lua::Object other );
 lua:
     oTaskInfo:__eq( other ) -> retval
 ```
@@ -39557,7 +39773,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::core::base_text_task_api::BaseTextTaskApi::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::core::base_text_task_api::BaseTextTaskApi::operator==( ::mediapipe_lua::Object other );
 lua:
     oBaseTextTaskApi:__eq( other ) -> retval
 ```
@@ -39613,7 +39829,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::language_detector::LanguageDetector::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetector::operator==( ::mediapipe_lua::Object other );
 lua:
     oLanguageDetector:__eq( other ) -> retval
 ```
@@ -39706,7 +39922,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oLanguageDetectorOptions:__eq( other ) -> retval
 ```
@@ -39762,7 +39978,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oLanguageDetectorResult:__eq( other ) -> retval
 ```
@@ -39819,7 +40035,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection::operator==( ::mediapipe_lua::Object other );
 lua:
     oDetection:__eq( other ) -> retval
 ```
@@ -39875,7 +40091,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::text_classifier::TextClassifier::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::text_classifier::TextClassifier::operator==( ::mediapipe_lua::Object other );
 lua:
     oTextClassifier:__eq( other ) -> retval
 ```
@@ -39968,7 +40184,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::text_classifier::TextClassifierOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::text_classifier::TextClassifierOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oTextClassifierOptions:__eq( other ) -> retval
 ```
@@ -40041,7 +40257,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::text_embedder::TextEmbedder::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::text_embedder::TextEmbedder::operator==( ::mediapipe_lua::Object other );
 lua:
     oTextEmbedder:__eq( other ) -> retval
 ```
@@ -40107,7 +40323,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::text::text_embedder::TextEmbedderOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::text::text_embedder::TextEmbedderOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oTextEmbedderOptions:__eq( other ) -> retval
 ```
@@ -40553,7 +40769,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::core::base_vision_task_api::BaseVisionTaskApi::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::core::base_vision_task_api::BaseVisionTaskApi::operator==( ::mediapipe_lua::Object other );
 lua:
     oBaseVisionTaskApi:__eq( other ) -> retval
 ```
@@ -40610,7 +40826,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::core::image_processing_options::ImageProcessingOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageProcessingOptions:__eq( other ) -> retval
 ```
@@ -40669,7 +40885,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_aligner::FaceAligner::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_aligner::FaceAligner::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceAligner:__eq( other ) -> retval
 ```
@@ -40717,7 +40933,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_aligner::FaceAlignerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_aligner::FaceAlignerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceAlignerOptions:__eq( other ) -> retval
 ```
@@ -40814,7 +41030,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_detector::FaceDetector::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_detector::FaceDetector::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceDetector:__eq( other ) -> retval
 ```
@@ -40898,7 +41114,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_detector::FaceDetectorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_detector::FaceDetectorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceDetectorOptions:__eq( other ) -> retval
 ```
@@ -40985,7 +41201,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarker::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceLandmarker:__eq( other ) -> retval
 ```
@@ -41105,7 +41321,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarkerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarkerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceLandmarkerOptions:__eq( other ) -> retval
 ```
@@ -41179,7 +41395,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarkerResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarkerResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceLandmarkerResult:__eq( other ) -> retval
 ```
@@ -41292,7 +41508,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceLandmarksConnections:__eq( other ) -> retval
 ```
@@ -41349,7 +41565,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oConnection:__eq( other ) -> retval
 ```
@@ -41399,7 +41615,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizer::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizer::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceStylizer:__eq( other ) -> retval
 ```
@@ -41456,7 +41672,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::face_stylizer::FaceStylizerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oFaceStylizerOptions:__eq( other ) -> retval
 ```
@@ -41514,7 +41730,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizer::operator==( ::mediapipe_lua::Object other );
 lua:
     oGestureRecognizer:__eq( other ) -> retval
 ```
@@ -41663,7 +41879,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oGestureRecognizerOptions:__eq( other ) -> retval
 ```
@@ -41746,7 +41962,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizerResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::gesture_recognizer::GestureRecognizerResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oGestureRecognizerResult:__eq( other ) -> retval
 ```
@@ -41825,7 +42041,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarker::operator==( ::mediapipe_lua::Object other );
 lua:
     oHandLandmarker:__eq( other ) -> retval
 ```
@@ -41927,7 +42143,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarkerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarkerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oHandLandmarkerOptions:__eq( other ) -> retval
 ```
@@ -42001,7 +42217,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarkerResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarkerResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oHandLandmarkerResult:__eq( other ) -> retval
 ```
@@ -42090,7 +42306,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::operator==( ::mediapipe_lua::Object other );
 lua:
     oHandLandmarksConnections:__eq( other ) -> retval
 ```
@@ -42147,7 +42363,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oConnection:__eq( other ) -> retval
 ```
@@ -42226,7 +42442,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarker::operator==( ::mediapipe_lua::Object other );
 lua:
     oHolisticLandmarker:__eq( other ) -> retval
 ```
@@ -42373,7 +42589,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarkerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarkerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oHolisticLandmarkerOptions:__eq( other ) -> retval
 ```
@@ -42509,7 +42725,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarkerResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::holistic_landmarker::HolisticLandmarkerResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oHolisticLandmarkerResult:__eq( other ) -> retval
 ```
@@ -42598,7 +42814,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifier::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifier::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageClassifier:__eq( other ) -> retval
 ```
@@ -42709,7 +42925,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifierOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_classifier::ImageClassifierOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageClassifierOptions:__eq( other ) -> retval
 ```
@@ -42815,7 +43031,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedder::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedder::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageEmbedder:__eq( other ) -> retval
 ```
@@ -42899,7 +43115,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedderOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_embedder::ImageEmbedderOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageEmbedderOptions:__eq( other ) -> retval
 ```
@@ -42983,7 +43199,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenter::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageSegmenter:__eq( other ) -> retval
 ```
@@ -43096,7 +43312,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenterOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenterOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageSegmenterOptions:__eq( other ) -> retval
 ```
@@ -43161,7 +43377,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenterResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::image_segmenter::ImageSegmenterResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oImageSegmenterResult:__eq( other ) -> retval
 ```
@@ -43229,7 +43445,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenter::operator==( ::mediapipe_lua::Object other );
 lua:
     oInteractiveSegmenter:__eq( other ) -> retval
 ```
@@ -43305,7 +43521,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenterOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenterOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oInteractiveSegmenterOptions:__eq( other ) -> retval
 ```
@@ -43370,7 +43586,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenterResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::interactive_segmenter::InteractiveSegmenterResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oInteractiveSegmenterResult:__eq( other ) -> retval
 ```
@@ -43427,7 +43643,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::interactive_segmenter::RegionOfInterest::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::interactive_segmenter::RegionOfInterest::operator==( ::mediapipe_lua::Object other );
 lua:
     oRegionOfInterest:__eq( other ) -> retval
 ```
@@ -43516,7 +43732,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::object_detector::ObjectDetector::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::object_detector::ObjectDetector::operator==( ::mediapipe_lua::Object other );
 lua:
     oObjectDetector:__eq( other ) -> retval
 ```
@@ -43627,7 +43843,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::object_detector::ObjectDetectorOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::object_detector::ObjectDetectorOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oObjectDetectorOptions:__eq( other ) -> retval
 ```
@@ -43714,7 +43930,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarker::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarker::operator==( ::mediapipe_lua::Object other );
 lua:
     oPoseLandmarker:__eq( other ) -> retval
 ```
@@ -43825,7 +44041,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarkerOptions::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarkerOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oPoseLandmarkerOptions:__eq( other ) -> retval
 ```
@@ -43899,7 +44115,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarkerResult::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarkerResult::operator==( ::mediapipe_lua::Object other );
 lua:
     oPoseLandmarkerResult:__eq( other ) -> retval
 ```
@@ -43940,7 +44156,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::operator==( ::mediapipe_lua::Object other );
 lua:
     oPoseLandmarksConnections:__eq( other ) -> retval
 ```
@@ -43997,7 +44213,7 @@ lua:
 ```
 
 ```cpp
-bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection::operator==( ::LUA_MODULE_NAME::Object other );
+bool mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection::operator==( ::mediapipe_lua::Object other );
 lua:
     oConnection:__eq( other ) -> retval
 ```
@@ -44279,7 +44495,7 @@ lua:
 ### Mesh3d.vertex\_buffer
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::vision::face_geometry::proto::Mesh3d::vertex_buffer
+::mediapipe_lua::Object mediapipe::tasks::vision::face_geometry::proto::Mesh3d::vertex_buffer
 lua:
     [propget, propput] oMesh3d.vertex_buffer
 ```
@@ -44287,7 +44503,7 @@ lua:
 ### Mesh3d.index\_buffer
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::vision::face_geometry::proto::Mesh3d::index_buffer
+::mediapipe_lua::Object mediapipe::tasks::vision::face_geometry::proto::Mesh3d::index_buffer
 lua:
     [propget, propput] oMesh3d.index_buffer
 ```
@@ -44313,8 +44529,8 @@ lua:
 ```cpp
 mediapipe::tasks::vision::face_geometry::proto::Mesh3d( std::optional<mediapipe::tasks::vision::face_geometry::proto::Mesh3d::VertexType>    vertex_type = std::optional<mediapipe::tasks::vision::face_geometry::proto::Mesh3d::VertexType>(),
                                                         std::optional<mediapipe::tasks::vision::face_geometry::proto::Mesh3d::PrimitiveType> primitive_type = std::optional<mediapipe::tasks::vision::face_geometry::proto::Mesh3d::PrimitiveType>(),
-                                                        ::LUA_MODULE_NAME::Object                                                            vertex_buffer = ::LUA_MODULE_NAME::Object(),
-                                                        ::LUA_MODULE_NAME::Object                                                            index_buffer = ::LUA_MODULE_NAME::Object() );
+                                                        ::mediapipe_lua::Object                                                              vertex_buffer = ::LUA_MODULE_NAME::Object(),
+                                                        ::mediapipe_lua::Object                                                              index_buffer = ::LUA_MODULE_NAME::Object() );
 lua:
     mediapipe.tasks.vision.face_geometry.proto.Mesh3d.new( [vertex_type[, primitive_type[, vertex_buffer[, index_buffer]]]] ) -> <mediapipe::tasks::vision::face_geometry::proto::Mesh3d object>
     mediapipe.tasks.vision.face_geometry.proto.Mesh3d( [vertex_type[, primitive_type[, vertex_buffer[, index_buffer]]]] ) -> <mediapipe::tasks::vision::face_geometry::proto::Mesh3d object>
@@ -45405,7 +45621,7 @@ lua:
 ### ObjectDetectorOptions.category\_allowlist
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::category_allowlist
+::mediapipe_lua::Object mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::category_allowlist
 lua:
     [propget, propput] oObjectDetectorOptions.category_allowlist
 ```
@@ -45413,7 +45629,7 @@ lua:
 ### ObjectDetectorOptions.category\_denylist
 
 ```cpp
-::LUA_MODULE_NAME::Object mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::category_denylist
+::mediapipe_lua::Object mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions::category_denylist
 lua:
     [propget, propput] oObjectDetectorOptions.category_denylist
 ```
@@ -45449,8 +45665,8 @@ mediapipe::tasks::vision::object_detector::proto::ObjectDetectorOptions( std::sh
                                                                          std::optional<std::string>                                  display_names_locale = std::optional<std::string>(),
                                                                          std::optional<int>                                          max_results = std::optional<int>(),
                                                                          std::optional<float>                                        score_threshold = std::optional<float>(),
-                                                                         ::LUA_MODULE_NAME::Object                                   category_allowlist = ::LUA_MODULE_NAME::Object(),
-                                                                         ::LUA_MODULE_NAME::Object                                   category_denylist = ::LUA_MODULE_NAME::Object(),
+                                                                         ::mediapipe_lua::Object                                     category_allowlist = ::LUA_MODULE_NAME::Object(),
+                                                                         ::mediapipe_lua::Object                                     category_denylist = ::LUA_MODULE_NAME::Object(),
                                                                          std::optional<bool>                                         multiclass_nms = std::optional<bool>(),
                                                                          std::optional<float>                                        min_suppression_threshold = std::optional<float>() );
 lua:
@@ -45695,4 +45911,5624 @@ lua:
 mediapipe::RenderViewport
 lua:
     [propget] render_data_pb2.RenderViewport
+```
+
+## std::chrono::days
+
+### std.chrono.days.new
+
+```cpp
+std::chrono::days( const std::chrono::days::rep d );
+lua:
+    std.chrono.days.new( d ) -> <std::chrono::days object>
+    std.chrono.days( d ) -> <std::chrono::days object>
+```
+
+```cpp
+std::chrono::days( const std::chrono::days& d );
+lua:
+    std.chrono.days.new( d ) -> <std::chrono::days object>
+    std.chrono.days( d ) -> <std::chrono::days object>
+```
+
+```cpp
+std::chrono::days( const std::chrono::weeks& d );
+lua:
+    std.chrono.days.new( d ) -> <std::chrono::days object>
+    std.chrono.days( d ) -> <std::chrono::days object>
+```
+
+### std.chrono.days.\_\_type
+
+```cpp
+static std::string std::chrono::days::__type();
+lua:
+    std.chrono.days.__type() -> retval
+```
+
+### std.chrono.days.count
+
+```cpp
+std::chrono::days::rep std::chrono::days::count();
+lua:
+    odays:count() -> retval
+```
+
+### std.chrono.days.operator*
+
+```cpp
+std::chrono::days std::chrono::days::operator*( std::chrono::days::rep s );
+lua:
+    odays:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator*( const std::chrono::days& lhs,
+                                                       std::chrono::days::rep   s );
+lua:
+    std.chrono.days.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.days.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::days::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    odays:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::days::operator+( const std::chrono::days&                     d,
+                                                                           const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.days.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::days::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::days::operator+( const std::chrono::days&        lhs,
+                                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::days::operator+( const std::chrono::microseconds& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::days::operator+( const std::chrono::days&         lhs,
+                                                               const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::days::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::days::operator+( const std::chrono::days&         lhs,
+                                                               const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::days::operator+( const std::chrono::seconds& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::days::operator+( const std::chrono::days&    lhs,
+                                                          const std::chrono::seconds& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::days::operator+( const std::chrono::minutes& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::days::operator+( const std::chrono::days&    lhs,
+                                                          const std::chrono::minutes& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::days::operator+( const std::chrono::hours& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::days::operator+( const std::chrono::days&  lhs,
+                                                        const std::chrono::hours& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::days::operator+( const std::chrono::days& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator+( const std::chrono::days& lhs,
+                                                       const std::chrono::days& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::days::operator+( const std::chrono::weeks& rhs );
+lua:
+    odays:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator+( const std::chrono::days&  lhs,
+                                                       const std::chrono::weeks& rhs );
+lua:
+    std.chrono.days.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.days.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::days::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::days::operator-( const std::chrono::days&        lhs,
+                                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::days::operator-( const std::chrono::microseconds& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::days::operator-( const std::chrono::days&         lhs,
+                                                               const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::days::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::days::operator-( const std::chrono::days&         lhs,
+                                                               const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::days::operator-( const std::chrono::seconds& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::days::operator-( const std::chrono::days&    lhs,
+                                                          const std::chrono::seconds& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::days::operator-( const std::chrono::minutes& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::days::operator-( const std::chrono::days&    lhs,
+                                                          const std::chrono::minutes& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::days::operator-( const std::chrono::hours& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::days::operator-( const std::chrono::days&  lhs,
+                                                        const std::chrono::hours& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::days::operator-( const std::chrono::days& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator-( const std::chrono::days& lhs,
+                                                       const std::chrono::days& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::days::operator-( const std::chrono::weeks& rhs );
+lua:
+    odays:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator-( const std::chrono::days&  lhs,
+                                                       const std::chrono::weeks& rhs );
+lua:
+    std.chrono.days.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.days.operator/
+
+```cpp
+std::chrono::days std::chrono::days::operator/( std::chrono::days::rep s );
+lua:
+    odays:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::days::operator/( const std::chrono::days& lhs,
+                                                       std::chrono::days::rep   s );
+lua:
+    std.chrono.days.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.days.operator<
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&        lhs,
+                                          const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::microseconds& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&         lhs,
+                                          const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&         lhs,
+                                          const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::seconds& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&    lhs,
+                                          const std::chrono::seconds& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::minutes& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&    lhs,
+                                          const std::chrono::minutes& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::hours& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&  lhs,
+                                          const std::chrono::hours& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::days& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days& lhs,
+                                          const std::chrono::days& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<( const std::chrono::weeks& rhs );
+lua:
+    odays:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<( const std::chrono::days&  lhs,
+                                          const std::chrono::weeks& rhs );
+lua:
+    std.chrono.days.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.days.operator<=
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&        lhs,
+                                           const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&         lhs,
+                                           const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&         lhs,
+                                           const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::seconds& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&    lhs,
+                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::minutes& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&    lhs,
+                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::hours& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&  lhs,
+                                           const std::chrono::hours& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::days& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days& lhs,
+                                           const std::chrono::days& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator<=( const std::chrono::weeks& rhs );
+lua:
+    odays:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator<=( const std::chrono::days&  lhs,
+                                           const std::chrono::weeks& rhs );
+lua:
+    std.chrono.days.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.days.operator==
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&        lhs,
+                                           const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::microseconds& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&         lhs,
+                                           const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&         lhs,
+                                           const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::seconds& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&    lhs,
+                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::minutes& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&    lhs,
+                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::hours& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&  lhs,
+                                           const std::chrono::hours& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::days& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days& lhs,
+                                           const std::chrono::days& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::days::operator==( const std::chrono::weeks& rhs );
+lua:
+    odays:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::days::operator==( const std::chrono::days&  lhs,
+                                           const std::chrono::weeks& rhs );
+lua:
+    std.chrono.days.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::hours
+
+### std.chrono.hours.new
+
+```cpp
+std::chrono::hours( const std::chrono::hours::rep d );
+lua:
+    std.chrono.hours.new( d ) -> <std::chrono::hours object>
+    std.chrono.hours( d ) -> <std::chrono::hours object>
+```
+
+```cpp
+std::chrono::hours( const std::chrono::hours& d );
+lua:
+    std.chrono.hours.new( d ) -> <std::chrono::hours object>
+    std.chrono.hours( d ) -> <std::chrono::hours object>
+```
+
+```cpp
+std::chrono::hours( const std::chrono::days& d );
+lua:
+    std.chrono.hours.new( d ) -> <std::chrono::hours object>
+    std.chrono.hours( d ) -> <std::chrono::hours object>
+```
+
+```cpp
+std::chrono::hours( const std::chrono::weeks& d );
+lua:
+    std.chrono.hours.new( d ) -> <std::chrono::hours object>
+    std.chrono.hours( d ) -> <std::chrono::hours object>
+```
+
+### std.chrono.hours.\_\_type
+
+```cpp
+static std::string std::chrono::hours::__type();
+lua:
+    std.chrono.hours.__type() -> retval
+```
+
+### std.chrono.hours.count
+
+```cpp
+std::chrono::hours::rep std::chrono::hours::count();
+lua:
+    ohours:count() -> retval
+```
+
+### std.chrono.hours.operator*
+
+```cpp
+std::chrono::hours std::chrono::hours::operator*( std::chrono::hours::rep s );
+lua:
+    ohours:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator*( const std::chrono::hours& lhs,
+                                                         std::chrono::hours::rep   s );
+lua:
+    std.chrono.hours.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.hours.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::hours::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    ohours:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::hours::operator+( const std::chrono::hours&                    d,
+                                                                            const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.hours.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::hours::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::hours::operator+( const std::chrono::hours&       lhs,
+                                                               const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::hours::operator+( const std::chrono::microseconds& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::hours::operator+( const std::chrono::hours&        lhs,
+                                                                const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::hours::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::hours::operator+( const std::chrono::hours&        lhs,
+                                                                const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::hours::operator+( const std::chrono::seconds& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::hours::operator+( const std::chrono::hours&   lhs,
+                                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::hours::operator+( const std::chrono::minutes& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::hours::operator+( const std::chrono::hours&   lhs,
+                                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator+( const std::chrono::hours& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator+( const std::chrono::hours& lhs,
+                                                         const std::chrono::hours& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator+( const std::chrono::days& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator+( const std::chrono::hours& lhs,
+                                                         const std::chrono::days&  rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator+( const std::chrono::weeks& rhs );
+lua:
+    ohours:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator+( const std::chrono::hours& lhs,
+                                                         const std::chrono::weeks& rhs );
+lua:
+    std.chrono.hours.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.hours.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::hours::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::hours::operator-( const std::chrono::hours&       lhs,
+                                                               const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::hours::operator-( const std::chrono::microseconds& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::hours::operator-( const std::chrono::hours&        lhs,
+                                                                const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::hours::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::hours::operator-( const std::chrono::hours&        lhs,
+                                                                const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::hours::operator-( const std::chrono::seconds& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::hours::operator-( const std::chrono::hours&   lhs,
+                                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::hours::operator-( const std::chrono::minutes& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::hours::operator-( const std::chrono::hours&   lhs,
+                                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator-( const std::chrono::hours& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator-( const std::chrono::hours& lhs,
+                                                         const std::chrono::hours& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator-( const std::chrono::days& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator-( const std::chrono::hours& lhs,
+                                                         const std::chrono::days&  rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::hours::operator-( const std::chrono::weeks& rhs );
+lua:
+    ohours:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator-( const std::chrono::hours& lhs,
+                                                         const std::chrono::weeks& rhs );
+lua:
+    std.chrono.hours.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.hours.operator/
+
+```cpp
+std::chrono::hours std::chrono::hours::operator/( std::chrono::hours::rep s );
+lua:
+    ohours:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::hours::operator/( const std::chrono::hours& lhs,
+                                                         std::chrono::hours::rep   s );
+lua:
+    std.chrono.hours.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.hours.operator<
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours&       lhs,
+                                           const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::microseconds& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours&        lhs,
+                                           const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours&        lhs,
+                                           const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::seconds& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours&   lhs,
+                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::minutes& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours&   lhs,
+                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::hours& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours& lhs,
+                                           const std::chrono::hours& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::days& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours& lhs,
+                                           const std::chrono::days&  rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<( const std::chrono::weeks& rhs );
+lua:
+    ohours:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<( const std::chrono::hours& lhs,
+                                           const std::chrono::weeks& rhs );
+lua:
+    std.chrono.hours.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.hours.operator<=
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours&       lhs,
+                                            const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours&        lhs,
+                                            const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours&        lhs,
+                                            const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::seconds& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours&   lhs,
+                                            const std::chrono::seconds& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::minutes& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours&   lhs,
+                                            const std::chrono::minutes& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::hours& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours& lhs,
+                                            const std::chrono::hours& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::days& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours& lhs,
+                                            const std::chrono::days&  rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator<=( const std::chrono::weeks& rhs );
+lua:
+    ohours:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator<=( const std::chrono::hours& lhs,
+                                            const std::chrono::weeks& rhs );
+lua:
+    std.chrono.hours.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.hours.operator==
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours&       lhs,
+                                            const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::microseconds& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours&        lhs,
+                                            const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours&        lhs,
+                                            const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::seconds& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours&   lhs,
+                                            const std::chrono::seconds& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::minutes& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours&   lhs,
+                                            const std::chrono::minutes& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::hours& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours& lhs,
+                                            const std::chrono::hours& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::days& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours& lhs,
+                                            const std::chrono::days&  rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::hours::operator==( const std::chrono::weeks& rhs );
+lua:
+    ohours:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::hours::operator==( const std::chrono::hours& lhs,
+                                            const std::chrono::weeks& rhs );
+lua:
+    std.chrono.hours.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::microseconds
+
+### std.chrono.microseconds.new
+
+```cpp
+std::chrono::microseconds( const std::chrono::microseconds::rep d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::microseconds& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::milliseconds& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::seconds& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::minutes& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::hours& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::days& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+```cpp
+std::chrono::microseconds( const std::chrono::weeks& d );
+lua:
+    std.chrono.microseconds.new( d ) -> <std::chrono::microseconds object>
+    std.chrono.microseconds( d ) -> <std::chrono::microseconds object>
+```
+
+### std.chrono.microseconds.\_\_type
+
+```cpp
+static std::string std::chrono::microseconds::__type();
+lua:
+    std.chrono.microseconds.__type() -> retval
+```
+
+### std.chrono.microseconds.count
+
+```cpp
+std::chrono::microseconds::rep std::chrono::microseconds::count();
+lua:
+    omicroseconds:count() -> retval
+```
+
+### std.chrono.microseconds.operator*
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator*( std::chrono::microseconds::rep s );
+lua:
+    omicroseconds:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator*( const std::chrono::microseconds& lhs,
+                                                                       std::chrono::microseconds::rep   s );
+lua:
+    std.chrono.microseconds.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.microseconds.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::microseconds::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    omicroseconds:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::microseconds::operator+( const std::chrono::microseconds&             d,
+                                                                                   const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.microseconds.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::microseconds::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                      const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::seconds& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::minutes& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::hours& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::hours&        rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::days& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::days&         rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::weeks& rhs );
+lua:
+    omicroseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator+( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.microseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.microseconds.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::microseconds::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                      const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::seconds& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::minutes& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::hours& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::hours&        rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::days& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::days&         rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::weeks& rhs );
+lua:
+    omicroseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator-( const std::chrono::microseconds& lhs,
+                                                                       const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.microseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.microseconds.operator/
+
+```cpp
+std::chrono::microseconds std::chrono::microseconds::operator/( std::chrono::microseconds::rep s );
+lua:
+    omicroseconds:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::microseconds::operator/( const std::chrono::microseconds& lhs,
+                                                                       std::chrono::microseconds::rep   s );
+lua:
+    std.chrono.microseconds.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.microseconds.operator<
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::microseconds& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::seconds& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::minutes& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::hours& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::hours&        rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::days& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::days&         rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<( const std::chrono::weeks& rhs );
+lua:
+    omicroseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<( const std::chrono::microseconds& lhs,
+                                                  const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.microseconds.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.microseconds.operator<=
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::seconds& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::minutes& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::hours& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::hours&        rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::days& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::days&         rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator<=( const std::chrono::weeks& rhs );
+lua:
+    omicroseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator<=( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.microseconds.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.microseconds.operator==
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::microseconds& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::seconds& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::minutes& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::hours& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::hours&        rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::days& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::days&         rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::microseconds::operator==( const std::chrono::weeks& rhs );
+lua:
+    omicroseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::microseconds::operator==( const std::chrono::microseconds& lhs,
+                                                   const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.microseconds.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::milliseconds
+
+### std.chrono.milliseconds.new
+
+```cpp
+std::chrono::milliseconds( const std::chrono::milliseconds::rep d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::milliseconds& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::seconds& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::minutes& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::hours& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::days& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+```cpp
+std::chrono::milliseconds( const std::chrono::weeks& d );
+lua:
+    std.chrono.milliseconds.new( d ) -> <std::chrono::milliseconds object>
+    std.chrono.milliseconds( d ) -> <std::chrono::milliseconds object>
+```
+
+### std.chrono.milliseconds.\_\_type
+
+```cpp
+static std::string std::chrono::milliseconds::__type();
+lua:
+    std.chrono.milliseconds.__type() -> retval
+```
+
+### std.chrono.milliseconds.count
+
+```cpp
+std::chrono::milliseconds::rep std::chrono::milliseconds::count();
+lua:
+    omilliseconds:count() -> retval
+```
+
+### std.chrono.milliseconds.operator*
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator*( std::chrono::milliseconds::rep s );
+lua:
+    omilliseconds:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator*( const std::chrono::milliseconds& lhs,
+                                                                       std::chrono::milliseconds::rep   s );
+lua:
+    std.chrono.milliseconds.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.milliseconds.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::milliseconds::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    omilliseconds:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::milliseconds::operator+( const std::chrono::milliseconds&             d,
+                                                                                   const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.milliseconds.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::milliseconds::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                      const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::milliseconds::operator+( const std::chrono::microseconds& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::seconds& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::minutes& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::hours& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::hours&        rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::days& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::days&         rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::weeks& rhs );
+lua:
+    omilliseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator+( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.milliseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.milliseconds.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::milliseconds::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                      const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::milliseconds::operator-( const std::chrono::microseconds& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::seconds& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::minutes& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::hours& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::hours&        rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::days& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::days&         rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::weeks& rhs );
+lua:
+    omilliseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator-( const std::chrono::milliseconds& lhs,
+                                                                       const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.milliseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.milliseconds.operator/
+
+```cpp
+std::chrono::milliseconds std::chrono::milliseconds::operator/( std::chrono::milliseconds::rep s );
+lua:
+    omilliseconds:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::milliseconds::operator/( const std::chrono::milliseconds& lhs,
+                                                                       std::chrono::milliseconds::rep   s );
+lua:
+    std.chrono.milliseconds.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.milliseconds.operator<
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::microseconds& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::seconds& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::minutes& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::hours& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::hours&        rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::days& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::days&         rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<( const std::chrono::weeks& rhs );
+lua:
+    omilliseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<( const std::chrono::milliseconds& lhs,
+                                                  const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.milliseconds.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.milliseconds.operator<=
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::seconds& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::minutes& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::hours& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::hours&        rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::days& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::days&         rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator<=( const std::chrono::weeks& rhs );
+lua:
+    omilliseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator<=( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.milliseconds.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.milliseconds.operator==
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::nanoseconds&  rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::microseconds& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::seconds& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::seconds&      rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::minutes& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::minutes&      rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::hours& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::hours&        rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::days& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::days&         rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::milliseconds::operator==( const std::chrono::weeks& rhs );
+lua:
+    omilliseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::milliseconds::operator==( const std::chrono::milliseconds& lhs,
+                                                   const std::chrono::weeks&        rhs );
+lua:
+    std.chrono.milliseconds.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::minutes
+
+### std.chrono.minutes.new
+
+```cpp
+std::chrono::minutes( const std::chrono::minutes::rep d );
+lua:
+    std.chrono.minutes.new( d ) -> <std::chrono::minutes object>
+    std.chrono.minutes( d ) -> <std::chrono::minutes object>
+```
+
+```cpp
+std::chrono::minutes( const std::chrono::minutes& d );
+lua:
+    std.chrono.minutes.new( d ) -> <std::chrono::minutes object>
+    std.chrono.minutes( d ) -> <std::chrono::minutes object>
+```
+
+```cpp
+std::chrono::minutes( const std::chrono::hours& d );
+lua:
+    std.chrono.minutes.new( d ) -> <std::chrono::minutes object>
+    std.chrono.minutes( d ) -> <std::chrono::minutes object>
+```
+
+```cpp
+std::chrono::minutes( const std::chrono::days& d );
+lua:
+    std.chrono.minutes.new( d ) -> <std::chrono::minutes object>
+    std.chrono.minutes( d ) -> <std::chrono::minutes object>
+```
+
+```cpp
+std::chrono::minutes( const std::chrono::weeks& d );
+lua:
+    std.chrono.minutes.new( d ) -> <std::chrono::minutes object>
+    std.chrono.minutes( d ) -> <std::chrono::minutes object>
+```
+
+### std.chrono.minutes.\_\_type
+
+```cpp
+static std::string std::chrono::minutes::__type();
+lua:
+    std.chrono.minutes.__type() -> retval
+```
+
+### std.chrono.minutes.count
+
+```cpp
+std::chrono::minutes::rep std::chrono::minutes::count();
+lua:
+    ominutes:count() -> retval
+```
+
+### std.chrono.minutes.operator*
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator*( std::chrono::minutes::rep s );
+lua:
+    ominutes:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator*( const std::chrono::minutes& lhs,
+                                                             std::chrono::minutes::rep   s );
+lua:
+    std.chrono.minutes.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.minutes.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::minutes::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    ominutes:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::minutes::operator+( const std::chrono::minutes&                  d,
+                                                                              const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.minutes.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::minutes::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::minutes::operator+( const std::chrono::minutes&     lhs,
+                                                                 const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::minutes::operator+( const std::chrono::microseconds& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::minutes::operator+( const std::chrono::minutes&      lhs,
+                                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::minutes::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::minutes::operator+( const std::chrono::minutes&      lhs,
+                                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::minutes::operator+( const std::chrono::seconds& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::minutes::operator+( const std::chrono::minutes& lhs,
+                                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::minutes& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::minutes& lhs,
+                                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::hours& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::minutes& lhs,
+                                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::days& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::minutes& lhs,
+                                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::weeks& rhs );
+lua:
+    ominutes:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator+( const std::chrono::minutes& lhs,
+                                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.minutes.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.minutes.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::minutes::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::minutes::operator-( const std::chrono::minutes&     lhs,
+                                                                 const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::minutes::operator-( const std::chrono::microseconds& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::minutes::operator-( const std::chrono::minutes&      lhs,
+                                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::minutes::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::minutes::operator-( const std::chrono::minutes&      lhs,
+                                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::minutes::operator-( const std::chrono::seconds& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::minutes::operator-( const std::chrono::minutes& lhs,
+                                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::minutes& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::minutes& lhs,
+                                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::hours& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::minutes& lhs,
+                                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::days& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::minutes& lhs,
+                                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::weeks& rhs );
+lua:
+    ominutes:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator-( const std::chrono::minutes& lhs,
+                                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.minutes.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.minutes.operator/
+
+```cpp
+std::chrono::minutes std::chrono::minutes::operator/( std::chrono::minutes::rep s );
+lua:
+    ominutes:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::minutes::operator/( const std::chrono::minutes& lhs,
+                                                             std::chrono::minutes::rep   s );
+lua:
+    std.chrono.minutes.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.minutes.operator<
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes&     lhs,
+                                             const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::microseconds& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes&      lhs,
+                                             const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes&      lhs,
+                                             const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::seconds& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes& lhs,
+                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::minutes& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes& lhs,
+                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::hours& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes& lhs,
+                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::days& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes& lhs,
+                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<( const std::chrono::weeks& rhs );
+lua:
+    ominutes:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<( const std::chrono::minutes& lhs,
+                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.minutes.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.minutes.operator<=
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes&     lhs,
+                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes&      lhs,
+                                              const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes&      lhs,
+                                              const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::seconds& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes& lhs,
+                                              const std::chrono::seconds& rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::minutes& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes& lhs,
+                                              const std::chrono::minutes& rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::hours& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes& lhs,
+                                              const std::chrono::hours&   rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::days& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes& lhs,
+                                              const std::chrono::days&    rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator<=( const std::chrono::weeks& rhs );
+lua:
+    ominutes:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator<=( const std::chrono::minutes& lhs,
+                                              const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.minutes.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.minutes.operator==
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes&     lhs,
+                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::microseconds& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes&      lhs,
+                                              const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes&      lhs,
+                                              const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::seconds& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes& lhs,
+                                              const std::chrono::seconds& rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::minutes& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes& lhs,
+                                              const std::chrono::minutes& rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::hours& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes& lhs,
+                                              const std::chrono::hours&   rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::days& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes& lhs,
+                                              const std::chrono::days&    rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::minutes::operator==( const std::chrono::weeks& rhs );
+lua:
+    ominutes:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::minutes::operator==( const std::chrono::minutes& lhs,
+                                              const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.minutes.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::nanoseconds
+
+### std.chrono.nanoseconds.new
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::nanoseconds::rep d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::nanoseconds& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::microseconds& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::milliseconds& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::seconds& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::minutes& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::hours& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::days& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+```cpp
+std::chrono::nanoseconds( const std::chrono::weeks& d );
+lua:
+    std.chrono.nanoseconds.new( d ) -> <std::chrono::nanoseconds object>
+    std.chrono.nanoseconds( d ) -> <std::chrono::nanoseconds object>
+```
+
+### std.chrono.nanoseconds.\_\_type
+
+```cpp
+static std::string std::chrono::nanoseconds::__type();
+lua:
+    std.chrono.nanoseconds.__type() -> retval
+```
+
+### std.chrono.nanoseconds.count
+
+```cpp
+std::chrono::nanoseconds::rep std::chrono::nanoseconds::count();
+lua:
+    onanoseconds:count() -> retval
+```
+
+### std.chrono.nanoseconds.operator*
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator*( std::chrono::nanoseconds::rep s );
+lua:
+    onanoseconds:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator*( const std::chrono::nanoseconds& lhs,
+                                                                     std::chrono::nanoseconds::rep   s );
+lua:
+    std.chrono.nanoseconds.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.nanoseconds.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::nanoseconds::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    onanoseconds:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds&              d,
+                                                                                  const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.nanoseconds.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::microseconds& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds&  lhs,
+                                                                     const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds&  lhs,
+                                                                     const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::seconds& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::seconds&     rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::minutes& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::minutes&     rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::hours& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::hours&       rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::days& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::days&        rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::weeks& rhs );
+lua:
+    onanoseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator+( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::weeks&       rhs );
+lua:
+    std.chrono.nanoseconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.nanoseconds.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::microseconds& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds&  lhs,
+                                                                     const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds&  lhs,
+                                                                     const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::seconds& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::seconds&     rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::minutes& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::minutes&     rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::hours& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::hours&       rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::days& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::days&        rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::weeks& rhs );
+lua:
+    onanoseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator-( const std::chrono::nanoseconds& lhs,
+                                                                     const std::chrono::weeks&       rhs );
+lua:
+    std.chrono.nanoseconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.nanoseconds.operator/
+
+```cpp
+std::chrono::nanoseconds std::chrono::nanoseconds::operator/( std::chrono::nanoseconds::rep s );
+lua:
+    onanoseconds:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::nanoseconds::operator/( const std::chrono::nanoseconds& lhs,
+                                                                     std::chrono::nanoseconds::rep   s );
+lua:
+    std.chrono.nanoseconds.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.nanoseconds.operator<
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::microseconds& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds&  lhs,
+                                                 const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds&  lhs,
+                                                 const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::seconds& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::seconds&     rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::minutes& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::minutes&     rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::hours& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::hours&       rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::days& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::days&        rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<( const std::chrono::weeks& rhs );
+lua:
+    onanoseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<( const std::chrono::nanoseconds& lhs,
+                                                 const std::chrono::weeks&       rhs );
+lua:
+    std.chrono.nanoseconds.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.nanoseconds.operator<=
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds&  lhs,
+                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds&  lhs,
+                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::seconds& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::seconds&     rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::minutes& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::minutes&     rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::hours& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::hours&       rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::days& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::days&        rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator<=( const std::chrono::weeks& rhs );
+lua:
+    onanoseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator<=( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::weeks&       rhs );
+lua:
+    std.chrono.nanoseconds.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.nanoseconds.operator==
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::microseconds& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds&  lhs,
+                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds&  lhs,
+                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::seconds& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::seconds&     rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::minutes& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::minutes&     rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::hours& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::hours&       rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::days& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::days&        rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::nanoseconds::operator==( const std::chrono::weeks& rhs );
+lua:
+    onanoseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::nanoseconds::operator==( const std::chrono::nanoseconds& lhs,
+                                                  const std::chrono::weeks&       rhs );
+lua:
+    std.chrono.nanoseconds.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::seconds
+
+### std.chrono.seconds.new
+
+```cpp
+std::chrono::seconds( const std::chrono::seconds::rep d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+```cpp
+std::chrono::seconds( const std::chrono::seconds& d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+```cpp
+std::chrono::seconds( const std::chrono::minutes& d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+```cpp
+std::chrono::seconds( const std::chrono::hours& d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+```cpp
+std::chrono::seconds( const std::chrono::days& d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+```cpp
+std::chrono::seconds( const std::chrono::weeks& d );
+lua:
+    std.chrono.seconds.new( d ) -> <std::chrono::seconds object>
+    std.chrono.seconds( d ) -> <std::chrono::seconds object>
+```
+
+### std.chrono.seconds.\_\_type
+
+```cpp
+static std::string std::chrono::seconds::__type();
+lua:
+    std.chrono.seconds.__type() -> retval
+```
+
+### std.chrono.seconds.count
+
+```cpp
+std::chrono::seconds::rep std::chrono::seconds::count();
+lua:
+    oseconds:count() -> retval
+```
+
+### std.chrono.seconds.operator*
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator*( std::chrono::seconds::rep s );
+lua:
+    oseconds:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator*( const std::chrono::seconds& lhs,
+                                                             std::chrono::seconds::rep   s );
+lua:
+    std.chrono.seconds.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.seconds.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::seconds::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    oseconds:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::seconds::operator+( const std::chrono::seconds&                  d,
+                                                                              const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.seconds.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::seconds::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::seconds::operator+( const std::chrono::seconds&     lhs,
+                                                                 const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::seconds::operator+( const std::chrono::microseconds& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::seconds::operator+( const std::chrono::seconds&      lhs,
+                                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::seconds::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::seconds::operator+( const std::chrono::seconds&      lhs,
+                                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& lhs,
+                                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::minutes& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& lhs,
+                                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::hours& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& lhs,
+                                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::days& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& lhs,
+                                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::weeks& rhs );
+lua:
+    oseconds:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator+( const std::chrono::seconds& lhs,
+                                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.seconds.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.seconds.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::seconds::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::seconds::operator-( const std::chrono::seconds&     lhs,
+                                                                 const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::seconds::operator-( const std::chrono::microseconds& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::seconds::operator-( const std::chrono::seconds&      lhs,
+                                                                  const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::seconds::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::seconds::operator-( const std::chrono::seconds&      lhs,
+                                                                  const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& lhs,
+                                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::minutes& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& lhs,
+                                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::hours& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& lhs,
+                                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::days& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& lhs,
+                                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::weeks& rhs );
+lua:
+    oseconds:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator-( const std::chrono::seconds& lhs,
+                                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.seconds.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.seconds.operator/
+
+```cpp
+std::chrono::seconds std::chrono::seconds::operator/( std::chrono::seconds::rep s );
+lua:
+    oseconds:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::seconds::operator/( const std::chrono::seconds& lhs,
+                                                             std::chrono::seconds::rep   s );
+lua:
+    std.chrono.seconds.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.seconds.operator<
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds&     lhs,
+                                             const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::microseconds& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds&      lhs,
+                                             const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds&      lhs,
+                                             const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::seconds& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds& lhs,
+                                             const std::chrono::seconds& rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::minutes& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds& lhs,
+                                             const std::chrono::minutes& rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::hours& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds& lhs,
+                                             const std::chrono::hours&   rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::days& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds& lhs,
+                                             const std::chrono::days&    rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<( const std::chrono::weeks& rhs );
+lua:
+    oseconds:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<( const std::chrono::seconds& lhs,
+                                             const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.seconds.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.seconds.operator<=
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds&     lhs,
+                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds&      lhs,
+                                              const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds&      lhs,
+                                              const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::seconds& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds& lhs,
+                                              const std::chrono::seconds& rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::minutes& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds& lhs,
+                                              const std::chrono::minutes& rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::hours& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds& lhs,
+                                              const std::chrono::hours&   rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::days& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds& lhs,
+                                              const std::chrono::days&    rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator<=( const std::chrono::weeks& rhs );
+lua:
+    oseconds:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator<=( const std::chrono::seconds& lhs,
+                                              const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.seconds.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.seconds.operator==
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds&     lhs,
+                                              const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::microseconds& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds&      lhs,
+                                              const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds&      lhs,
+                                              const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::seconds& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds& lhs,
+                                              const std::chrono::seconds& rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::minutes& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds& lhs,
+                                              const std::chrono::minutes& rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::hours& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds& lhs,
+                                              const std::chrono::hours&   rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::days& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds& lhs,
+                                              const std::chrono::days&    rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::seconds::operator==( const std::chrono::weeks& rhs );
+lua:
+    oseconds:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::seconds::operator==( const std::chrono::seconds& lhs,
+                                              const std::chrono::weeks&   rhs );
+lua:
+    std.chrono.seconds.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::steady\_clock
+
+### std.chrono.steady\_clock.now
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::now();
+lua:
+    std.chrono.steady_clock.now() -> retval
+```
+
+## std::chrono::steady\_clock::time\_point
+
+### std.chrono.steady\_clock.time\_point.\_\_type
+
+```cpp
+static std::string std::chrono::steady_clock::time_point::__type();
+lua:
+    std.chrono.steady_clock.time_point.__type() -> retval
+```
+
+### std.chrono.steady\_clock.time\_point.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::nanoseconds& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::nanoseconds&              d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::microseconds& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::microseconds&             d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::milliseconds& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::milliseconds&             d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::seconds& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::seconds&                  d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::minutes& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::minutes&                  d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::hours& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::hours&                    d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::days& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::days&                     d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::weeks& d );
+lua:
+    otime_point:__add( d ) -> retval
+    self + d -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::steady_clock::time_point::operator+( const std::chrono::steady_clock::time_point& pt,
+                                                                                               const std::chrono::weeks&                    d );
+lua:
+    std.chrono.steady_clock.time_point.__add( pt, d ) -> retval
+    pt + d -> retval
+```
+
+### std.chrono.steady\_clock.time\_point.operator-
+
+```cpp
+std::chrono::steady_clock::duration std::chrono::steady_clock::time_point::operator-( const std::chrono::steady_clock::time_point& pt_rhs );
+lua:
+    otime_point:__sub( pt_rhs ) -> retval
+    self - pt_rhs -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::duration std::chrono::steady_clock::time_point::operator-( const std::chrono::steady_clock::time_point& pt_lhs,
+                                                                                             const std::chrono::steady_clock::time_point& pt_rhs );
+lua:
+    std.chrono.steady_clock.time_point.__sub( pt_lhs, pt_rhs ) -> retval
+    pt_lhs - pt_rhs -> retval
+```
+
+### std.chrono.steady\_clock.time\_point.operator<
+
+```cpp
+bool std::chrono::steady_clock::time_point::operator<( const std::chrono::steady_clock::time_point& rhs );
+lua:
+    otime_point:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::steady_clock::time_point::operator<( const std::chrono::steady_clock::time_point& lhs,
+                                                              const std::chrono::steady_clock::time_point& rhs );
+lua:
+    std.chrono.steady_clock.time_point.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.steady\_clock.time\_point.operator<=
+
+```cpp
+bool std::chrono::steady_clock::time_point::operator<=( const std::chrono::steady_clock::time_point& rhs );
+lua:
+    otime_point:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::steady_clock::time_point::operator<=( const std::chrono::steady_clock::time_point& lhs,
+                                                               const std::chrono::steady_clock::time_point& rhs );
+lua:
+    std.chrono.steady_clock.time_point.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.steady\_clock.time\_point.operator==
+
+```cpp
+bool std::chrono::steady_clock::time_point::operator==( const std::chrono::steady_clock::time_point& rhs );
+lua:
+    otime_point:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::steady_clock::time_point::operator==( const std::chrono::steady_clock::time_point& lhs,
+                                                               const std::chrono::steady_clock::time_point& rhs );
+lua:
+    std.chrono.steady_clock.time_point.__eq( lhs, rhs ) -> retval
+```
+
+## std::chrono::weeks
+
+### std.chrono.weeks.new
+
+```cpp
+std::chrono::weeks( const std::chrono::weeks::rep d );
+lua:
+    std.chrono.weeks.new( d ) -> <std::chrono::weeks object>
+    std.chrono.weeks( d ) -> <std::chrono::weeks object>
+```
+
+```cpp
+std::chrono::weeks( const std::chrono::weeks& d );
+lua:
+    std.chrono.weeks.new( d ) -> <std::chrono::weeks object>
+    std.chrono.weeks( d ) -> <std::chrono::weeks object>
+```
+
+### std.chrono.weeks.\_\_type
+
+```cpp
+static std::string std::chrono::weeks::__type();
+lua:
+    std.chrono.weeks.__type() -> retval
+```
+
+### std.chrono.weeks.count
+
+```cpp
+std::chrono::weeks::rep std::chrono::weeks::count();
+lua:
+    oweeks:count() -> retval
+```
+
+### std.chrono.weeks.operator*
+
+```cpp
+std::chrono::weeks std::chrono::weeks::operator*( std::chrono::weeks::rep s );
+lua:
+    oweeks:__mul( s ) -> retval
+    self * s -> retval
+```
+
+```cpp
+static std::chrono::weeks std::chrono::weeks::operator*( const std::chrono::weeks& lhs,
+                                                         std::chrono::weeks::rep   s );
+lua:
+    std.chrono.weeks.__mul( lhs, s ) -> retval
+    lhs * s -> retval
+```
+
+### std.chrono.weeks.operator+
+
+```cpp
+std::chrono::steady_clock::time_point std::chrono::weeks::operator+( const std::chrono::steady_clock::time_point& pt );
+lua:
+    oweeks:__add( pt ) -> retval
+    self + pt -> retval
+```
+
+```cpp
+static std::chrono::steady_clock::time_point std::chrono::weeks::operator+( const std::chrono::weeks&                    d,
+                                                                            const std::chrono::steady_clock::time_point& pt );
+lua:
+    std.chrono.weeks.__add( d, pt ) -> retval
+    d + pt -> retval
+```
+
+```cpp
+std::chrono::nanoseconds std::chrono::weeks::operator+( const std::chrono::nanoseconds& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::weeks::operator+( const std::chrono::weeks&       lhs,
+                                                               const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::weeks::operator+( const std::chrono::microseconds& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::weeks::operator+( const std::chrono::weeks&        lhs,
+                                                                const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::weeks::operator+( const std::chrono::milliseconds& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::weeks::operator+( const std::chrono::weeks&        lhs,
+                                                                const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::weeks::operator+( const std::chrono::seconds& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::weeks::operator+( const std::chrono::weeks&   lhs,
+                                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::weeks::operator+( const std::chrono::minutes& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::weeks::operator+( const std::chrono::weeks&   lhs,
+                                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::weeks::operator+( const std::chrono::hours& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::weeks::operator+( const std::chrono::weeks& lhs,
+                                                         const std::chrono::hours& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::weeks::operator+( const std::chrono::days& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::weeks::operator+( const std::chrono::weeks& lhs,
+                                                        const std::chrono::days&  rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+```cpp
+std::chrono::weeks std::chrono::weeks::operator+( const std::chrono::weeks& rhs );
+lua:
+    oweeks:__add( rhs ) -> retval
+    self + rhs -> retval
+```
+
+```cpp
+static std::chrono::weeks std::chrono::weeks::operator+( const std::chrono::weeks& lhs,
+                                                         const std::chrono::weeks& rhs );
+lua:
+    std.chrono.weeks.__add( lhs, rhs ) -> retval
+    lhs + rhs -> retval
+```
+
+### std.chrono.weeks.operator-
+
+```cpp
+std::chrono::nanoseconds std::chrono::weeks::operator-( const std::chrono::nanoseconds& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::nanoseconds std::chrono::weeks::operator-( const std::chrono::weeks&       lhs,
+                                                               const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::microseconds std::chrono::weeks::operator-( const std::chrono::microseconds& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::microseconds std::chrono::weeks::operator-( const std::chrono::weeks&        lhs,
+                                                                const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::milliseconds std::chrono::weeks::operator-( const std::chrono::milliseconds& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::milliseconds std::chrono::weeks::operator-( const std::chrono::weeks&        lhs,
+                                                                const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::seconds std::chrono::weeks::operator-( const std::chrono::seconds& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::seconds std::chrono::weeks::operator-( const std::chrono::weeks&   lhs,
+                                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::minutes std::chrono::weeks::operator-( const std::chrono::minutes& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::minutes std::chrono::weeks::operator-( const std::chrono::weeks&   lhs,
+                                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::hours std::chrono::weeks::operator-( const std::chrono::hours& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::hours std::chrono::weeks::operator-( const std::chrono::weeks& lhs,
+                                                         const std::chrono::hours& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::days std::chrono::weeks::operator-( const std::chrono::days& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::days std::chrono::weeks::operator-( const std::chrono::weeks& lhs,
+                                                        const std::chrono::days&  rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+```cpp
+std::chrono::weeks std::chrono::weeks::operator-( const std::chrono::weeks& rhs );
+lua:
+    oweeks:__sub( rhs ) -> retval
+    self - rhs -> retval
+```
+
+```cpp
+static std::chrono::weeks std::chrono::weeks::operator-( const std::chrono::weeks& lhs,
+                                                         const std::chrono::weeks& rhs );
+lua:
+    std.chrono.weeks.__sub( lhs, rhs ) -> retval
+    lhs - rhs -> retval
+```
+
+### std.chrono.weeks.operator/
+
+```cpp
+std::chrono::weeks std::chrono::weeks::operator/( std::chrono::weeks::rep s );
+lua:
+    oweeks:__div( s ) -> retval
+    self / s -> retval
+```
+
+```cpp
+static std::chrono::weeks std::chrono::weeks::operator/( const std::chrono::weeks& lhs,
+                                                         std::chrono::weeks::rep   s );
+lua:
+    std.chrono.weeks.__div( lhs, s ) -> retval
+    lhs / s -> retval
+```
+
+### std.chrono.weeks.operator<
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::nanoseconds& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks&       lhs,
+                                           const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::microseconds& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks&        lhs,
+                                           const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::milliseconds& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks&        lhs,
+                                           const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::seconds& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks&   lhs,
+                                           const std::chrono::seconds& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::minutes& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks&   lhs,
+                                           const std::chrono::minutes& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::hours& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks& lhs,
+                                           const std::chrono::hours& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::days& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks& lhs,
+                                           const std::chrono::days&  rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<( const std::chrono::weeks& rhs );
+lua:
+    oweeks:__lt( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<( const std::chrono::weeks& lhs,
+                                           const std::chrono::weeks& rhs );
+lua:
+    std.chrono.weeks.__lt( lhs, rhs ) -> retval
+```
+
+### std.chrono.weeks.operator<=
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::nanoseconds& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks&       lhs,
+                                            const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::microseconds& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks&        lhs,
+                                            const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::milliseconds& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks&        lhs,
+                                            const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::seconds& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks&   lhs,
+                                            const std::chrono::seconds& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::minutes& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks&   lhs,
+                                            const std::chrono::minutes& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::hours& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks& lhs,
+                                            const std::chrono::hours& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::days& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks& lhs,
+                                            const std::chrono::days&  rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator<=( const std::chrono::weeks& rhs );
+lua:
+    oweeks:__le( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator<=( const std::chrono::weeks& lhs,
+                                            const std::chrono::weeks& rhs );
+lua:
+    std.chrono.weeks.__le( lhs, rhs ) -> retval
+```
+
+### std.chrono.weeks.operator==
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::nanoseconds& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks&       lhs,
+                                            const std::chrono::nanoseconds& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::microseconds& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks&        lhs,
+                                            const std::chrono::microseconds& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::milliseconds& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks&        lhs,
+                                            const std::chrono::milliseconds& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::seconds& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks&   lhs,
+                                            const std::chrono::seconds& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::minutes& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks&   lhs,
+                                            const std::chrono::minutes& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::hours& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks& lhs,
+                                            const std::chrono::hours& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::days& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks& lhs,
+                                            const std::chrono::days&  rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+```cpp
+bool std::chrono::weeks::operator==( const std::chrono::weeks& rhs );
+lua:
+    oweeks:__eq( rhs ) -> retval
+```
+
+```cpp
+static bool std::chrono::weeks::operator==( const std::chrono::weeks& lhs,
+                                            const std::chrono::weeks& rhs );
+lua:
+    std.chrono.weeks.__eq( lhs, rhs ) -> retval
+```
+
+## std::this\_thread
+
+### std.this\_thread.sleep\_for
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::nanoseconds& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::microseconds& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::milliseconds& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::seconds& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::minutes& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::hours& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::days& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+```cpp
+void std::this_thread::sleep_for( const std::chrono::weeks& sleep_duration );
+lua:
+    std.this_thread.sleep_for( sleep_duration ) -> None
+```
+
+### std.this\_thread.sleep\_until
+
+```cpp
+void std::this_thread::sleep_until( const std::chrono::steady_clock::time_point& sleep_time );
+lua:
+    std.this_thread.sleep_until( sleep_time ) -> None
 ```

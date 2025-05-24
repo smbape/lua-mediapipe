@@ -212,6 +212,39 @@ local function test_image_vector_packet(self)
     self.assertEqual(p.timestamp.value, 100)
 end
 
+local function test_image_frame_vector_packet(self)
+    local mat_rgb = _mat_utils.randomImage(40, 30, cv2.CV_8UC3, 0, 2 ^ 8)
+    local mat_float = _mat_utils.randomImage(30, 40, cv2.CV_32FC1, 0, 1)
+    local p = packet_creator.create_image_frame_vector({
+        ImageFrame(mediapipe_lua.kwargs({ image_format = ImageFormat.SRGB, data = mat_rgb })),
+        ImageFrame(mediapipe_lua.kwargs({ image_format = ImageFormat.VEC32F1, data = mat_float })),
+    }):at(100)
+    local output_list = packet_getter.get_image_frame_list(p)
+    self.assertLen(output_list, 2)
+    self.assertMatEqual(output_list[0 + INDEX_BASE]:mat_view(), mat_rgb)
+    self.assertMatEqual(output_list[1 + INDEX_BASE]:mat_view(), mat_float)
+    self.assertEqual(p.timestamp.value, 100)
+end
+
+local function test_get_image_frame_list_packet_capture(self)
+    local h, w = 30, 40
+    local p = packet_creator.create_image_frame_vector({
+        ImageFrame(mediapipe_lua.kwargs({
+            image_format = ImageFormat.SRGB,
+            data = cv2.Mat.ones(w, h, cv2.CV_8UC3),
+        })),
+    }):at(100)
+    local output_list = packet_getter.get_image_frame_list(p)
+    -- Even if the packet variable p gets deleted, the packet object still exists
+    -- because it is captured by the deleter of the ImageFrame in the returned
+    -- output_list.
+    p = nil
+    collectgarbage()
+    self.assertLen(output_list, 1)
+    self.assertEqual(output_list[0 + INDEX_BASE].image_format, ImageFormat.SRGB)
+    self.assertMatEqual(output_list[0 + INDEX_BASE]:mat_view(), cv2.Mat.ones(w, h, cv2.CV_8UC3))
+end
+
 local function test_string_vector_packet(self)
     local p = packet_creator.create_string_vector({ 'a', 'b', 'c' }):at(100)
     self.assertListEqual(packet_getter.get_str_list(p), { 'a', 'b', 'c' })
@@ -470,6 +503,12 @@ describe("PacketTest", function()
     end)
     it("should test_image_vector_packet", function()
         test_image_vector_packet(_assert)
+    end)
+    it("should test_image_frame_vector_packet", function()
+        test_image_frame_vector_packet(_assert)
+    end)
+    it("should test_get_image_frame_list_packet_capture", function()
+        test_get_image_frame_list_packet_capture(_assert)
     end)
     it("should test_string_vector_packet", function()
         test_string_vector_packet(_assert)

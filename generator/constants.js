@@ -56,6 +56,8 @@ exports.ALIASES = new Map([
     ["cv::OutputArray", "OutputArray"],
     ["cv::OutputArrayOfArrays", "OutputArrayOfArrays"],
 
+    ["LUA_MODULE_NAME", "mediapipe_lua"],
+
     ["mediapipe::solutions::face_detection::SolutionBase", "mediapipe::lua::solution_base::SolutionBase"],
     ["DrawingColor", "std::tuple<int, int, int>"],
 

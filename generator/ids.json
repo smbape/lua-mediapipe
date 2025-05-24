@@ -1927,6 +1927,50 @@
         "iid": "c6941e4d-5344-4d4a-a3de-5ca19c42a192",
         "clsid": "643032d0-91b7-44c7-964c-c877380d5abd"
     },
+    "std::chrono::steady_clock": {
+        "iid": "fa7ab682-b5a7-4adc-bc2b-a95aac788fe8",
+        "clsid": "b73708f9-879e-401d-bf2c-2d7ffa44f502"
+    },
+    "std::chrono::steady_clock::time_point": {
+        "iid": "d64e408d-f6ca-4cb3-bbd3-10d445addefe",
+        "clsid": "91672059-46fe-4d81-b494-cb5d5bdef446"
+    },
+    "std::this_thread": {
+        "iid": "107cce5b-1b28-4b02-a8b2-fd5bf8e035ef",
+        "clsid": "af4152c8-b029-4e06-b2fa-ad69c4d05232"
+    },
+    "std::chrono::nanoseconds": {
+        "iid": "cb3eaa20-02f6-4a16-a0b2-4b7c66848051",
+        "clsid": "80b63b93-c33e-4298-8788-5802912439ee"
+    },
+    "std::chrono::microseconds": {
+        "iid": "f14e9440-32ff-45a4-9694-677e7ccf0f38",
+        "clsid": "c15d3150-e0bd-4a84-848f-98cc1302d93d"
+    },
+    "std::chrono::milliseconds": {
+        "iid": "15199aba-9261-48f7-a766-307002cc55e5",
+        "clsid": "89e6b393-0794-428b-9c27-9e6309a3d293"
+    },
+    "std::chrono::seconds": {
+        "iid": "6eba8313-2f35-4cef-b83f-748e4d31d78e",
+        "clsid": "dbf327a4-30f1-4801-a966-baf40807bcc8"
+    },
+    "std::chrono::minutes": {
+        "iid": "82c0b6e1-8b53-4b19-8471-a04e33f192cc",
+        "clsid": "7d7560d4-ecf1-4bff-9bf1-e0c40e875d90"
+    },
+    "std::chrono::hours": {
+        "iid": "922fbbe7-2b8d-4a4f-825f-510b54d595df",
+        "clsid": "1b4bd22b-d5e7-4b72-9b8c-61de06ec2026"
+    },
+    "std::chrono::days": {
+        "iid": "2517da57-246e-47a5-ac1b-aa5b8cc69b59",
+        "clsid": "35edd4c0-81d3-4a3a-8b1f-ef929a2cceed"
+    },
+    "std::chrono::weeks": {
+        "iid": "011ffd0e-e6d1-4c8e-be34-3facc967bc3e",
+        "clsid": "cd0c71b7-64dc-4a86-a914-4237b5b25a04"
+    },
     "mediapipe::lua::solutions::face_mesh_connections": {
         "iid": "4eec77fb-8d7a-44f0-bae6-2aba0157cc9f",
         "clsid": "5d8620f3-7f6a-4b5e-b9a8-cf5971fb405a"
@@ -1999,9 +2043,9 @@
         "iid": "4261ddea-8b9a-47e1-8102-e857215df6fc",
         "clsid": "c1c32835-d15b-4521-a98d-aa210e7e93a0"
     },
-    "VectorOfPairOf_LUA_MODULE_NAME_ObjectAnd_LUA_MODULE_NAME_Object": {
-        "iid": "27dd7e4b-fec1-44fe-8ee3-482de82a3de6",
-        "clsid": "7c5061b4-1ec8-453f-bb5f-a3f259e91c6b"
+    "VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object": {
+        "iid": "51557925-103f-43de-851f-4751117f548a",
+        "clsid": "338b289c-dec4-46f1-bf2f-32f1d6dd5594"
     },
     "VectorOfInt": {
         "iid": "a1c3d1f5-b7ef-4cf3-a995-79fb5b5df947",
@@ -2010,6 +2054,10 @@
     "VectorOfFloat": {
         "iid": "9529b2ff-7f17-4588-8818-eb8bd4482033",
         "clsid": "c6ca8d4c-ccc1-485b-9f03-b34c77d0bdaa"
+    },
+    "VectorOfSharedPtrOfImageFrame": {
+        "iid": "2bf08cd1-2553-46d2-a0fb-4172cd161be3",
+        "clsid": "14a1af4c-ae50-450a-980a-a4ea2f72335c"
     },
     "VectorOfBool": {
         "iid": "c80625a7-be59-482a-a771-66e03e586529",
@@ -2043,17 +2091,17 @@
         "iid": "fee1cd0e-b846-4711-a029-c4d0fb74ca06",
         "clsid": "6342aeab-9430-4a59-8f7a-314296e3f786"
     },
-    "VectorOf_LUA_MODULE_NAME_Object": {
-        "iid": "9d3e3c24-5101-4808-9bac-f17558f5ec4c",
-        "clsid": "ef205f5b-03f5-4cec-948b-361ef8b6976e"
+    "VectorOf_mediapipe_lua_Object": {
+        "iid": "a1bc120b-6445-4936-960c-f3a21ad6ce79",
+        "clsid": "211246d6-c1b7-42db-9c69-c007fc3f8c0d"
     },
-    "MapOfStringAnd_LUA_MODULE_NAME_Object": {
-        "iid": "cdca0d44-49b2-420d-8d6f-1be9526ece21",
-        "clsid": "3bce3cde-6632-4573-bead-cee8170d977a"
+    "MapOfStringAnd_mediapipe_lua_Object": {
+        "iid": "e5554e09-f80e-4ba7-aba5-509718c487a9",
+        "clsid": "fe6168cd-c4f4-44b3-86b5-9a80c0dcdcca"
     },
-    "VectorOfPairOfStringAnd_LUA_MODULE_NAME_Object": {
-        "iid": "03d0ade9-d0ee-4783-aa4f-b5a4cde0c7c9",
-        "clsid": "0f537145-6cc0-4059-9951-f8da8ffc3a5d"
+    "VectorOfPairOfStringAnd_mediapipe_lua_Object": {
+        "iid": "5e94de56-7a23-41f9-8213-4e9d60234b22",
+        "clsid": "f32695e9-5d4b-4cfe-b4ce-acfa5d43ac03"
     },
     "MapOfIntAndDrawing_utils_DrawingSpec": {
         "iid": "c7cf502f-6464-4d6e-a49b-692ebbf3c671",

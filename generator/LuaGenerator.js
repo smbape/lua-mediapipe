@@ -1098,7 +1098,8 @@ class LuaGenerator {
 
                 let callee;
                 const path = name.split(isConstructor ? "::" : ".");
-                let is_operator = false;
+                let is_operator = /^operator\s*(?:[+\-*/%^&|!=<>]=?|[~,]|(?:<<|>>)=?|&&|\|\||\+\+|--|->\*?)$/.test(path[path.length - 1]);
+                const operator = is_operator ? path[path.length - 1].slice("operator".length).trim() : null;
 
                 if (isStatic) {
                     callee = `::${ path.join("::") }`;
@@ -1113,33 +1114,33 @@ class LuaGenerator {
                         }
                     }
 
-                    // [+\-*/%^&|!=<>]=?|[~,]|(?:<<|>>)=?|&&|\|\||\+\+|--|->\*?
-                    if (callargs.length === 0 && /^operator\s*(?:[+\-*/%^&|!=<>]=?|[~,]|(?:<<|>>)=?|&&|\|\||\+\+|--|->\*?)$/.test(path[path.length - 1])) {
-                        const operator = path[path.length - 1].slice("operator".length).trim();
+                    if (callargs.length === 0 && is_operator) {
                         callee = `${ operator }(*${ callee })`;
-                        is_operator = true;
-                    } else if (callargs.length === 1 && /^operator\s*(?:[+\-*/%^&|!=<>]=?|[~,]|(?:<<|>>)=?|&&|\|\||\+\+|--|->\*?)$/.test(path[path.length - 1])) {
-                        const operator = path[path.length - 1].slice("operator".length).trim();
+                    } else if (callargs.length === 1 && is_operator) {
                         callee = `(*${ callee }) ${ operator } `;
-                        is_operator = true;
                     } else {
                         callee = `${ callee }->${ path[path.length - 1] }`;
+                        is_operator = false;
                     }
                 }
 
                 let expr = callargs.join(", ");
+                let has_expr = false;
                 let has_call = false;
 
                 for (const modifier of func_modifiers) {
                     if (modifier.startsWith("/Expr=")) {
                         expr = makeExpansion(modifier.slice("/Expr=".length), expr);
+                        has_expr = true;
                     } else if (modifier.startsWith("/Call=")) {
                         callee = makeExpansion(modifier.slice("/Call=".length), callee);
                         has_call = true;
                     }
                 }
 
-                if (!is_operator || expr) {
+                if (isStatic && is_operator && callargs.length === 2 && !has_expr && !has_call) {
+                    callee = `(${ callargs.join(`) ${operator} (`) })`;
+                } else if (!is_operator || expr) {
                     callee = `${ callee }(${ expr })`;
                 }
 
