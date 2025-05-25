@@ -919,7 +919,7 @@ class LuaGenerator {
                     const argi = i + offset;
                     const argn = argi + 1;
                     const nd_mat = arg_modifiers.includes("/ND");
-                    const defarg = `${ argname }__`;
+                    const defarg = `default_${ argname }_value`;
 
                     if (is_out_arg && is_array) {
                         is_optional = true;
@@ -942,9 +942,9 @@ class LuaGenerator {
                     if (is_optional) {
                         extractors.push("is_valid = false;");
                         const ref = defval !== "" && is_by_ref && !defval.includes("(") && !defval.includes("'") && !defval.includes("\"") && !/^(?:\.|\d+\.)\d+$/.test(defval) ? "&" : "";
-                        const copy = ref || is_out_arg || defval === "" || defval.includes("(");
+                        const copy = is_out_arg || defval === "" || defval.includes("(");
                         if (!is_array || defval !== "") {
-                            extractors.push(`${ copy ? "" : "static " }${ cpptype }${ ref } ${ defarg }${ defval !== "" ? ` = ${ defval }` : "" };`);
+                            extractors.push(`${ copy || ref ? "" : "static " }${ cpptype }${ ref } ${ defarg }${ defval !== "" && defval !== "{}" ? ` { ${ defval } }` : "" };`);
                         }
                     }
 
@@ -1073,9 +1073,7 @@ class LuaGenerator {
                         }
 
                         extractors.push("", `
-                            decltype(auto) ${ argname } = extract_holder(${ argname }_holder, ${
-                                is_optional ? `${ defarg }, !is_valid` : `static_cast<${ var_type }*>(nullptr)`
-                            });
+                            decltype(auto) ${ argname } = ${ is_optional ? `!is_valid ? ${ defarg } : ` : "" }extract_holder(${ argname }_holder, static_cast<${ var_type }*>(nullptr));
                         `.replace(/^ {28}/mg, "").trim());
                     }
 

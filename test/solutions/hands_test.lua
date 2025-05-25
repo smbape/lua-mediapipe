@@ -110,6 +110,9 @@ function _assert._process_video(self, model_complexity, video_path,
     }))
 
     while true do
+        -- Without this, memory grows indefinitely
+        collectgarbage()
+
         -- Get next frame of the video.
         local success, input_frame = video_cap:read()
         if not success then

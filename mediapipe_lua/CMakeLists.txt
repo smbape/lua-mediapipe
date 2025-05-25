@@ -71,6 +71,23 @@ if (WIN32 AND NOT MEDIAPIPE_DISABLE_GPU)
     message(FATAL_ERROR "GPU Delegate is not yet supported for Windows")
 endif()
 
+set(BAZEL_GPU_OPTIONS)
+
+if (MEDIAPIPE_DISABLE_GPU)
+    list(APPEND BAZEL_GPU_OPTIONS --define MEDIAPIPE_DISABLE_GPU=1)
+else()
+    list(APPEND BAZEL_GPU_OPTIONS
+        --copt=-DTFLITE_GPU_EXTRA_GLES_DEPS
+        --copt=-DMEDIAPIPE_OMIT_EGL_WINDOW_BIT
+        --copt=-DMESA_EGL_NO_X11_HEADERS
+        --copt=-DEGL_NO_X11
+    )
+
+    if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+        list(APPEND BAZEL_GPU_OPTIONS --copt=-DMEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER)
+    endif()
+endif()
+
 set(BAZEL_BUILD
     "${BAZEL_EXECUTABLE}"
 )
@@ -83,10 +100,12 @@ if (DEFINED OUTPUT_BASE)
     list(APPEND BAZEL_BUILD "--output_base=${OUTPUT_BASE}")
 endif()
 
+string(REPLACE ";" "$<SEMICOLON>" ENV_PATH "$ENV{PATH}")
+
 if (UNIX)
     # [Running bazel in a subshell causes subshell to hang](https://github.com/bazelbuild/bazel/issues/19309)
     execute_process(
-        COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" -- ${BAZEL_BUILD} info server_pid
+        COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} info server_pid
         WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     )
 endif()
@@ -94,15 +113,18 @@ endif()
 list(APPEND BAZEL_BUILD
     build -c ${COMPILATION_MODE}
     --strip=never
-    --repo_env "HERMETIC_PYTHON_VERSION=${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}"
-    --action_env "PYTHON_BIN_PATH=${Python3_EXECUTABLE}"
-    "--python_path=${Python3_EXECUTABLE}"
     --verbose_failures
 
     # --keep_going
 
     # https://github.com/bazelbuild/bazel/issues/8444#issuecomment-513204396
     # --spawn_strategy=local
+)
+
+set(BAZEL_BUILD_OPTIONS
+    "--repo_env=HERMETIC_PYTHON_VERSION=${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}"
+    "--action_env=PYTHON_BIN_PATH=${Python3_EXECUTABLE}"
+    "--python_path=${Python3_EXECUTABLE}"
 )
 
 if (WITH_CUDNN AND NOT WITH_CUDA)
@@ -125,22 +147,22 @@ if (WITH_CUDA)
 
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/.bazelrc#L223-L231
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/third_party/gpus/cuda/hermetic/cuda_json_init_repository.bzl#L41-L44
-    list(APPEND BAZEL_BUILD
-        --repo_env TF_NEED_CUDA=1
-        --repo_env HERMETIC_CUDA_VERSION=${CUDA_VERSION_STRING}
-        --repo_env "LOCAL_CUDA_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
+    list(APPEND BAZEL_BUILD_OPTIONS
+        "--repo_env=TF_NEED_CUDA=1"
+        "--repo_env=HERMETIC_CUDA_VERSION=${CUDA_VERSION_STRING}"
+        "--repo_env=LOCAL_CUDA_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
         # --crosstool_top=@local_config_cuda//crosstool:toolchain
         # --@local_config_cuda//:enable_cuda
         # --@local_config_cuda//cuda:include_cuda_libs=true
 
-        --action_env "CC=${CMAKE_C_COMPILER}"
-        --action_env CUDA_NVCC=1
+        "--action_env=CC=${CMAKE_C_COMPILER}"
+        "--action_env=CUDA_NVCC=1"
         # --@local_config_cuda//:cuda_compiler=nvcc
     )
 
     if (CUDA_ARCH_BIN)
-        list(APPEND BAZEL_BUILD
-            --repo_env "HERMETIC_CUDA_COMPUTE_CAPABILITIES=${CUDA_ARCH_BIN}"
+        list(APPEND BAZEL_BUILD_OPTIONS
+            "--repo_env=HERMETIC_CUDA_COMPUTE_CAPABILITIES=${CUDA_ARCH_BIN}"
         )
     endif()
 endif()
@@ -150,65 +172,62 @@ if (WITH_CUDNN)
 
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/.bazelrc#L229
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/third_party/gpus/cuda/hermetic/cuda_json_init_repository.bzl#L45-L46
-    list(APPEND BAZEL_BUILD
-        --repo_env HERMETIC_CUDNN_VERSION=${CUDNN_VERSION}
-        --repo_env "LOCAL_CUDNN_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
+    list(APPEND BAZEL_BUILD_OPTIONS
+        "--repo_env=HERMETIC_CUDNN_VERSION=${CUDNN_VERSION}"
+        "--repo_env=LOCAL_CUDNN_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
     )
-endif()
-
-if (MEDIAPIPE_DISABLE_GPU)
-    list(APPEND BAZEL_BUILD --define MEDIAPIPE_DISABLE_GPU=1)
-else()
-    list(APPEND BAZEL_BUILD
-        --copt=-DTFLITE_GPU_EXTRA_GLES_DEPS
-        --copt=-DMEDIAPIPE_OMIT_EGL_WINDOW_BIT
-        --copt=-DMESA_EGL_NO_X11_HEADERS
-        --copt=-DEGL_NO_X11
-    )
-
-    if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-        list(APPEND BAZEL_BUILD --copt=-DMEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER)
-    endif()
 endif()
 
 if (ENABLE_ODML_CONVERTER)
-    list(APPEND BAZEL_BUILD --define ENABLE_ODML_CONVERTER=1)
+    list(APPEND BAZEL_BUILD_OPTIONS --define ENABLE_ODML_CONVERTER=1)
 endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # https://man.freebsd.org/cgi/man.cgi?query=gcc11&sektion=1&manpath=freebsd-release-ports
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "11")
-        list(APPEND BAZEL_BUILD --define xnn_enable_avxvnni=false)
+        list(APPEND BAZEL_BUILD_OPTIONS --define xnn_enable_avxvnni=false)
+    endif()
+
+    enable_language(ASM-ATT)
+
+    if ((CMAKE_CXX_COMPILER_VERSION VERSION_EQUAL "11" OR CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "11") AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "12" AND CMAKE_ASM-ATT_COMPILER_ID STREQUAL "GNU")
+        # binutils gained VNNI support in 2.36
+        # https://github.com/google/XNNPACK/issues/6389#issuecomment-2356299909
+
+        execute_process(
+            COMMAND sh -c "${CMAKE_ASM-ATT_COMPILER} --version | sed -rn 's/GNU[[:space:]][Aa]ssembler[[:space:]].*[[:space:]]([0-9])/\\1/p'"
+            OUTPUT_VARIABLE CMAKE_ASM-ATT_COMPILER_VERSION
+        )
+
+        if (NOT CMAKE_ASM-ATT_COMPILER_VERSION VERSION_GREATER_EQUAL "2.36")
+            list(APPEND BAZEL_BUILD_OPTIONS --define xnn_enable_avxvnni=false)
+        endif()
     endif()
 
     # https://man.freebsd.org/cgi/man.cgi?query=gcc12&sektion=1&manpath=freebsd-release-ports
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "12")
-        list(APPEND BAZEL_BUILD --define xnn_enable_avx512fp16=false)
+        list(APPEND BAZEL_BUILD_OPTIONS --define xnn_enable_avx512fp16=false)
     endif()
 
     # https://man.freebsd.org/cgi/man.cgi?query=gcc13&sektion=1&manpath=freebsd-release-ports
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "13")
-        list(APPEND BAZEL_BUILD --define xnn_enable_avxvnniint8=false)
+        list(APPEND BAZEL_BUILD_OPTIONS --define xnn_enable_avxvnniint8=false)
     endif()
 endif()
 
-list(APPEND BAZEL_BUILD
+list(APPEND BAZEL_BUILD_OPTIONS
     --define LUA_MODULE_NAME=${target_name}
     --define LUA_MODULE_VERSION=${LUA_MODULE_VERSION}
     --define LUA_MODULE_LIB_NAME=Mediapipe
     --define LUA_MODULE_LIB_VERSION=${Mediapipe_VERSION}
 )
 
-set(BAZEL_BUILD_OPTIONS "" CACHE INTERNAL "Bazel build options")
-if (BAZEL_BUILD_OPTIONS)
-    list(APPEND BAZEL_BUILD ${BAZEL_BUILD_OPTIONS})
+set(BAZEL_BUILD_EXTRA_OPTIONS "" CACHE INTERNAL "Bazel build options")
+if (BAZEL_BUILD_EXTRA_OPTIONS)
+    list(APPEND BAZEL_BUILD_OPTIONS ${BAZEL_BUILD_EXTRA_OPTIONS})
 endif()
 
-if (WIN32)
-    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_registry.lo${CMAKE_STATIC_LIBRARY_SUFFIX}")
-else()
-    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/${CMAKE_SHARED_LIBRARY_PREFIX}inference_calculator_options_registry${CMAKE_SHARED_LIBRARY_SUFFIX}")
-endif()
+list(APPEND BAZEL_BUILD ${BAZEL_GPU_OPTIONS} ${BAZEL_BUILD_OPTIONS})
 
 # Make sure bazel-out is a symbolic link
 # add_custom_command will create the directory needed to store OUTPUT.
@@ -222,14 +241,90 @@ if (IS_SYMLINK "${mediapipe_SOURCE_DIR}/bazel-out")
 endif()
 list(APPEND ensure_SYMBOLIC_BAZEL_OUT rm -rf "${mediapipe_SOURCE_DIR}/bazel-out")
 
+set(builtin_calculators_DEPENDS)
+
+option(BUILD_python_wheel "Build mediapipe python wheel" OFF)
+
+if (BUILD_python_wheel)
+    vcpkg_regex_replace_string("${mediapipe_SOURCE_DIR}/setup.py" "__version__ = '[^']*'" "__version__ = '${Mediapipe_VERSION}'")
+
+    set(PY_BAZEL_RC ${BAZEL_BUILD_OPTIONS})
+    string(REPLACE ";" "\n" PY_BAZEL_RC "${PY_BAZEL_RC}")
+    file(WRITE "${mediapipe_SOURCE_DIR}/.py-bazelrc" "${PY_BAZEL_RC}")
+
+    set(python_wheel_MEDIAPIPE_DISABLE_GPU 0)
+    if (MEDIAPIPE_DISABLE_GPU)
+        set(python_wheel_MEDIAPIPE_DISABLE_GPU 1)
+    endif()
+
+    if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+        if (WIN32)
+            set(wheel_suffix "win_amd64")
+        elseif (LINUX)
+            set(wheel_suffix "linux_x86_64")
+        else()
+            message(FATAL_ERROR "OS is not supported")
+        endif()
+    elseif(WIN32)
+        set(wheel_suffix "win32")
+    else()
+        message(FATAL_ERROR "x86 build is not supported")
+    endif()
+
+    set(python_wheel_OUTPUT "${mediapipe_SOURCE_DIR}/dist/mediapipe-${Mediapipe_VERSION}-cp${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR}-cp${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR}-${wheel_suffix}.whl")
+
+    set(python_wheel_COMMANDS
+        COMMAND     "${Python3_EXECUTABLE}" -m pip install numpy torch wheel
+        COMMAND     ${ensure_SYMBOLIC_BAZEL_OUT}
+        COMMAND     "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
+        COMMAND     "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
+        COMMAND     "${CMAKE_COMMAND}" -E echo "${Python3_EXECUTABLE}" setup.py bdist_wheel clean --all
+        COMMAND     "${CMAKE_COMMAND}" -E env
+                        "PATH=${ENV_PATH}"
+                        "OUTPUT_USER_ROOT=${OUTPUT_USER_ROOT}"
+                        "OUTPUT_BASE=${OUTPUT_BASE}"
+                        "MEDIAPIPE_DISABLE_GPU=${python_wheel_MEDIAPIPE_DISABLE_GPU}"
+                        "MEDIAPIPE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
+                        "PROTOC=${mediapipe_SOURCE_DIR}/bazel-bin/external/com_google_protobuf/protoc${CMAKE_EXECUTABLE_SUFFIX}"
+                        "PROTO_PATH=${mediapipe_SOURCE_DIR}/bazel-mediapipe-src/external/com_google_protobuf/src"
+                        --
+                        "${Python3_EXECUTABLE}" setup.py bdist_wheel clean --all
+    )
+
+    if (LINUX AND ENABLE_REPAIR)
+        list(APPEND python_wheel_COMMANDS
+            COMMAND           "${Python3_EXECUTABLE}" -m pip install auditwheel
+            COMMAND           "${Python3_EXECUTABLE}" -m auditwheel repair "${python_wheel_OUTPUT}" --exclude "opencv_lua.so"
+        )
+    endif()
+
+    add_custom_command(OUTPUT "${python_wheel_OUTPUT}"
+        ${python_wheel_COMMANDS}
+        COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${python_wheel_OUTPUT}"
+        WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+        VERBATIM
+        USES_TERMINAL
+    )
+    add_custom_target(${target_name}_python_wheel DEPENDS "${python_wheel_OUTPUT}")
+
+    list(APPEND builtin_calculators_DEPENDS ${target_name}_python_wheel)
+endif()
+
+if (WIN32)
+    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_registry.lo${CMAKE_STATIC_LIBRARY_SUFFIX}")
+else()
+    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/${CMAKE_SHARED_LIBRARY_PREFIX}inference_calculator_options_registry${CMAKE_SHARED_LIBRARY_SUFFIX}")
+endif()
+
 add_custom_command(OUTPUT "${builtin_calculators_OUTPUT}"
     COMMAND           ${ensure_SYMBOLIC_BAZEL_OUT}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} mediapipe/python:builtin_calculators
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" -- ${BAZEL_BUILD} mediapipe/python:builtin_calculators
+    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} mediapipe/python:builtin_calculators
     COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${builtin_calculators_OUTPUT}"
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
+    DEPENDS           ${builtin_calculators_DEPENDS}
     VERBATIM
-    USES_TERMINAL # bazel 6.5.0 hangs with this option
+    USES_TERMINAL
 )
 add_custom_target(${target_name}_builtin_calculators DEPENDS "${builtin_calculators_OUTPUT}")
 
@@ -252,12 +347,12 @@ file(GLOB_RECURSE generator_files
 set(generated_OUTPUT "${CMAKE_SOURCE_DIR}/generated/register_all.cpp")
 add_custom_command(OUTPUT "${generated_OUTPUT}"
     COMMAND           "${CMAKE_COMMAND}" -E echo ${src_gen_cmd}
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}" "Python3_EXECUTABLE=${Python3_EXECUTABLE}" -- ${src_gen_cmd}
+    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}" "Python3_EXECUTABLE=${Python3_EXECUTABLE}" -- ${src_gen_cmd}
     COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${generated_OUTPUT}"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
     DEPENDS           ${project_source_headers} ${target_name}_builtin_calculators ${generator_files}
     VERBATIM
-    USES_TERMINAL # bazel 6.5.0 hangs with this option
+    USES_TERMINAL
 )
 add_custom_target(${target_name}_generated DEPENDS "${generated_OUTPUT}")
 
@@ -290,27 +385,27 @@ file(GLOB_RECURSE project_source_files
 
 set(BAZEL_OUTPUT_NAME "${CMAKE_SHARED_LIBRARY_PREFIX}${target_name}")
 
-set(BAZEL_OUPUT_LIBRARY "${mediapipe_BINARY_DIR}/${MEDIAPIPE_ADDON_PACKAGE}/${BAZEL_OUTPUT_NAME}")
+set(BAZEL_OUTPUT_LIBRARY "${mediapipe_BINARY_DIR}/${MEDIAPIPE_ADDON_PACKAGE}/${BAZEL_OUTPUT_NAME}")
 
 if (WIN32 OR BUILD_SHARED_LIBS)
-    set(BAZEL_OUPUT_LIBRARY "${BAZEL_OUPUT_LIBRARY}${CMAKE_SHARED_LIBRARY_SUFFIX}")
-    set(OUPUT_LIBRARY_NAME "${target_name}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+    set(BAZEL_OUTPUT_LIBRARY "${BAZEL_OUTPUT_LIBRARY}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+    set(OUTPUT_LIBRARY_NAME "${target_name}${CMAKE_SHARED_LIBRARY_SUFFIX}")
 else()
-    set(BAZEL_OUPUT_LIBRARY "${BAZEL_OUPUT_LIBRARY}${CMAKE_STATIC_LIBRARY_SUFFIX}")
-    set(OUPUT_LIBRARY_NAME "${target_name}${CMAKE_STATIC_LIBRARY_SUFFIX}")
+    set(BAZEL_OUTPUT_LIBRARY "${BAZEL_OUTPUT_LIBRARY}${CMAKE_STATIC_LIBRARY_SUFFIX}")
+    set(OUTPUT_LIBRARY_NAME "${target_name}${CMAKE_STATIC_LIBRARY_SUFFIX}")
 endif()
 
-add_custom_command(OUTPUT "${BAZEL_OUPUT_LIBRARY}"
+add_custom_command(OUTPUT "${BAZEL_OUTPUT_LIBRARY}"
     # Make sure bazel-out is a symbolic link
     COMMAND           ${ensure_SYMBOLIC_BAZEL_OUT}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=$ENV{PATH}" -- ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
+    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     DEPENDS           ${project_source_files} ${project_rules_files} ${target_name}_generated
     VERBATIM
-    USES_TERMINAL # bazel 6.5.0 hangs with this option
+    USES_TERMINAL
 )
-add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUPUT_LIBRARY}")
+add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUTPUT_LIBRARY}")
 
 add_custom_target(${target_name} ALL DEPENDS ${target_name}_lib)
 
@@ -320,11 +415,11 @@ if (MSVC AND NOT (CMAKE_GENERATOR STREQUAL "Ninja"))
 endif()
 
 if (WIN32)
-    set(TARGET_FILE "${EXECUTABLE_OUTPUT_PATH}/${OUPUT_LIBRARY_NAME}")
+    set(TARGET_FILE "${EXECUTABLE_OUTPUT_PATH}/${OUTPUT_LIBRARY_NAME}")
 
     add_custom_command(TARGET ${target_name} POST_BUILD
         COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-            "${BAZEL_OUPUT_LIBRARY}"
+            "${BAZEL_OUTPUT_LIBRARY}"
             "${TARGET_FILE}"
 
         COMMAND "${CMAKE_COMMAND}" -E copy_if_different
@@ -341,11 +436,11 @@ if (WIN32)
         COMMENT "Copy outputs ..." 
     )
 else()
-    set(TARGET_FILE "${LIBRARY_OUTPUT_PATH}/${OUPUT_LIBRARY_NAME}")
+    set(TARGET_FILE "${LIBRARY_OUTPUT_PATH}/${OUTPUT_LIBRARY_NAME}")
 
     add_custom_command(TARGET ${target_name} POST_BUILD
         COMMAND "${CMAKE_COMMAND}"
-            "-DORIGIN_FILE=${BAZEL_OUPUT_LIBRARY}"
+            "-DORIGIN_FILE=${BAZEL_OUTPUT_LIBRARY}"
             "-DTARGET_FILE=${TARGET_FILE}"
             -P "${CMAKE_CURRENT_SOURCE_DIR}/copy_soname.cmake"
 

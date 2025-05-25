@@ -20,19 +20,6 @@ namespace LUA_MODULE_NAME {
 		}
 	}
 
-	template<typename T, typename V>
-	inline decltype(auto) extract_holder(T& holder, V& defval, bool empty) {
-		if constexpr (std::is_same_v<std::remove_cvref_t<T>, std::remove_cvref_t<V>>) {
-			return empty ? defval : holder;
-		}
-		else if constexpr (std::is_enum_v<V>) {
-			return empty ? defval : static_cast<V>(holder);
-		}
-		else {
-			return empty ? defval : *holder;
-		}
-	}
-
 	// ================================
 	// _Object
 	// ================================

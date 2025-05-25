@@ -1,3 +1,5 @@
+#include "absl/base/const_init.h"
+#include "absl/synchronization/mutex.h"
 #include "binding/calculator_graph.h"
 
 using namespace mediapipe;
@@ -5,7 +7,7 @@ using namespace mediapipe::lua;
 
 // A mutex to guard the output stream observer lua callback function.
 // Only one lua callback can run at once.
-static absl::Mutex callback_mutex;
+static absl::Mutex callback_mutex(absl::kConstInit);
 
 namespace mediapipe::lua::calculator_graph {
 	absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(CalculatorGraphConfig& graph_config) {

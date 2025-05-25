@@ -23,9 +23,9 @@ namespace mediapipe::tasks::lua::vision::object_detector {
 		CV_WRAP ObjectDetectorOptions(
 			std::shared_ptr<lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
 			core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-			const std::optional<std::string>& display_names_locale = std::optional<std::string>(),
-			const std::optional<int>& max_results = std::optional<int>(),
-			const std::optional<float>& score_threshold = std::optional<float>(),
+			const std::optional<std::string>& display_names_locale = std::nullopt,
+			const std::optional<int>& max_results = std::nullopt,
+			const std::optional<float>& score_threshold = std::nullopt,
 			const std::vector<std::string>& category_allowlist = std::vector<std::string>(),
 			const std::vector<std::string>& category_denylist = std::vector<std::string>(),
 			ObjectDetectorResultCallback result_callback = nullptr

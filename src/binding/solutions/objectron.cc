@@ -108,6 +108,8 @@ namespace mediapipe::lua::solutions::objectron {
 			},
 			{ "detected_objects" },
 			noTypeMap(),
+			noTypeMap(),
+			std::nullopt,
 			static_cast<Objectron*>(nullptr)
 		);
 	}

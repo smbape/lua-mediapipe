@@ -6,7 +6,7 @@ namespace {
 
 	void register_version(lua_State* L) {
 		lua_pushliteral(L, "version");
-		lua_pushliteral(L, "Lua bindings " LUA_MODULE_QUOTE_STRING(LUA_MODULE_VERSION) " for OpenCV " LUA_MODULE_QUOTE_STRING(LUA_MODULE_LIB_VERSION));
+		lua_pushliteral(L, "Lua bindings " LUA_MODULE_QUOTE_STRING(LUA_MODULE_VERSION) " for Mediapipe " LUA_MODULE_QUOTE_STRING(LUA_MODULE_LIB_VERSION));
 		lua_rawset(L, -3);
 	}
 

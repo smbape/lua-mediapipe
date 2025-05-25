@@ -46,6 +46,8 @@ namespace mediapipe::lua::solutions::face_mesh {
 			},
 			{ "multi_face_landmarks" },
 			noTypeMap(),
+			noTypeMap(),
+			std::nullopt,
 			static_cast<FaceMesh*>(nullptr)
 			);
 	}

@@ -110,7 +110,7 @@ npm ci
 ```sh
 # --lua-versions luajit-2.1,5.1,5.2,5.3,5.4
 node scripts/prepublish.js --pack --server=/io/luarocks-binaries-custom/server --lua-versions luajit-2.1 --name=mediapipe_lua-custom \
-    --repair --plat linux_x86_64 --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
+    --repair --plat auto --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
     --opencv-server=/io/luarocks-binaries-custom/server \
     --opencv-name=opencv_lua-custom \
     -DMEDIAPIPE_DISABLE_GPU=OFF \
@@ -121,7 +121,7 @@ node scripts/prepublish.js --pack --server=/io/luarocks-binaries-custom/server -
 ```
 
   - `--repair`:            vendor in external shared library dependencies of the binary rock.
-  - `--plat linux_x86_64`: target this linux distribution
+  - `--plat auto`: target this linux distribution
   - `--exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so"`: exclude shared libraries that if vendored, may conflict with the system shared libraries.
 
   See [pypa/auditwheel](https://pypi.org/project/auditwheel/) for more information
@@ -207,15 +207,15 @@ end
 
 local download_utils = mediapipe.lua.solutions.download_utils
 
-local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
+local MEDIAPIPE_SAMPLES_DATA_PATH = "testdata"
 
 local IMAGE_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/girl-4051811_960_720.jpg"
 local IMAGE_URL = "https://cdn.pixabay.com/photo/2019/03/12/20/39/girl-4051811_960_720.jpg"
 local IMAGE_HASH = "sha256=99e0649aa4f2553b0213982f544146565a1028877c4bb9fbe3884453659d8cdc"
 
 download_utils.download(mediapipe_lua.kwargs({
-    file = IMAGE_FILE,
     url = IMAGE_URL,
+    output = IMAGE_FILE,
     hash = IMAGE_HASH,
 }))
 
@@ -224,8 +224,8 @@ local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/pose_landmark
 local MODEL_HASH = "sha256=64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b"
 
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
     url = MODEL_URL,
+    output = MODEL_FILE,
     hash = MODEL_HASH,
 }))
 

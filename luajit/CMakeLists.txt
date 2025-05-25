@@ -16,7 +16,7 @@ include(../cmake/FindPatch.cmake)
 
 set(PATCH_COMMAND "")
 if (WIN32)
-    set(PATCH_COMMAND PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-luajit-src.patch")
+    set(PATCH_COMMAND PATCH_COMMAND "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-luajit-src.patch")
 endif()
 
 # ================================

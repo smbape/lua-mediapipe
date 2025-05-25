@@ -494,3 +494,87 @@ index b7a4786..ef42ccc 100644
           return nil, "Failed building."
        end
     end
+diff --git a/src/luarocks/core/manif.lua b/src/luarocks/core/manif.lua
+index 3925f63..5d3c7dc 100644
+--- a/src/luarocks/core/manif.lua
++++ b/src/luarocks/core/manif.lua
+@@ -42,6 +42,79 @@ end
+ -- @return table or (nil, string, string): the manifest or nil,
+ -- error message and error code ("open", "load", "run").
+ function manif.manifest_loader(file, repo_url, lua_version)
++   local function alter_manifest(manifest_file)
++      -- get the manifest content
++      local f = io.open(manifest_file)
++      if f == nil then
++         return
++      end
++      local manifest = f:read("*a")
++      f:close()
++
++      -- check if the manifest has already been modified
++      if manifest:find("function") == nil then
++         return
++      end
++
++      -- put (function () return " .. manifest:sub(start_pos, end_pos) .." end)()
++      -- around all repository items
++
++      local repository_start = "repository = {"
++      local pos = manifest:find(repository_start)
++      if pos == nil then
++         return
++      end
++
++      pos = pos + #repository_start
++
++      local rewrite = { manifest:sub(1, pos - 1) }
++      local last_pos = pos
++      local eof = #manifest
++
++      while pos ~= nil and pos < eof do
++         pos = manifest:find("{", pos)
++         if pos ~= nil then
++            local start_pos = pos
++
++            local nested = 1
++            while pos < eof and nested ~= 0 do
++               pos = pos + 1
++               if manifest:sub(pos, pos) == "{" then
++                  nested = nested + 1
++               elseif manifest:sub(pos, pos) == "}" then
++                  nested = nested - 1
++               end
++            end
++            local end_pos = pos
++
++            if nested ~= 0 then
++               -- malformed table
++               return
++            end
++
++            rewrite[#rewrite + 1] = manifest:sub(last_pos, start_pos - 1)
++            last_pos = start_pos
++
++            rewrite[#rewrite + 1] = "(function () return " .. manifest:sub(start_pos, end_pos) .. " end)()"
++            pos = end_pos + 1
++            last_pos = pos
++         end
++      end
++
++      if last_pos <= eof then
++         rewrite[#rewrite + 1] = manifest:sub(last_pos, eof)
++      end
++
++      f = io.open(manifest_file, 'w')
++      f:write(table.concat(rewrite, ""))
++      f:close()
++   end
++
++   -- only for LuaJIT
++   if type(jit) == 'table' then
++      alter_manifest(file)
++   end
++
+    local manifest, err, errcode = persist.load_into_table(file)
+    if not manifest then
+       return nil, "Failed loading manifest for "..repo_url..": "..err, errcode

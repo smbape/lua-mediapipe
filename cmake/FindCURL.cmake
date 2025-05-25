@@ -16,7 +16,7 @@ include(FetchContent)
 FetchContent_Populate(zlib
     URL           https://github.com/madler/zlib/releases/download/v${ZLIB_VERSION}/zlib-${ZLIB_VERSION}.tar.xz
     URL_HASH      SHA256=${ZLIB_VERSION_SHA256}
-    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-zlib-src.patch"
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-zlib-src.patch"
 )
 
 set(SKIP_INSTALL_ALL ON)
@@ -131,7 +131,7 @@ include(FetchContent)
 FetchContent_Populate(nghttp2
     URL           https://github.com/nghttp2/nghttp2/releases/download/v${NGHTTP2_VERSION}/nghttp2-${NGHTTP2_VERSION}.tar.xz
     URL_HASH      SHA256=${NGHTTP2_VERSION_SHA256}
-    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-nghttp2-src.patch"
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-nghttp2-src.patch"
 )
 
 # Hack to ensure that nghttp2 is built with BUILD_SHARED_LIBS OFF
@@ -165,7 +165,7 @@ FetchContent_Populate(curl
     URL           https://curl.se/download/curl-${CURL_VERSION}.tar.xz
                   https://github.com/curl/curl/releases/download/curl-${CURL_VERSION_UNDERSCORE}/curl-${CURL_VERSION}.tar.xz
     URL_HASH      SHA256=${CURL_VERSION_SHA256}
-    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-curl-src.patch"
+    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-curl-src.patch"
 )
 
 # https://gitlab.kitware.com/cmake/cmake/-/blob/v3.31.6/Utilities/cmcurl/CMakeLists.txt

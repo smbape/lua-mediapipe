@@ -22,7 +22,7 @@ namespace mediapipe::tasks::lua::core::base_options {
 		CV_WRAP BaseOptions(
 			const std::string& model_asset_path = "",
 			const std::string& model_asset_buffer = "",
-			const std::optional<Delegate>& delegate = std::optional<Delegate>()
+			const std::optional<Delegate>& delegate = std::nullopt
 		) : model_asset_path(model_asset_path), model_asset_buffer(model_asset_buffer), delegate(delegate) {}
 
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<mediapipe::tasks::core::proto::BaseOptions>> to_pb2() const;

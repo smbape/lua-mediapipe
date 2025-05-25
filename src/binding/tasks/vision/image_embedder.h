@@ -25,8 +25,8 @@ namespace mediapipe::tasks::lua::vision::image_embedder {
 		CV_WRAP ImageEmbedderOptions(
 			std::shared_ptr<lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
 			core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-			const std::optional<bool>& l2_normalize = std::optional<bool>(),
-			const std::optional<bool>& quantize = std::optional<bool>(),
+			const std::optional<bool>& l2_normalize = std::nullopt,
+			const std::optional<bool>& quantize = std::nullopt,
 			ImageEmbedderResultCallback result_callback = nullptr
 		)
 			:

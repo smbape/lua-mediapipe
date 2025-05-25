@@ -117,7 +117,7 @@ const prepublish = (target, version, options, next) => {
                     ["git", ["init", "-b", branch]],
                     ["git", ["remote", "add", "origin", sysPath.resolve(__dirname, "..")]],
                     ["git", ["pull", "origin", branch]],
-                    ["git", ["branch", "--set-upstream-to=origin/main", branch]],
+                    ["git", ["branch", `--set-upstream-to=origin/${ branch }`, branch]],
                     ["git", ["config", "pull.rebase", "true"]],
                     ["git", ["config", "user.email", "you@example.com"]],
                     ["git", ["config", "user.name", "Your Name"]],

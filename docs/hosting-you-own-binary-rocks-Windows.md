@@ -131,8 +131,8 @@ local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/bert_classifier.tflite"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/text_classifier/bert_classifier/float32/1/bert_classifier.tflite"
 local MODEL_HASH = "sha256=9b45012ab143d88d61e10ea501d6c8763f7202b86fa987711519d89bfa2a88b1"
 download_utils.download(mediapipe_lua.kwargs({
-    file = MODEL_FILE,
     url = MODEL_URL,
+    output = MODEL_FILE,
     hash = MODEL_HASH,
 }))
 

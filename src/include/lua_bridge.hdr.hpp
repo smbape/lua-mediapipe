@@ -22,6 +22,8 @@ namespace LUA_MODULE_NAME {
 
 	int lua_push(lua_State* L, const cv::Mat& obj);
 
+	int lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj);
+
 
 	// ================================
 	// mediapipe::Timestamp

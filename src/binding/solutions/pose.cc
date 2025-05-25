@@ -23,7 +23,8 @@ namespace mediapipe::lua::solutions::pose {
 		bool enable_segmentation,
 		bool smooth_segmentation,
 		float min_detection_confidence,
-		float min_tracking_confidence
+		float min_tracking_confidence,
+		const std::optional<ExtraSettings>& extra_settings
 	) {
 		MP_RETURN_IF_ERROR(download_utils::download_oss_model(_POSE_DETECTION_TFLITE_FILE_PATH));
 		MP_RETURN_IF_ERROR(download_utils::download_oss_model(
@@ -51,6 +52,8 @@ namespace mediapipe::lua::solutions::pose {
 			},
 			{ "pose_landmarks", "pose_world_landmarks", "segmentation_mask" },
 			noTypeMap(),
+			noTypeMap(),
+			extra_settings,
 			static_cast<Pose*>(nullptr)
 		);
 	}

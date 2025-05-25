@@ -22,8 +22,8 @@ namespace mediapipe::tasks::lua::vision::face_detector {
 		CV_WRAP FaceDetectorOptions(
 			std::shared_ptr<lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
 			core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-			const std::optional<float>& min_detection_confidence = std::optional<float>(),
-			const std::optional<float>& min_suppression_threshold = std::optional<float>(),
+			const std::optional<float>& min_detection_confidence = std::nullopt,
+			const std::optional<float>& min_suppression_threshold = std::nullopt,
 			FaceDetectorResultCallback result_callback = nullptr
 		)
 			:

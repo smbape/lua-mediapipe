@@ -3,7 +3,7 @@
 require "busted.runner" ()
 
 package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:sub(1, 1)) ..
-        arg[0]:gsub("[^/\\]+%.lua", '../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
+    arg[0]:gsub("[^/\\]+%.lua", '../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
 
 --[[
 Sources:
@@ -167,7 +167,23 @@ function _assert._segmentation_diff_to_bgr(segm_expected, segm_actual, expected_
 end
 
 local function test_blank_image(self)
-    local pose = mp_pose.Pose()
+    local pose = mp_pose.Pose(mediapipe_lua.kwargs({
+        enable_segmentation = true
+    }))
+    local image = cv2.Mat.zeros(100, 100, cv2.CV_8UC3)
+    image:setTo(255.0)
+    local results = pose:process(image)
+    self.assertIsNone(results.pose_landmarks)
+    self.assertIsNone(results.segmentation_mask)
+end
+
+local function test_blank_image_with_extra_settings(self)
+    local pose = mp_pose.Pose(mediapipe_lua.kwargs({
+        enable_segmentation = true,
+        extra_settings = mp_pose.ExtraSettings(mediapipe_lua.kwargs({
+            disallow_service_default_initialization = true
+        })),
+    }))
     local image = cv2.Mat.zeros(100, 100, cv2.CV_8UC3)
     image:setTo(255.0)
     local results = pose:process(image)
@@ -180,7 +196,7 @@ local function test_on_image(self, id, static_image_mode, model_complexity, num_
         "https://github.com/tensorflow/tfjs-models/raw/master/pose-detection/test_data/pose.jpg",
         __dirname__ .. "/testdata/pose.jpg",
         mediapipe_lua.kwargs({
-            hash="sha256=c8a830ed683c0276d713dd5aeda28f415f10cd6291972084a40d0d8b934ed62b"
+            hash = "sha256=c8a830ed683c0276d713dd5aeda28f415f10cd6291972084a40d0d8b934ed62b"
         })
     )
 
@@ -188,7 +204,7 @@ local function test_on_image(self, id, static_image_mode, model_complexity, num_
         "https://github.com/tensorflow/tfjs-models/raw/master/pose-detection/test_data/pose_segmentation.png",
         __dirname__ .. "/testdata/pose_segmentation.png",
         mediapipe_lua.kwargs({
-            hash="sha256=4c227e40deb9522752e0c9397ca092fd38252a83f7929d8910ca43f14cf82482"
+            hash = "sha256=4c227e40deb9522752e0c9397ca092fd38252a83f7929d8910ca43f14cf82482"
         })
     )
 
@@ -248,6 +264,9 @@ local function test_on_video(self, id, model_complexity, expected_name)
         model_complexity = model_complexity
     }))
     while true do
+        -- Without this, memory grows indefinitely
+        collectgarbage()
+
         -- Get next frame of the video.
         local success, input_frame = video_cap:read()
         if not success then
@@ -270,8 +289,10 @@ local function test_on_video(self, id, model_complexity, expected_name)
         frame_idx = frame_idx + 1
     end
 
-    local actual = cv2.Mat.createFromArray(actual_per_frame, cv2.CV_64F):reshape(3, { #actual_per_frame, #actual_per_frame[1] })
-    local actual_world = cv2.Mat.createFromArray(actual_world_per_frame, cv2.CV_64F):reshape(3, { #actual_per_frame, #actual_per_frame[1] })
+    local actual = cv2.Mat.createFromArray(actual_per_frame, cv2.CV_64F):reshape(3,
+        { #actual_per_frame, #actual_per_frame[1] })
+    local actual_world = cv2.Mat.createFromArray(actual_world_per_frame, cv2.CV_64F):reshape(3,
+        { #actual_per_frame, #actual_per_frame[1] })
 
     local expected_path = __dirname__ .. "/testdata/test_on_video_" .. id .. "_" .. expected_name
     local expected_storage = cv2.FileStorage(expected_path, cv2.FileStorage.READ)
@@ -300,6 +321,10 @@ end
 describe("PoseTest", function()
     it("should test_blank_image", function()
         test_blank_image(_assert)
+    end)
+
+    it("should test_blank_image_with_extra_settings", function()
+        test_blank_image_with_extra_settings(_assert)
     end)
 
     for _, args in ipairs({

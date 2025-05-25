@@ -296,7 +296,8 @@ after_env:
 		const std::string& output,
 		const std::string& hash,
 		const bool force,
-		const char verbose
+		const char verbose,
+		const std::vector<std::string>& other
 	) {
 		auto file_abspath = fs::absolute(fs::path(output));
 
@@ -323,6 +324,8 @@ after_env:
 		} else if (verbose < 0) {
 			argv.push_back("--silent");
 		}
+
+		argv.insert(std::end(argv), std::begin(other), std::end(other));
 
 		MP_RETURN_IF_ERROR(curl(argv));
 

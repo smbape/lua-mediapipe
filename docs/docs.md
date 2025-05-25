@@ -1895,6 +1895,9 @@
 - [google::protobuf::lua::Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_LogicCalculatorOptions](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_logiccalculatoroptions)
   - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_LogicCalculatorOptions.\_\_type](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_logiccalculatoroptions%5C_%5C_type)
   - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_LogicCalculatorOptions.operator==](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_logiccalculatoroptionsoperator)
+- [google::protobuf::lua::Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_resampletimeseriescalculatoroptions)
+  - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions.\_\_type](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_resampletimeseriescalculatoroptions%5C_%5C_type)
+  - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions.operator==](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_resampletimeseriescalculatoroptionsoperator)
 - [google::protobuf::lua::Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_TemplateSubgraphOptions](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_templatesubgraphoptions)
   - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_TemplateSubgraphOptions.\_\_type](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_templatesubgraphoptions%5C_%5C_type)
   - [google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_TemplateSubgraphOptions.operator==](#googleprotobufluaextend%5C_mediapipe%5C_calculatoroptionswithmediapipe%5C_templatesubgraphoptionsoperator)
@@ -2240,6 +2243,7 @@
   - [mediapipe.CalculatorGraph.close](#mediapipecalculatorgraphclose)
   - [mediapipe.CalculatorGraph.close\_all\_packet\_sources](#mediapipecalculatorgraphclose%5C_all%5C_packet%5C_sources)
   - [mediapipe.CalculatorGraph.close\_input\_stream](#mediapipecalculatorgraphclose%5C_input%5C_stream)
+  - [mediapipe.CalculatorGraph.disallow\_service\_default\_initialization](#mediapipecalculatorgraphdisallow%5C_service%5C_default%5C_initialization)
   - [mediapipe.CalculatorGraph.get\_combined\_error\_message](#mediapipecalculatorgraphget%5C_combined%5C_error%5C_message)
   - [mediapipe.CalculatorGraph.get\_output\_side\_packet](#mediapipecalculatorgraphget%5C_output%5C_side%5C_packet)
   - [mediapipe.CalculatorGraph.has\_error](#mediapipecalculatorgraphhas%5C_error)
@@ -2345,8 +2349,13 @@
   - [ConstantSidePacket.time\_series\_header\_value](#constantsidepackettime%5C_series%5C_header%5C_value)
   - [ConstantSidePacket.matrix\_data\_value](#constantsidepacketmatrix%5C_data%5C_value)
   - [ConstantSidePacket.string\_vector\_value](#constantsidepacketstring%5C_vector%5C_value)
+  - [ConstantSidePacket.float\_vector\_value](#constantsidepacketfloat%5C_vector%5C_value)
   - [mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new](#mediapipeconstantsidepacketcalculatoroptionsconstantsidepacketnew)
   - [mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.\_\_type](#mediapipeconstantsidepacketcalculatoroptionsconstantsidepacket%5C_%5C_type)
+- [mediapipe::ConstantSidePacketCalculatorOptions::FloatVector](#mediapipeconstantsidepacketcalculatoroptionsfloatvector)
+  - [FloatVector.float\_value](#floatvectorfloat%5C_value)
+  - [mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.new](#mediapipeconstantsidepacketcalculatoroptionsfloatvectornew)
+  - [mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.\_\_type](#mediapipeconstantsidepacketcalculatoroptionsfloatvector%5C_%5C_type)
 - [mediapipe::ConstantSidePacketCalculatorOptions::StringVector](#mediapipeconstantsidepacketcalculatoroptionsstringvector)
   - [StringVector.string\_value](#stringvectorstring%5C_value)
   - [mediapipe.ConstantSidePacketCalculatorOptions.StringVector.new](#mediapipeconstantsidepacketcalculatoroptionsstringvectornew)
@@ -3031,6 +3040,31 @@
   - [RenderViewport.compose\_on\_video](#renderviewportcompose%5C_on%5C_video)
   - [mediapipe.RenderViewport.new](#mediapiperenderviewportnew)
   - [mediapipe.RenderViewport.\_\_type](#mediapiperenderviewport%5C_%5C_type)
+- [mediapipe::ResampleTimeSeriesCalculatorOptions](#mediapiperesampletimeseriescalculatoroptions)
+  - [ResampleTimeSeriesCalculatorOptions.target\_sample\_rate](#resampletimeseriescalculatoroptionstarget%5C_sample%5C_rate)
+  - [ResampleTimeSeriesCalculatorOptions.resampler\_type](#resampletimeseriescalculatoroptionsresampler%5C_type)
+  - [ResampleTimeSeriesCalculatorOptions.resampler\_libresample\_options](#resampletimeseriescalculatoroptionsresampler%5C_libresample%5C_options)
+  - [ResampleTimeSeriesCalculatorOptions.resampler\_rational\_factor\_options](#resampletimeseriescalculatoroptionsresampler%5C_rational%5C_factor%5C_options)
+  - [ResampleTimeSeriesCalculatorOptions.check\_inconsistent\_timestamps](#resampletimeseriescalculatoroptionscheck%5C_inconsistent%5C_timestamps)
+  - [ResampleTimeSeriesCalculatorOptions.allow\_upsampling](#resampletimeseriescalculatoroptionsallow%5C_upsampling)
+  - [ResampleTimeSeriesCalculatorOptions.min\_source\_sample\_rate](#resampletimeseriescalculatoroptionsmin%5C_source%5C_sample%5C_rate)
+  - [ResampleTimeSeriesCalculatorOptions.UNDEFINED](#resampletimeseriescalculatoroptionsundefined)
+  - [ResampleTimeSeriesCalculatorOptions.RESAMPLER\_RATIONAL\_FACTOR](#resampletimeseriescalculatoroptionsresampler%5C_rational%5C_factor)
+  - [ResampleTimeSeriesCalculatorOptions.ext](#resampletimeseriescalculatoroptionsext)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.new](#mediapiperesampletimeseriescalculatoroptionsnew)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.\_\_type](#mediapiperesampletimeseriescalculatoroptions%5C_%5C_type)
+- [mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions](#mediapiperesampletimeseriescalculatoroptionsresamplerlibresampleoptions)
+  - [ResamplerLibResampleOptions.use\_high\_quality\_resampler](#resamplerlibresampleoptionsuse%5C_high%5C_quality%5C_resampler)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.new](#mediapiperesampletimeseriescalculatoroptionsresamplerlibresampleoptionsnew)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.\_\_type](#mediapiperesampletimeseriescalculatoroptionsresamplerlibresampleoptions%5C_%5C_type)
+- [mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions](#mediapiperesampletimeseriescalculatoroptionsresamplerrationalfactoroptions)
+  - [ResamplerRationalFactorOptions.radius\_factor](#resamplerrationalfactoroptionsradius%5C_factor)
+  - [ResamplerRationalFactorOptions.cutoff\_proportion](#resamplerrationalfactoroptionscutoff%5C_proportion)
+  - [ResamplerRationalFactorOptions.kaiser\_beta](#resamplerrationalfactoroptionskaiser%5C_beta)
+  - [ResamplerRationalFactorOptions.radius](#resamplerrationalfactoroptionsradius)
+  - [ResamplerRationalFactorOptions.cutoff](#resamplerrationalfactoroptionscutoff)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.new](#mediapiperesampletimeseriescalculatoroptionsresamplerrationalfactoroptionsnew)
+  - [mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.\_\_type](#mediapiperesampletimeseriescalculatoroptionsresamplerrationalfactoroptions%5C_%5C_type)
 - [mediapipe::RotationMode](#mediapiperotationmode)
   - [RotationMode.UNKNOWN](#rotationmodeunknown)
   - [RotationMode.ROTATION\_0](#rotationmoderotation%5C_0)
@@ -3191,6 +3225,8 @@
   - [mediapipe.ValidatedGraphConfig.operator==](#mediapipevalidatedgraphconfigoperator)
   - [mediapipe.ValidatedGraphConfig.registered\_side\_packet\_type\_name](#mediapipevalidatedgraphconfigregistered%5C_side%5C_packet%5C_type%5C_name)
   - [mediapipe.ValidatedGraphConfig.registered\_stream\_type\_name](#mediapipevalidatedgraphconfigregistered%5C_stream%5C_type%5C_name)
+- [mediapipe::calculators::audio::resample\_time\_series\_calculator\_pb2](#mediapipecalculatorsaudioresample%5C_time%5C_series%5C_calculator%5C_pb2)
+  - [resample\_time\_series\_calculator\_pb2.ResampleTimeSeriesCalculatorOptions](#resample%5C_time%5C_series%5C_calculator%5C_pb2resampletimeseriescalculatoroptions)
 - [mediapipe::calculators::core::constant\_side\_packet\_calculator\_pb2](#mediapipecalculatorscoreconstant%5C_side%5C_packet%5C_calculator%5C_pb2)
   - [constant\_side\_packet\_calculator\_pb2.ConstantSidePacketCalculatorOptions](#constant%5C_side%5C_packet%5C_calculator%5C_pb2constantsidepacketcalculatoroptions)
 - [mediapipe::calculators::core::flow\_limiter\_calculator\_pb2](#mediapipecalculatorscoreflow%5C_limiter%5C_calculator%5C_pb2)
@@ -3339,6 +3375,11 @@
   - [mediapipe.lua.packet\_getter.get\_str\_list](#mediapipeluapacket%5C_getterget%5C_str%5C_list)
   - [mediapipe.lua.packet\_getter.get\_str\_to\_packet\_dict](#mediapipeluapacket%5C_getterget%5C_str%5C_to%5C_packet%5C_dict)
   - [mediapipe.lua.packet\_getter.get\_uint](#mediapipeluapacket%5C_getterget%5C_uint)
+- [mediapipe::lua::solution\_base::ExtraSettings](#mediapipeluasolution%5C_baseextrasettings)
+  - [ExtraSettings.disallow\_service\_default\_initialization](#extrasettingsdisallow%5C_service%5C_default%5C_initialization)
+  - [mediapipe.lua.solution\_base.ExtraSettings.new](#mediapipeluasolution%5C_baseextrasettingsnew)
+  - [mediapipe.lua.solution\_base.ExtraSettings.\_\_type](#mediapipeluasolution%5C_baseextrasettings%5C_%5C_type)
+  - [mediapipe.lua.solution\_base.ExtraSettings.operator==](#mediapipeluasolution%5C_baseextrasettingsoperator)
 - [mediapipe::lua::solution\_base::SolutionBase](#mediapipeluasolution%5C_basesolutionbase)
   - [mediapipe.lua.solution\_base.SolutionBase.new](#mediapipeluasolution%5C_basesolutionbasenew)
   - [mediapipe.lua.solution\_base.SolutionBase.\_\_type](#mediapipeluasolution%5C_basesolutionbase%5C_%5C_type)
@@ -3476,6 +3517,7 @@
   - [mediapipe.lua.solutions.objectron.ShoeModel.operator==](#mediapipeluasolutionsobjectronshoemodeloperator)
 - [mediapipe::lua::solutions::pose](#mediapipeluasolutionspose)
   - [pose.POSE\_CONNECTIONS](#posepose%5C_connections)
+  - [pose.ExtraSettings](#poseextrasettings)
 - [mediapipe::lua::solutions::pose::Pose](#mediapipeluasolutionsposepose)
   - [mediapipe.lua.solutions.pose.Pose.new](#mediapipeluasolutionsposeposenew)
   - [mediapipe.lua.solutions.pose.Pose.\_\_type](#mediapipeluasolutionsposepose%5C_%5C_type)
@@ -23304,6 +23346,30 @@ lua:
     oExtend_mediapipe_CalculatorOptionsWithmediapipe_LogicCalculatorOptions:__eq( other ) -> retval
 ```
 
+## google::protobuf::lua::Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions
+
+### google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions.\_\_type
+
+```cpp
+static std::string google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions::__type();
+lua:
+    google.protobuf.lua.Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions.__type() -> retval
+```
+
+### google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_ResampleTimeSeriesCalculatorOptions.operator==
+
+```cpp
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions::operator==( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions& other );
+lua:
+    oExtend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions:__eq( other ) -> retval
+```
+
+```cpp
+bool google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions::operator==( ::mediapipe_lua::Object other );
+lua:
+    oExtend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions:__eq( other ) -> retval
+```
+
 ## google::protobuf::lua::Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_TemplateSubgraphOptions
 
 ### google.protobuf.lua.Extend\_mediapipe\_CalculatorOptionsWithmediapipe\_TemplateSubgraphOptions.\_\_type
@@ -26095,6 +26161,14 @@ lua:
     oCalculatorGraph:close_input_stream( stream ) -> retval
 ```
 
+### mediapipe.CalculatorGraph.disallow\_service\_default\_initialization
+
+```cpp
+absl::Status mediapipe::CalculatorGraph::DisallowServiceDefaultInitialization();
+lua:
+    oCalculatorGraph:disallow_service_default_initialization() -> retval
+```
+
 ### mediapipe.CalculatorGraph.get\_combined\_error\_message
 
 ```cpp
@@ -26840,6 +26914,12 @@ lua:
     oCalculatorOptions:get_Extensions( vKey ) -> retval
 ```
 
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions* mediapipe::CalculatorOptions::MutableExtension( const google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions& vKey );
+lua:
+    oCalculatorOptions:get_Extensions( vKey ) -> retval
+```
+
 ## mediapipe::Classification
 
 ### Classification.index
@@ -27145,6 +27225,14 @@ lua:
     [propget, propput] oConstantSidePacket.string_vector_value
 ```
 
+### ConstantSidePacket.float\_vector\_value
+
+```cpp
+std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector> mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket::float_vector_value
+lua:
+    [propget, propput] oConstantSidePacket.float_vector_value
+```
+
 ### mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new
 
 ```cpp
@@ -27159,10 +27247,11 @@ mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket( std::optiona
                                                                     std::shared_ptr<mediapipe::LandmarkList>                                      landmark_list_value = std::shared_ptr<mediapipe::LandmarkList>(),
                                                                     std::shared_ptr<mediapipe::TimeSeriesHeader>                                  time_series_header_value = std::shared_ptr<mediapipe::TimeSeriesHeader>(),
                                                                     std::shared_ptr<mediapipe::MatrixData>                                        matrix_data_value = std::shared_ptr<mediapipe::MatrixData>(),
-                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector> string_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector>() );
+                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector> string_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector>(),
+                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>  float_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>() );
 lua:
-    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
-    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
+    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
+    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
 ```
 
 ### mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.\_\_type
@@ -27171,6 +27260,33 @@ lua:
 static std::string mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket::__type();
 lua:
     mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.__type() -> retval
+```
+
+## mediapipe::ConstantSidePacketCalculatorOptions::FloatVector
+
+### FloatVector.float\_value
+
+```cpp
+::mediapipe_lua::Object mediapipe::ConstantSidePacketCalculatorOptions::FloatVector::float_value
+lua:
+    [propget, propput] oFloatVector.float_value
+```
+
+### mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.new
+
+```cpp
+mediapipe::ConstantSidePacketCalculatorOptions::FloatVector( ::mediapipe_lua::Object float_value = ::LUA_MODULE_NAME::Object() );
+lua:
+    mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.new( [float_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::FloatVector object>
+    mediapipe.ConstantSidePacketCalculatorOptions.FloatVector( [float_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::FloatVector object>
+```
+
+### mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.\_\_type
+
+```cpp
+static std::string mediapipe::ConstantSidePacketCalculatorOptions::FloatVector::__type();
+lua:
+    mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.__type() -> retval
 ```
 
 ## mediapipe::ConstantSidePacketCalculatorOptions::StringVector
@@ -32520,6 +32636,201 @@ lua:
     mediapipe.RenderViewport.__type() -> retval
 ```
 
+## mediapipe::ResampleTimeSeriesCalculatorOptions
+
+### ResampleTimeSeriesCalculatorOptions.target\_sample\_rate
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::target_sample_rate
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.target_sample_rate
+```
+
+### ResampleTimeSeriesCalculatorOptions.resampler\_type
+
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerType mediapipe::ResampleTimeSeriesCalculatorOptions::resampler_type
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.resampler_type
+```
+
+### ResampleTimeSeriesCalculatorOptions.resampler\_libresample\_options
+
+```cpp
+std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions> mediapipe::ResampleTimeSeriesCalculatorOptions::resampler_libresample_options
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.resampler_libresample_options
+```
+
+### ResampleTimeSeriesCalculatorOptions.resampler\_rational\_factor\_options
+
+```cpp
+std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions> mediapipe::ResampleTimeSeriesCalculatorOptions::resampler_rational_factor_options
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.resampler_rational_factor_options
+```
+
+### ResampleTimeSeriesCalculatorOptions.check\_inconsistent\_timestamps
+
+```cpp
+bool mediapipe::ResampleTimeSeriesCalculatorOptions::check_inconsistent_timestamps
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.check_inconsistent_timestamps
+```
+
+### ResampleTimeSeriesCalculatorOptions.allow\_upsampling
+
+```cpp
+bool mediapipe::ResampleTimeSeriesCalculatorOptions::allow_upsampling
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.allow_upsampling
+```
+
+### ResampleTimeSeriesCalculatorOptions.min\_source\_sample\_rate
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::min_source_sample_rate
+lua:
+    [propget, propput] oResampleTimeSeriesCalculatorOptions.min_source_sample_rate
+```
+
+### ResampleTimeSeriesCalculatorOptions.UNDEFINED
+
+```cpp
+static int mediapipe::ResampleTimeSeriesCalculatorOptions::UNDEFINED
+lua:
+    [propget] ResampleTimeSeriesCalculatorOptions.UNDEFINED
+```
+
+### ResampleTimeSeriesCalculatorOptions.RESAMPLER\_RATIONAL\_FACTOR
+
+```cpp
+static int mediapipe::ResampleTimeSeriesCalculatorOptions::RESAMPLER_RATIONAL_FACTOR
+lua:
+    [propget] ResampleTimeSeriesCalculatorOptions.RESAMPLER_RATIONAL_FACTOR
+```
+
+### ResampleTimeSeriesCalculatorOptions.ext
+
+```cpp
+static google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions* mediapipe::ResampleTimeSeriesCalculatorOptions::ext
+lua:
+    [propget] ResampleTimeSeriesCalculatorOptions.ext
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.new
+
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions( std::optional<double>                                                                           target_sample_rate = std::optional<double>(),
+                                                std::optional<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerType>                    resampler_type = std::optional<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerType>(),
+                                                std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions>    resampler_libresample_options = std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions>(),
+                                                std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions> resampler_rational_factor_options = std::shared_ptr<mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions>(),
+                                                std::optional<bool>                                                                             check_inconsistent_timestamps = std::optional<bool>(),
+                                                std::optional<bool>                                                                             allow_upsampling = std::optional<bool>(),
+                                                std::optional<double>                                                                           min_source_sample_rate = std::optional<double>() );
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.new( [target_sample_rate[, resampler_type[, resampler_libresample_options[, resampler_rational_factor_options[, check_inconsistent_timestamps[, allow_upsampling[, min_source_sample_rate]]]]]]] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions object>
+    mediapipe.ResampleTimeSeriesCalculatorOptions( [target_sample_rate[, resampler_type[, resampler_libresample_options[, resampler_rational_factor_options[, check_inconsistent_timestamps[, allow_upsampling[, min_source_sample_rate]]]]]]] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions object>
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.\_\_type
+
+```cpp
+static std::string mediapipe::ResampleTimeSeriesCalculatorOptions::__type();
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.__type() -> retval
+```
+
+## mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions
+
+### ResamplerLibResampleOptions.use\_high\_quality\_resampler
+
+```cpp
+bool mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions::use_high_quality_resampler
+lua:
+    [propget, propput] oResamplerLibResampleOptions.use_high_quality_resampler
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.new
+
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions( std::optional<bool> use_high_quality_resampler = std::optional<bool>() );
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.new( [use_high_quality_resampler] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions object>
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions( [use_high_quality_resampler] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions object>
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.\_\_type
+
+```cpp
+static std::string mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions::__type();
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerLibResampleOptions.__type() -> retval
+```
+
+## mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions
+
+### ResamplerRationalFactorOptions.radius\_factor
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::radius_factor
+lua:
+    [propget, propput] oResamplerRationalFactorOptions.radius_factor
+```
+
+### ResamplerRationalFactorOptions.cutoff\_proportion
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::cutoff_proportion
+lua:
+    [propget, propput] oResamplerRationalFactorOptions.cutoff_proportion
+```
+
+### ResamplerRationalFactorOptions.kaiser\_beta
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::kaiser_beta
+lua:
+    [propget, propput] oResamplerRationalFactorOptions.kaiser_beta
+```
+
+### ResamplerRationalFactorOptions.radius
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::radius
+lua:
+    [propget, propput] oResamplerRationalFactorOptions.radius
+```
+
+### ResamplerRationalFactorOptions.cutoff
+
+```cpp
+double mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::cutoff
+lua:
+    [propget, propput] oResamplerRationalFactorOptions.cutoff
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.new
+
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions( std::optional<double> radius_factor = std::optional<double>(),
+                                                                                std::optional<double> cutoff_proportion = std::optional<double>(),
+                                                                                std::optional<double> kaiser_beta = std::optional<double>(),
+                                                                                std::optional<double> radius = std::optional<double>(),
+                                                                                std::optional<double> cutoff = std::optional<double>() );
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.new( [radius_factor[, cutoff_proportion[, kaiser_beta[, radius[, cutoff]]]]] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions object>
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions( [radius_factor[, cutoff_proportion[, kaiser_beta[, radius[, cutoff]]]]] ) -> <mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions object>
+```
+
+### mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.\_\_type
+
+```cpp
+static std::string mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions::__type();
+lua:
+    mediapipe.ResampleTimeSeriesCalculatorOptions.ResamplerRationalFactorOptions.__type() -> retval
+```
+
 ## mediapipe::RotationMode
 
 ### RotationMode.UNKNOWN
@@ -33807,6 +34118,16 @@ lua:
     oValidatedGraphConfig:registered_stream_type_name( stream_name ) -> retval
 ```
 
+## mediapipe::calculators::audio::resample\_time\_series\_calculator\_pb2
+
+### resample\_time\_series\_calculator\_pb2.ResampleTimeSeriesCalculatorOptions
+
+```cpp
+mediapipe::ResampleTimeSeriesCalculatorOptions
+lua:
+    [propget] resample_time_series_calculator_pb2.ResampleTimeSeriesCalculatorOptions
+```
+
 ## mediapipe::calculators::core::constant\_side\_packet\_calculator\_pb2
 
 ### constant\_side\_packet\_calculator\_pb2.ConstantSidePacketCalculatorOptions
@@ -34802,6 +35123,54 @@ lua:
     mediapipe.lua.packet_getter.get_uint( packet ) -> retval
 ```
 
+## mediapipe::lua::solution\_base::ExtraSettings
+
+### ExtraSettings.disallow\_service\_default\_initialization
+
+```cpp
+bool mediapipe::lua::solution_base::ExtraSettings::disallow_service_default_initialization
+lua:
+    [propget, propput] oExtraSettings.disallow_service_default_initialization
+```
+
+### mediapipe.lua.solution\_base.ExtraSettings.new
+
+```cpp
+mediapipe::lua::solution_base::ExtraSettings( bool disallow_service_default_initialization = false );
+lua:
+    mediapipe.lua.solution_base.ExtraSettings.new( [disallow_service_default_initialization] ) -> <mediapipe::lua::solution_base::ExtraSettings object>
+    mediapipe.lua.solution_base.ExtraSettings( [disallow_service_default_initialization] ) -> <mediapipe::lua::solution_base::ExtraSettings object>
+```
+
+```cpp
+mediapipe::lua::solution_base::ExtraSettings( const mediapipe::lua::solution_base::ExtraSettings& other );
+lua:
+    mediapipe.lua.solution_base.ExtraSettings.new( other ) -> <mediapipe::lua::solution_base::ExtraSettings object>
+    mediapipe.lua.solution_base.ExtraSettings( other ) -> <mediapipe::lua::solution_base::ExtraSettings object>
+```
+
+### mediapipe.lua.solution\_base.ExtraSettings.\_\_type
+
+```cpp
+static std::string mediapipe::lua::solution_base::ExtraSettings::__type();
+lua:
+    mediapipe.lua.solution_base.ExtraSettings.__type() -> retval
+```
+
+### mediapipe.lua.solution\_base.ExtraSettings.operator==
+
+```cpp
+bool mediapipe::lua::solution_base::ExtraSettings::operator==( const mediapipe::lua::solution_base::ExtraSettings& other );
+lua:
+    oExtraSettings:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::lua::solution_base::ExtraSettings::operator==( ::mediapipe_lua::Object other );
+lua:
+    oExtraSettings:__eq( other ) -> retval
+```
+
 ## mediapipe::lua::solution\_base::SolutionBase
 
 ### mediapipe.lua.solution\_base.SolutionBase.new
@@ -34812,9 +35181,11 @@ static absl::StatusOr<std::shared_ptr<mediapipe::lua::solution_base::SolutionBas
                                                                                                                                          const std::shared_ptr<google::protobuf::Message>&                           graph_options = std::shared_ptr<google::protobuf::Message>(),
                                                                                                                                          const std::map<std::string, ::mediapipe_lua::Object>&                       side_inputs = noMap(),
                                                                                                                                          const std::vector<std::string>&                                             outputs = noVector(),
-                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap() );
+                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap(),
+                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& side_packet_type_hints = noTypeMap(),
+                                                                                                                                         const std::optional<mediapipe::lua::solution_base::ExtraSettings>&          extra_settings = std::nullopt );
 lua:
-    mediapipe.lua.solution_base.SolutionBase.new( binary_graph_path[, calculator_params[, graph_options[, side_inputs[, outputs[, stream_type_hints]]]]] ) -> retval
+    mediapipe.lua.solution_base.SolutionBase.new( binary_graph_path[, calculator_params[, graph_options[, side_inputs[, outputs[, stream_type_hints[, side_packet_type_hints[, extra_settings]]]]]]] ) -> retval
 ```
 
 ```cpp
@@ -34823,9 +35194,11 @@ static absl::StatusOr<std::shared_ptr<mediapipe::lua::solution_base::SolutionBas
                                                                                                                                          const std::shared_ptr<google::protobuf::Message>&                           graph_options = std::shared_ptr<google::protobuf::Message>(),
                                                                                                                                          const std::map<std::string, ::mediapipe_lua::Object>&                       side_inputs = noMap(),
                                                                                                                                          const std::vector<std::string>&                                             outputs = noVector(),
-                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap() );
+                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& stream_type_hints = noTypeMap(),
+                                                                                                                                         const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& side_packet_type_hints = noTypeMap(),
+                                                                                                                                         const std::optional<mediapipe::lua::solution_base::ExtraSettings>&          extra_settings = std::nullopt );
 lua:
-    mediapipe.lua.solution_base.SolutionBase.new( graph_config[, calculator_params[, graph_options[, side_inputs[, outputs[, stream_type_hints]]]]] ) -> retval
+    mediapipe.lua.solution_base.SolutionBase.new( graph_config[, calculator_params[, graph_options[, side_inputs[, outputs[, stream_type_hints[, side_packet_type_hints[, extra_settings]]]]]]] ) -> retval
 ```
 
 ### mediapipe.lua.solution\_base.SolutionBase.\_\_type
@@ -35927,20 +36300,29 @@ lua:
     [propget] pose.POSE_CONNECTIONS
 ```
 
+### pose.ExtraSettings
+
+```cpp
+mediapipe::lua::solution_base::ExtraSettings
+lua:
+    [propget] pose.ExtraSettings
+```
+
 ## mediapipe::lua::solutions::pose::Pose
 
 ### mediapipe.lua.solutions.pose.Pose.new
 
 ```cpp
-static absl::StatusOr<std::shared_ptr<mediapipe::lua::solutions::pose::Pose>> mediapipe::lua::solutions::pose::Pose::create( bool    static_image_mode = false,
-                                                                                                                             uint8_t model_complexity = 1,
-                                                                                                                             bool    smooth_landmarks = true,
-                                                                                                                             bool    enable_segmentation = false,
-                                                                                                                             bool    smooth_segmentation = true,
-                                                                                                                             float   min_detection_confidence = 0.5f,
-                                                                                                                             float   min_tracking_confidence = 0.5f );
+static absl::StatusOr<std::shared_ptr<mediapipe::lua::solutions::pose::Pose>> mediapipe::lua::solutions::pose::Pose::create( bool                                                               static_image_mode = false,
+                                                                                                                             uint8_t                                                            model_complexity = 1,
+                                                                                                                             bool                                                               smooth_landmarks = true,
+                                                                                                                             bool                                                               enable_segmentation = false,
+                                                                                                                             bool                                                               smooth_segmentation = true,
+                                                                                                                             float                                                              min_detection_confidence = 0.5f,
+                                                                                                                             float                                                              min_tracking_confidence = 0.5f,
+                                                                                                                             const std::optional<mediapipe::lua::solution_base::ExtraSettings>& extra_settings = std::nullopt );
 lua:
-    mediapipe.lua.solutions.pose.Pose.new( [static_image_mode[, model_complexity[, smooth_landmarks[, enable_segmentation[, smooth_segmentation[, min_detection_confidence[, min_tracking_confidence]]]]]]] ) -> retval
+    mediapipe.lua.solutions.pose.Pose.new( [static_image_mode[, model_complexity[, smooth_landmarks[, enable_segmentation[, smooth_segmentation[, min_detection_confidence[, min_tracking_confidence[, extra_settings]]]]]]]] ) -> retval
 ```
 
 ### mediapipe.lua.solutions.pose.Pose.\_\_type
@@ -37755,9 +38137,9 @@ lua:
 ```cpp
 mediapipe::tasks::lua::audio::audio_classifier::AudioClassifierOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>           base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                         mediapipe::tasks::lua::audio::core::audio_task_running_mode::AudioTaskRunningMode running_mode = tasks::lua::audio::core::audio_task_running_mode::AudioTaskRunningMode::AUDIO_CLIPS,
-                                                                        const std::optional<std::string>&                                                 display_names_locale = std::optional<std::string>(),
-                                                                        const std::optional<int>&                                                         max_results = std::optional<int>(),
-                                                                        const std::optional<float>&                                                       score_threshold = std::optional<float>(),
+                                                                        const std::optional<std::string>&                                                 display_names_locale = std::nullopt,
+                                                                        const std::optional<int>&                                                         max_results = std::nullopt,
+                                                                        const std::optional<float>&                                                       score_threshold = std::nullopt,
                                                                         const std::vector<std::string>&                                                   category_allowlist = std::vector<std::string>(),
                                                                         const std::vector<std::string>&                                                   category_denylist = std::vector<std::string>(),
                                                                         AudioClassifierResultCallback                                                     result_callback = nullptr );
@@ -37923,8 +38305,8 @@ lua:
 ```cpp
 mediapipe::tasks::lua::audio::audio_embedder::AudioEmbedderOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>           base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                     mediapipe::tasks::lua::audio::core::audio_task_running_mode::AudioTaskRunningMode running_mode = tasks::lua::audio::core::audio_task_running_mode::AudioTaskRunningMode::AUDIO_CLIPS,
-                                                                    const std::optional<bool>&                                                        l2_normalize = std::optional<bool>(),
-                                                                    const std::optional<bool>&                                                        quantize = std::optional<bool>(),
+                                                                    const std::optional<bool>&                                                        l2_normalize = std::nullopt,
+                                                                    const std::optional<bool>&                                                        quantize = std::nullopt,
                                                                     AudioEmbedderResultCallback                                                       result_callback = nullptr );
 lua:
     mediapipe.tasks.lua.audio.audio_embedder.AudioEmbedderOptions.new( [base_options[, running_mode[, l2_normalize[, quantize[, result_callback]]]]] ) -> <mediapipe::tasks::lua::audio::audio_embedder::AudioEmbedderOptions object>
@@ -38150,7 +38532,7 @@ lua:
 
 ```cpp
 static absl::StatusOr<std::shared_ptr<mediapipe::tasks::lua::components::containers::audio_data::AudioData>> mediapipe::tasks::lua::components::containers::audio_data::AudioData::create_from_mat( cv::Mat                     src,
-                                                                                                                                                                                                    const std::optional<float>& sample_rate = std::optional<float>() );
+                                                                                                                                                                                                    const std::optional<float>& sample_rate = std::nullopt );
 lua:
     mediapipe.tasks.lua.components.containers.audio_data.AudioData.create_from_mat( src[, sample_rate] ) -> retval
 ```
@@ -38232,7 +38614,7 @@ lua:
 
 ```cpp
 mediapipe::tasks::lua::components::containers::audio_data::AudioDataFormat( int                         num_channels = 1,
-                                                                            const std::optional<float>& sample_rate = std::optional<float>() );
+                                                                            const std::optional<float>& sample_rate = std::nullopt );
 lua:
     mediapipe.tasks.lua.components.containers.audio_data.AudioDataFormat.new( [num_channels[, sample_rate]] ) -> <mediapipe::tasks::lua::components::containers::audio_data::AudioDataFormat object>
     mediapipe.tasks.lua.components.containers.audio_data.AudioDataFormat( [num_channels[, sample_rate]] ) -> <mediapipe::tasks::lua::components::containers::audio_data::AudioDataFormat object>
@@ -38926,10 +39308,10 @@ lua:
 ```
 
 ```cpp
-mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint( const std::optional<float>&       x = std::optional<float>(),
-                                                                             const std::optional<float>&       y = std::optional<float>(),
-                                                                             const std::optional<std::string>& label = std::optional<std::string>(),
-                                                                             const std::optional<float>&       score = std::optional<float>() );
+mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint( const std::optional<float>&       x = std::nullopt,
+                                                                             const std::optional<float>&       y = std::nullopt,
+                                                                             const std::optional<std::string>& label = std::nullopt,
+                                                                             const std::optional<float>&       score = std::nullopt );
 lua:
     mediapipe.tasks.lua.components.containers.keypoint.NormalizedKeypoint.new( [x[, y[, label[, score]]]] ) -> <mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint object>
     mediapipe.tasks.lua.components.containers.keypoint.NormalizedKeypoint( [x[, y[, label[, score]]]] ) -> <mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint object>
@@ -39440,9 +39822,9 @@ lua:
 ```
 
 ```cpp
-mediapipe::tasks::lua::components::processors::classifier_options::ClassifierOptions( const std::optional<std::string>& display_names_locale = std::optional<std::string>(),
-                                                                                      const std::optional<int>&         max_results = std::optional<int>(),
-                                                                                      const std::optional<float>&       score_threshold = std::optional<float>(),
+mediapipe::tasks::lua::components::processors::classifier_options::ClassifierOptions( const std::optional<std::string>& display_names_locale = std::nullopt,
+                                                                                      const std::optional<int>&         max_results = std::nullopt,
+                                                                                      const std::optional<float>&       score_threshold = std::nullopt,
                                                                                       const std::vector<std::string>&   category_allowlist = std::vector<std::string>(),
                                                                                       const std::vector<std::string>&   category_denylist = std::vector<std::string>() );
 lua:
@@ -39537,7 +39919,7 @@ lua:
 ```cpp
 mediapipe::tasks::lua::core::base_options::BaseOptions( const std::string&                                                                     model_asset_path = "",
                                                         const std::string&                                                                     model_asset_buffer = "",
-                                                        const std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions::Delegate>& delegate = std::optional<Delegate>() );
+                                                        const std::optional<mediapipe::tasks::lua::core::base_options::BaseOptions::Delegate>& delegate = std::nullopt );
 lua:
     mediapipe.tasks.lua.core.base_options.BaseOptions.new( [model_asset_path[, model_asset_buffer[, delegate]]] ) -> <mediapipe::tasks::lua::core::base_options::BaseOptions object>
     mediapipe.tasks.lua.core.base_options.BaseOptions( [model_asset_path[, model_asset_buffer[, delegate]]] ) -> <mediapipe::tasks::lua::core::base_options::BaseOptions object>
@@ -39895,9 +40277,9 @@ lua:
 
 ```cpp
 mediapipe::tasks::lua::text::language_detector::LanguageDetectorOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
-                                                                         const std::optional<std::string>&                                       display_names_locale = std::optional<std::string>(),
-                                                                         const std::optional<int>&                                               max_results = std::optional<int>(),
-                                                                         const std::optional<float>&                                             score_threshold = std::optional<float>(),
+                                                                         const std::optional<std::string>&                                       display_names_locale = std::nullopt,
+                                                                         const std::optional<int>&                                               max_results = std::nullopt,
+                                                                         const std::optional<float>&                                             score_threshold = std::nullopt,
                                                                          const std::vector<std::string>&                                         category_allowlist = std::vector<std::string>(),
                                                                          const std::vector<std::string>&                                         category_denylist = std::vector<std::string>() );
 lua:
@@ -40157,9 +40539,9 @@ lua:
 
 ```cpp
 mediapipe::tasks::lua::text::text_classifier::TextClassifierOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
-                                                                     const std::optional<std::string>&                                       display_names_locale = std::optional<std::string>(),
-                                                                     const std::optional<int>&                                               max_results = std::optional<int>(),
-                                                                     const std::optional<float>&                                             score_threshold = std::optional<float>(),
+                                                                     const std::optional<std::string>&                                       display_names_locale = std::nullopt,
+                                                                     const std::optional<int>&                                               max_results = std::nullopt,
+                                                                     const std::optional<float>&                                             score_threshold = std::nullopt,
                                                                      const std::vector<std::string>&                                         category_allowlist = std::vector<std::string>(),
                                                                      const std::vector<std::string>&                                         category_denylist = std::vector<std::string>() );
 lua:
@@ -40299,8 +40681,8 @@ lua:
 
 ```cpp
 mediapipe::tasks::lua::text::text_embedder::TextEmbedderOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
-                                                                 const std::optional<bool>&                                              l2_normalize = std::optional<bool>(),
-                                                                 const std::optional<bool>&                                              quantize = std::optional<bool>() );
+                                                                 const std::optional<bool>&                                              l2_normalize = std::nullopt,
+                                                                 const std::optional<bool>&                                              quantize = std::nullopt );
 lua:
     mediapipe.tasks.lua.text.text_embedder.TextEmbedderOptions.new( [base_options[, l2_normalize[, quantize]]] ) -> <mediapipe::tasks::lua::text::text_embedder::TextEmbedderOptions object>
     mediapipe.tasks.lua.text.text_embedder.TextEmbedderOptions( [base_options[, l2_normalize[, quantize]]] ) -> <mediapipe::tasks::lua::text::text_embedder::TextEmbedderOptions object>
@@ -41089,8 +41471,8 @@ lua:
 ```cpp
 mediapipe::tasks::lua::vision::face_detector::FaceDetectorOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>              base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                    mediapipe::tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-                                                                   const std::optional<float>&                                                          min_detection_confidence = std::optional<float>(),
-                                                                   const std::optional<float>&                                                          min_suppression_threshold = std::optional<float>(),
+                                                                   const std::optional<float>&                                                          min_detection_confidence = std::nullopt,
+                                                                   const std::optional<float>&                                                          min_suppression_threshold = std::nullopt,
                                                                    FaceDetectorResultCallback                                                           result_callback = nullptr );
 lua:
     mediapipe.tasks.lua.vision.face_detector.FaceDetectorOptions.new( [base_options[, running_mode[, min_detection_confidence[, min_suppression_threshold[, result_callback]]]]] ) -> <mediapipe::tasks::lua::vision::face_detector::FaceDetectorOptions object>
@@ -42897,9 +43279,9 @@ lua:
 ```cpp
 mediapipe::tasks::lua::vision::image_classifier::ImageClassifierOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>              base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                          mediapipe::tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-                                                                         const std::optional<std::string>&                                                    display_names_locale = std::optional<std::string>(),
-                                                                         const std::optional<int>&                                                            max_results = std::optional<int>(),
-                                                                         const std::optional<float>&                                                          score_threshold = std::optional<float>(),
+                                                                         const std::optional<std::string>&                                                    display_names_locale = std::nullopt,
+                                                                         const std::optional<int>&                                                            max_results = std::nullopt,
+                                                                         const std::optional<float>&                                                          score_threshold = std::nullopt,
                                                                          const std::vector<std::string>&                                                      category_allowlist = std::vector<std::string>(),
                                                                          const std::vector<std::string>&                                                      category_denylist = std::vector<std::string>(),
                                                                          ImageClassifierResultCallback                                                        result_callback = nullptr );
@@ -43090,8 +43472,8 @@ lua:
 ```cpp
 mediapipe::tasks::lua::vision::image_embedder::ImageEmbedderOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>              base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                      mediapipe::tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-                                                                     const std::optional<bool>&                                                           l2_normalize = std::optional<bool>(),
-                                                                     const std::optional<bool>&                                                           quantize = std::optional<bool>(),
+                                                                     const std::optional<bool>&                                                           l2_normalize = std::nullopt,
+                                                                     const std::optional<bool>&                                                           quantize = std::nullopt,
                                                                      ImageEmbedderResultCallback                                                          result_callback = nullptr );
 lua:
     mediapipe.tasks.lua.vision.image_embedder.ImageEmbedderOptions.new( [base_options[, running_mode[, l2_normalize[, quantize[, result_callback]]]]] ) -> <mediapipe::tasks::lua::vision::image_embedder::ImageEmbedderOptions object>
@@ -43815,9 +44197,9 @@ lua:
 ```cpp
 mediapipe::tasks::lua::vision::object_detector::ObjectDetectorOptions( std::shared_ptr<mediapipe::tasks::lua::core::base_options::BaseOptions>              base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
                                                                        mediapipe::tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode running_mode = tasks::lua::vision::core::vision_task_running_mode::VisionTaskRunningMode::IMAGE,
-                                                                       const std::optional<std::string>&                                                    display_names_locale = std::optional<std::string>(),
-                                                                       const std::optional<int>&                                                            max_results = std::optional<int>(),
-                                                                       const std::optional<float>&                                                          score_threshold = std::optional<float>(),
+                                                                       const std::optional<std::string>&                                                    display_names_locale = std::nullopt,
+                                                                       const std::optional<int>&                                                            max_results = std::nullopt,
+                                                                       const std::optional<float>&                                                          score_threshold = std::nullopt,
                                                                        const std::vector<std::string>&                                                      category_allowlist = std::vector<std::string>(),
                                                                        const std::vector<std::string>&                                                      category_denylist = std::vector<std::string>(),
                                                                        ObjectDetectorResultCallback                                                         result_callback = nullptr );

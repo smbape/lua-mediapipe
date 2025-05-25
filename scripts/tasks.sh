@@ -166,6 +166,7 @@ while read -r line; do
 done < /proc/version
 
 PROJECT_ID=mediapipe
+GIT_BRANCH="${GIT_BRANCH:-develop}"
 
 CONTAINER_NAME_MANY_LINUX_x86_64=${PROJECT_ID}-lua-manylinux2014-x86-64
 DOCKER_IMAGE_MANY_LINUX_x86_64=docker/manylinux2014/Dockerfile_x86_64
@@ -175,7 +176,7 @@ DOCKER_IMAGE_MANY_LINUX_aarch64=docker/manylinux2014/Dockerfile_aarch64
 
 DIST_VERSION=${DIST_VERSION:-1}
 WSL_DISTNAME=${WSL_DISTNAME:-Ubuntu}
-MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.23}
+MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.24}
 OPENCV_VERSION=${OPENCV_VERSION:-4.11.0}
 OPENCV_WORKSPACE_HASH="${OPENCV_WORKSPACE_HASH:-c0ef0985-b598-4736-af7d-1776141f784c}"
 # WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"'!02-video-capture-camera.lua' '!threshold_inRange.lua' '!objectDetection.lua'"}
@@ -191,17 +192,20 @@ function export_shared_env() {
     local mount_prefix="$1"
     local projectDir="${2:-${mount_prefix}$PWD}"
 
-    echo "
-export PROJECT_ID='${PROJECT_ID}'
-export PROJECT_VERSION='${PROJECT_VERSION}'
-export MEDIAPIPE_VERSION='${MEDIAPIPE_VERSION}'
-export OPENCV_VERSION='${OPENCV_VERSION}'
-export EXE_SUFFIX='${EXE_SUFFIX}'
-export SCRIPT_SUFFIX='${SCRIPT_SUFFIX}'
-export LUAROCKS_SUFFIX='${LUAROCKS_SUFFIX}'
-export DIST_VERSION='${DIST_VERSION}'
-export projectDir='${projectDir}'
-"
+    echo "export PROJECT_ID='${PROJECT_ID}'"
+    echo "export PROJECT_VERSION='${PROJECT_VERSION}'"
+    echo "export GIT_BRANCH='${GIT_BRANCH}'"
+    echo "export OPENCV_VERSION='${OPENCV_VERSION}'"
+    echo "export EXE_SUFFIX='${EXE_SUFFIX}'"
+    echo "export SCRIPT_SUFFIX='${SCRIPT_SUFFIX}'"
+    echo "export LUAROCKS_SUFFIX='${LUAROCKS_SUFFIX}'"
+    echo "export DIST_VERSION='${DIST_VERSION}'"
+    echo "export projectDir='${projectDir}'"
+
+    [ -z ${https_proxy+x} ] || echo "export https_proxy='${https_proxy}'"
+    [ -z ${HTTPS_PROXY+x} ] || echo "export HTTPS_PROXY='${HTTPS_PROXY}'"
+    [ -z ${http_proxy+x} ] || echo "export http_proxy='${http_proxy}'"
+    [ -z ${HTTP_PROXY+x} ] || echo "export HTTP_PROXY='${HTTP_PROXY}'"
 }
 
 function install_build_essentials_from_source() {
@@ -320,21 +324,25 @@ fi'
 function open_git_project() {
     local remote="$1"
     local project="$2"
-    local email="${3:-'you@example.com'}"
-    local name="${4:-'Your Name'}"
+    local email="${3:-"$(git config user.email || echo 'you@example.com')"}"
+    local name="${4:-"$(git config user.name || echo 'Your Name')"}"
+    local branch="${GIT_BRANCH:-develop}"
 
     if [ -d "${project}/.git" ]; then
         cd "${project}" && \
         git remote set-url origin "${remote}" && \
         git reset --hard HEAD -- && \
         git clean -fd && \
-        git pull --force
+        git fetch origin "${branch}" && \
+        git checkout "${branch}" && \
+        git pull origin "${branch}" --force
     else
         git clone "${remote}" "${project}" && \
         cd "${project}" && \
         git config pull.rebase true && \
         git config user.email "${email}" && \
-        git config user.name "${name}"
+        git config user.name "${name}" && \
+        git checkout "${branch}"
     fi
 }
 
@@ -407,6 +415,14 @@ function doctoc() {
     node scripts/update-readme.js && \
     node node_modules/doctoc/doctoc.js *.md docs/*.md && \
     git add --renormalize .
+}
+
+function is_sync_with_remote() {
+    local remote="${1:-github}"
+    local branch="${2:-$(git rev-parse --abbrev-ref HEAD)}"
+
+    local msg="$(git log -1 --pretty=format:%s "$remote/$branch" -- 2>/dev/null)" || return $?
+    [ "v$msg" == "$(git tag -l "v$msg")" ]
 }
 
 function new_version() {
@@ -492,7 +508,9 @@ function set_url() {
 }
 
 function set_url_github() {
-    set_url "git+https://github.com/smbape/lua-${PROJECT_ID}.git"
+    local url=$(git remote get-url --push github | sed 's|git@github.com:|https://github.com/|') || \
+    local url="https://github.com/smbape/lua-${PROJECT_ID}.git"
+    set_url "git+${url}"
 }
 
 function push_all() {
@@ -542,13 +560,17 @@ done
 }
 
 function prepublish_any() {
-    time node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js --pack --lua-versions "${LUA_VERSIONS}" "$@" && \
+    time node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js --pack --lua-versions "${LUA_VERSIONS}" --branch "${GIT_BRANCH}" "$@" && \
     time ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luajit --install && \
     time ./build${SCRIPT_SUFFIX} -DLua_VERSION=luajit-2.1 --target luarocks
 }
 
 function set_url_windows() {
-    set_url "git+file://$(cygpath -m "$PWD")"
+    if is_sync_with_remote; then
+        set_url_github
+    else
+        set_url "git+file://$(cygpath -m "$PWD")"
+    fi
 }
 
 function prepublish_windows() {
@@ -659,7 +681,11 @@ function build_windows() {
 }
 
 function set_url_docker() {
-    set_url "git+file:///mnt/sources/lua-${PROJECT_ID}"
+    if is_sync_with_remote; then
+        set_url_github
+    else
+        set_url "git+file:///mnt/sources/lua-${PROJECT_ID}"
+    fi
 }
 
 function make_available_nvs() {
@@ -710,7 +736,7 @@ function prepublish_manylinux() {
 
     fix_mounted_volumes_permission_docker ${name} || return $?
 
-    docker exec -it -u 1000 ${name} bash -c '
+    local script='
 export PATH="$HOME/bin${PATH:+:${PATH}}" && \
 export PATH="${PATH//:\/bin:/:}" && \
 git config --global --add safe.directory /mnt/sources/lua-'"${PROJECT_ID}"'/.git && \
@@ -720,11 +746,14 @@ open_git_project file:///mnt/sources/lua-'"${PROJECT_ID}"' /io/'"${PROJECT_ID}"'
 [ -d node_modules ] || npm ci || exit $?
 test -e out/prepublish && find out/prepublish/ -mindepth 5 -maxdepth 5 -type f -name lockfile.lfs -delete
 node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --branch '"'${GIT_BRANCH}'"' \
     --pack \
     --lua-versions '"'${LUA_VERSIONS}'"' \
     --server=/mnt/sources/lua-'"${PROJECT_ID}"'/out/prepublish/server \
     --repair \
     --exclude "opencv_lua.so;libGL*;libEGL.so.*"'
+
+    docker exec -it -u 1000 ${name} bash -c "$(export_shared_env '' /mnt/sources/lua-${PROJECT_ID});$script"
 }
 
 function build_manylinux() {
@@ -735,7 +764,11 @@ function build_manylinux() {
 }
 
 function set_url_wsl() {
-    set_url "git+file:///mnt$(cygpath -u "$PWD")"
+    if is_sync_with_remote; then
+        set_url_github
+    else
+        set_url "git+file:///mnt$(cygpath -u "$PWD")"
+    fi
 }
 
 function prepublish_wsl() {
@@ -765,6 +798,7 @@ open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/lua-'"${PROJECT_ID
 
 TMPDIR="${WORKING_DIRECTORY}/tmp" && \
 node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --branch '"'${GIT_BRANCH}'"' \
     --pack \
     --server="${WORKING_DIRECTORY}/server" \
     --lua-versions luajit-2.1 \
@@ -875,8 +909,9 @@ open_git_project "file://${projectDir}" "${WORKING_DIRECTORY}/lua-'"${PROJECT_ID
 find out/prepublish/ -mindepth 5 -maxdepth 5 -type f -name lockfile.lfs -delete
 
 node --trace-uncaught --unhandled-rejections=strict scripts/prepublish.js \
+    --branch '"'${GIT_BRANCH}'"' \
     --pack \
-    --repair --plat linux_x86_64 --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
+    --repair --plat auto --exclude "libc.so.*;libgcc_s.so.*;libstdc++.so.*;libm.so.*;libxcb.so.*;libQt*;libcu*;libnp*;libGL*;libEGL*;opencv_lua.so" \
     --server="${WORKING_DIRECTORY}/server" \
     --opencv-server="${WORKING_DIRECTORY}/server" \
     --opencv-name=opencv_lua-custom \

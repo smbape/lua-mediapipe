@@ -17,20 +17,21 @@ const options = {
 };
 
 for (const filename of [
-    "mediapipe/framework/calculator.proto",
-    "mediapipe/framework/tool/calculator_graph_template.proto",
-    "mediapipe/framework/formats/detection.proto",
-    "mediapipe/framework/formats/image_format.proto",
-    "mediapipe/framework/formats/location_data.proto",
-    "mediapipe/framework/formats/landmark.proto",
-    "mediapipe/modules/face_detection/face_detection.proto",
-    "mediapipe/modules/objectron/calculators/annotation_data.proto",
+    "mediapipe/calculators/audio/resample_time_series_calculator.proto",
     "mediapipe/calculators/core/constant_side_packet_calculator.proto",
     "mediapipe/calculators/image/image_transformation_calculator.proto",
     "mediapipe/calculators/tensor/tensors_to_detections_calculator.proto",
     "mediapipe/calculators/util/landmarks_smoothing_calculator.proto",
     "mediapipe/calculators/util/logic_calculator.proto",
     "mediapipe/calculators/util/thresholding_calculator.proto",
+    "mediapipe/framework/calculator.proto",
+    "mediapipe/framework/formats/detection.proto",
+    "mediapipe/framework/formats/image_format.proto",
+    "mediapipe/framework/formats/landmark.proto",
+    "mediapipe/framework/formats/location_data.proto",
+    "mediapipe/framework/tool/calculator_graph_template.proto",
+    "mediapipe/modules/face_detection/face_detection.proto",
+    "mediapipe/modules/objectron/calculators/annotation_data.proto",
     "mediapipe/modules/objectron/calculators/lift_2d_frame_annotation_to_3d_calculator.proto"
 ]) {
     options.filename = filename;

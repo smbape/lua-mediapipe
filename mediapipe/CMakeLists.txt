@@ -2,10 +2,11 @@ cmake_minimum_required(VERSION 3.25)
 
 project(mediapipe)
 
-set(Mediapipe_VERSION 0.10.23 CACHE STRING "Choose the mediapipe version.")
-set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.23" "0.10.22" "0.10.21" "0.10.20")
+set(Mediapipe_VERSION 0.10.24 CACHE STRING "Choose the mediapipe version.")
+set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.24" "0.10.23" "0.10.22" "0.10.21" "0.10.20")
 string(REPLACE "." "" Mediapipe_DLLVERSION ${Mediapipe_VERSION})
 
+set(Mediapipe_URL_HASH_SHA256_01024 ff4a2a85d0ac0c73ff1acdf5ceda47cb3640566e0430e056c7f12e44cb5c81bd)
 set(Mediapipe_URL_HASH_SHA256_01023 5bc3e7b7d5ffdcb0a0e7d2057c7ea5c344f65371516cf6e42cc8b4bf77ae5ff8)
 set(Mediapipe_URL_HASH_SHA256_01022 25af3c4cc44dfe929eea226ab6cd0dd53a54fbb199db877cc96aa63d0e45d745)
 set(Mediapipe_URL_HASH_SHA256_01021 6492ad36697cca309fe9526c64d65c8844e8128aebc85c390a97c375008d1c34)
@@ -44,7 +45,7 @@ FetchContent_Populate(mediapipe
     URL             https://fossies.org/linux/misc/mediapipe-${Mediapipe_VERSION}.tar.gz
                     https://github.com/google-ai-edge/mediapipe/archive/refs/tags/v${Mediapipe_VERSION}.tar.gz
     URL_HASH        SHA256=${Mediapipe_URL_HASH_SHA256_${Mediapipe_DLLVERSION}}
-    PATCH_COMMAND   "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch"
+    PATCH_COMMAND   "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch"
 )
 
 file(CREATE_LINK "${CMAKE_SOURCE_DIR}" "${mediapipe_SOURCE_DIR}/${MEDIAPIPE_ADDON_PACKAGE}" SYMBOLIC)
@@ -84,7 +85,7 @@ function(revert_old_patch_and_apply_new_patch)
 
     # check if patch_NEW_PATCHFILE has been applied
     execute_process(
-        COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}" -R --dry-run -s
+        COMMAND "${patch_EXECUTABLE}" -p1 -i "${patch_NEW_PATCHFILE}" -R --dry-run -s
         WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
         RESULT_VARIABLE new_patchfile_applied_result
     )
@@ -93,7 +94,7 @@ function(revert_old_patch_and_apply_new_patch)
         if (EXISTS "${patch_OLD_PATCHFILE}")
             # check if the previous patch can be reversed
             execute_process(
-                COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_OLD_PATCHFILE}" -R --dry-run -s
+                COMMAND "${patch_EXECUTABLE}" -p1 -i "${patch_OLD_PATCHFILE}" -R --dry-run -s
                 WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
                 RESULT_VARIABLE old_patchfile_applied_result
             )
@@ -101,7 +102,7 @@ function(revert_old_patch_and_apply_new_patch)
             if (old_patchfile_applied_result EQUAL 0)
                 # reverse the previous patch
                 execute_process(
-                    COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_OLD_PATCHFILE}" -R
+                    COMMAND "${patch_EXECUTABLE}" -p1 -i "${patch_OLD_PATCHFILE}" -R
                     WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
                     COMMAND_ECHO STDERR
                     COMMAND_ERROR_IS_FATAL ANY
@@ -111,7 +112,7 @@ function(revert_old_patch_and_apply_new_patch)
 
         # check that the new patch can be applied
         execute_process(
-            COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}" --dry-run -s
+            COMMAND "${patch_EXECUTABLE}" -p1 -i "${patch_NEW_PATCHFILE}" --dry-run -s
             WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
             COMMAND_ECHO STDERR
             COMMAND_ERROR_IS_FATAL ANY
@@ -119,7 +120,7 @@ function(revert_old_patch_and_apply_new_patch)
 
         # apply the new patch
         execute_process(
-            COMMAND "${patch_EXECUTABLE}" -p 1 -i "${patch_NEW_PATCHFILE}"
+            COMMAND "${patch_EXECUTABLE}" -p1 -i "${patch_NEW_PATCHFILE}"
             WORKING_DIRECTORY "${patch_WORKING_DIRECTORY}"
             COMMAND_ECHO STDERR
             COMMAND_ERROR_IS_FATAL ANY

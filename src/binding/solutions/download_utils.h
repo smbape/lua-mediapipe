@@ -38,6 +38,7 @@ namespace mediapipe::lua::solutions::download_utils {
 		const std::string& output,
 		const std::string& hash = std::string(),
 		const bool force = false,
-		const char verbose = 0
+		const char verbose = 0,
+		const std::vector<std::string>& argv = std::vector<std::string>()
 	);
 }

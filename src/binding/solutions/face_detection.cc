@@ -47,6 +47,8 @@ namespace mediapipe::lua::solutions::face_detection {
 			noMap(),
 			{ "detections" },
 			noTypeMap(),
+			noTypeMap(),
+			std::nullopt,
 			static_cast<FaceDetection*>(nullptr)
 		);
 	}

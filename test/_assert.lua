@@ -1,5 +1,6 @@
 -- Mimic some functions of https://docs.python.org/3/library/unittest.html
 
+local inspect = require("inspect")
 local assert = require("luassert")
 local mediapipe_lua = require("mediapipe_lua")
 local opencv_lua = require("opencv_lua")
@@ -353,7 +354,7 @@ function module.assertAlmostIn ( ... )
     end
 
     if msg == nil then
-        msg = "expecting " .. tostring(member) .. " to be in the collection"
+        msg = "expecting " .. tostring(member) .. " to be in the collection " .. inspect(container)
     end
     assert.is_true(false, msg)
 end

@@ -47,6 +47,8 @@ namespace mediapipe::lua::solutions::hands {
 			},
 			{ "multi_hand_landmarks", "multi_hand_world_landmarks", "multi_handedness" },
 			noTypeMap(),
+			noTypeMap(),
+			std::nullopt,
 			static_cast<Hands*>(nullptr)
 		);
 	}

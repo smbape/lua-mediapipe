@@ -24,8 +24,8 @@ namespace mediapipe::tasks::lua::audio::audio_embedder {
 		CV_WRAP AudioEmbedderOptions(
 			std::shared_ptr<lua::core::base_options::BaseOptions> base_options = std::shared_ptr<lua::core::base_options::BaseOptions>(),
 			core::audio_task_running_mode::AudioTaskRunningMode running_mode = tasks::lua::audio::core::audio_task_running_mode::AudioTaskRunningMode::AUDIO_CLIPS,
-			const std::optional<bool>& l2_normalize = std::optional<bool>(),
-			const std::optional<bool>& quantize = std::optional<bool>(),
+			const std::optional<bool>& l2_normalize = std::nullopt,
+			const std::optional<bool>& quantize = std::nullopt,
 			AudioEmbedderResultCallback result_callback = nullptr
 		)
 			:

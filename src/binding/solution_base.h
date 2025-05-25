@@ -64,6 +64,15 @@ namespace mediapipe::lua::solution_base {
 	const std::map<std::string, PacketDataType>& noTypeMap();
 	const std::vector<std::string>& noVector();
 
+	struct CV_EXPORTS_W_SIMPLE ExtraSettings {
+		CV_WRAP ExtraSettings(
+			bool disallow_service_default_initialization = false
+		) : disallow_service_default_initialization(disallow_service_default_initialization) {}
+		CV_WRAP ExtraSettings(const ExtraSettings& other) = default;
+
+		CV_PROP_RW bool disallow_service_default_initialization;
+	};
+
 	class CV_EXPORTS_W SolutionBase {
 	public:
 		SolutionBase() = default;
@@ -76,6 +85,8 @@ namespace mediapipe::lua::solution_base {
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 			const std::vector<std::string>& outputs,
 			const std::map<std::string, PacketDataType>& stream_type_hints,
+			const std::map<std::string, PacketDataType>& side_packet_type_hints,
+			const std::optional<ExtraSettings>& extra_settings,
 			_Tp*
 		) {
 			auto solution = std::make_shared<_Tp>();
@@ -86,7 +97,9 @@ namespace mediapipe::lua::solution_base {
 				graph_options,
 				side_inputs,
 				outputs,
-				stream_type_hints
+				stream_type_hints,
+				side_packet_type_hints,
+				extra_settings
 			));
 
 			return solution;
@@ -101,6 +114,8 @@ namespace mediapipe::lua::solution_base {
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 			const std::vector<std::string>& outputs,
 			const std::map<std::string, PacketDataType>& stream_type_hints,
+			const std::map<std::string, PacketDataType>& side_packet_type_hints,
+			const std::optional<ExtraSettings>& extra_settings,
 			_Tp* ptr
 		) {
 			CalculatorGraphConfig graph_config;
@@ -112,6 +127,8 @@ namespace mediapipe::lua::solution_base {
 				side_inputs,
 				outputs,
 				stream_type_hints,
+				side_packet_type_hints,
+				extra_settings,
 				ptr
 			);
 		}
@@ -122,7 +139,9 @@ namespace mediapipe::lua::solution_base {
 			const std::shared_ptr<google::protobuf::Message>& graph_options = std::shared_ptr<google::protobuf::Message>(),
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs = noMap(),
 			const std::vector<std::string>& outputs = noVector(),
-			const std::map<std::string, PacketDataType>& stream_type_hints = noTypeMap()
+			const std::map<std::string, PacketDataType>& stream_type_hints = noTypeMap(),
+			const std::map<std::string, PacketDataType>& side_packet_type_hints = noTypeMap(),
+			const std::optional<ExtraSettings>& extra_settings = std::nullopt
 		);
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<SolutionBase>> create(
@@ -131,7 +150,9 @@ namespace mediapipe::lua::solution_base {
 			const std::shared_ptr<google::protobuf::Message>& graph_options = std::shared_ptr<google::protobuf::Message>(),
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs = noMap(),
 			const std::vector<std::string>& outputs = noVector(),
-			const std::map<std::string, PacketDataType>& stream_type_hints = noTypeMap()
+			const std::map<std::string, PacketDataType>& stream_type_hints = noTypeMap(),
+			const std::map<std::string, PacketDataType>& side_packet_type_hints = noTypeMap(),
+			const std::optional<ExtraSettings>& extra_settings = std::nullopt
 		);
 
 		CV_WRAP [[nodiscard]] absl::Status process(const cv::Mat& input_data, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs);
@@ -176,7 +197,9 @@ namespace mediapipe::lua::solution_base {
 			const std::shared_ptr<google::protobuf::Message>& graph_options,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 			const std::vector<std::string>& outputs,
-			const std::map<std::string, PacketDataType>& stream_type_hints
+			const std::map<std::string, PacketDataType>& stream_type_hints,
+			const std::map<std::string, PacketDataType>& side_packet_type_hints,
+			const std::optional<ExtraSettings>& extra_settings
 		);
 
 		inline static const std::string GetResourcePath(const std::string& binary_graph_path) {

@@ -75,6 +75,22 @@ namespace {
 	}
 }
 
+namespace cv {
+	template<typename _Tp, int _rows, int _cols, int _options, int _maxRows, int _maxCols, int Options, typename StrideType>
+	inline void eigen2cv(const Eigen::Ref<const Eigen::Matrix<_Tp, _rows, _cols, _options, _maxRows, _maxCols>, Options, StrideType>& src, OutputArray dst) {
+		if (!(src.Flags & Eigen::RowMajorBit)) {
+			cv::Mat _src(src.cols(), src.rows(), traits::Type<_Tp>::value,
+				(void*)src.data(), src.outerStride() * sizeof(_Tp));
+			cv::transpose(_src, dst);
+		}
+		else {
+			cv::Mat _src(src.rows(), src.cols(), traits::Type<_Tp>::value,
+				(void*)src.data(), src.outerStride() * sizeof(_Tp));
+			_src.copyTo(dst);
+		}
+	}
+}
+
 using RepeatedContainer = google::protobuf::lua::RepeatedContainer;
 
 #define StringifyPacketDataType(enum_value) PacketDataTypeToChar[static_cast<int>(enum_value)]
@@ -116,6 +132,7 @@ namespace {
 		{"::mediapipe::LandmarkListCollection", PacketDataType::PROTO},
 		{"::mediapipe::NormalizedLandmark", PacketDataType::PROTO},
 		{"::mediapipe::FrameAnnotation", PacketDataType::PROTO},
+		{"::mediapipe::TimeSeriesHeader", PacketDataType::PROTO},
 		{"::mediapipe::Trigger", PacketDataType::PROTO},
 		{"::mediapipe::Rect", PacketDataType::PROTO},
 		{"::mediapipe::NormalizedRect", PacketDataType::PROTO},
@@ -145,7 +162,7 @@ namespace {
 		return std::vector<std::string>();
 	}
 
-	inline const [[nodiscard]] absl::StatusOr<PacketDataType> FromRegisteredName(const std::string& registered_name) {
+	[[nodiscard]] inline const absl::StatusOr<PacketDataType> FromRegisteredNameToType(const std::string& registered_name) {
 		if (NAME_TO_TYPE.count(registered_name)) {
 			return NAME_TO_TYPE.at(registered_name);
 		}
@@ -181,10 +198,10 @@ namespace {
 	 * @param  stream_type_hints
 	 * @return
 	 */
-	inline const [[nodiscard]] absl::StatusOr<PacketDataType> GetStreamPacketType(
+	[[nodiscard]] inline const absl::StatusOr<PacketDataType> GetStreamPacketType(
 		ValidatedGraphConfig& validated_graph,
-		const std::string& packet_tag_index_name,
-		const std::map<std::string, PacketDataType>& stream_type_hints
+		const std::map<std::string, PacketDataType>& stream_type_hints,
+		const std::string& packet_tag_index_name
 	) {
 		auto stream_name = GetName(packet_tag_index_name);
 		if (stream_type_hints.count(stream_name)) {
@@ -192,7 +209,7 @@ namespace {
 		}
 
 		MP_ASSIGN_OR_RETURN(auto stream_type_name, validated_graph.RegisteredStreamTypeName(stream_name));
-		return FromRegisteredName(stream_type_name);
+		return FromRegisteredNameToType(stream_type_name);
 	}
 
 	/**
@@ -200,18 +217,23 @@ namespace {
 	 * validated calculator graph. The mappings from the side packet names to the
 	 * packet data types is for making the input_side_packets dict for graph
 	 * start_run().
-	 * @param  validated_graph
-	 * @param  packet_tag_index_name
+	 * @param validated_graph        [description]
+	 * @param side_packet_type_hints [description]
+	 * @param packet_tag_index_name  [description]
 	 * @return
 	 */
 	inline absl::StatusOr<PacketDataType> GetSidePacketType(
 		ValidatedGraphConfig& validated_graph,
+		const std::map<std::string, PacketDataType>& side_packet_type_hints,
 		const std::string& packet_tag_index_name
 	) {
-		auto stream_name = GetName(packet_tag_index_name);
+		auto side_name = GetName(packet_tag_index_name);
+		if (side_packet_type_hints.count(side_name)) {
+			return side_packet_type_hints.at(side_name);
+		}
 
-		MP_ASSIGN_OR_RETURN(auto stream_type_name, validated_graph.RegisteredSidePacketTypeName(stream_name));
-		return FromRegisteredName(stream_type_name);
+		MP_ASSIGN_OR_RETURN(auto stream_type_name, validated_graph.RegisteredSidePacketTypeName(side_name));
+		return FromRegisteredNameToType(stream_type_name);
 	}
 
 	/**
@@ -421,6 +443,13 @@ namespace {
 		return std::make_shared<Packet>(std::move(mediapipe::MakePacket<T>(value)));
 	}
 
+	/**
+	 * Creates a packet from the data and packet data type.
+	 *
+	 * @param  packet_data_type [description]
+	 * @param  data             [description]
+	 * @return                  [description]
+	 */
 	[[nodiscard]] absl::StatusOr<std::shared_ptr<Packet>> MakePacket(
 		PacketDataType packet_data_type,
 		const ::LUA_MODULE_NAME::Object& data
@@ -445,6 +474,13 @@ namespace {
 			return MakePacket<float>(data, "data is not a float");
 		case PacketDataType::FLOAT_LIST:
 			return MakePacket<std::vector<float>>(data, "data is not a float list");
+		case PacketDataType::AUDIO: {
+			bool is_valid;
+			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr), is_valid);
+			MP_ASSERT_RETURN_IF_ERROR(is_valid, "data is not a matrix");
+			decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
+			return packet_creator::create_matrix(value, false);
+		}
 		case PacketDataType::IMAGE:
 			{
 				bool is_valid;
@@ -487,7 +523,7 @@ namespace {
 			MP_ASSERT_RETURN_IF_ERROR(false, "data is neither a matrix nor an image frame");
 		case PacketDataType::IMAGE_LIST:
 			return MakePacket<std::vector<Image>>(data, "data is not an image list");
-		case PacketDataType::PROTO:{
+		case PacketDataType::PROTO: {
 			using T = google::protobuf::Message;
 			bool is_valid;
 			auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<T*>(nullptr), is_valid);
@@ -535,14 +571,23 @@ namespace {
 		case PacketDataType::FLOAT_LIST:
 			result = ::LUA_MODULE_NAME::Object(get_float_list(output_packet));
 			break;
+		case PacketDataType::AUDIO: {
+			using MatrixType = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
+			MP_RETURN_IF_ERROR(output_packet.ValidateAsType<Matrix>());
+			const auto& matrix = Eigen::Ref<const MatrixType>(output_packet.Get<Matrix>());
+			std::shared_ptr<cv::Mat> mat_ptr { std::make_shared<cv::Mat>() };
+			cv::eigen2cv(matrix, *mat_ptr);
+			result = ::LUA_MODULE_NAME::Object(mat_ptr);
+			break;
+		}
 		case PacketDataType::IMAGE: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& image, Image, output_packet);
-			result = ::LUA_MODULE_NAME::Object(mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone());
+			result = ::LUA_MODULE_NAME::Object(std::make_shared<cv::Mat>(mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone()));
 			break;
 		}
 		case PacketDataType::IMAGE_FRAME: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& image_frame, ImageFrame, output_packet);
-			result = ::LUA_MODULE_NAME::Object(mediapipe::formats::MatView(&image_frame).clone());
+			result = ::LUA_MODULE_NAME::Object(std::make_shared<cv::Mat>(mediapipe::formats::MatView(&image_frame).clone()));
 			break;
 		}
 		case PacketDataType::IMAGE_LIST: {
@@ -551,7 +596,7 @@ namespace {
 			mat_list.resize(image_list.size());
 			int i = 0;
 			for (const auto& image : image_list) {
-				mat_list[i++] = mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get());
+				mat_list[i++] = mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone();
 			}
 			result = ::LUA_MODULE_NAME::Object(image_list);
 			break;
@@ -574,17 +619,22 @@ namespace {
 
 	/**
 	 * Gets graph interface type information and returns the canonical graph config proto.
-	 * @param  graph_config      [description]
-	 * @param  side_inputs       [description]
-	 * @param  outputs           [description]
-	 * @param  stream_type_hints [description]
-	 * @return                   [description]
+	 * 
+	 * @param graph_config            [description]
+	 * @param side_inputs             [description]
+	 * @param outputs                 [description]
+	 * @param stream_type_hints       [description]
+	 * @param side_packet_type_hints  [description]
+	 * @param input_stream_type_info  [description]
+	 * @param output_stream_type_info [description]
+	 * @param side_input_type_info    [description]
 	 */
 	[[nodiscard]] absl::StatusOr<CalculatorGraphConfig> InitializeGraphInterface(
 		const CalculatorGraphConfig& graph_config,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 		const std::vector<std::string>& outputs,
 		const std::map<std::string, PacketDataType>& stream_type_hints,
+		const std::map<std::string, PacketDataType>& side_packet_type_hints,
 		std::map<std::string, PacketDataType>& input_stream_type_info,
 		std::map<std::string, PacketDataType>& output_stream_type_info,
 		std::map<std::string, PacketDataType>& side_input_type_info
@@ -596,7 +646,7 @@ namespace {
 		canonical_graph_config_proto.ParseFromString(validated_graph.Config().SerializeAsString());
 
 		for (const auto& tag_index_name : canonical_graph_config_proto.input_stream()) {
-			MP_ASSIGN_OR_RETURN(input_stream_type_info[GetName(tag_index_name)], GetStreamPacketType(validated_graph, tag_index_name, stream_type_hints));
+			MP_ASSIGN_OR_RETURN(input_stream_type_info[GetName(tag_index_name)], GetStreamPacketType(validated_graph, stream_type_hints, tag_index_name));
 		}
 
 		std::vector<std::string> output_streams;
@@ -610,12 +660,12 @@ namespace {
 		}
 
 		for (const auto& tag_index_name : output_streams) {
-			MP_ASSIGN_OR_RETURN(output_stream_type_info[GetName(tag_index_name)], GetStreamPacketType(validated_graph, tag_index_name, stream_type_hints));
+			MP_ASSIGN_OR_RETURN(output_stream_type_info[GetName(tag_index_name)], GetStreamPacketType(validated_graph, stream_type_hints, tag_index_name));
 		}
 
 		for (auto it = side_inputs.begin(); it != side_inputs.end(); ++it) {
 			const auto& tag_index_name = it->first;
-			MP_ASSIGN_OR_RETURN(side_input_type_info[GetName(tag_index_name)], GetSidePacketType(validated_graph, tag_index_name));
+			MP_ASSIGN_OR_RETURN(side_input_type_info[GetName(tag_index_name)], GetSidePacketType(validated_graph, side_packet_type_hints, tag_index_name));
 		}
 
 		return canonical_graph_config_proto;
@@ -696,7 +746,9 @@ namespace mediapipe::lua::solution_base {
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 		const std::vector<std::string>& outputs,
-		const std::map<std::string, PacketDataType>& stream_type_hints
+		const std::map<std::string, PacketDataType>& stream_type_hints,
+		const std::map<std::string, PacketDataType>& side_packet_type_hints,
+		const std::optional<ExtraSettings>& extra_settings
 	) {
 		CalculatorGraphConfig graph_config;
 		MP_RETURN_IF_ERROR(ReadCalculatorGraphConfigFromFile(GetResourcePath(binary_graph_path), graph_config));
@@ -706,7 +758,9 @@ namespace mediapipe::lua::solution_base {
 			graph_options,
 			side_inputs,
 			outputs,
-			stream_type_hints
+			stream_type_hints,
+			side_packet_type_hints,
+			extra_settings
 		);
 	}
 
@@ -716,7 +770,9 @@ namespace mediapipe::lua::solution_base {
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 		const std::vector<std::string>& outputs,
-		const std::map<std::string, PacketDataType>& stream_type_hints
+		const std::map<std::string, PacketDataType>& stream_type_hints,
+		const std::map<std::string, PacketDataType>& side_packet_type_hints,
+		const std::optional<ExtraSettings>& extra_settings
 	) {
 		return create(
 			graph_config,
@@ -725,6 +781,8 @@ namespace mediapipe::lua::solution_base {
 			side_inputs,
 			outputs,
 			stream_type_hints,
+			side_packet_type_hints,
+			extra_settings,
 			static_cast<SolutionBase*>(nullptr)
 		);
 	}
@@ -760,17 +818,53 @@ namespace mediapipe::lua::solution_base {
 
 			switch (input_stream_type) {
 			case PacketDataType::PROTO_LIST:
-			case PacketDataType::AUDIO:
-				// TODO: Support audio data.
 				MP_ASSERT_RETURN_IF_ERROR(false,
-					"SolutionBase can only process non-audio and non-proto-list data. "
+					"SolutionBase can only process non-proto-list data. "
 					<< StringifyPacketDataType(m_input_stream_type_info[stream_name]) <<
 					"type is not supported yet."
 				);
+				break;
+			case PacketDataType::IMAGE:
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<Image*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<Image*>(nullptr));
+					MP_ASSERT_RETURN_IF_ERROR(value.channels() == 3, "Input image must contain three channel rgb data.");
+					break;
+				}
+			}
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
+					MP_ASSERT_RETURN_IF_ERROR(value.channels() == 3, "Input image must contain three channel rgb data.");
+				}
+				break;
+			}
+			case PacketDataType::IMAGE_FRAME:
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<ImageFrame*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<ImageFrame*>(nullptr));
+					MP_ASSERT_RETURN_IF_ERROR(value.NumberOfChannels() == 3, "Input image must contain three channel rgb data.");
+					break;
+				}
+			}
+			{
+				bool is_valid;
+				auto value_holder = ::LUA_MODULE_NAME::lua_to(data, static_cast<cv::Mat*>(nullptr), is_valid);
+				if (is_valid) {
+					decltype(auto) value = ::LUA_MODULE_NAME::extract_holder(value_holder, static_cast<cv::Mat*>(nullptr));
+					MP_ASSERT_RETURN_IF_ERROR(value.channels() == 3, "Input image must contain three channel rgb data.");
+				}
+				break;
+			}
 			}
 
 			MP_ASSIGN_OR_RETURN(auto packet_shared, ::MakePacket(input_stream_type, data));
-
 			MP_ASSERT_RETURN_IF_ERROR(packet_shared.use_count() == 1, "Packet must have a unique holder");
 			auto packet = std::move(*packet_shared.get()).At(simulated_timestamp);
 			MP_RETURN_IF_ERROR(m_graph->AddPacketToInputStream(stream_name, std::move(packet)));
@@ -841,7 +935,9 @@ namespace mediapipe::lua::solution_base {
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& side_inputs,
 		const std::vector<std::string>& outputs,
-		const std::map<std::string, PacketDataType>& stream_type_hints
+		const std::map<std::string, PacketDataType>& stream_type_hints,
+		const std::map<std::string, PacketDataType>& side_packet_type_hints,
+		const std::optional<ExtraSettings>& extra_settings
 	) {
 		m_graph = std::make_unique<CalculatorGraph>();
 
@@ -850,6 +946,7 @@ namespace mediapipe::lua::solution_base {
 			side_inputs,
 			outputs,
 			stream_type_hints,
+			side_packet_type_hints,
 			m_input_stream_type_info,
 			m_output_stream_type_info,
 			m_side_input_type_info
@@ -859,11 +956,15 @@ namespace mediapipe::lua::solution_base {
 			MP_RETURN_IF_ERROR(ModifyCalculatorOptions(canonical_graph_config_proto, calculator_params));
 		}
 
-		if (graph_options.get()) {
+		if (graph_options) {
 			SetExtension(canonical_graph_config_proto.mutable_graph_options(), graph_options);
 		}
 
 		MP_RETURN_IF_ERROR(m_graph->Initialize(canonical_graph_config_proto));
+
+		if (extra_settings && extra_settings->disallow_service_default_initialization) {
+			MP_RETURN_IF_ERROR(m_graph->DisallowServiceDefaultInitialization());
+		}
 
 		for (const auto& stream : m_output_stream_type_info) {
 			std::string stream_name = stream.first;
@@ -872,9 +973,11 @@ namespace mediapipe::lua::solution_base {
 				stream_name,
 				std::move([this, stream_name](const Packet& output_packet) {
 					absl::MutexLock lock(&callback_mutex);
-					m_graph_outputs[stream_name] = output_packet;
+					if (output_packet.Timestamp() == Timestamp(m_simulated_timestamp)) {
+						m_graph_outputs[stream_name] = output_packet;
+					}
 					return absl::OkStatus();
-				}),
+					}),
 				true
 			));
 		}

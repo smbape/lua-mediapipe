@@ -147,6 +147,10 @@
         "iid": "b60dcc01-f8e6-4be8-8685-376bf6bb3576",
         "clsid": "263b7054-9044-44c3-acc4-b3cff1869e84"
     },
+    "mediapipe::lua::solution_base::ExtraSettings": {
+        "iid": "13e27d58-3a10-4b90-a331-b82a5cbd07dd",
+        "clsid": "7fa58902-2148-4659-845d-fa68f1864454"
+    },
     "mediapipe::lua::solution_base::SolutionBase": {
         "iid": "8e980c36-affd-4564-a6d7-ee4b2b43e057",
         "clsid": "2c4533f3-402c-476b-9af7-b211fdf16ad7"
@@ -1195,6 +1199,10 @@
         "iid": "2f5d5bbc-efa9-42d3-b2f0-daebe279528a",
         "clsid": "75911a5b-2e9d-4cf5-94cf-9b68d663815a"
     },
+    "mediapipe::ConstantSidePacketCalculatorOptions::FloatVector": {
+        "iid": "7790da93-7058-4ca4-bcce-8636abe34c37",
+        "clsid": "6b572fd9-9f71-4958-b0b7-15636d06b84c"
+    },
     "mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket": {
         "iid": "e9c649e9-2d8c-468e-9db3-667baef801a5",
         "clsid": "92cdc6d4-5b40-41c4-9b61-48195e5bae8e"
@@ -1914,6 +1922,26 @@
     "google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_tasks_vision_pose_landmarker_proto_PoseLandmarkerGraphOptions": {
         "iid": "2e281b58-68c2-485d-9777-283e4f57a265",
         "clsid": "5999e2c5-7b9a-42ff-a3ba-fb9890fb9011"
+    },
+    "mediapipe::ResampleTimeSeriesCalculatorOptions": {
+        "iid": "054df52b-ac00-476c-b45e-8d848a472f61",
+        "clsid": "4ee5a8a7-8d2b-421c-a8fd-96b9933f0c62"
+    },
+    "mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerLibResampleOptions": {
+        "iid": "09e90771-d1cf-4a95-904a-67a9d85ffaab",
+        "clsid": "3ef8534e-183f-4a5c-aa00-34fab5d5d003"
+    },
+    "mediapipe::ResampleTimeSeriesCalculatorOptions::ResamplerRationalFactorOptions": {
+        "iid": "81960782-a134-4b9d-a567-f1c9befa10c5",
+        "clsid": "126e0ebb-ebd6-4658-9efd-301f81cb52ac"
+    },
+    "mediapipe::calculators::audio::resample_time_series_calculator_pb2": {
+        "iid": "e70fbbee-3df1-46b0-9b43-85a39f27faff",
+        "clsid": "932fe044-a543-4a91-a59c-22cf87460b2b"
+    },
+    "google::protobuf::lua::Extend_mediapipe_CalculatorOptionsWithmediapipe_ResampleTimeSeriesCalculatorOptions": {
+        "iid": "46305f25-f5a2-414f-ac4c-21d3b63125b5",
+        "clsid": "1ab576fc-40af-4f72-a651-01753fe5e6a2"
     },
     "mediapipe::CalculatorGraph": {
         "iid": "d93dfa82-41bd-4191-91c1-2f17444188ae",

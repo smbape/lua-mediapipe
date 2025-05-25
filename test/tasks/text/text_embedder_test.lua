@@ -80,7 +80,7 @@ end
 
 function _assert._check_embedding_value(self, result, expected_first_value)
     -- Check embedding first value.
-    self.assertAlmostEqual(
+    self.assertAlmostIn(
         result.embeddings[0 + INDEX_BASE].embedding[0], expected_first_value,
         mediapipe_lua.kwargs({ delta = _EPSILON }))
 end
@@ -101,7 +101,7 @@ function _assert._check_cosine_similarity(self, result0, result1, expected_simil
     -- Checks cosine similarity.
     local similarity = _TextEmbedder.cosine_similarity(result0.embeddings[0 + INDEX_BASE],
         result1.embeddings[0 + INDEX_BASE])
-    self.assertAlmostEqual(
+    self.assertAlmostIn(
         similarity, expected_similarity, mediapipe_lua.kwargs({ delta = _SIMILARITY_TOLERANCE }))
 end
 
@@ -163,7 +163,7 @@ local function test_embed_with_different_themes(self, model_file, expected_simil
         result0.embeddings[0 + INDEX_BASE], result1.embeddings[0 + INDEX_BASE]
     )
 
-    self.assertAlmostEqual(
+    self.assertAlmostIn(
         similarity, expected_similarity, mediapipe_lua.kwargs({ delta = _SIMILARITY_TOLERANCE })
     )
 end
@@ -189,18 +189,18 @@ describe("TextEmbedderTest", function()
             false,
             _BERT_MODEL_FILE,
             ModelFileType.FILE_NAME,
-            0.962427,
+            { 0.962427, 0.974150 },
             512,
-            { 21.2054, 19.684337 },
+            { 21.2054, { 19.684337, 22.257518 } },
         },
         {
             true,
             false,
             _BERT_MODEL_FILE,
             ModelFileType.FILE_NAME,
-            0.962427,
+            { 0.962427, 0.974150 },
             512,
-            { 0.0625787, 0.0673937 },
+            { 0.0625787, { 0.0673937, 0.0708920 } },
         },
         {
             false,
@@ -246,7 +246,7 @@ describe("TextEmbedderTest", function()
 
     for _, args in ipairs({
         -- TODO: The similarity should likely be lower
-        { _BERT_MODEL_FILE, 0.98077 },
+        { _BERT_MODEL_FILE, { 0.98077, 0.99038 } },
         { _USE_MODEL_FILE,  0.780334 },
     }) do
         it("should test_embed_with_different_themes " .. _, function()

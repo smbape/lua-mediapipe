@@ -13,5 +13,5 @@ FetchContent_Populate(opencv_hdr_parser
     DOWNLOAD_NO_EXTRACT TRUE
     DOWNLOAD_DIR      "${CMAKE_BINARY_DIR}/opencv/opencv-src/modules/python/src2"
     SOURCE_DIR        "${CMAKE_BINARY_DIR}/opencv/opencv-src"
-    PATCH_COMMAND     "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-hdr_parser-src.patch"
+    PATCH_COMMAND     "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-hdr_parser-src.patch"
 )

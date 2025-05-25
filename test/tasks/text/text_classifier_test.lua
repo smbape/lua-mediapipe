@@ -68,13 +68,13 @@ local _BERT_POSITIVE_RESULTS = TextClassifierResult(mediapipe_lua.kwargs({
             categories = {
                 _Category(mediapipe_lua.kwargs({
                     index = 1,
-                    score = 0.9994,
+                    score = 0.9995,
                     display_name = '',
                     category_name = 'positive'
                 })),
                 _Category(mediapipe_lua.kwargs({
                     index = 0,
-                    score = 0.0006,
+                    score = 0.0005,
                     display_name = '',
                     category_name = 'negative'
                 }))

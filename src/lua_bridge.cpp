@@ -59,6 +59,10 @@ namespace LUA_MODULE_NAME {
 		return opencv_lua::exported_lua_push(L, obj);
 	}
 
+	int lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj) {
+		return opencv_lua::exported_lua_push(L, obj);
+	}
+
 
 	// ================================
 	// mediapipe::Timestamp

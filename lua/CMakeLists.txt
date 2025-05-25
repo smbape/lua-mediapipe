@@ -37,7 +37,7 @@ FetchContent_Populate(lua-${Lua_VERSION}
                     https://repo.jing.rocks/blfs/conglomeration/lua/lua-${Lua_VERSION}.tar.gz
                     https://www.lua.org/ftp/lua-${Lua_VERSION}.tar.gz
     URL_HASH        SHA256=${Lua_URL_HASH_${Lua_DLLVERSION}}
-    PATCH_COMMAND   "${PATCH_EXECUTABLE}" -p 1 -d "<SOURCE_DIR>" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-lua-${MAJVER}.${MINVER}-src.patch"
+    PATCH_COMMAND   "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-lua-${MAJVER}.${MINVER}-src.patch"
 )
 set(lua_SOURCE_DIR "${lua-${Lua_VERSION}_SOURCE_DIR}")
 
