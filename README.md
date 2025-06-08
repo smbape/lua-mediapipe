@@ -1996,6 +1996,7 @@ build.bat "-DLua_VERSION=5.4" --target luarocks
 @REM luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24luajit2.1
 luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 luarocks\luarocks.bat install --deps-only samples\samples-scm-1.rockspec
+luarocks\luarocks.bat install --deps-only test\test-scm-1.rockspec
 npm ci
 node scripts\test.js --Release
 ```
@@ -2012,6 +2013,7 @@ cd lua-mediapipe
 # ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24luajit2.1
 ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 ./luarocks/luarocks install --deps-only samples/samples-scm-1.rockspec
+./luarocks/luarocks install --deps-only test/test-scm-1.rockspec
 npm ci
 node scripts/test.js --Release
 ```
