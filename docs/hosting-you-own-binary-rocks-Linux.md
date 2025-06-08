@@ -100,7 +100,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.0.1 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
+git clone --depth 1 --branch v0.1.0 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
 cd /io/luarocks-binaries-custom/build && \
 npm ci
 ```
