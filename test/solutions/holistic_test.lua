@@ -103,7 +103,7 @@ local function test_on_image(self, id, static_image_mode, model_complexity,
         "https://teleprogramma.org/sites/default/files/styles/post_850x666/public/nodes/node_540493_1653677473.jpg",
         __dirname__ .. "/testdata/holistic.jpg",
         mediapipe_lua.kwargs({
-            hash="sha256=bdf944c6d894cdb0670559ee79da1b1b1f080a0159c9c272a5c7ab012cf20037"
+            hash="sha256=7c416dc11fc01a194f8e342ada051562a9b01780ceebd32b0fa2e7b661c7d202"
         })
     )
 

@@ -176,8 +176,8 @@ DOCKER_IMAGE_MANY_LINUX_aarch64=docker/manylinux2014/Dockerfile_aarch64
 
 DIST_VERSION=${DIST_VERSION:-1}
 WSL_DISTNAME=${WSL_DISTNAME:-Ubuntu}
-MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.24}
-OPENCV_VERSION=${OPENCV_VERSION:-4.11.0}
+MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.26}
+OPENCV_VERSION=${OPENCV_VERSION:-4.12.0}
 OPENCV_WORKSPACE_HASH="${OPENCV_WORKSPACE_HASH:-c0ef0985-b598-4736-af7d-1776141f784c}"
 # WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"'!02-video-capture-camera.lua' '!threshold_inRange.lua' '!objectDetection.lua'"}
 CONTAINER_NAME=${CONTAINER_NAME:-${CONTAINER_NAME_MANY_LINUX_x86_64}}
@@ -514,7 +514,8 @@ function set_url_github() {
 }
 
 function push_all() {
-    git push --all --follow-tags origin && git push --all --follow-tags github
+    git push --all --progress  -- origin && git push --tags --progress  -- origin && \
+    git push --all --progress  -- github && git push --tags --progress  -- github
 }
 
 function prepublish_stash_push() {

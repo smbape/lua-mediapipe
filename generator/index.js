@@ -199,8 +199,8 @@ const opencv_SOURCE_DIR = findSourceDir("opencv/opencv-src");
 const src2 = sysPath.resolve(opencv_SOURCE_DIR, "modules/python/src2");
 
 const hdr_parser = fs.readFileSync(sysPath.join(src2, "hdr_parser.py")).toString();
-const hdr_parser_start = hdr_parser.indexOf("class CppHeaderParser");
-const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':");
+const hdr_parser_start = hdr_parser.indexOf("]") + 1;
+const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':", hdr_parser);
 
 const options = getOptions(PROJECT_DIR);
 options.proto = LuaGenerator.proto;
@@ -331,7 +331,15 @@ waterfall([
             srcfiles = []
             ${ srcfiles.map(file => `srcfiles.append(${ JSON.stringify(file) })`).join(`\n${ " ".repeat(12) }`) }
 
-            parser = CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
+            parser = CppHeaderParser(
+                generate_umat_decls=True,
+                generate_gpumat_decls=True,
+                preprocessor_definitions={
+                    "LUA_VERSION_NUM": 504,
+                    "TARGET_OS_OSX": 0,
+                    "MEDIAPIPE_DISABLE_GPU": 1,
+                }
+            )
             all_decls = []
             for hdr in srcfiles:
                 decls = parser.parse(hdr)

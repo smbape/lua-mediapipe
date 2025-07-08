@@ -60,7 +60,7 @@ elseif(FALSE)
 endif()
 
 find_program(BAZEL_EXECUTABLE
-    NAMES bazel
+    NAMES bazelisk bazel
     DOC "Bazel executable"
     REQUIRED
 )

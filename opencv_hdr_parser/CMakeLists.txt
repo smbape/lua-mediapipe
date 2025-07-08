@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(opencv_hdr_parser)
 
-set(OpenCV_HDR_PARSER_URL_HASH_SHA256_4110 8e3517ee29e9930e53b058c5260177cf97b65a10ca7f7f658faa3c87d605744f)
-set(OpenCV_HDR_PARSER_URL_HASH_SHA256_4100 d221f9e14222ce73f9e3f01ddc0679e34b2662138e8fd64400f7e8f7d61e7fcc)
+set(OpenCV_HDR_PARSER_URL_HASH_SHA256_4120 6ddf96f573249e276734f8bcb72eab07d6f04be05d2e64f3af85bd9dcc49c936)
 
 # Tell cmake that we will need mediapipe.
 include(FetchContent)

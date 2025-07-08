@@ -2350,12 +2350,17 @@
   - [ConstantSidePacket.matrix\_data\_value](#constantsidepacketmatrix%5C_data%5C_value)
   - [ConstantSidePacket.string\_vector\_value](#constantsidepacketstring%5C_vector%5C_value)
   - [ConstantSidePacket.float\_vector\_value](#constantsidepacketfloat%5C_vector%5C_value)
+  - [ConstantSidePacket.int\_vector\_value](#constantsidepacketint%5C_vector%5C_value)
   - [mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new](#mediapipeconstantsidepacketcalculatoroptionsconstantsidepacketnew)
   - [mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.\_\_type](#mediapipeconstantsidepacketcalculatoroptionsconstantsidepacket%5C_%5C_type)
 - [mediapipe::ConstantSidePacketCalculatorOptions::FloatVector](#mediapipeconstantsidepacketcalculatoroptionsfloatvector)
   - [FloatVector.float\_value](#floatvectorfloat%5C_value)
   - [mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.new](#mediapipeconstantsidepacketcalculatoroptionsfloatvectornew)
   - [mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.\_\_type](#mediapipeconstantsidepacketcalculatoroptionsfloatvector%5C_%5C_type)
+- [mediapipe::ConstantSidePacketCalculatorOptions::IntVector](#mediapipeconstantsidepacketcalculatoroptionsintvector)
+  - [IntVector.int\_value](#intvectorint%5C_value)
+  - [mediapipe.ConstantSidePacketCalculatorOptions.IntVector.new](#mediapipeconstantsidepacketcalculatoroptionsintvectornew)
+  - [mediapipe.ConstantSidePacketCalculatorOptions.IntVector.\_\_type](#mediapipeconstantsidepacketcalculatoroptionsintvector%5C_%5C_type)
 - [mediapipe::ConstantSidePacketCalculatorOptions::StringVector](#mediapipeconstantsidepacketcalculatoroptionsstringvector)
   - [StringVector.string\_value](#stringvectorstring%5C_value)
   - [mediapipe.ConstantSidePacketCalculatorOptions.StringVector.new](#mediapipeconstantsidepacketcalculatoroptionsstringvectornew)
@@ -27233,6 +27238,14 @@ lua:
     [propget, propput] oConstantSidePacket.float_vector_value
 ```
 
+### ConstantSidePacket.int\_vector\_value
+
+```cpp
+std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::IntVector> mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket::int_vector_value
+lua:
+    [propget, propput] oConstantSidePacket.int_vector_value
+```
+
 ### mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new
 
 ```cpp
@@ -27248,10 +27261,11 @@ mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket( std::optiona
                                                                     std::shared_ptr<mediapipe::TimeSeriesHeader>                                  time_series_header_value = std::shared_ptr<mediapipe::TimeSeriesHeader>(),
                                                                     std::shared_ptr<mediapipe::MatrixData>                                        matrix_data_value = std::shared_ptr<mediapipe::MatrixData>(),
                                                                     std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector> string_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::StringVector>(),
-                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>  float_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>() );
+                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>  float_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::FloatVector>(),
+                                                                    std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::IntVector>    int_vector_value = std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::IntVector>() );
 lua:
-    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
-    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
+    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.new( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value[, int_vector_value]]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
+    mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket( [int_value[, uint64_value[, int64_value[, float_value[, double_value[, bool_value[, string_value[, classification_list_value[, landmark_list_value[, time_series_header_value[, matrix_data_value[, string_vector_value[, float_vector_value[, int_vector_value]]]]]]]]]]]]]] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket object>
 ```
 
 ### mediapipe.ConstantSidePacketCalculatorOptions.ConstantSidePacket.\_\_type
@@ -27287,6 +27301,33 @@ lua:
 static std::string mediapipe::ConstantSidePacketCalculatorOptions::FloatVector::__type();
 lua:
     mediapipe.ConstantSidePacketCalculatorOptions.FloatVector.__type() -> retval
+```
+
+## mediapipe::ConstantSidePacketCalculatorOptions::IntVector
+
+### IntVector.int\_value
+
+```cpp
+::mediapipe_lua::Object mediapipe::ConstantSidePacketCalculatorOptions::IntVector::int_value
+lua:
+    [propget, propput] oIntVector.int_value
+```
+
+### mediapipe.ConstantSidePacketCalculatorOptions.IntVector.new
+
+```cpp
+mediapipe::ConstantSidePacketCalculatorOptions::IntVector( ::mediapipe_lua::Object int_value = ::LUA_MODULE_NAME::Object() );
+lua:
+    mediapipe.ConstantSidePacketCalculatorOptions.IntVector.new( [int_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::IntVector object>
+    mediapipe.ConstantSidePacketCalculatorOptions.IntVector( [int_value] ) -> <mediapipe::ConstantSidePacketCalculatorOptions::IntVector object>
+```
+
+### mediapipe.ConstantSidePacketCalculatorOptions.IntVector.\_\_type
+
+```cpp
+static std::string mediapipe::ConstantSidePacketCalculatorOptions::IntVector::__type();
+lua:
+    mediapipe.ConstantSidePacketCalculatorOptions.IntVector.__type() -> retval
 ```
 
 ## mediapipe::ConstantSidePacketCalculatorOptions::StringVector
@@ -35277,13 +35318,14 @@ lua:
 ### mediapipe.lua.solutions.download\_utils.download
 
 ```cpp
-absl::Status mediapipe::lua::solutions::download_utils::download( const std::string& url,
-                                                                  const std::string& output,
-                                                                  const std::string& hash = std::string(),
-                                                                  const bool         force = false,
-                                                                  const char         verbose = 0 );
+absl::Status mediapipe::lua::solutions::download_utils::download( const std::string&              url,
+                                                                  const std::string&              output,
+                                                                  const std::string&              hash = std::string(),
+                                                                  const bool                      force = false,
+                                                                  const char                      verbose = 0,
+                                                                  const std::vector<std::string>& argv = std::vector<std::string>() );
 lua:
-    mediapipe.lua.solutions.download_utils.download( url, output[, hash[, force[, verbose]]] ) -> retval
+    mediapipe.lua.solutions.download_utils.download( url, output[, hash[, force[, verbose[, argv]]]] ) -> retval
 ```
 
 ### mediapipe.lua.solutions.download\_utils.download\_oss\_model

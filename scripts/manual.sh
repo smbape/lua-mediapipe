@@ -62,7 +62,6 @@ bash -c 'source scripts/tasks.sh && wsl -c "source scripts/wsl_init.sh && chmod 
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-20.04 ubuntu:20.04 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-22.04 ubuntu:22.04 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-24.04 ubuntu:24.04 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-10 debian:10 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-11 debian:11 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-12 debian:12 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-38 fedora:38 -- test'
@@ -86,7 +85,7 @@ bash -c 'source scripts/tasks.sh && test_prepublished_source_wsl'
 # Docker images README.md install source rock
 # ================================
 bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-ubuntu-22.04 ubuntu:22.04 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-debian-11 debian:11 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-debian-12 debian:12 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_source_fedora test-source-fedora-39 fedora:39 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_source_fedora test-source-almalinux-9 amd64/almalinux:9 -- test'
 

@@ -10,7 +10,7 @@ const prepublishRoot = sysPath.resolve(__dirname, "..", "out", "prepublish");
 const wrapperSuffix = os.platform() === "win32" ? ".bat" : "";
 const shellSuffix = os.platform() === "win32" ? ".bat" : ".sh";
 const { auditwheelOptions } = require("./pack");
-const OpenCV_NAME_VERSION = "opencv-4.11.0";
+const OpenCV_NAME_VERSION = "opencv-4.12.0";
 const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
 
 const unixEscape = (arg, verbatim = true) => {
@@ -30,6 +30,16 @@ const unixCmd = argv => {
 };
 
 const spawnExec = (cmd, args, options, next) => {
+    options = Object.assign({}, options);
+
+    // https://nodejs.org/docs/latest-v18.x/api/child_process.html#spawning-bat-and-cmd-files-on-windows
+    if (os.platform() === "win32" && (cmd.endsWith(".bat") || cmd.endsWith(".cmd"))) {
+        if (cmd.includes(" ")) {
+            cmd = `"${ cmd }"`;
+        }
+        options.shell = true;
+    }
+
     const {stdio} = options;
 
     if (stdio === "tee") {

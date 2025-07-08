@@ -2,15 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 
 project(mediapipe)
 
-set(Mediapipe_VERSION 0.10.24 CACHE STRING "Choose the mediapipe version.")
-set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.24" "0.10.23" "0.10.22" "0.10.21" "0.10.20")
+set(Mediapipe_VERSION 0.10.26 CACHE STRING "Choose the mediapipe version.")
+set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.26" "0.10.24" "0.10.23")
 string(REPLACE "." "" Mediapipe_DLLVERSION ${Mediapipe_VERSION})
 
+set(Mediapipe_URL_HASH_SHA256_01026 51cbd4d538716e3722b55b8412cab9e3713270a6e9a6f09af6b52d357718e6d7)
 set(Mediapipe_URL_HASH_SHA256_01024 ff4a2a85d0ac0c73ff1acdf5ceda47cb3640566e0430e056c7f12e44cb5c81bd)
 set(Mediapipe_URL_HASH_SHA256_01023 5bc3e7b7d5ffdcb0a0e7d2057c7ea5c344f65371516cf6e42cc8b4bf77ae5ff8)
-set(Mediapipe_URL_HASH_SHA256_01022 25af3c4cc44dfe929eea226ab6cd0dd53a54fbb199db877cc96aa63d0e45d745)
-set(Mediapipe_URL_HASH_SHA256_01021 6492ad36697cca309fe9526c64d65c8844e8128aebc85c390a97c375008d1c34)
-set(Mediapipe_URL_HASH_SHA256_01020 ae0abfc544a37a46f46e20f73010ddbe43cf12b0853701b763d3df1ab986dd36)
 
 string(REPLACE "." ";" Mediapipe_VERSION_LIST ${Mediapipe_VERSION})
 list(GET Mediapipe_VERSION_LIST 0 Mediapipe_VERSION_MAJOR)

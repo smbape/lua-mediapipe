@@ -42,6 +42,7 @@ The procedure has been tested on :
   - Install [LuaRocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix)
   - Install [Ninja](https://ninja-build.org/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
   - \[optional\] [Hosted you own opencv_lua binary rocks on Linux with NVIDIA CUDA support](https://github.com/smbape/lua-opencv/blob/main/docs/hosting-you-own-binary-rocks-Linux.md)
 
 ### [Ubuntu, Debian] Install needed packages:
@@ -100,7 +101,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.1.0 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
+git clone --depth 1 --branch v0.1.1 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
 cd /io/luarocks-binaries-custom/build && \
 npm ci
 ```

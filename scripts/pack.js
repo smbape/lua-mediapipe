@@ -25,9 +25,9 @@ const waterfall = require("async/waterfall");
 const pkg = require("../package.json");
 
 const version = process.env.npm_package_version || pkg.version;
-const OpenCV_NAME_VERSION = "opencv-4.11.0";
+const OpenCV_NAME_VERSION = "opencv-4.12.0";
 const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
-const Mediapipe_NAME_VERSION = "mediapipe-0.10.24";
+const Mediapipe_NAME_VERSION = "mediapipe-0.10.26";
 const Mediapipe_VERSION = Mediapipe_NAME_VERSION.slice("mediapipe-".length);
 const distVersion = process.env.DIST_VERSION || "1"; // TODO : find a way to automatically update it
 const workspaceRoot = sysPath.resolve(__dirname, "..");
@@ -41,6 +41,16 @@ const new_version = sysPath.join(__dirname, "new_version.lua");
 let srcRockSpec;
 
 const spawnExec = (cmd, args, options, next) => {
+    options = Object.assign({}, options);
+
+    // https://nodejs.org/docs/latest-v18.x/api/child_process.html#spawning-bat-and-cmd-files-on-windows
+    if (os.platform() === "win32" && (cmd.endsWith(".bat") || cmd.endsWith(".cmd"))) {
+        if (cmd.includes(" ")) {
+            cmd = `"${ cmd }"`;
+        }
+        options.shell = true;
+    }
+
     const {stdio} = options;
 
     if (stdio === "tee") {

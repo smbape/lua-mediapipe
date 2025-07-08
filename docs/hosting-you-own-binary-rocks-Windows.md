@@ -32,6 +32,7 @@ The procedure has been tested on:
   - Install [CMake >= 3.25](https://cmake.org/download/)
   - Install [Git](https://git-scm.com/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
   - Install [Python](https://www.python.org/downloads/)
   - Install [Visual Studio 2022 >= 17.13.0](https://visualstudio.microsoft.com/fr/downloads/)
   - \[optional\] [Hosted you own opencv_lua binary rocks on Windows with NVIDIA CUDA support](https://github.com/smbape/lua-opencv/blob/main/docs/hosting-you-own-binary-rocks-Windows.md)
@@ -60,7 +61,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.1.0 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
+git clone --depth 1 --branch v0.1.1 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
 cd /d/luarocks-binaries-custom/lua-mediapipe && \
 npm ci
 ```

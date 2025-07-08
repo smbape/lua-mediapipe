@@ -64,6 +64,7 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
   - Install [Git](https://git-scm.com/)
   - Install [LuaRocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
   - Install [Python](https://www.python.org/downloads/)
   - Install [Visual Studio 2022 >= 17.13.0 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
   - In your windows search, search and open the `x64 Native Tools Command Prompt for VS 2022`
@@ -74,6 +75,7 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
   - Install [LuaRocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix)
   - Install [Ninja](https://ninja-build.org/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
   - Install needed packages (see below for you corresponding distribution).
   - Tell luarocks to use [Ninja](https://ninja-build.org/) as cmake generator `luarocks config --scope project cmake_generator Ninja`
 
@@ -135,11 +137,11 @@ luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/d
 Or to specify the target lua version with one of the following commands
 
 ```sh
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24luajit2.1
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24lua5.4
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24lua5.3
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24lua5.2
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24lua5.1
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.4
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.3
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.2
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.1
 ```
 
 Those prebuilt binaries should work on Windows and many linux distributions and have been tested on:
@@ -147,7 +149,6 @@ Those prebuilt binaries should work on Windows and many linux distributions and 
   - Ubuntu 20.04
   - Ubuntu 22.04
   - Ubuntu 24.04
-  - Debian 10
   - Debian 11
   - Debian 12
   - Fedora 38
@@ -159,8 +160,8 @@ Those prebuilt binaries should work on Windows and many linux distributions and 
 If none of the above works for you, then install the source rock with
 
 ```sh
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 opencv_lua 4.11.0
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 opencv_lua 4.12.0
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26
 ```
 
 ## Examples
@@ -1993,7 +1994,7 @@ cd lua-mediapipe
 @REM available versions are 5.1, 5.2, 5.3, 5.4
 build.bat "-DLua_VERSION=5.4" --target lua --install
 build.bat "-DLua_VERSION=5.4" --target luarocks
-@REM luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24luajit2.1
+@REM luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
 luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 luarocks\luarocks.bat install --deps-only samples\samples-scm-1.rockspec
 luarocks\luarocks.bat install --deps-only test\test-scm-1.rockspec
@@ -2010,7 +2011,7 @@ cd lua-mediapipe
 # available versions are 5.1, 5.2, 5.3, 5.4
 ./build.sh "-DLua_VERSION=5.4" --target lua --install
 ./build.sh "-DLua_VERSION=5.4" --target luarocks
-# ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.24luajit2.1
+# ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
 ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 ./luarocks/luarocks install --deps-only samples/samples-scm-1.rockspec
 ./luarocks/luarocks install --deps-only test/test-scm-1.rockspec
