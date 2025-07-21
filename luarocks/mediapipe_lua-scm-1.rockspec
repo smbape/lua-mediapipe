@@ -34,9 +34,9 @@ description = {
         - Almalinux 9
 
       If the prebuilt binary does not work or you want a custom build, then I recommend you to host your own binary rocks by following the instructions at
-      https://github.com/smbape/lua-mediapipe/tree/v0.1.0#hosting-you-own-binary-rocks
+      https://github.com/smbape/lua-mediapipe/tree/v0.1.1#hosting-you-own-binary-rocks
 
-      Otherwise, follow the instructions at https://github.com/smbape/lua-mediapipe/tree/v0.1.0#prerequisites-to-source-rock-install
+      Otherwise, follow the instructions at https://github.com/smbape/lua-mediapipe/tree/v0.1.1#prerequisites-to-source-rock-install
       before attempting to install the source rock with
 
       luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 opencv_lua 4.12.0
