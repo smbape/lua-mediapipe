@@ -32,6 +32,7 @@ description = {
         - Fedora 40
         - Almalinux 8
         - Almalinux 9
+        - Almalinux 10
 
       If the prebuilt binary does not work or you want a custom build, then I recommend you to host your own binary rocks by following the instructions at
       https://github.com/smbape/lua-mediapipe/tree/v0.1.1#hosting-you-own-binary-rocks

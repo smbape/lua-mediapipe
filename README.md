@@ -19,7 +19,7 @@ Therefore the [Mediapipe documentation](https://github.com/google-ai-edge/mediap
       - [Debian, Ubuntu](#debian-ubuntu)
       - [Fedora](#fedora)
       - [Almalinux 8](#almalinux-8)
-      - [Almalinux 9](#almalinux-9)
+      - [Almalinux 9, 10](#almalinux-9-10)
   - [How to install](#how-to-install)
 - [Examples](#examples)
   - [Face Detection with MediaPipe Tasks](#face-detection-with-mediapipe-tasks)
@@ -112,7 +112,7 @@ sudo dnf install -y ffmpeg-devel patchelf && \
 source /opt/rh/gcc-toolset-12/enable
 ```
 
-##### Almalinux 9
+##### Almalinux 9, 10
 
 ```sh
 sudo dnf install -y curl gcc gcc-c++ git \
@@ -156,6 +156,7 @@ Those prebuilt binaries should work on Windows and many linux distributions and 
   - Fedora 40
   - Almalinux 8
   - Almalinux 9
+  - Almalinux 10
 
 If none of the above works for you, then install the source rock with
 
@@ -1980,7 +1981,7 @@ All the examples in the samples directory can be run by folling theses instructi
   - Install [Ninja](https://ninja-build.org/)
   - Install needed packages:
     - Debian, Ubuntu: `sudo apt install -y curl g++ gcc git libgl1 libglib2.0-0 libreadline-dev libsm6 libxext6 make python3-pip python3-venv unzip wget`
-    - Fedora, Almalinux 9: `sudo dnf install -y curl gcc gcc-c++ git glib2 readline-devel libglvnd-glx libSM libXext make patch python3-pip unzip wget`
+    - Fedora, Almalinux 9, Almalinux 10: `sudo dnf install -y curl gcc gcc-c++ git glib2 readline-devel libglvnd-glx libSM libXext make patch python3-pip unzip wget`
     - Almalinux 8: `sudo dnf install -y curl gcc gcc-c++ git glib2 readline-devel libglvnd-glx libSM libXext make patch python3.12-pip unzip wget`
 
 ### Initialize the project

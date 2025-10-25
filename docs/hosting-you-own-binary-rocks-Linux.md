@@ -9,7 +9,7 @@
   - [[Ubuntu, Debian] Install needed packages:](#ubuntu-debian-install-needed-packages)
   - [[Fedora] Install needed packages:](#fedora-install-needed-packages)
   - [[Almalinux 8] Install needed packages:](#almalinux-8-install-needed-packages)
-  - [[Almalinux 9] Install needed packages:](#almalinux-9-install-needed-packages)
+  - [[Almalinux 9, 10] Install needed packages:](#almalinux-9-10-install-needed-packages)
 - [Build System Environment](#build-system-environment)
 - [Download the source code](#download-the-source-code)
 - [Build](#build)
@@ -74,7 +74,7 @@ sudo dnf install -y ffmpeg-devel && \
 source /opt/rh/gcc-toolset-12/enable
 ```
 
-### [Almalinux 9] Install needed packages:
+### [Almalinux 9, 10] Install needed packages:
 ```sh
 sudo dnf install -y curl gcc gcc-c++ git \
         libjpeg-devel libpng-devel readline-devel make patch tbb-devel \
