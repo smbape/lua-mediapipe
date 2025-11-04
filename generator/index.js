@@ -215,24 +215,24 @@ waterfall([
     next => {
         const srcfiles = [];
         const protofiles = new Set();
-        const matcher = /#include "([^"]+)\.pb\.h"/g;
+        const protomatcher = /#include "([^"]+)\.pb\.h"/g;
 
         explore(SRC_DIR, async (path, stats, next) => {
             const relpath = path.slice(SRC_DIR.length + 1);
             const parts = relpath.split(".");
             const extname = parts.length === 0 ? "" : `.${ parts[parts.length - 1] }`;
             const extnames = parts.length === 0 ? "" : `.${ parts.slice(-2).join(".") }`;
-            const isheader = [".h", ".hpp", ".hxx"].includes(extname);
+            const isheader = [".h", ".hh", ".hpp", ".hxx"].includes(extname);
 
             const content = await fsPromises.readFile(path);
 
             let match;
-            matcher.lastIndex = 0;
-            while ((match = matcher.exec(content))) {
+            protomatcher.lastIndex = 0;
+            while ((match = protomatcher.exec(content))) {
                 protofiles.add(`${ match[1] }.proto`);
             }
 
-            if (isheader && ![".impl.h", ".impl.hpp", ".impl.hxx"].includes(extnames) && (content.includes("CV_EXPORTS") || /^binding[\\/]/.test(relpath))) {
+            if (isheader && ![".impl.h", ".impl.hh", ".impl.hpp", ".impl.hxx"].includes(extnames) && (content.includes("CV_EXPORTS") || /^binding[\\/]/.test(relpath))) {
                 srcfiles.push(path);
             }
 

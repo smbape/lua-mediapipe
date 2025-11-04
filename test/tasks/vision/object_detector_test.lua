@@ -125,7 +125,10 @@ local ModelFileType = {
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
         _MODEL_FILE,
-        _NO_NMS_MODEL_FILE,
+        {
+            output = _NO_NMS_MODEL_FILE,
+            url = "https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/float16/1/efficientdet_lite0.tflite",
+        },
         _IMAGE_FILE,
     })
 

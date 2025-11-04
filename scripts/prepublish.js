@@ -175,6 +175,7 @@ const prepublish = (target, version, options, next) => {
             }, next);
         },
 
+        // remove opencv_lua
         next => {
             const luarocks = sysPath.join("luarocks", `luarocks${ wrapperSuffix }`);
             const opencvName = options["opencv-name"] || "opencv_lua";

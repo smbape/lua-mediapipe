@@ -121,6 +121,8 @@ namespace {
 		if (res) {
 			return fs::absolute(info.dli_fname);
 		}
+
+		// Unable to get the path
 		return fs::path();
 	}
 }

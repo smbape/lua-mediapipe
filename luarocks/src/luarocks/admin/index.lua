@@ -411,7 +411,7 @@ function index.make_index(repo)
          if vars.homepage then
             vars.homepage = '| <a href="'..descript.homepage..'"'..ext_url_target..'>project homepage</a>'
          end
-         vars.detailed = vars.detailed:gsub("(luarocks install [^\r\n]+)", '<span class="highlight lang_bash term_snippet"><code class="installer"><span class="nv">$ </span>%1</code></span>')
+         vars.detailed = vars.detailed:gsub("(luarocks install [^\r\n]+)\r?\n", '<span class="highlight lang_bash term_snippet"><code class="installer"><span class="nv">$ </span>%1</code></span>')
          vars.detailed = vars.detailed:gsub("(</code></span>[ \r\n]+<span class=\"highlight lang_bash term_snippet\"><code class=\"installer\">)", '\n')
          vars.detailed = vars.detailed:gsub("(https?://[a-zA-Z0-9%.%%-_%+%[%]=%?&/$@;:#]+)", '<a href="%1"'..ext_url_target..'>%1</a>')
          output = output:gsub("$(%w+)", vars)

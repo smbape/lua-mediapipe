@@ -26,7 +26,7 @@ file(GLOB_RECURSE files_to_change
 
 foreach(item ${files_to_change})
     vcpkg_regex_replace_string("${item}" "(/lua-mediapipe/releases/download/v|/lua-mediapipe/tree/v)[0-9]+\\.[0-9]+\\.[0-9]+" "\\1${PROJECT_VERSION}")
-    vcpkg_regex_replace_string("${item}" "(/google-ai-edge/mediapipe/archive/refs/tags/v|mediapipe-|MEDIAPIPE_VERSION:-|${target_name} )[0-9]+(\\.[0-9]+)+" "\\1${Mediapipe_VERSION}")
+    vcpkg_regex_replace_string("${item}" "(/google-ai-edge/mediapipe/archive/refs/tags/v|/google-ai-edge/mediapipe/blob/v|mediapipe-|MEDIAPIPE_VERSION:-|${target_name} )[0-9]+(\\.[0-9]+)+" "\\1${Mediapipe_VERSION}")
     vcpkg_regex_replace_string("${item}" "MEDIAPIPE_VERSION = \"[0-9]+(\\.[0-9]+)+\"" "MEDIAPIPE_VERSION = \"${Mediapipe_VERSION}\"")
     vcpkg_regex_replace_string("${item}" "/v[0-9]+(\\.[0-9]+)+/mediapipe/" "/v${Mediapipe_VERSION}/mediapipe/")
     vcpkg_regex_replace_string("${item}" "(--branch v)[0-9]+\\.[0-9]+\\.[0-9]+( https://github.com/smbape/lua-mediapipe)" "\\1${PROJECT_VERSION}\\2")

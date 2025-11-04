@@ -3,10 +3,10 @@
 #include <lua_bridge_common.hdr.hpp>
 #include <lua_bridge.hdr.hpp>
 
-#include <lua_bridge_common.hpp>
 #include <lua_generated_include.hpp>
 #include <register_all.hpp>
 
+#include <lua_bridge_common.hpp>
 #include <binding/repeated_container.impl.h>
 
 namespace LUA_MODULE_NAME {

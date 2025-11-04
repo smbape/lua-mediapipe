@@ -216,12 +216,13 @@ function new_version.command(args)
          else
             local module_name = include:sub(#install_libdir + 2)
 
+            -- remove the extension
             local ext = module_name:match("(%..+)$")
             if ext ~= nil then
-               module_name = module_name:sub(1, -#ext - 1):gsub("/", ".") .. ext:gsub("%.", "#")
+               module_name = module_name:sub(1, -#ext - 1) .. ext:gsub("%.", "#")
             end
 
-            install_lib[module_name] = include
+            install_lib[module_name:gsub("/", ".")] = include
          end
       end
 

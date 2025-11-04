@@ -1,6 +1,6 @@
 #pragma once
 
-#include <luadef.hpp>
+#include <lua_bridge_common.hdr.hpp>
 #include <opencv2/core.hpp>
 #include "absl/status/status.h"
 #include "absl/status/statusor.h"

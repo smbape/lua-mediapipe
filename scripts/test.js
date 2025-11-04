@@ -95,8 +95,8 @@ if (os.platform() === "win32") {
             ].join(";").replace(/[\\]/g, "/") };"..package.path`,
 
             `package.cpath="${ [
-                `${ LUA_BINDIR_DEBUG }/?.dll`,
-                `${ LUA_BINDIR_DEBUG }/loadall.dll`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib").replaceAll("\\", "/") }/?.dll`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib").replaceAll("\\", "/") }/loadall.dll`,
                 ...OpenCVLua_CPATH,
                 `${ LUA_MODULES }/lib/lua/${ ABIVER }/?.dll`,
                 `${ APPDATA }/luarocks/lib/lua/${ ABIVER }/?.dll`,
