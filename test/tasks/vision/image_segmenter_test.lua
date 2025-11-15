@@ -349,7 +349,7 @@ local function test_segment_async_calls_in_category_mask_mode(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.notifyCallbacks()
+            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -358,7 +358,7 @@ local function test_segment_async_calls_in_category_mask_mode(self)
 
     -- wait for detection end
     segmenter:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
@@ -405,7 +405,7 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.notifyCallbacks()
+            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -414,7 +414,7 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
 
     -- wait for detection end
     segmenter:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

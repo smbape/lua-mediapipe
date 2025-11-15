@@ -5,10 +5,6 @@
 using namespace mediapipe;
 using namespace mediapipe::lua;
 
-// A mutex to guard the output stream observer lua callback function.
-// Only one lua callback can run at once.
-static absl::Mutex callback_mutex(absl::kConstInit);
-
 namespace mediapipe::lua::calculator_graph {
 	absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(CalculatorGraphConfig& graph_config) {
 		auto calculator_graph = std::make_shared<CalculatorGraph>();
@@ -69,7 +65,6 @@ namespace mediapipe::lua::calculator_graph {
 		return self->ObserveOutputStream(
 			stream_name,
 			std::move([callback_fn, stream_name](const Packet& packet) {
-				absl::MutexLock lock(&callback_mutex);
 				callback_fn(stream_name, packet);
 				return absl::OkStatus();
 			}),

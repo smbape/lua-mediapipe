@@ -1,6 +1,4 @@
-#include <registration.hpp>
-#include <file_utils.hpp>
-#include "binding/resource_util.h"
+#include <lua_bridge.hpp>
 
 #ifndef OPENCV_LUA_API
 # if (defined _WIN32 || defined WINCE || defined __CYGWIN__)

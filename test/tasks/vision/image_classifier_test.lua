@@ -494,7 +494,7 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.notifyCallbacks()
+            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -503,7 +503,7 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
 
     -- wait for detection end
     classifier:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
@@ -541,7 +541,7 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.notifyCallbacks()
+            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -550,7 +550,7 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
 
     -- wait for detection end
     classifier:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

@@ -52,7 +52,7 @@ local function test_graph_initialized_with_proto_config(self)
     graph:add_packet_to_input_stream(mediapipe_lua.kwargs({
         stream = 'in', packet = hello_world_packet:at(1) }))
     graph:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
     self.assertEqual(
         graph.graph_input_stream_add_mode,
         calculator_graph.GraphInputStreamAddMode.WAIT_TILL_NOT_FULL)
@@ -87,7 +87,7 @@ local function test_graph_initialized_with_text_config(self)
     graph:add_packet_to_input_stream(mediapipe_lua.kwargs({
         stream = 'in', packet = hello_world_packet, timestamp = 1 }))
     graph:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
     self.assertEqual(
         graph.graph_input_stream_add_mode,
         calculator_graph.GraphInputStreamAddMode.WAIT_TILL_NOT_FULL)
@@ -127,7 +127,7 @@ local function test_graph_validation_and_initialization(self)
     graph:add_packet_to_input_stream(mediapipe_lua.kwargs({
         stream = 'in', packet = hello_world_packet, timestamp = 1 }))
     graph:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
     self.assertEqual(
         graph.graph_input_stream_add_mode,
         calculator_graph.GraphInputStreamAddMode.WAIT_TILL_NOT_FULL)
@@ -155,7 +155,7 @@ local function test_side_packet_graph(self)
         input_side_packets = { ['string'] = packet_creator.create_string('42') }
     }))
     graph:wait_until_done()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
     self.assertFalse(graph:has_error())
     self.assertEqual(
         packet_getter.get_uint(graph:get_output_side_packet('number')), 42)
@@ -182,10 +182,10 @@ local function test_sequence_input(self)
     for i = 0, sequence_size - 1 do
         graph:add_packet_to_input_stream(mediapipe_lua.kwargs({
             stream = 'in', packet = hello_world_packet, timestamp = i }))
-        mediapipe_lua.notifyCallbacks()
+        mediapipe_lua.yield()
     end
     graph:wait_until_idle()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
     self.assertLen(out, sequence_size)
     for i = 0, sequence_size - 1 do
         self.assertEqual(out[i + INDEX_BASE].timestamp.value, i)

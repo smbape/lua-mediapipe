@@ -8,10 +8,6 @@ namespace {
 	using ::mediapipe::tasks::core::TaskRunner;
 }  // namespace
 
-// A mutex to guard the callback function. Only one callback can
-// run at once.
-absl::Mutex callback_mutex;
-
 namespace mediapipe::lua::task_runner {
 	absl::StatusOr<std::shared_ptr<TaskRunner>> create(const CalculatorGraphConfig& graph_config) {
 		PacketsCallback packets_callback = nullptr;
@@ -23,7 +19,6 @@ namespace mediapipe::lua::task_runner {
 
 		if (packets_callback) {
 			callback = [packets_callback = std::move(packets_callback)](absl::StatusOr<PacketMap> output_packets) {
-				absl::MutexLock lock(&callback_mutex);
 				MP_THROW_IF_ERROR(output_packets.status()); // There is no other choice than throw in a callback to stop the execution
 				packets_callback(output_packets.value());
 				return absl::OkStatus();

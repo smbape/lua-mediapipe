@@ -311,7 +311,7 @@ local function test_detect_async_calls(
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.notifyCallbacks()
+            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -320,7 +320,7 @@ local function test_detect_async_calls(
 
     -- wait for detection end
     landmarker:close()
-    mediapipe_lua.notifyCallbacks()
+    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

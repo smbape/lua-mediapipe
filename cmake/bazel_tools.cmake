@@ -3,38 +3,6 @@ if(POLICY CMP0174)
 endif()
 
 
-function(list_to_json_array list_NAME)
-    set(options)
-    set(oneValueArgs OUTPUT_VARIABLE INDENT)
-    set(multiValueArgs)
-    cmake_parse_arguments(PARSE_ARGV 1 list
-        "${options}" "${oneValueArgs}" "${multiValueArgs}"
-    )
-
-    if (list_UNPARSED_ARGUMENTS)
-        string(REPLACE ";" ", " list_UNPARSED_ARGUMENTS "${list_UNPARSED_ARGUMENTS}")
-        message(FATAL_ERROR "Unknown arguments [${list_UNPARSED_ARGUMENTS}]")
-    endif()
-
-    if (NOT list_OUTPUT_VARIABLE)
-        set(list_OUTPUT_VARIABLE ${list_NAME})
-    endif()
-
-    if (NOT list_INDENT)
-        string(REPLACE ";" "\", \"" list_OUTPUT "${${list_NAME}}")
-        set(${list_OUTPUT_VARIABLE} "[\"${list_OUTPUT}\"]" PARENT_SCOPE)
-        return()
-    endif()
-
-    list(TRANSFORM ${list_NAME} PREPEND "    ${list_INDENT}\"")
-    list(TRANSFORM ${list_NAME} APPEND "\",")
-    list(PREPEND ${list_NAME} "[")
-    list(APPEND ${list_NAME} "${list_INDENT}]")
-    string(REPLACE ";" "\n" list_OUTPUT "${${list_NAME}}")
-
-    set(${list_OUTPUT_VARIABLE} "${list_OUTPUT}" PARENT_SCOPE)
-endfunction()
-
 function(split_target_property output_prefix the_target property)
     # PUBLIC and PRIVATE values
     get_target_property(values_PUBLIC_AND_PRIVATE ${the_target} ${property})

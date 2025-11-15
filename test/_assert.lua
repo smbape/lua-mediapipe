@@ -3,8 +3,7 @@
 local inspect = require("inspect")
 local assert = require("luassert")
 local mediapipe_lua = require("mediapipe_lua")
-local opencv_lua = require("opencv_lua")
-local round = opencv_lua.math.round
+local round = mediapipe_lua.math.round
 
 local module = {}
 

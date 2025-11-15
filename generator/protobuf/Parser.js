@@ -189,7 +189,7 @@ class Parser {
 
         const globalOptions = [];
         const { decls, typedefs } = outputs;
-        const { self_get, language } = options;
+        const { self_get, language, vargc } = options;
 
         this.consumeCommentOrSpace();
         this.maybeSyntax();
@@ -309,7 +309,7 @@ class Parser {
                     ${ body.join("\n").trim().split("\n").join(`\n${ " ".repeat(20) }`) }
 
                     lua_push(L, shared_message);
-                    return lua_gettop(L) - vargc;
+                    return lua_gettop(L) - ${ vargc };
                 `.trim().replace(/^ {20}/mg, ""));
             }
 
@@ -943,7 +943,7 @@ class Parser {
 
     addRepeatedField(proto, fields, field_type, field_name, scopes, body, i) {
         const { decls, typedefs } = this.outputs;
-        const { self, self_get, language, AnyObject } = this.options;
+        const { self, self_get, language, largc, vargc, AnyObject } = this.options;
 
         const isEnum = this.isEnum(field_type, scopes);
         const value_type = isEnum ? "int" : this.getCppType(field_type, scopes);
@@ -969,7 +969,7 @@ class Parser {
         ]]);
 
         body.push(`
-            if (argc > ${ i + 1 } || has_kwargs && Keywords::has(L, vargc, "${ field_name }")) {
+            if (${ largc } > ${ i + 1 } || has_kwargs && Keywords::has(L, ${ vargc }, "${ field_name }")) {
                 ${ setter.split("\n").join(`\n${ " ".repeat(16) }`) };
             }
         `.trim().replace(/^ {12}/mg, "").replaceAll(newVal, field_name));

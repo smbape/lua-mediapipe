@@ -24,6 +24,8 @@ const getOptions = output => {
         make_shared: "std::make_shared",
         Any: "::LUA_MODULE_NAME::Object",
         AnyObject: "::LUA_MODULE_NAME::Object",
+        largc: "__argc__",
+        vargc: "__vargc__",
         cname: "new",
         cnames: new Set([
             "create",
@@ -259,6 +261,8 @@ waterfall([
             self_get: options.self_get,
             Any: options.Any,
             AnyObject: options.AnyObject,
+            largc: options.largc,
+            vargc: options.vargc,
         };
 
         for (const filename of protofiles) {
