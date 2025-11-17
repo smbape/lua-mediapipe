@@ -26,7 +26,7 @@ Here we will build a custom mediapipe with the folling modifications:
   - Add NVIDIA CUDA support.
 
 The procedure has been tested on :
-  - [Ubuntu 22.04 (Jammy Jellyfish)](https://releases.ubuntu.com/jammy/)
+  - [Ubuntu 24.04 (Jammy Jellyfish)](https://releases.ubuntu.com/jammy/)
 
 > [!WARNING]  
 > GPU usage on Linux desktop is experimental:

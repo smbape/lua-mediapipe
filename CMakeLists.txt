@@ -57,7 +57,7 @@ if (UNIX)
 endif()
 
 # Needed python packages
-pip_install(absl-py mediapipe numpy opencv-python)
+pip_install(absl-py numpy opencv-python)
 
 # ===============
 # Node
