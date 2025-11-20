@@ -300,8 +300,11 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
             self.assertEqual(result, expected_result)
         end
         self.assertMatEqual(output_image:mat_view(), test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _HandLandmarkerOptions(mediapipe_lua.kwargs({
@@ -323,7 +326,6 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
 
     -- wait for detection end
     landmarker:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

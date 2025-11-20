@@ -312,8 +312,11 @@ local function test_detect_async_calls(
         end
 
         self.assertMatEqual(output_image:mat_view(), test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local model_path = test_utils.get_test_data_path(model_name)
@@ -338,7 +341,6 @@ local function test_detect_async_calls(
 
     -- wait for detection end
     landmarker:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

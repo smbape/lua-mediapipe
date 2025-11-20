@@ -1,9 +1,16 @@
 #include "absl/base/const_init.h"
 #include "absl/synchronization/mutex.h"
 #include "binding/calculator_graph.h"
+#include <lua_bridge_common.hdr.hpp>
 
 using namespace mediapipe;
 using namespace mediapipe::lua;
+
+namespace {
+	// A mutex to guard the output stream observer callback function.
+	// Only one callback can run at time.
+	std::mutex callback_mutex;
+}
 
 namespace mediapipe::lua::calculator_graph {
 	absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(CalculatorGraphConfig& graph_config) {
@@ -42,6 +49,7 @@ namespace mediapipe::lua::calculator_graph {
 	}
 
 	absl::Status add_packet_to_input_stream(CalculatorGraph* self, const std::string& stream, Packet& packet, Timestamp& timestamp) {
+		::LUA_MODULE_NAME::GilYield yielder;
 		auto packet_timestamp = timestamp == Timestamp::Unset() ? packet.Timestamp() : timestamp;
 		MP_ASSERT_RETURN_IF_ERROR(packet_timestamp.IsAllowedInStream(), packet_timestamp.DebugString() << " can't be the timestamp of a Packet in a stream.");
 		MP_RETURN_IF_ERROR(self->AddPacketToInputStream(stream, packet.At(packet_timestamp)));
@@ -65,6 +73,7 @@ namespace mediapipe::lua::calculator_graph {
 		return self->ObserveOutputStream(
 			stream_name,
 			std::move([callback_fn, stream_name](const Packet& packet) {
+				std::unique_lock<std::mutex> lock(callback_mutex);
 				callback_fn(stream_name, packet);
 				return absl::OkStatus();
 			}),
@@ -72,7 +81,23 @@ namespace mediapipe::lua::calculator_graph {
 		);
 	}
 
+	absl::Status wait_until_done(CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder;
+		return self->WaitUntilDone();
+	}
+
+	absl::Status wait_until_idle(CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder;
+		return self->WaitUntilIdle();
+	}
+
+	absl::Status wait_for_observed_output(CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder;
+		return self->WaitForObservedOutput();
+	}
+
 	absl::Status close(CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder;
 		MP_RETURN_IF_ERROR(self->CloseAllPacketSources());
 		MP_RETURN_IF_ERROR(self->WaitUntilDone());
 		return absl::OkStatus();

@@ -5,11 +5,11 @@
 # $ docker run -it --name mp_pip_package_container -d mp_manylinux:latest bash
 
 # Make a container for MediaPipe
-FROM quay.io/pypa/manylinux2014_x86_64:2025.03.22-2
+FROM quay.io/pypa/manylinux2014_x86_64:2025.11.24-1
 
 
 ARG BAZELISK_VERSION=1.25.0
-ARG NINJA_VERSION=1.12.1
+ARG NINJA_VERSION=1.13.2
 ARG OPENSSL_VERSION=1_1_1w
 ARG PROTOBUF_VERSION=30.1
 
@@ -89,4 +89,3 @@ RUN git config --global --add safe.directory /io
 # Allow openssl to be found
 ENV LDFLAGS="-L/opt/openssl/install/lib"
 ENV PKG_CONFIG_PATH="/opt/openssl/install/lib/pkgconfig:$PKG_CONFIG_PATH"
-

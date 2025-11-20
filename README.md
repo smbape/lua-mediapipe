@@ -180,7 +180,7 @@ For example, in your lua project, initialized with `luarocks init`, modify the f
 
 ```cmd
 set LUA_MODULES=%~dp0lua_modules
-set "PATH=%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;%PATH%"
+set "PATH=%LUA_MODULES%\lib\5.4;%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;%PATH%"
 ```
 
 <!-- EXAMPLES_START generated examples please keep comment here to allow auto update -->

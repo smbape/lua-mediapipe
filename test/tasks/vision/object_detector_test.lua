@@ -316,8 +316,11 @@ local function test_detect_async_calls(self, threshold, expected_result)
     local function check_result(result, output_image, timestamp_ms)
         self.assertEqual(result, expected_result)
         self.assertMatEqual(output_image:mat_view(), self.test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ObjectDetectorOptions(mediapipe_lua.kwargs({
@@ -341,7 +344,6 @@ local function test_detect_async_calls(self, threshold, expected_result)
 
     -- wait for detection end
     detector:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

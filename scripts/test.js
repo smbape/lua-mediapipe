@@ -75,13 +75,14 @@ if (os.platform() === "win32") {
     const OpenCVLua_CPATH = [];
     if (fs.existsSync(OpenCVLua_DIR)) {
         const OpenCVLua_BINDIR = sysPath.resolve(OpenCVLua_DIR, "bin");
+        const OpenCVLua_LIBDIR = sysPath.resolve(OpenCVLua_DIR, "lib");
 
         OpenCVLua_CPATH.push(...[
-            `${ OpenCVLua_BINDIR }/?.dll`,
-            `${ OpenCVLua_BINDIR }/loadall.dll`,
+            `${ OpenCVLua_LIBDIR }/?.dll`,
+            `${ OpenCVLua_LIBDIR }/loadall.dll`,
         ]);
 
-        config.Debug.env.PATH = `${ OpenCVLua_BINDIR };${ config.Debug.env.PATH }`;
+        config.Debug.env.PATH = `${ OpenCVLua_LIBDIR };${ OpenCVLua_BINDIR };${ config.Debug.env.PATH }`;
     }
 
     config.Debug.argv = [

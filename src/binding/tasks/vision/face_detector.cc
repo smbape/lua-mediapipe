@@ -25,7 +25,7 @@ namespace {
 	const std::string _IMAGE_OUT_STREAM_NAME = "image_out";
 	const std::string _IMAGE_TAG = "IMAGE";
 	const std::string _TASK_GRAPH_NAME = "mediapipe.tasks.vision.face_detector.FaceDetectorGraph";
-	const int64_t _MICRO_SECONDS_PER_MILLISECOND = 1000;
+	constexpr auto _MICRO_SECONDS_PER_MILLISECOND = 1000;
 
 	[[nodiscard]] absl::StatusOr<std::shared_ptr<FaceDetectorResult>> _build_detection_result(const PacketMap& output_packets) {
 		const auto& detector_out_packet = output_packets.at(_DETECTIONS_OUT_STREAM_NAME);

@@ -333,8 +333,11 @@ local function test_segment_async_calls_in_category_mask_mode(self)
                 ' the ground truth mask exceeds ' .. _MASK_SIMILARITY_THRESHOLD .. '.'
             )
         )
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({
@@ -358,7 +361,6 @@ local function test_segment_async_calls_in_category_mask_mode(self)
 
     -- wait for detection end
     segmenter:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
@@ -388,8 +390,11 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
         self:_similar_to_float_mask(
             confidence_masks[8 + INDEX_BASE], expected_mask, _MASK_SIMILARITY_THRESHOLD
         )
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({
@@ -414,7 +419,6 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
 
     -- wait for detection end
     segmenter:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

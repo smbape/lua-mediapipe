@@ -22,6 +22,12 @@ using namespace google::protobuf;
 using namespace mediapipe::lua::packet_getter;
 
 namespace {
+	// A mutex to guard the output stream observer callback function.
+	// Only one callback can run at time.
+	std::mutex callback_mutex;
+}
+
+namespace {
 	inline const bool startsWith(const std::string& s, const std::string& prefix) {
 		return s.size() >= prefix.size() && s.compare(0, prefix.size(), prefix) == 0;
 	}
@@ -968,6 +974,7 @@ namespace mediapipe::lua::solution_base {
 			MP_RETURN_IF_ERROR(m_graph->ObserveOutputStream(
 				stream_name,
 				std::move([this, stream_name](const Packet& output_packet) {
+					std::unique_lock<std::mutex> lock(callback_mutex);
 					if (output_packet.Timestamp() == Timestamp(m_simulated_timestamp)) {
 						m_graph_outputs[stream_name] = output_packet;
 					}

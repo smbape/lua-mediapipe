@@ -1,4 +1,5 @@
 #include "binding/tasks/audio/core/base_audio_task_api.h"
+#include <lua_bridge_common.hdr.hpp>
 
 namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 	using audio_task_running_mode::AudioTaskRunningMode;
@@ -44,6 +45,7 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 	}
 
 	absl::Status BaseAudioTaskApi::close() {
+		::LUA_MODULE_NAME::GilYield yielder;
 		return _runner->Close();
 	}
 }

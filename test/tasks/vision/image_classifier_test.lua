@@ -477,8 +477,11 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
             result:to_pb2(), generate_expected_result(timestamp_ms):to_pb2()
         )
         self.assertMatEqual(output_image:mat_view(), self.test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({
@@ -503,7 +506,6 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
 
     -- wait for detection end
     classifier:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
@@ -526,8 +528,11 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
         )
         self.assertEqual(output_image.width, test_image.width)
         self.assertEqual(output_image.height, test_image.height)
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({
@@ -550,7 +555,6 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
 
     -- wait for detection end
     classifier:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

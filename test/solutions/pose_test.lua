@@ -276,6 +276,15 @@ local function test_on_video(self, id, model_complexity, expected_name)
         -- Run pose tracker.
         local input_frame = cv2.cvtColor(input_frame, cv2.COLOR_BGR2RGB)
         local result = pose:process(mediapipe_lua.kwargs({ image = input_frame }))
+
+        if not result.pose_landmarks or not result.pose_world_landmarks then
+            print(inspect({
+                frame_idx = frame_idx,
+                pose_landmarks = result.pose_landmarks,
+                pose_world_landmarks = result.pose_world_landmarks,
+            }))
+        end
+
         local pose_landmarks = self._landmarks_list_to_array(result.pose_landmarks,
             input_frame.shape)
         local pose_world_landmarks = self._world_landmarks_list_to_array(

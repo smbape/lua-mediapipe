@@ -1,5 +1,6 @@
 #include "binding/tasks/text/core/base_text_task_api.h"
 #include "binding/util.h"
+#include <lua_bridge_common.hdr.hpp>
 
 namespace mediapipe::tasks::lua::text::core::base_text_task_api {
 	BaseTextTaskApi::~BaseTextTaskApi() {
@@ -16,6 +17,7 @@ namespace mediapipe::tasks::lua::text::core::base_text_task_api {
 	}
 
 	absl::Status BaseTextTaskApi::close() {
+		::LUA_MODULE_NAME::GilYield yielder;
 		return _runner->Close();
 	}
 }

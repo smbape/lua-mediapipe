@@ -51,6 +51,7 @@ endif()
 # ===============
 # Python
 # ===============
+set(Python3_REQUESTED_VERSION "3.9...<3.13")
 include(cmake/UsePython3Venv.cmake)
 if (UNIX)
     pip_install(build auditwheel)

@@ -109,6 +109,8 @@ function _assert._process_video(self, model_complexity, video_path,
         min_detection_confidence = 0.5
     }))
 
+    local inspect = require("inspect")
+
     while true do
         -- Without this, memory grows indefinitely
         collectgarbage()
@@ -141,6 +143,17 @@ function _assert._process_video(self, model_complexity, video_path,
             end
         end
         w_landmarks_per_frame[#w_landmarks_per_frame + 1] = frame_w_landmarks
+
+        if #frame_landmarks == 0 or #frame_w_landmarks == 0 then
+            print(inspect({
+                landmarks_per_frame = #landmarks_per_frame,
+                frame_landmarks = #frame_landmarks,
+                multi_hand_landmarks = result.multi_hand_landmarks,
+                w_landmarks_per_frame = #w_landmarks_per_frame,
+                frame_w_landmarks = #frame_w_landmarks,
+                multi_hand_world_landmarks = result.multi_hand_world_landmarks,
+            }))
+        end
     end
 
     return cv2.Mat.createFromArray(landmarks_per_frame, cv2.CV_64F),

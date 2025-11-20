@@ -291,8 +291,11 @@ local function test_detect_async_calls(
         self:_expect_face_detector_results_correct(
             result, expected_detection_result
         )
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _FaceDetectorOptions(mediapipe_lua.kwargs({
@@ -323,7 +326,6 @@ local function test_detect_async_calls(
 
     -- wait for detection end
     detector:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

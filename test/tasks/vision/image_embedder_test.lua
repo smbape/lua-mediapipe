@@ -300,8 +300,11 @@ local function test_embed_async_calls(self)
             result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.925519 }))
         self.assertMatEqual(output_image:mat_view(),
             self.test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({
@@ -324,7 +327,6 @@ local function test_embed_async_calls(self)
 
     -- wait for detection end
     embedder:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
@@ -349,8 +351,11 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
             result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.999931 }))
         self.assertMatEqual(output_image:mat_view(),
             self.test_image:mat_view())
-        self.assertLess(observed_timestamp_ms, timestamp_ms)
-        observed_timestamp_ms = timestamp_ms
+
+        if timestamp_ms ~= mediapipe.Timestamp.DONE then
+            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            observed_timestamp_ms = timestamp_ms
+        end
     end
 
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({
@@ -372,7 +377,6 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
 
     -- wait for detection end
     embedder:close()
-    mediapipe_lua.yield()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end

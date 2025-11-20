@@ -46,9 +46,9 @@ module.exports = ({ self, language, cname }) => [
         ["std::map<std::string, Packet>", "input_side_packets", "std::map<std::string, Packet>()", ["/Ref"]],
     ], "", ""],
 
-    ["mediapipe.CalculatorGraph.WaitUntilDone", "absl::Status", ["=wait_until_done"], [], "", ""],
-    ["mediapipe.CalculatorGraph.WaitUntilIdle", "absl::Status", ["=wait_until_idle"], [], "", ""],
-    ["mediapipe.CalculatorGraph.WaitForObservedOutput", "absl::Status", ["=wait_for_observed_output"], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_until_done", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_done`, `/Expr=&(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_until_idle", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_idle`, `/Expr=&(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_for_observed_output", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_for_observed_output`, `/Expr=&(${ self })`], [], "", ""],
     ["mediapipe.CalculatorGraph.HasError", "bool", ["=has_error"], [], "", ""],
     ["mediapipe.CalculatorGraph.get_combined_error_message", "std::string", [`/Call=mediapipe::${ language }::calculator_graph::get_combined_error_message`, `/Expr=&(${ self })`], [], "", ""],
     ["mediapipe.CalculatorGraph.close", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::close`, `/Expr=&(${ self })`], [], "", ""],

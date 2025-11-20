@@ -92,6 +92,7 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 	}
 
 	absl::Status BaseVisionTaskApi::close() {
+		::LUA_MODULE_NAME::GilYield yielder;
 		return _runner->Close();
 	}
 

@@ -28,6 +28,9 @@ namespace mediapipe::lua {
 			PacketCallback callback_fn,
 			bool observe_timestamp_bounds
 		);
+		[[nodiscard]] absl::Status wait_until_done(CalculatorGraph* self);
+		[[nodiscard]] absl::Status wait_until_idle(CalculatorGraph* self);
+		[[nodiscard]] absl::Status wait_for_observed_output(CalculatorGraph* self);
 		[[nodiscard]] absl::Status close(CalculatorGraph* self);
 	}
 }

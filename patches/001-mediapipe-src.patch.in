@@ -50,7 +50,7 @@ index 525f0878e..f1b38dabd 100644
  .user.bazelrc
 +@MEDIAPIPE_ADDON_PACKAGE@
 diff --git a/WORKSPACE b/WORKSPACE
-index 711e16b5b..310ee2645 100644
+index 50218fccb..80c9d827d 100644
 --- a/WORKSPACE
 +++ b/WORKSPACE
 @@ -25,6 +25,11 @@ load("@bazel_skylib//lib:versions.bzl", "versions")
