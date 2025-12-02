@@ -211,7 +211,9 @@ function new_version.command(args)
             ---@type string[]
             local files = fs.list_dir(include)
             for i = #files, 1, -1 do
-               includes[#includes + 1] = include .. "/" .. files[i]
+               if include ~= install_libdir .. "/mediapipe_lua" or files[i] ~= "libs" then
+                  includes[#includes + 1] = include .. "/" .. files[i]
+               end
             end
          else
             local module_name = include:sub(#install_libdir + 2)
