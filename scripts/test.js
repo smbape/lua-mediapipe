@@ -66,10 +66,14 @@ if (os.platform() === "win32") {
         sysPath.join(APPDATA, "luarocks", "bin"),
         PATH,
     ].join(";");
+    config.Release.env.LUAROCKS_SYSCONFDIR = LUAROCKS_SYSCONFDIR;
 
-    config.Debug.env.LUAROCKS_SYSCONFDIR = LUAROCKS_SYSCONFDIR;
-
-    config.Debug.env.PATH = `${ LUA_BINDIR_DEBUG };${ sysPath.join(LUAROCKS_BINDIR, "lua_modules", "bin") };${ sysPath.join(APPDATA, "luarocks", "bin") };${ PATH }`;
+    config.Debug.env.PATH = [
+        sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib"),
+        sysPath.join(LUAROCKS_BINDIR, "lua_modules", "bin"),
+        sysPath.join(APPDATA, "luarocks", "bin"),
+        PATH,
+    ].join(";");
     config.Debug.env.LUAROCKS_SYSCONFDIR = LUAROCKS_SYSCONFDIR;
 
     const OpenCVLua_CPATH = [];
