@@ -1,8 +1,6 @@
 #pragma once
 
 #ifdef ssize_t
-#define _stringify(s) #s
-#define stringify(s) _stringify(s)
 #error "ssize_t is a macro. Either undefined it or do not include this file"
 #endif
 

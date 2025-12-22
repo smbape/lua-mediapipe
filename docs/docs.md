@@ -4142,6 +4142,7 @@
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.new](#mapofintanddrawing%5C_utils%5C_drawingspecnew)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.\_\_type](#mapofintanddrawing%5C_utils%5C_drawingspec%5C_%5C_type)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.contains](#mapofintanddrawing%5C_utils%5C_drawingspeccontains)
+  - [MapOfIntAndDrawing\_utils\_DrawingSpec.copy](#mapofintanddrawing%5C_utils%5C_drawingspeccopy)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.count](#mapofintanddrawing%5C_utils%5C_drawingspeccount)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.delete](#mapofintanddrawing%5C_utils%5C_drawingspecdelete)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.erase](#mapofintanddrawing%5C_utils%5C_drawingspecerase)
@@ -4153,11 +4154,13 @@
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::index](#mapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionindex)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length](#mapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionlength)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::new\_index](#mapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionnew%5C_index)
+  - [MapOfIntAndDrawing\_utils\_DrawingSpec.swap](#mapofintanddrawing%5C_utils%5C_drawingspecswap)
   - [MapOfIntAndDrawing\_utils\_DrawingSpec.table](#mapofintanddrawing%5C_utils%5C_drawingspectable)
 - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspec)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.new](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecnew)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.\_\_type](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspec%5C_%5C_type)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.contains](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspeccontains)
+  - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.copy](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspeccopy)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.count](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspeccount)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.delete](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecdelete)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.erase](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecerase)
@@ -4169,11 +4172,13 @@
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::index](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionindex)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::length](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionlength)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::new\_index](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionnew%5C_index)
+  - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.swap](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspecswap)
   - [MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.table](#mapofintandmapofintanddrawing%5C_utils%5C_drawingspectable)
 - [MapOfStringAndPacket](#mapofstringandpacket)
   - [MapOfStringAndPacket.new](#mapofstringandpacketnew)
   - [MapOfStringAndPacket.\_\_type](#mapofstringandpacket%5C_%5C_type)
   - [MapOfStringAndPacket.contains](#mapofstringandpacketcontains)
+  - [MapOfStringAndPacket.copy](#mapofstringandpacketcopy)
   - [MapOfStringAndPacket.count](#mapofstringandpacketcount)
   - [MapOfStringAndPacket.delete](#mapofstringandpacketdelete)
   - [MapOfStringAndPacket.erase](#mapofstringandpacketerase)
@@ -4185,11 +4190,13 @@
   - [MapOfStringAndPacket.sol::meta\_function::index](#mapofstringandpacketsolmeta%5C_functionindex)
   - [MapOfStringAndPacket.sol::meta\_function::length](#mapofstringandpacketsolmeta%5C_functionlength)
   - [MapOfStringAndPacket.sol::meta\_function::new\_index](#mapofstringandpacketsolmeta%5C_functionnew%5C_index)
+  - [MapOfStringAndPacket.swap](#mapofstringandpacketswap)
   - [MapOfStringAndPacket.table](#mapofstringandpackettable)
 - [MapOfStringAndPacketDataType](#mapofstringandpacketdatatype)
   - [MapOfStringAndPacketDataType.new](#mapofstringandpacketdatatypenew)
   - [MapOfStringAndPacketDataType.\_\_type](#mapofstringandpacketdatatype%5C_%5C_type)
   - [MapOfStringAndPacketDataType.contains](#mapofstringandpacketdatatypecontains)
+  - [MapOfStringAndPacketDataType.copy](#mapofstringandpacketdatatypecopy)
   - [MapOfStringAndPacketDataType.count](#mapofstringandpacketdatatypecount)
   - [MapOfStringAndPacketDataType.delete](#mapofstringandpacketdatatypedelete)
   - [MapOfStringAndPacketDataType.erase](#mapofstringandpacketdatatypeerase)
@@ -4201,11 +4208,13 @@
   - [MapOfStringAndPacketDataType.sol::meta\_function::index](#mapofstringandpacketdatatypesolmeta%5C_functionindex)
   - [MapOfStringAndPacketDataType.sol::meta\_function::length](#mapofstringandpacketdatatypesolmeta%5C_functionlength)
   - [MapOfStringAndPacketDataType.sol::meta\_function::new\_index](#mapofstringandpacketdatatypesolmeta%5C_functionnew%5C_index)
+  - [MapOfStringAndPacketDataType.swap](#mapofstringandpacketdatatypeswap)
   - [MapOfStringAndPacketDataType.table](#mapofstringandpacketdatatypetable)
 - [MapOfStringAnd\_mediapipe\_lua\_Object](#mapofstringand%5C_mediapipe%5C_lua%5C_object)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.new](#mapofstringand%5C_mediapipe%5C_lua%5C_objectnew)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.\_\_type](#mapofstringand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.contains](#mapofstringand%5C_mediapipe%5C_lua%5C_objectcontains)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.copy](#mapofstringand%5C_mediapipe%5C_lua%5C_objectcopy)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.count](#mapofstringand%5C_mediapipe%5C_lua%5C_objectcount)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.delete](#mapofstringand%5C_mediapipe%5C_lua%5C_objectdelete)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.erase](#mapofstringand%5C_mediapipe%5C_lua%5C_objecterase)
@@ -4217,13 +4226,16 @@
   - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::length](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionlength)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::new\_index](#mapofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionnew%5C_index)
+  - [MapOfStringAnd\_mediapipe\_lua\_Object.swap](#mapofstringand%5C_mediapipe%5C_lua%5C_objectswap)
   - [MapOfStringAnd\_mediapipe\_lua\_Object.table](#mapofstringand%5C_mediapipe%5C_lua%5C_objecttable)
 - [VectorOfBool](#vectorofbool)
+  - [VectorOfBool.sizeof\_value\_type](#vectorofboolsizeof%5C_value%5C_type)
   - [VectorOfBool.new](#vectorofboolnew)
   - [VectorOfBool.\_\_type](#vectorofbool%5C_%5C_type)
   - [VectorOfBool.back](#vectorofboolback)
   - [VectorOfBool.capacity](#vectorofboolcapacity)
   - [VectorOfBool.clear](#vectorofboolclear)
+  - [VectorOfBool.copy](#vectorofboolcopy)
   - [VectorOfBool.empty](#vectorofboolempty)
   - [VectorOfBool.front](#vectorofboolfront)
   - [VectorOfBool.max\_size](#vectorofboolmax%5C_size)
@@ -4239,20 +4251,24 @@
   - [VectorOfBool.swap](#vectorofboolswap)
   - [VectorOfBool.table](#vectorofbooltable)
 - [VectorOfFloat](#vectoroffloat)
+  - [VectorOfFloat.sizeof\_value\_type](#vectoroffloatsizeof%5C_value%5C_type)
   - [VectorOfFloat.new](#vectoroffloatnew)
   - [VectorOfFloat.\_\_type](#vectoroffloat%5C_%5C_type)
   - [VectorOfFloat.back](#vectoroffloatback)
   - [VectorOfFloat.capacity](#vectoroffloatcapacity)
   - [VectorOfFloat.clear](#vectoroffloatclear)
+  - [VectorOfFloat.copy](#vectoroffloatcopy)
   - [VectorOfFloat.data](#vectoroffloatdata)
   - [VectorOfFloat.empty](#vectoroffloatempty)
   - [VectorOfFloat.front](#vectoroffloatfront)
+  - [VectorOfFloat.get](#vectoroffloatget)
   - [VectorOfFloat.max\_size](#vectoroffloatmax%5C_size)
   - [VectorOfFloat.operator==](#vectoroffloatoperator)
   - [VectorOfFloat.pop\_back](#vectoroffloatpop%5C_back)
   - [VectorOfFloat.ptr](#vectoroffloatptr)
   - [VectorOfFloat.reserve](#vectoroffloatreserve)
   - [VectorOfFloat.resize](#vectoroffloatresize)
+  - [VectorOfFloat.set](#vectoroffloatset)
   - [VectorOfFloat.shrink\_to\_fit](#vectoroffloatshrink%5C_to%5C_fit)
   - [VectorOfFloat.sizeof](#vectoroffloatsizeof)
   - [VectorOfFloat.sol::meta\_function::index](#vectoroffloatsolmeta%5C_functionindex)
@@ -4261,20 +4277,24 @@
   - [VectorOfFloat.swap](#vectoroffloatswap)
   - [VectorOfFloat.table](#vectoroffloattable)
 - [VectorOfImage](#vectorofimage)
+  - [VectorOfImage.sizeof\_value\_type](#vectorofimagesizeof%5C_value%5C_type)
   - [VectorOfImage.new](#vectorofimagenew)
   - [VectorOfImage.\_\_type](#vectorofimage%5C_%5C_type)
   - [VectorOfImage.back](#vectorofimageback)
   - [VectorOfImage.capacity](#vectorofimagecapacity)
   - [VectorOfImage.clear](#vectorofimageclear)
+  - [VectorOfImage.copy](#vectorofimagecopy)
   - [VectorOfImage.data](#vectorofimagedata)
   - [VectorOfImage.empty](#vectorofimageempty)
   - [VectorOfImage.front](#vectorofimagefront)
+  - [VectorOfImage.get](#vectorofimageget)
   - [VectorOfImage.max\_size](#vectorofimagemax%5C_size)
   - [VectorOfImage.operator==](#vectorofimageoperator)
   - [VectorOfImage.pop\_back](#vectorofimagepop%5C_back)
   - [VectorOfImage.ptr](#vectorofimageptr)
   - [VectorOfImage.reserve](#vectorofimagereserve)
   - [VectorOfImage.resize](#vectorofimageresize)
+  - [VectorOfImage.set](#vectorofimageset)
   - [VectorOfImage.shrink\_to\_fit](#vectorofimageshrink%5C_to%5C_fit)
   - [VectorOfImage.sizeof](#vectorofimagesizeof)
   - [VectorOfImage.sol::meta\_function::index](#vectorofimagesolmeta%5C_functionindex)
@@ -4283,20 +4303,24 @@
   - [VectorOfImage.swap](#vectorofimageswap)
   - [VectorOfImage.table](#vectorofimagetable)
 - [VectorOfInt](#vectorofint)
+  - [VectorOfInt.sizeof\_value\_type](#vectorofintsizeof%5C_value%5C_type)
   - [VectorOfInt.new](#vectorofintnew)
   - [VectorOfInt.\_\_type](#vectorofint%5C_%5C_type)
   - [VectorOfInt.back](#vectorofintback)
   - [VectorOfInt.capacity](#vectorofintcapacity)
   - [VectorOfInt.clear](#vectorofintclear)
+  - [VectorOfInt.copy](#vectorofintcopy)
   - [VectorOfInt.data](#vectorofintdata)
   - [VectorOfInt.empty](#vectorofintempty)
   - [VectorOfInt.front](#vectorofintfront)
+  - [VectorOfInt.get](#vectorofintget)
   - [VectorOfInt.max\_size](#vectorofintmax%5C_size)
   - [VectorOfInt.operator==](#vectorofintoperator)
   - [VectorOfInt.pop\_back](#vectorofintpop%5C_back)
   - [VectorOfInt.ptr](#vectorofintptr)
   - [VectorOfInt.reserve](#vectorofintreserve)
   - [VectorOfInt.resize](#vectorofintresize)
+  - [VectorOfInt.set](#vectorofintset)
   - [VectorOfInt.shrink\_to\_fit](#vectorofintshrink%5C_to%5C_fit)
   - [VectorOfInt.sizeof](#vectorofintsizeof)
   - [VectorOfInt.sol::meta\_function::index](#vectorofintsolmeta%5C_functionindex)
@@ -4305,20 +4329,24 @@
   - [VectorOfInt.swap](#vectorofintswap)
   - [VectorOfInt.table](#vectorofinttable)
 - [VectorOfInt64\_t](#vectorofint64%5C_t)
+  - [VectorOfInt64\_t.sizeof\_value\_type](#vectorofint64%5C_tsizeof%5C_value%5C_type)
   - [VectorOfInt64\_t.new](#vectorofint64%5C_tnew)
   - [VectorOfInt64\_t.\_\_type](#vectorofint64%5C_t%5C_%5C_type)
   - [VectorOfInt64\_t.back](#vectorofint64%5C_tback)
   - [VectorOfInt64\_t.capacity](#vectorofint64%5C_tcapacity)
   - [VectorOfInt64\_t.clear](#vectorofint64%5C_tclear)
+  - [VectorOfInt64\_t.copy](#vectorofint64%5C_tcopy)
   - [VectorOfInt64\_t.data](#vectorofint64%5C_tdata)
   - [VectorOfInt64\_t.empty](#vectorofint64%5C_tempty)
   - [VectorOfInt64\_t.front](#vectorofint64%5C_tfront)
+  - [VectorOfInt64\_t.get](#vectorofint64%5C_tget)
   - [VectorOfInt64\_t.max\_size](#vectorofint64%5C_tmax%5C_size)
   - [VectorOfInt64\_t.operator==](#vectorofint64%5C_toperator)
   - [VectorOfInt64\_t.pop\_back](#vectorofint64%5C_tpop%5C_back)
   - [VectorOfInt64\_t.ptr](#vectorofint64%5C_tptr)
   - [VectorOfInt64\_t.reserve](#vectorofint64%5C_treserve)
   - [VectorOfInt64\_t.resize](#vectorofint64%5C_tresize)
+  - [VectorOfInt64\_t.set](#vectorofint64%5C_tset)
   - [VectorOfInt64\_t.shrink\_to\_fit](#vectorofint64%5C_tshrink%5C_to%5C_fit)
   - [VectorOfInt64\_t.sizeof](#vectorofint64%5C_tsizeof)
   - [VectorOfInt64\_t.sol::meta\_function::index](#vectorofint64%5C_tsolmeta%5C_functionindex)
@@ -4327,20 +4355,24 @@
   - [VectorOfInt64\_t.swap](#vectorofint64%5C_tswap)
   - [VectorOfInt64\_t.table](#vectorofint64%5C_ttable)
 - [VectorOfMat](#vectorofmat)
+  - [VectorOfMat.sizeof\_value\_type](#vectorofmatsizeof%5C_value%5C_type)
   - [VectorOfMat.new](#vectorofmatnew)
   - [VectorOfMat.\_\_type](#vectorofmat%5C_%5C_type)
   - [VectorOfMat.back](#vectorofmatback)
   - [VectorOfMat.capacity](#vectorofmatcapacity)
   - [VectorOfMat.clear](#vectorofmatclear)
+  - [VectorOfMat.copy](#vectorofmatcopy)
   - [VectorOfMat.data](#vectorofmatdata)
   - [VectorOfMat.empty](#vectorofmatempty)
   - [VectorOfMat.front](#vectorofmatfront)
+  - [VectorOfMat.get](#vectorofmatget)
   - [VectorOfMat.max\_size](#vectorofmatmax%5C_size)
   - [VectorOfMat.operator==](#vectorofmatoperator)
   - [VectorOfMat.pop\_back](#vectorofmatpop%5C_back)
   - [VectorOfMat.ptr](#vectorofmatptr)
   - [VectorOfMat.reserve](#vectorofmatreserve)
   - [VectorOfMat.resize](#vectorofmatresize)
+  - [VectorOfMat.set](#vectorofmatset)
   - [VectorOfMat.shrink\_to\_fit](#vectorofmatshrink%5C_to%5C_fit)
   - [VectorOfMat.sizeof](#vectorofmatsizeof)
   - [VectorOfMat.sol::meta\_function::index](#vectorofmatsolmeta%5C_functionindex)
@@ -4349,20 +4381,24 @@
   - [VectorOfMat.swap](#vectorofmatswap)
   - [VectorOfMat.table](#vectorofmattable)
 - [VectorOfObjectron\_ObjectronOutputs](#vectorofobjectron%5C_objectronoutputs)
+  - [VectorOfObjectron\_ObjectronOutputs.sizeof\_value\_type](#vectorofobjectron%5C_objectronoutputssizeof%5C_value%5C_type)
   - [VectorOfObjectron\_ObjectronOutputs.new](#vectorofobjectron%5C_objectronoutputsnew)
   - [VectorOfObjectron\_ObjectronOutputs.\_\_type](#vectorofobjectron%5C_objectronoutputs%5C_%5C_type)
   - [VectorOfObjectron\_ObjectronOutputs.back](#vectorofobjectron%5C_objectronoutputsback)
   - [VectorOfObjectron\_ObjectronOutputs.capacity](#vectorofobjectron%5C_objectronoutputscapacity)
   - [VectorOfObjectron\_ObjectronOutputs.clear](#vectorofobjectron%5C_objectronoutputsclear)
+  - [VectorOfObjectron\_ObjectronOutputs.copy](#vectorofobjectron%5C_objectronoutputscopy)
   - [VectorOfObjectron\_ObjectronOutputs.data](#vectorofobjectron%5C_objectronoutputsdata)
   - [VectorOfObjectron\_ObjectronOutputs.empty](#vectorofobjectron%5C_objectronoutputsempty)
   - [VectorOfObjectron\_ObjectronOutputs.front](#vectorofobjectron%5C_objectronoutputsfront)
+  - [VectorOfObjectron\_ObjectronOutputs.get](#vectorofobjectron%5C_objectronoutputsget)
   - [VectorOfObjectron\_ObjectronOutputs.max\_size](#vectorofobjectron%5C_objectronoutputsmax%5C_size)
   - [VectorOfObjectron\_ObjectronOutputs.operator==](#vectorofobjectron%5C_objectronoutputsoperator)
   - [VectorOfObjectron\_ObjectronOutputs.pop\_back](#vectorofobjectron%5C_objectronoutputspop%5C_back)
   - [VectorOfObjectron\_ObjectronOutputs.ptr](#vectorofobjectron%5C_objectronoutputsptr)
   - [VectorOfObjectron\_ObjectronOutputs.reserve](#vectorofobjectron%5C_objectronoutputsreserve)
   - [VectorOfObjectron\_ObjectronOutputs.resize](#vectorofobjectron%5C_objectronoutputsresize)
+  - [VectorOfObjectron\_ObjectronOutputs.set](#vectorofobjectron%5C_objectronoutputsset)
   - [VectorOfObjectron\_ObjectronOutputs.shrink\_to\_fit](#vectorofobjectron%5C_objectronoutputsshrink%5C_to%5C_fit)
   - [VectorOfObjectron\_ObjectronOutputs.sizeof](#vectorofobjectron%5C_objectronoutputssizeof)
   - [VectorOfObjectron\_ObjectronOutputs.sol::meta\_function::index](#vectorofobjectron%5C_objectronoutputssolmeta%5C_functionindex)
@@ -4371,20 +4407,24 @@
   - [VectorOfObjectron\_ObjectronOutputs.swap](#vectorofobjectron%5C_objectronoutputsswap)
   - [VectorOfObjectron\_ObjectronOutputs.table](#vectorofobjectron%5C_objectronoutputstable)
 - [VectorOfPacket](#vectorofpacket)
+  - [VectorOfPacket.sizeof\_value\_type](#vectorofpacketsizeof%5C_value%5C_type)
   - [VectorOfPacket.new](#vectorofpacketnew)
   - [VectorOfPacket.\_\_type](#vectorofpacket%5C_%5C_type)
   - [VectorOfPacket.back](#vectorofpacketback)
   - [VectorOfPacket.capacity](#vectorofpacketcapacity)
   - [VectorOfPacket.clear](#vectorofpacketclear)
+  - [VectorOfPacket.copy](#vectorofpacketcopy)
   - [VectorOfPacket.data](#vectorofpacketdata)
   - [VectorOfPacket.empty](#vectorofpacketempty)
   - [VectorOfPacket.front](#vectorofpacketfront)
+  - [VectorOfPacket.get](#vectorofpacketget)
   - [VectorOfPacket.max\_size](#vectorofpacketmax%5C_size)
   - [VectorOfPacket.operator==](#vectorofpacketoperator)
   - [VectorOfPacket.pop\_back](#vectorofpacketpop%5C_back)
   - [VectorOfPacket.ptr](#vectorofpacketptr)
   - [VectorOfPacket.reserve](#vectorofpacketreserve)
   - [VectorOfPacket.resize](#vectorofpacketresize)
+  - [VectorOfPacket.set](#vectorofpacketset)
   - [VectorOfPacket.shrink\_to\_fit](#vectorofpacketshrink%5C_to%5C_fit)
   - [VectorOfPacket.sizeof](#vectorofpacketsizeof)
   - [VectorOfPacket.sol::meta\_function::index](#vectorofpacketsolmeta%5C_functionindex)
@@ -4393,20 +4433,24 @@
   - [VectorOfPacket.swap](#vectorofpacketswap)
   - [VectorOfPacket.table](#vectorofpackettable)
 - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec](#vectorofpairofintanddrawing%5C_utils%5C_drawingspec)
+  - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.sizeof\_value\_type](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecsizeof%5C_value%5C_type)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.new](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecnew)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.\_\_type](#vectorofpairofintanddrawing%5C_utils%5C_drawingspec%5C_%5C_type)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.back](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecback)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.capacity](#vectorofpairofintanddrawing%5C_utils%5C_drawingspeccapacity)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.clear](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecclear)
+  - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.copy](#vectorofpairofintanddrawing%5C_utils%5C_drawingspeccopy)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.data](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecdata)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.empty](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecempty)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.front](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecfront)
+  - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.get](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecget)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.max\_size](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecmax%5C_size)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.operator==](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecoperator)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.pop\_back](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecpop%5C_back)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.ptr](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecptr)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.reserve](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecreserve)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.resize](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecresize)
+  - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.set](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecset)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.shrink\_to\_fit](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecshrink%5C_to%5C_fit)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.sizeof](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecsizeof)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::index](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionindex)
@@ -4415,20 +4459,24 @@
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.swap](#vectorofpairofintanddrawing%5C_utils%5C_drawingspecswap)
   - [VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.table](#vectorofpairofintanddrawing%5C_utils%5C_drawingspectable)
 - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspec)
+  - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sizeof\_value\_type](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecsizeof%5C_value%5C_type)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.new](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecnew)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.\_\_type](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspec%5C_%5C_type)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.back](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecback)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.capacity](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspeccapacity)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.clear](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecclear)
+  - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.copy](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspeccopy)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.data](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecdata)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.empty](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecempty)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.front](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecfront)
+  - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.get](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecget)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.max\_size](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecmax%5C_size)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.operator==](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecoperator)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.pop\_back](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecpop%5C_back)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.ptr](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecptr)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.reserve](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecreserve)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.resize](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecresize)
+  - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.set](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecset)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.shrink\_to\_fit](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecshrink%5C_to%5C_fit)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sizeof](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecsizeof)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sol::meta\_function::index](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecsolmeta%5C_functionindex)
@@ -4437,20 +4485,24 @@
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.swap](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspecswap)
   - [VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.table](#vectorofpairofintandmapofintanddrawing%5C_utils%5C_drawingspectable)
 - [VectorOfPairOfStringAndPacket](#vectorofpairofstringandpacket)
+  - [VectorOfPairOfStringAndPacket.sizeof\_value\_type](#vectorofpairofstringandpacketsizeof%5C_value%5C_type)
   - [VectorOfPairOfStringAndPacket.new](#vectorofpairofstringandpacketnew)
   - [VectorOfPairOfStringAndPacket.\_\_type](#vectorofpairofstringandpacket%5C_%5C_type)
   - [VectorOfPairOfStringAndPacket.back](#vectorofpairofstringandpacketback)
   - [VectorOfPairOfStringAndPacket.capacity](#vectorofpairofstringandpacketcapacity)
   - [VectorOfPairOfStringAndPacket.clear](#vectorofpairofstringandpacketclear)
+  - [VectorOfPairOfStringAndPacket.copy](#vectorofpairofstringandpacketcopy)
   - [VectorOfPairOfStringAndPacket.data](#vectorofpairofstringandpacketdata)
   - [VectorOfPairOfStringAndPacket.empty](#vectorofpairofstringandpacketempty)
   - [VectorOfPairOfStringAndPacket.front](#vectorofpairofstringandpacketfront)
+  - [VectorOfPairOfStringAndPacket.get](#vectorofpairofstringandpacketget)
   - [VectorOfPairOfStringAndPacket.max\_size](#vectorofpairofstringandpacketmax%5C_size)
   - [VectorOfPairOfStringAndPacket.operator==](#vectorofpairofstringandpacketoperator)
   - [VectorOfPairOfStringAndPacket.pop\_back](#vectorofpairofstringandpacketpop%5C_back)
   - [VectorOfPairOfStringAndPacket.ptr](#vectorofpairofstringandpacketptr)
   - [VectorOfPairOfStringAndPacket.reserve](#vectorofpairofstringandpacketreserve)
   - [VectorOfPairOfStringAndPacket.resize](#vectorofpairofstringandpacketresize)
+  - [VectorOfPairOfStringAndPacket.set](#vectorofpairofstringandpacketset)
   - [VectorOfPairOfStringAndPacket.shrink\_to\_fit](#vectorofpairofstringandpacketshrink%5C_to%5C_fit)
   - [VectorOfPairOfStringAndPacket.sizeof](#vectorofpairofstringandpacketsizeof)
   - [VectorOfPairOfStringAndPacket.sol::meta\_function::index](#vectorofpairofstringandpacketsolmeta%5C_functionindex)
@@ -4459,20 +4511,24 @@
   - [VectorOfPairOfStringAndPacket.swap](#vectorofpairofstringandpacketswap)
   - [VectorOfPairOfStringAndPacket.table](#vectorofpairofstringandpackettable)
 - [VectorOfPairOfStringAndPacketDataType](#vectorofpairofstringandpacketdatatype)
+  - [VectorOfPairOfStringAndPacketDataType.sizeof\_value\_type](#vectorofpairofstringandpacketdatatypesizeof%5C_value%5C_type)
   - [VectorOfPairOfStringAndPacketDataType.new](#vectorofpairofstringandpacketdatatypenew)
   - [VectorOfPairOfStringAndPacketDataType.\_\_type](#vectorofpairofstringandpacketdatatype%5C_%5C_type)
   - [VectorOfPairOfStringAndPacketDataType.back](#vectorofpairofstringandpacketdatatypeback)
   - [VectorOfPairOfStringAndPacketDataType.capacity](#vectorofpairofstringandpacketdatatypecapacity)
   - [VectorOfPairOfStringAndPacketDataType.clear](#vectorofpairofstringandpacketdatatypeclear)
+  - [VectorOfPairOfStringAndPacketDataType.copy](#vectorofpairofstringandpacketdatatypecopy)
   - [VectorOfPairOfStringAndPacketDataType.data](#vectorofpairofstringandpacketdatatypedata)
   - [VectorOfPairOfStringAndPacketDataType.empty](#vectorofpairofstringandpacketdatatypeempty)
   - [VectorOfPairOfStringAndPacketDataType.front](#vectorofpairofstringandpacketdatatypefront)
+  - [VectorOfPairOfStringAndPacketDataType.get](#vectorofpairofstringandpacketdatatypeget)
   - [VectorOfPairOfStringAndPacketDataType.max\_size](#vectorofpairofstringandpacketdatatypemax%5C_size)
   - [VectorOfPairOfStringAndPacketDataType.operator==](#vectorofpairofstringandpacketdatatypeoperator)
   - [VectorOfPairOfStringAndPacketDataType.pop\_back](#vectorofpairofstringandpacketdatatypepop%5C_back)
   - [VectorOfPairOfStringAndPacketDataType.ptr](#vectorofpairofstringandpacketdatatypeptr)
   - [VectorOfPairOfStringAndPacketDataType.reserve](#vectorofpairofstringandpacketdatatypereserve)
   - [VectorOfPairOfStringAndPacketDataType.resize](#vectorofpairofstringandpacketdatatyperesize)
+  - [VectorOfPairOfStringAndPacketDataType.set](#vectorofpairofstringandpacketdatatypeset)
   - [VectorOfPairOfStringAndPacketDataType.shrink\_to\_fit](#vectorofpairofstringandpacketdatatypeshrink%5C_to%5C_fit)
   - [VectorOfPairOfStringAndPacketDataType.sizeof](#vectorofpairofstringandpacketdatatypesizeof)
   - [VectorOfPairOfStringAndPacketDataType.sol::meta\_function::index](#vectorofpairofstringandpacketdatatypesolmeta%5C_functionindex)
@@ -4481,20 +4537,24 @@
   - [VectorOfPairOfStringAndPacketDataType.swap](#vectorofpairofstringandpacketdatatypeswap)
   - [VectorOfPairOfStringAndPacketDataType.table](#vectorofpairofstringandpacketdatatypetable)
 - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sizeof\_value\_type](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsizeof%5C_value%5C_type)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.new](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectnew)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.\_\_type](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.back](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectback)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.capacity](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectcapacity)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.clear](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectclear)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.copy](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectcopy)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.data](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectdata)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.empty](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectempty)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.front](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectfront)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.get](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectget)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.max\_size](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectmax%5C_size)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.operator==](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectoperator)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.pop\_back](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectpop%5C_back)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.ptr](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectptr)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.reserve](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectreserve)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.resize](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectresize)
+  - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.set](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectset)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.shrink\_to\_fit](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectshrink%5C_to%5C_fit)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sizeof](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsizeof)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
@@ -4503,20 +4563,24 @@
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.swap](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objectswap)
   - [VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.table](#vectorofpairofstringand%5C_mediapipe%5C_lua%5C_objecttable)
 - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sizeof\_value\_type](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsizeof%5C_value%5C_type)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.new](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectnew)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.\_\_type](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.back](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectback)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.capacity](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectcapacity)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.clear](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectclear)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.copy](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectcopy)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.data](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectdata)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.empty](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectempty)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.front](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectfront)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.get](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectget)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.max\_size](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectmax%5C_size)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.operator==](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectoperator)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.pop\_back](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectpop%5C_back)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.ptr](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectptr)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.reserve](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectreserve)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.resize](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectresize)
+  - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.set](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectset)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.shrink\_to\_fit](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectshrink%5C_to%5C_fit)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sizeof](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsizeof)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
@@ -4525,20 +4589,24 @@
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.swap](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objectswap)
   - [VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.table](#vectorofpairof%5C_mediapipe%5C_lua%5C_objectand%5C_mediapipe%5C_lua%5C_objecttable)
 - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry](#vectorofsharedptrofarblendshapemap%5C_mapentry)
+  - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.sizeof\_value\_type](#vectorofsharedptrofarblendshapemap%5C_mapentrysizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.new](#vectorofsharedptrofarblendshapemap%5C_mapentrynew)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.\_\_type](#vectorofsharedptrofarblendshapemap%5C_mapentry%5C_%5C_type)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.back](#vectorofsharedptrofarblendshapemap%5C_mapentryback)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.capacity](#vectorofsharedptrofarblendshapemap%5C_mapentrycapacity)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.clear](#vectorofsharedptrofarblendshapemap%5C_mapentryclear)
+  - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.copy](#vectorofsharedptrofarblendshapemap%5C_mapentrycopy)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.data](#vectorofsharedptrofarblendshapemap%5C_mapentrydata)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.empty](#vectorofsharedptrofarblendshapemap%5C_mapentryempty)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.front](#vectorofsharedptrofarblendshapemap%5C_mapentryfront)
+  - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.get](#vectorofsharedptrofarblendshapemap%5C_mapentryget)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.max\_size](#vectorofsharedptrofarblendshapemap%5C_mapentrymax%5C_size)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.operator==](#vectorofsharedptrofarblendshapemap%5C_mapentryoperator)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.pop\_back](#vectorofsharedptrofarblendshapemap%5C_mapentrypop%5C_back)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.ptr](#vectorofsharedptrofarblendshapemap%5C_mapentryptr)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.reserve](#vectorofsharedptrofarblendshapemap%5C_mapentryreserve)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.resize](#vectorofsharedptrofarblendshapemap%5C_mapentryresize)
+  - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.set](#vectorofsharedptrofarblendshapemap%5C_mapentryset)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.shrink\_to\_fit](#vectorofsharedptrofarblendshapemap%5C_mapentryshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.sizeof](#vectorofsharedptrofarblendshapemap%5C_mapentrysizeof)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.sol::meta\_function::index](#vectorofsharedptrofarblendshapemap%5C_mapentrysolmeta%5C_functionindex)
@@ -4547,20 +4615,24 @@
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.swap](#vectorofsharedptrofarblendshapemap%5C_mapentryswap)
   - [VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.table](#vectorofsharedptrofarblendshapemap%5C_mapentrytable)
 - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate](#vectorofsharedptrofarfacegeometry%5C_texturecoordinate)
+  - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.sizeof\_value\_type](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.new](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatenew)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.\_\_type](#vectorofsharedptrofarfacegeometry%5C_texturecoordinate%5C_%5C_type)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.back](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateback)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.capacity](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatecapacity)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.clear](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateclear)
+  - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.copy](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatecopy)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.data](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatedata)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.empty](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateempty)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.front](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatefront)
+  - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.get](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateget)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.max\_size](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatemax%5C_size)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.operator==](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateoperator)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.pop\_back](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatepop%5C_back)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.ptr](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateptr)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.reserve](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatereserve)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.resize](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateresize)
+  - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.set](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateset)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.shrink\_to\_fit](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.sizeof](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatesizeof)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.sol::meta\_function::index](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatesolmeta%5C_functionindex)
@@ -4569,20 +4641,24 @@
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.swap](#vectorofsharedptrofarfacegeometry%5C_texturecoordinateswap)
   - [VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.table](#vectorofsharedptrofarfacegeometry%5C_texturecoordinatetable)
 - [VectorOfSharedPtrOfARFaceGeometry\_Vertex](#vectorofsharedptrofarfacegeometry%5C_vertex)
+  - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.sizeof\_value\_type](#vectorofsharedptrofarfacegeometry%5C_vertexsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.new](#vectorofsharedptrofarfacegeometry%5C_vertexnew)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.\_\_type](#vectorofsharedptrofarfacegeometry%5C_vertex%5C_%5C_type)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.back](#vectorofsharedptrofarfacegeometry%5C_vertexback)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.capacity](#vectorofsharedptrofarfacegeometry%5C_vertexcapacity)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.clear](#vectorofsharedptrofarfacegeometry%5C_vertexclear)
+  - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.copy](#vectorofsharedptrofarfacegeometry%5C_vertexcopy)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.data](#vectorofsharedptrofarfacegeometry%5C_vertexdata)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.empty](#vectorofsharedptrofarfacegeometry%5C_vertexempty)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.front](#vectorofsharedptrofarfacegeometry%5C_vertexfront)
+  - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.get](#vectorofsharedptrofarfacegeometry%5C_vertexget)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.max\_size](#vectorofsharedptrofarfacegeometry%5C_vertexmax%5C_size)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.operator==](#vectorofsharedptrofarfacegeometry%5C_vertexoperator)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.pop\_back](#vectorofsharedptrofarfacegeometry%5C_vertexpop%5C_back)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.ptr](#vectorofsharedptrofarfacegeometry%5C_vertexptr)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.reserve](#vectorofsharedptrofarfacegeometry%5C_vertexreserve)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.resize](#vectorofsharedptrofarfacegeometry%5C_vertexresize)
+  - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.set](#vectorofsharedptrofarfacegeometry%5C_vertexset)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.shrink\_to\_fit](#vectorofsharedptrofarfacegeometry%5C_vertexshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.sizeof](#vectorofsharedptrofarfacegeometry%5C_vertexsizeof)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.sol::meta\_function::index](#vectorofsharedptrofarfacegeometry%5C_vertexsolmeta%5C_functionindex)
@@ -4591,20 +4667,24 @@
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.swap](#vectorofsharedptrofarfacegeometry%5C_vertexswap)
   - [VectorOfSharedPtrOfARFaceGeometry\_Vertex.table](#vectorofsharedptrofarfacegeometry%5C_vertextable)
 - [VectorOfSharedPtrOfARPlaneAnchor](#vectorofsharedptrofarplaneanchor)
+  - [VectorOfSharedPtrOfARPlaneAnchor.sizeof\_value\_type](#vectorofsharedptrofarplaneanchorsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARPlaneAnchor.new](#vectorofsharedptrofarplaneanchornew)
   - [VectorOfSharedPtrOfARPlaneAnchor.\_\_type](#vectorofsharedptrofarplaneanchor%5C_%5C_type)
   - [VectorOfSharedPtrOfARPlaneAnchor.back](#vectorofsharedptrofarplaneanchorback)
   - [VectorOfSharedPtrOfARPlaneAnchor.capacity](#vectorofsharedptrofarplaneanchorcapacity)
   - [VectorOfSharedPtrOfARPlaneAnchor.clear](#vectorofsharedptrofarplaneanchorclear)
+  - [VectorOfSharedPtrOfARPlaneAnchor.copy](#vectorofsharedptrofarplaneanchorcopy)
   - [VectorOfSharedPtrOfARPlaneAnchor.data](#vectorofsharedptrofarplaneanchordata)
   - [VectorOfSharedPtrOfARPlaneAnchor.empty](#vectorofsharedptrofarplaneanchorempty)
   - [VectorOfSharedPtrOfARPlaneAnchor.front](#vectorofsharedptrofarplaneanchorfront)
+  - [VectorOfSharedPtrOfARPlaneAnchor.get](#vectorofsharedptrofarplaneanchorget)
   - [VectorOfSharedPtrOfARPlaneAnchor.max\_size](#vectorofsharedptrofarplaneanchormax%5C_size)
   - [VectorOfSharedPtrOfARPlaneAnchor.operator==](#vectorofsharedptrofarplaneanchoroperator)
   - [VectorOfSharedPtrOfARPlaneAnchor.pop\_back](#vectorofsharedptrofarplaneanchorpop%5C_back)
   - [VectorOfSharedPtrOfARPlaneAnchor.ptr](#vectorofsharedptrofarplaneanchorptr)
   - [VectorOfSharedPtrOfARPlaneAnchor.reserve](#vectorofsharedptrofarplaneanchorreserve)
   - [VectorOfSharedPtrOfARPlaneAnchor.resize](#vectorofsharedptrofarplaneanchorresize)
+  - [VectorOfSharedPtrOfARPlaneAnchor.set](#vectorofsharedptrofarplaneanchorset)
   - [VectorOfSharedPtrOfARPlaneAnchor.shrink\_to\_fit](#vectorofsharedptrofarplaneanchorshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARPlaneAnchor.sizeof](#vectorofsharedptrofarplaneanchorsizeof)
   - [VectorOfSharedPtrOfARPlaneAnchor.sol::meta\_function::index](#vectorofsharedptrofarplaneanchorsolmeta%5C_functionindex)
@@ -4613,20 +4693,24 @@
   - [VectorOfSharedPtrOfARPlaneAnchor.swap](#vectorofsharedptrofarplaneanchorswap)
   - [VectorOfSharedPtrOfARPlaneAnchor.table](#vectorofsharedptrofarplaneanchortable)
 - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate](#vectorofsharedptrofarplanegeometry%5C_texturecoordinate)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.sizeof\_value\_type](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.new](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatenew)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.\_\_type](#vectorofsharedptrofarplanegeometry%5C_texturecoordinate%5C_%5C_type)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.back](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateback)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.capacity](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatecapacity)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.clear](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateclear)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.copy](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatecopy)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.data](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatedata)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.empty](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateempty)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.front](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatefront)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.get](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateget)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.max\_size](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatemax%5C_size)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.operator==](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateoperator)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.pop\_back](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatepop%5C_back)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.ptr](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateptr)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.reserve](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatereserve)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.resize](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateresize)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.set](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateset)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.shrink\_to\_fit](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.sizeof](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatesizeof)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.sol::meta\_function::index](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatesolmeta%5C_functionindex)
@@ -4635,20 +4719,24 @@
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.swap](#vectorofsharedptrofarplanegeometry%5C_texturecoordinateswap)
   - [VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.table](#vectorofsharedptrofarplanegeometry%5C_texturecoordinatetable)
 - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex](#vectorofsharedptrofarplanegeometry%5C_vertex)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.sizeof\_value\_type](#vectorofsharedptrofarplanegeometry%5C_vertexsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.new](#vectorofsharedptrofarplanegeometry%5C_vertexnew)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.\_\_type](#vectorofsharedptrofarplanegeometry%5C_vertex%5C_%5C_type)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.back](#vectorofsharedptrofarplanegeometry%5C_vertexback)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.capacity](#vectorofsharedptrofarplanegeometry%5C_vertexcapacity)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.clear](#vectorofsharedptrofarplanegeometry%5C_vertexclear)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.copy](#vectorofsharedptrofarplanegeometry%5C_vertexcopy)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.data](#vectorofsharedptrofarplanegeometry%5C_vertexdata)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.empty](#vectorofsharedptrofarplanegeometry%5C_vertexempty)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.front](#vectorofsharedptrofarplanegeometry%5C_vertexfront)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.get](#vectorofsharedptrofarplanegeometry%5C_vertexget)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.max\_size](#vectorofsharedptrofarplanegeometry%5C_vertexmax%5C_size)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.operator==](#vectorofsharedptrofarplanegeometry%5C_vertexoperator)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.pop\_back](#vectorofsharedptrofarplanegeometry%5C_vertexpop%5C_back)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.ptr](#vectorofsharedptrofarplanegeometry%5C_vertexptr)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.reserve](#vectorofsharedptrofarplanegeometry%5C_vertexreserve)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.resize](#vectorofsharedptrofarplanegeometry%5C_vertexresize)
+  - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.set](#vectorofsharedptrofarplanegeometry%5C_vertexset)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.shrink\_to\_fit](#vectorofsharedptrofarplanegeometry%5C_vertexshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.sizeof](#vectorofsharedptrofarplanegeometry%5C_vertexsizeof)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.sol::meta\_function::index](#vectorofsharedptrofarplanegeometry%5C_vertexsolmeta%5C_functionindex)
@@ -4657,20 +4745,24 @@
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.swap](#vectorofsharedptrofarplanegeometry%5C_vertexswap)
   - [VectorOfSharedPtrOfARPlaneGeometry\_Vertex.table](#vectorofsharedptrofarplanegeometry%5C_vertextable)
 - [VectorOfSharedPtrOfARPointCloud\_Point](#vectorofsharedptrofarpointcloud%5C_point)
+  - [VectorOfSharedPtrOfARPointCloud\_Point.sizeof\_value\_type](#vectorofsharedptrofarpointcloud%5C_pointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfARPointCloud\_Point.new](#vectorofsharedptrofarpointcloud%5C_pointnew)
   - [VectorOfSharedPtrOfARPointCloud\_Point.\_\_type](#vectorofsharedptrofarpointcloud%5C_point%5C_%5C_type)
   - [VectorOfSharedPtrOfARPointCloud\_Point.back](#vectorofsharedptrofarpointcloud%5C_pointback)
   - [VectorOfSharedPtrOfARPointCloud\_Point.capacity](#vectorofsharedptrofarpointcloud%5C_pointcapacity)
   - [VectorOfSharedPtrOfARPointCloud\_Point.clear](#vectorofsharedptrofarpointcloud%5C_pointclear)
+  - [VectorOfSharedPtrOfARPointCloud\_Point.copy](#vectorofsharedptrofarpointcloud%5C_pointcopy)
   - [VectorOfSharedPtrOfARPointCloud\_Point.data](#vectorofsharedptrofarpointcloud%5C_pointdata)
   - [VectorOfSharedPtrOfARPointCloud\_Point.empty](#vectorofsharedptrofarpointcloud%5C_pointempty)
   - [VectorOfSharedPtrOfARPointCloud\_Point.front](#vectorofsharedptrofarpointcloud%5C_pointfront)
+  - [VectorOfSharedPtrOfARPointCloud\_Point.get](#vectorofsharedptrofarpointcloud%5C_pointget)
   - [VectorOfSharedPtrOfARPointCloud\_Point.max\_size](#vectorofsharedptrofarpointcloud%5C_pointmax%5C_size)
   - [VectorOfSharedPtrOfARPointCloud\_Point.operator==](#vectorofsharedptrofarpointcloud%5C_pointoperator)
   - [VectorOfSharedPtrOfARPointCloud\_Point.pop\_back](#vectorofsharedptrofarpointcloud%5C_pointpop%5C_back)
   - [VectorOfSharedPtrOfARPointCloud\_Point.ptr](#vectorofsharedptrofarpointcloud%5C_pointptr)
   - [VectorOfSharedPtrOfARPointCloud\_Point.reserve](#vectorofsharedptrofarpointcloud%5C_pointreserve)
   - [VectorOfSharedPtrOfARPointCloud\_Point.resize](#vectorofsharedptrofarpointcloud%5C_pointresize)
+  - [VectorOfSharedPtrOfARPointCloud\_Point.set](#vectorofsharedptrofarpointcloud%5C_pointset)
   - [VectorOfSharedPtrOfARPointCloud\_Point.shrink\_to\_fit](#vectorofsharedptrofarpointcloud%5C_pointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfARPointCloud\_Point.sizeof](#vectorofsharedptrofarpointcloud%5C_pointsizeof)
   - [VectorOfSharedPtrOfARPointCloud\_Point.sol::meta\_function::index](#vectorofsharedptrofarpointcloud%5C_pointsolmeta%5C_functionindex)
@@ -4679,20 +4771,24 @@
   - [VectorOfSharedPtrOfARPointCloud\_Point.swap](#vectorofsharedptrofarpointcloud%5C_pointswap)
   - [VectorOfSharedPtrOfARPointCloud\_Point.table](#vectorofsharedptrofarpointcloud%5C_pointtable)
 - [VectorOfSharedPtrOfAnnotatedKeyPoint](#vectorofsharedptrofannotatedkeypoint)
+  - [VectorOfSharedPtrOfAnnotatedKeyPoint.sizeof\_value\_type](#vectorofsharedptrofannotatedkeypointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.new](#vectorofsharedptrofannotatedkeypointnew)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.\_\_type](#vectorofsharedptrofannotatedkeypoint%5C_%5C_type)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.back](#vectorofsharedptrofannotatedkeypointback)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.capacity](#vectorofsharedptrofannotatedkeypointcapacity)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.clear](#vectorofsharedptrofannotatedkeypointclear)
+  - [VectorOfSharedPtrOfAnnotatedKeyPoint.copy](#vectorofsharedptrofannotatedkeypointcopy)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.data](#vectorofsharedptrofannotatedkeypointdata)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.empty](#vectorofsharedptrofannotatedkeypointempty)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.front](#vectorofsharedptrofannotatedkeypointfront)
+  - [VectorOfSharedPtrOfAnnotatedKeyPoint.get](#vectorofsharedptrofannotatedkeypointget)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.max\_size](#vectorofsharedptrofannotatedkeypointmax%5C_size)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.operator==](#vectorofsharedptrofannotatedkeypointoperator)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.pop\_back](#vectorofsharedptrofannotatedkeypointpop%5C_back)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.ptr](#vectorofsharedptrofannotatedkeypointptr)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.reserve](#vectorofsharedptrofannotatedkeypointreserve)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.resize](#vectorofsharedptrofannotatedkeypointresize)
+  - [VectorOfSharedPtrOfAnnotatedKeyPoint.set](#vectorofsharedptrofannotatedkeypointset)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.shrink\_to\_fit](#vectorofsharedptrofannotatedkeypointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.sizeof](#vectorofsharedptrofannotatedkeypointsizeof)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.sol::meta\_function::index](#vectorofsharedptrofannotatedkeypointsolmeta%5C_functionindex)
@@ -4701,20 +4797,24 @@
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.swap](#vectorofsharedptrofannotatedkeypointswap)
   - [VectorOfSharedPtrOfAnnotatedKeyPoint.table](#vectorofsharedptrofannotatedkeypointtable)
 - [VectorOfSharedPtrOfAny](#vectorofsharedptrofany)
+  - [VectorOfSharedPtrOfAny.sizeof\_value\_type](#vectorofsharedptrofanysizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfAny.new](#vectorofsharedptrofanynew)
   - [VectorOfSharedPtrOfAny.\_\_type](#vectorofsharedptrofany%5C_%5C_type)
   - [VectorOfSharedPtrOfAny.back](#vectorofsharedptrofanyback)
   - [VectorOfSharedPtrOfAny.capacity](#vectorofsharedptrofanycapacity)
   - [VectorOfSharedPtrOfAny.clear](#vectorofsharedptrofanyclear)
+  - [VectorOfSharedPtrOfAny.copy](#vectorofsharedptrofanycopy)
   - [VectorOfSharedPtrOfAny.data](#vectorofsharedptrofanydata)
   - [VectorOfSharedPtrOfAny.empty](#vectorofsharedptrofanyempty)
   - [VectorOfSharedPtrOfAny.front](#vectorofsharedptrofanyfront)
+  - [VectorOfSharedPtrOfAny.get](#vectorofsharedptrofanyget)
   - [VectorOfSharedPtrOfAny.max\_size](#vectorofsharedptrofanymax%5C_size)
   - [VectorOfSharedPtrOfAny.operator==](#vectorofsharedptrofanyoperator)
   - [VectorOfSharedPtrOfAny.pop\_back](#vectorofsharedptrofanypop%5C_back)
   - [VectorOfSharedPtrOfAny.ptr](#vectorofsharedptrofanyptr)
   - [VectorOfSharedPtrOfAny.reserve](#vectorofsharedptrofanyreserve)
   - [VectorOfSharedPtrOfAny.resize](#vectorofsharedptrofanyresize)
+  - [VectorOfSharedPtrOfAny.set](#vectorofsharedptrofanyset)
   - [VectorOfSharedPtrOfAny.shrink\_to\_fit](#vectorofsharedptrofanyshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfAny.sizeof](#vectorofsharedptrofanysizeof)
   - [VectorOfSharedPtrOfAny.sol::meta\_function::index](#vectorofsharedptrofanysolmeta%5C_functionindex)
@@ -4723,20 +4823,24 @@
   - [VectorOfSharedPtrOfAny.swap](#vectorofsharedptrofanyswap)
   - [VectorOfSharedPtrOfAny.table](#vectorofsharedptrofanytable)
 - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node](#vectorofsharedptrofcalculatorgraphconfig%5C_node)
+  - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.sizeof\_value\_type](#vectorofsharedptrofcalculatorgraphconfig%5C_nodesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.new](#vectorofsharedptrofcalculatorgraphconfig%5C_nodenew)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.\_\_type](#vectorofsharedptrofcalculatorgraphconfig%5C_node%5C_%5C_type)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.back](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeback)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.capacity](#vectorofsharedptrofcalculatorgraphconfig%5C_nodecapacity)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.clear](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeclear)
+  - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.copy](#vectorofsharedptrofcalculatorgraphconfig%5C_nodecopy)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.data](#vectorofsharedptrofcalculatorgraphconfig%5C_nodedata)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.empty](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeempty)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.front](#vectorofsharedptrofcalculatorgraphconfig%5C_nodefront)
+  - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.get](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeget)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.max\_size](#vectorofsharedptrofcalculatorgraphconfig%5C_nodemax%5C_size)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.operator==](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeoperator)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.pop\_back](#vectorofsharedptrofcalculatorgraphconfig%5C_nodepop%5C_back)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.ptr](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeptr)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.reserve](#vectorofsharedptrofcalculatorgraphconfig%5C_nodereserve)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.resize](#vectorofsharedptrofcalculatorgraphconfig%5C_noderesize)
+  - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.set](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeset)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.shrink\_to\_fit](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.sizeof](#vectorofsharedptrofcalculatorgraphconfig%5C_nodesizeof)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.sol::meta\_function::index](#vectorofsharedptrofcalculatorgraphconfig%5C_nodesolmeta%5C_functionindex)
@@ -4745,20 +4849,24 @@
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.swap](#vectorofsharedptrofcalculatorgraphconfig%5C_nodeswap)
   - [VectorOfSharedPtrOfCalculatorGraphConfig\_Node.table](#vectorofsharedptrofcalculatorgraphconfig%5C_nodetable)
 - [VectorOfSharedPtrOfClassification](#vectorofsharedptrofclassification)
+  - [VectorOfSharedPtrOfClassification.sizeof\_value\_type](#vectorofsharedptrofclassificationsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfClassification.new](#vectorofsharedptrofclassificationnew)
   - [VectorOfSharedPtrOfClassification.\_\_type](#vectorofsharedptrofclassification%5C_%5C_type)
   - [VectorOfSharedPtrOfClassification.back](#vectorofsharedptrofclassificationback)
   - [VectorOfSharedPtrOfClassification.capacity](#vectorofsharedptrofclassificationcapacity)
   - [VectorOfSharedPtrOfClassification.clear](#vectorofsharedptrofclassificationclear)
+  - [VectorOfSharedPtrOfClassification.copy](#vectorofsharedptrofclassificationcopy)
   - [VectorOfSharedPtrOfClassification.data](#vectorofsharedptrofclassificationdata)
   - [VectorOfSharedPtrOfClassification.empty](#vectorofsharedptrofclassificationempty)
   - [VectorOfSharedPtrOfClassification.front](#vectorofsharedptrofclassificationfront)
+  - [VectorOfSharedPtrOfClassification.get](#vectorofsharedptrofclassificationget)
   - [VectorOfSharedPtrOfClassification.max\_size](#vectorofsharedptrofclassificationmax%5C_size)
   - [VectorOfSharedPtrOfClassification.operator==](#vectorofsharedptrofclassificationoperator)
   - [VectorOfSharedPtrOfClassification.pop\_back](#vectorofsharedptrofclassificationpop%5C_back)
   - [VectorOfSharedPtrOfClassification.ptr](#vectorofsharedptrofclassificationptr)
   - [VectorOfSharedPtrOfClassification.reserve](#vectorofsharedptrofclassificationreserve)
   - [VectorOfSharedPtrOfClassification.resize](#vectorofsharedptrofclassificationresize)
+  - [VectorOfSharedPtrOfClassification.set](#vectorofsharedptrofclassificationset)
   - [VectorOfSharedPtrOfClassification.shrink\_to\_fit](#vectorofsharedptrofclassificationshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfClassification.sizeof](#vectorofsharedptrofclassificationsizeof)
   - [VectorOfSharedPtrOfClassification.sol::meta\_function::index](#vectorofsharedptrofclassificationsolmeta%5C_functionindex)
@@ -4767,20 +4875,24 @@
   - [VectorOfSharedPtrOfClassification.swap](#vectorofsharedptrofclassificationswap)
   - [VectorOfSharedPtrOfClassification.table](#vectorofsharedptrofclassificationtable)
 - [VectorOfSharedPtrOfClassificationList](#vectorofsharedptrofclassificationlist)
+  - [VectorOfSharedPtrOfClassificationList.sizeof\_value\_type](#vectorofsharedptrofclassificationlistsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfClassificationList.new](#vectorofsharedptrofclassificationlistnew)
   - [VectorOfSharedPtrOfClassificationList.\_\_type](#vectorofsharedptrofclassificationlist%5C_%5C_type)
   - [VectorOfSharedPtrOfClassificationList.back](#vectorofsharedptrofclassificationlistback)
   - [VectorOfSharedPtrOfClassificationList.capacity](#vectorofsharedptrofclassificationlistcapacity)
   - [VectorOfSharedPtrOfClassificationList.clear](#vectorofsharedptrofclassificationlistclear)
+  - [VectorOfSharedPtrOfClassificationList.copy](#vectorofsharedptrofclassificationlistcopy)
   - [VectorOfSharedPtrOfClassificationList.data](#vectorofsharedptrofclassificationlistdata)
   - [VectorOfSharedPtrOfClassificationList.empty](#vectorofsharedptrofclassificationlistempty)
   - [VectorOfSharedPtrOfClassificationList.front](#vectorofsharedptrofclassificationlistfront)
+  - [VectorOfSharedPtrOfClassificationList.get](#vectorofsharedptrofclassificationlistget)
   - [VectorOfSharedPtrOfClassificationList.max\_size](#vectorofsharedptrofclassificationlistmax%5C_size)
   - [VectorOfSharedPtrOfClassificationList.operator==](#vectorofsharedptrofclassificationlistoperator)
   - [VectorOfSharedPtrOfClassificationList.pop\_back](#vectorofsharedptrofclassificationlistpop%5C_back)
   - [VectorOfSharedPtrOfClassificationList.ptr](#vectorofsharedptrofclassificationlistptr)
   - [VectorOfSharedPtrOfClassificationList.reserve](#vectorofsharedptrofclassificationlistreserve)
   - [VectorOfSharedPtrOfClassificationList.resize](#vectorofsharedptrofclassificationlistresize)
+  - [VectorOfSharedPtrOfClassificationList.set](#vectorofsharedptrofclassificationlistset)
   - [VectorOfSharedPtrOfClassificationList.shrink\_to\_fit](#vectorofsharedptrofclassificationlistshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfClassificationList.sizeof](#vectorofsharedptrofclassificationlistsizeof)
   - [VectorOfSharedPtrOfClassificationList.sol::meta\_function::index](#vectorofsharedptrofclassificationlistsolmeta%5C_functionindex)
@@ -4789,20 +4901,24 @@
   - [VectorOfSharedPtrOfClassificationList.swap](#vectorofsharedptrofclassificationlistswap)
   - [VectorOfSharedPtrOfClassificationList.table](#vectorofsharedptrofclassificationlisttable)
 - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacket)
+  - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.sizeof\_value\_type](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.new](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketnew)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.\_\_type](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacket%5C_%5C_type)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.back](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketback)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.capacity](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketcapacity)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.clear](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketclear)
+  - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.copy](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketcopy)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.data](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketdata)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.empty](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketempty)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.front](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketfront)
+  - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.get](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketget)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.max\_size](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketmax%5C_size)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.operator==](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketoperator)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.pop\_back](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketpop%5C_back)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.ptr](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketptr)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.reserve](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketreserve)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.resize](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketresize)
+  - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.set](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketset)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.shrink\_to\_fit](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.sizeof](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketsizeof)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.sol::meta\_function::index](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketsolmeta%5C_functionindex)
@@ -4811,20 +4927,24 @@
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.swap](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepacketswap)
   - [VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.table](#vectorofsharedptrofconstantsidepacketcalculatoroptions%5C_constantsidepackettable)
 - [VectorOfSharedPtrOfDetection](#vectorofsharedptrofdetection)
+  - [VectorOfSharedPtrOfDetection.sizeof\_value\_type](#vectorofsharedptrofdetectionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfDetection.new](#vectorofsharedptrofdetectionnew)
   - [VectorOfSharedPtrOfDetection.\_\_type](#vectorofsharedptrofdetection%5C_%5C_type)
   - [VectorOfSharedPtrOfDetection.back](#vectorofsharedptrofdetectionback)
   - [VectorOfSharedPtrOfDetection.capacity](#vectorofsharedptrofdetectioncapacity)
   - [VectorOfSharedPtrOfDetection.clear](#vectorofsharedptrofdetectionclear)
+  - [VectorOfSharedPtrOfDetection.copy](#vectorofsharedptrofdetectioncopy)
   - [VectorOfSharedPtrOfDetection.data](#vectorofsharedptrofdetectiondata)
   - [VectorOfSharedPtrOfDetection.empty](#vectorofsharedptrofdetectionempty)
   - [VectorOfSharedPtrOfDetection.front](#vectorofsharedptrofdetectionfront)
+  - [VectorOfSharedPtrOfDetection.get](#vectorofsharedptrofdetectionget)
   - [VectorOfSharedPtrOfDetection.max\_size](#vectorofsharedptrofdetectionmax%5C_size)
   - [VectorOfSharedPtrOfDetection.operator==](#vectorofsharedptrofdetectionoperator)
   - [VectorOfSharedPtrOfDetection.pop\_back](#vectorofsharedptrofdetectionpop%5C_back)
   - [VectorOfSharedPtrOfDetection.ptr](#vectorofsharedptrofdetectionptr)
   - [VectorOfSharedPtrOfDetection.reserve](#vectorofsharedptrofdetectionreserve)
   - [VectorOfSharedPtrOfDetection.resize](#vectorofsharedptrofdetectionresize)
+  - [VectorOfSharedPtrOfDetection.set](#vectorofsharedptrofdetectionset)
   - [VectorOfSharedPtrOfDetection.shrink\_to\_fit](#vectorofsharedptrofdetectionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfDetection.sizeof](#vectorofsharedptrofdetectionsizeof)
   - [VectorOfSharedPtrOfDetection.sol::meta\_function::index](#vectorofsharedptrofdetectionsolmeta%5C_functionindex)
@@ -4833,20 +4953,24 @@
   - [VectorOfSharedPtrOfDetection.swap](#vectorofsharedptrofdetectionswap)
   - [VectorOfSharedPtrOfDetection.table](#vectorofsharedptrofdetectiontable)
 - [VectorOfSharedPtrOfDetection\_AssociatedDetection](#vectorofsharedptrofdetection%5C_associateddetection)
+  - [VectorOfSharedPtrOfDetection\_AssociatedDetection.sizeof\_value\_type](#vectorofsharedptrofdetection%5C_associateddetectionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.new](#vectorofsharedptrofdetection%5C_associateddetectionnew)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.\_\_type](#vectorofsharedptrofdetection%5C_associateddetection%5C_%5C_type)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.back](#vectorofsharedptrofdetection%5C_associateddetectionback)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.capacity](#vectorofsharedptrofdetection%5C_associateddetectioncapacity)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.clear](#vectorofsharedptrofdetection%5C_associateddetectionclear)
+  - [VectorOfSharedPtrOfDetection\_AssociatedDetection.copy](#vectorofsharedptrofdetection%5C_associateddetectioncopy)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.data](#vectorofsharedptrofdetection%5C_associateddetectiondata)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.empty](#vectorofsharedptrofdetection%5C_associateddetectionempty)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.front](#vectorofsharedptrofdetection%5C_associateddetectionfront)
+  - [VectorOfSharedPtrOfDetection\_AssociatedDetection.get](#vectorofsharedptrofdetection%5C_associateddetectionget)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.max\_size](#vectorofsharedptrofdetection%5C_associateddetectionmax%5C_size)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.operator==](#vectorofsharedptrofdetection%5C_associateddetectionoperator)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.pop\_back](#vectorofsharedptrofdetection%5C_associateddetectionpop%5C_back)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.ptr](#vectorofsharedptrofdetection%5C_associateddetectionptr)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.reserve](#vectorofsharedptrofdetection%5C_associateddetectionreserve)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.resize](#vectorofsharedptrofdetection%5C_associateddetectionresize)
+  - [VectorOfSharedPtrOfDetection\_AssociatedDetection.set](#vectorofsharedptrofdetection%5C_associateddetectionset)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.shrink\_to\_fit](#vectorofsharedptrofdetection%5C_associateddetectionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.sizeof](#vectorofsharedptrofdetection%5C_associateddetectionsizeof)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.sol::meta\_function::index](#vectorofsharedptrofdetection%5C_associateddetectionsolmeta%5C_functionindex)
@@ -4855,20 +4979,24 @@
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.swap](#vectorofsharedptrofdetection%5C_associateddetectionswap)
   - [VectorOfSharedPtrOfDetection\_AssociatedDetection.table](#vectorofsharedptrofdetection%5C_associateddetectiontable)
 - [VectorOfSharedPtrOfEdge](#vectorofsharedptrofedge)
+  - [VectorOfSharedPtrOfEdge.sizeof\_value\_type](#vectorofsharedptrofedgesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfEdge.new](#vectorofsharedptrofedgenew)
   - [VectorOfSharedPtrOfEdge.\_\_type](#vectorofsharedptrofedge%5C_%5C_type)
   - [VectorOfSharedPtrOfEdge.back](#vectorofsharedptrofedgeback)
   - [VectorOfSharedPtrOfEdge.capacity](#vectorofsharedptrofedgecapacity)
   - [VectorOfSharedPtrOfEdge.clear](#vectorofsharedptrofedgeclear)
+  - [VectorOfSharedPtrOfEdge.copy](#vectorofsharedptrofedgecopy)
   - [VectorOfSharedPtrOfEdge.data](#vectorofsharedptrofedgedata)
   - [VectorOfSharedPtrOfEdge.empty](#vectorofsharedptrofedgeempty)
   - [VectorOfSharedPtrOfEdge.front](#vectorofsharedptrofedgefront)
+  - [VectorOfSharedPtrOfEdge.get](#vectorofsharedptrofedgeget)
   - [VectorOfSharedPtrOfEdge.max\_size](#vectorofsharedptrofedgemax%5C_size)
   - [VectorOfSharedPtrOfEdge.operator==](#vectorofsharedptrofedgeoperator)
   - [VectorOfSharedPtrOfEdge.pop\_back](#vectorofsharedptrofedgepop%5C_back)
   - [VectorOfSharedPtrOfEdge.ptr](#vectorofsharedptrofedgeptr)
   - [VectorOfSharedPtrOfEdge.reserve](#vectorofsharedptrofedgereserve)
   - [VectorOfSharedPtrOfEdge.resize](#vectorofsharedptrofedgeresize)
+  - [VectorOfSharedPtrOfEdge.set](#vectorofsharedptrofedgeset)
   - [VectorOfSharedPtrOfEdge.shrink\_to\_fit](#vectorofsharedptrofedgeshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfEdge.sizeof](#vectorofsharedptrofedgesizeof)
   - [VectorOfSharedPtrOfEdge.sol::meta\_function::index](#vectorofsharedptrofedgesolmeta%5C_functionindex)
@@ -4877,20 +5005,24 @@
   - [VectorOfSharedPtrOfEdge.swap](#vectorofsharedptrofedgeswap)
   - [VectorOfSharedPtrOfEdge.table](#vectorofsharedptrofedgetable)
 - [VectorOfSharedPtrOfExecutorConfig](#vectorofsharedptrofexecutorconfig)
+  - [VectorOfSharedPtrOfExecutorConfig.sizeof\_value\_type](#vectorofsharedptrofexecutorconfigsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfExecutorConfig.new](#vectorofsharedptrofexecutorconfignew)
   - [VectorOfSharedPtrOfExecutorConfig.\_\_type](#vectorofsharedptrofexecutorconfig%5C_%5C_type)
   - [VectorOfSharedPtrOfExecutorConfig.back](#vectorofsharedptrofexecutorconfigback)
   - [VectorOfSharedPtrOfExecutorConfig.capacity](#vectorofsharedptrofexecutorconfigcapacity)
   - [VectorOfSharedPtrOfExecutorConfig.clear](#vectorofsharedptrofexecutorconfigclear)
+  - [VectorOfSharedPtrOfExecutorConfig.copy](#vectorofsharedptrofexecutorconfigcopy)
   - [VectorOfSharedPtrOfExecutorConfig.data](#vectorofsharedptrofexecutorconfigdata)
   - [VectorOfSharedPtrOfExecutorConfig.empty](#vectorofsharedptrofexecutorconfigempty)
   - [VectorOfSharedPtrOfExecutorConfig.front](#vectorofsharedptrofexecutorconfigfront)
+  - [VectorOfSharedPtrOfExecutorConfig.get](#vectorofsharedptrofexecutorconfigget)
   - [VectorOfSharedPtrOfExecutorConfig.max\_size](#vectorofsharedptrofexecutorconfigmax%5C_size)
   - [VectorOfSharedPtrOfExecutorConfig.operator==](#vectorofsharedptrofexecutorconfigoperator)
   - [VectorOfSharedPtrOfExecutorConfig.pop\_back](#vectorofsharedptrofexecutorconfigpop%5C_back)
   - [VectorOfSharedPtrOfExecutorConfig.ptr](#vectorofsharedptrofexecutorconfigptr)
   - [VectorOfSharedPtrOfExecutorConfig.reserve](#vectorofsharedptrofexecutorconfigreserve)
   - [VectorOfSharedPtrOfExecutorConfig.resize](#vectorofsharedptrofexecutorconfigresize)
+  - [VectorOfSharedPtrOfExecutorConfig.set](#vectorofsharedptrofexecutorconfigset)
   - [VectorOfSharedPtrOfExecutorConfig.shrink\_to\_fit](#vectorofsharedptrofexecutorconfigshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfExecutorConfig.sizeof](#vectorofsharedptrofexecutorconfigsizeof)
   - [VectorOfSharedPtrOfExecutorConfig.sol::meta\_function::index](#vectorofsharedptrofexecutorconfigsolmeta%5C_functionindex)
@@ -4899,20 +5031,24 @@
   - [VectorOfSharedPtrOfExecutorConfig.swap](#vectorofsharedptrofexecutorconfigswap)
   - [VectorOfSharedPtrOfExecutorConfig.table](#vectorofsharedptrofexecutorconfigtable)
 - [VectorOfSharedPtrOfFrameAnnotation](#vectorofsharedptrofframeannotation)
+  - [VectorOfSharedPtrOfFrameAnnotation.sizeof\_value\_type](#vectorofsharedptrofframeannotationsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfFrameAnnotation.new](#vectorofsharedptrofframeannotationnew)
   - [VectorOfSharedPtrOfFrameAnnotation.\_\_type](#vectorofsharedptrofframeannotation%5C_%5C_type)
   - [VectorOfSharedPtrOfFrameAnnotation.back](#vectorofsharedptrofframeannotationback)
   - [VectorOfSharedPtrOfFrameAnnotation.capacity](#vectorofsharedptrofframeannotationcapacity)
   - [VectorOfSharedPtrOfFrameAnnotation.clear](#vectorofsharedptrofframeannotationclear)
+  - [VectorOfSharedPtrOfFrameAnnotation.copy](#vectorofsharedptrofframeannotationcopy)
   - [VectorOfSharedPtrOfFrameAnnotation.data](#vectorofsharedptrofframeannotationdata)
   - [VectorOfSharedPtrOfFrameAnnotation.empty](#vectorofsharedptrofframeannotationempty)
   - [VectorOfSharedPtrOfFrameAnnotation.front](#vectorofsharedptrofframeannotationfront)
+  - [VectorOfSharedPtrOfFrameAnnotation.get](#vectorofsharedptrofframeannotationget)
   - [VectorOfSharedPtrOfFrameAnnotation.max\_size](#vectorofsharedptrofframeannotationmax%5C_size)
   - [VectorOfSharedPtrOfFrameAnnotation.operator==](#vectorofsharedptrofframeannotationoperator)
   - [VectorOfSharedPtrOfFrameAnnotation.pop\_back](#vectorofsharedptrofframeannotationpop%5C_back)
   - [VectorOfSharedPtrOfFrameAnnotation.ptr](#vectorofsharedptrofframeannotationptr)
   - [VectorOfSharedPtrOfFrameAnnotation.reserve](#vectorofsharedptrofframeannotationreserve)
   - [VectorOfSharedPtrOfFrameAnnotation.resize](#vectorofsharedptrofframeannotationresize)
+  - [VectorOfSharedPtrOfFrameAnnotation.set](#vectorofsharedptrofframeannotationset)
   - [VectorOfSharedPtrOfFrameAnnotation.shrink\_to\_fit](#vectorofsharedptrofframeannotationshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfFrameAnnotation.sizeof](#vectorofsharedptrofframeannotationsizeof)
   - [VectorOfSharedPtrOfFrameAnnotation.sol::meta\_function::index](#vectorofsharedptrofframeannotationsolmeta%5C_functionindex)
@@ -4921,20 +5057,24 @@
   - [VectorOfSharedPtrOfFrameAnnotation.swap](#vectorofsharedptrofframeannotationswap)
   - [VectorOfSharedPtrOfFrameAnnotation.table](#vectorofsharedptrofframeannotationtable)
 - [VectorOfSharedPtrOfImage](#vectorofsharedptrofimage)
+  - [VectorOfSharedPtrOfImage.sizeof\_value\_type](#vectorofsharedptrofimagesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfImage.new](#vectorofsharedptrofimagenew)
   - [VectorOfSharedPtrOfImage.\_\_type](#vectorofsharedptrofimage%5C_%5C_type)
   - [VectorOfSharedPtrOfImage.back](#vectorofsharedptrofimageback)
   - [VectorOfSharedPtrOfImage.capacity](#vectorofsharedptrofimagecapacity)
   - [VectorOfSharedPtrOfImage.clear](#vectorofsharedptrofimageclear)
+  - [VectorOfSharedPtrOfImage.copy](#vectorofsharedptrofimagecopy)
   - [VectorOfSharedPtrOfImage.data](#vectorofsharedptrofimagedata)
   - [VectorOfSharedPtrOfImage.empty](#vectorofsharedptrofimageempty)
   - [VectorOfSharedPtrOfImage.front](#vectorofsharedptrofimagefront)
+  - [VectorOfSharedPtrOfImage.get](#vectorofsharedptrofimageget)
   - [VectorOfSharedPtrOfImage.max\_size](#vectorofsharedptrofimagemax%5C_size)
   - [VectorOfSharedPtrOfImage.operator==](#vectorofsharedptrofimageoperator)
   - [VectorOfSharedPtrOfImage.pop\_back](#vectorofsharedptrofimagepop%5C_back)
   - [VectorOfSharedPtrOfImage.ptr](#vectorofsharedptrofimageptr)
   - [VectorOfSharedPtrOfImage.reserve](#vectorofsharedptrofimagereserve)
   - [VectorOfSharedPtrOfImage.resize](#vectorofsharedptrofimageresize)
+  - [VectorOfSharedPtrOfImage.set](#vectorofsharedptrofimageset)
   - [VectorOfSharedPtrOfImage.shrink\_to\_fit](#vectorofsharedptrofimageshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfImage.sizeof](#vectorofsharedptrofimagesizeof)
   - [VectorOfSharedPtrOfImage.sol::meta\_function::index](#vectorofsharedptrofimagesolmeta%5C_functionindex)
@@ -4943,20 +5083,24 @@
   - [VectorOfSharedPtrOfImage.swap](#vectorofsharedptrofimageswap)
   - [VectorOfSharedPtrOfImage.table](#vectorofsharedptrofimagetable)
 - [VectorOfSharedPtrOfImageFrame](#vectorofsharedptrofimageframe)
+  - [VectorOfSharedPtrOfImageFrame.sizeof\_value\_type](#vectorofsharedptrofimageframesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfImageFrame.new](#vectorofsharedptrofimageframenew)
   - [VectorOfSharedPtrOfImageFrame.\_\_type](#vectorofsharedptrofimageframe%5C_%5C_type)
   - [VectorOfSharedPtrOfImageFrame.back](#vectorofsharedptrofimageframeback)
   - [VectorOfSharedPtrOfImageFrame.capacity](#vectorofsharedptrofimageframecapacity)
   - [VectorOfSharedPtrOfImageFrame.clear](#vectorofsharedptrofimageframeclear)
+  - [VectorOfSharedPtrOfImageFrame.copy](#vectorofsharedptrofimageframecopy)
   - [VectorOfSharedPtrOfImageFrame.data](#vectorofsharedptrofimageframedata)
   - [VectorOfSharedPtrOfImageFrame.empty](#vectorofsharedptrofimageframeempty)
   - [VectorOfSharedPtrOfImageFrame.front](#vectorofsharedptrofimageframefront)
+  - [VectorOfSharedPtrOfImageFrame.get](#vectorofsharedptrofimageframeget)
   - [VectorOfSharedPtrOfImageFrame.max\_size](#vectorofsharedptrofimageframemax%5C_size)
   - [VectorOfSharedPtrOfImageFrame.operator==](#vectorofsharedptrofimageframeoperator)
   - [VectorOfSharedPtrOfImageFrame.pop\_back](#vectorofsharedptrofimageframepop%5C_back)
   - [VectorOfSharedPtrOfImageFrame.ptr](#vectorofsharedptrofimageframeptr)
   - [VectorOfSharedPtrOfImageFrame.reserve](#vectorofsharedptrofimageframereserve)
   - [VectorOfSharedPtrOfImageFrame.resize](#vectorofsharedptrofimageframeresize)
+  - [VectorOfSharedPtrOfImageFrame.set](#vectorofsharedptrofimageframeset)
   - [VectorOfSharedPtrOfImageFrame.shrink\_to\_fit](#vectorofsharedptrofimageframeshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfImageFrame.sizeof](#vectorofsharedptrofimageframesizeof)
   - [VectorOfSharedPtrOfImageFrame.sol::meta\_function::index](#vectorofsharedptrofimageframesolmeta%5C_functionindex)
@@ -4965,20 +5109,24 @@
   - [VectorOfSharedPtrOfImageFrame.swap](#vectorofsharedptrofimageframeswap)
   - [VectorOfSharedPtrOfImageFrame.table](#vectorofsharedptrofimageframetable)
 - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink)
+  - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sizeof\_value\_type](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.new](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinknew)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.\_\_type](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlink%5C_%5C_type)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.back](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkback)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.capacity](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkcapacity)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.clear](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkclear)
+  - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.copy](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkcopy)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.data](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkdata)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.empty](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkempty)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.front](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkfront)
+  - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.get](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkget)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.max\_size](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkmax%5C_size)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.operator==](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkoperator)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.pop\_back](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkpop%5C_back)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.ptr](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkptr)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.reserve](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkreserve)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.resize](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkresize)
+  - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.set](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkset)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.shrink\_to\_fit](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sizeof](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksizeof)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sol::meta\_function::index](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinksolmeta%5C_functionindex)
@@ -4987,20 +5135,24 @@
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.swap](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinkswap)
   - [VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.table](#vectorofsharedptrofinferencecalculatoroptions%5C_inputoutputconfig%5C_feedbacktensorlinktable)
 - [VectorOfSharedPtrOfInputCollection](#vectorofsharedptrofinputcollection)
+  - [VectorOfSharedPtrOfInputCollection.sizeof\_value\_type](#vectorofsharedptrofinputcollectionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfInputCollection.new](#vectorofsharedptrofinputcollectionnew)
   - [VectorOfSharedPtrOfInputCollection.\_\_type](#vectorofsharedptrofinputcollection%5C_%5C_type)
   - [VectorOfSharedPtrOfInputCollection.back](#vectorofsharedptrofinputcollectionback)
   - [VectorOfSharedPtrOfInputCollection.capacity](#vectorofsharedptrofinputcollectioncapacity)
   - [VectorOfSharedPtrOfInputCollection.clear](#vectorofsharedptrofinputcollectionclear)
+  - [VectorOfSharedPtrOfInputCollection.copy](#vectorofsharedptrofinputcollectioncopy)
   - [VectorOfSharedPtrOfInputCollection.data](#vectorofsharedptrofinputcollectiondata)
   - [VectorOfSharedPtrOfInputCollection.empty](#vectorofsharedptrofinputcollectionempty)
   - [VectorOfSharedPtrOfInputCollection.front](#vectorofsharedptrofinputcollectionfront)
+  - [VectorOfSharedPtrOfInputCollection.get](#vectorofsharedptrofinputcollectionget)
   - [VectorOfSharedPtrOfInputCollection.max\_size](#vectorofsharedptrofinputcollectionmax%5C_size)
   - [VectorOfSharedPtrOfInputCollection.operator==](#vectorofsharedptrofinputcollectionoperator)
   - [VectorOfSharedPtrOfInputCollection.pop\_back](#vectorofsharedptrofinputcollectionpop%5C_back)
   - [VectorOfSharedPtrOfInputCollection.ptr](#vectorofsharedptrofinputcollectionptr)
   - [VectorOfSharedPtrOfInputCollection.reserve](#vectorofsharedptrofinputcollectionreserve)
   - [VectorOfSharedPtrOfInputCollection.resize](#vectorofsharedptrofinputcollectionresize)
+  - [VectorOfSharedPtrOfInputCollection.set](#vectorofsharedptrofinputcollectionset)
   - [VectorOfSharedPtrOfInputCollection.shrink\_to\_fit](#vectorofsharedptrofinputcollectionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfInputCollection.sizeof](#vectorofsharedptrofinputcollectionsizeof)
   - [VectorOfSharedPtrOfInputCollection.sol::meta\_function::index](#vectorofsharedptrofinputcollectionsolmeta%5C_functionindex)
@@ -5009,20 +5161,24 @@
   - [VectorOfSharedPtrOfInputCollection.swap](#vectorofsharedptrofinputcollectionswap)
   - [VectorOfSharedPtrOfInputCollection.table](#vectorofsharedptrofinputcollectiontable)
 - [VectorOfSharedPtrOfInputStreamInfo](#vectorofsharedptrofinputstreaminfo)
+  - [VectorOfSharedPtrOfInputStreamInfo.sizeof\_value\_type](#vectorofsharedptrofinputstreaminfosizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfInputStreamInfo.new](#vectorofsharedptrofinputstreaminfonew)
   - [VectorOfSharedPtrOfInputStreamInfo.\_\_type](#vectorofsharedptrofinputstreaminfo%5C_%5C_type)
   - [VectorOfSharedPtrOfInputStreamInfo.back](#vectorofsharedptrofinputstreaminfoback)
   - [VectorOfSharedPtrOfInputStreamInfo.capacity](#vectorofsharedptrofinputstreaminfocapacity)
   - [VectorOfSharedPtrOfInputStreamInfo.clear](#vectorofsharedptrofinputstreaminfoclear)
+  - [VectorOfSharedPtrOfInputStreamInfo.copy](#vectorofsharedptrofinputstreaminfocopy)
   - [VectorOfSharedPtrOfInputStreamInfo.data](#vectorofsharedptrofinputstreaminfodata)
   - [VectorOfSharedPtrOfInputStreamInfo.empty](#vectorofsharedptrofinputstreaminfoempty)
   - [VectorOfSharedPtrOfInputStreamInfo.front](#vectorofsharedptrofinputstreaminfofront)
+  - [VectorOfSharedPtrOfInputStreamInfo.get](#vectorofsharedptrofinputstreaminfoget)
   - [VectorOfSharedPtrOfInputStreamInfo.max\_size](#vectorofsharedptrofinputstreaminfomax%5C_size)
   - [VectorOfSharedPtrOfInputStreamInfo.operator==](#vectorofsharedptrofinputstreaminfooperator)
   - [VectorOfSharedPtrOfInputStreamInfo.pop\_back](#vectorofsharedptrofinputstreaminfopop%5C_back)
   - [VectorOfSharedPtrOfInputStreamInfo.ptr](#vectorofsharedptrofinputstreaminfoptr)
   - [VectorOfSharedPtrOfInputStreamInfo.reserve](#vectorofsharedptrofinputstreaminforeserve)
   - [VectorOfSharedPtrOfInputStreamInfo.resize](#vectorofsharedptrofinputstreaminforesize)
+  - [VectorOfSharedPtrOfInputStreamInfo.set](#vectorofsharedptrofinputstreaminfoset)
   - [VectorOfSharedPtrOfInputStreamInfo.shrink\_to\_fit](#vectorofsharedptrofinputstreaminfoshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfInputStreamInfo.sizeof](#vectorofsharedptrofinputstreaminfosizeof)
   - [VectorOfSharedPtrOfInputStreamInfo.sol::meta\_function::index](#vectorofsharedptrofinputstreaminfosolmeta%5C_functionindex)
@@ -5031,20 +5187,24 @@
   - [VectorOfSharedPtrOfInputStreamInfo.swap](#vectorofsharedptrofinputstreaminfoswap)
   - [VectorOfSharedPtrOfInputStreamInfo.table](#vectorofsharedptrofinputstreaminfotable)
 - [VectorOfSharedPtrOfKeyPoint](#vectorofsharedptrofkeypoint)
+  - [VectorOfSharedPtrOfKeyPoint.sizeof\_value\_type](#vectorofsharedptrofkeypointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfKeyPoint.new](#vectorofsharedptrofkeypointnew)
   - [VectorOfSharedPtrOfKeyPoint.\_\_type](#vectorofsharedptrofkeypoint%5C_%5C_type)
   - [VectorOfSharedPtrOfKeyPoint.back](#vectorofsharedptrofkeypointback)
   - [VectorOfSharedPtrOfKeyPoint.capacity](#vectorofsharedptrofkeypointcapacity)
   - [VectorOfSharedPtrOfKeyPoint.clear](#vectorofsharedptrofkeypointclear)
+  - [VectorOfSharedPtrOfKeyPoint.copy](#vectorofsharedptrofkeypointcopy)
   - [VectorOfSharedPtrOfKeyPoint.data](#vectorofsharedptrofkeypointdata)
   - [VectorOfSharedPtrOfKeyPoint.empty](#vectorofsharedptrofkeypointempty)
   - [VectorOfSharedPtrOfKeyPoint.front](#vectorofsharedptrofkeypointfront)
+  - [VectorOfSharedPtrOfKeyPoint.get](#vectorofsharedptrofkeypointget)
   - [VectorOfSharedPtrOfKeyPoint.max\_size](#vectorofsharedptrofkeypointmax%5C_size)
   - [VectorOfSharedPtrOfKeyPoint.operator==](#vectorofsharedptrofkeypointoperator)
   - [VectorOfSharedPtrOfKeyPoint.pop\_back](#vectorofsharedptrofkeypointpop%5C_back)
   - [VectorOfSharedPtrOfKeyPoint.ptr](#vectorofsharedptrofkeypointptr)
   - [VectorOfSharedPtrOfKeyPoint.reserve](#vectorofsharedptrofkeypointreserve)
   - [VectorOfSharedPtrOfKeyPoint.resize](#vectorofsharedptrofkeypointresize)
+  - [VectorOfSharedPtrOfKeyPoint.set](#vectorofsharedptrofkeypointset)
   - [VectorOfSharedPtrOfKeyPoint.shrink\_to\_fit](#vectorofsharedptrofkeypointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfKeyPoint.sizeof](#vectorofsharedptrofkeypointsizeof)
   - [VectorOfSharedPtrOfKeyPoint.sol::meta\_function::index](#vectorofsharedptrofkeypointsolmeta%5C_functionindex)
@@ -5053,20 +5213,24 @@
   - [VectorOfSharedPtrOfKeyPoint.swap](#vectorofsharedptrofkeypointswap)
   - [VectorOfSharedPtrOfKeyPoint.table](#vectorofsharedptrofkeypointtable)
 - [VectorOfSharedPtrOfLandmark](#vectorofsharedptroflandmark)
+  - [VectorOfSharedPtrOfLandmark.sizeof\_value\_type](#vectorofsharedptroflandmarksizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfLandmark.new](#vectorofsharedptroflandmarknew)
   - [VectorOfSharedPtrOfLandmark.\_\_type](#vectorofsharedptroflandmark%5C_%5C_type)
   - [VectorOfSharedPtrOfLandmark.back](#vectorofsharedptroflandmarkback)
   - [VectorOfSharedPtrOfLandmark.capacity](#vectorofsharedptroflandmarkcapacity)
   - [VectorOfSharedPtrOfLandmark.clear](#vectorofsharedptroflandmarkclear)
+  - [VectorOfSharedPtrOfLandmark.copy](#vectorofsharedptroflandmarkcopy)
   - [VectorOfSharedPtrOfLandmark.data](#vectorofsharedptroflandmarkdata)
   - [VectorOfSharedPtrOfLandmark.empty](#vectorofsharedptroflandmarkempty)
   - [VectorOfSharedPtrOfLandmark.front](#vectorofsharedptroflandmarkfront)
+  - [VectorOfSharedPtrOfLandmark.get](#vectorofsharedptroflandmarkget)
   - [VectorOfSharedPtrOfLandmark.max\_size](#vectorofsharedptroflandmarkmax%5C_size)
   - [VectorOfSharedPtrOfLandmark.operator==](#vectorofsharedptroflandmarkoperator)
   - [VectorOfSharedPtrOfLandmark.pop\_back](#vectorofsharedptroflandmarkpop%5C_back)
   - [VectorOfSharedPtrOfLandmark.ptr](#vectorofsharedptroflandmarkptr)
   - [VectorOfSharedPtrOfLandmark.reserve](#vectorofsharedptroflandmarkreserve)
   - [VectorOfSharedPtrOfLandmark.resize](#vectorofsharedptroflandmarkresize)
+  - [VectorOfSharedPtrOfLandmark.set](#vectorofsharedptroflandmarkset)
   - [VectorOfSharedPtrOfLandmark.shrink\_to\_fit](#vectorofsharedptroflandmarkshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfLandmark.sizeof](#vectorofsharedptroflandmarksizeof)
   - [VectorOfSharedPtrOfLandmark.sol::meta\_function::index](#vectorofsharedptroflandmarksolmeta%5C_functionindex)
@@ -5075,20 +5239,24 @@
   - [VectorOfSharedPtrOfLandmark.swap](#vectorofsharedptroflandmarkswap)
   - [VectorOfSharedPtrOfLandmark.table](#vectorofsharedptroflandmarktable)
 - [VectorOfSharedPtrOfLandmarkList](#vectorofsharedptroflandmarklist)
+  - [VectorOfSharedPtrOfLandmarkList.sizeof\_value\_type](#vectorofsharedptroflandmarklistsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfLandmarkList.new](#vectorofsharedptroflandmarklistnew)
   - [VectorOfSharedPtrOfLandmarkList.\_\_type](#vectorofsharedptroflandmarklist%5C_%5C_type)
   - [VectorOfSharedPtrOfLandmarkList.back](#vectorofsharedptroflandmarklistback)
   - [VectorOfSharedPtrOfLandmarkList.capacity](#vectorofsharedptroflandmarklistcapacity)
   - [VectorOfSharedPtrOfLandmarkList.clear](#vectorofsharedptroflandmarklistclear)
+  - [VectorOfSharedPtrOfLandmarkList.copy](#vectorofsharedptroflandmarklistcopy)
   - [VectorOfSharedPtrOfLandmarkList.data](#vectorofsharedptroflandmarklistdata)
   - [VectorOfSharedPtrOfLandmarkList.empty](#vectorofsharedptroflandmarklistempty)
   - [VectorOfSharedPtrOfLandmarkList.front](#vectorofsharedptroflandmarklistfront)
+  - [VectorOfSharedPtrOfLandmarkList.get](#vectorofsharedptroflandmarklistget)
   - [VectorOfSharedPtrOfLandmarkList.max\_size](#vectorofsharedptroflandmarklistmax%5C_size)
   - [VectorOfSharedPtrOfLandmarkList.operator==](#vectorofsharedptroflandmarklistoperator)
   - [VectorOfSharedPtrOfLandmarkList.pop\_back](#vectorofsharedptroflandmarklistpop%5C_back)
   - [VectorOfSharedPtrOfLandmarkList.ptr](#vectorofsharedptroflandmarklistptr)
   - [VectorOfSharedPtrOfLandmarkList.reserve](#vectorofsharedptroflandmarklistreserve)
   - [VectorOfSharedPtrOfLandmarkList.resize](#vectorofsharedptroflandmarklistresize)
+  - [VectorOfSharedPtrOfLandmarkList.set](#vectorofsharedptroflandmarklistset)
   - [VectorOfSharedPtrOfLandmarkList.shrink\_to\_fit](#vectorofsharedptroflandmarklistshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfLandmarkList.sizeof](#vectorofsharedptroflandmarklistsizeof)
   - [VectorOfSharedPtrOfLandmarkList.sol::meta\_function::index](#vectorofsharedptroflandmarklistsolmeta%5C_functionindex)
@@ -5097,20 +5265,24 @@
   - [VectorOfSharedPtrOfLandmarkList.swap](#vectorofsharedptroflandmarklistswap)
   - [VectorOfSharedPtrOfLandmarkList.table](#vectorofsharedptroflandmarklisttable)
 - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint](#vectorofsharedptroflocationdata%5C_relativekeypoint)
+  - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.sizeof\_value\_type](#vectorofsharedptroflocationdata%5C_relativekeypointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.new](#vectorofsharedptroflocationdata%5C_relativekeypointnew)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.\_\_type](#vectorofsharedptroflocationdata%5C_relativekeypoint%5C_%5C_type)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.back](#vectorofsharedptroflocationdata%5C_relativekeypointback)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.capacity](#vectorofsharedptroflocationdata%5C_relativekeypointcapacity)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.clear](#vectorofsharedptroflocationdata%5C_relativekeypointclear)
+  - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.copy](#vectorofsharedptroflocationdata%5C_relativekeypointcopy)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.data](#vectorofsharedptroflocationdata%5C_relativekeypointdata)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.empty](#vectorofsharedptroflocationdata%5C_relativekeypointempty)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.front](#vectorofsharedptroflocationdata%5C_relativekeypointfront)
+  - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.get](#vectorofsharedptroflocationdata%5C_relativekeypointget)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.max\_size](#vectorofsharedptroflocationdata%5C_relativekeypointmax%5C_size)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.operator==](#vectorofsharedptroflocationdata%5C_relativekeypointoperator)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.pop\_back](#vectorofsharedptroflocationdata%5C_relativekeypointpop%5C_back)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.ptr](#vectorofsharedptroflocationdata%5C_relativekeypointptr)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.reserve](#vectorofsharedptroflocationdata%5C_relativekeypointreserve)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.resize](#vectorofsharedptroflocationdata%5C_relativekeypointresize)
+  - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.set](#vectorofsharedptroflocationdata%5C_relativekeypointset)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.shrink\_to\_fit](#vectorofsharedptroflocationdata%5C_relativekeypointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.sizeof](#vectorofsharedptroflocationdata%5C_relativekeypointsizeof)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.sol::meta\_function::index](#vectorofsharedptroflocationdata%5C_relativekeypointsolmeta%5C_functionindex)
@@ -5119,20 +5291,24 @@
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.swap](#vectorofsharedptroflocationdata%5C_relativekeypointswap)
   - [VectorOfSharedPtrOfLocationData\_RelativeKeypoint.table](#vectorofsharedptroflocationdata%5C_relativekeypointtable)
 - [VectorOfSharedPtrOfMessage](#vectorofsharedptrofmessage)
+  - [VectorOfSharedPtrOfMessage.sizeof\_value\_type](#vectorofsharedptrofmessagesizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfMessage.new](#vectorofsharedptrofmessagenew)
   - [VectorOfSharedPtrOfMessage.\_\_type](#vectorofsharedptrofmessage%5C_%5C_type)
   - [VectorOfSharedPtrOfMessage.back](#vectorofsharedptrofmessageback)
   - [VectorOfSharedPtrOfMessage.capacity](#vectorofsharedptrofmessagecapacity)
   - [VectorOfSharedPtrOfMessage.clear](#vectorofsharedptrofmessageclear)
+  - [VectorOfSharedPtrOfMessage.copy](#vectorofsharedptrofmessagecopy)
   - [VectorOfSharedPtrOfMessage.data](#vectorofsharedptrofmessagedata)
   - [VectorOfSharedPtrOfMessage.empty](#vectorofsharedptrofmessageempty)
   - [VectorOfSharedPtrOfMessage.front](#vectorofsharedptrofmessagefront)
+  - [VectorOfSharedPtrOfMessage.get](#vectorofsharedptrofmessageget)
   - [VectorOfSharedPtrOfMessage.max\_size](#vectorofsharedptrofmessagemax%5C_size)
   - [VectorOfSharedPtrOfMessage.operator==](#vectorofsharedptrofmessageoperator)
   - [VectorOfSharedPtrOfMessage.pop\_back](#vectorofsharedptrofmessagepop%5C_back)
   - [VectorOfSharedPtrOfMessage.ptr](#vectorofsharedptrofmessageptr)
   - [VectorOfSharedPtrOfMessage.reserve](#vectorofsharedptrofmessagereserve)
   - [VectorOfSharedPtrOfMessage.resize](#vectorofsharedptrofmessageresize)
+  - [VectorOfSharedPtrOfMessage.set](#vectorofsharedptrofmessageset)
   - [VectorOfSharedPtrOfMessage.shrink\_to\_fit](#vectorofsharedptrofmessageshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfMessage.sizeof](#vectorofsharedptrofmessagesizeof)
   - [VectorOfSharedPtrOfMessage.sol::meta\_function::index](#vectorofsharedptrofmessagesolmeta%5C_functionindex)
@@ -5141,20 +5317,24 @@
   - [VectorOfSharedPtrOfMessage.swap](#vectorofsharedptrofmessageswap)
   - [VectorOfSharedPtrOfMessage.table](#vectorofsharedptrofmessagetable)
 - [VectorOfSharedPtrOfNormalizedLandmark](#vectorofsharedptrofnormalizedlandmark)
+  - [VectorOfSharedPtrOfNormalizedLandmark.sizeof\_value\_type](#vectorofsharedptrofnormalizedlandmarksizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfNormalizedLandmark.new](#vectorofsharedptrofnormalizedlandmarknew)
   - [VectorOfSharedPtrOfNormalizedLandmark.\_\_type](#vectorofsharedptrofnormalizedlandmark%5C_%5C_type)
   - [VectorOfSharedPtrOfNormalizedLandmark.back](#vectorofsharedptrofnormalizedlandmarkback)
   - [VectorOfSharedPtrOfNormalizedLandmark.capacity](#vectorofsharedptrofnormalizedlandmarkcapacity)
   - [VectorOfSharedPtrOfNormalizedLandmark.clear](#vectorofsharedptrofnormalizedlandmarkclear)
+  - [VectorOfSharedPtrOfNormalizedLandmark.copy](#vectorofsharedptrofnormalizedlandmarkcopy)
   - [VectorOfSharedPtrOfNormalizedLandmark.data](#vectorofsharedptrofnormalizedlandmarkdata)
   - [VectorOfSharedPtrOfNormalizedLandmark.empty](#vectorofsharedptrofnormalizedlandmarkempty)
   - [VectorOfSharedPtrOfNormalizedLandmark.front](#vectorofsharedptrofnormalizedlandmarkfront)
+  - [VectorOfSharedPtrOfNormalizedLandmark.get](#vectorofsharedptrofnormalizedlandmarkget)
   - [VectorOfSharedPtrOfNormalizedLandmark.max\_size](#vectorofsharedptrofnormalizedlandmarkmax%5C_size)
   - [VectorOfSharedPtrOfNormalizedLandmark.operator==](#vectorofsharedptrofnormalizedlandmarkoperator)
   - [VectorOfSharedPtrOfNormalizedLandmark.pop\_back](#vectorofsharedptrofnormalizedlandmarkpop%5C_back)
   - [VectorOfSharedPtrOfNormalizedLandmark.ptr](#vectorofsharedptrofnormalizedlandmarkptr)
   - [VectorOfSharedPtrOfNormalizedLandmark.reserve](#vectorofsharedptrofnormalizedlandmarkreserve)
   - [VectorOfSharedPtrOfNormalizedLandmark.resize](#vectorofsharedptrofnormalizedlandmarkresize)
+  - [VectorOfSharedPtrOfNormalizedLandmark.set](#vectorofsharedptrofnormalizedlandmarkset)
   - [VectorOfSharedPtrOfNormalizedLandmark.shrink\_to\_fit](#vectorofsharedptrofnormalizedlandmarkshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfNormalizedLandmark.sizeof](#vectorofsharedptrofnormalizedlandmarksizeof)
   - [VectorOfSharedPtrOfNormalizedLandmark.sol::meta\_function::index](#vectorofsharedptrofnormalizedlandmarksolmeta%5C_functionindex)
@@ -5163,20 +5343,24 @@
   - [VectorOfSharedPtrOfNormalizedLandmark.swap](#vectorofsharedptrofnormalizedlandmarkswap)
   - [VectorOfSharedPtrOfNormalizedLandmark.table](#vectorofsharedptrofnormalizedlandmarktable)
 - [VectorOfSharedPtrOfNormalizedLandmarkList](#vectorofsharedptrofnormalizedlandmarklist)
+  - [VectorOfSharedPtrOfNormalizedLandmarkList.sizeof\_value\_type](#vectorofsharedptrofnormalizedlandmarklistsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.new](#vectorofsharedptrofnormalizedlandmarklistnew)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.\_\_type](#vectorofsharedptrofnormalizedlandmarklist%5C_%5C_type)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.back](#vectorofsharedptrofnormalizedlandmarklistback)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.capacity](#vectorofsharedptrofnormalizedlandmarklistcapacity)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.clear](#vectorofsharedptrofnormalizedlandmarklistclear)
+  - [VectorOfSharedPtrOfNormalizedLandmarkList.copy](#vectorofsharedptrofnormalizedlandmarklistcopy)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.data](#vectorofsharedptrofnormalizedlandmarklistdata)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.empty](#vectorofsharedptrofnormalizedlandmarklistempty)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.front](#vectorofsharedptrofnormalizedlandmarklistfront)
+  - [VectorOfSharedPtrOfNormalizedLandmarkList.get](#vectorofsharedptrofnormalizedlandmarklistget)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.max\_size](#vectorofsharedptrofnormalizedlandmarklistmax%5C_size)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.operator==](#vectorofsharedptrofnormalizedlandmarklistoperator)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.pop\_back](#vectorofsharedptrofnormalizedlandmarklistpop%5C_back)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.ptr](#vectorofsharedptrofnormalizedlandmarklistptr)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.reserve](#vectorofsharedptrofnormalizedlandmarklistreserve)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.resize](#vectorofsharedptrofnormalizedlandmarklistresize)
+  - [VectorOfSharedPtrOfNormalizedLandmarkList.set](#vectorofsharedptrofnormalizedlandmarklistset)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.shrink\_to\_fit](#vectorofsharedptrofnormalizedlandmarklistshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.sizeof](#vectorofsharedptrofnormalizedlandmarklistsizeof)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.sol::meta\_function::index](#vectorofsharedptrofnormalizedlandmarklistsolmeta%5C_functionindex)
@@ -5185,20 +5369,24 @@
   - [VectorOfSharedPtrOfNormalizedLandmarkList.swap](#vectorofsharedptrofnormalizedlandmarklistswap)
   - [VectorOfSharedPtrOfNormalizedLandmarkList.table](#vectorofsharedptrofnormalizedlandmarklisttable)
 - [VectorOfSharedPtrOfNormalizedRect](#vectorofsharedptrofnormalizedrect)
+  - [VectorOfSharedPtrOfNormalizedRect.sizeof\_value\_type](#vectorofsharedptrofnormalizedrectsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfNormalizedRect.new](#vectorofsharedptrofnormalizedrectnew)
   - [VectorOfSharedPtrOfNormalizedRect.\_\_type](#vectorofsharedptrofnormalizedrect%5C_%5C_type)
   - [VectorOfSharedPtrOfNormalizedRect.back](#vectorofsharedptrofnormalizedrectback)
   - [VectorOfSharedPtrOfNormalizedRect.capacity](#vectorofsharedptrofnormalizedrectcapacity)
   - [VectorOfSharedPtrOfNormalizedRect.clear](#vectorofsharedptrofnormalizedrectclear)
+  - [VectorOfSharedPtrOfNormalizedRect.copy](#vectorofsharedptrofnormalizedrectcopy)
   - [VectorOfSharedPtrOfNormalizedRect.data](#vectorofsharedptrofnormalizedrectdata)
   - [VectorOfSharedPtrOfNormalizedRect.empty](#vectorofsharedptrofnormalizedrectempty)
   - [VectorOfSharedPtrOfNormalizedRect.front](#vectorofsharedptrofnormalizedrectfront)
+  - [VectorOfSharedPtrOfNormalizedRect.get](#vectorofsharedptrofnormalizedrectget)
   - [VectorOfSharedPtrOfNormalizedRect.max\_size](#vectorofsharedptrofnormalizedrectmax%5C_size)
   - [VectorOfSharedPtrOfNormalizedRect.operator==](#vectorofsharedptrofnormalizedrectoperator)
   - [VectorOfSharedPtrOfNormalizedRect.pop\_back](#vectorofsharedptrofnormalizedrectpop%5C_back)
   - [VectorOfSharedPtrOfNormalizedRect.ptr](#vectorofsharedptrofnormalizedrectptr)
   - [VectorOfSharedPtrOfNormalizedRect.reserve](#vectorofsharedptrofnormalizedrectreserve)
   - [VectorOfSharedPtrOfNormalizedRect.resize](#vectorofsharedptrofnormalizedrectresize)
+  - [VectorOfSharedPtrOfNormalizedRect.set](#vectorofsharedptrofnormalizedrectset)
   - [VectorOfSharedPtrOfNormalizedRect.shrink\_to\_fit](#vectorofsharedptrofnormalizedrectshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfNormalizedRect.sizeof](#vectorofsharedptrofnormalizedrectsizeof)
   - [VectorOfSharedPtrOfNormalizedRect.sol::meta\_function::index](#vectorofsharedptrofnormalizedrectsolmeta%5C_functionindex)
@@ -5207,20 +5395,24 @@
   - [VectorOfSharedPtrOfNormalizedRect.swap](#vectorofsharedptrofnormalizedrectswap)
   - [VectorOfSharedPtrOfNormalizedRect.table](#vectorofsharedptrofnormalizedrecttable)
 - [VectorOfSharedPtrOfObject](#vectorofsharedptrofobject)
+  - [VectorOfSharedPtrOfObject.sizeof\_value\_type](#vectorofsharedptrofobjectsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfObject.new](#vectorofsharedptrofobjectnew)
   - [VectorOfSharedPtrOfObject.\_\_type](#vectorofsharedptrofobject%5C_%5C_type)
   - [VectorOfSharedPtrOfObject.back](#vectorofsharedptrofobjectback)
   - [VectorOfSharedPtrOfObject.capacity](#vectorofsharedptrofobjectcapacity)
   - [VectorOfSharedPtrOfObject.clear](#vectorofsharedptrofobjectclear)
+  - [VectorOfSharedPtrOfObject.copy](#vectorofsharedptrofobjectcopy)
   - [VectorOfSharedPtrOfObject.data](#vectorofsharedptrofobjectdata)
   - [VectorOfSharedPtrOfObject.empty](#vectorofsharedptrofobjectempty)
   - [VectorOfSharedPtrOfObject.front](#vectorofsharedptrofobjectfront)
+  - [VectorOfSharedPtrOfObject.get](#vectorofsharedptrofobjectget)
   - [VectorOfSharedPtrOfObject.max\_size](#vectorofsharedptrofobjectmax%5C_size)
   - [VectorOfSharedPtrOfObject.operator==](#vectorofsharedptrofobjectoperator)
   - [VectorOfSharedPtrOfObject.pop\_back](#vectorofsharedptrofobjectpop%5C_back)
   - [VectorOfSharedPtrOfObject.ptr](#vectorofsharedptrofobjectptr)
   - [VectorOfSharedPtrOfObject.reserve](#vectorofsharedptrofobjectreserve)
   - [VectorOfSharedPtrOfObject.resize](#vectorofsharedptrofobjectresize)
+  - [VectorOfSharedPtrOfObject.set](#vectorofsharedptrofobjectset)
   - [VectorOfSharedPtrOfObject.shrink\_to\_fit](#vectorofsharedptrofobjectshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfObject.sizeof](#vectorofsharedptrofobjectsizeof)
   - [VectorOfSharedPtrOfObject.sol::meta\_function::index](#vectorofsharedptrofobjectsolmeta%5C_functionindex)
@@ -5229,20 +5421,24 @@
   - [VectorOfSharedPtrOfObject.swap](#vectorofsharedptrofobjectswap)
   - [VectorOfSharedPtrOfObject.table](#vectorofsharedptrofobjecttable)
 - [VectorOfSharedPtrOfObjectAnnotation](#vectorofsharedptrofobjectannotation)
+  - [VectorOfSharedPtrOfObjectAnnotation.sizeof\_value\_type](#vectorofsharedptrofobjectannotationsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfObjectAnnotation.new](#vectorofsharedptrofobjectannotationnew)
   - [VectorOfSharedPtrOfObjectAnnotation.\_\_type](#vectorofsharedptrofobjectannotation%5C_%5C_type)
   - [VectorOfSharedPtrOfObjectAnnotation.back](#vectorofsharedptrofobjectannotationback)
   - [VectorOfSharedPtrOfObjectAnnotation.capacity](#vectorofsharedptrofobjectannotationcapacity)
   - [VectorOfSharedPtrOfObjectAnnotation.clear](#vectorofsharedptrofobjectannotationclear)
+  - [VectorOfSharedPtrOfObjectAnnotation.copy](#vectorofsharedptrofobjectannotationcopy)
   - [VectorOfSharedPtrOfObjectAnnotation.data](#vectorofsharedptrofobjectannotationdata)
   - [VectorOfSharedPtrOfObjectAnnotation.empty](#vectorofsharedptrofobjectannotationempty)
   - [VectorOfSharedPtrOfObjectAnnotation.front](#vectorofsharedptrofobjectannotationfront)
+  - [VectorOfSharedPtrOfObjectAnnotation.get](#vectorofsharedptrofobjectannotationget)
   - [VectorOfSharedPtrOfObjectAnnotation.max\_size](#vectorofsharedptrofobjectannotationmax%5C_size)
   - [VectorOfSharedPtrOfObjectAnnotation.operator==](#vectorofsharedptrofobjectannotationoperator)
   - [VectorOfSharedPtrOfObjectAnnotation.pop\_back](#vectorofsharedptrofobjectannotationpop%5C_back)
   - [VectorOfSharedPtrOfObjectAnnotation.ptr](#vectorofsharedptrofobjectannotationptr)
   - [VectorOfSharedPtrOfObjectAnnotation.reserve](#vectorofsharedptrofobjectannotationreserve)
   - [VectorOfSharedPtrOfObjectAnnotation.resize](#vectorofsharedptrofobjectannotationresize)
+  - [VectorOfSharedPtrOfObjectAnnotation.set](#vectorofsharedptrofobjectannotationset)
   - [VectorOfSharedPtrOfObjectAnnotation.shrink\_to\_fit](#vectorofsharedptrofobjectannotationshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfObjectAnnotation.sizeof](#vectorofsharedptrofobjectannotationsizeof)
   - [VectorOfSharedPtrOfObjectAnnotation.sol::meta\_function::index](#vectorofsharedptrofobjectannotationsolmeta%5C_functionindex)
@@ -5251,20 +5447,24 @@
   - [VectorOfSharedPtrOfObjectAnnotation.swap](#vectorofsharedptrofobjectannotationswap)
   - [VectorOfSharedPtrOfObjectAnnotation.table](#vectorofsharedptrofobjectannotationtable)
 - [VectorOfSharedPtrOfPacketFactoryConfig](#vectorofsharedptrofpacketfactoryconfig)
+  - [VectorOfSharedPtrOfPacketFactoryConfig.sizeof\_value\_type](#vectorofsharedptrofpacketfactoryconfigsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfPacketFactoryConfig.new](#vectorofsharedptrofpacketfactoryconfignew)
   - [VectorOfSharedPtrOfPacketFactoryConfig.\_\_type](#vectorofsharedptrofpacketfactoryconfig%5C_%5C_type)
   - [VectorOfSharedPtrOfPacketFactoryConfig.back](#vectorofsharedptrofpacketfactoryconfigback)
   - [VectorOfSharedPtrOfPacketFactoryConfig.capacity](#vectorofsharedptrofpacketfactoryconfigcapacity)
   - [VectorOfSharedPtrOfPacketFactoryConfig.clear](#vectorofsharedptrofpacketfactoryconfigclear)
+  - [VectorOfSharedPtrOfPacketFactoryConfig.copy](#vectorofsharedptrofpacketfactoryconfigcopy)
   - [VectorOfSharedPtrOfPacketFactoryConfig.data](#vectorofsharedptrofpacketfactoryconfigdata)
   - [VectorOfSharedPtrOfPacketFactoryConfig.empty](#vectorofsharedptrofpacketfactoryconfigempty)
   - [VectorOfSharedPtrOfPacketFactoryConfig.front](#vectorofsharedptrofpacketfactoryconfigfront)
+  - [VectorOfSharedPtrOfPacketFactoryConfig.get](#vectorofsharedptrofpacketfactoryconfigget)
   - [VectorOfSharedPtrOfPacketFactoryConfig.max\_size](#vectorofsharedptrofpacketfactoryconfigmax%5C_size)
   - [VectorOfSharedPtrOfPacketFactoryConfig.operator==](#vectorofsharedptrofpacketfactoryconfigoperator)
   - [VectorOfSharedPtrOfPacketFactoryConfig.pop\_back](#vectorofsharedptrofpacketfactoryconfigpop%5C_back)
   - [VectorOfSharedPtrOfPacketFactoryConfig.ptr](#vectorofsharedptrofpacketfactoryconfigptr)
   - [VectorOfSharedPtrOfPacketFactoryConfig.reserve](#vectorofsharedptrofpacketfactoryconfigreserve)
   - [VectorOfSharedPtrOfPacketFactoryConfig.resize](#vectorofsharedptrofpacketfactoryconfigresize)
+  - [VectorOfSharedPtrOfPacketFactoryConfig.set](#vectorofsharedptrofpacketfactoryconfigset)
   - [VectorOfSharedPtrOfPacketFactoryConfig.shrink\_to\_fit](#vectorofsharedptrofpacketfactoryconfigshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfPacketFactoryConfig.sizeof](#vectorofsharedptrofpacketfactoryconfigsizeof)
   - [VectorOfSharedPtrOfPacketFactoryConfig.sol::meta\_function::index](#vectorofsharedptrofpacketfactoryconfigsolmeta%5C_functionindex)
@@ -5273,20 +5473,24 @@
   - [VectorOfSharedPtrOfPacketFactoryConfig.swap](#vectorofsharedptrofpacketfactoryconfigswap)
   - [VectorOfSharedPtrOfPacketFactoryConfig.table](#vectorofsharedptrofpacketfactoryconfigtable)
 - [VectorOfSharedPtrOfPacketGeneratorConfig](#vectorofsharedptrofpacketgeneratorconfig)
+  - [VectorOfSharedPtrOfPacketGeneratorConfig.sizeof\_value\_type](#vectorofsharedptrofpacketgeneratorconfigsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.new](#vectorofsharedptrofpacketgeneratorconfignew)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.\_\_type](#vectorofsharedptrofpacketgeneratorconfig%5C_%5C_type)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.back](#vectorofsharedptrofpacketgeneratorconfigback)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.capacity](#vectorofsharedptrofpacketgeneratorconfigcapacity)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.clear](#vectorofsharedptrofpacketgeneratorconfigclear)
+  - [VectorOfSharedPtrOfPacketGeneratorConfig.copy](#vectorofsharedptrofpacketgeneratorconfigcopy)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.data](#vectorofsharedptrofpacketgeneratorconfigdata)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.empty](#vectorofsharedptrofpacketgeneratorconfigempty)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.front](#vectorofsharedptrofpacketgeneratorconfigfront)
+  - [VectorOfSharedPtrOfPacketGeneratorConfig.get](#vectorofsharedptrofpacketgeneratorconfigget)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.max\_size](#vectorofsharedptrofpacketgeneratorconfigmax%5C_size)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.operator==](#vectorofsharedptrofpacketgeneratorconfigoperator)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.pop\_back](#vectorofsharedptrofpacketgeneratorconfigpop%5C_back)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.ptr](#vectorofsharedptrofpacketgeneratorconfigptr)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.reserve](#vectorofsharedptrofpacketgeneratorconfigreserve)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.resize](#vectorofsharedptrofpacketgeneratorconfigresize)
+  - [VectorOfSharedPtrOfPacketGeneratorConfig.set](#vectorofsharedptrofpacketgeneratorconfigset)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.shrink\_to\_fit](#vectorofsharedptrofpacketgeneratorconfigshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.sizeof](#vectorofsharedptrofpacketgeneratorconfigsizeof)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.sol::meta\_function::index](#vectorofsharedptrofpacketgeneratorconfigsolmeta%5C_functionindex)
@@ -5295,20 +5499,24 @@
   - [VectorOfSharedPtrOfPacketGeneratorConfig.swap](#vectorofsharedptrofpacketgeneratorconfigswap)
   - [VectorOfSharedPtrOfPacketGeneratorConfig.table](#vectorofsharedptrofpacketgeneratorconfigtable)
 - [VectorOfSharedPtrOfRasterization\_Interval](#vectorofsharedptrofrasterization%5C_interval)
+  - [VectorOfSharedPtrOfRasterization\_Interval.sizeof\_value\_type](#vectorofsharedptrofrasterization%5C_intervalsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfRasterization\_Interval.new](#vectorofsharedptrofrasterization%5C_intervalnew)
   - [VectorOfSharedPtrOfRasterization\_Interval.\_\_type](#vectorofsharedptrofrasterization%5C_interval%5C_%5C_type)
   - [VectorOfSharedPtrOfRasterization\_Interval.back](#vectorofsharedptrofrasterization%5C_intervalback)
   - [VectorOfSharedPtrOfRasterization\_Interval.capacity](#vectorofsharedptrofrasterization%5C_intervalcapacity)
   - [VectorOfSharedPtrOfRasterization\_Interval.clear](#vectorofsharedptrofrasterization%5C_intervalclear)
+  - [VectorOfSharedPtrOfRasterization\_Interval.copy](#vectorofsharedptrofrasterization%5C_intervalcopy)
   - [VectorOfSharedPtrOfRasterization\_Interval.data](#vectorofsharedptrofrasterization%5C_intervaldata)
   - [VectorOfSharedPtrOfRasterization\_Interval.empty](#vectorofsharedptrofrasterization%5C_intervalempty)
   - [VectorOfSharedPtrOfRasterization\_Interval.front](#vectorofsharedptrofrasterization%5C_intervalfront)
+  - [VectorOfSharedPtrOfRasterization\_Interval.get](#vectorofsharedptrofrasterization%5C_intervalget)
   - [VectorOfSharedPtrOfRasterization\_Interval.max\_size](#vectorofsharedptrofrasterization%5C_intervalmax%5C_size)
   - [VectorOfSharedPtrOfRasterization\_Interval.operator==](#vectorofsharedptrofrasterization%5C_intervaloperator)
   - [VectorOfSharedPtrOfRasterization\_Interval.pop\_back](#vectorofsharedptrofrasterization%5C_intervalpop%5C_back)
   - [VectorOfSharedPtrOfRasterization\_Interval.ptr](#vectorofsharedptrofrasterization%5C_intervalptr)
   - [VectorOfSharedPtrOfRasterization\_Interval.reserve](#vectorofsharedptrofrasterization%5C_intervalreserve)
   - [VectorOfSharedPtrOfRasterization\_Interval.resize](#vectorofsharedptrofrasterization%5C_intervalresize)
+  - [VectorOfSharedPtrOfRasterization\_Interval.set](#vectorofsharedptrofrasterization%5C_intervalset)
   - [VectorOfSharedPtrOfRasterization\_Interval.shrink\_to\_fit](#vectorofsharedptrofrasterization%5C_intervalshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfRasterization\_Interval.sizeof](#vectorofsharedptrofrasterization%5C_intervalsizeof)
   - [VectorOfSharedPtrOfRasterization\_Interval.sol::meta\_function::index](#vectorofsharedptrofrasterization%5C_intervalsolmeta%5C_functionindex)
@@ -5317,20 +5525,24 @@
   - [VectorOfSharedPtrOfRasterization\_Interval.swap](#vectorofsharedptrofrasterization%5C_intervalswap)
   - [VectorOfSharedPtrOfRasterization\_Interval.table](#vectorofsharedptrofrasterization%5C_intervaltable)
 - [VectorOfSharedPtrOfRenderAnnotation](#vectorofsharedptrofrenderannotation)
+  - [VectorOfSharedPtrOfRenderAnnotation.sizeof\_value\_type](#vectorofsharedptrofrenderannotationsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfRenderAnnotation.new](#vectorofsharedptrofrenderannotationnew)
   - [VectorOfSharedPtrOfRenderAnnotation.\_\_type](#vectorofsharedptrofrenderannotation%5C_%5C_type)
   - [VectorOfSharedPtrOfRenderAnnotation.back](#vectorofsharedptrofrenderannotationback)
   - [VectorOfSharedPtrOfRenderAnnotation.capacity](#vectorofsharedptrofrenderannotationcapacity)
   - [VectorOfSharedPtrOfRenderAnnotation.clear](#vectorofsharedptrofrenderannotationclear)
+  - [VectorOfSharedPtrOfRenderAnnotation.copy](#vectorofsharedptrofrenderannotationcopy)
   - [VectorOfSharedPtrOfRenderAnnotation.data](#vectorofsharedptrofrenderannotationdata)
   - [VectorOfSharedPtrOfRenderAnnotation.empty](#vectorofsharedptrofrenderannotationempty)
   - [VectorOfSharedPtrOfRenderAnnotation.front](#vectorofsharedptrofrenderannotationfront)
+  - [VectorOfSharedPtrOfRenderAnnotation.get](#vectorofsharedptrofrenderannotationget)
   - [VectorOfSharedPtrOfRenderAnnotation.max\_size](#vectorofsharedptrofrenderannotationmax%5C_size)
   - [VectorOfSharedPtrOfRenderAnnotation.operator==](#vectorofsharedptrofrenderannotationoperator)
   - [VectorOfSharedPtrOfRenderAnnotation.pop\_back](#vectorofsharedptrofrenderannotationpop%5C_back)
   - [VectorOfSharedPtrOfRenderAnnotation.ptr](#vectorofsharedptrofrenderannotationptr)
   - [VectorOfSharedPtrOfRenderAnnotation.reserve](#vectorofsharedptrofrenderannotationreserve)
   - [VectorOfSharedPtrOfRenderAnnotation.resize](#vectorofsharedptrofrenderannotationresize)
+  - [VectorOfSharedPtrOfRenderAnnotation.set](#vectorofsharedptrofrenderannotationset)
   - [VectorOfSharedPtrOfRenderAnnotation.shrink\_to\_fit](#vectorofsharedptrofrenderannotationshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfRenderAnnotation.sizeof](#vectorofsharedptrofrenderannotationsizeof)
   - [VectorOfSharedPtrOfRenderAnnotation.sol::meta\_function::index](#vectorofsharedptrofrenderannotationsolmeta%5C_functionindex)
@@ -5339,20 +5551,24 @@
   - [VectorOfSharedPtrOfRenderAnnotation.swap](#vectorofsharedptrofrenderannotationswap)
   - [VectorOfSharedPtrOfRenderAnnotation.table](#vectorofsharedptrofrenderannotationtable)
 - [VectorOfSharedPtrOfRenderAnnotation\_Point](#vectorofsharedptrofrenderannotation%5C_point)
+  - [VectorOfSharedPtrOfRenderAnnotation\_Point.sizeof\_value\_type](#vectorofsharedptrofrenderannotation%5C_pointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.new](#vectorofsharedptrofrenderannotation%5C_pointnew)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.\_\_type](#vectorofsharedptrofrenderannotation%5C_point%5C_%5C_type)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.back](#vectorofsharedptrofrenderannotation%5C_pointback)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.capacity](#vectorofsharedptrofrenderannotation%5C_pointcapacity)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.clear](#vectorofsharedptrofrenderannotation%5C_pointclear)
+  - [VectorOfSharedPtrOfRenderAnnotation\_Point.copy](#vectorofsharedptrofrenderannotation%5C_pointcopy)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.data](#vectorofsharedptrofrenderannotation%5C_pointdata)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.empty](#vectorofsharedptrofrenderannotation%5C_pointempty)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.front](#vectorofsharedptrofrenderannotation%5C_pointfront)
+  - [VectorOfSharedPtrOfRenderAnnotation\_Point.get](#vectorofsharedptrofrenderannotation%5C_pointget)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.max\_size](#vectorofsharedptrofrenderannotation%5C_pointmax%5C_size)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.operator==](#vectorofsharedptrofrenderannotation%5C_pointoperator)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.pop\_back](#vectorofsharedptrofrenderannotation%5C_pointpop%5C_back)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.ptr](#vectorofsharedptrofrenderannotation%5C_pointptr)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.reserve](#vectorofsharedptrofrenderannotation%5C_pointreserve)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.resize](#vectorofsharedptrofrenderannotation%5C_pointresize)
+  - [VectorOfSharedPtrOfRenderAnnotation\_Point.set](#vectorofsharedptrofrenderannotation%5C_pointset)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.shrink\_to\_fit](#vectorofsharedptrofrenderannotation%5C_pointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.sizeof](#vectorofsharedptrofrenderannotation%5C_pointsizeof)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.sol::meta\_function::index](#vectorofsharedptrofrenderannotation%5C_pointsolmeta%5C_functionindex)
@@ -5361,20 +5577,24 @@
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.swap](#vectorofsharedptrofrenderannotation%5C_pointswap)
   - [VectorOfSharedPtrOfRenderAnnotation\_Point.table](#vectorofsharedptrofrenderannotation%5C_pointtable)
 - [VectorOfSharedPtrOfSkeleton](#vectorofsharedptrofskeleton)
+  - [VectorOfSharedPtrOfSkeleton.sizeof\_value\_type](#vectorofsharedptrofskeletonsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfSkeleton.new](#vectorofsharedptrofskeletonnew)
   - [VectorOfSharedPtrOfSkeleton.\_\_type](#vectorofsharedptrofskeleton%5C_%5C_type)
   - [VectorOfSharedPtrOfSkeleton.back](#vectorofsharedptrofskeletonback)
   - [VectorOfSharedPtrOfSkeleton.capacity](#vectorofsharedptrofskeletoncapacity)
   - [VectorOfSharedPtrOfSkeleton.clear](#vectorofsharedptrofskeletonclear)
+  - [VectorOfSharedPtrOfSkeleton.copy](#vectorofsharedptrofskeletoncopy)
   - [VectorOfSharedPtrOfSkeleton.data](#vectorofsharedptrofskeletondata)
   - [VectorOfSharedPtrOfSkeleton.empty](#vectorofsharedptrofskeletonempty)
   - [VectorOfSharedPtrOfSkeleton.front](#vectorofsharedptrofskeletonfront)
+  - [VectorOfSharedPtrOfSkeleton.get](#vectorofsharedptrofskeletonget)
   - [VectorOfSharedPtrOfSkeleton.max\_size](#vectorofsharedptrofskeletonmax%5C_size)
   - [VectorOfSharedPtrOfSkeleton.operator==](#vectorofsharedptrofskeletonoperator)
   - [VectorOfSharedPtrOfSkeleton.pop\_back](#vectorofsharedptrofskeletonpop%5C_back)
   - [VectorOfSharedPtrOfSkeleton.ptr](#vectorofsharedptrofskeletonptr)
   - [VectorOfSharedPtrOfSkeleton.reserve](#vectorofsharedptrofskeletonreserve)
   - [VectorOfSharedPtrOfSkeleton.resize](#vectorofsharedptrofskeletonresize)
+  - [VectorOfSharedPtrOfSkeleton.set](#vectorofsharedptrofskeletonset)
   - [VectorOfSharedPtrOfSkeleton.shrink\_to\_fit](#vectorofsharedptrofskeletonshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfSkeleton.sizeof](#vectorofsharedptrofskeletonsizeof)
   - [VectorOfSharedPtrOfSkeleton.sol::meta\_function::index](#vectorofsharedptrofskeletonsolmeta%5C_functionindex)
@@ -5383,20 +5603,24 @@
   - [VectorOfSharedPtrOfSkeleton.swap](#vectorofsharedptrofskeletonswap)
   - [VectorOfSharedPtrOfSkeleton.table](#vectorofsharedptrofskeletontable)
 - [VectorOfSharedPtrOfStatusHandlerConfig](#vectorofsharedptrofstatushandlerconfig)
+  - [VectorOfSharedPtrOfStatusHandlerConfig.sizeof\_value\_type](#vectorofsharedptrofstatushandlerconfigsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfStatusHandlerConfig.new](#vectorofsharedptrofstatushandlerconfignew)
   - [VectorOfSharedPtrOfStatusHandlerConfig.\_\_type](#vectorofsharedptrofstatushandlerconfig%5C_%5C_type)
   - [VectorOfSharedPtrOfStatusHandlerConfig.back](#vectorofsharedptrofstatushandlerconfigback)
   - [VectorOfSharedPtrOfStatusHandlerConfig.capacity](#vectorofsharedptrofstatushandlerconfigcapacity)
   - [VectorOfSharedPtrOfStatusHandlerConfig.clear](#vectorofsharedptrofstatushandlerconfigclear)
+  - [VectorOfSharedPtrOfStatusHandlerConfig.copy](#vectorofsharedptrofstatushandlerconfigcopy)
   - [VectorOfSharedPtrOfStatusHandlerConfig.data](#vectorofsharedptrofstatushandlerconfigdata)
   - [VectorOfSharedPtrOfStatusHandlerConfig.empty](#vectorofsharedptrofstatushandlerconfigempty)
   - [VectorOfSharedPtrOfStatusHandlerConfig.front](#vectorofsharedptrofstatushandlerconfigfront)
+  - [VectorOfSharedPtrOfStatusHandlerConfig.get](#vectorofsharedptrofstatushandlerconfigget)
   - [VectorOfSharedPtrOfStatusHandlerConfig.max\_size](#vectorofsharedptrofstatushandlerconfigmax%5C_size)
   - [VectorOfSharedPtrOfStatusHandlerConfig.operator==](#vectorofsharedptrofstatushandlerconfigoperator)
   - [VectorOfSharedPtrOfStatusHandlerConfig.pop\_back](#vectorofsharedptrofstatushandlerconfigpop%5C_back)
   - [VectorOfSharedPtrOfStatusHandlerConfig.ptr](#vectorofsharedptrofstatushandlerconfigptr)
   - [VectorOfSharedPtrOfStatusHandlerConfig.reserve](#vectorofsharedptrofstatushandlerconfigreserve)
   - [VectorOfSharedPtrOfStatusHandlerConfig.resize](#vectorofsharedptrofstatushandlerconfigresize)
+  - [VectorOfSharedPtrOfStatusHandlerConfig.set](#vectorofsharedptrofstatushandlerconfigset)
   - [VectorOfSharedPtrOfStatusHandlerConfig.shrink\_to\_fit](#vectorofsharedptrofstatushandlerconfigshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfStatusHandlerConfig.sizeof](#vectorofsharedptrofstatushandlerconfigsizeof)
   - [VectorOfSharedPtrOfStatusHandlerConfig.sol::meta\_function::index](#vectorofsharedptrofstatushandlerconfigsolmeta%5C_functionindex)
@@ -5405,20 +5629,24 @@
   - [VectorOfSharedPtrOfStatusHandlerConfig.swap](#vectorofsharedptrofstatushandlerconfigswap)
   - [VectorOfSharedPtrOfStatusHandlerConfig.table](#vectorofsharedptrofstatushandlerconfigtable)
 - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classifications)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.sizeof\_value\_type](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationssizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.new](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsnew)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.\_\_type](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classifications%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.back](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsback)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.capacity](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationscapacity)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.clear](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsclear)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.copy](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationscopy)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.data](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsdata)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.empty](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsempty)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.front](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsfront)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.get](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsget)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.max\_size](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.operator==](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsoperator)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.pop\_back](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationspop%5C_back)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.ptr](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsptr)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.reserve](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsreserve)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.resize](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsresize)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.set](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsset)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.shrink\_to\_fit](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.sizeof](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationssizeof)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.sol::meta\_function::index](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationssolmeta%5C_functionindex)
@@ -5427,20 +5655,24 @@
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.swap](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationsswap)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.table](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_classificationstable)
 - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embedding)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.sizeof\_value\_type](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.new](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingnew)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.\_\_type](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embedding%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.back](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingback)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.capacity](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingcapacity)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.clear](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingclear)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.copy](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingcopy)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.data](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingdata)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.empty](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingempty)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.front](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingfront)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.get](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingget)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.max\_size](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.operator==](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingoperator)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.pop\_back](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.ptr](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingptr)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.reserve](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingreserve)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.resize](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingresize)
+  - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.set](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingset)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.shrink\_to\_fit](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.sizeof](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingsizeof)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.sol::meta\_function::index](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingsolmeta%5C_functionindex)
@@ -5449,20 +5681,24 @@
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.swap](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingswap)
   - [VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.table](#vectorofsharedptroftasks%5C_components%5C_containers%5C_proto%5C_embeddingtable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_category)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorynew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_category%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorycapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorycopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorydata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorymax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorypop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysolmeta%5C_functionindex)
@@ -5471,20 +5707,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorytable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresult)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresult%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultsolmeta%5C_functionindex)
@@ -5493,20 +5733,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresultswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationresulttable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classifications)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationssizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classifications%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationscapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationscopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationspop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationssizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationssolmeta%5C_functionindex)
@@ -5515,20 +5759,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationsswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_classification%5C_result%5C_classificationstable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detection)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detection%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectioncapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectioncopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectiondata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionsolmeta%5C_functionindex)
@@ -5537,20 +5785,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectionswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_detections%5C_detectiontable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embedding)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embedding%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingsolmeta%5C_functionindex)
@@ -5559,20 +5811,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingtable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresult)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresult%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultsolmeta%5C_functionindex)
@@ -5581,20 +5837,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresultswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_embedding%5C_result%5C_embeddingresulttable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypoint)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointnew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypoint%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointsolmeta%5C_functionindex)
@@ -5603,20 +5863,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_keypoint%5C_normalizedkeypointtable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmark)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarknew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmark%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksolmeta%5C_functionindex)
@@ -5625,20 +5889,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarktable)
 - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmark)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.new](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarknew)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmark%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkback)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.capacity](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkcapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.clear](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.copy](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkcopy)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.data](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkdata)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.empty](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkempty)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.front](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.get](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkget)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.max\_size](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.operator==](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkptr)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.reserve](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.resize](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.set](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkset)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksolmeta%5C_functionindex)
@@ -5647,20 +5915,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.swap](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkswap)
   - [VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.table](#vectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarktable)
 - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detection)
+  - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.sizeof\_value\_type](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.new](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionnew)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.\_\_type](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detection%5C_%5C_type)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.back](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionback)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.capacity](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectioncapacity)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.clear](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionclear)
+  - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.copy](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectioncopy)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.data](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectiondata)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.empty](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionempty)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.front](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionfront)
+  - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.get](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionget)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.max\_size](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionmax%5C_size)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.operator==](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionoperator)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.pop\_back](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionpop%5C_back)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.ptr](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionptr)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.reserve](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionreserve)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.resize](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionresize)
+  - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.set](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionset)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.shrink\_to\_fit](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.sizeof](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionsizeof)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.sol::meta\_function::index](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionsolmeta%5C_functionindex)
@@ -5669,20 +5941,24 @@
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.swap](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectionswap)
   - [VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.table](#vectorofsharedptroftasks%5C_lua%5C_text%5C_language%5C_detector%5C_languagedetectorresult%5C_detectiontable)
 - [VectorOfSharedPtrOfTemplateArgument](#vectorofsharedptroftemplateargument)
+  - [VectorOfSharedPtrOfTemplateArgument.sizeof\_value\_type](#vectorofsharedptroftemplateargumentsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTemplateArgument.new](#vectorofsharedptroftemplateargumentnew)
   - [VectorOfSharedPtrOfTemplateArgument.\_\_type](#vectorofsharedptroftemplateargument%5C_%5C_type)
   - [VectorOfSharedPtrOfTemplateArgument.back](#vectorofsharedptroftemplateargumentback)
   - [VectorOfSharedPtrOfTemplateArgument.capacity](#vectorofsharedptroftemplateargumentcapacity)
   - [VectorOfSharedPtrOfTemplateArgument.clear](#vectorofsharedptroftemplateargumentclear)
+  - [VectorOfSharedPtrOfTemplateArgument.copy](#vectorofsharedptroftemplateargumentcopy)
   - [VectorOfSharedPtrOfTemplateArgument.data](#vectorofsharedptroftemplateargumentdata)
   - [VectorOfSharedPtrOfTemplateArgument.empty](#vectorofsharedptroftemplateargumentempty)
   - [VectorOfSharedPtrOfTemplateArgument.front](#vectorofsharedptroftemplateargumentfront)
+  - [VectorOfSharedPtrOfTemplateArgument.get](#vectorofsharedptroftemplateargumentget)
   - [VectorOfSharedPtrOfTemplateArgument.max\_size](#vectorofsharedptroftemplateargumentmax%5C_size)
   - [VectorOfSharedPtrOfTemplateArgument.operator==](#vectorofsharedptroftemplateargumentoperator)
   - [VectorOfSharedPtrOfTemplateArgument.pop\_back](#vectorofsharedptroftemplateargumentpop%5C_back)
   - [VectorOfSharedPtrOfTemplateArgument.ptr](#vectorofsharedptroftemplateargumentptr)
   - [VectorOfSharedPtrOfTemplateArgument.reserve](#vectorofsharedptroftemplateargumentreserve)
   - [VectorOfSharedPtrOfTemplateArgument.resize](#vectorofsharedptroftemplateargumentresize)
+  - [VectorOfSharedPtrOfTemplateArgument.set](#vectorofsharedptroftemplateargumentset)
   - [VectorOfSharedPtrOfTemplateArgument.shrink\_to\_fit](#vectorofsharedptroftemplateargumentshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTemplateArgument.sizeof](#vectorofsharedptroftemplateargumentsizeof)
   - [VectorOfSharedPtrOfTemplateArgument.sol::meta\_function::index](#vectorofsharedptroftemplateargumentsolmeta%5C_functionindex)
@@ -5691,20 +5967,24 @@
   - [VectorOfSharedPtrOfTemplateArgument.swap](#vectorofsharedptroftemplateargumentswap)
   - [VectorOfSharedPtrOfTemplateArgument.table](#vectorofsharedptroftemplateargumenttable)
 - [VectorOfSharedPtrOfTemplateDict\_Parameter](#vectorofsharedptroftemplatedict%5C_parameter)
+  - [VectorOfSharedPtrOfTemplateDict\_Parameter.sizeof\_value\_type](#vectorofsharedptroftemplatedict%5C_parametersizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.new](#vectorofsharedptroftemplatedict%5C_parameternew)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.\_\_type](#vectorofsharedptroftemplatedict%5C_parameter%5C_%5C_type)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.back](#vectorofsharedptroftemplatedict%5C_parameterback)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.capacity](#vectorofsharedptroftemplatedict%5C_parametercapacity)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.clear](#vectorofsharedptroftemplatedict%5C_parameterclear)
+  - [VectorOfSharedPtrOfTemplateDict\_Parameter.copy](#vectorofsharedptroftemplatedict%5C_parametercopy)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.data](#vectorofsharedptroftemplatedict%5C_parameterdata)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.empty](#vectorofsharedptroftemplatedict%5C_parameterempty)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.front](#vectorofsharedptroftemplatedict%5C_parameterfront)
+  - [VectorOfSharedPtrOfTemplateDict\_Parameter.get](#vectorofsharedptroftemplatedict%5C_parameterget)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.max\_size](#vectorofsharedptroftemplatedict%5C_parametermax%5C_size)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.operator==](#vectorofsharedptroftemplatedict%5C_parameteroperator)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.pop\_back](#vectorofsharedptroftemplatedict%5C_parameterpop%5C_back)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.ptr](#vectorofsharedptroftemplatedict%5C_parameterptr)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.reserve](#vectorofsharedptroftemplatedict%5C_parameterreserve)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.resize](#vectorofsharedptroftemplatedict%5C_parameterresize)
+  - [VectorOfSharedPtrOfTemplateDict\_Parameter.set](#vectorofsharedptroftemplatedict%5C_parameterset)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.shrink\_to\_fit](#vectorofsharedptroftemplatedict%5C_parametershrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.sizeof](#vectorofsharedptroftemplatedict%5C_parametersizeof)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.sol::meta\_function::index](#vectorofsharedptroftemplatedict%5C_parametersolmeta%5C_functionindex)
@@ -5713,20 +5993,24 @@
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.swap](#vectorofsharedptroftemplatedict%5C_parameterswap)
   - [VectorOfSharedPtrOfTemplateDict\_Parameter.table](#vectorofsharedptroftemplatedict%5C_parametertable)
 - [VectorOfSharedPtrOfTemplateExpression](#vectorofsharedptroftemplateexpression)
+  - [VectorOfSharedPtrOfTemplateExpression.sizeof\_value\_type](#vectorofsharedptroftemplateexpressionsizeof%5C_value%5C_type)
   - [VectorOfSharedPtrOfTemplateExpression.new](#vectorofsharedptroftemplateexpressionnew)
   - [VectorOfSharedPtrOfTemplateExpression.\_\_type](#vectorofsharedptroftemplateexpression%5C_%5C_type)
   - [VectorOfSharedPtrOfTemplateExpression.back](#vectorofsharedptroftemplateexpressionback)
   - [VectorOfSharedPtrOfTemplateExpression.capacity](#vectorofsharedptroftemplateexpressioncapacity)
   - [VectorOfSharedPtrOfTemplateExpression.clear](#vectorofsharedptroftemplateexpressionclear)
+  - [VectorOfSharedPtrOfTemplateExpression.copy](#vectorofsharedptroftemplateexpressioncopy)
   - [VectorOfSharedPtrOfTemplateExpression.data](#vectorofsharedptroftemplateexpressiondata)
   - [VectorOfSharedPtrOfTemplateExpression.empty](#vectorofsharedptroftemplateexpressionempty)
   - [VectorOfSharedPtrOfTemplateExpression.front](#vectorofsharedptroftemplateexpressionfront)
+  - [VectorOfSharedPtrOfTemplateExpression.get](#vectorofsharedptroftemplateexpressionget)
   - [VectorOfSharedPtrOfTemplateExpression.max\_size](#vectorofsharedptroftemplateexpressionmax%5C_size)
   - [VectorOfSharedPtrOfTemplateExpression.operator==](#vectorofsharedptroftemplateexpressionoperator)
   - [VectorOfSharedPtrOfTemplateExpression.pop\_back](#vectorofsharedptroftemplateexpressionpop%5C_back)
   - [VectorOfSharedPtrOfTemplateExpression.ptr](#vectorofsharedptroftemplateexpressionptr)
   - [VectorOfSharedPtrOfTemplateExpression.reserve](#vectorofsharedptroftemplateexpressionreserve)
   - [VectorOfSharedPtrOfTemplateExpression.resize](#vectorofsharedptroftemplateexpressionresize)
+  - [VectorOfSharedPtrOfTemplateExpression.set](#vectorofsharedptroftemplateexpressionset)
   - [VectorOfSharedPtrOfTemplateExpression.shrink\_to\_fit](#vectorofsharedptroftemplateexpressionshrink%5C_to%5C_fit)
   - [VectorOfSharedPtrOfTemplateExpression.sizeof](#vectorofsharedptroftemplateexpressionsizeof)
   - [VectorOfSharedPtrOfTemplateExpression.sol::meta\_function::index](#vectorofsharedptroftemplateexpressionsolmeta%5C_functionindex)
@@ -5735,20 +6019,24 @@
   - [VectorOfSharedPtrOfTemplateExpression.swap](#vectorofsharedptroftemplateexpressionswap)
   - [VectorOfSharedPtrOfTemplateExpression.table](#vectorofsharedptroftemplateexpressiontable)
 - [VectorOfString](#vectorofstring)
+  - [VectorOfString.sizeof\_value\_type](#vectorofstringsizeof%5C_value%5C_type)
   - [VectorOfString.new](#vectorofstringnew)
   - [VectorOfString.\_\_type](#vectorofstring%5C_%5C_type)
   - [VectorOfString.back](#vectorofstringback)
   - [VectorOfString.capacity](#vectorofstringcapacity)
   - [VectorOfString.clear](#vectorofstringclear)
+  - [VectorOfString.copy](#vectorofstringcopy)
   - [VectorOfString.data](#vectorofstringdata)
   - [VectorOfString.empty](#vectorofstringempty)
   - [VectorOfString.front](#vectorofstringfront)
+  - [VectorOfString.get](#vectorofstringget)
   - [VectorOfString.max\_size](#vectorofstringmax%5C_size)
   - [VectorOfString.operator==](#vectorofstringoperator)
   - [VectorOfString.pop\_back](#vectorofstringpop%5C_back)
   - [VectorOfString.ptr](#vectorofstringptr)
   - [VectorOfString.reserve](#vectorofstringreserve)
   - [VectorOfString.resize](#vectorofstringresize)
+  - [VectorOfString.set](#vectorofstringset)
   - [VectorOfString.shrink\_to\_fit](#vectorofstringshrink%5C_to%5C_fit)
   - [VectorOfString.sizeof](#vectorofstringsizeof)
   - [VectorOfString.sol::meta\_function::index](#vectorofstringsolmeta%5C_functionindex)
@@ -5757,20 +6045,24 @@
   - [VectorOfString.swap](#vectorofstringswap)
   - [VectorOfString.table](#vectorofstringtable)
 - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connection)
+  - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sizeof\_value\_type](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionsizeof%5C_value%5C_type)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.new](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionnew)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.\_\_type](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connection%5C_%5C_type)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.back](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionback)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.capacity](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectioncapacity)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.clear](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionclear)
+  - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.copy](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectioncopy)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.data](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectiondata)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.empty](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionempty)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.front](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionfront)
+  - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.get](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionget)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.max\_size](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionmax%5C_size)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.operator==](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionoperator)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.pop\_back](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionpop%5C_back)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.ptr](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionptr)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.reserve](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionreserve)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.resize](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionresize)
+  - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.set](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionset)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.shrink\_to\_fit](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionshrink%5C_to%5C_fit)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sizeof](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionsizeof)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sol::meta\_function::index](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionsolmeta%5C_functionindex)
@@ -5779,20 +6071,24 @@
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.swap](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectionswap)
   - [VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.table](#vectoroftasks%5C_lua%5C_vision%5C_face%5C_landmarker%5C_facelandmarksconnections%5C_connectiontable)
 - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connection)
+  - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sizeof\_value\_type](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionsizeof%5C_value%5C_type)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.new](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionnew)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.\_\_type](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connection%5C_%5C_type)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.back](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionback)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.capacity](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectioncapacity)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.clear](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionclear)
+  - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.copy](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectioncopy)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.data](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectiondata)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.empty](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionempty)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.front](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionfront)
+  - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.get](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionget)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.max\_size](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionmax%5C_size)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.operator==](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionoperator)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.pop\_back](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionpop%5C_back)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.ptr](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionptr)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.reserve](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionreserve)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.resize](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionresize)
+  - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.set](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionset)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.shrink\_to\_fit](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionshrink%5C_to%5C_fit)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sizeof](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionsizeof)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sol::meta\_function::index](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionsolmeta%5C_functionindex)
@@ -5801,20 +6097,24 @@
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.swap](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectionswap)
   - [VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.table](#vectoroftasks%5C_lua%5C_vision%5C_hand%5C_landmarker%5C_handlandmarksconnections%5C_connectiontable)
 - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connection)
+  - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sizeof\_value\_type](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionsizeof%5C_value%5C_type)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.new](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionnew)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.\_\_type](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connection%5C_%5C_type)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.back](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionback)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.capacity](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectioncapacity)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.clear](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionclear)
+  - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.copy](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectioncopy)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.data](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectiondata)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.empty](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionempty)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.front](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionfront)
+  - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.get](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionget)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.max\_size](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionmax%5C_size)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.operator==](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionoperator)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.pop\_back](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionpop%5C_back)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.ptr](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionptr)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.reserve](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionreserve)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.resize](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionresize)
+  - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.set](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionset)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.shrink\_to\_fit](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionshrink%5C_to%5C_fit)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sizeof](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionsizeof)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sol::meta\_function::index](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionsolmeta%5C_functionindex)
@@ -5823,20 +6123,24 @@
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.swap](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectionswap)
   - [VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.table](#vectoroftasks%5C_lua%5C_vision%5C_pose%5C_landmarker%5C_poselandmarksconnections%5C_connectiontable)
 - [VectorOfTupleIntAndInt](#vectoroftupleintandint)
+  - [VectorOfTupleIntAndInt.sizeof\_value\_type](#vectoroftupleintandintsizeof%5C_value%5C_type)
   - [VectorOfTupleIntAndInt.new](#vectoroftupleintandintnew)
   - [VectorOfTupleIntAndInt.\_\_type](#vectoroftupleintandint%5C_%5C_type)
   - [VectorOfTupleIntAndInt.back](#vectoroftupleintandintback)
   - [VectorOfTupleIntAndInt.capacity](#vectoroftupleintandintcapacity)
   - [VectorOfTupleIntAndInt.clear](#vectoroftupleintandintclear)
+  - [VectorOfTupleIntAndInt.copy](#vectoroftupleintandintcopy)
   - [VectorOfTupleIntAndInt.data](#vectoroftupleintandintdata)
   - [VectorOfTupleIntAndInt.empty](#vectoroftupleintandintempty)
   - [VectorOfTupleIntAndInt.front](#vectoroftupleintandintfront)
+  - [VectorOfTupleIntAndInt.get](#vectoroftupleintandintget)
   - [VectorOfTupleIntAndInt.max\_size](#vectoroftupleintandintmax%5C_size)
   - [VectorOfTupleIntAndInt.operator==](#vectoroftupleintandintoperator)
   - [VectorOfTupleIntAndInt.pop\_back](#vectoroftupleintandintpop%5C_back)
   - [VectorOfTupleIntAndInt.ptr](#vectoroftupleintandintptr)
   - [VectorOfTupleIntAndInt.reserve](#vectoroftupleintandintreserve)
   - [VectorOfTupleIntAndInt.resize](#vectoroftupleintandintresize)
+  - [VectorOfTupleIntAndInt.set](#vectoroftupleintandintset)
   - [VectorOfTupleIntAndInt.shrink\_to\_fit](#vectoroftupleintandintshrink%5C_to%5C_fit)
   - [VectorOfTupleIntAndInt.sizeof](#vectoroftupleintandintsizeof)
   - [VectorOfTupleIntAndInt.sol::meta\_function::index](#vectoroftupleintandintsolmeta%5C_functionindex)
@@ -5845,20 +6149,24 @@
   - [VectorOfTupleIntAndInt.swap](#vectoroftupleintandintswap)
   - [VectorOfTupleIntAndInt.table](#vectoroftupleintandinttable)
 - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmark)
+  - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.sizeof\_value\_type](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarksizeof%5C_value%5C_type)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.new](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarknew)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.\_\_type](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmark%5C_%5C_type)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.back](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkback)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.capacity](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkcapacity)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.clear](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkclear)
+  - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.copy](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkcopy)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.data](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkdata)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.empty](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkempty)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.front](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkfront)
+  - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.get](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkget)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.max\_size](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkmax%5C_size)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.operator==](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkoperator)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.pop\_back](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkpop%5C_back)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.ptr](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkptr)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.reserve](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkreserve)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.resize](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkresize)
+  - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.set](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkset)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.shrink\_to\_fit](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkshrink%5C_to%5C_fit)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.sizeof](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarksizeof)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.sol::meta\_function::index](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarksolmeta%5C_functionindex)
@@ -5867,20 +6175,24 @@
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.swap](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarkswap)
   - [VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.table](#vectoroftupleobjectron%5C_boxlandmarkandobjectron%5C_boxlandmarktable)
 - [VectorOfUint32\_t](#vectorofuint32%5C_t)
+  - [VectorOfUint32\_t.sizeof\_value\_type](#vectorofuint32%5C_tsizeof%5C_value%5C_type)
   - [VectorOfUint32\_t.new](#vectorofuint32%5C_tnew)
   - [VectorOfUint32\_t.\_\_type](#vectorofuint32%5C_t%5C_%5C_type)
   - [VectorOfUint32\_t.back](#vectorofuint32%5C_tback)
   - [VectorOfUint32\_t.capacity](#vectorofuint32%5C_tcapacity)
   - [VectorOfUint32\_t.clear](#vectorofuint32%5C_tclear)
+  - [VectorOfUint32\_t.copy](#vectorofuint32%5C_tcopy)
   - [VectorOfUint32\_t.data](#vectorofuint32%5C_tdata)
   - [VectorOfUint32\_t.empty](#vectorofuint32%5C_tempty)
   - [VectorOfUint32\_t.front](#vectorofuint32%5C_tfront)
+  - [VectorOfUint32\_t.get](#vectorofuint32%5C_tget)
   - [VectorOfUint32\_t.max\_size](#vectorofuint32%5C_tmax%5C_size)
   - [VectorOfUint32\_t.operator==](#vectorofuint32%5C_toperator)
   - [VectorOfUint32\_t.pop\_back](#vectorofuint32%5C_tpop%5C_back)
   - [VectorOfUint32\_t.ptr](#vectorofuint32%5C_tptr)
   - [VectorOfUint32\_t.reserve](#vectorofuint32%5C_treserve)
   - [VectorOfUint32\_t.resize](#vectorofuint32%5C_tresize)
+  - [VectorOfUint32\_t.set](#vectorofuint32%5C_tset)
   - [VectorOfUint32\_t.shrink\_to\_fit](#vectorofuint32%5C_tshrink%5C_to%5C_fit)
   - [VectorOfUint32\_t.sizeof](#vectorofuint32%5C_tsizeof)
   - [VectorOfUint32\_t.sol::meta\_function::index](#vectorofuint32%5C_tsolmeta%5C_functionindex)
@@ -5889,20 +6201,24 @@
   - [VectorOfUint32\_t.swap](#vectorofuint32%5C_tswap)
   - [VectorOfUint32\_t.table](#vectorofuint32%5C_ttable)
 - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_category)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof\_value\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysizeof%5C_value%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.new](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorynew)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.\_\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_category%5C_%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryback)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.capacity](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorycapacity)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.clear](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryclear)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.copy](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorycopy)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.data](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorydata)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.empty](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryempty)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.front](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryfront)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.get](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryget)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.max\_size](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorymax%5C_size)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.operator==](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryoperator)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.pop\_back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorypop%5C_back)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryptr)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.reserve](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryreserve)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.resize](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryresize)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.set](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryset)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.shrink\_to\_fit](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryshrink%5C_to%5C_fit)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysizeof)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sol::meta\_function::index](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorysolmeta%5C_functionindex)
@@ -5911,20 +6227,24 @@
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.swap](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categoryswap)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.table](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_category%5C_categorytable)
 - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmark)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof\_value\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksizeof%5C_value%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.new](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarknew)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.\_\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmark%5C_%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkback)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.capacity](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkcapacity)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.clear](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkclear)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.copy](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkcopy)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.data](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkdata)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.empty](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkempty)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.front](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkfront)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.get](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkget)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.max\_size](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkmax%5C_size)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.operator==](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkoperator)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.pop\_back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkpop%5C_back)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkptr)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.reserve](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkreserve)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.resize](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkresize)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.set](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkset)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.shrink\_to\_fit](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkshrink%5C_to%5C_fit)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksizeof)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sol::meta\_function::index](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarksolmeta%5C_functionindex)
@@ -5933,20 +6253,24 @@
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.swap](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarkswap)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.table](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_landmarktable)
 - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmark)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof\_value\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksizeof%5C_value%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.new](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarknew)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.\_\_type](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmark%5C_%5C_type)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkback)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.capacity](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkcapacity)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.clear](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkclear)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.copy](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkcopy)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.data](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkdata)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.empty](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkempty)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.front](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkfront)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.get](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkget)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.max\_size](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkmax%5C_size)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.operator==](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkoperator)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.pop\_back](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkpop%5C_back)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkptr)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.reserve](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkreserve)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.resize](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkresize)
+  - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.set](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkset)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.shrink\_to\_fit](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkshrink%5C_to%5C_fit)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksizeof)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sol::meta\_function::index](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarksolmeta%5C_functionindex)
@@ -5955,20 +6279,24 @@
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.swap](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarkswap)
   - [VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.table](#vectorofvectorofsharedptroftasks%5C_lua%5C_components%5C_containers%5C_landmark%5C_normalizedlandmarktable)
 - [VectorOf\_mediapipe\_lua\_Object](#vectorof%5C_mediapipe%5C_lua%5C_object)
+  - [VectorOf\_mediapipe\_lua\_Object.sizeof\_value\_type](#vectorof%5C_mediapipe%5C_lua%5C_objectsizeof%5C_value%5C_type)
   - [VectorOf\_mediapipe\_lua\_Object.new](#vectorof%5C_mediapipe%5C_lua%5C_objectnew)
   - [VectorOf\_mediapipe\_lua\_Object.\_\_type](#vectorof%5C_mediapipe%5C_lua%5C_object%5C_%5C_type)
   - [VectorOf\_mediapipe\_lua\_Object.back](#vectorof%5C_mediapipe%5C_lua%5C_objectback)
   - [VectorOf\_mediapipe\_lua\_Object.capacity](#vectorof%5C_mediapipe%5C_lua%5C_objectcapacity)
   - [VectorOf\_mediapipe\_lua\_Object.clear](#vectorof%5C_mediapipe%5C_lua%5C_objectclear)
+  - [VectorOf\_mediapipe\_lua\_Object.copy](#vectorof%5C_mediapipe%5C_lua%5C_objectcopy)
   - [VectorOf\_mediapipe\_lua\_Object.data](#vectorof%5C_mediapipe%5C_lua%5C_objectdata)
   - [VectorOf\_mediapipe\_lua\_Object.empty](#vectorof%5C_mediapipe%5C_lua%5C_objectempty)
   - [VectorOf\_mediapipe\_lua\_Object.front](#vectorof%5C_mediapipe%5C_lua%5C_objectfront)
+  - [VectorOf\_mediapipe\_lua\_Object.get](#vectorof%5C_mediapipe%5C_lua%5C_objectget)
   - [VectorOf\_mediapipe\_lua\_Object.max\_size](#vectorof%5C_mediapipe%5C_lua%5C_objectmax%5C_size)
   - [VectorOf\_mediapipe\_lua\_Object.operator==](#vectorof%5C_mediapipe%5C_lua%5C_objectoperator)
   - [VectorOf\_mediapipe\_lua\_Object.pop\_back](#vectorof%5C_mediapipe%5C_lua%5C_objectpop%5C_back)
   - [VectorOf\_mediapipe\_lua\_Object.ptr](#vectorof%5C_mediapipe%5C_lua%5C_objectptr)
   - [VectorOf\_mediapipe\_lua\_Object.reserve](#vectorof%5C_mediapipe%5C_lua%5C_objectreserve)
   - [VectorOf\_mediapipe\_lua\_Object.resize](#vectorof%5C_mediapipe%5C_lua%5C_objectresize)
+  - [VectorOf\_mediapipe\_lua\_Object.set](#vectorof%5C_mediapipe%5C_lua%5C_objectset)
   - [VectorOf\_mediapipe\_lua\_Object.shrink\_to\_fit](#vectorof%5C_mediapipe%5C_lua%5C_objectshrink%5C_to%5C_fit)
   - [VectorOf\_mediapipe\_lua\_Object.sizeof](#vectorof%5C_mediapipe%5C_lua%5C_objectsizeof)
   - [VectorOf\_mediapipe\_lua\_Object.sol::meta\_function::index](#vectorof%5C_mediapipe%5C_lua%5C_objectsolmeta%5C_functionindex)
@@ -46007,6 +46335,13 @@ lua:
 ```
 
 ```cpp
+std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>( std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> other );
+lua:
+    MapOfIntAndDrawing_utils_DrawingSpec.new( other ) -> <std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> object>
+    MapOfIntAndDrawing_utils_DrawingSpec( other ) -> <std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> object>
+```
+
+```cpp
 static std::shared_ptr<std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> MapOfIntAndDrawing_utils_DrawingSpec::new( std::vector<std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> pairs );
 lua:
     MapOfIntAndDrawing_utils_DrawingSpec.new( pairs ) -> retval
@@ -46026,6 +46361,14 @@ lua:
 bool MapOfIntAndDrawing_utils_DrawingSpec::count( int key );
 lua:
     oMapOfIntAndDrawing_utils_DrawingSpec:contains( key ) -> retval
+```
+
+### MapOfIntAndDrawing\_utils\_DrawingSpec.copy
+
+```cpp
+void MapOfIntAndDrawing_utils_DrawingSpec::operator=( const std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>& other );
+lua:
+    oMapOfIntAndDrawing_utils_DrawingSpec:copy( other ) -> None
 ```
 
 ### MapOfIntAndDrawing\_utils\_DrawingSpec.count
@@ -46123,6 +46466,14 @@ lua:
     oMapOfIntAndDrawing_utils_DrawingSpec:__newindex( key, value ) -> None
 ```
 
+### MapOfIntAndDrawing\_utils\_DrawingSpec.swap
+
+```cpp
+void MapOfIntAndDrawing_utils_DrawingSpec::swap( std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>& other );
+lua:
+    oMapOfIntAndDrawing_utils_DrawingSpec:swap( other ) -> None
+```
+
 ### MapOfIntAndDrawing\_utils\_DrawingSpec.table
 
 ```cpp
@@ -46140,6 +46491,13 @@ std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpe
 lua:
     MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.new() -> <std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> object>
     MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec() -> <std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> object>
+```
+
+```cpp
+std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>( std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> other );
+lua:
+    MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.new( other ) -> <std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> object>
+    MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec( other ) -> <std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> object>
 ```
 
 ```cpp
@@ -46162,6 +46520,14 @@ lua:
 bool MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::count( int key );
 lua:
     oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:contains( key ) -> retval
+```
+
+### MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.copy
+
+```cpp
+void MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator=( const std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>& other );
+lua:
+    oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:copy( other ) -> None
 ```
 
 ### MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.count
@@ -46259,6 +46625,14 @@ lua:
     oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:__newindex( key, value ) -> None
 ```
 
+### MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.swap
+
+```cpp
+void MapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::swap( std::map<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>& other );
+lua:
+    oMapOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:swap( other ) -> None
+```
+
 ### MapOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.table
 
 ```cpp
@@ -46276,6 +46650,13 @@ std::map<std::string, mediapipe::Packet>();
 lua:
     MapOfStringAndPacket.new() -> <std::map<std::string, mediapipe::Packet> object>
     MapOfStringAndPacket() -> <std::map<std::string, mediapipe::Packet> object>
+```
+
+```cpp
+std::map<std::string, mediapipe::Packet>( std::map<std::string, mediapipe::Packet> other );
+lua:
+    MapOfStringAndPacket.new( other ) -> <std::map<std::string, mediapipe::Packet> object>
+    MapOfStringAndPacket( other ) -> <std::map<std::string, mediapipe::Packet> object>
 ```
 
 ```cpp
@@ -46298,6 +46679,14 @@ lua:
 bool MapOfStringAndPacket::count( std::string key );
 lua:
     oMapOfStringAndPacket:contains( key ) -> retval
+```
+
+### MapOfStringAndPacket.copy
+
+```cpp
+void MapOfStringAndPacket::operator=( const std::map<std::string, mediapipe::Packet>& other );
+lua:
+    oMapOfStringAndPacket:copy( other ) -> None
 ```
 
 ### MapOfStringAndPacket.count
@@ -46395,6 +46784,14 @@ lua:
     oMapOfStringAndPacket:__newindex( key, value ) -> None
 ```
 
+### MapOfStringAndPacket.swap
+
+```cpp
+void MapOfStringAndPacket::swap( std::map<std::string, mediapipe::Packet>& other );
+lua:
+    oMapOfStringAndPacket:swap( other ) -> None
+```
+
 ### MapOfStringAndPacket.table
 
 ```cpp
@@ -46412,6 +46809,13 @@ std::map<std::string, mediapipe::lua::solution_base::PacketDataType>();
 lua:
     MapOfStringAndPacketDataType.new() -> <std::map<std::string, mediapipe::lua::solution_base::PacketDataType> object>
     MapOfStringAndPacketDataType() -> <std::map<std::string, mediapipe::lua::solution_base::PacketDataType> object>
+```
+
+```cpp
+std::map<std::string, mediapipe::lua::solution_base::PacketDataType>( std::map<std::string, mediapipe::lua::solution_base::PacketDataType> other );
+lua:
+    MapOfStringAndPacketDataType.new( other ) -> <std::map<std::string, mediapipe::lua::solution_base::PacketDataType> object>
+    MapOfStringAndPacketDataType( other ) -> <std::map<std::string, mediapipe::lua::solution_base::PacketDataType> object>
 ```
 
 ```cpp
@@ -46434,6 +46838,14 @@ lua:
 bool MapOfStringAndPacketDataType::count( std::string key );
 lua:
     oMapOfStringAndPacketDataType:contains( key ) -> retval
+```
+
+### MapOfStringAndPacketDataType.copy
+
+```cpp
+void MapOfStringAndPacketDataType::operator=( const std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& other );
+lua:
+    oMapOfStringAndPacketDataType:copy( other ) -> None
 ```
 
 ### MapOfStringAndPacketDataType.count
@@ -46531,6 +46943,14 @@ lua:
     oMapOfStringAndPacketDataType:__newindex( key, value ) -> None
 ```
 
+### MapOfStringAndPacketDataType.swap
+
+```cpp
+void MapOfStringAndPacketDataType::swap( std::map<std::string, mediapipe::lua::solution_base::PacketDataType>& other );
+lua:
+    oMapOfStringAndPacketDataType:swap( other ) -> None
+```
+
 ### MapOfStringAndPacketDataType.table
 
 ```cpp
@@ -46548,6 +46968,13 @@ std::map<std::string, ::mediapipe_lua::Object>();
 lua:
     MapOfStringAnd_mediapipe_lua_Object.new() -> <std::map<std::string, ::mediapipe_lua::Object> object>
     MapOfStringAnd_mediapipe_lua_Object() -> <std::map<std::string, ::mediapipe_lua::Object> object>
+```
+
+```cpp
+std::map<std::string, ::mediapipe_lua::Object>( std::map<std::string, ::mediapipe_lua::Object> other );
+lua:
+    MapOfStringAnd_mediapipe_lua_Object.new( other ) -> <std::map<std::string, ::mediapipe_lua::Object> object>
+    MapOfStringAnd_mediapipe_lua_Object( other ) -> <std::map<std::string, ::mediapipe_lua::Object> object>
 ```
 
 ```cpp
@@ -46570,6 +46997,14 @@ lua:
 bool MapOfStringAnd_mediapipe_lua_Object::count( std::string key );
 lua:
     oMapOfStringAnd_mediapipe_lua_Object:contains( key ) -> retval
+```
+
+### MapOfStringAnd\_mediapipe\_lua\_Object.copy
+
+```cpp
+void MapOfStringAnd_mediapipe_lua_Object::operator=( const std::map<std::string, ::mediapipe_lua::Object>& other );
+lua:
+    oMapOfStringAnd_mediapipe_lua_Object:copy( other ) -> None
 ```
 
 ### MapOfStringAnd\_mediapipe\_lua\_Object.count
@@ -46667,6 +47102,14 @@ lua:
     oMapOfStringAnd_mediapipe_lua_Object:__newindex( key, value ) -> None
 ```
 
+### MapOfStringAnd\_mediapipe\_lua\_Object.swap
+
+```cpp
+void MapOfStringAnd_mediapipe_lua_Object::swap( std::map<std::string, ::mediapipe_lua::Object>& other );
+lua:
+    oMapOfStringAnd_mediapipe_lua_Object:swap( other ) -> None
+```
+
 ### MapOfStringAnd\_mediapipe\_lua\_Object.table
 
 ```cpp
@@ -46676,6 +47119,14 @@ lua:
 ```
 
 ## VectorOfBool
+
+### VectorOfBool.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfBool::sizeof_value_type
+lua:
+    [propget] VectorOfBool.sizeof_value_type
+```
 
 ### VectorOfBool.new
 
@@ -46746,6 +47197,14 @@ lua:
 void VectorOfBool::clear();
 lua:
     oVectorOfBool:clear() -> None
+```
+
+### VectorOfBool.copy
+
+```cpp
+void VectorOfBool::operator=( const std::vector<bool>& other );
+lua:
+    oVectorOfBool:copy( other ) -> None
 ```
 
 ### VectorOfBool.empty
@@ -46876,6 +47335,14 @@ lua:
 
 ## VectorOfFloat
 
+### VectorOfFloat.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfFloat::sizeof_value_type
+lua:
+    [propget] VectorOfFloat.sizeof_value_type
+```
+
 ### VectorOfFloat.new
 
 ```cpp
@@ -46947,6 +47414,14 @@ lua:
     oVectorOfFloat:clear() -> None
 ```
 
+### VectorOfFloat.copy
+
+```cpp
+void VectorOfFloat::operator=( const std::vector<float>& other );
+lua:
+    oVectorOfFloat:copy( other ) -> None
+```
+
 ### VectorOfFloat.data
 
 ```cpp
@@ -46969,6 +47444,15 @@ lua:
 float VectorOfFloat::front();
 lua:
     oVectorOfFloat:front() -> retval
+```
+
+### VectorOfFloat.get
+
+```cpp
+static float VectorOfFloat::get( void*          ptr,
+                                 std::ptrdiff_t i );
+lua:
+    VectorOfFloat.get( ptr, i ) -> retval
 ```
 
 ### VectorOfFloat.max\_size
@@ -47004,16 +47488,16 @@ lua:
 ### VectorOfFloat.ptr
 
 ```cpp
-void* VectorOfFloat::data( size_t i );
+void* VectorOfFloat::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfFloat:ptr( i ) -> retval
+    oVectorOfFloat:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfFloat::ptr( void*  ptr,
-                                 size_t i );
+static void* VectorOfFloat::ptr( void*          ptr,
+                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfFloat.ptr( ptr, i ) -> retval
+    VectorOfFloat.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfFloat.reserve
@@ -47037,6 +47521,16 @@ void VectorOfFloat::resize( size_t       count,
                             const float& value );
 lua:
     oVectorOfFloat:resize( count, value ) -> None
+```
+
+### VectorOfFloat.set
+
+```cpp
+static void VectorOfFloat::set( void*          ptr,
+                                std::ptrdiff_t i,
+                                float          value );
+lua:
+    VectorOfFloat.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfFloat.shrink\_to\_fit
@@ -47097,6 +47591,14 @@ lua:
 ```
 
 ## VectorOfImage
+
+### VectorOfImage.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfImage::sizeof_value_type
+lua:
+    [propget] VectorOfImage.sizeof_value_type
+```
 
 ### VectorOfImage.new
 
@@ -47169,6 +47671,14 @@ lua:
     oVectorOfImage:clear() -> None
 ```
 
+### VectorOfImage.copy
+
+```cpp
+void VectorOfImage::operator=( const std::vector<mediapipe::Image>& other );
+lua:
+    oVectorOfImage:copy( other ) -> None
+```
+
 ### VectorOfImage.data
 
 ```cpp
@@ -47191,6 +47701,15 @@ lua:
 mediapipe::Image VectorOfImage::front();
 lua:
     oVectorOfImage:front() -> retval
+```
+
+### VectorOfImage.get
+
+```cpp
+static mediapipe::Image* VectorOfImage::get( void*          ptr,
+                                             std::ptrdiff_t i );
+lua:
+    VectorOfImage.get( ptr, i ) -> retval
 ```
 
 ### VectorOfImage.max\_size
@@ -47226,16 +47745,16 @@ lua:
 ### VectorOfImage.ptr
 
 ```cpp
-void* VectorOfImage::data( size_t i );
+void* VectorOfImage::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfImage:ptr( i ) -> retval
+    oVectorOfImage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfImage::ptr( void*  ptr,
-                                 size_t i );
+static void* VectorOfImage::ptr( void*          ptr,
+                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfImage.ptr( ptr, i ) -> retval
+    VectorOfImage.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfImage.reserve
@@ -47261,6 +47780,16 @@ lua:
     oVectorOfImage:resize( count, value ) -> None
 ```
 
+### VectorOfImage.set
+
+```cpp
+static void VectorOfImage::set( void*            ptr,
+                                std::ptrdiff_t   i,
+                                mediapipe::Image value );
+lua:
+    VectorOfImage.set( ptr, i, value ) -> None
+```
+
 ### VectorOfImage.shrink\_to\_fit
 
 ```cpp
@@ -47280,7 +47809,7 @@ lua:
 ### VectorOfImage.sol::meta\_function::index
 
 ```cpp
-mediapipe::Image VectorOfImage::sol::meta_function::index( size_t index );
+mediapipe::Image* VectorOfImage::sol::meta_function::index( size_t index );
 lua:
     oVectorOfImage:__index( index ) -> retval
 ```
@@ -47319,6 +47848,14 @@ lua:
 ```
 
 ## VectorOfInt
+
+### VectorOfInt.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfInt::sizeof_value_type
+lua:
+    [propget] VectorOfInt.sizeof_value_type
+```
 
 ### VectorOfInt.new
 
@@ -47391,6 +47928,14 @@ lua:
     oVectorOfInt:clear() -> None
 ```
 
+### VectorOfInt.copy
+
+```cpp
+void VectorOfInt::operator=( const std::vector<int>& other );
+lua:
+    oVectorOfInt:copy( other ) -> None
+```
+
 ### VectorOfInt.data
 
 ```cpp
@@ -47413,6 +47958,15 @@ lua:
 int VectorOfInt::front();
 lua:
     oVectorOfInt:front() -> retval
+```
+
+### VectorOfInt.get
+
+```cpp
+static int VectorOfInt::get( void*          ptr,
+                             std::ptrdiff_t i );
+lua:
+    VectorOfInt.get( ptr, i ) -> retval
 ```
 
 ### VectorOfInt.max\_size
@@ -47448,16 +48002,16 @@ lua:
 ### VectorOfInt.ptr
 
 ```cpp
-void* VectorOfInt::data( size_t i );
+void* VectorOfInt::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfInt:ptr( i ) -> retval
+    oVectorOfInt:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfInt::ptr( void*  ptr,
-                               size_t i );
+static void* VectorOfInt::ptr( void*          ptr,
+                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfInt.ptr( ptr, i ) -> retval
+    VectorOfInt.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfInt.reserve
@@ -47481,6 +48035,16 @@ void VectorOfInt::resize( size_t     count,
                           const int& value );
 lua:
     oVectorOfInt:resize( count, value ) -> None
+```
+
+### VectorOfInt.set
+
+```cpp
+static void VectorOfInt::set( void*          ptr,
+                              std::ptrdiff_t i,
+                              int            value );
+lua:
+    VectorOfInt.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfInt.shrink\_to\_fit
@@ -47541,6 +48105,14 @@ lua:
 ```
 
 ## VectorOfInt64\_t
+
+### VectorOfInt64\_t.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfInt64_t::sizeof_value_type
+lua:
+    [propget] VectorOfInt64_t.sizeof_value_type
+```
 
 ### VectorOfInt64\_t.new
 
@@ -47613,6 +48185,14 @@ lua:
     oVectorOfInt64_t:clear() -> None
 ```
 
+### VectorOfInt64\_t.copy
+
+```cpp
+void VectorOfInt64_t::operator=( const std::vector<int64_t>& other );
+lua:
+    oVectorOfInt64_t:copy( other ) -> None
+```
+
 ### VectorOfInt64\_t.data
 
 ```cpp
@@ -47635,6 +48215,15 @@ lua:
 int64_t VectorOfInt64_t::front();
 lua:
     oVectorOfInt64_t:front() -> retval
+```
+
+### VectorOfInt64\_t.get
+
+```cpp
+static int64_t VectorOfInt64_t::get( void*          ptr,
+                                     std::ptrdiff_t i );
+lua:
+    VectorOfInt64_t.get( ptr, i ) -> retval
 ```
 
 ### VectorOfInt64\_t.max\_size
@@ -47670,16 +48259,16 @@ lua:
 ### VectorOfInt64\_t.ptr
 
 ```cpp
-void* VectorOfInt64_t::data( size_t i );
+void* VectorOfInt64_t::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfInt64_t:ptr( i ) -> retval
+    oVectorOfInt64_t:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfInt64_t::ptr( void*  ptr,
-                                   size_t i );
+static void* VectorOfInt64_t::ptr( void*          ptr,
+                                   std::ptrdiff_t i = 0 );
 lua:
-    VectorOfInt64_t.ptr( ptr, i ) -> retval
+    VectorOfInt64_t.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfInt64\_t.reserve
@@ -47703,6 +48292,16 @@ void VectorOfInt64_t::resize( size_t         count,
                               const int64_t& value );
 lua:
     oVectorOfInt64_t:resize( count, value ) -> None
+```
+
+### VectorOfInt64\_t.set
+
+```cpp
+static void VectorOfInt64_t::set( void*          ptr,
+                                  std::ptrdiff_t i,
+                                  int64_t        value );
+lua:
+    VectorOfInt64_t.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfInt64\_t.shrink\_to\_fit
@@ -47763,6 +48362,14 @@ lua:
 ```
 
 ## VectorOfMat
+
+### VectorOfMat.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfMat::sizeof_value_type
+lua:
+    [propget] VectorOfMat.sizeof_value_type
+```
 
 ### VectorOfMat.new
 
@@ -47835,6 +48442,14 @@ lua:
     oVectorOfMat:clear() -> None
 ```
 
+### VectorOfMat.copy
+
+```cpp
+void VectorOfMat::operator=( const std::vector<cv::Mat>& other );
+lua:
+    oVectorOfMat:copy( other ) -> None
+```
+
 ### VectorOfMat.data
 
 ```cpp
@@ -47857,6 +48472,15 @@ lua:
 cv::Mat VectorOfMat::front();
 lua:
     oVectorOfMat:front() -> retval
+```
+
+### VectorOfMat.get
+
+```cpp
+static cv::Mat VectorOfMat::get( void*          ptr,
+                                 std::ptrdiff_t i );
+lua:
+    VectorOfMat.get( ptr, i ) -> retval
 ```
 
 ### VectorOfMat.max\_size
@@ -47892,16 +48516,16 @@ lua:
 ### VectorOfMat.ptr
 
 ```cpp
-void* VectorOfMat::data( size_t i );
+void* VectorOfMat::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfMat:ptr( i ) -> retval
+    oVectorOfMat:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfMat::ptr( void*  ptr,
-                               size_t i );
+static void* VectorOfMat::ptr( void*          ptr,
+                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfMat.ptr( ptr, i ) -> retval
+    VectorOfMat.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfMat.reserve
@@ -47925,6 +48549,16 @@ void VectorOfMat::resize( size_t         count,
                           const cv::Mat& value );
 lua:
     oVectorOfMat:resize( count, value ) -> None
+```
+
+### VectorOfMat.set
+
+```cpp
+static void VectorOfMat::set( void*          ptr,
+                              std::ptrdiff_t i,
+                              cv::Mat        value );
+lua:
+    VectorOfMat.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfMat.shrink\_to\_fit
@@ -47985,6 +48619,14 @@ lua:
 ```
 
 ## VectorOfObjectron\_ObjectronOutputs
+
+### VectorOfObjectron\_ObjectronOutputs.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfObjectron_ObjectronOutputs::sizeof_value_type
+lua:
+    [propget] VectorOfObjectron_ObjectronOutputs.sizeof_value_type
+```
 
 ### VectorOfObjectron\_ObjectronOutputs.new
 
@@ -48057,6 +48699,14 @@ lua:
     oVectorOfObjectron_ObjectronOutputs:clear() -> None
 ```
 
+### VectorOfObjectron\_ObjectronOutputs.copy
+
+```cpp
+void VectorOfObjectron_ObjectronOutputs::operator=( const std::vector<mediapipe::lua::solutions::objectron::ObjectronOutputs>& other );
+lua:
+    oVectorOfObjectron_ObjectronOutputs:copy( other ) -> None
+```
+
 ### VectorOfObjectron\_ObjectronOutputs.data
 
 ```cpp
@@ -48079,6 +48729,15 @@ lua:
 mediapipe::lua::solutions::objectron::ObjectronOutputs VectorOfObjectron_ObjectronOutputs::front();
 lua:
     oVectorOfObjectron_ObjectronOutputs:front() -> retval
+```
+
+### VectorOfObjectron\_ObjectronOutputs.get
+
+```cpp
+static mediapipe::lua::solutions::objectron::ObjectronOutputs* VectorOfObjectron_ObjectronOutputs::get( void*          ptr,
+                                                                                                        std::ptrdiff_t i );
+lua:
+    VectorOfObjectron_ObjectronOutputs.get( ptr, i ) -> retval
 ```
 
 ### VectorOfObjectron\_ObjectronOutputs.max\_size
@@ -48114,16 +48773,16 @@ lua:
 ### VectorOfObjectron\_ObjectronOutputs.ptr
 
 ```cpp
-void* VectorOfObjectron_ObjectronOutputs::data( size_t i );
+void* VectorOfObjectron_ObjectronOutputs::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfObjectron_ObjectronOutputs:ptr( i ) -> retval
+    oVectorOfObjectron_ObjectronOutputs:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfObjectron_ObjectronOutputs::ptr( void*  ptr,
-                                                      size_t i );
+static void* VectorOfObjectron_ObjectronOutputs::ptr( void*          ptr,
+                                                      std::ptrdiff_t i = 0 );
 lua:
-    VectorOfObjectron_ObjectronOutputs.ptr( ptr, i ) -> retval
+    VectorOfObjectron_ObjectronOutputs.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfObjectron\_ObjectronOutputs.reserve
@@ -48149,6 +48808,16 @@ lua:
     oVectorOfObjectron_ObjectronOutputs:resize( count, value ) -> None
 ```
 
+### VectorOfObjectron\_ObjectronOutputs.set
+
+```cpp
+static void VectorOfObjectron_ObjectronOutputs::set( void*                                                  ptr,
+                                                     std::ptrdiff_t                                         i,
+                                                     mediapipe::lua::solutions::objectron::ObjectronOutputs value );
+lua:
+    VectorOfObjectron_ObjectronOutputs.set( ptr, i, value ) -> None
+```
+
 ### VectorOfObjectron\_ObjectronOutputs.shrink\_to\_fit
 
 ```cpp
@@ -48168,7 +48837,7 @@ lua:
 ### VectorOfObjectron\_ObjectronOutputs.sol::meta\_function::index
 
 ```cpp
-mediapipe::lua::solutions::objectron::ObjectronOutputs VectorOfObjectron_ObjectronOutputs::sol::meta_function::index( size_t index );
+mediapipe::lua::solutions::objectron::ObjectronOutputs* VectorOfObjectron_ObjectronOutputs::sol::meta_function::index( size_t index );
 lua:
     oVectorOfObjectron_ObjectronOutputs:__index( index ) -> retval
 ```
@@ -48207,6 +48876,14 @@ lua:
 ```
 
 ## VectorOfPacket
+
+### VectorOfPacket.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPacket::sizeof_value_type
+lua:
+    [propget] VectorOfPacket.sizeof_value_type
+```
 
 ### VectorOfPacket.new
 
@@ -48279,6 +48956,14 @@ lua:
     oVectorOfPacket:clear() -> None
 ```
 
+### VectorOfPacket.copy
+
+```cpp
+void VectorOfPacket::operator=( const std::vector<mediapipe::Packet>& other );
+lua:
+    oVectorOfPacket:copy( other ) -> None
+```
+
 ### VectorOfPacket.data
 
 ```cpp
@@ -48301,6 +48986,15 @@ lua:
 mediapipe::Packet VectorOfPacket::front();
 lua:
     oVectorOfPacket:front() -> retval
+```
+
+### VectorOfPacket.get
+
+```cpp
+static mediapipe::Packet* VectorOfPacket::get( void*          ptr,
+                                               std::ptrdiff_t i );
+lua:
+    VectorOfPacket.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPacket.max\_size
@@ -48336,16 +49030,16 @@ lua:
 ### VectorOfPacket.ptr
 
 ```cpp
-void* VectorOfPacket::data( size_t i );
+void* VectorOfPacket::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPacket:ptr( i ) -> retval
+    oVectorOfPacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPacket::ptr( void*  ptr,
-                                  size_t i );
+static void* VectorOfPacket::ptr( void*          ptr,
+                                  std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPacket.ptr( ptr, i ) -> retval
+    VectorOfPacket.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPacket.reserve
@@ -48371,6 +49065,16 @@ lua:
     oVectorOfPacket:resize( count, value ) -> None
 ```
 
+### VectorOfPacket.set
+
+```cpp
+static void VectorOfPacket::set( void*             ptr,
+                                 std::ptrdiff_t    i,
+                                 mediapipe::Packet value );
+lua:
+    VectorOfPacket.set( ptr, i, value ) -> None
+```
+
 ### VectorOfPacket.shrink\_to\_fit
 
 ```cpp
@@ -48390,7 +49094,7 @@ lua:
 ### VectorOfPacket.sol::meta\_function::index
 
 ```cpp
-mediapipe::Packet VectorOfPacket::sol::meta_function::index( size_t index );
+mediapipe::Packet* VectorOfPacket::sol::meta_function::index( size_t index );
 lua:
     oVectorOfPacket:__index( index ) -> retval
 ```
@@ -48429,6 +49133,14 @@ lua:
 ```
 
 ## VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec
+
+### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOfIntAndDrawing_utils_DrawingSpec::sizeof_value_type
+lua:
+    [propget] VectorOfPairOfIntAndDrawing_utils_DrawingSpec.sizeof_value_type
+```
 
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.new
 
@@ -48501,6 +49213,14 @@ lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:clear() -> None
 ```
 
+### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.copy
+
+```cpp
+void VectorOfPairOfIntAndDrawing_utils_DrawingSpec::operator=( const std::vector<std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>& other );
+lua:
+    oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:copy( other ) -> None
+```
+
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.data
 
 ```cpp
@@ -48523,6 +49243,15 @@ lua:
 std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> VectorOfPairOfIntAndDrawing_utils_DrawingSpec::front();
 lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:front() -> retval
+```
+
+### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.get
+
+```cpp
+static std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> VectorOfPairOfIntAndDrawing_utils_DrawingSpec::get( void*          ptr,
+                                                                                                                                 std::ptrdiff_t i );
+lua:
+    VectorOfPairOfIntAndDrawing_utils_DrawingSpec.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.max\_size
@@ -48558,16 +49287,16 @@ lua:
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.ptr
 
 ```cpp
-void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::data( size_t i );
+void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:ptr( i ) -> retval
+    oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::ptr( void*  ptr,
-                                                                 size_t i );
+static void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
+                                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOfIntAndDrawing_utils_DrawingSpec.ptr( ptr, i ) -> retval
+    VectorOfPairOfIntAndDrawing_utils_DrawingSpec.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.reserve
@@ -48591,6 +49320,16 @@ void VectorOfPairOfIntAndDrawing_utils_DrawingSpec::resize( size_t              
                                                             const std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>& value );
 lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:resize( count, value ) -> None
+```
+
+### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.set
+
+```cpp
+static void VectorOfPairOfIntAndDrawing_utils_DrawingSpec::set( void*                                                                 ptr,
+                                                                std::ptrdiff_t                                                        i,
+                                                                std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec> value );
+lua:
+    VectorOfPairOfIntAndDrawing_utils_DrawingSpec.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.shrink\_to\_fit
@@ -48651,6 +49390,14 @@ lua:
 ```
 
 ## VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec
+
+### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::sizeof_value_type
+lua:
+    [propget] VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.sizeof_value_type
+```
 
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.new
 
@@ -48723,6 +49470,14 @@ lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:clear() -> None
 ```
 
+### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.copy
+
+```cpp
+void VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::operator=( const std::vector<std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>>& other );
+lua:
+    oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:copy( other ) -> None
+```
+
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.data
 
 ```cpp
@@ -48745,6 +49500,15 @@ lua:
 std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::front();
 lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:front() -> retval
+```
+
+### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.get
+
+```cpp
+static std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::get( void*          ptr,
+                                                                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.max\_size
@@ -48780,16 +49544,16 @@ lua:
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.ptr
 
 ```cpp
-void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::data( size_t i );
+void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:ptr( i ) -> retval
+    oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::ptr( void*  ptr,
-                                                                            size_t i );
+static void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
+                                                                            std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.ptr( ptr, i ) -> retval
+    VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.reserve
@@ -48813,6 +49577,16 @@ void VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::resize( size_t   
                                                                        const std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>& value );
 lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:resize( count, value ) -> None
+```
+
+### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.set
+
+```cpp
+static void VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::set( void*                                                                                ptr,
+                                                                           std::ptrdiff_t                                                                       i,
+                                                                           std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>> value );
+lua:
+    VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.shrink\_to\_fit
@@ -48873,6 +49647,14 @@ lua:
 ```
 
 ## VectorOfPairOfStringAndPacket
+
+### VectorOfPairOfStringAndPacket.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOfStringAndPacket::sizeof_value_type
+lua:
+    [propget] VectorOfPairOfStringAndPacket.sizeof_value_type
+```
 
 ### VectorOfPairOfStringAndPacket.new
 
@@ -48945,6 +49727,14 @@ lua:
     oVectorOfPairOfStringAndPacket:clear() -> None
 ```
 
+### VectorOfPairOfStringAndPacket.copy
+
+```cpp
+void VectorOfPairOfStringAndPacket::operator=( const std::vector<std::pair<std::string, mediapipe::Packet>>& other );
+lua:
+    oVectorOfPairOfStringAndPacket:copy( other ) -> None
+```
+
 ### VectorOfPairOfStringAndPacket.data
 
 ```cpp
@@ -48967,6 +49757,15 @@ lua:
 std::pair<std::string, mediapipe::Packet> VectorOfPairOfStringAndPacket::front();
 lua:
     oVectorOfPairOfStringAndPacket:front() -> retval
+```
+
+### VectorOfPairOfStringAndPacket.get
+
+```cpp
+static std::pair<std::string, mediapipe::Packet> VectorOfPairOfStringAndPacket::get( void*          ptr,
+                                                                                     std::ptrdiff_t i );
+lua:
+    VectorOfPairOfStringAndPacket.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOfStringAndPacket.max\_size
@@ -49002,16 +49801,16 @@ lua:
 ### VectorOfPairOfStringAndPacket.ptr
 
 ```cpp
-void* VectorOfPairOfStringAndPacket::data( size_t i );
+void* VectorOfPairOfStringAndPacket::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOfStringAndPacket:ptr( i ) -> retval
+    oVectorOfPairOfStringAndPacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAndPacket::ptr( void*  ptr,
-                                                 size_t i );
+static void* VectorOfPairOfStringAndPacket::ptr( void*          ptr,
+                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOfStringAndPacket.ptr( ptr, i ) -> retval
+    VectorOfPairOfStringAndPacket.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOfStringAndPacket.reserve
@@ -49035,6 +49834,16 @@ void VectorOfPairOfStringAndPacket::resize( size_t                              
                                             const std::pair<std::string, mediapipe::Packet>& value );
 lua:
     oVectorOfPairOfStringAndPacket:resize( count, value ) -> None
+```
+
+### VectorOfPairOfStringAndPacket.set
+
+```cpp
+static void VectorOfPairOfStringAndPacket::set( void*                                     ptr,
+                                                std::ptrdiff_t                            i,
+                                                std::pair<std::string, mediapipe::Packet> value );
+lua:
+    VectorOfPairOfStringAndPacket.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOfStringAndPacket.shrink\_to\_fit
@@ -49095,6 +49904,14 @@ lua:
 ```
 
 ## VectorOfPairOfStringAndPacketDataType
+
+### VectorOfPairOfStringAndPacketDataType.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOfStringAndPacketDataType::sizeof_value_type
+lua:
+    [propget] VectorOfPairOfStringAndPacketDataType.sizeof_value_type
+```
 
 ### VectorOfPairOfStringAndPacketDataType.new
 
@@ -49167,6 +49984,14 @@ lua:
     oVectorOfPairOfStringAndPacketDataType:clear() -> None
 ```
 
+### VectorOfPairOfStringAndPacketDataType.copy
+
+```cpp
+void VectorOfPairOfStringAndPacketDataType::operator=( const std::vector<std::pair<std::string, mediapipe::lua::solution_base::PacketDataType>>& other );
+lua:
+    oVectorOfPairOfStringAndPacketDataType:copy( other ) -> None
+```
+
 ### VectorOfPairOfStringAndPacketDataType.data
 
 ```cpp
@@ -49189,6 +50014,15 @@ lua:
 std::pair<std::string, mediapipe::lua::solution_base::PacketDataType> VectorOfPairOfStringAndPacketDataType::front();
 lua:
     oVectorOfPairOfStringAndPacketDataType:front() -> retval
+```
+
+### VectorOfPairOfStringAndPacketDataType.get
+
+```cpp
+static std::pair<std::string, mediapipe::lua::solution_base::PacketDataType> VectorOfPairOfStringAndPacketDataType::get( void*          ptr,
+                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfPairOfStringAndPacketDataType.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOfStringAndPacketDataType.max\_size
@@ -49224,16 +50058,16 @@ lua:
 ### VectorOfPairOfStringAndPacketDataType.ptr
 
 ```cpp
-void* VectorOfPairOfStringAndPacketDataType::data( size_t i );
+void* VectorOfPairOfStringAndPacketDataType::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOfStringAndPacketDataType:ptr( i ) -> retval
+    oVectorOfPairOfStringAndPacketDataType:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAndPacketDataType::ptr( void*  ptr,
-                                                         size_t i );
+static void* VectorOfPairOfStringAndPacketDataType::ptr( void*          ptr,
+                                                         std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOfStringAndPacketDataType.ptr( ptr, i ) -> retval
+    VectorOfPairOfStringAndPacketDataType.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOfStringAndPacketDataType.reserve
@@ -49257,6 +50091,16 @@ void VectorOfPairOfStringAndPacketDataType::resize( size_t                      
                                                     const std::pair<std::string, mediapipe::lua::solution_base::PacketDataType>& value );
 lua:
     oVectorOfPairOfStringAndPacketDataType:resize( count, value ) -> None
+```
+
+### VectorOfPairOfStringAndPacketDataType.set
+
+```cpp
+static void VectorOfPairOfStringAndPacketDataType::set( void*                                                                 ptr,
+                                                        std::ptrdiff_t                                                        i,
+                                                        std::pair<std::string, mediapipe::lua::solution_base::PacketDataType> value );
+lua:
+    VectorOfPairOfStringAndPacketDataType.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOfStringAndPacketDataType.shrink\_to\_fit
@@ -49317,6 +50161,14 @@ lua:
 ```
 
 ## VectorOfPairOfStringAnd\_mediapipe\_lua\_Object
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOfStringAnd_mediapipe_lua_Object::sizeof_value_type
+lua:
+    [propget] VectorOfPairOfStringAnd_mediapipe_lua_Object.sizeof_value_type
+```
 
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.new
 
@@ -49389,6 +50241,14 @@ lua:
     oVectorOfPairOfStringAnd_mediapipe_lua_Object:clear() -> None
 ```
 
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.copy
+
+```cpp
+void VectorOfPairOfStringAnd_mediapipe_lua_Object::operator=( const std::vector<std::pair<std::string, ::mediapipe_lua::Object>>& other );
+lua:
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:copy( other ) -> None
+```
+
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.data
 
 ```cpp
@@ -49411,6 +50271,15 @@ lua:
 std::pair<std::string, ::mediapipe_lua::Object> VectorOfPairOfStringAnd_mediapipe_lua_Object::front();
 lua:
     oVectorOfPairOfStringAnd_mediapipe_lua_Object:front() -> retval
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.get
+
+```cpp
+static std::pair<std::string, ::mediapipe_lua::Object> VectorOfPairOfStringAnd_mediapipe_lua_Object::get( void*          ptr,
+                                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.max\_size
@@ -49446,16 +50315,16 @@ lua:
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOfPairOfStringAnd_mediapipe_lua_Object::data( size_t i );
+void* VectorOfPairOfStringAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOfStringAnd_mediapipe_lua_Object:ptr( i ) -> retval
+    oVectorOfPairOfStringAnd_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAnd_mediapipe_lua_Object::ptr( void*  ptr,
-                                                                size_t i );
+static void* VectorOfPairOfStringAnd_mediapipe_lua_Object::ptr( void*          ptr,
+                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOfStringAnd_mediapipe_lua_Object.ptr( ptr, i ) -> retval
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.reserve
@@ -49479,6 +50348,16 @@ void VectorOfPairOfStringAnd_mediapipe_lua_Object::resize( size_t               
                                                            const std::pair<std::string, ::mediapipe_lua::Object>& value );
 lua:
     oVectorOfPairOfStringAnd_mediapipe_lua_Object:resize( count, value ) -> None
+```
+
+### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.set
+
+```cpp
+static void VectorOfPairOfStringAnd_mediapipe_lua_Object::set( void*                                           ptr,
+                                                               std::ptrdiff_t                                  i,
+                                                               std::pair<std::string, ::mediapipe_lua::Object> value );
+lua:
+    VectorOfPairOfStringAnd_mediapipe_lua_Object.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.shrink\_to\_fit
@@ -49539,6 +50418,14 @@ lua:
 ```
 
 ## VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::sizeof_value_type
+lua:
+    [propget] VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.sizeof_value_type
+```
 
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.new
 
@@ -49611,6 +50498,14 @@ lua:
     oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:clear() -> None
 ```
 
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.copy
+
+```cpp
+void VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::operator=( const std::vector<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>& other );
+lua:
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:copy( other ) -> None
+```
+
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.data
 
 ```cpp
@@ -49633,6 +50528,15 @@ lua:
 std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object> VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::front();
 lua:
     oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:front() -> retval
+```
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.get
+
+```cpp
+static std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object> VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::get( void*          ptr,
+                                                                                                                                     std::ptrdiff_t i );
+lua:
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.get( ptr, i ) -> retval
 ```
 
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.max\_size
@@ -49668,16 +50572,16 @@ lua:
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::data( size_t i );
+void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:ptr( i ) -> retval
+    oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::ptr( void*  ptr,
-                                                                               size_t i );
+static void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::ptr( void*          ptr,
+                                                                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.ptr( ptr, i ) -> retval
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.reserve
@@ -49701,6 +50605,16 @@ void VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::resize( size_t
                                                                           const std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>& value );
 lua:
     oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:resize( count, value ) -> None
+```
+
+### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.set
+
+```cpp
+static void VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::set( void*                                                       ptr,
+                                                                              std::ptrdiff_t                                              i,
+                                                                              std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object> value );
+lua:
+    VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.shrink\_to\_fit
@@ -49761,6 +50675,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARBlendShapeMap\_MapEntry
+
+### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARBlendShapeMap_MapEntry::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARBlendShapeMap_MapEntry.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.new
 
@@ -49833,6 +50755,14 @@ lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.copy
+
+```cpp
+void VectorOfSharedPtrOfARBlendShapeMap_MapEntry::operator=( const std::vector<std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry>>& other );
+lua:
+    oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.data
 
 ```cpp
@@ -49855,6 +50785,15 @@ lua:
 std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry> VectorOfSharedPtrOfARBlendShapeMap_MapEntry::front();
 lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:front() -> retval
+```
+
+### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry> VectorOfSharedPtrOfARBlendShapeMap_MapEntry::get( void*          ptr,
+                                                                                                               std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARBlendShapeMap_MapEntry.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.max\_size
@@ -49890,16 +50829,16 @@ lua:
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::data( size_t i );
+void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::ptr( void*  ptr,
-                                                               size_t i );
+static void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::ptr( void*          ptr,
+                                                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARBlendShapeMap_MapEntry.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARBlendShapeMap_MapEntry.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.reserve
@@ -49923,6 +50862,16 @@ void VectorOfSharedPtrOfARBlendShapeMap_MapEntry::resize( size_t                
                                                           const std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry>& value );
 lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.set
+
+```cpp
+static void VectorOfSharedPtrOfARBlendShapeMap_MapEntry::set( void*                                                 ptr,
+                                                              std::ptrdiff_t                                        i,
+                                                              std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry> value );
+lua:
+    VectorOfSharedPtrOfARBlendShapeMap_MapEntry.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.shrink\_to\_fit
@@ -49983,6 +50932,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate
+
+### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.new
 
@@ -50055,6 +51012,14 @@ lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.copy
+
+```cpp
+void VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::operator=( const std::vector<std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate>>& other );
+lua:
+    oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.data
 
 ```cpp
@@ -50077,6 +51042,15 @@ lua:
 std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate> VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::front();
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:front() -> retval
+```
+
+### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate> VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::get( void*          ptr,
+                                                                                                                               std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.max\_size
@@ -50112,16 +51086,16 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::data( size_t i );
+void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::ptr( void*  ptr,
-                                                                       size_t i );
+static void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::ptr( void*          ptr,
+                                                                       std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.reserve
@@ -50145,6 +51119,16 @@ void VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::resize( size_t        
                                                                   const std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate>& value );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.set
+
+```cpp
+static void VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::set( void*                                                         ptr,
+                                                                      std::ptrdiff_t                                                i,
+                                                                      std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate> value );
+lua:
+    VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.shrink\_to\_fit
@@ -50205,6 +51189,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARFaceGeometry\_Vertex
+
+### VectorOfSharedPtrOfARFaceGeometry\_Vertex.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARFaceGeometry_Vertex::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARFaceGeometry_Vertex.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.new
 
@@ -50277,6 +51269,14 @@ lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARFaceGeometry\_Vertex.copy
+
+```cpp
+void VectorOfSharedPtrOfARFaceGeometry_Vertex::operator=( const std::vector<std::shared_ptr<mediapipe::ARFaceGeometry::Vertex>>& other );
+lua:
+    oVectorOfSharedPtrOfARFaceGeometry_Vertex:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.data
 
 ```cpp
@@ -50299,6 +51299,15 @@ lua:
 std::shared_ptr<mediapipe::ARFaceGeometry::Vertex> VectorOfSharedPtrOfARFaceGeometry_Vertex::front();
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:front() -> retval
+```
+
+### VectorOfSharedPtrOfARFaceGeometry\_Vertex.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARFaceGeometry::Vertex> VectorOfSharedPtrOfARFaceGeometry_Vertex::get( void*          ptr,
+                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARFaceGeometry_Vertex.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.max\_size
@@ -50334,16 +51343,16 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARFaceGeometry_Vertex::data( size_t i );
+void* VectorOfSharedPtrOfARFaceGeometry_Vertex::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARFaceGeometry_Vertex:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARFaceGeometry_Vertex:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARFaceGeometry_Vertex::ptr( void*  ptr,
-                                                            size_t i );
+static void* VectorOfSharedPtrOfARFaceGeometry_Vertex::ptr( void*          ptr,
+                                                            std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARFaceGeometry_Vertex.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARFaceGeometry_Vertex.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.reserve
@@ -50367,6 +51376,16 @@ void VectorOfSharedPtrOfARFaceGeometry_Vertex::resize( size_t                   
                                                        const std::shared_ptr<mediapipe::ARFaceGeometry::Vertex>& value );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARFaceGeometry\_Vertex.set
+
+```cpp
+static void VectorOfSharedPtrOfARFaceGeometry_Vertex::set( void*                                              ptr,
+                                                           std::ptrdiff_t                                     i,
+                                                           std::shared_ptr<mediapipe::ARFaceGeometry::Vertex> value );
+lua:
+    VectorOfSharedPtrOfARFaceGeometry_Vertex.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.shrink\_to\_fit
@@ -50427,6 +51446,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARPlaneAnchor
+
+### VectorOfSharedPtrOfARPlaneAnchor.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARPlaneAnchor::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARPlaneAnchor.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARPlaneAnchor.new
 
@@ -50499,6 +51526,14 @@ lua:
     oVectorOfSharedPtrOfARPlaneAnchor:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARPlaneAnchor.copy
+
+```cpp
+void VectorOfSharedPtrOfARPlaneAnchor::operator=( const std::vector<std::shared_ptr<mediapipe::ARPlaneAnchor>>& other );
+lua:
+    oVectorOfSharedPtrOfARPlaneAnchor:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARPlaneAnchor.data
 
 ```cpp
@@ -50521,6 +51556,15 @@ lua:
 std::shared_ptr<mediapipe::ARPlaneAnchor> VectorOfSharedPtrOfARPlaneAnchor::front();
 lua:
     oVectorOfSharedPtrOfARPlaneAnchor:front() -> retval
+```
+
+### VectorOfSharedPtrOfARPlaneAnchor.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARPlaneAnchor> VectorOfSharedPtrOfARPlaneAnchor::get( void*          ptr,
+                                                                                        std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARPlaneAnchor.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneAnchor.max\_size
@@ -50556,16 +51600,16 @@ lua:
 ### VectorOfSharedPtrOfARPlaneAnchor.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneAnchor::data( size_t i );
+void* VectorOfSharedPtrOfARPlaneAnchor::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARPlaneAnchor:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARPlaneAnchor:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneAnchor::ptr( void*  ptr,
-                                                    size_t i );
+static void* VectorOfSharedPtrOfARPlaneAnchor::ptr( void*          ptr,
+                                                    std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARPlaneAnchor.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARPlaneAnchor.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneAnchor.reserve
@@ -50589,6 +51633,16 @@ void VectorOfSharedPtrOfARPlaneAnchor::resize( size_t                           
                                                const std::shared_ptr<mediapipe::ARPlaneAnchor>& value );
 lua:
     oVectorOfSharedPtrOfARPlaneAnchor:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARPlaneAnchor.set
+
+```cpp
+static void VectorOfSharedPtrOfARPlaneAnchor::set( void*                                     ptr,
+                                                   std::ptrdiff_t                            i,
+                                                   std::shared_ptr<mediapipe::ARPlaneAnchor> value );
+lua:
+    VectorOfSharedPtrOfARPlaneAnchor.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARPlaneAnchor.shrink\_to\_fit
@@ -50649,6 +51703,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate
+
+### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.new
 
@@ -50721,6 +51783,14 @@ lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.copy
+
+```cpp
+void VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::operator=( const std::vector<std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate>>& other );
+lua:
+    oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.data
 
 ```cpp
@@ -50743,6 +51813,15 @@ lua:
 std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate> VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::front();
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:front() -> retval
+```
+
+### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate> VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::get( void*          ptr,
+                                                                                                                                 std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.max\_size
@@ -50778,16 +51857,16 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::data( size_t i );
+void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::ptr( void*  ptr,
-                                                                        size_t i );
+static void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::ptr( void*          ptr,
+                                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.reserve
@@ -50811,6 +51890,16 @@ void VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::resize( size_t       
                                                                    const std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate>& value );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.set
+
+```cpp
+static void VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::set( void*                                                          ptr,
+                                                                       std::ptrdiff_t                                                 i,
+                                                                       std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate> value );
+lua:
+    VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.shrink\_to\_fit
@@ -50871,6 +51960,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARPlaneGeometry\_Vertex
+
+### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARPlaneGeometry_Vertex::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARPlaneGeometry_Vertex.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.new
 
@@ -50943,6 +52040,14 @@ lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.copy
+
+```cpp
+void VectorOfSharedPtrOfARPlaneGeometry_Vertex::operator=( const std::vector<std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex>>& other );
+lua:
+    oVectorOfSharedPtrOfARPlaneGeometry_Vertex:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.data
 
 ```cpp
@@ -50965,6 +52070,15 @@ lua:
 std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex> VectorOfSharedPtrOfARPlaneGeometry_Vertex::front();
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:front() -> retval
+```
+
+### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex> VectorOfSharedPtrOfARPlaneGeometry_Vertex::get( void*          ptr,
+                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARPlaneGeometry_Vertex.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.max\_size
@@ -51000,16 +52114,16 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::data( size_t i );
+void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARPlaneGeometry_Vertex:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARPlaneGeometry_Vertex:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::ptr( void*  ptr,
-                                                             size_t i );
+static void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::ptr( void*          ptr,
+                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARPlaneGeometry_Vertex.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARPlaneGeometry_Vertex.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.reserve
@@ -51033,6 +52147,16 @@ void VectorOfSharedPtrOfARPlaneGeometry_Vertex::resize( size_t                  
                                                         const std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex>& value );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.set
+
+```cpp
+static void VectorOfSharedPtrOfARPlaneGeometry_Vertex::set( void*                                               ptr,
+                                                            std::ptrdiff_t                                      i,
+                                                            std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex> value );
+lua:
+    VectorOfSharedPtrOfARPlaneGeometry_Vertex.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.shrink\_to\_fit
@@ -51093,6 +52217,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfARPointCloud\_Point
+
+### VectorOfSharedPtrOfARPointCloud\_Point.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfARPointCloud_Point::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfARPointCloud_Point.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfARPointCloud\_Point.new
 
@@ -51165,6 +52297,14 @@ lua:
     oVectorOfSharedPtrOfARPointCloud_Point:clear() -> None
 ```
 
+### VectorOfSharedPtrOfARPointCloud\_Point.copy
+
+```cpp
+void VectorOfSharedPtrOfARPointCloud_Point::operator=( const std::vector<std::shared_ptr<mediapipe::ARPointCloud::Point>>& other );
+lua:
+    oVectorOfSharedPtrOfARPointCloud_Point:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfARPointCloud\_Point.data
 
 ```cpp
@@ -51187,6 +52327,15 @@ lua:
 std::shared_ptr<mediapipe::ARPointCloud::Point> VectorOfSharedPtrOfARPointCloud_Point::front();
 lua:
     oVectorOfSharedPtrOfARPointCloud_Point:front() -> retval
+```
+
+### VectorOfSharedPtrOfARPointCloud\_Point.get
+
+```cpp
+static std::shared_ptr<mediapipe::ARPointCloud::Point> VectorOfSharedPtrOfARPointCloud_Point::get( void*          ptr,
+                                                                                                   std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfARPointCloud_Point.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPointCloud\_Point.max\_size
@@ -51222,16 +52371,16 @@ lua:
 ### VectorOfSharedPtrOfARPointCloud\_Point.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPointCloud_Point::data( size_t i );
+void* VectorOfSharedPtrOfARPointCloud_Point::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfARPointCloud_Point:ptr( i ) -> retval
+    oVectorOfSharedPtrOfARPointCloud_Point:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPointCloud_Point::ptr( void*  ptr,
-                                                         size_t i );
+static void* VectorOfSharedPtrOfARPointCloud_Point::ptr( void*          ptr,
+                                                         std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfARPointCloud_Point.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfARPointCloud_Point.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfARPointCloud\_Point.reserve
@@ -51255,6 +52404,16 @@ void VectorOfSharedPtrOfARPointCloud_Point::resize( size_t                      
                                                     const std::shared_ptr<mediapipe::ARPointCloud::Point>& value );
 lua:
     oVectorOfSharedPtrOfARPointCloud_Point:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfARPointCloud\_Point.set
+
+```cpp
+static void VectorOfSharedPtrOfARPointCloud_Point::set( void*                                           ptr,
+                                                        std::ptrdiff_t                                  i,
+                                                        std::shared_ptr<mediapipe::ARPointCloud::Point> value );
+lua:
+    VectorOfSharedPtrOfARPointCloud_Point.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfARPointCloud\_Point.shrink\_to\_fit
@@ -51315,6 +52474,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfAnnotatedKeyPoint
+
+### VectorOfSharedPtrOfAnnotatedKeyPoint.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfAnnotatedKeyPoint::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfAnnotatedKeyPoint.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.new
 
@@ -51387,6 +52554,14 @@ lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:clear() -> None
 ```
 
+### VectorOfSharedPtrOfAnnotatedKeyPoint.copy
+
+```cpp
+void VectorOfSharedPtrOfAnnotatedKeyPoint::operator=( const std::vector<std::shared_ptr<mediapipe::AnnotatedKeyPoint>>& other );
+lua:
+    oVectorOfSharedPtrOfAnnotatedKeyPoint:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.data
 
 ```cpp
@@ -51409,6 +52584,15 @@ lua:
 std::shared_ptr<mediapipe::AnnotatedKeyPoint> VectorOfSharedPtrOfAnnotatedKeyPoint::front();
 lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:front() -> retval
+```
+
+### VectorOfSharedPtrOfAnnotatedKeyPoint.get
+
+```cpp
+static std::shared_ptr<mediapipe::AnnotatedKeyPoint> VectorOfSharedPtrOfAnnotatedKeyPoint::get( void*          ptr,
+                                                                                                std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfAnnotatedKeyPoint.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.max\_size
@@ -51444,16 +52628,16 @@ lua:
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfAnnotatedKeyPoint::data( size_t i );
+void* VectorOfSharedPtrOfAnnotatedKeyPoint::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfAnnotatedKeyPoint:ptr( i ) -> retval
+    oVectorOfSharedPtrOfAnnotatedKeyPoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfAnnotatedKeyPoint::ptr( void*  ptr,
-                                                        size_t i );
+static void* VectorOfSharedPtrOfAnnotatedKeyPoint::ptr( void*          ptr,
+                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfAnnotatedKeyPoint.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfAnnotatedKeyPoint.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.reserve
@@ -51477,6 +52661,16 @@ void VectorOfSharedPtrOfAnnotatedKeyPoint::resize( size_t                       
                                                    const std::shared_ptr<mediapipe::AnnotatedKeyPoint>& value );
 lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfAnnotatedKeyPoint.set
+
+```cpp
+static void VectorOfSharedPtrOfAnnotatedKeyPoint::set( void*                                         ptr,
+                                                       std::ptrdiff_t                                i,
+                                                       std::shared_ptr<mediapipe::AnnotatedKeyPoint> value );
+lua:
+    VectorOfSharedPtrOfAnnotatedKeyPoint.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.shrink\_to\_fit
@@ -51537,6 +52731,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfAny
+
+### VectorOfSharedPtrOfAny.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfAny::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfAny.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfAny.new
 
@@ -51609,6 +52811,14 @@ lua:
     oVectorOfSharedPtrOfAny:clear() -> None
 ```
 
+### VectorOfSharedPtrOfAny.copy
+
+```cpp
+void VectorOfSharedPtrOfAny::operator=( const std::vector<std::shared_ptr<google::protobuf::Any>>& other );
+lua:
+    oVectorOfSharedPtrOfAny:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfAny.data
 
 ```cpp
@@ -51631,6 +52841,15 @@ lua:
 std::shared_ptr<google::protobuf::Any> VectorOfSharedPtrOfAny::front();
 lua:
     oVectorOfSharedPtrOfAny:front() -> retval
+```
+
+### VectorOfSharedPtrOfAny.get
+
+```cpp
+static std::shared_ptr<google::protobuf::Any> VectorOfSharedPtrOfAny::get( void*          ptr,
+                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfAny.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfAny.max\_size
@@ -51666,16 +52885,16 @@ lua:
 ### VectorOfSharedPtrOfAny.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfAny::data( size_t i );
+void* VectorOfSharedPtrOfAny::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfAny:ptr( i ) -> retval
+    oVectorOfSharedPtrOfAny:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfAny::ptr( void*  ptr,
-                                          size_t i );
+static void* VectorOfSharedPtrOfAny::ptr( void*          ptr,
+                                          std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfAny.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfAny.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfAny.reserve
@@ -51699,6 +52918,16 @@ void VectorOfSharedPtrOfAny::resize( size_t                                     
                                      const std::shared_ptr<google::protobuf::Any>& value );
 lua:
     oVectorOfSharedPtrOfAny:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfAny.set
+
+```cpp
+static void VectorOfSharedPtrOfAny::set( void*                                  ptr,
+                                         std::ptrdiff_t                         i,
+                                         std::shared_ptr<google::protobuf::Any> value );
+lua:
+    VectorOfSharedPtrOfAny.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfAny.shrink\_to\_fit
@@ -51759,6 +52988,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfCalculatorGraphConfig\_Node
+
+### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfCalculatorGraphConfig_Node::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfCalculatorGraphConfig_Node.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.new
 
@@ -51831,6 +53068,14 @@ lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:clear() -> None
 ```
 
+### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.copy
+
+```cpp
+void VectorOfSharedPtrOfCalculatorGraphConfig_Node::operator=( const std::vector<std::shared_ptr<mediapipe::CalculatorGraphConfig::Node>>& other );
+lua:
+    oVectorOfSharedPtrOfCalculatorGraphConfig_Node:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.data
 
 ```cpp
@@ -51853,6 +53098,15 @@ lua:
 std::shared_ptr<mediapipe::CalculatorGraphConfig::Node> VectorOfSharedPtrOfCalculatorGraphConfig_Node::front();
 lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:front() -> retval
+```
+
+### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.get
+
+```cpp
+static std::shared_ptr<mediapipe::CalculatorGraphConfig::Node> VectorOfSharedPtrOfCalculatorGraphConfig_Node::get( void*          ptr,
+                                                                                                                   std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfCalculatorGraphConfig_Node.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.max\_size
@@ -51888,16 +53142,16 @@ lua:
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::data( size_t i );
+void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfCalculatorGraphConfig_Node:ptr( i ) -> retval
+    oVectorOfSharedPtrOfCalculatorGraphConfig_Node:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::ptr( void*  ptr,
-                                                                 size_t i );
+static void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::ptr( void*          ptr,
+                                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfCalculatorGraphConfig_Node.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfCalculatorGraphConfig_Node.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.reserve
@@ -51921,6 +53175,16 @@ void VectorOfSharedPtrOfCalculatorGraphConfig_Node::resize( size_t              
                                                             const std::shared_ptr<mediapipe::CalculatorGraphConfig::Node>& value );
 lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.set
+
+```cpp
+static void VectorOfSharedPtrOfCalculatorGraphConfig_Node::set( void*                                                   ptr,
+                                                                std::ptrdiff_t                                          i,
+                                                                std::shared_ptr<mediapipe::CalculatorGraphConfig::Node> value );
+lua:
+    VectorOfSharedPtrOfCalculatorGraphConfig_Node.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.shrink\_to\_fit
@@ -51981,6 +53245,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfClassification
+
+### VectorOfSharedPtrOfClassification.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfClassification::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfClassification.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfClassification.new
 
@@ -52053,6 +53325,14 @@ lua:
     oVectorOfSharedPtrOfClassification:clear() -> None
 ```
 
+### VectorOfSharedPtrOfClassification.copy
+
+```cpp
+void VectorOfSharedPtrOfClassification::operator=( const std::vector<std::shared_ptr<mediapipe::Classification>>& other );
+lua:
+    oVectorOfSharedPtrOfClassification:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfClassification.data
 
 ```cpp
@@ -52075,6 +53355,15 @@ lua:
 std::shared_ptr<mediapipe::Classification> VectorOfSharedPtrOfClassification::front();
 lua:
     oVectorOfSharedPtrOfClassification:front() -> retval
+```
+
+### VectorOfSharedPtrOfClassification.get
+
+```cpp
+static std::shared_ptr<mediapipe::Classification> VectorOfSharedPtrOfClassification::get( void*          ptr,
+                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfClassification.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfClassification.max\_size
@@ -52110,16 +53399,16 @@ lua:
 ### VectorOfSharedPtrOfClassification.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfClassification::data( size_t i );
+void* VectorOfSharedPtrOfClassification::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfClassification:ptr( i ) -> retval
+    oVectorOfSharedPtrOfClassification:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfClassification::ptr( void*  ptr,
-                                                     size_t i );
+static void* VectorOfSharedPtrOfClassification::ptr( void*          ptr,
+                                                     std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfClassification.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfClassification.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfClassification.reserve
@@ -52143,6 +53432,16 @@ void VectorOfSharedPtrOfClassification::resize( size_t                          
                                                 const std::shared_ptr<mediapipe::Classification>& value );
 lua:
     oVectorOfSharedPtrOfClassification:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfClassification.set
+
+```cpp
+static void VectorOfSharedPtrOfClassification::set( void*                                      ptr,
+                                                    std::ptrdiff_t                             i,
+                                                    std::shared_ptr<mediapipe::Classification> value );
+lua:
+    VectorOfSharedPtrOfClassification.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfClassification.shrink\_to\_fit
@@ -52203,6 +53502,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfClassificationList
+
+### VectorOfSharedPtrOfClassificationList.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfClassificationList::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfClassificationList.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfClassificationList.new
 
@@ -52275,6 +53582,14 @@ lua:
     oVectorOfSharedPtrOfClassificationList:clear() -> None
 ```
 
+### VectorOfSharedPtrOfClassificationList.copy
+
+```cpp
+void VectorOfSharedPtrOfClassificationList::operator=( const std::vector<std::shared_ptr<mediapipe::ClassificationList>>& other );
+lua:
+    oVectorOfSharedPtrOfClassificationList:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfClassificationList.data
 
 ```cpp
@@ -52297,6 +53612,15 @@ lua:
 std::shared_ptr<mediapipe::ClassificationList> VectorOfSharedPtrOfClassificationList::front();
 lua:
     oVectorOfSharedPtrOfClassificationList:front() -> retval
+```
+
+### VectorOfSharedPtrOfClassificationList.get
+
+```cpp
+static std::shared_ptr<mediapipe::ClassificationList> VectorOfSharedPtrOfClassificationList::get( void*          ptr,
+                                                                                                  std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfClassificationList.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfClassificationList.max\_size
@@ -52332,16 +53656,16 @@ lua:
 ### VectorOfSharedPtrOfClassificationList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfClassificationList::data( size_t i );
+void* VectorOfSharedPtrOfClassificationList::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfClassificationList:ptr( i ) -> retval
+    oVectorOfSharedPtrOfClassificationList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfClassificationList::ptr( void*  ptr,
-                                                         size_t i );
+static void* VectorOfSharedPtrOfClassificationList::ptr( void*          ptr,
+                                                         std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfClassificationList.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfClassificationList.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfClassificationList.reserve
@@ -52365,6 +53689,16 @@ void VectorOfSharedPtrOfClassificationList::resize( size_t                      
                                                     const std::shared_ptr<mediapipe::ClassificationList>& value );
 lua:
     oVectorOfSharedPtrOfClassificationList:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfClassificationList.set
+
+```cpp
+static void VectorOfSharedPtrOfClassificationList::set( void*                                          ptr,
+                                                        std::ptrdiff_t                                 i,
+                                                        std::shared_ptr<mediapipe::ClassificationList> value );
+lua:
+    VectorOfSharedPtrOfClassificationList.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfClassificationList.shrink\_to\_fit
@@ -52425,6 +53759,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket
+
+### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.new
 
@@ -52497,6 +53839,14 @@ lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:clear() -> None
 ```
 
+### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.copy
+
+```cpp
+void VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::operator=( const std::vector<std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket>>& other );
+lua:
+    oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.data
 
 ```cpp
@@ -52519,6 +53869,15 @@ lua:
 std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket> VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::front();
 lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:front() -> retval
+```
+
+### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.get
+
+```cpp
+static std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket> VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::get( void*          ptr,
+                                                                                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.max\_size
@@ -52554,16 +53913,16 @@ lua:
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::data( size_t i );
+void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:ptr( i ) -> retval
+    oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::ptr( void*  ptr,
-                                                                                             size_t i );
+static void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::ptr( void*          ptr,
+                                                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.reserve
@@ -52587,6 +53946,16 @@ void VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::
                                                                                         const std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket>& value );
 lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.set
+
+```cpp
+static void VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::set( void*                                                                               ptr,
+                                                                                            std::ptrdiff_t                                                                      i,
+                                                                                            std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket> value );
+lua:
+    VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.shrink\_to\_fit
@@ -52647,6 +54016,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfDetection
+
+### VectorOfSharedPtrOfDetection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfDetection::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfDetection.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfDetection.new
 
@@ -52719,6 +54096,14 @@ lua:
     oVectorOfSharedPtrOfDetection:clear() -> None
 ```
 
+### VectorOfSharedPtrOfDetection.copy
+
+```cpp
+void VectorOfSharedPtrOfDetection::operator=( const std::vector<std::shared_ptr<mediapipe::Detection>>& other );
+lua:
+    oVectorOfSharedPtrOfDetection:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfDetection.data
 
 ```cpp
@@ -52741,6 +54126,15 @@ lua:
 std::shared_ptr<mediapipe::Detection> VectorOfSharedPtrOfDetection::front();
 lua:
     oVectorOfSharedPtrOfDetection:front() -> retval
+```
+
+### VectorOfSharedPtrOfDetection.get
+
+```cpp
+static std::shared_ptr<mediapipe::Detection> VectorOfSharedPtrOfDetection::get( void*          ptr,
+                                                                                std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfDetection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfDetection.max\_size
@@ -52776,16 +54170,16 @@ lua:
 ### VectorOfSharedPtrOfDetection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfDetection::data( size_t i );
+void* VectorOfSharedPtrOfDetection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfDetection:ptr( i ) -> retval
+    oVectorOfSharedPtrOfDetection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfDetection::ptr( void*  ptr,
-                                                size_t i );
+static void* VectorOfSharedPtrOfDetection::ptr( void*          ptr,
+                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfDetection.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfDetection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfDetection.reserve
@@ -52809,6 +54203,16 @@ void VectorOfSharedPtrOfDetection::resize( size_t                               
                                            const std::shared_ptr<mediapipe::Detection>& value );
 lua:
     oVectorOfSharedPtrOfDetection:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfDetection.set
+
+```cpp
+static void VectorOfSharedPtrOfDetection::set( void*                                 ptr,
+                                               std::ptrdiff_t                        i,
+                                               std::shared_ptr<mediapipe::Detection> value );
+lua:
+    VectorOfSharedPtrOfDetection.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfDetection.shrink\_to\_fit
@@ -52869,6 +54273,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfDetection\_AssociatedDetection
+
+### VectorOfSharedPtrOfDetection\_AssociatedDetection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfDetection_AssociatedDetection::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfDetection_AssociatedDetection.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.new
 
@@ -52941,6 +54353,14 @@ lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:clear() -> None
 ```
 
+### VectorOfSharedPtrOfDetection\_AssociatedDetection.copy
+
+```cpp
+void VectorOfSharedPtrOfDetection_AssociatedDetection::operator=( const std::vector<std::shared_ptr<mediapipe::Detection::AssociatedDetection>>& other );
+lua:
+    oVectorOfSharedPtrOfDetection_AssociatedDetection:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.data
 
 ```cpp
@@ -52963,6 +54383,15 @@ lua:
 std::shared_ptr<mediapipe::Detection::AssociatedDetection> VectorOfSharedPtrOfDetection_AssociatedDetection::front();
 lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:front() -> retval
+```
+
+### VectorOfSharedPtrOfDetection\_AssociatedDetection.get
+
+```cpp
+static std::shared_ptr<mediapipe::Detection::AssociatedDetection> VectorOfSharedPtrOfDetection_AssociatedDetection::get( void*          ptr,
+                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfDetection_AssociatedDetection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.max\_size
@@ -52998,16 +54427,16 @@ lua:
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfDetection_AssociatedDetection::data( size_t i );
+void* VectorOfSharedPtrOfDetection_AssociatedDetection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfDetection_AssociatedDetection:ptr( i ) -> retval
+    oVectorOfSharedPtrOfDetection_AssociatedDetection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfDetection_AssociatedDetection::ptr( void*  ptr,
-                                                                    size_t i );
+static void* VectorOfSharedPtrOfDetection_AssociatedDetection::ptr( void*          ptr,
+                                                                    std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfDetection_AssociatedDetection.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfDetection_AssociatedDetection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.reserve
@@ -53031,6 +54460,16 @@ void VectorOfSharedPtrOfDetection_AssociatedDetection::resize( size_t           
                                                                const std::shared_ptr<mediapipe::Detection::AssociatedDetection>& value );
 lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfDetection\_AssociatedDetection.set
+
+```cpp
+static void VectorOfSharedPtrOfDetection_AssociatedDetection::set( void*                                                      ptr,
+                                                                   std::ptrdiff_t                                             i,
+                                                                   std::shared_ptr<mediapipe::Detection::AssociatedDetection> value );
+lua:
+    VectorOfSharedPtrOfDetection_AssociatedDetection.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.shrink\_to\_fit
@@ -53091,6 +54530,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfEdge
+
+### VectorOfSharedPtrOfEdge.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfEdge::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfEdge.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfEdge.new
 
@@ -53163,6 +54610,14 @@ lua:
     oVectorOfSharedPtrOfEdge:clear() -> None
 ```
 
+### VectorOfSharedPtrOfEdge.copy
+
+```cpp
+void VectorOfSharedPtrOfEdge::operator=( const std::vector<std::shared_ptr<mediapipe::Edge>>& other );
+lua:
+    oVectorOfSharedPtrOfEdge:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfEdge.data
 
 ```cpp
@@ -53185,6 +54640,15 @@ lua:
 std::shared_ptr<mediapipe::Edge> VectorOfSharedPtrOfEdge::front();
 lua:
     oVectorOfSharedPtrOfEdge:front() -> retval
+```
+
+### VectorOfSharedPtrOfEdge.get
+
+```cpp
+static std::shared_ptr<mediapipe::Edge> VectorOfSharedPtrOfEdge::get( void*          ptr,
+                                                                      std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfEdge.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfEdge.max\_size
@@ -53220,16 +54684,16 @@ lua:
 ### VectorOfSharedPtrOfEdge.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfEdge::data( size_t i );
+void* VectorOfSharedPtrOfEdge::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfEdge:ptr( i ) -> retval
+    oVectorOfSharedPtrOfEdge:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfEdge::ptr( void*  ptr,
-                                           size_t i );
+static void* VectorOfSharedPtrOfEdge::ptr( void*          ptr,
+                                           std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfEdge.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfEdge.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfEdge.reserve
@@ -53253,6 +54717,16 @@ void VectorOfSharedPtrOfEdge::resize( size_t                                  co
                                       const std::shared_ptr<mediapipe::Edge>& value );
 lua:
     oVectorOfSharedPtrOfEdge:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfEdge.set
+
+```cpp
+static void VectorOfSharedPtrOfEdge::set( void*                            ptr,
+                                          std::ptrdiff_t                   i,
+                                          std::shared_ptr<mediapipe::Edge> value );
+lua:
+    VectorOfSharedPtrOfEdge.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfEdge.shrink\_to\_fit
@@ -53313,6 +54787,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfExecutorConfig
+
+### VectorOfSharedPtrOfExecutorConfig.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfExecutorConfig::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfExecutorConfig.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfExecutorConfig.new
 
@@ -53385,6 +54867,14 @@ lua:
     oVectorOfSharedPtrOfExecutorConfig:clear() -> None
 ```
 
+### VectorOfSharedPtrOfExecutorConfig.copy
+
+```cpp
+void VectorOfSharedPtrOfExecutorConfig::operator=( const std::vector<std::shared_ptr<mediapipe::ExecutorConfig>>& other );
+lua:
+    oVectorOfSharedPtrOfExecutorConfig:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfExecutorConfig.data
 
 ```cpp
@@ -53407,6 +54897,15 @@ lua:
 std::shared_ptr<mediapipe::ExecutorConfig> VectorOfSharedPtrOfExecutorConfig::front();
 lua:
     oVectorOfSharedPtrOfExecutorConfig:front() -> retval
+```
+
+### VectorOfSharedPtrOfExecutorConfig.get
+
+```cpp
+static std::shared_ptr<mediapipe::ExecutorConfig> VectorOfSharedPtrOfExecutorConfig::get( void*          ptr,
+                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfExecutorConfig.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfExecutorConfig.max\_size
@@ -53442,16 +54941,16 @@ lua:
 ### VectorOfSharedPtrOfExecutorConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfExecutorConfig::data( size_t i );
+void* VectorOfSharedPtrOfExecutorConfig::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfExecutorConfig:ptr( i ) -> retval
+    oVectorOfSharedPtrOfExecutorConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfExecutorConfig::ptr( void*  ptr,
-                                                     size_t i );
+static void* VectorOfSharedPtrOfExecutorConfig::ptr( void*          ptr,
+                                                     std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfExecutorConfig.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfExecutorConfig.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfExecutorConfig.reserve
@@ -53475,6 +54974,16 @@ void VectorOfSharedPtrOfExecutorConfig::resize( size_t                          
                                                 const std::shared_ptr<mediapipe::ExecutorConfig>& value );
 lua:
     oVectorOfSharedPtrOfExecutorConfig:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfExecutorConfig.set
+
+```cpp
+static void VectorOfSharedPtrOfExecutorConfig::set( void*                                      ptr,
+                                                    std::ptrdiff_t                             i,
+                                                    std::shared_ptr<mediapipe::ExecutorConfig> value );
+lua:
+    VectorOfSharedPtrOfExecutorConfig.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfExecutorConfig.shrink\_to\_fit
@@ -53535,6 +55044,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfFrameAnnotation
+
+### VectorOfSharedPtrOfFrameAnnotation.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfFrameAnnotation::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfFrameAnnotation.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfFrameAnnotation.new
 
@@ -53607,6 +55124,14 @@ lua:
     oVectorOfSharedPtrOfFrameAnnotation:clear() -> None
 ```
 
+### VectorOfSharedPtrOfFrameAnnotation.copy
+
+```cpp
+void VectorOfSharedPtrOfFrameAnnotation::operator=( const std::vector<std::shared_ptr<mediapipe::FrameAnnotation>>& other );
+lua:
+    oVectorOfSharedPtrOfFrameAnnotation:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfFrameAnnotation.data
 
 ```cpp
@@ -53629,6 +55154,15 @@ lua:
 std::shared_ptr<mediapipe::FrameAnnotation> VectorOfSharedPtrOfFrameAnnotation::front();
 lua:
     oVectorOfSharedPtrOfFrameAnnotation:front() -> retval
+```
+
+### VectorOfSharedPtrOfFrameAnnotation.get
+
+```cpp
+static std::shared_ptr<mediapipe::FrameAnnotation> VectorOfSharedPtrOfFrameAnnotation::get( void*          ptr,
+                                                                                            std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfFrameAnnotation.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfFrameAnnotation.max\_size
@@ -53664,16 +55198,16 @@ lua:
 ### VectorOfSharedPtrOfFrameAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfFrameAnnotation::data( size_t i );
+void* VectorOfSharedPtrOfFrameAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfFrameAnnotation:ptr( i ) -> retval
+    oVectorOfSharedPtrOfFrameAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfFrameAnnotation::ptr( void*  ptr,
-                                                      size_t i );
+static void* VectorOfSharedPtrOfFrameAnnotation::ptr( void*          ptr,
+                                                      std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfFrameAnnotation.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfFrameAnnotation.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfFrameAnnotation.reserve
@@ -53697,6 +55231,16 @@ void VectorOfSharedPtrOfFrameAnnotation::resize( size_t                         
                                                  const std::shared_ptr<mediapipe::FrameAnnotation>& value );
 lua:
     oVectorOfSharedPtrOfFrameAnnotation:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfFrameAnnotation.set
+
+```cpp
+static void VectorOfSharedPtrOfFrameAnnotation::set( void*                                       ptr,
+                                                     std::ptrdiff_t                              i,
+                                                     std::shared_ptr<mediapipe::FrameAnnotation> value );
+lua:
+    VectorOfSharedPtrOfFrameAnnotation.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfFrameAnnotation.shrink\_to\_fit
@@ -53757,6 +55301,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfImage
+
+### VectorOfSharedPtrOfImage.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfImage::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfImage.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfImage.new
 
@@ -53829,6 +55381,14 @@ lua:
     oVectorOfSharedPtrOfImage:clear() -> None
 ```
 
+### VectorOfSharedPtrOfImage.copy
+
+```cpp
+void VectorOfSharedPtrOfImage::operator=( const std::vector<std::shared_ptr<mediapipe::Image>>& other );
+lua:
+    oVectorOfSharedPtrOfImage:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfImage.data
 
 ```cpp
@@ -53851,6 +55411,15 @@ lua:
 std::shared_ptr<mediapipe::Image> VectorOfSharedPtrOfImage::front();
 lua:
     oVectorOfSharedPtrOfImage:front() -> retval
+```
+
+### VectorOfSharedPtrOfImage.get
+
+```cpp
+static std::shared_ptr<mediapipe::Image> VectorOfSharedPtrOfImage::get( void*          ptr,
+                                                                        std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfImage.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfImage.max\_size
@@ -53886,16 +55455,16 @@ lua:
 ### VectorOfSharedPtrOfImage.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfImage::data( size_t i );
+void* VectorOfSharedPtrOfImage::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfImage:ptr( i ) -> retval
+    oVectorOfSharedPtrOfImage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfImage::ptr( void*  ptr,
-                                            size_t i );
+static void* VectorOfSharedPtrOfImage::ptr( void*          ptr,
+                                            std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfImage.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfImage.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfImage.reserve
@@ -53919,6 +55488,16 @@ void VectorOfSharedPtrOfImage::resize( size_t                                   
                                        const std::shared_ptr<mediapipe::Image>& value );
 lua:
     oVectorOfSharedPtrOfImage:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfImage.set
+
+```cpp
+static void VectorOfSharedPtrOfImage::set( void*                             ptr,
+                                           std::ptrdiff_t                    i,
+                                           std::shared_ptr<mediapipe::Image> value );
+lua:
+    VectorOfSharedPtrOfImage.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfImage.shrink\_to\_fit
@@ -53979,6 +55558,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfImageFrame
+
+### VectorOfSharedPtrOfImageFrame.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfImageFrame::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfImageFrame.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfImageFrame.new
 
@@ -54051,6 +55638,14 @@ lua:
     oVectorOfSharedPtrOfImageFrame:clear() -> None
 ```
 
+### VectorOfSharedPtrOfImageFrame.copy
+
+```cpp
+void VectorOfSharedPtrOfImageFrame::operator=( const std::vector<std::shared_ptr<mediapipe::ImageFrame>>& other );
+lua:
+    oVectorOfSharedPtrOfImageFrame:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfImageFrame.data
 
 ```cpp
@@ -54073,6 +55668,15 @@ lua:
 std::shared_ptr<mediapipe::ImageFrame> VectorOfSharedPtrOfImageFrame::front();
 lua:
     oVectorOfSharedPtrOfImageFrame:front() -> retval
+```
+
+### VectorOfSharedPtrOfImageFrame.get
+
+```cpp
+static std::shared_ptr<mediapipe::ImageFrame> VectorOfSharedPtrOfImageFrame::get( void*          ptr,
+                                                                                  std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfImageFrame.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfImageFrame.max\_size
@@ -54108,16 +55712,16 @@ lua:
 ### VectorOfSharedPtrOfImageFrame.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfImageFrame::data( size_t i );
+void* VectorOfSharedPtrOfImageFrame::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfImageFrame:ptr( i ) -> retval
+    oVectorOfSharedPtrOfImageFrame:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfImageFrame::ptr( void*  ptr,
-                                                 size_t i );
+static void* VectorOfSharedPtrOfImageFrame::ptr( void*          ptr,
+                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfImageFrame.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfImageFrame.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfImageFrame.reserve
@@ -54141,6 +55745,16 @@ void VectorOfSharedPtrOfImageFrame::resize( size_t                              
                                             const std::shared_ptr<mediapipe::ImageFrame>& value );
 lua:
     oVectorOfSharedPtrOfImageFrame:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfImageFrame.set
+
+```cpp
+static void VectorOfSharedPtrOfImageFrame::set( void*                                  ptr,
+                                                std::ptrdiff_t                         i,
+                                                std::shared_ptr<mediapipe::ImageFrame> value );
+lua:
+    VectorOfSharedPtrOfImageFrame.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfImageFrame.shrink\_to\_fit
@@ -54201,6 +55815,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink
+
+### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.new
 
@@ -54273,6 +55895,14 @@ lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:clear() -> None
 ```
 
+### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.copy
+
+```cpp
+void VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::operator=( const std::vector<std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink>>& other );
+lua:
+    oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.data
 
 ```cpp
@@ -54295,6 +55925,15 @@ lua:
 std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink> VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::front();
 lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:front() -> retval
+```
+
+### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.get
+
+```cpp
+static std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink> VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::get( void*          ptr,
+                                                                                                                                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.max\_size
@@ -54330,16 +55969,16 @@ lua:
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::data( size_t i );
+void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:ptr( i ) -> retval
+    oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::ptr( void*  ptr,
-                                                                                                      size_t i );
+static void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::ptr( void*          ptr,
+                                                                                                      std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.reserve
@@ -54363,6 +56002,16 @@ void VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTen
                                                                                                  const std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink>& value );
 lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.set
+
+```cpp
+static void VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::set( void*                                                                                         ptr,
+                                                                                                     std::ptrdiff_t                                                                                i,
+                                                                                                     std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink> value );
+lua:
+    VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.shrink\_to\_fit
@@ -54423,6 +56072,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfInputCollection
+
+### VectorOfSharedPtrOfInputCollection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfInputCollection::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfInputCollection.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfInputCollection.new
 
@@ -54495,6 +56152,14 @@ lua:
     oVectorOfSharedPtrOfInputCollection:clear() -> None
 ```
 
+### VectorOfSharedPtrOfInputCollection.copy
+
+```cpp
+void VectorOfSharedPtrOfInputCollection::operator=( const std::vector<std::shared_ptr<mediapipe::InputCollection>>& other );
+lua:
+    oVectorOfSharedPtrOfInputCollection:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfInputCollection.data
 
 ```cpp
@@ -54517,6 +56182,15 @@ lua:
 std::shared_ptr<mediapipe::InputCollection> VectorOfSharedPtrOfInputCollection::front();
 lua:
     oVectorOfSharedPtrOfInputCollection:front() -> retval
+```
+
+### VectorOfSharedPtrOfInputCollection.get
+
+```cpp
+static std::shared_ptr<mediapipe::InputCollection> VectorOfSharedPtrOfInputCollection::get( void*          ptr,
+                                                                                            std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfInputCollection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInputCollection.max\_size
@@ -54552,16 +56226,16 @@ lua:
 ### VectorOfSharedPtrOfInputCollection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInputCollection::data( size_t i );
+void* VectorOfSharedPtrOfInputCollection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfInputCollection:ptr( i ) -> retval
+    oVectorOfSharedPtrOfInputCollection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInputCollection::ptr( void*  ptr,
-                                                      size_t i );
+static void* VectorOfSharedPtrOfInputCollection::ptr( void*          ptr,
+                                                      std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfInputCollection.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfInputCollection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInputCollection.reserve
@@ -54585,6 +56259,16 @@ void VectorOfSharedPtrOfInputCollection::resize( size_t                         
                                                  const std::shared_ptr<mediapipe::InputCollection>& value );
 lua:
     oVectorOfSharedPtrOfInputCollection:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfInputCollection.set
+
+```cpp
+static void VectorOfSharedPtrOfInputCollection::set( void*                                       ptr,
+                                                     std::ptrdiff_t                              i,
+                                                     std::shared_ptr<mediapipe::InputCollection> value );
+lua:
+    VectorOfSharedPtrOfInputCollection.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfInputCollection.shrink\_to\_fit
@@ -54645,6 +56329,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfInputStreamInfo
+
+### VectorOfSharedPtrOfInputStreamInfo.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfInputStreamInfo::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfInputStreamInfo.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfInputStreamInfo.new
 
@@ -54717,6 +56409,14 @@ lua:
     oVectorOfSharedPtrOfInputStreamInfo:clear() -> None
 ```
 
+### VectorOfSharedPtrOfInputStreamInfo.copy
+
+```cpp
+void VectorOfSharedPtrOfInputStreamInfo::operator=( const std::vector<std::shared_ptr<mediapipe::InputStreamInfo>>& other );
+lua:
+    oVectorOfSharedPtrOfInputStreamInfo:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfInputStreamInfo.data
 
 ```cpp
@@ -54739,6 +56439,15 @@ lua:
 std::shared_ptr<mediapipe::InputStreamInfo> VectorOfSharedPtrOfInputStreamInfo::front();
 lua:
     oVectorOfSharedPtrOfInputStreamInfo:front() -> retval
+```
+
+### VectorOfSharedPtrOfInputStreamInfo.get
+
+```cpp
+static std::shared_ptr<mediapipe::InputStreamInfo> VectorOfSharedPtrOfInputStreamInfo::get( void*          ptr,
+                                                                                            std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfInputStreamInfo.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInputStreamInfo.max\_size
@@ -54774,16 +56483,16 @@ lua:
 ### VectorOfSharedPtrOfInputStreamInfo.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInputStreamInfo::data( size_t i );
+void* VectorOfSharedPtrOfInputStreamInfo::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfInputStreamInfo:ptr( i ) -> retval
+    oVectorOfSharedPtrOfInputStreamInfo:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInputStreamInfo::ptr( void*  ptr,
-                                                      size_t i );
+static void* VectorOfSharedPtrOfInputStreamInfo::ptr( void*          ptr,
+                                                      std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfInputStreamInfo.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfInputStreamInfo.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfInputStreamInfo.reserve
@@ -54807,6 +56516,16 @@ void VectorOfSharedPtrOfInputStreamInfo::resize( size_t                         
                                                  const std::shared_ptr<mediapipe::InputStreamInfo>& value );
 lua:
     oVectorOfSharedPtrOfInputStreamInfo:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfInputStreamInfo.set
+
+```cpp
+static void VectorOfSharedPtrOfInputStreamInfo::set( void*                                       ptr,
+                                                     std::ptrdiff_t                              i,
+                                                     std::shared_ptr<mediapipe::InputStreamInfo> value );
+lua:
+    VectorOfSharedPtrOfInputStreamInfo.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfInputStreamInfo.shrink\_to\_fit
@@ -54867,6 +56586,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfKeyPoint
+
+### VectorOfSharedPtrOfKeyPoint.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfKeyPoint::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfKeyPoint.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfKeyPoint.new
 
@@ -54939,6 +56666,14 @@ lua:
     oVectorOfSharedPtrOfKeyPoint:clear() -> None
 ```
 
+### VectorOfSharedPtrOfKeyPoint.copy
+
+```cpp
+void VectorOfSharedPtrOfKeyPoint::operator=( const std::vector<std::shared_ptr<mediapipe::KeyPoint>>& other );
+lua:
+    oVectorOfSharedPtrOfKeyPoint:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfKeyPoint.data
 
 ```cpp
@@ -54961,6 +56696,15 @@ lua:
 std::shared_ptr<mediapipe::KeyPoint> VectorOfSharedPtrOfKeyPoint::front();
 lua:
     oVectorOfSharedPtrOfKeyPoint:front() -> retval
+```
+
+### VectorOfSharedPtrOfKeyPoint.get
+
+```cpp
+static std::shared_ptr<mediapipe::KeyPoint> VectorOfSharedPtrOfKeyPoint::get( void*          ptr,
+                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfKeyPoint.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfKeyPoint.max\_size
@@ -54996,16 +56740,16 @@ lua:
 ### VectorOfSharedPtrOfKeyPoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfKeyPoint::data( size_t i );
+void* VectorOfSharedPtrOfKeyPoint::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfKeyPoint:ptr( i ) -> retval
+    oVectorOfSharedPtrOfKeyPoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfKeyPoint::ptr( void*  ptr,
-                                               size_t i );
+static void* VectorOfSharedPtrOfKeyPoint::ptr( void*          ptr,
+                                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfKeyPoint.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfKeyPoint.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfKeyPoint.reserve
@@ -55029,6 +56773,16 @@ void VectorOfSharedPtrOfKeyPoint::resize( size_t                                
                                           const std::shared_ptr<mediapipe::KeyPoint>& value );
 lua:
     oVectorOfSharedPtrOfKeyPoint:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfKeyPoint.set
+
+```cpp
+static void VectorOfSharedPtrOfKeyPoint::set( void*                                ptr,
+                                              std::ptrdiff_t                       i,
+                                              std::shared_ptr<mediapipe::KeyPoint> value );
+lua:
+    VectorOfSharedPtrOfKeyPoint.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfKeyPoint.shrink\_to\_fit
@@ -55089,6 +56843,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfLandmark
+
+### VectorOfSharedPtrOfLandmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfLandmark::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfLandmark.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfLandmark.new
 
@@ -55161,6 +56923,14 @@ lua:
     oVectorOfSharedPtrOfLandmark:clear() -> None
 ```
 
+### VectorOfSharedPtrOfLandmark.copy
+
+```cpp
+void VectorOfSharedPtrOfLandmark::operator=( const std::vector<std::shared_ptr<mediapipe::Landmark>>& other );
+lua:
+    oVectorOfSharedPtrOfLandmark:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfLandmark.data
 
 ```cpp
@@ -55183,6 +56953,15 @@ lua:
 std::shared_ptr<mediapipe::Landmark> VectorOfSharedPtrOfLandmark::front();
 lua:
     oVectorOfSharedPtrOfLandmark:front() -> retval
+```
+
+### VectorOfSharedPtrOfLandmark.get
+
+```cpp
+static std::shared_ptr<mediapipe::Landmark> VectorOfSharedPtrOfLandmark::get( void*          ptr,
+                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfLandmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLandmark.max\_size
@@ -55218,16 +56997,16 @@ lua:
 ### VectorOfSharedPtrOfLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLandmark::data( size_t i );
+void* VectorOfSharedPtrOfLandmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfLandmark:ptr( i ) -> retval
+    oVectorOfSharedPtrOfLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLandmark::ptr( void*  ptr,
-                                               size_t i );
+static void* VectorOfSharedPtrOfLandmark::ptr( void*          ptr,
+                                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfLandmark.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfLandmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLandmark.reserve
@@ -55251,6 +57030,16 @@ void VectorOfSharedPtrOfLandmark::resize( size_t                                
                                           const std::shared_ptr<mediapipe::Landmark>& value );
 lua:
     oVectorOfSharedPtrOfLandmark:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfLandmark.set
+
+```cpp
+static void VectorOfSharedPtrOfLandmark::set( void*                                ptr,
+                                              std::ptrdiff_t                       i,
+                                              std::shared_ptr<mediapipe::Landmark> value );
+lua:
+    VectorOfSharedPtrOfLandmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfLandmark.shrink\_to\_fit
@@ -55311,6 +57100,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfLandmarkList
+
+### VectorOfSharedPtrOfLandmarkList.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfLandmarkList::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfLandmarkList.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfLandmarkList.new
 
@@ -55383,6 +57180,14 @@ lua:
     oVectorOfSharedPtrOfLandmarkList:clear() -> None
 ```
 
+### VectorOfSharedPtrOfLandmarkList.copy
+
+```cpp
+void VectorOfSharedPtrOfLandmarkList::operator=( const std::vector<std::shared_ptr<mediapipe::LandmarkList>>& other );
+lua:
+    oVectorOfSharedPtrOfLandmarkList:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfLandmarkList.data
 
 ```cpp
@@ -55405,6 +57210,15 @@ lua:
 std::shared_ptr<mediapipe::LandmarkList> VectorOfSharedPtrOfLandmarkList::front();
 lua:
     oVectorOfSharedPtrOfLandmarkList:front() -> retval
+```
+
+### VectorOfSharedPtrOfLandmarkList.get
+
+```cpp
+static std::shared_ptr<mediapipe::LandmarkList> VectorOfSharedPtrOfLandmarkList::get( void*          ptr,
+                                                                                      std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfLandmarkList.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLandmarkList.max\_size
@@ -55440,16 +57254,16 @@ lua:
 ### VectorOfSharedPtrOfLandmarkList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLandmarkList::data( size_t i );
+void* VectorOfSharedPtrOfLandmarkList::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfLandmarkList:ptr( i ) -> retval
+    oVectorOfSharedPtrOfLandmarkList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLandmarkList::ptr( void*  ptr,
-                                                   size_t i );
+static void* VectorOfSharedPtrOfLandmarkList::ptr( void*          ptr,
+                                                   std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfLandmarkList.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfLandmarkList.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLandmarkList.reserve
@@ -55473,6 +57287,16 @@ void VectorOfSharedPtrOfLandmarkList::resize( size_t                            
                                               const std::shared_ptr<mediapipe::LandmarkList>& value );
 lua:
     oVectorOfSharedPtrOfLandmarkList:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfLandmarkList.set
+
+```cpp
+static void VectorOfSharedPtrOfLandmarkList::set( void*                                    ptr,
+                                                  std::ptrdiff_t                           i,
+                                                  std::shared_ptr<mediapipe::LandmarkList> value );
+lua:
+    VectorOfSharedPtrOfLandmarkList.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfLandmarkList.shrink\_to\_fit
@@ -55533,6 +57357,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfLocationData\_RelativeKeypoint
+
+### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfLocationData_RelativeKeypoint::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfLocationData_RelativeKeypoint.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.new
 
@@ -55605,6 +57437,14 @@ lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:clear() -> None
 ```
 
+### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.copy
+
+```cpp
+void VectorOfSharedPtrOfLocationData_RelativeKeypoint::operator=( const std::vector<std::shared_ptr<mediapipe::LocationData::RelativeKeypoint>>& other );
+lua:
+    oVectorOfSharedPtrOfLocationData_RelativeKeypoint:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.data
 
 ```cpp
@@ -55627,6 +57467,15 @@ lua:
 std::shared_ptr<mediapipe::LocationData::RelativeKeypoint> VectorOfSharedPtrOfLocationData_RelativeKeypoint::front();
 lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:front() -> retval
+```
+
+### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.get
+
+```cpp
+static std::shared_ptr<mediapipe::LocationData::RelativeKeypoint> VectorOfSharedPtrOfLocationData_RelativeKeypoint::get( void*          ptr,
+                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfLocationData_RelativeKeypoint.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.max\_size
@@ -55662,16 +57511,16 @@ lua:
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::data( size_t i );
+void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfLocationData_RelativeKeypoint:ptr( i ) -> retval
+    oVectorOfSharedPtrOfLocationData_RelativeKeypoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::ptr( void*  ptr,
-                                                                    size_t i );
+static void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::ptr( void*          ptr,
+                                                                    std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfLocationData_RelativeKeypoint.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfLocationData_RelativeKeypoint.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.reserve
@@ -55695,6 +57544,16 @@ void VectorOfSharedPtrOfLocationData_RelativeKeypoint::resize( size_t           
                                                                const std::shared_ptr<mediapipe::LocationData::RelativeKeypoint>& value );
 lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.set
+
+```cpp
+static void VectorOfSharedPtrOfLocationData_RelativeKeypoint::set( void*                                                      ptr,
+                                                                   std::ptrdiff_t                                             i,
+                                                                   std::shared_ptr<mediapipe::LocationData::RelativeKeypoint> value );
+lua:
+    VectorOfSharedPtrOfLocationData_RelativeKeypoint.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.shrink\_to\_fit
@@ -55755,6 +57614,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfMessage
+
+### VectorOfSharedPtrOfMessage.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfMessage::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfMessage.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfMessage.new
 
@@ -55827,6 +57694,14 @@ lua:
     oVectorOfSharedPtrOfMessage:clear() -> None
 ```
 
+### VectorOfSharedPtrOfMessage.copy
+
+```cpp
+void VectorOfSharedPtrOfMessage::operator=( const std::vector<std::shared_ptr<google::protobuf::Message>>& other );
+lua:
+    oVectorOfSharedPtrOfMessage:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfMessage.data
 
 ```cpp
@@ -55849,6 +57724,15 @@ lua:
 std::shared_ptr<google::protobuf::Message> VectorOfSharedPtrOfMessage::front();
 lua:
     oVectorOfSharedPtrOfMessage:front() -> retval
+```
+
+### VectorOfSharedPtrOfMessage.get
+
+```cpp
+static std::shared_ptr<google::protobuf::Message> VectorOfSharedPtrOfMessage::get( void*          ptr,
+                                                                                   std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfMessage.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfMessage.max\_size
@@ -55884,16 +57768,16 @@ lua:
 ### VectorOfSharedPtrOfMessage.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfMessage::data( size_t i );
+void* VectorOfSharedPtrOfMessage::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfMessage:ptr( i ) -> retval
+    oVectorOfSharedPtrOfMessage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfMessage::ptr( void*  ptr,
-                                              size_t i );
+static void* VectorOfSharedPtrOfMessage::ptr( void*          ptr,
+                                              std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfMessage.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfMessage.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfMessage.reserve
@@ -55917,6 +57801,16 @@ void VectorOfSharedPtrOfMessage::resize( size_t                                 
                                          const std::shared_ptr<google::protobuf::Message>& value );
 lua:
     oVectorOfSharedPtrOfMessage:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfMessage.set
+
+```cpp
+static void VectorOfSharedPtrOfMessage::set( void*                                      ptr,
+                                             std::ptrdiff_t                             i,
+                                             std::shared_ptr<google::protobuf::Message> value );
+lua:
+    VectorOfSharedPtrOfMessage.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfMessage.shrink\_to\_fit
@@ -55977,6 +57871,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfNormalizedLandmark
+
+### VectorOfSharedPtrOfNormalizedLandmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfNormalizedLandmark::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfNormalizedLandmark.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfNormalizedLandmark.new
 
@@ -56049,6 +57951,14 @@ lua:
     oVectorOfSharedPtrOfNormalizedLandmark:clear() -> None
 ```
 
+### VectorOfSharedPtrOfNormalizedLandmark.copy
+
+```cpp
+void VectorOfSharedPtrOfNormalizedLandmark::operator=( const std::vector<std::shared_ptr<mediapipe::NormalizedLandmark>>& other );
+lua:
+    oVectorOfSharedPtrOfNormalizedLandmark:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfNormalizedLandmark.data
 
 ```cpp
@@ -56071,6 +57981,15 @@ lua:
 std::shared_ptr<mediapipe::NormalizedLandmark> VectorOfSharedPtrOfNormalizedLandmark::front();
 lua:
     oVectorOfSharedPtrOfNormalizedLandmark:front() -> retval
+```
+
+### VectorOfSharedPtrOfNormalizedLandmark.get
+
+```cpp
+static std::shared_ptr<mediapipe::NormalizedLandmark> VectorOfSharedPtrOfNormalizedLandmark::get( void*          ptr,
+                                                                                                  std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfNormalizedLandmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmark.max\_size
@@ -56106,16 +58025,16 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedLandmark::data( size_t i );
+void* VectorOfSharedPtrOfNormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfNormalizedLandmark:ptr( i ) -> retval
+    oVectorOfSharedPtrOfNormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedLandmark::ptr( void*  ptr,
-                                                         size_t i );
+static void* VectorOfSharedPtrOfNormalizedLandmark::ptr( void*          ptr,
+                                                         std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfNormalizedLandmark.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfNormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmark.reserve
@@ -56139,6 +58058,16 @@ void VectorOfSharedPtrOfNormalizedLandmark::resize( size_t                      
                                                     const std::shared_ptr<mediapipe::NormalizedLandmark>& value );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmark:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfNormalizedLandmark.set
+
+```cpp
+static void VectorOfSharedPtrOfNormalizedLandmark::set( void*                                          ptr,
+                                                        std::ptrdiff_t                                 i,
+                                                        std::shared_ptr<mediapipe::NormalizedLandmark> value );
+lua:
+    VectorOfSharedPtrOfNormalizedLandmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmark.shrink\_to\_fit
@@ -56199,6 +58128,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfNormalizedLandmarkList
+
+### VectorOfSharedPtrOfNormalizedLandmarkList.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfNormalizedLandmarkList::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfNormalizedLandmarkList.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfNormalizedLandmarkList.new
 
@@ -56271,6 +58208,14 @@ lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:clear() -> None
 ```
 
+### VectorOfSharedPtrOfNormalizedLandmarkList.copy
+
+```cpp
+void VectorOfSharedPtrOfNormalizedLandmarkList::operator=( const std::vector<std::shared_ptr<mediapipe::NormalizedLandmarkList>>& other );
+lua:
+    oVectorOfSharedPtrOfNormalizedLandmarkList:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfNormalizedLandmarkList.data
 
 ```cpp
@@ -56293,6 +58238,15 @@ lua:
 std::shared_ptr<mediapipe::NormalizedLandmarkList> VectorOfSharedPtrOfNormalizedLandmarkList::front();
 lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:front() -> retval
+```
+
+### VectorOfSharedPtrOfNormalizedLandmarkList.get
+
+```cpp
+static std::shared_ptr<mediapipe::NormalizedLandmarkList> VectorOfSharedPtrOfNormalizedLandmarkList::get( void*          ptr,
+                                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfNormalizedLandmarkList.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmarkList.max\_size
@@ -56328,16 +58282,16 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmarkList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedLandmarkList::data( size_t i );
+void* VectorOfSharedPtrOfNormalizedLandmarkList::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfNormalizedLandmarkList:ptr( i ) -> retval
+    oVectorOfSharedPtrOfNormalizedLandmarkList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedLandmarkList::ptr( void*  ptr,
-                                                             size_t i );
+static void* VectorOfSharedPtrOfNormalizedLandmarkList::ptr( void*          ptr,
+                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfNormalizedLandmarkList.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfNormalizedLandmarkList.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmarkList.reserve
@@ -56361,6 +58315,16 @@ void VectorOfSharedPtrOfNormalizedLandmarkList::resize( size_t                  
                                                         const std::shared_ptr<mediapipe::NormalizedLandmarkList>& value );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfNormalizedLandmarkList.set
+
+```cpp
+static void VectorOfSharedPtrOfNormalizedLandmarkList::set( void*                                              ptr,
+                                                            std::ptrdiff_t                                     i,
+                                                            std::shared_ptr<mediapipe::NormalizedLandmarkList> value );
+lua:
+    VectorOfSharedPtrOfNormalizedLandmarkList.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfNormalizedLandmarkList.shrink\_to\_fit
@@ -56421,6 +58385,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfNormalizedRect
+
+### VectorOfSharedPtrOfNormalizedRect.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfNormalizedRect::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfNormalizedRect.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfNormalizedRect.new
 
@@ -56493,6 +58465,14 @@ lua:
     oVectorOfSharedPtrOfNormalizedRect:clear() -> None
 ```
 
+### VectorOfSharedPtrOfNormalizedRect.copy
+
+```cpp
+void VectorOfSharedPtrOfNormalizedRect::operator=( const std::vector<std::shared_ptr<mediapipe::NormalizedRect>>& other );
+lua:
+    oVectorOfSharedPtrOfNormalizedRect:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfNormalizedRect.data
 
 ```cpp
@@ -56515,6 +58495,15 @@ lua:
 std::shared_ptr<mediapipe::NormalizedRect> VectorOfSharedPtrOfNormalizedRect::front();
 lua:
     oVectorOfSharedPtrOfNormalizedRect:front() -> retval
+```
+
+### VectorOfSharedPtrOfNormalizedRect.get
+
+```cpp
+static std::shared_ptr<mediapipe::NormalizedRect> VectorOfSharedPtrOfNormalizedRect::get( void*          ptr,
+                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfNormalizedRect.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedRect.max\_size
@@ -56550,16 +58539,16 @@ lua:
 ### VectorOfSharedPtrOfNormalizedRect.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedRect::data( size_t i );
+void* VectorOfSharedPtrOfNormalizedRect::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfNormalizedRect:ptr( i ) -> retval
+    oVectorOfSharedPtrOfNormalizedRect:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedRect::ptr( void*  ptr,
-                                                     size_t i );
+static void* VectorOfSharedPtrOfNormalizedRect::ptr( void*          ptr,
+                                                     std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfNormalizedRect.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfNormalizedRect.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfNormalizedRect.reserve
@@ -56583,6 +58572,16 @@ void VectorOfSharedPtrOfNormalizedRect::resize( size_t                          
                                                 const std::shared_ptr<mediapipe::NormalizedRect>& value );
 lua:
     oVectorOfSharedPtrOfNormalizedRect:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfNormalizedRect.set
+
+```cpp
+static void VectorOfSharedPtrOfNormalizedRect::set( void*                                      ptr,
+                                                    std::ptrdiff_t                             i,
+                                                    std::shared_ptr<mediapipe::NormalizedRect> value );
+lua:
+    VectorOfSharedPtrOfNormalizedRect.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfNormalizedRect.shrink\_to\_fit
@@ -56643,6 +58642,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfObject
+
+### VectorOfSharedPtrOfObject.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfObject::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfObject.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfObject.new
 
@@ -56715,6 +58722,14 @@ lua:
     oVectorOfSharedPtrOfObject:clear() -> None
 ```
 
+### VectorOfSharedPtrOfObject.copy
+
+```cpp
+void VectorOfSharedPtrOfObject::operator=( const std::vector<std::shared_ptr<mediapipe::Object>>& other );
+lua:
+    oVectorOfSharedPtrOfObject:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfObject.data
 
 ```cpp
@@ -56737,6 +58752,15 @@ lua:
 std::shared_ptr<mediapipe::Object> VectorOfSharedPtrOfObject::front();
 lua:
     oVectorOfSharedPtrOfObject:front() -> retval
+```
+
+### VectorOfSharedPtrOfObject.get
+
+```cpp
+static std::shared_ptr<mediapipe::Object> VectorOfSharedPtrOfObject::get( void*          ptr,
+                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfObject.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfObject.max\_size
@@ -56772,16 +58796,16 @@ lua:
 ### VectorOfSharedPtrOfObject.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfObject::data( size_t i );
+void* VectorOfSharedPtrOfObject::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfObject:ptr( i ) -> retval
+    oVectorOfSharedPtrOfObject:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfObject::ptr( void*  ptr,
-                                             size_t i );
+static void* VectorOfSharedPtrOfObject::ptr( void*          ptr,
+                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfObject.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfObject.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfObject.reserve
@@ -56805,6 +58829,16 @@ void VectorOfSharedPtrOfObject::resize( size_t                                  
                                         const std::shared_ptr<mediapipe::Object>& value );
 lua:
     oVectorOfSharedPtrOfObject:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfObject.set
+
+```cpp
+static void VectorOfSharedPtrOfObject::set( void*                              ptr,
+                                            std::ptrdiff_t                     i,
+                                            std::shared_ptr<mediapipe::Object> value );
+lua:
+    VectorOfSharedPtrOfObject.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfObject.shrink\_to\_fit
@@ -56865,6 +58899,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfObjectAnnotation
+
+### VectorOfSharedPtrOfObjectAnnotation.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfObjectAnnotation::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfObjectAnnotation.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfObjectAnnotation.new
 
@@ -56937,6 +58979,14 @@ lua:
     oVectorOfSharedPtrOfObjectAnnotation:clear() -> None
 ```
 
+### VectorOfSharedPtrOfObjectAnnotation.copy
+
+```cpp
+void VectorOfSharedPtrOfObjectAnnotation::operator=( const std::vector<std::shared_ptr<mediapipe::ObjectAnnotation>>& other );
+lua:
+    oVectorOfSharedPtrOfObjectAnnotation:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfObjectAnnotation.data
 
 ```cpp
@@ -56959,6 +59009,15 @@ lua:
 std::shared_ptr<mediapipe::ObjectAnnotation> VectorOfSharedPtrOfObjectAnnotation::front();
 lua:
     oVectorOfSharedPtrOfObjectAnnotation:front() -> retval
+```
+
+### VectorOfSharedPtrOfObjectAnnotation.get
+
+```cpp
+static std::shared_ptr<mediapipe::ObjectAnnotation> VectorOfSharedPtrOfObjectAnnotation::get( void*          ptr,
+                                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfObjectAnnotation.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfObjectAnnotation.max\_size
@@ -56994,16 +59053,16 @@ lua:
 ### VectorOfSharedPtrOfObjectAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfObjectAnnotation::data( size_t i );
+void* VectorOfSharedPtrOfObjectAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfObjectAnnotation:ptr( i ) -> retval
+    oVectorOfSharedPtrOfObjectAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfObjectAnnotation::ptr( void*  ptr,
-                                                       size_t i );
+static void* VectorOfSharedPtrOfObjectAnnotation::ptr( void*          ptr,
+                                                       std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfObjectAnnotation.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfObjectAnnotation.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfObjectAnnotation.reserve
@@ -57027,6 +59086,16 @@ void VectorOfSharedPtrOfObjectAnnotation::resize( size_t                        
                                                   const std::shared_ptr<mediapipe::ObjectAnnotation>& value );
 lua:
     oVectorOfSharedPtrOfObjectAnnotation:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfObjectAnnotation.set
+
+```cpp
+static void VectorOfSharedPtrOfObjectAnnotation::set( void*                                        ptr,
+                                                      std::ptrdiff_t                               i,
+                                                      std::shared_ptr<mediapipe::ObjectAnnotation> value );
+lua:
+    VectorOfSharedPtrOfObjectAnnotation.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfObjectAnnotation.shrink\_to\_fit
@@ -57087,6 +59156,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfPacketFactoryConfig
+
+### VectorOfSharedPtrOfPacketFactoryConfig.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfPacketFactoryConfig::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfPacketFactoryConfig.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfPacketFactoryConfig.new
 
@@ -57159,6 +59236,14 @@ lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:clear() -> None
 ```
 
+### VectorOfSharedPtrOfPacketFactoryConfig.copy
+
+```cpp
+void VectorOfSharedPtrOfPacketFactoryConfig::operator=( const std::vector<std::shared_ptr<mediapipe::PacketFactoryConfig>>& other );
+lua:
+    oVectorOfSharedPtrOfPacketFactoryConfig:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfPacketFactoryConfig.data
 
 ```cpp
@@ -57181,6 +59266,15 @@ lua:
 std::shared_ptr<mediapipe::PacketFactoryConfig> VectorOfSharedPtrOfPacketFactoryConfig::front();
 lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:front() -> retval
+```
+
+### VectorOfSharedPtrOfPacketFactoryConfig.get
+
+```cpp
+static std::shared_ptr<mediapipe::PacketFactoryConfig> VectorOfSharedPtrOfPacketFactoryConfig::get( void*          ptr,
+                                                                                                    std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfPacketFactoryConfig.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfPacketFactoryConfig.max\_size
@@ -57216,16 +59310,16 @@ lua:
 ### VectorOfSharedPtrOfPacketFactoryConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfPacketFactoryConfig::data( size_t i );
+void* VectorOfSharedPtrOfPacketFactoryConfig::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfPacketFactoryConfig:ptr( i ) -> retval
+    oVectorOfSharedPtrOfPacketFactoryConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfPacketFactoryConfig::ptr( void*  ptr,
-                                                          size_t i );
+static void* VectorOfSharedPtrOfPacketFactoryConfig::ptr( void*          ptr,
+                                                          std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfPacketFactoryConfig.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfPacketFactoryConfig.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfPacketFactoryConfig.reserve
@@ -57249,6 +59343,16 @@ void VectorOfSharedPtrOfPacketFactoryConfig::resize( size_t                     
                                                      const std::shared_ptr<mediapipe::PacketFactoryConfig>& value );
 lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfPacketFactoryConfig.set
+
+```cpp
+static void VectorOfSharedPtrOfPacketFactoryConfig::set( void*                                           ptr,
+                                                         std::ptrdiff_t                                  i,
+                                                         std::shared_ptr<mediapipe::PacketFactoryConfig> value );
+lua:
+    VectorOfSharedPtrOfPacketFactoryConfig.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfPacketFactoryConfig.shrink\_to\_fit
@@ -57309,6 +59413,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfPacketGeneratorConfig
+
+### VectorOfSharedPtrOfPacketGeneratorConfig.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfPacketGeneratorConfig::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfPacketGeneratorConfig.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfPacketGeneratorConfig.new
 
@@ -57381,6 +59493,14 @@ lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:clear() -> None
 ```
 
+### VectorOfSharedPtrOfPacketGeneratorConfig.copy
+
+```cpp
+void VectorOfSharedPtrOfPacketGeneratorConfig::operator=( const std::vector<std::shared_ptr<mediapipe::PacketGeneratorConfig>>& other );
+lua:
+    oVectorOfSharedPtrOfPacketGeneratorConfig:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfPacketGeneratorConfig.data
 
 ```cpp
@@ -57403,6 +59523,15 @@ lua:
 std::shared_ptr<mediapipe::PacketGeneratorConfig> VectorOfSharedPtrOfPacketGeneratorConfig::front();
 lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:front() -> retval
+```
+
+### VectorOfSharedPtrOfPacketGeneratorConfig.get
+
+```cpp
+static std::shared_ptr<mediapipe::PacketGeneratorConfig> VectorOfSharedPtrOfPacketGeneratorConfig::get( void*          ptr,
+                                                                                                        std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfPacketGeneratorConfig.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfPacketGeneratorConfig.max\_size
@@ -57438,16 +59567,16 @@ lua:
 ### VectorOfSharedPtrOfPacketGeneratorConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfPacketGeneratorConfig::data( size_t i );
+void* VectorOfSharedPtrOfPacketGeneratorConfig::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfPacketGeneratorConfig:ptr( i ) -> retval
+    oVectorOfSharedPtrOfPacketGeneratorConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfPacketGeneratorConfig::ptr( void*  ptr,
-                                                            size_t i );
+static void* VectorOfSharedPtrOfPacketGeneratorConfig::ptr( void*          ptr,
+                                                            std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfPacketGeneratorConfig.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfPacketGeneratorConfig.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfPacketGeneratorConfig.reserve
@@ -57471,6 +59600,16 @@ void VectorOfSharedPtrOfPacketGeneratorConfig::resize( size_t                   
                                                        const std::shared_ptr<mediapipe::PacketGeneratorConfig>& value );
 lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfPacketGeneratorConfig.set
+
+```cpp
+static void VectorOfSharedPtrOfPacketGeneratorConfig::set( void*                                             ptr,
+                                                           std::ptrdiff_t                                    i,
+                                                           std::shared_ptr<mediapipe::PacketGeneratorConfig> value );
+lua:
+    VectorOfSharedPtrOfPacketGeneratorConfig.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfPacketGeneratorConfig.shrink\_to\_fit
@@ -57531,6 +59670,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfRasterization\_Interval
+
+### VectorOfSharedPtrOfRasterization\_Interval.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfRasterization_Interval::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfRasterization_Interval.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfRasterization\_Interval.new
 
@@ -57603,6 +59750,14 @@ lua:
     oVectorOfSharedPtrOfRasterization_Interval:clear() -> None
 ```
 
+### VectorOfSharedPtrOfRasterization\_Interval.copy
+
+```cpp
+void VectorOfSharedPtrOfRasterization_Interval::operator=( const std::vector<std::shared_ptr<mediapipe::Rasterization::Interval>>& other );
+lua:
+    oVectorOfSharedPtrOfRasterization_Interval:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfRasterization\_Interval.data
 
 ```cpp
@@ -57625,6 +59780,15 @@ lua:
 std::shared_ptr<mediapipe::Rasterization::Interval> VectorOfSharedPtrOfRasterization_Interval::front();
 lua:
     oVectorOfSharedPtrOfRasterization_Interval:front() -> retval
+```
+
+### VectorOfSharedPtrOfRasterization\_Interval.get
+
+```cpp
+static std::shared_ptr<mediapipe::Rasterization::Interval> VectorOfSharedPtrOfRasterization_Interval::get( void*          ptr,
+                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfRasterization_Interval.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRasterization\_Interval.max\_size
@@ -57660,16 +59824,16 @@ lua:
 ### VectorOfSharedPtrOfRasterization\_Interval.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRasterization_Interval::data( size_t i );
+void* VectorOfSharedPtrOfRasterization_Interval::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfRasterization_Interval:ptr( i ) -> retval
+    oVectorOfSharedPtrOfRasterization_Interval:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRasterization_Interval::ptr( void*  ptr,
-                                                             size_t i );
+static void* VectorOfSharedPtrOfRasterization_Interval::ptr( void*          ptr,
+                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfRasterization_Interval.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfRasterization_Interval.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRasterization\_Interval.reserve
@@ -57693,6 +59857,16 @@ void VectorOfSharedPtrOfRasterization_Interval::resize( size_t                  
                                                         const std::shared_ptr<mediapipe::Rasterization::Interval>& value );
 lua:
     oVectorOfSharedPtrOfRasterization_Interval:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfRasterization\_Interval.set
+
+```cpp
+static void VectorOfSharedPtrOfRasterization_Interval::set( void*                                               ptr,
+                                                            std::ptrdiff_t                                      i,
+                                                            std::shared_ptr<mediapipe::Rasterization::Interval> value );
+lua:
+    VectorOfSharedPtrOfRasterization_Interval.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfRasterization\_Interval.shrink\_to\_fit
@@ -57753,6 +59927,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfRenderAnnotation
+
+### VectorOfSharedPtrOfRenderAnnotation.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfRenderAnnotation::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfRenderAnnotation.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfRenderAnnotation.new
 
@@ -57825,6 +60007,14 @@ lua:
     oVectorOfSharedPtrOfRenderAnnotation:clear() -> None
 ```
 
+### VectorOfSharedPtrOfRenderAnnotation.copy
+
+```cpp
+void VectorOfSharedPtrOfRenderAnnotation::operator=( const std::vector<std::shared_ptr<mediapipe::RenderAnnotation>>& other );
+lua:
+    oVectorOfSharedPtrOfRenderAnnotation:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfRenderAnnotation.data
 
 ```cpp
@@ -57847,6 +60037,15 @@ lua:
 std::shared_ptr<mediapipe::RenderAnnotation> VectorOfSharedPtrOfRenderAnnotation::front();
 lua:
     oVectorOfSharedPtrOfRenderAnnotation:front() -> retval
+```
+
+### VectorOfSharedPtrOfRenderAnnotation.get
+
+```cpp
+static std::shared_ptr<mediapipe::RenderAnnotation> VectorOfSharedPtrOfRenderAnnotation::get( void*          ptr,
+                                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfRenderAnnotation.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation.max\_size
@@ -57882,16 +60081,16 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRenderAnnotation::data( size_t i );
+void* VectorOfSharedPtrOfRenderAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfRenderAnnotation:ptr( i ) -> retval
+    oVectorOfSharedPtrOfRenderAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRenderAnnotation::ptr( void*  ptr,
-                                                       size_t i );
+static void* VectorOfSharedPtrOfRenderAnnotation::ptr( void*          ptr,
+                                                       std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfRenderAnnotation.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfRenderAnnotation.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation.reserve
@@ -57915,6 +60114,16 @@ void VectorOfSharedPtrOfRenderAnnotation::resize( size_t                        
                                                   const std::shared_ptr<mediapipe::RenderAnnotation>& value );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfRenderAnnotation.set
+
+```cpp
+static void VectorOfSharedPtrOfRenderAnnotation::set( void*                                        ptr,
+                                                      std::ptrdiff_t                               i,
+                                                      std::shared_ptr<mediapipe::RenderAnnotation> value );
+lua:
+    VectorOfSharedPtrOfRenderAnnotation.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation.shrink\_to\_fit
@@ -57975,6 +60184,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfRenderAnnotation\_Point
+
+### VectorOfSharedPtrOfRenderAnnotation\_Point.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfRenderAnnotation_Point::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfRenderAnnotation_Point.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.new
 
@@ -58047,6 +60264,14 @@ lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:clear() -> None
 ```
 
+### VectorOfSharedPtrOfRenderAnnotation\_Point.copy
+
+```cpp
+void VectorOfSharedPtrOfRenderAnnotation_Point::operator=( const std::vector<std::shared_ptr<mediapipe::RenderAnnotation::Point>>& other );
+lua:
+    oVectorOfSharedPtrOfRenderAnnotation_Point:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.data
 
 ```cpp
@@ -58069,6 +60294,15 @@ lua:
 std::shared_ptr<mediapipe::RenderAnnotation::Point> VectorOfSharedPtrOfRenderAnnotation_Point::front();
 lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:front() -> retval
+```
+
+### VectorOfSharedPtrOfRenderAnnotation\_Point.get
+
+```cpp
+static std::shared_ptr<mediapipe::RenderAnnotation::Point> VectorOfSharedPtrOfRenderAnnotation_Point::get( void*          ptr,
+                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfRenderAnnotation_Point.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.max\_size
@@ -58104,16 +60338,16 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRenderAnnotation_Point::data( size_t i );
+void* VectorOfSharedPtrOfRenderAnnotation_Point::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfRenderAnnotation_Point:ptr( i ) -> retval
+    oVectorOfSharedPtrOfRenderAnnotation_Point:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRenderAnnotation_Point::ptr( void*  ptr,
-                                                             size_t i );
+static void* VectorOfSharedPtrOfRenderAnnotation_Point::ptr( void*          ptr,
+                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfRenderAnnotation_Point.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfRenderAnnotation_Point.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.reserve
@@ -58137,6 +60371,16 @@ void VectorOfSharedPtrOfRenderAnnotation_Point::resize( size_t                  
                                                         const std::shared_ptr<mediapipe::RenderAnnotation::Point>& value );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfRenderAnnotation\_Point.set
+
+```cpp
+static void VectorOfSharedPtrOfRenderAnnotation_Point::set( void*                                               ptr,
+                                                            std::ptrdiff_t                                      i,
+                                                            std::shared_ptr<mediapipe::RenderAnnotation::Point> value );
+lua:
+    VectorOfSharedPtrOfRenderAnnotation_Point.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.shrink\_to\_fit
@@ -58197,6 +60441,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfSkeleton
+
+### VectorOfSharedPtrOfSkeleton.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfSkeleton::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfSkeleton.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfSkeleton.new
 
@@ -58269,6 +60521,14 @@ lua:
     oVectorOfSharedPtrOfSkeleton:clear() -> None
 ```
 
+### VectorOfSharedPtrOfSkeleton.copy
+
+```cpp
+void VectorOfSharedPtrOfSkeleton::operator=( const std::vector<std::shared_ptr<mediapipe::Skeleton>>& other );
+lua:
+    oVectorOfSharedPtrOfSkeleton:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfSkeleton.data
 
 ```cpp
@@ -58291,6 +60551,15 @@ lua:
 std::shared_ptr<mediapipe::Skeleton> VectorOfSharedPtrOfSkeleton::front();
 lua:
     oVectorOfSharedPtrOfSkeleton:front() -> retval
+```
+
+### VectorOfSharedPtrOfSkeleton.get
+
+```cpp
+static std::shared_ptr<mediapipe::Skeleton> VectorOfSharedPtrOfSkeleton::get( void*          ptr,
+                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfSkeleton.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfSkeleton.max\_size
@@ -58326,16 +60595,16 @@ lua:
 ### VectorOfSharedPtrOfSkeleton.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfSkeleton::data( size_t i );
+void* VectorOfSharedPtrOfSkeleton::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfSkeleton:ptr( i ) -> retval
+    oVectorOfSharedPtrOfSkeleton:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfSkeleton::ptr( void*  ptr,
-                                               size_t i );
+static void* VectorOfSharedPtrOfSkeleton::ptr( void*          ptr,
+                                               std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfSkeleton.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfSkeleton.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfSkeleton.reserve
@@ -58359,6 +60628,16 @@ void VectorOfSharedPtrOfSkeleton::resize( size_t                                
                                           const std::shared_ptr<mediapipe::Skeleton>& value );
 lua:
     oVectorOfSharedPtrOfSkeleton:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfSkeleton.set
+
+```cpp
+static void VectorOfSharedPtrOfSkeleton::set( void*                                ptr,
+                                              std::ptrdiff_t                       i,
+                                              std::shared_ptr<mediapipe::Skeleton> value );
+lua:
+    VectorOfSharedPtrOfSkeleton.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfSkeleton.shrink\_to\_fit
@@ -58419,6 +60698,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfStatusHandlerConfig
+
+### VectorOfSharedPtrOfStatusHandlerConfig.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfStatusHandlerConfig::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfStatusHandlerConfig.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfStatusHandlerConfig.new
 
@@ -58491,6 +60778,14 @@ lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:clear() -> None
 ```
 
+### VectorOfSharedPtrOfStatusHandlerConfig.copy
+
+```cpp
+void VectorOfSharedPtrOfStatusHandlerConfig::operator=( const std::vector<std::shared_ptr<mediapipe::StatusHandlerConfig>>& other );
+lua:
+    oVectorOfSharedPtrOfStatusHandlerConfig:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfStatusHandlerConfig.data
 
 ```cpp
@@ -58513,6 +60808,15 @@ lua:
 std::shared_ptr<mediapipe::StatusHandlerConfig> VectorOfSharedPtrOfStatusHandlerConfig::front();
 lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:front() -> retval
+```
+
+### VectorOfSharedPtrOfStatusHandlerConfig.get
+
+```cpp
+static std::shared_ptr<mediapipe::StatusHandlerConfig> VectorOfSharedPtrOfStatusHandlerConfig::get( void*          ptr,
+                                                                                                    std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfStatusHandlerConfig.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfStatusHandlerConfig.max\_size
@@ -58548,16 +60852,16 @@ lua:
 ### VectorOfSharedPtrOfStatusHandlerConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfStatusHandlerConfig::data( size_t i );
+void* VectorOfSharedPtrOfStatusHandlerConfig::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfStatusHandlerConfig:ptr( i ) -> retval
+    oVectorOfSharedPtrOfStatusHandlerConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfStatusHandlerConfig::ptr( void*  ptr,
-                                                          size_t i );
+static void* VectorOfSharedPtrOfStatusHandlerConfig::ptr( void*          ptr,
+                                                          std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfStatusHandlerConfig.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfStatusHandlerConfig.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfStatusHandlerConfig.reserve
@@ -58581,6 +60885,16 @@ void VectorOfSharedPtrOfStatusHandlerConfig::resize( size_t                     
                                                      const std::shared_ptr<mediapipe::StatusHandlerConfig>& value );
 lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfStatusHandlerConfig.set
+
+```cpp
+static void VectorOfSharedPtrOfStatusHandlerConfig::set( void*                                           ptr,
+                                                         std::ptrdiff_t                                  i,
+                                                         std::shared_ptr<mediapipe::StatusHandlerConfig> value );
+lua:
+    VectorOfSharedPtrOfStatusHandlerConfig.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfStatusHandlerConfig.shrink\_to\_fit
@@ -58641,6 +60955,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.new
 
@@ -58713,6 +61035,14 @@ lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.data
 
 ```cpp
@@ -58735,6 +61065,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications> VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::front();
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications> VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::get( void*          ptr,
+                                                                                                                                                                    std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.max\_size
@@ -58770,16 +61109,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::data( size_t i );
+void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::ptr( void*  ptr,
-                                                                                        size_t i );
+static void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::ptr( void*          ptr,
+                                                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.reserve
@@ -58803,6 +61142,16 @@ void VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::resiz
                                                                                    const std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications>& value );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::set( void*                                                                             ptr,
+                                                                                       std::ptrdiff_t                                                                    i,
+                                                                                       std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications> value );
+lua:
+    VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.shrink\_to\_fit
@@ -58863,6 +61212,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.new
 
@@ -58935,6 +61292,14 @@ lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.data
 
 ```cpp
@@ -58957,6 +61322,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding> VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::front();
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding> VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::get( void*          ptr,
+                                                                                                                                                        std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.max\_size
@@ -58992,16 +61366,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::data( size_t i );
+void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::ptr( void*  ptr,
-                                                                                  size_t i );
+static void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::ptr( void*          ptr,
+                                                                                  std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.reserve
@@ -59025,6 +61399,16 @@ void VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::resize( siz
                                                                              const std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding>& value );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::set( void*                                                                       ptr,
+                                                                                 std::ptrdiff_t                                                              i,
+                                                                                 std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding> value );
+lua:
+    VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.shrink\_to\_fit
@@ -59085,6 +61469,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.new
 
@@ -59157,6 +61549,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.data
 
 ```cpp
@@ -59179,6 +61579,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category> VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category> VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::get( void*          ptr,
+                                                                                                                                                                     std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.max\_size
@@ -59214,16 +61623,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*  ptr,
-                                                                                        size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
+                                                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.reserve
@@ -59247,6 +61656,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::resiz
                                                                                    const std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::set( void*                                                                              ptr,
+                                                                                       std::ptrdiff_t                                                                     i,
+                                                                                       std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.shrink\_to\_fit
@@ -59307,6 +61726,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.new
 
@@ -59379,6 +61806,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.data
 
 ```cpp
@@ -59401,6 +61836,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::get( void*          ptr,
+                                                                                                                                                                                                                       std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.max\_size
@@ -59436,16 +61880,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::ptr( void*  ptr,
-                                                                                                                 size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::ptr( void*          ptr,
+                                                                                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.reserve
@@ -59469,6 +61913,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Cl
                                                                                                             const std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::set( void*                                                                                                       ptr,
+                                                                                                                std::ptrdiff_t                                                                                              i,
+                                                                                                                std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.shrink\_to\_fit
@@ -59529,6 +61983,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.new
 
@@ -59601,6 +62063,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.data
 
 ```cpp
@@ -59623,6 +62093,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::get( void*          ptr,
+                                                                                                                                                                                                             std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.max\_size
@@ -59658,16 +62137,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::ptr( void*  ptr,
-                                                                                                            size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::ptr( void*          ptr,
+                                                                                                            std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.reserve
@@ -59691,6 +62170,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Cl
                                                                                                        const std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::set( void*                                                                                                  ptr,
+                                                                                                           std::ptrdiff_t                                                                                         i,
+                                                                                                           std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.shrink\_to\_fit
@@ -59751,6 +62240,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.new
 
@@ -59823,6 +62320,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.data
 
 ```cpp
@@ -59845,6 +62350,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection> VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection> VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::get( void*          ptr,
+                                                                                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.max\_size
@@ -59880,16 +62394,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::ptr( void*  ptr,
-                                                                                           size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::ptr( void*          ptr,
+                                                                                           std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.reserve
@@ -59913,6 +62427,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::re
                                                                                       const std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::set( void*                                                                                 ptr,
+                                                                                          std::ptrdiff_t                                                                        i,
+                                                                                          std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.shrink\_to\_fit
@@ -59973,6 +62497,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.new
 
@@ -60045,6 +62577,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.data
 
 ```cpp
@@ -60067,6 +62607,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::get( void*          ptr,
+                                                                                                                                                                                       std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.max\_size
@@ -60102,16 +62651,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::ptr( void*  ptr,
-                                                                                                 size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::ptr( void*          ptr,
+                                                                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.reserve
@@ -60135,6 +62684,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embeddi
                                                                                             const std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::set( void*                                                                                       ptr,
+                                                                                                std::ptrdiff_t                                                                              i,
+                                                                                                std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.shrink\_to\_fit
@@ -60195,6 +62754,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.new
 
@@ -60267,6 +62834,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.data
 
 ```cpp
@@ -60289,6 +62864,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::get( void*          ptr,
+                                                                                                                                                                                                   std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.max\_size
@@ -60324,16 +62908,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::ptr( void*  ptr,
-                                                                                                       size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::ptr( void*          ptr,
+                                                                                                       std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.reserve
@@ -60357,6 +62941,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embeddi
                                                                                                   const std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::set( void*                                                                                             ptr,
+                                                                                                      std::ptrdiff_t                                                                                    i,
+                                                                                                      std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.shrink\_to\_fit
@@ -60417,6 +63011,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.new
 
@@ -60489,6 +63091,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.data
 
 ```cpp
@@ -60511,6 +63121,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint> VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint> VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::get( void*          ptr,
+                                                                                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.max\_size
@@ -60546,16 +63165,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::ptr( void*  ptr,
-                                                                                                  size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::ptr( void*          ptr,
+                                                                                                  std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.reserve
@@ -60579,6 +63198,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypo
                                                                                              const std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::set( void*                                                                                        ptr,
+                                                                                                 std::ptrdiff_t                                                                               i,
+                                                                                                 std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.shrink\_to\_fit
@@ -60639,6 +63268,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.new
 
@@ -60711,6 +63348,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.data
 
 ```cpp
@@ -60733,6 +63378,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::get( void*          ptr,
+                                                                                                                                                                     std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.max\_size
@@ -60768,16 +63422,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*  ptr,
-                                                                                        size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
+                                                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.reserve
@@ -60801,6 +63455,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::resiz
                                                                                    const std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::set( void*                                                                              ptr,
+                                                                                       std::ptrdiff_t                                                                     i,
+                                                                                       std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.shrink\_to\_fit
@@ -60861,6 +63525,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.new
 
@@ -60933,6 +63605,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.data
 
 ```cpp
@@ -60955,6 +63635,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::get( void*          ptr,
+                                                                                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.max\_size
@@ -60990,16 +63679,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*  ptr,
-                                                                                                  size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
+                                                                                                  std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.reserve
@@ -61023,6 +63712,16 @@ void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandm
                                                                                              const std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::set( void*                                                                                        ptr,
+                                                                                                 std::ptrdiff_t                                                                               i,
+                                                                                                 std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.shrink\_to\_fit
@@ -61083,6 +63782,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection
+
+### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.new
 
@@ -61155,6 +63862,14 @@ lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.copy
+
+```cpp
+void VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::operator=( const std::vector<std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection>>& other );
+lua:
+    oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.data
 
 ```cpp
@@ -61177,6 +63892,15 @@ lua:
 std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection> VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::front();
 lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:front() -> retval
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.get
+
+```cpp
+static std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection> VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::get( void*          ptr,
+                                                                                                                                                                                                     std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.max\_size
@@ -61212,16 +63936,16 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::data( size_t i );
+void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::ptr( void*  ptr,
-                                                                                                        size_t i );
+static void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::ptr( void*          ptr,
+                                                                                                        std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.reserve
@@ -61245,6 +63969,16 @@ void VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_
                                                                                                    const std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection>& value );
 lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.set
+
+```cpp
+static void VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::set( void*                                                                                              ptr,
+                                                                                                       std::ptrdiff_t                                                                                     i,
+                                                                                                       std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection> value );
+lua:
+    VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.shrink\_to\_fit
@@ -61305,6 +64039,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTemplateArgument
+
+### VectorOfSharedPtrOfTemplateArgument.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTemplateArgument::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTemplateArgument.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTemplateArgument.new
 
@@ -61377,6 +64119,14 @@ lua:
     oVectorOfSharedPtrOfTemplateArgument:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTemplateArgument.copy
+
+```cpp
+void VectorOfSharedPtrOfTemplateArgument::operator=( const std::vector<std::shared_ptr<mediapipe::TemplateArgument>>& other );
+lua:
+    oVectorOfSharedPtrOfTemplateArgument:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTemplateArgument.data
 
 ```cpp
@@ -61399,6 +64149,15 @@ lua:
 std::shared_ptr<mediapipe::TemplateArgument> VectorOfSharedPtrOfTemplateArgument::front();
 lua:
     oVectorOfSharedPtrOfTemplateArgument:front() -> retval
+```
+
+### VectorOfSharedPtrOfTemplateArgument.get
+
+```cpp
+static std::shared_ptr<mediapipe::TemplateArgument> VectorOfSharedPtrOfTemplateArgument::get( void*          ptr,
+                                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTemplateArgument.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateArgument.max\_size
@@ -61434,16 +64193,16 @@ lua:
 ### VectorOfSharedPtrOfTemplateArgument.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateArgument::data( size_t i );
+void* VectorOfSharedPtrOfTemplateArgument::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTemplateArgument:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTemplateArgument:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateArgument::ptr( void*  ptr,
-                                                       size_t i );
+static void* VectorOfSharedPtrOfTemplateArgument::ptr( void*          ptr,
+                                                       std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTemplateArgument.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTemplateArgument.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateArgument.reserve
@@ -61467,6 +64226,16 @@ void VectorOfSharedPtrOfTemplateArgument::resize( size_t                        
                                                   const std::shared_ptr<mediapipe::TemplateArgument>& value );
 lua:
     oVectorOfSharedPtrOfTemplateArgument:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTemplateArgument.set
+
+```cpp
+static void VectorOfSharedPtrOfTemplateArgument::set( void*                                        ptr,
+                                                      std::ptrdiff_t                               i,
+                                                      std::shared_ptr<mediapipe::TemplateArgument> value );
+lua:
+    VectorOfSharedPtrOfTemplateArgument.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTemplateArgument.shrink\_to\_fit
@@ -61527,6 +64296,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTemplateDict\_Parameter
+
+### VectorOfSharedPtrOfTemplateDict\_Parameter.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTemplateDict_Parameter::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTemplateDict_Parameter.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.new
 
@@ -61599,6 +64376,14 @@ lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTemplateDict\_Parameter.copy
+
+```cpp
+void VectorOfSharedPtrOfTemplateDict_Parameter::operator=( const std::vector<std::shared_ptr<mediapipe::TemplateDict::Parameter>>& other );
+lua:
+    oVectorOfSharedPtrOfTemplateDict_Parameter:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.data
 
 ```cpp
@@ -61621,6 +64406,15 @@ lua:
 std::shared_ptr<mediapipe::TemplateDict::Parameter> VectorOfSharedPtrOfTemplateDict_Parameter::front();
 lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:front() -> retval
+```
+
+### VectorOfSharedPtrOfTemplateDict\_Parameter.get
+
+```cpp
+static std::shared_ptr<mediapipe::TemplateDict::Parameter> VectorOfSharedPtrOfTemplateDict_Parameter::get( void*          ptr,
+                                                                                                           std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTemplateDict_Parameter.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.max\_size
@@ -61656,16 +64450,16 @@ lua:
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateDict_Parameter::data( size_t i );
+void* VectorOfSharedPtrOfTemplateDict_Parameter::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTemplateDict_Parameter:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTemplateDict_Parameter:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateDict_Parameter::ptr( void*  ptr,
-                                                             size_t i );
+static void* VectorOfSharedPtrOfTemplateDict_Parameter::ptr( void*          ptr,
+                                                             std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTemplateDict_Parameter.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTemplateDict_Parameter.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.reserve
@@ -61689,6 +64483,16 @@ void VectorOfSharedPtrOfTemplateDict_Parameter::resize( size_t                  
                                                         const std::shared_ptr<mediapipe::TemplateDict::Parameter>& value );
 lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTemplateDict\_Parameter.set
+
+```cpp
+static void VectorOfSharedPtrOfTemplateDict_Parameter::set( void*                                               ptr,
+                                                            std::ptrdiff_t                                      i,
+                                                            std::shared_ptr<mediapipe::TemplateDict::Parameter> value );
+lua:
+    VectorOfSharedPtrOfTemplateDict_Parameter.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.shrink\_to\_fit
@@ -61749,6 +64553,14 @@ lua:
 ```
 
 ## VectorOfSharedPtrOfTemplateExpression
+
+### VectorOfSharedPtrOfTemplateExpression.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfSharedPtrOfTemplateExpression::sizeof_value_type
+lua:
+    [propget] VectorOfSharedPtrOfTemplateExpression.sizeof_value_type
+```
 
 ### VectorOfSharedPtrOfTemplateExpression.new
 
@@ -61821,6 +64633,14 @@ lua:
     oVectorOfSharedPtrOfTemplateExpression:clear() -> None
 ```
 
+### VectorOfSharedPtrOfTemplateExpression.copy
+
+```cpp
+void VectorOfSharedPtrOfTemplateExpression::operator=( const std::vector<std::shared_ptr<mediapipe::TemplateExpression>>& other );
+lua:
+    oVectorOfSharedPtrOfTemplateExpression:copy( other ) -> None
+```
+
 ### VectorOfSharedPtrOfTemplateExpression.data
 
 ```cpp
@@ -61843,6 +64663,15 @@ lua:
 std::shared_ptr<mediapipe::TemplateExpression> VectorOfSharedPtrOfTemplateExpression::front();
 lua:
     oVectorOfSharedPtrOfTemplateExpression:front() -> retval
+```
+
+### VectorOfSharedPtrOfTemplateExpression.get
+
+```cpp
+static std::shared_ptr<mediapipe::TemplateExpression> VectorOfSharedPtrOfTemplateExpression::get( void*          ptr,
+                                                                                                  std::ptrdiff_t i );
+lua:
+    VectorOfSharedPtrOfTemplateExpression.get( ptr, i ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateExpression.max\_size
@@ -61878,16 +64707,16 @@ lua:
 ### VectorOfSharedPtrOfTemplateExpression.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateExpression::data( size_t i );
+void* VectorOfSharedPtrOfTemplateExpression::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfSharedPtrOfTemplateExpression:ptr( i ) -> retval
+    oVectorOfSharedPtrOfTemplateExpression:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateExpression::ptr( void*  ptr,
-                                                         size_t i );
+static void* VectorOfSharedPtrOfTemplateExpression::ptr( void*          ptr,
+                                                         std::ptrdiff_t i = 0 );
 lua:
-    VectorOfSharedPtrOfTemplateExpression.ptr( ptr, i ) -> retval
+    VectorOfSharedPtrOfTemplateExpression.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfSharedPtrOfTemplateExpression.reserve
@@ -61911,6 +64740,16 @@ void VectorOfSharedPtrOfTemplateExpression::resize( size_t                      
                                                     const std::shared_ptr<mediapipe::TemplateExpression>& value );
 lua:
     oVectorOfSharedPtrOfTemplateExpression:resize( count, value ) -> None
+```
+
+### VectorOfSharedPtrOfTemplateExpression.set
+
+```cpp
+static void VectorOfSharedPtrOfTemplateExpression::set( void*                                          ptr,
+                                                        std::ptrdiff_t                                 i,
+                                                        std::shared_ptr<mediapipe::TemplateExpression> value );
+lua:
+    VectorOfSharedPtrOfTemplateExpression.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfSharedPtrOfTemplateExpression.shrink\_to\_fit
@@ -61971,6 +64810,14 @@ lua:
 ```
 
 ## VectorOfString
+
+### VectorOfString.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfString::sizeof_value_type
+lua:
+    [propget] VectorOfString.sizeof_value_type
+```
 
 ### VectorOfString.new
 
@@ -62043,6 +64890,14 @@ lua:
     oVectorOfString:clear() -> None
 ```
 
+### VectorOfString.copy
+
+```cpp
+void VectorOfString::operator=( const std::vector<std::string>& other );
+lua:
+    oVectorOfString:copy( other ) -> None
+```
+
 ### VectorOfString.data
 
 ```cpp
@@ -62065,6 +64920,15 @@ lua:
 std::string VectorOfString::front();
 lua:
     oVectorOfString:front() -> retval
+```
+
+### VectorOfString.get
+
+```cpp
+static std::string VectorOfString::get( void*          ptr,
+                                        std::ptrdiff_t i );
+lua:
+    VectorOfString.get( ptr, i ) -> retval
 ```
 
 ### VectorOfString.max\_size
@@ -62100,16 +64964,16 @@ lua:
 ### VectorOfString.ptr
 
 ```cpp
-void* VectorOfString::data( size_t i );
+void* VectorOfString::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfString:ptr( i ) -> retval
+    oVectorOfString:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfString::ptr( void*  ptr,
-                                  size_t i );
+static void* VectorOfString::ptr( void*          ptr,
+                                  std::ptrdiff_t i = 0 );
 lua:
-    VectorOfString.ptr( ptr, i ) -> retval
+    VectorOfString.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfString.reserve
@@ -62133,6 +64997,16 @@ void VectorOfString::resize( size_t             count,
                              const std::string& value );
 lua:
     oVectorOfString:resize( count, value ) -> None
+```
+
+### VectorOfString.set
+
+```cpp
+static void VectorOfString::set( void*          ptr,
+                                 std::ptrdiff_t i,
+                                 std::string    value );
+lua:
+    VectorOfString.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfString.shrink\_to\_fit
@@ -62193,6 +65067,14 @@ lua:
 ```
 
 ## VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection
+
+### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::sizeof_value_type
+lua:
+    [propget] VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.sizeof_value_type
+```
 
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.new
 
@@ -62265,6 +65147,14 @@ lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:clear() -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.copy
+
+```cpp
+void VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::operator=( const std::vector<mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection>& other );
+lua:
+    oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:copy( other ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.data
 
 ```cpp
@@ -62287,6 +65177,15 @@ lua:
 mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::front();
 lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:front() -> retval
+```
+
+### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.get
+
+```cpp
+static mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::get( void*          ptr,
+                                                                                                                                                                                std::ptrdiff_t i );
+lua:
+    VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.max\_size
@@ -62322,16 +65221,16 @@ lua:
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::data( size_t i );
+void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:ptr( i ) -> retval
+    oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::ptr( void*  ptr,
-                                                                                                size_t i );
+static void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.ptr( ptr, i ) -> retval
+    VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.reserve
@@ -62357,6 +65256,16 @@ lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:resize( count, value ) -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.set
+
+```cpp
+static void VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::set( void*                                                                                ptr,
+                                                                                               std::ptrdiff_t                                                                       i,
+                                                                                               mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection value );
+lua:
+    VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.set( ptr, i, value ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.shrink\_to\_fit
 
 ```cpp
@@ -62376,7 +65285,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.sol::meta\_function::index
 
 ```cpp
-mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::sol::meta_function::index( size_t index );
+mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::sol::meta_function::index( size_t index );
 lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:__index( index ) -> retval
 ```
@@ -62415,6 +65324,14 @@ lua:
 ```
 
 ## VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection
+
+### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::sizeof_value_type
+lua:
+    [propget] VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.sizeof_value_type
+```
 
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.new
 
@@ -62487,6 +65404,14 @@ lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:clear() -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.copy
+
+```cpp
+void VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::operator=( const std::vector<mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection>& other );
+lua:
+    oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:copy( other ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.data
 
 ```cpp
@@ -62509,6 +65434,15 @@ lua:
 mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::front();
 lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:front() -> retval
+```
+
+### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.get
+
+```cpp
+static mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::get( void*          ptr,
+                                                                                                                                                                                std::ptrdiff_t i );
+lua:
+    VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.max\_size
@@ -62544,16 +65478,16 @@ lua:
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::data( size_t i );
+void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:ptr( i ) -> retval
+    oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::ptr( void*  ptr,
-                                                                                                size_t i );
+static void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.ptr( ptr, i ) -> retval
+    VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.reserve
@@ -62579,6 +65513,16 @@ lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:resize( count, value ) -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.set
+
+```cpp
+static void VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::set( void*                                                                                ptr,
+                                                                                               std::ptrdiff_t                                                                       i,
+                                                                                               mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection value );
+lua:
+    VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.set( ptr, i, value ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.shrink\_to\_fit
 
 ```cpp
@@ -62598,7 +65542,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.sol::meta\_function::index
 
 ```cpp
-mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::sol::meta_function::index( size_t index );
+mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::sol::meta_function::index( size_t index );
 lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:__index( index ) -> retval
 ```
@@ -62637,6 +65581,14 @@ lua:
 ```
 
 ## VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection
+
+### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::sizeof_value_type
+lua:
+    [propget] VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.sizeof_value_type
+```
 
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.new
 
@@ -62709,6 +65661,14 @@ lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:clear() -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.copy
+
+```cpp
+void VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::operator=( const std::vector<mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection>& other );
+lua:
+    oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:copy( other ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.data
 
 ```cpp
@@ -62731,6 +65691,15 @@ lua:
 mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::front();
 lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:front() -> retval
+```
+
+### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.get
+
+```cpp
+static mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::get( void*          ptr,
+                                                                                                                                                                                std::ptrdiff_t i );
+lua:
+    VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.get( ptr, i ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.max\_size
@@ -62766,16 +65735,16 @@ lua:
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::data( size_t i );
+void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:ptr( i ) -> retval
+    oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::ptr( void*  ptr,
-                                                                                                size_t i );
+static void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.ptr( ptr, i ) -> retval
+    VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.reserve
@@ -62801,6 +65770,16 @@ lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:resize( count, value ) -> None
 ```
 
+### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.set
+
+```cpp
+static void VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::set( void*                                                                                ptr,
+                                                                                               std::ptrdiff_t                                                                       i,
+                                                                                               mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection value );
+lua:
+    VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.set( ptr, i, value ) -> None
+```
+
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.shrink\_to\_fit
 
 ```cpp
@@ -62820,7 +65799,7 @@ lua:
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.sol::meta\_function::index
 
 ```cpp
-mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::sol::meta_function::index( size_t index );
+mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::sol::meta_function::index( size_t index );
 lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:__index( index ) -> retval
 ```
@@ -62859,6 +65838,14 @@ lua:
 ```
 
 ## VectorOfTupleIntAndInt
+
+### VectorOfTupleIntAndInt.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfTupleIntAndInt::sizeof_value_type
+lua:
+    [propget] VectorOfTupleIntAndInt.sizeof_value_type
+```
 
 ### VectorOfTupleIntAndInt.new
 
@@ -62931,6 +65918,14 @@ lua:
     oVectorOfTupleIntAndInt:clear() -> None
 ```
 
+### VectorOfTupleIntAndInt.copy
+
+```cpp
+void VectorOfTupleIntAndInt::operator=( const std::vector<std::tuple<int, int>>& other );
+lua:
+    oVectorOfTupleIntAndInt:copy( other ) -> None
+```
+
 ### VectorOfTupleIntAndInt.data
 
 ```cpp
@@ -62953,6 +65948,15 @@ lua:
 std::tuple<int, int> VectorOfTupleIntAndInt::front();
 lua:
     oVectorOfTupleIntAndInt:front() -> retval
+```
+
+### VectorOfTupleIntAndInt.get
+
+```cpp
+static std::tuple<int, int> VectorOfTupleIntAndInt::get( void*          ptr,
+                                                         std::ptrdiff_t i );
+lua:
+    VectorOfTupleIntAndInt.get( ptr, i ) -> retval
 ```
 
 ### VectorOfTupleIntAndInt.max\_size
@@ -62988,16 +65992,16 @@ lua:
 ### VectorOfTupleIntAndInt.ptr
 
 ```cpp
-void* VectorOfTupleIntAndInt::data( size_t i );
+void* VectorOfTupleIntAndInt::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfTupleIntAndInt:ptr( i ) -> retval
+    oVectorOfTupleIntAndInt:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTupleIntAndInt::ptr( void*  ptr,
-                                          size_t i );
+static void* VectorOfTupleIntAndInt::ptr( void*          ptr,
+                                          std::ptrdiff_t i = 0 );
 lua:
-    VectorOfTupleIntAndInt.ptr( ptr, i ) -> retval
+    VectorOfTupleIntAndInt.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfTupleIntAndInt.reserve
@@ -63021,6 +66025,16 @@ void VectorOfTupleIntAndInt::resize( size_t                      count,
                                      const std::tuple<int, int>& value );
 lua:
     oVectorOfTupleIntAndInt:resize( count, value ) -> None
+```
+
+### VectorOfTupleIntAndInt.set
+
+```cpp
+static void VectorOfTupleIntAndInt::set( void*                ptr,
+                                         std::ptrdiff_t       i,
+                                         std::tuple<int, int> value );
+lua:
+    VectorOfTupleIntAndInt.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfTupleIntAndInt.shrink\_to\_fit
@@ -63081,6 +66095,14 @@ lua:
 ```
 
 ## VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark
+
+### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::sizeof_value_type
+lua:
+    [propget] VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.sizeof_value_type
+```
 
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.new
 
@@ -63153,6 +66175,14 @@ lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:clear() -> None
 ```
 
+### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.copy
+
+```cpp
+void VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::operator=( const std::vector<std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark>>& other );
+lua:
+    oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:copy( other ) -> None
+```
+
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.data
 
 ```cpp
@@ -63175,6 +66205,15 @@ lua:
 std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark> VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::front();
 lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:front() -> retval
+```
+
+### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.get
+
+```cpp
+static std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark> VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::get( void*          ptr,
+                                                                                                                                                                                         std::ptrdiff_t i );
+lua:
+    VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.max\_size
@@ -63210,16 +66249,16 @@ lua:
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.ptr
 
 ```cpp
-void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::data( size_t i );
+void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:ptr( i ) -> retval
+    oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::ptr( void*  ptr,
-                                                                              size_t i );
+static void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::ptr( void*          ptr,
+                                                                              std::ptrdiff_t i = 0 );
 lua:
-    VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.ptr( ptr, i ) -> retval
+    VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.reserve
@@ -63243,6 +66282,16 @@ void VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::resize( size_t 
                                                                          const std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark>& value );
 lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:resize( count, value ) -> None
+```
+
+### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.set
+
+```cpp
+static void VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::set( void*                                                                                                            ptr,
+                                                                             std::ptrdiff_t                                                                                                   i,
+                                                                             std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark> value );
+lua:
+    VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.shrink\_to\_fit
@@ -63303,6 +66352,14 @@ lua:
 ```
 
 ## VectorOfUint32\_t
+
+### VectorOfUint32\_t.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfUint32_t::sizeof_value_type
+lua:
+    [propget] VectorOfUint32_t.sizeof_value_type
+```
 
 ### VectorOfUint32\_t.new
 
@@ -63375,6 +66432,14 @@ lua:
     oVectorOfUint32_t:clear() -> None
 ```
 
+### VectorOfUint32\_t.copy
+
+```cpp
+void VectorOfUint32_t::operator=( const std::vector<uint32_t>& other );
+lua:
+    oVectorOfUint32_t:copy( other ) -> None
+```
+
 ### VectorOfUint32\_t.data
 
 ```cpp
@@ -63397,6 +66462,15 @@ lua:
 uint32_t VectorOfUint32_t::front();
 lua:
     oVectorOfUint32_t:front() -> retval
+```
+
+### VectorOfUint32\_t.get
+
+```cpp
+static uint32_t VectorOfUint32_t::get( void*          ptr,
+                                       std::ptrdiff_t i );
+lua:
+    VectorOfUint32_t.get( ptr, i ) -> retval
 ```
 
 ### VectorOfUint32\_t.max\_size
@@ -63432,16 +66506,16 @@ lua:
 ### VectorOfUint32\_t.ptr
 
 ```cpp
-void* VectorOfUint32_t::data( size_t i );
+void* VectorOfUint32_t::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfUint32_t:ptr( i ) -> retval
+    oVectorOfUint32_t:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfUint32_t::ptr( void*  ptr,
-                                    size_t i );
+static void* VectorOfUint32_t::ptr( void*          ptr,
+                                    std::ptrdiff_t i = 0 );
 lua:
-    VectorOfUint32_t.ptr( ptr, i ) -> retval
+    VectorOfUint32_t.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfUint32\_t.reserve
@@ -63465,6 +66539,16 @@ void VectorOfUint32_t::resize( size_t          count,
                                const uint32_t& value );
 lua:
     oVectorOfUint32_t:resize( count, value ) -> None
+```
+
+### VectorOfUint32\_t.set
+
+```cpp
+static void VectorOfUint32_t::set( void*          ptr,
+                                   std::ptrdiff_t i,
+                                   uint32_t       value );
+lua:
+    VectorOfUint32_t.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfUint32\_t.shrink\_to\_fit
@@ -63525,6 +66609,14 @@ lua:
 ```
 
 ## VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::sizeof_value_type
+lua:
+    [propget] VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.sizeof_value_type
+```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.new
 
@@ -63597,6 +66689,14 @@ lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:clear() -> None
 ```
 
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.copy
+
+```cpp
+void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::operator=( const std::vector<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>>& other );
+lua:
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:copy( other ) -> None
+```
+
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.data
 
 ```cpp
@@ -63619,6 +66719,15 @@ lua:
 std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::front();
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:front() -> retval
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.get
+
+```cpp
+static std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::get( void*          ptr,
+                                                                                                                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.get( ptr, i ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.max\_size
@@ -63654,16 +66763,16 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( size_t i );
+void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( i ) -> retval
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*  ptr,
-                                                                                                size_t i );
+static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
+                                                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr, i ) -> retval
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.reserve
@@ -63687,6 +66796,16 @@ void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Categor
                                                                                            const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>& value );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:resize( count, value ) -> None
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.set
+
+```cpp
+static void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::set( void*                                                                                           ptr,
+                                                                                               std::ptrdiff_t                                                                                  i,
+                                                                                               std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>> value );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.shrink\_to\_fit
@@ -63747,6 +66866,14 @@ lua:
 ```
 
 ## VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::sizeof_value_type
+lua:
+    [propget] VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.sizeof_value_type
+```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.new
 
@@ -63819,6 +66946,14 @@ lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:clear() -> None
 ```
 
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.copy
+
+```cpp
+void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::operator=( const std::vector<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>>& other );
+lua:
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:copy( other ) -> None
+```
+
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.data
 
 ```cpp
@@ -63841,6 +66976,15 @@ lua:
 std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::front();
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:front() -> retval
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.get
+
+```cpp
+static std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::get( void*          ptr,
+                                                                                                                                                                                          std::ptrdiff_t i );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.max\_size
@@ -63876,16 +67020,16 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( size_t i );
+void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( i ) -> retval
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*  ptr,
-                                                                                                size_t i );
+static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
+                                                                                                std::ptrdiff_t i = 0 );
 lua:
-    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr, i ) -> retval
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.reserve
@@ -63909,6 +67053,16 @@ void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmar
                                                                                            const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>& value );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:resize( count, value ) -> None
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.set
+
+```cpp
+static void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::set( void*                                                                                           ptr,
+                                                                                               std::ptrdiff_t                                                                                  i,
+                                                                                               std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>> value );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.shrink\_to\_fit
@@ -63969,6 +67123,14 @@ lua:
 ```
 
 ## VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::sizeof_value_type
+lua:
+    [propget] VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.sizeof_value_type
+```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.new
 
@@ -64041,6 +67203,14 @@ lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:clear() -> None
 ```
 
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.copy
+
+```cpp
+void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::operator=( const std::vector<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>>& other );
+lua:
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:copy( other ) -> None
+```
+
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.data
 
 ```cpp
@@ -64063,6 +67233,15 @@ lua:
 std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::front();
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:front() -> retval
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.get
+
+```cpp
+static std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::get( void*          ptr,
+                                                                                                                                                                                                              std::ptrdiff_t i );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.get( ptr, i ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.max\_size
@@ -64098,16 +67277,16 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( size_t i );
+void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( i ) -> retval
+    oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*  ptr,
-                                                                                                          size_t i );
+static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
+                                                                                                          std::ptrdiff_t i = 0 );
 lua:
-    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr, i ) -> retval
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.reserve
@@ -64131,6 +67310,16 @@ void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Normali
                                                                                                      const std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>& value );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:resize( count, value ) -> None
+```
+
+### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.set
+
+```cpp
+static void VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::set( void*                                                                                                     ptr,
+                                                                                                         std::ptrdiff_t                                                                                            i,
+                                                                                                         std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>> value );
+lua:
+    VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.set( ptr, i, value ) -> None
 ```
 
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.shrink\_to\_fit
@@ -64191,6 +67380,14 @@ lua:
 ```
 
 ## VectorOf\_mediapipe\_lua\_Object
+
+### VectorOf\_mediapipe\_lua\_Object.sizeof\_value\_type
+
+```cpp
+static const size_t VectorOf_mediapipe_lua_Object::sizeof_value_type
+lua:
+    [propget] VectorOf_mediapipe_lua_Object.sizeof_value_type
+```
 
 ### VectorOf\_mediapipe\_lua\_Object.new
 
@@ -64263,6 +67460,14 @@ lua:
     oVectorOf_mediapipe_lua_Object:clear() -> None
 ```
 
+### VectorOf\_mediapipe\_lua\_Object.copy
+
+```cpp
+void VectorOf_mediapipe_lua_Object::operator=( const std::vector<::mediapipe_lua::Object>& other );
+lua:
+    oVectorOf_mediapipe_lua_Object:copy( other ) -> None
+```
+
 ### VectorOf\_mediapipe\_lua\_Object.data
 
 ```cpp
@@ -64285,6 +67490,15 @@ lua:
 ::mediapipe_lua::Object VectorOf_mediapipe_lua_Object::front();
 lua:
     oVectorOf_mediapipe_lua_Object:front() -> retval
+```
+
+### VectorOf\_mediapipe\_lua\_Object.get
+
+```cpp
+static ::mediapipe_lua::Object VectorOf_mediapipe_lua_Object::get( void*          ptr,
+                                                                   std::ptrdiff_t i );
+lua:
+    VectorOf_mediapipe_lua_Object.get( ptr, i ) -> retval
 ```
 
 ### VectorOf\_mediapipe\_lua\_Object.max\_size
@@ -64320,16 +67534,16 @@ lua:
 ### VectorOf\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOf_mediapipe_lua_Object::data( size_t i );
+void* VectorOf_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
-    oVectorOf_mediapipe_lua_Object:ptr( i ) -> retval
+    oVectorOf_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOf_mediapipe_lua_Object::ptr( void*  ptr,
-                                                 size_t i );
+static void* VectorOf_mediapipe_lua_Object::ptr( void*          ptr,
+                                                 std::ptrdiff_t i = 0 );
 lua:
-    VectorOf_mediapipe_lua_Object.ptr( ptr, i ) -> retval
+    VectorOf_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```
 
 ### VectorOf\_mediapipe\_lua\_Object.reserve
@@ -64353,6 +67567,16 @@ void VectorOf_mediapipe_lua_Object::resize( size_t                         count
                                             const ::mediapipe_lua::Object& value );
 lua:
     oVectorOf_mediapipe_lua_Object:resize( count, value ) -> None
+```
+
+### VectorOf\_mediapipe\_lua\_Object.set
+
+```cpp
+static void VectorOf_mediapipe_lua_Object::set( void*                   ptr,
+                                                std::ptrdiff_t          i,
+                                                ::mediapipe_lua::Object value );
+lua:
+    VectorOf_mediapipe_lua_Object.set( ptr, i, value ) -> None
 ```
 
 ### VectorOf\_mediapipe\_lua\_Object.shrink\_to\_fit
