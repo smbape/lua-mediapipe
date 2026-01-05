@@ -81,12 +81,13 @@ namespace mediapipe::tasks::lua::vision::interactive_segmenter {
 		using core::base_vision_task_api::BaseVisionTaskApi::BaseVisionTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			core::vision_task_running_mode::VisionTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback packet_callback = nullptr
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> create_from_options(std::shared_ptr<InteractiveSegmenterOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> create_from_options(lua_State* L, std::shared_ptr<InteractiveSegmenterOptions> options);
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<InteractiveSegmenterResult>> segment(
 			const Image& image,
 			const RegionOfInterest& roi,

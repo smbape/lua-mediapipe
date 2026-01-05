@@ -48,8 +48,8 @@ namespace mediapipe::lua::calculator_graph {
 		return create(graph_config);
 	}
 
-	absl::Status add_packet_to_input_stream(CalculatorGraph* self, const std::string& stream, Packet& packet, Timestamp& timestamp) {
-		::LUA_MODULE_NAME::GilYield yielder;
+	absl::Status add_packet_to_input_stream(lua_State* L, CalculatorGraph* self, const std::string& stream, Packet& packet, Timestamp& timestamp) {
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		auto packet_timestamp = timestamp == Timestamp::Unset() ? packet.Timestamp() : timestamp;
 		MP_ASSERT_RETURN_IF_ERROR(packet_timestamp.IsAllowedInStream(), packet_timestamp.DebugString() << " can't be the timestamp of a Packet in a stream.");
 		MP_RETURN_IF_ERROR(self->AddPacketToInputStream(stream, packet.At(packet_timestamp)));
@@ -81,23 +81,23 @@ namespace mediapipe::lua::calculator_graph {
 		);
 	}
 
-	absl::Status wait_until_done(CalculatorGraph* self) {
-		::LUA_MODULE_NAME::GilYield yielder;
+	absl::Status wait_until_done(lua_State* L, CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return self->WaitUntilDone();
 	}
 
-	absl::Status wait_until_idle(CalculatorGraph* self) {
-		::LUA_MODULE_NAME::GilYield yielder;
+	absl::Status wait_until_idle(lua_State* L, CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return self->WaitUntilIdle();
 	}
 
-	absl::Status wait_for_observed_output(CalculatorGraph* self) {
-		::LUA_MODULE_NAME::GilYield yielder;
+	absl::Status wait_for_observed_output(lua_State* L, CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return self->WaitForObservedOutput();
 	}
 
-	absl::Status close(CalculatorGraph* self) {
-		::LUA_MODULE_NAME::GilYield yielder;
+	absl::Status close(lua_State* L, CalculatorGraph* self) {
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		MP_RETURN_IF_ERROR(self->CloseAllPacketSources());
 		MP_RETURN_IF_ERROR(self->WaitUntilDone());
 		return absl::OkStatus();

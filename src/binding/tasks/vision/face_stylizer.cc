@@ -39,20 +39,21 @@ namespace mediapipe::tasks::lua::vision::face_stylizer {
 	}
 
 	absl::StatusOr<std::shared_ptr<FaceStylizer>> FaceStylizer::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		VisionTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
 		using BaseVisionTaskApi = core::base_vision_task_api::BaseVisionTaskApi;
-		return BaseVisionTaskApi::create(graph_config, running_mode, std::move(packet_callback), static_cast<FaceStylizer*>(nullptr));
+		return BaseVisionTaskApi::create(L, graph_config, running_mode, std::move(packet_callback), static_cast<FaceStylizer*>(nullptr));
 	}
 
-	absl::StatusOr<std::shared_ptr<FaceStylizer>> FaceStylizer::create_from_model_path(const std::string& model_path) {
+	absl::StatusOr<std::shared_ptr<FaceStylizer>> FaceStylizer::create_from_model_path(lua_State* L, const std::string& model_path) {
 		auto base_options = std::make_shared<BaseOptions>(model_path);
-		return create_from_options(std::make_shared<FaceStylizerOptions>(base_options));
+		return create_from_options(L, std::make_shared<FaceStylizerOptions>(base_options));
 	}
 
-	absl::StatusOr<std::shared_ptr<FaceStylizer>> FaceStylizer::create_from_options(std::shared_ptr<FaceStylizerOptions> options) {
+	absl::StatusOr<std::shared_ptr<FaceStylizer>> FaceStylizer::create_from_options(lua_State* L, std::shared_ptr<FaceStylizerOptions> options) {
 		TaskInfo task_info;
 		task_info.task_graph = _TASK_GRAPH_NAME;
 		task_info.input_streams = {
@@ -68,6 +69,7 @@ namespace mediapipe::tasks::lua::vision::face_stylizer {
 		MP_ASSIGN_OR_RETURN(auto config, task_info.generate_graph_config());
 
 		return create(
+			L,
 			*config,
 			VisionTaskRunningMode::IMAGE
 		);

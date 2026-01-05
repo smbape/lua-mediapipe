@@ -17,6 +17,7 @@ namespace {
 
 namespace mediapipe::lua::solutions::hands {
 	absl::StatusOr<std::shared_ptr<Hands>> Hands::create(
+		lua_State* L,
 		bool static_image_mode,
 		int max_num_hands,
 		uint8_t model_complexity,
@@ -34,16 +35,17 @@ namespace mediapipe::lua::solutions::hands {
 		));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			{
-				{"palmdetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(min_detection_confidence)},
-				{"handlandmarkcpu__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(min_tracking_confidence)},
+				{"palmdetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(L, min_detection_confidence)},
+				{"handlandmarkcpu__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(L, min_tracking_confidence)},
 			},
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"model_complexity", ::LUA_MODULE_NAME::Object(model_complexity)},
-				{"num_hands", ::LUA_MODULE_NAME::Object(max_num_hands)},
-				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(!static_image_mode)},
+				{"model_complexity", ::LUA_MODULE_NAME::Object(L, model_complexity)},
+				{"num_hands", ::LUA_MODULE_NAME::Object(L, max_num_hands)},
+				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(L, !static_image_mode)},
 			},
 			{ "multi_hand_landmarks", "multi_hand_world_landmarks", "multi_handedness" },
 			noTypeMap(),
@@ -55,7 +57,7 @@ namespace mediapipe::lua::solutions::hands {
 
 	absl::Status Hands::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		return SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs);
 	}
 }

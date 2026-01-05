@@ -14,11 +14,12 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 	}
 
 	absl::StatusOr<std::shared_ptr<BaseAudioTaskApi>> BaseAudioTaskApi::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		audio_task_running_mode::AudioTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
-		return BaseAudioTaskApi::create(graph_config, running_mode, std::move(packet_callback), static_cast<BaseAudioTaskApi*>(nullptr));
+		return BaseAudioTaskApi::create(L, graph_config, running_mode, std::move(packet_callback), static_cast<BaseAudioTaskApi*>(nullptr));
 	}
 
 	absl::StatusOr<std::map<std::string, Packet>> BaseAudioTaskApi::_process_audio_clip(const std::map<std::string, Packet>& inputs) {
@@ -45,7 +46,7 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 	}
 
 	absl::Status BaseAudioTaskApi::close() {
-		::LUA_MODULE_NAME::GilYield yielder;
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return _runner->Close();
 	}
 }

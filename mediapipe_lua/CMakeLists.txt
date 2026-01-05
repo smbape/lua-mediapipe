@@ -31,9 +31,6 @@ foreach(item ${files_to_change})
     vcpkg_regex_replace_string("${item}" "/v[0-9]+(\\.[0-9]+)+/mediapipe/" "/v${Mediapipe_VERSION}/mediapipe/")
     vcpkg_regex_replace_string("${item}" "(--branch v)[0-9]+\\.[0-9]+\\.[0-9]+( https://github.com/smbape/lua-mediapipe)" "\\1${PROJECT_VERSION}\\2")
     vcpkg_regex_replace_string("${item}" "(opencv-|/opencv/opencv/blob/|opencv_lua |OPENCV_VERSION:-)[0-9]+\\.[0-9]+\\.[0-9]+" "\\1${OpenCV_VERSION}")
-
-    # Force LF EOL
-    configure_file(${item} ${item} @ONLY NEWLINE_STYLE LF)
 endforeach()
 
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/bin" CACHE PATH "Output directory for applications")

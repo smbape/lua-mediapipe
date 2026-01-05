@@ -14,6 +14,7 @@ namespace mediapipe::lua::solutions::face_mesh {
 		using SolutionBase::SolutionBase;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceMesh>> create(
+			lua_State* L,
 			bool static_image_mode = false,
 			int max_num_faces = 1,
 			bool refine_landmarks = false,

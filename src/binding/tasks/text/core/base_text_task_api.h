@@ -14,22 +14,26 @@ namespace mediapipe::tasks::lua::text::core::base_text_task_api {
 
 		template<typename _Tp>
 		[[nodiscard]] inline static absl::StatusOr<std::shared_ptr<_Tp>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			_Tp*
 		) {
 			MP_ASSIGN_OR_RETURN(auto runner, mediapipe::lua::task_runner::create(graph_config));
-			return std::make_shared<_Tp>(runner);
+			return std::make_shared<_Tp>(L, runner);
 		}
 
 		BaseTextTaskApi(
+			lua_State* L,
 			const std::shared_ptr<mediapipe::tasks::core::TaskRunner>& runner
-		) : _runner(runner) {}
+		) : L(L), _runner(runner) {}
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<BaseTextTaskApi>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config
 		);
 		CV_WRAP [[nodiscard]] absl::Status close();
 	protected:
+		lua_State* L;
 		std::shared_ptr<mediapipe::tasks::core::TaskRunner> _runner;
 	};
 }

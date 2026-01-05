@@ -28,8 +28,8 @@ namespace google::protobuf {
 			it != reflection->MapEnd(message, field_descriptor);
 			++it
 		) {
-			MP_ASSIGN_OR_RETURN(auto key, lua::MapKeyToAnyObject(field_descriptor, it.GetKey()));
-			MP_ASSIGN_OR_RETURN(auto value, lua::MapValueRefToAnyObject(field_descriptor, it.GetValueRef()));
+			MP_ASSIGN_OR_RETURN(auto key, lua::MapKeyToAnyObject(self->L, field_descriptor, it.GetKey()));
+			MP_ASSIGN_OR_RETURN(auto value, lua::MapValueRefToAnyObject(self->L, field_descriptor, it.GetValueRef()));
 			// TODO
 		}
 
@@ -60,7 +60,7 @@ namespace google::protobuf {
 		MapValueRef value;
 		MP_RETURN_IF_ERROR(lua::AnyObjectToMapKey(field_descriptor, key, &map_key));
 		reflection->InsertOrLookupMapValue(message, field_descriptor, map_key, &value);
-		return lua::MapValueRefToAnyObject(field_descriptor, value);
+		return lua::MapValueRefToAnyObject(self->L, field_descriptor, value);
 	}
 
 	absl::Status MapRefectionFriend::SetItem(lua::MapContainer* self, ::LUA_MODULE_NAME::Object key, ::LUA_MODULE_NAME::Object arg) {
@@ -123,8 +123,8 @@ namespace google::protobuf {
 
 		const std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>& MapIterator::operator*() noexcept {
 			if (m_dirty) {
-				MP_ASSIGN_OR_THROW(m_value.first, MapKeyToAnyObject(m_container->field_descriptor.get(), m_iter->GetKey())); // Throwing because I failed to make COM STL Enum handle absl::StatusOr
-				MP_ASSIGN_OR_THROW(m_value.second, MapValueRefToAnyObject(m_container->field_descriptor.get(), m_iter->GetValueRef())); // Throwing because I failed to make COM STL Enum handle absl::StatusOr
+				MP_ASSIGN_OR_THROW(m_value.first, MapKeyToAnyObject(m_container->L, m_container->field_descriptor.get(), m_iter->GetKey())); // Throwing because I failed to make COM STL Enum handle absl::StatusOr
+				MP_ASSIGN_OR_THROW(m_value.second, MapValueRefToAnyObject(m_container->L, m_container->field_descriptor.get(), m_iter->GetValueRef())); // Throwing because I failed to make COM STL Enum handle absl::StatusOr
 				m_dirty = false;
 			}
 			return m_value;
@@ -295,7 +295,7 @@ namespace google::protobuf {
 			return absl::OkStatus();
 		}
 
-		absl::StatusOr<::LUA_MODULE_NAME::Object> MapKeyToAnyObject(const FieldDescriptor* parent_field_descriptor, const MapKey& key) {
+		absl::StatusOr<::LUA_MODULE_NAME::Object> MapKeyToAnyObject(lua_State* L, const FieldDescriptor* parent_field_descriptor, const MapKey& key) {
 			::LUA_MODULE_NAME::Object obj;
 
 			const FieldDescriptor* field_descriptor =
@@ -303,17 +303,17 @@ namespace google::protobuf {
 
 			switch (field_descriptor->cpp_type()) {
 				case FieldDescriptor::CPPTYPE_INT32:
-					obj = ::LUA_MODULE_NAME::Object(key.GetInt32Value());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetInt32Value());
 				case FieldDescriptor::CPPTYPE_INT64:
-					obj = ::LUA_MODULE_NAME::Object(key.GetInt64Value());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetInt64Value());
 				case FieldDescriptor::CPPTYPE_UINT32:
-					obj = ::LUA_MODULE_NAME::Object(key.GetUInt32Value());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetUInt32Value());
 				case FieldDescriptor::CPPTYPE_UINT64:
-					obj = ::LUA_MODULE_NAME::Object(key.GetUInt64Value());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetUInt64Value());
 				case FieldDescriptor::CPPTYPE_BOOL:
-					obj = ::LUA_MODULE_NAME::Object(key.GetBoolValue());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetBoolValue());
 				case FieldDescriptor::CPPTYPE_STRING:
-					obj = ::LUA_MODULE_NAME::Object(key.GetStringValue());
+					obj = ::LUA_MODULE_NAME::Object(L, key.GetStringValue());
 				default:
 					MP_ASSERT_RETURN_IF_ERROR(false, "Couldn't convert type " << field_descriptor->cpp_type() << " to value");
 			}
@@ -321,32 +321,32 @@ namespace google::protobuf {
 			return obj;
 		}
 
-		absl::StatusOr<::LUA_MODULE_NAME::Object> MapValueRefToAnyObject(const FieldDescriptor* parent_field_descriptor, const MapValueRef& value) {
+		absl::StatusOr<::LUA_MODULE_NAME::Object> MapValueRefToAnyObject(lua_State* L, const FieldDescriptor* parent_field_descriptor, const MapValueRef& value) {
 			::LUA_MODULE_NAME::Object obj;
 
 			const FieldDescriptor* field_descriptor =
 				parent_field_descriptor->message_type()->map_value();
 			switch (field_descriptor->cpp_type()) {
 			case FieldDescriptor::CPPTYPE_INT32:
-				obj = ::LUA_MODULE_NAME::Object(value.GetInt32Value());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetInt32Value());
 			case FieldDescriptor::CPPTYPE_INT64:
-				obj = ::LUA_MODULE_NAME::Object(value.GetInt64Value());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetInt64Value());
 			case FieldDescriptor::CPPTYPE_UINT32:
-				obj = ::LUA_MODULE_NAME::Object(value.GetUInt32Value());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetUInt32Value());
 			case FieldDescriptor::CPPTYPE_UINT64:
-				obj = ::LUA_MODULE_NAME::Object(value.GetUInt64Value());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetUInt64Value());
 			case FieldDescriptor::CPPTYPE_FLOAT:
-				obj = ::LUA_MODULE_NAME::Object(value.GetFloatValue());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetFloatValue());
 			case FieldDescriptor::CPPTYPE_DOUBLE:
-				obj = ::LUA_MODULE_NAME::Object(value.GetDoubleValue());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetDoubleValue());
 			case FieldDescriptor::CPPTYPE_BOOL:
-				obj = ::LUA_MODULE_NAME::Object(value.GetBoolValue());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetBoolValue());
 			case FieldDescriptor::CPPTYPE_STRING:
-				obj = ::LUA_MODULE_NAME::Object(value.GetStringValue());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetStringValue());
 			case FieldDescriptor::CPPTYPE_ENUM:
-				obj = ::LUA_MODULE_NAME::Object(value.GetEnumValue());
+				obj = ::LUA_MODULE_NAME::Object(L, value.GetEnumValue());
 			case FieldDescriptor::CPPTYPE_MESSAGE: {
-				obj = ::LUA_MODULE_NAME::Object(::LUA_MODULE_NAME::reference_internal(&value.GetMessageValue()));
+				obj = ::LUA_MODULE_NAME::Object(L, ::LUA_MODULE_NAME::reference_internal(&value.GetMessageValue()));
 			}
 			default:
 				MP_ASSERT_RETURN_IF_ERROR(false, "Couldn't convert type " << field_descriptor->cpp_type() << " to value");

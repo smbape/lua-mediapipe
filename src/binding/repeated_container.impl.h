@@ -48,9 +48,9 @@ namespace google::protobuf::lua {
 	}
 
 	template<typename Element>
-	[[nodiscard]] inline absl::StatusOr<Element*> RepeatedField_AddMessage(RepeatedPtrField<Element>* repeatedField, std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs) {
+	[[nodiscard]] inline absl::StatusOr<Element*> RepeatedField_AddMessage(lua_State* L, RepeatedPtrField<Element>* repeatedField, std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs) {
 		Element* sub_message = repeatedField->Add();
-		MP_RETURN_IF_ERROR(cmessage::InitAttributes(*sub_message, attrs));
+		MP_RETURN_IF_ERROR(cmessage::InitAttributes(L, *sub_message, attrs));
 		return sub_message;
 	}
 
@@ -216,6 +216,7 @@ namespace google::protobuf::lua {
 
 	template<typename Element>
 	[[nodiscard]] inline absl::Status RepeatedField_ExtendMessage(
+		lua_State* L,
 		RepeatedPtrField<Element>* repeatedField,
 		const std::vector<::LUA_MODULE_NAME::Object>& items
 	) {
@@ -225,7 +226,7 @@ namespace google::protobuf::lua {
 			std::map<std::string, ::LUA_MODULE_NAME::Object> attrs;
 			::LUA_MODULE_NAME::lua_to(item, attrs, is_valid);
 			if (is_valid) {
-				MP_RETURN_IF_ERROR(RepeatedField_AddMessage(repeatedField, attrs).status());
+				MP_RETURN_IF_ERROR(RepeatedField_AddMessage(L, repeatedField, attrs).status());
 			}
 			else {
 				std::shared_ptr<Element> value = ::LUA_MODULE_NAME::lua_to(item, static_cast<Element*>(nullptr), is_valid);
@@ -295,10 +296,10 @@ namespace google::protobuf::lua {
 	}
 
 	template<typename _Tr, typename _Ti>
-	absl::Status RepeatedField_Set(Message& message, const std::string& field_name, ::LUA_MODULE_NAME::Object newVal, _Tr* repeated_field, _Ti& repeated_iterator) {
+	absl::Status RepeatedField_Set(lua_State* L, Message& message, const std::string& field_name, ::LUA_MODULE_NAME::Object newVal, _Tr* repeated_field, _Ti& repeated_iterator) {
 		const Descriptor* descriptor = message.GetDescriptor();
 		const auto field_descriptor = cmessage::FindFieldWithOneofs(message, field_name, descriptor);
-		RepeatedContainer local_container;
+		RepeatedContainer local_container(L);
 		local_container.message = ::LUA_MODULE_NAME::reference_internal(&message);
 		local_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 

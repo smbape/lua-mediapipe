@@ -13,13 +13,13 @@ namespace opencv_lua {
 	OPENCV_LUA_API std::shared_ptr<T> exported_lua_to(lua_State* L, int index, T* ptr, bool& is_valid);
 
 	template<typename T>
-	OPENCV_LUA_API int exported_lua_push(lua_State* L, T* ptr);
+	OPENCV_LUA_API void exported_lua_push(lua_State* L, T* ptr);
 
 	template<typename T>
-	OPENCV_LUA_API int exported_lua_push(lua_State* L, T&& obj);
+	OPENCV_LUA_API void exported_lua_push(lua_State* L, T&& obj);
 
 	template<typename T>
-	OPENCV_LUA_API int exported_lua_push(lua_State* L, const T& obj);
+	OPENCV_LUA_API void exported_lua_push(lua_State* L, const T& obj);
 }
 
 namespace LUA_MODULE_NAME {
@@ -45,20 +45,20 @@ namespace LUA_MODULE_NAME {
 		return opencv_lua::exported_lua_to(L, index, ptr, is_valid);
 	}
 
-	int lua_push(lua_State* L, cv::Mat* ptr) {
-		return opencv_lua::exported_lua_push(L, ptr);
+	void lua_push(lua_State* L, cv::Mat* ptr) {
+		opencv_lua::exported_lua_push(L, ptr);
 	}
 
-	int lua_push(lua_State* L, cv::Mat&& obj) {
-		return opencv_lua::exported_lua_push(L, std::move(obj));
+	void lua_push(lua_State* L, cv::Mat&& obj) {
+		opencv_lua::exported_lua_push(L, std::move(obj));
 	}
 
-	int lua_push(lua_State* L, const cv::Mat& obj) {
-		return opencv_lua::exported_lua_push(L, obj);
+	void lua_push(lua_State* L, const cv::Mat& obj) {
+		opencv_lua::exported_lua_push(L, obj);
 	}
 
-	int lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj) {
-		return opencv_lua::exported_lua_push(L, obj);
+	void lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj) {
+		opencv_lua::exported_lua_push(L, obj);
 	}
 
 
@@ -85,14 +85,14 @@ namespace LUA_MODULE_NAME {
 	// absl::Status
 	// ================================
 
-	int lua_push(lua_State* L, const absl::Status& status) {
+	void lua_push(lua_State* L, const absl::Status& status) {
 		if (status.ok()) {
-			return 0;
+			return;
 		}
 
 		std::ostringstream oss;
 		oss << StatusCodeToError(status.code()) << ": " << status.message().data();
-		return luaL_error(L, "%s", oss.str().c_str());
+		luaL_error(L, "%s", oss.str().c_str());
 	}
 
 }

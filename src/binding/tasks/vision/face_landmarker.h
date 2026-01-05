@@ -166,12 +166,13 @@ namespace mediapipe::tasks::lua::vision::face_landmarker {
 		using core::base_vision_task_api::BaseVisionTaskApi::BaseVisionTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceLandmarker>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			core::vision_task_running_mode::VisionTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback packet_callback = nullptr
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceLandmarker>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceLandmarker>> create_from_options(std::shared_ptr<FaceLandmarkerOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceLandmarker>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceLandmarker>> create_from_options(lua_State* L, std::shared_ptr<FaceLandmarkerOptions> options);
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<FaceLandmarkerResult>> detect(
 			const Image& image,
 			std::shared_ptr<core::image_processing_options::ImageProcessingOptions> image_processing_option

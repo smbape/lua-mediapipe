@@ -12,6 +12,7 @@
 #include "mediapipe/framework/formats/detection.pb.h"
 #include "binding/util.h"
 #include <functional>
+#include <lua.hpp>
 
 namespace mediapipe::lua {
 	using PacketCallback = std::function<void(const std::string&, const Packet&)>;
@@ -20,7 +21,7 @@ namespace mediapipe::lua {
 		[[nodiscard]] absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(CalculatorGraphConfig& graph_config);
 		[[nodiscard]] absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(ValidatedGraphConfig& validated_graph_config);
 		[[nodiscard]] absl::StatusOr<std::shared_ptr<CalculatorGraph>> create(const std::string& binary_graph_path, const std::string& graph_config_proto);
-		[[nodiscard]] absl::Status add_packet_to_input_stream(CalculatorGraph* self, const std::string& stream, Packet& packet, Timestamp& timestamp);
+		[[nodiscard]] absl::Status add_packet_to_input_stream(lua_State* L, CalculatorGraph* self, const std::string& stream, Packet& packet, Timestamp& timestamp);
 		const std::string get_combined_error_message(CalculatorGraph* self);
 		[[nodiscard]] absl::Status observe_output_stream(
 			CalculatorGraph* self,
@@ -28,9 +29,9 @@ namespace mediapipe::lua {
 			PacketCallback callback_fn,
 			bool observe_timestamp_bounds
 		);
-		[[nodiscard]] absl::Status wait_until_done(CalculatorGraph* self);
-		[[nodiscard]] absl::Status wait_until_idle(CalculatorGraph* self);
-		[[nodiscard]] absl::Status wait_for_observed_output(CalculatorGraph* self);
-		[[nodiscard]] absl::Status close(CalculatorGraph* self);
+		[[nodiscard]] absl::Status wait_until_done(lua_State* L, CalculatorGraph* self);
+		[[nodiscard]] absl::Status wait_until_idle(lua_State* L, CalculatorGraph* self);
+		[[nodiscard]] absl::Status wait_for_observed_output(lua_State* L, CalculatorGraph* self);
+		[[nodiscard]] absl::Status close(lua_State* L, CalculatorGraph* self);
 	}
 }

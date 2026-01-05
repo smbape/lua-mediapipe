@@ -177,6 +177,7 @@ namespace {
 	}
 
 	[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> InternalGetScalar(
+		lua_State* L,
 		const Message& message,
 		const FieldDescriptor* field_descriptor
 	) {
@@ -190,41 +191,41 @@ namespace {
 
 		switch (field_descriptor->cpp_type()) {
 		case FieldDescriptor::CPPTYPE_INT32: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetInt32(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetInt32(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_INT64: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetInt64(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetInt64(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_UINT32: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetUInt32(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetUInt32(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_UINT64: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetUInt64(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetUInt64(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_FLOAT: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetFloat(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetFloat(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_DOUBLE: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetDouble(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetDouble(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_BOOL: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetBool(message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetBool(message, field_descriptor));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_STRING: {
 			std::string scratch;
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetStringReference(message, field_descriptor, &scratch));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetStringReference(message, field_descriptor, &scratch));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_ENUM: {
 			const EnumValueDescriptor* enum_value = reflection->GetEnum(message, field_descriptor);
-			obj = ::LUA_MODULE_NAME::Object(enum_value->number());
+			obj = ::LUA_MODULE_NAME::Object(L, enum_value->number());
 			break;
 		}
 		default:
@@ -441,7 +442,7 @@ namespace google::protobuf::lua::cmessage {
 		return InternalSetScalar(message, field_descriptor, arg);
 	}
 
-	absl::Status InitAttributes(Message& message,
+	absl::Status InitAttributes(lua_State* L, Message& message,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs) {
 		const Descriptor* descriptor = message.GetDescriptor();
 
@@ -450,7 +451,7 @@ namespace google::protobuf::lua::cmessage {
 			MP_ASSERT_RETURN_IF_ERROR(field_descriptor, "Field '" << field_name << "' does not belong to message '" << descriptor->full_name() << "'");
 
 			if (field_descriptor->is_map()) {
-				MapContainer internal_container;
+				MapContainer internal_container(L);
 				internal_container.message = ::LUA_MODULE_NAME::reference_internal(&message);
 				internal_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 				std::vector<std::pair<::LUA_MODULE_NAME::Object, ::LUA_MODULE_NAME::Object>> value_fields;
@@ -460,7 +461,7 @@ namespace google::protobuf::lua::cmessage {
 				MP_RETURN_IF_ERROR(internal_container.SetFields(value_fields));
 			}
 			else if (field_descriptor->is_repeated()) {
-				RepeatedContainer internal_container;
+				RepeatedContainer internal_container(L);
 				internal_container.message = ::LUA_MODULE_NAME::reference_internal(&message);
 				internal_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 				std::vector<::LUA_MODULE_NAME::Object> value_items;
@@ -475,7 +476,7 @@ namespace google::protobuf::lua::cmessage {
 				::LUA_MODULE_NAME::lua_to(value, sub_attrs, is_valid);
 				if (is_valid) {
 					Message* sub_message = message.GetReflection()->MutableMessage(&message, field_descriptor);
-					MP_RETURN_IF_ERROR(InitAttributes(*sub_message, sub_attrs));
+					MP_RETURN_IF_ERROR(InitAttributes(L, *sub_message, sub_attrs));
 				}
 				else {
 					MP_RETURN_IF_ERROR(SetFieldValue(message, field_descriptor, value).status());
@@ -503,13 +504,14 @@ namespace google::protobuf::lua::cmessage {
 		return const_cast<FieldDescriptor*>(field_descriptor);
 	}
 
-	absl::StatusOr<::LUA_MODULE_NAME::Object> GetFieldValue(Message& message, const std::string& field_name) {
+	absl::StatusOr<::LUA_MODULE_NAME::Object> GetFieldValue(lua_State* L, Message& message, const std::string& field_name) {
 		bool is_in_oneof;
 		MP_ASSIGN_OR_RETURN(auto field_descriptor, GetFieldDescriptor(message, field_name, is_in_oneof));
-		return GetFieldValue(message, field_descriptor);
+		return GetFieldValue(L, message, field_descriptor);
 	}
 
 	absl::StatusOr<::LUA_MODULE_NAME::Object> GetFieldValue(
+		lua_State* L,
 		Message& message,
 		const FieldDescriptor* field_descriptor
 	) {
@@ -520,26 +522,26 @@ namespace google::protobuf::lua::cmessage {
 
 		if (!field_descriptor->is_repeated() &&
 			field_descriptor->cpp_type() != FieldDescriptor::CPPTYPE_MESSAGE) {
-			return InternalGetScalar(message, field_descriptor);
+			return InternalGetScalar(L, message, field_descriptor);
 		}
 
 		::LUA_MODULE_NAME::Object obj;
 
 		if (field_descriptor->is_map()) {
-			MapContainer internal_container;
+			MapContainer internal_container(L);
 			internal_container.message = ::LUA_MODULE_NAME::reference_internal(&message);
 			internal_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
-			obj = ::LUA_MODULE_NAME::Object(internal_container);
+			obj = ::LUA_MODULE_NAME::Object(L, internal_container);
 		}
 		else if (field_descriptor->is_repeated()) {
-			RepeatedContainer internal_container;
+			RepeatedContainer internal_container(L);
 			internal_container.message = ::LUA_MODULE_NAME::reference_internal(&message);
 			internal_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
-			obj = ::LUA_MODULE_NAME::Object(internal_container);
+			obj = ::LUA_MODULE_NAME::Object(L, internal_container);
 		}
 		else if (field_descriptor->cpp_type() ==
 			FieldDescriptor::CPPTYPE_MESSAGE) {
-			obj = ::LUA_MODULE_NAME::Object(message.GetReflection()->MutableMessage(&message, field_descriptor));
+			obj = ::LUA_MODULE_NAME::Object(L, message.GetReflection()->MutableMessage(&message, field_descriptor));
 		}
 		else {
 			MP_ASSERT_RETURN_IF_ERROR(false, "Should never happen");
@@ -549,6 +551,7 @@ namespace google::protobuf::lua::cmessage {
 	}
 
 	absl::StatusOr<::LUA_MODULE_NAME::Object> DeepCopy(
+		lua_State* L,
 		Message* message,
 		const FieldDescriptor* field_descriptor
 	) {
@@ -570,7 +573,7 @@ namespace google::protobuf::lua::cmessage {
 			{ field_descriptor }
 		);
 
-		return GetFieldValue(*copy, field_descriptor);
+		return GetFieldValue(L, *copy, field_descriptor);
 	}
 
 	absl::Status CopyFrom(Message* message, const Message* other_message) {

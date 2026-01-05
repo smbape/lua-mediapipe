@@ -80,10 +80,11 @@ namespace mediapipe::tasks::lua::text::language_detector {
 		using core::base_text_task_api::BaseTextTaskApi::BaseTextTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<LanguageDetector>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<LanguageDetector>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<LanguageDetector>> create_from_options(std::shared_ptr<LanguageDetectorOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<LanguageDetector>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<LanguageDetector>> create_from_options(lua_State* L, std::shared_ptr<LanguageDetectorOptions> options);
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<LanguageDetectorResult>> detect(const std::string& text);
 	};
 }

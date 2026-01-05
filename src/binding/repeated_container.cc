@@ -70,48 +70,48 @@ namespace google::protobuf::lua {
 
 		switch (field_descriptor->cpp_type()) {
 		case FieldDescriptor::CPPTYPE_INT32: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedInt32(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedInt32(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_INT64: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedInt64(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedInt64(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_UINT32: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedUInt32(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedUInt32(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_UINT64: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedUInt64(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedUInt64(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_FLOAT: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedFloat(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedFloat(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_DOUBLE: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedDouble(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedDouble(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_BOOL: {
-			obj = ::LUA_MODULE_NAME::Object(reflection->GetRepeatedBool(*message, field_descriptor, index));
+			obj = ::LUA_MODULE_NAME::Object(L, reflection->GetRepeatedBool(*message, field_descriptor, index));
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_ENUM: {
 			const EnumValueDescriptor* enum_value = reflection->GetRepeatedEnum(*message, field_descriptor, index);
-			obj = ::LUA_MODULE_NAME::Object(enum_value->number());
+			obj = ::LUA_MODULE_NAME::Object(L, enum_value->number());
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_STRING: {
 			std::string scratch;
 			const std::string& value = reflection->GetRepeatedStringReference(
 				*message, field_descriptor, index, &scratch);
-			obj = ::LUA_MODULE_NAME::Object(value);
+			obj = ::LUA_MODULE_NAME::Object(L, value);
 			break;
 		}
 		case FieldDescriptor::CPPTYPE_MESSAGE: {
 			Message* sub_message = reflection->MutableRepeatedMessage(const_cast<Message*>(message), field_descriptor, index);
-			obj = ::LUA_MODULE_NAME::Object(::LUA_MODULE_NAME::reference_internal(sub_message));
+			obj = ::LUA_MODULE_NAME::Object(L, ::LUA_MODULE_NAME::reference_internal(sub_message));
 			break;
 		}
 		default:
@@ -297,7 +297,7 @@ namespace google::protobuf::lua {
 				: reflection->ReleaseLast(message, field_descriptor);
 
 			// transfert ownership of sub message to list
-			list[deleteCount - 1 - i] = ::LUA_MODULE_NAME::Object(std::shared_ptr<Message>(sub_message));
+			list[deleteCount - 1 - i] = ::LUA_MODULE_NAME::Object(L, std::shared_ptr<Message>(sub_message));
 		}
 
 		return absl::OkStatus();
@@ -325,7 +325,7 @@ namespace google::protobuf::lua {
 	}
 
 	absl::StatusOr<::LUA_MODULE_NAME::Object> RepeatedContainer::DeepCopy() {
-		return cmessage::DeepCopy(message.get(), field_descriptor.get());
+		return cmessage::DeepCopy(L, message.get(), field_descriptor.get());
 	}
 
 	absl::StatusOr<Message*> RepeatedContainer::Add(const std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs) {
@@ -336,7 +336,7 @@ namespace google::protobuf::lua {
 		MP_ASSERT_RETURN_IF_ERROR(field_descriptor->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE, "field is not a message field");
 
 		Message* sub_message = reflection->AddMessage(message, field_descriptor);
-		MP_RETURN_IF_ERROR(cmessage::InitAttributes(*sub_message, attrs));
+		MP_RETURN_IF_ERROR(cmessage::InitAttributes(L, *sub_message, attrs));
 		return sub_message;
 	}
 
@@ -431,7 +431,7 @@ namespace google::protobuf::lua {
 			bool is_valid;
 			::LUA_MODULE_NAME::lua_to(item, sub_attrs, is_valid);
 			if (is_valid) {
-				MP_RETURN_IF_ERROR(cmessage::InitAttributes(*sub_message, sub_attrs));
+				MP_RETURN_IF_ERROR(cmessage::InitAttributes(L, *sub_message, sub_attrs));
 			}
 			else {
 				auto value_holder = ::LUA_MODULE_NAME::lua_to(item, static_cast<Message*>(nullptr), is_valid);

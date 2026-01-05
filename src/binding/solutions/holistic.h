@@ -12,6 +12,7 @@ namespace mediapipe::lua::solutions::holistic {
 		using SolutionBase::SolutionBase;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<Holistic>> create(
+			lua_State* L,
 			bool static_image_mode = false,
 			uint8_t model_complexity = 1,
 			bool smooth_landmarks = true,

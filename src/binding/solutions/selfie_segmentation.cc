@@ -11,18 +11,19 @@ namespace {
 }
 
 namespace mediapipe::lua::solutions::selfie_segmentation {
-	absl::StatusOr<std::shared_ptr<SelfieSegmentation>> SelfieSegmentation::create(uchar model_selection) {
+	absl::StatusOr<std::shared_ptr<SelfieSegmentation>> SelfieSegmentation::create(lua_State* L, uchar model_selection) {
 		MP_RETURN_IF_ERROR(download_utils::download_oss_model(
 			model_selection == 0 ? _GENERAL_TFLITE_FILE_PATH : _LANDSCAPE_TFLITE_FILE_PATH,
 			model_selection == 0 ? _GENERAL_TFLITE_FILE_HASH : _LANDSCAPE_TFLITE_FILE_HASH
 		));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			noMap(),
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"model_selection", ::LUA_MODULE_NAME::Object(model_selection)}
+				{"model_selection", ::LUA_MODULE_NAME::Object(L, model_selection)}
 			},
 			{ "segmentation_mask" },
 			noTypeMap(),
@@ -34,7 +35,7 @@ namespace mediapipe::lua::solutions::selfie_segmentation {
 
 	absl::Status SelfieSegmentation::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		return SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs);
 	}
 }

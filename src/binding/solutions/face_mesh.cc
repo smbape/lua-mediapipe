@@ -17,6 +17,7 @@ namespace {
 
 namespace mediapipe::lua::solutions::face_mesh {
 	absl::StatusOr<std::shared_ptr<FaceMesh>> FaceMesh::create(
+		lua_State* L,
 		bool static_image_mode,
 		int max_num_faces,
 		bool refine_landmarks,
@@ -33,16 +34,17 @@ namespace mediapipe::lua::solutions::face_mesh {
 		));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			{
-				{"facedetectionshortrangecpu__facedetectionshortrange__facedetection__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(min_detection_confidence)},
-				{"facelandmarkcpu__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(min_tracking_confidence)},
+				{"facedetectionshortrangecpu__facedetectionshortrange__facedetection__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(L, min_detection_confidence)},
+				{"facelandmarkcpu__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(L, min_tracking_confidence)},
 			},
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"num_faces", ::LUA_MODULE_NAME::Object(max_num_faces)},
-				{"with_attention", ::LUA_MODULE_NAME::Object(refine_landmarks)},
-				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(!static_image_mode)},
+				{"num_faces", ::LUA_MODULE_NAME::Object(L, max_num_faces)},
+				{"with_attention", ::LUA_MODULE_NAME::Object(L, refine_landmarks)},
+				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(L, !static_image_mode)},
 			},
 			{ "multi_face_landmarks" },
 			noTypeMap(),
@@ -54,7 +56,7 @@ namespace mediapipe::lua::solutions::face_mesh {
 
 	absl::Status FaceMesh::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		return SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs);
 	}
 }

@@ -60,20 +60,21 @@ namespace mediapipe::tasks::lua::audio::audio_embedder {
 	}
 
 	absl::StatusOr<std::shared_ptr<AudioEmbedder>> AudioEmbedder::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		AudioTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
 		using BaseAudioTaskApi = core::base_audio_task_api::BaseAudioTaskApi;
-		return BaseAudioTaskApi::create(graph_config, running_mode, std::move(packet_callback), static_cast<AudioEmbedder*>(nullptr));
+		return BaseAudioTaskApi::create(L, graph_config, running_mode, std::move(packet_callback), static_cast<AudioEmbedder*>(nullptr));
 	}
 
-	absl::StatusOr<std::shared_ptr<AudioEmbedder>> AudioEmbedder::create_from_model_path(const std::string& model_path) {
+	absl::StatusOr<std::shared_ptr<AudioEmbedder>> AudioEmbedder::create_from_model_path(lua_State* L, const std::string& model_path) {
 		auto base_options = std::make_shared<BaseOptions>(model_path);
-		return create_from_options(std::make_shared<AudioEmbedderOptions>(base_options, AudioTaskRunningMode::AUDIO_CLIPS));
+		return create_from_options(L, std::make_shared<AudioEmbedderOptions>(base_options, AudioTaskRunningMode::AUDIO_CLIPS));
 	}
 
-	absl::StatusOr<std::shared_ptr<AudioEmbedder>> AudioEmbedder::create_from_options(std::shared_ptr<AudioEmbedderOptions> options) {
+	absl::StatusOr<std::shared_ptr<AudioEmbedder>> AudioEmbedder::create_from_options(lua_State* L, std::shared_ptr<AudioEmbedderOptions> options) {
 		PacketsCallback packet_callback = nullptr;
 
 		if (options->result_callback) {
@@ -108,6 +109,7 @@ namespace mediapipe::tasks::lua::audio::audio_embedder {
 		MP_ASSIGN_OR_RETURN(auto config, task_info.generate_graph_config(false));
 
 		return create(
+			L,
 			*config,
 			options->running_mode,
 			std::move(packet_callback)

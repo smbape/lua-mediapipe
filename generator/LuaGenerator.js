@@ -35,9 +35,9 @@ const proto = {
     makeDependent(type, coclass, options) {
         const cpptype = this.getCppType(type, coclass, options);
 
-        if (cpptype.startsWith("std::map<")) {
+        if ((cpptype.startsWith("std::map<") || cpptype.startsWith("std::multimap<") || cpptype.startsWith("std::unordered_map<") || cpptype.startsWith("std::unordered_multimap<")) && cpptype.endsWith(">")) {
             this.add_map(cpptype, coclass, options);
-        } else if (cpptype.startsWith("std::vector<")) {
+        } else if (cpptype.startsWith("std::vector<") && cpptype.endsWith(">")) {
             this.add_vector(cpptype, coclass, options);
         } else if (cpptype.includes("<") && cpptype.endsWith(">")) {
             const pos = cpptype.indexOf("<");
@@ -57,7 +57,7 @@ const proto = {
             cpptype = cpptype.replace(/\*+$/, "");
         }
 
-        if (!cpptype.startsWith("std::map<") || !cpptype.endsWith(">")) {
+        if (!(cpptype.startsWith("std::map<") || cpptype.startsWith("std::multimap<") || cpptype.startsWith("std::unordered_map<") || cpptype.startsWith("std::unordered_multimap<")) || !cpptype.endsWith(">")) {
             throw new Error(`invalid map type ${ cpptype }`);
         }
 
@@ -66,7 +66,8 @@ const proto = {
             return;
         }
 
-        const [key_type, value_type] = CoClass.getTupleTypes(cpptype.slice("std::map<".length, -">".length));
+        const pos = cpptype.indexOf("<");
+        const [key_type, value_type] = CoClass.getTupleTypes(cpptype.slice(pos + 1, -">".length));
 
         const { self } = options;
 
@@ -425,6 +426,10 @@ class LuaGenerator {
         return `register_${ coclass.getClassName() }`;
     }
 
+    static getRegisterClassFn(coclass) {
+        return `register_class_${ coclass.getClassName() }`;
+    }
+
     static getMetaMethod(fname) {
         return meta_functions.has(fname) ? meta_functions.get(fname) : fname;
     }
@@ -741,13 +746,13 @@ class LuaGenerator {
 
         if (!coclass.isStatic()) {
             contentRegisterPrivate.push("", `
-                std::map<std::string, std::function<int(lua_State*)>> getters({
+                std::unordered_map<std::string, std::function<int(lua_State*)>> getters({
                     ${ dynamic_get.join(",\n").split("\n").join(`\n${ " ".repeat(20) }`) }
                 });
             `.replace(/^ {16}/mg, "").trim().replace(/\{\s+\}/mg, "{}"));
         } else if (dynamic_get.length !== 0) {
             contentRegisterPrivate.push("", `
-                const std::map<std::string, std::function<int(lua_State*)>> getters({
+                const std::unordered_map<std::string, std::function<int(lua_State*)>> getters({
                     ${ dynamic_get.join(",\n").split("\n").join(`\n${ " ".repeat(20) }`) }
                 });
 
@@ -764,13 +769,13 @@ class LuaGenerator {
 
         if (!coclass.isStatic()) {
             contentRegisterPrivate.push("", `
-                std::map<std::string, std::function<int(lua_State*)>> setters({
+                std::unordered_map<std::string, std::function<int(lua_State*)>> setters({
                     ${ dynamic_set.join(",\n").split("\n").join(`\n${ " ".repeat(20) }`) }
                 });
             `.replace(/^ {16}/mg, "").trim().replace(/\{\s+\}/mg, "{}"));
         } else if (dynamic_set.length !== 0) {
             contentRegisterPrivate.push("", `
-                const std::map<std::string, std::function<int(lua_State*)>> setters({
+                const std::unordered_map<std::string, std::function<int(lua_State*)>> setters({
                     ${ dynamic_set.join(",\n").split("\n").join(`\n${ " ".repeat(20) }`) }
                 });
 
@@ -945,6 +950,11 @@ class LuaGenerator {
                 const [name, return_value_type, func_modifiers] = decl;
                 const list_of_arguments = decl[3].slice();
                 const variadic = list_of_arguments.length !== 0 && list_of_arguments.at(-1)[0] === "...";
+                const has_lua_State = list_of_arguments.length !== 0 && /^lua_State\s*\*\s*$/.test(list_of_arguments[0][0]);
+
+                if (has_lua_State) {
+                    list_of_arguments.shift();
+                }
 
                 // http://lua-users.org/lists/lua-l/2010-01/msg00160.html
                 // The documentation at https://www.lua.org/manual/5.1/manual.html#2.8 states
@@ -1381,6 +1391,10 @@ class LuaGenerator {
                     }
                 }
 
+                if (has_lua_State) {
+                    callargs.unshift("L");
+                }
+
                 let expr = callargs.join(", ");
                 let has_expr = false;
                 let has_call = false;
@@ -1643,7 +1657,13 @@ class LuaGenerator {
         const ename = LuaGenerator.getLuaFn(fname);
         const meta_method = LuaGenerator.getMetaMethod(ename);
         const {fqn} = coclass;
-        const [name, return_value_type, func_modifiers, list_of_arguments] = decl;
+        const [name, return_value_type, func_modifiers] = decl;
+
+        let [, , , list_of_arguments] = decl;
+        if (list_of_arguments.length !== 0 && /^lua_State\s*\*\s*$/.test(list_of_arguments[0][0])) {
+            list_of_arguments = list_of_arguments.slice(1);
+        }
+
         const argc = list_of_arguments.length;
         const isStatic = func_modifiers.includes("/S") || coclass.isStatic();
         const cppfqn = processor.hasTypeDef(fqn) ? processor.typedefs.get(fqn) : fqn;
@@ -1761,7 +1781,46 @@ class LuaGenerator {
 
         const files = new Map();
         const registrationsHdr = [];
+        const registrationsClass = [];
         const registrations = [];
+
+        const assignableTypes = new Map();
+
+        // denormalize children
+        for (const [fqn, coclass] of processor.classes.entries()) {
+            if (coclass.isStatic()) {
+                continue;
+            }
+
+            const parents = [...coclass.parents];
+
+            for (const parent of parents) {
+                if (processor.classes.has(parent) && !processor.classes.get(parent).isStatic()) {
+                    if (!assignableTypes.has(parent)) {
+                        assignableTypes.set(parent, new Set());
+                    }
+                    assignableTypes.get(parent).add(fqn);
+                }
+
+                if (processor.bases.has(parent)) {
+                    for (const base of processor.bases.get(parent)) {
+                        parents.push(base);
+                    }
+                }
+            }
+        }
+
+        for (const [fqn, coclass] of processor.classes.entries()) {
+            if (coclass.isStatic()) {
+                continue;
+            }
+
+            if (!assignableTypes.has(fqn)) {
+                assignableTypes.set(fqn, new Set());
+            }
+
+            assignableTypes.set(fqn, [fqn, ...assignableTypes.get(fqn)]);
+        }
 
         for (const fqn of Array.from(processor.classes.keys()).sort((a, b) => {
             if (a.startsWith("VectorOf") !== b.startsWith("VectorOf")) {
@@ -1796,6 +1855,7 @@ class LuaGenerator {
             const fileCpp = coclass.getCPPFileName(options);
             const fileHdr = `${ fileCpp.slice(0, -".cpp".length) }.hpp`;
             const registerFn = LuaGenerator.getRegisterFn(coclass);
+            const registerClassFn = LuaGenerator.getRegisterClassFn(coclass);
             const hasConstructor = Array.from(coclass.methods.values()).some(overloads => {
                 return overloads.some(([, , func_modifiers]) => LuaGenerator.isConstructor(func_modifiers));
             });
@@ -1812,26 +1872,65 @@ class LuaGenerator {
             coclass.progid = path.join(".");
 
             if (!coclass.isStatic()) {
+                registrationsClass.push(`${ registerClassFn }(L);`);
+                registers.unshift(`void ${ registerClassFn }(lua_State* L);`);
+
+                const descendants = assignableTypes.get(fqn);
+
+                // https://scottmeyers.blogspot.com/2015/09/should-you-be-using-something-instead.html
+                // linear search is faster or competetive to unordered_set on std::vector until around 20 - 35 elements
+                // For multiple if statements, it seems to also be the seem
+                // cf. perf.lua, model = cv.legacy.MultiTracker.create(), model:getDefaultName()
+                const lines = [];
+
+                if (descendants.length > 20) {
+                    lines.push(...`
+                        thread_local std::unordered_set<const void*> metatable_pointers = {
+                            ${ descendants.map(descendant => `usertype_info<${ descendant }>::metatable_pointers.at(luaopen_index)`).join(`,\n${ " ".repeat(28) }`) }
+                        };
+
+                        is_valid = metatable_pointers.contains(mt_pointer);
+                    `.replace(/^ {24}/mg, "").trim().split("\n"));
+                } else {
+                    lines.push(...`is_valid = ${ descendants.map(descendant => `mt_pointer == usertype_info<${ descendant }>::metatable_pointers.at(luaopen_index)`).join(`\n${ " ".repeat(4) }|| `) };`.split("\n"));
+                }
+
                 const decl = `
-                    static int metatable;
-                    static const void* signature;
+                    static std::mutex mutex;
+                    static std::vector<const void*> metatable_pointers;
+                    static std::vector<int> metatable_refs;
                     static const struct luaL_Reg* methods;
                     static const struct luaL_Reg* meta_methods;
-                    static const std::map<std::string, std::function<int(lua_State*)>> getters;
-                    static const std::map<std::string, std::function<int(lua_State*)>> setters;
+                    static const std::unordered_map<std::string, std::function<int(lua_State*)>> getters;
+                    static const std::unordered_map<std::string, std::function<int(lua_State*)>> setters;
                     static std::shared_ptr<${ fqn }> lua_userdata_to(lua_State* L, int index, bool& is_valid);
                 `.replace(/^ {20}/mg, "").trim().split("\n");
 
                 const impl = `
-                    int usertype_info<${ fqn }>::metatable = LUA_REFNIL;
-                    const void* usertype_info<${ fqn }>::signature;
+                    std::mutex usertype_info<${ fqn }>::mutex;
+                    std::vector<const void*> usertype_info<${ fqn }>::metatable_pointers;
+                    std::vector<int> usertype_info<${ fqn }>::metatable_refs;
                     const struct luaL_Reg* usertype_info<${ fqn }>::methods = ::methods;
                     const struct luaL_Reg* usertype_info<${ fqn }>::meta_methods = ::meta_methods;
-                    const std::map<std::string, std::function<int(lua_State*)>> usertype_info<${ fqn }>::getters(std::move(::getters));
-                    const std::map<std::string, std::function<int(lua_State*)>> usertype_info<${ fqn }>::setters(std::move(::setters));
+                    const std::unordered_map<std::string, std::function<int(lua_State*)>> usertype_info<${ fqn }>::getters(std::move(::getters));
+                    const std::unordered_map<std::string, std::function<int(lua_State*)>> usertype_info<${ fqn }>::setters(std::move(::setters));
 
                     std::shared_ptr<${ fqn }> usertype_info<${ fqn }>::lua_userdata_to(lua_State* L, int index, bool& is_valid) {
-                        return lua_userdata_signature_to<::${ [fqn, ...coclass.parents].join(", ::") }>(L, index, is_valid);
+                        is_valid = lua_isuserdata(L, index) && lua_getmetatable(L, index);
+
+                        if (is_valid) {
+                            const auto mt_pointer = lua_topointer(L, -1);
+                            lua_pop(L, 1);
+                            thread_local const auto luaopen_index = get_luaopen_index(L);
+
+                            ${ lines.join(`\n${ " ".repeat(28) }`) }
+
+                            if (is_valid) {
+                                return *static_cast<std::shared_ptr<${ fqn }>*>(lua_touserdata(L, index));
+                            }
+                        }
+
+                        return std::shared_ptr<${ fqn }>();
                     }
                 `.replace(/^ {20}/mg, "").trim().split("\n");
 
@@ -1849,13 +1948,11 @@ class LuaGenerator {
 
                 if (processor.derives.has(fqn)) {
                     decl.push(...`
-                        static std::unordered_set<const void*> derives;
-                        static std::unordered_map<std::type_index, std::function<int(lua_State*, const std::shared_ptr<${ fqn }>&)>> derives_pushers;
+                        static std::unordered_map<std::size_t, std::function<void(lua_State*, const std::shared_ptr<${ fqn }>&)>> derives_pushers;
                     `.replace(/^ {24}/mg, "").trim().split("\n"));
 
                     impl.push(...`
-                        std::unordered_set<const void*> usertype_info<${ fqn }>::derives;
-                        std::unordered_map<std::type_index, std::function<int(lua_State*, const std::shared_ptr<${ fqn }>&)>> usertype_info<${ fqn }>::derives_pushers;
+                        std::unordered_map<std::size_t, std::function<void(lua_State*, const std::shared_ptr<${ fqn }>&)>> usertype_info<${ fqn }>::derives_pushers;
                     `.replace(/^ {24}/mg, "").trim().split("\n"));
                 }
 
@@ -1928,6 +2025,8 @@ class LuaGenerator {
             const namespaces = [];
             useNamespaces(namespaces, "push", processor, coclass);
 
+            const contentRegisterClass = [];
+
             if (coclass.isStatic()) {
                 if (path.length !== 0) {
                     contentRegister.push(`lua_rawget_create_if_nil(L, { ${ path.map(part => JSON.stringify(part)).join(", ") } }); // push static class table`);
@@ -1958,20 +2057,19 @@ class LuaGenerator {
                 const name = path[path.length - 1];
 
                 if (path.length > 1) {
-                    contentRegister.push(`lua_rawget_create_if_nil(L, { ${ path.slice(0, -1).map(part => JSON.stringify(part)).join(", ") } });  // push parent class metatable`);
+                    contentRegisterClass.push(`lua_rawget_create_if_nil(L, { ${ path.slice(0, -1).map(part => JSON.stringify(part)).join(", ") } });  // push parent table`);
                 }
 
-                contentRegister.push(`lua_register_class<::${ [fqn, ...coclass.parents].join(", ::") }>(L, "${ name }");`);
+                contentRegisterClass.push(`lua_register_class<::${ [fqn, ...coclass.parents].join(", ::") }>(L, "${ name }");`);
 
                 const parents = [...coclass.parents];
 
                 // denormalize parents
                 for (const parent of parents) {
                     if (processor.classes.has(parent) && !processor.classes.get(parent).isStatic()) {
-                        contentRegister.push(`
-                            usertype_info<::${ parent }>::derives.insert(usertype_info<${ fqn }>::signature);
-                            usertype_info<::${ parent }>::derives_pushers[std::type_index(typeid(${ fqn }))] = std::move([] (lua_State* L, const std::shared_ptr<::${ parent }>& ptr) {
-                                return lua_push(L, std::reinterpret_pointer_cast<${ fqn }>(ptr));
+                        contentRegisterClass.push(`
+                            usertype_info<::${ parent }>::derives_pushers[typeid(${ fqn }).hash_code()] = std::move([] (lua_State* L, const std::shared_ptr<::${ parent }>& ptr) {
+                                lua_push(L, std::reinterpret_pointer_cast<${ fqn }>(ptr));
                             });
                         `.replace(/^ {28}/mg, "").trim());
                     }
@@ -1983,8 +2081,11 @@ class LuaGenerator {
                     }
                 }
 
-                contentRegister.push(`lua_pushliteral(L, "${ name }");`);
-                contentRegister.push("lua_rawget(L, -2); // push class metatable");
+                if (path.length > 1) {
+                    contentRegisterClass.push("lua_pop(L, 1); // pop parent table");
+                }
+
+                contentRegister.push(`lua_rawget_create_if_nil(L, { ${ path.map(part => JSON.stringify(part)).join(", ") } }); // push class metatable`);
             }
 
             LuaGenerator.writeProperties(processor, coclass, contentRegisterPrivate, contentRegister, options);
@@ -2016,8 +2117,14 @@ class LuaGenerator {
 
             contentRegister.push(`lua_pop(L, 1); // pop ${ !coclass.isStatic() ? "class metatable" : path.length !== 0 ? "static class table" : "static class metatable" }`);
 
-            if (path.length > 1 && !coclass.isStatic()) {
-                contentRegister.push("lua_pop(L, 1); // pop parent metatable");
+            if (!coclass.isStatic()) {
+                contentCpp.push(`
+                    namespace LUA_MODULE_NAME {
+                        void ${ registerClassFn }(lua_State* L) {
+                            ${ contentRegisterClass.join("\n").split("\n").join(`\n${ " ".repeat(28) }`) }
+                        }
+                    }
+                `.replace(/^ {20}/mg, "").trim(), "");
             }
 
             contentCpp.push(`
@@ -2049,7 +2156,14 @@ class LuaGenerator {
 
             namespace LUA_MODULE_NAME {
                 void register_all(lua_State* L) {
-                    ${ registrations.join(`\n${ " ".repeat(20) }`) }
+                    ${ [
+                        ...registrationsClass,
+                        `// ${ "=".repeat(64) }`,
+                        `// ${ "+".repeat(64) }`,
+                        `// ${ "+".repeat(64) }`,
+                        `// ${ "=".repeat(64) }`,
+                        ...registrations,
+                    ].join(`\n${ " ".repeat(20) }`) }
                 }
             }
         `.replace(/^ {12}/mg, "").trim());

@@ -35,7 +35,7 @@ namespace google::protobuf::lua::cmessage {
 		const FieldDescriptor* field_descriptor,
 		const ::LUA_MODULE_NAME::Object& arg);
 
-	[[nodiscard]] absl::Status InitAttributes(Message& message,
+	[[nodiscard]] absl::Status InitAttributes(lua_State* L, Message& message,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs);
 
 	[[nodiscard]] absl::StatusOr<FieldDescriptor*> GetFieldDescriptor(
@@ -45,16 +45,19 @@ namespace google::protobuf::lua::cmessage {
 	);
 
 	CV_WRAP [[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> GetFieldValue(
+		lua_State* L,
 		Message& message,
 		const std::string& field_name
 	);
 
 	[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> GetFieldValue(
+		lua_State* L,
 		Message& message,
 		const FieldDescriptor* field_descriptor
 	);
 
 	[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> DeepCopy(
+		lua_State* L,
 		Message* message,
 		const FieldDescriptor* field_descriptor
 	);

@@ -8,6 +8,7 @@
 #include "binding/tasks/core/task_runner.h"
 #include "binding/tasks/components/containers/rect.h"
 #include <cmath>
+#include <lua.hpp>
 
 namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 	class CV_EXPORTS_W BaseVisionTaskApi {
@@ -16,6 +17,7 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 
 		template<typename _Tp>
 		[[nodiscard]] inline static absl::StatusOr<std::shared_ptr<_Tp>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			vision_task_running_mode::VisionTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback&& packet_callback,
@@ -31,15 +33,17 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 			}
 
 			MP_ASSIGN_OR_RETURN(auto runner, mediapipe::lua::task_runner::create(graph_config, std::move(packet_callback)));
-			return std::make_shared<_Tp>(runner, running_mode);
+			return std::make_shared<_Tp>(L, runner, running_mode);
 		}
 
 		BaseVisionTaskApi(
+			lua_State* L,
 			const std::shared_ptr<mediapipe::tasks::core::TaskRunner>& runner,
 			vision_task_running_mode::VisionTaskRunningMode running_mode
-		) : _runner(runner), _running_mode(running_mode) {}
+		) : L(L), _runner(runner), _running_mode(running_mode) {}
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<BaseVisionTaskApi>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			vision_task_running_mode::VisionTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback packet_callback = nullptr
@@ -55,6 +59,7 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 		CV_WRAP [[nodiscard]] absl::Status close();
 		CV_WRAP std::shared_ptr<mediapipe::CalculatorGraphConfig> get_graph_config();
 	protected:
+		lua_State* L;
 		std::shared_ptr<mediapipe::tasks::core::TaskRunner> _runner;
 		vision_task_running_mode::VisionTaskRunningMode _running_mode;
 	};

@@ -55,6 +55,7 @@ namespace mediapipe::lua::solutions::objectron {
 	}
 
 	absl::StatusOr<std::shared_ptr<Objectron>> Objectron::create(
+		lua_State* L,
 		bool static_image_mode,
 		int max_num_objects,
 		float min_detection_confidence,
@@ -82,29 +83,30 @@ namespace mediapipe::lua::solutions::objectron {
 		MP_ASSIGN_OR_RETURN(auto model, get_model_by_name(model_name));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			{
 				{"objectdetectionoidv4subgraph"
 					"__TensorsToDetectionsCalculator.min_score_thresh",
-					::LUA_MODULE_NAME::Object(min_detection_confidence)},
+					::LUA_MODULE_NAME::Object(L, min_detection_confidence)},
 				{"boxlandmarksubgraph__ThresholdingCalculator"
 					".threshold",
-					::LUA_MODULE_NAME::Object(min_tracking_confidence)},
+					::LUA_MODULE_NAME::Object(L, min_tracking_confidence)},
 				{"Lift2DFrameAnnotationTo3DCalculator"
-					".normalized_focal_x", ::LUA_MODULE_NAME::Object(fx)},
+					".normalized_focal_x", ::LUA_MODULE_NAME::Object(L, fx)},
 				{"Lift2DFrameAnnotationTo3DCalculator"
-					".normalized_focal_y", ::LUA_MODULE_NAME::Object(fy)},
+					".normalized_focal_y", ::LUA_MODULE_NAME::Object(L, fy)},
 				{"Lift2DFrameAnnotationTo3DCalculator"
-					".normalized_principal_point_x", ::LUA_MODULE_NAME::Object(px)},
+					".normalized_principal_point_x", ::LUA_MODULE_NAME::Object(L, px)},
 				{"Lift2DFrameAnnotationTo3DCalculator"
-					".normalized_principal_point_y", ::LUA_MODULE_NAME::Object(py)},
+					".normalized_principal_point_y", ::LUA_MODULE_NAME::Object(L, py)},
 			},
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"box_landmark_model_path", ::LUA_MODULE_NAME::Object(model.model_path)},
-				{"allowed_labels", ::LUA_MODULE_NAME::Object(model.label_name)},
-				{"max_num_objects", ::LUA_MODULE_NAME::Object(max_num_objects)},
-				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(!static_image_mode)},
+				{"box_landmark_model_path", ::LUA_MODULE_NAME::Object(L, model.model_path)},
+				{"allowed_labels", ::LUA_MODULE_NAME::Object(L, model.label_name)},
+				{"max_num_objects", ::LUA_MODULE_NAME::Object(L, max_num_objects)},
+				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(L, !static_image_mode)},
 			},
 			{ "detected_objects" },
 			noTypeMap(),
@@ -114,7 +116,7 @@ namespace mediapipe::lua::solutions::objectron {
 		);
 	}
 
-	::LUA_MODULE_NAME::Object _convert_format(::LUA_MODULE_NAME::Object input_objects) {
+	absl::StatusOr<::LUA_MODULE_NAME::Object> _convert_format(lua_State* L, ::LUA_MODULE_NAME::Object input_objects) {
 		bool is_valid;
 		auto inputs_holder = ::LUA_MODULE_NAME::lua_to(input_objects, static_cast<FrameAnnotation*>(nullptr), is_valid);
 		MP_ASSERT_RETURN_IF_ERROR(is_valid, "expecting a FrameAnnotation");
@@ -155,21 +157,21 @@ namespace mediapipe::lua::solutions::objectron {
 				});
 		}
 
-		return ::LUA_MODULE_NAME::Object(new_outputs);
+		return ::LUA_MODULE_NAME::Object(L, new_outputs);
 	}
 
 	static ::LUA_MODULE_NAME::Object None = ::LUA_MODULE_NAME::lua_nil;
 
 	absl::Status Objectron::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		MP_RETURN_IF_ERROR(SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs));
 
 		if (
 			solution_outputs.count("detected_objects")
 			&& !solution_outputs["detected_objects"].isnil()
 			) {
-			solution_outputs["detected_objects"] = _convert_format(solution_outputs["detected_objects"]);
+			MP_ASSIGN_OR_RETURN(solution_outputs["detected_objects"], _convert_format(L, solution_outputs["detected_objects"]));
 		}
 		else {
 			solution_outputs["detected_objects"] = None;

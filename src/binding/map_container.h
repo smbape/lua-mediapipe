@@ -54,8 +54,8 @@ namespace google::protobuf {
 			bool m_dirty = true;
 		};
 
-		struct CV_EXPORTS_W_SIMPLE MapContainer {
-			CV_WRAP MapContainer() = default;
+		struct CV_EXPORTS_W MapContainer {
+			CV_WRAP MapContainer(lua_State* L) : L(L) {};
 			CV_WRAP MapContainer(const MapContainer& other) = default;
 			MapContainer& operator=(const MapContainer& other) = default;
 
@@ -82,15 +82,16 @@ namespace google::protobuf {
 			iterator begin();
 			iterator end();
 
-			std::shared_ptr<Message> message;
-			std::shared_ptr<FieldDescriptor> field_descriptor;
+			lua_State* L;
+			std::shared_ptr<Message> message { };
+			std::shared_ptr<FieldDescriptor> field_descriptor { };
 		};
 
 		[[nodiscard]] absl::Status AnyObjectToMapKey(const FieldDescriptor* parent_field_descriptor, ::LUA_MODULE_NAME::Object arg, MapKey* key);
 		[[nodiscard]] absl::Status AnyObjectToMapValueRef(const FieldDescriptor* parent_field_descriptor, ::LUA_MODULE_NAME::Object arg,
 			bool allow_unknown_enum_values,
 			MapValueRef* value_ref);
-		[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> MapKeyToAnyObject(const FieldDescriptor* parent_field_descriptor, const MapKey& key);
-		[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> MapValueRefToAnyObject(const FieldDescriptor* parent_field_descriptor, const MapValueRef& value);
+		[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> MapKeyToAnyObject(lua_State* L, const FieldDescriptor* parent_field_descriptor, const MapKey& key);
+		[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> MapValueRefToAnyObject(lua_State* L, const FieldDescriptor* parent_field_descriptor, const MapValueRef& value);
 	}
 }

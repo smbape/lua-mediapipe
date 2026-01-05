@@ -26,6 +26,7 @@ namespace mediapipe::lua::solutions::face_detection {
 		using SolutionBase::SolutionBase;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<FaceDetection>> create(
+			lua_State* L,
 			float min_detection_confidence = 0,
 			uchar model_selection = 0
 		);

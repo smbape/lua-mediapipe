@@ -17,6 +17,7 @@ namespace mediapipe::lua::solutions::pose {
 	using namespace google::protobuf::lua::cmessage;
 
 	absl::StatusOr<std::shared_ptr<Pose>> Pose::create(
+		lua_State* L,
 		bool static_image_mode,
 		uint8_t model_complexity,
 		bool smooth_landmarks,
@@ -37,18 +38,19 @@ namespace mediapipe::lua::solutions::pose {
 		));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			{
-				{"posedetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(min_detection_confidence)},
-				{"poselandmarkbyroicpu__tensorstoposelandmarksandsegmentation__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(min_tracking_confidence)},
+				{"posedetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(L, min_detection_confidence)},
+				{"poselandmarkbyroicpu__tensorstoposelandmarksandsegmentation__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(L, min_tracking_confidence)},
 			},
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"model_complexity", ::LUA_MODULE_NAME::Object(model_complexity)},
-				{"smooth_landmarks", ::LUA_MODULE_NAME::Object(smooth_landmarks && !static_image_mode)},
-				{"enable_segmentation", ::LUA_MODULE_NAME::Object(enable_segmentation)},
-				{"smooth_segmentation", ::LUA_MODULE_NAME::Object(smooth_segmentation && !static_image_mode)},
-				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(!static_image_mode)},
+				{"model_complexity", ::LUA_MODULE_NAME::Object(L, model_complexity)},
+				{"smooth_landmarks", ::LUA_MODULE_NAME::Object(L, smooth_landmarks && !static_image_mode)},
+				{"enable_segmentation", ::LUA_MODULE_NAME::Object(L, enable_segmentation)},
+				{"smooth_segmentation", ::LUA_MODULE_NAME::Object(L, smooth_segmentation && !static_image_mode)},
+				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(L, !static_image_mode)},
 			},
 			{ "pose_landmarks", "pose_world_landmarks", "segmentation_mask" },
 			noTypeMap(),
@@ -60,7 +62,7 @@ namespace mediapipe::lua::solutions::pose {
 
 	absl::Status Pose::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		MP_RETURN_IF_ERROR(SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs));
 
 		bool is_valid;

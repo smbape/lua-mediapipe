@@ -280,8 +280,8 @@ const main = (options, next) => {
             const extname = sysPath.extname(file);
 
             if (
-                folder === "test" && !file.endsWith("_test.lua") ||
-                basename[0] === "_" && extname === ".lua" ||
+                includes.length === 0 && folder === "test" && !file.endsWith("_test.lua") ||
+                (includes.length === 0 || !includes.some(include => basename.startsWith(include))) && [ "_", "." ].includes(basename[0]) ||
                 !includes_ext.includes(extname) ||
                 excludes.some(exclude => basename.startsWith(exclude)) ||
                 includes.length !== 0 && !includes.some(include => basename.includes(include))

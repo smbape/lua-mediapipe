@@ -30,7 +30,7 @@ module.exports = ({ self, language, cname }) => [
 
     ["mediapipe.CalculatorGraph.DisallowServiceDefaultInitialization", "absl::Status", ["=disallow_service_default_initialization"], [], "", ""],
 
-    ["mediapipe.CalculatorGraph.add_packet_to_input_stream", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::add_packet_to_input_stream`, `/Expr=&(${ self }), $0`], [
+    ["mediapipe.CalculatorGraph.add_packet_to_input_stream", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::add_packet_to_input_stream`, `/Expr=L, &(${ self }), $0`], [
         ["std::string", "stream", "", ["/Ref"]],
         ["mediapipe::Packet", "packet", "", ["/Ref"]],
         ["mediapipe::Timestamp", "timestamp", "Timestamp::Unset()", ["/Ref"]],
@@ -46,12 +46,12 @@ module.exports = ({ self, language, cname }) => [
         ["std::map<std::string, Packet>", "input_side_packets", "std::map<std::string, Packet>()", ["/Ref"]],
     ], "", ""],
 
-    ["mediapipe.CalculatorGraph.wait_until_done", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_done`, `/Expr=&(${ self })`], [], "", ""],
-    ["mediapipe.CalculatorGraph.wait_until_idle", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_idle`, `/Expr=&(${ self })`], [], "", ""],
-    ["mediapipe.CalculatorGraph.wait_for_observed_output", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_for_observed_output`, `/Expr=&(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_until_done", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_done`, `/Expr=L, &(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_until_idle", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_until_idle`, `/Expr=L, &(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.wait_for_observed_output", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::wait_for_observed_output`, `/Expr=L, &(${ self })`], [], "", ""],
     ["mediapipe.CalculatorGraph.HasError", "bool", ["=has_error"], [], "", ""],
     ["mediapipe.CalculatorGraph.get_combined_error_message", "std::string", [`/Call=mediapipe::${ language }::calculator_graph::get_combined_error_message`, `/Expr=&(${ self })`], [], "", ""],
-    ["mediapipe.CalculatorGraph.close", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::close`, `/Expr=&(${ self })`], [], "", ""],
+    ["mediapipe.CalculatorGraph.close", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::close`, `/Expr=L, &(${ self })`], [], "", ""],
 
     ["mediapipe.CalculatorGraph.observe_output_stream", "absl::Status", [`/Call=mediapipe::${ language }::calculator_graph::observe_output_stream`, `/Expr=&(${ self }), $0`], [
         ["std::string", "stream_name", "", []],

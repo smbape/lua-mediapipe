@@ -957,7 +957,7 @@ class Parser {
         const setter = `
             auto mutable_${ field_name }  = shared_message->mutable_${ field_name }();
             auto iterator_${ field_name } = Repeated${ ptr }FieldBackInserter(mutable_${ field_name });
-            MP_RETURN_LUA_ERROR_IF_ERROR(google::protobuf::${ language }::RepeatedField_Set(*shared_message.get(), "${ field_name }", ${ newVal }, mutable_${ field_name }, iterator_${ field_name }))
+            MP_RETURN_LUA_ERROR_IF_ERROR(google::protobuf::${ language }::RepeatedField_Set(L, *shared_message.get(), "${ field_name }", ${ newVal }, mutable_${ field_name }, iterator_${ field_name }))
         `.replace(/^ {12}/mg, "").trim();
 
         fields.push([AnyObject, field_name, "", [
@@ -1024,7 +1024,7 @@ class Parser {
                 [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=&(${ self }), $0`], [
                     [`${ value_type }*`, "value", "", ["/C"]]
                 ], "", ""],
-                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=&(${ self }), $0`], [
+                [`${ fqn }.Add`, `${ value_type }*`, ["=append", `/Call=::google::protobuf::${ language }::RepeatedField_AddMessage`, `/Expr=L, &(${ self }), $0`], [
                     [`std::map<std::string, ${ AnyObject }>`, "attrs", "", []]
                 ], "", ""],
                 [`${ fqn }.splice`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_SpliceMessage`, `/Expr=&(${ self }), $0`], [
@@ -1051,7 +1051,7 @@ class Parser {
                 [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=&(${ self }), $0`], [
                     [`std::vector<std::shared_ptr<${ value_type }>>`, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
-                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=&(${ self }), $0`], [
+                [`${ fqn }.extend`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_ExtendMessage`, `/Expr=L, &(${ self }), $0`], [
                     [`std::vector<${ AnyObject }>`, "items", "", ["/Ref", "/C"]],
                 ], "", ""],
                 [`${ fqn }.insert`, "absl::Status", [`/Call=::google::protobuf::${ language }::RepeatedField_InsertMessage`, `/Expr=&(${ self }), $0`], [

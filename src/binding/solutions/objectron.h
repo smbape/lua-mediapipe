@@ -117,6 +117,7 @@ namespace mediapipe::lua::solutions::objectron {
 		using SolutionBase::SolutionBase;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<Objectron>> create(
+			lua_State* L,
 			bool static_image_mode = false,
 			int max_num_objects = 5,
 			float min_detection_confidence = 0.5,

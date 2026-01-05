@@ -35,6 +35,7 @@ namespace mediapipe::lua::solutions::holistic {
 	using namespace google::protobuf::lua::cmessage;
 
 	absl::StatusOr<std::shared_ptr<Holistic>> Holistic::create(
+		lua_State* L,
 		bool static_image_mode,
 		uint8_t model_complexity,
 		bool smooth_landmarks,
@@ -77,19 +78,20 @@ namespace mediapipe::lua::solutions::holistic {
 		));
 
 		return SolutionBase::create(
+			L,
 			_BINARYPB_FILE_PATH,
 			{
-				{"poselandmarkcpu__posedetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(min_detection_confidence)},
-				{"poselandmarkcpu__poselandmarkbyroicpu__tensorstoposelandmarksandsegmentation__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(min_tracking_confidence)},
+				{"poselandmarkcpu__posedetectioncpu__TensorsToDetectionsCalculator.min_score_thresh", ::LUA_MODULE_NAME::Object(L, min_detection_confidence)},
+				{"poselandmarkcpu__poselandmarkbyroicpu__tensorstoposelandmarksandsegmentation__ThresholdingCalculator.threshold", ::LUA_MODULE_NAME::Object(L, min_tracking_confidence)},
 			},
 			std::shared_ptr<google::protobuf::Message>(),
 			{
-				{"model_complexity", ::LUA_MODULE_NAME::Object(model_complexity)},
-				{"smooth_landmarks", ::LUA_MODULE_NAME::Object(smooth_landmarks && !static_image_mode)},
-				{"enable_segmentation", ::LUA_MODULE_NAME::Object(enable_segmentation)},
-				{"smooth_segmentation", ::LUA_MODULE_NAME::Object(smooth_segmentation && !static_image_mode)},
-				{"refine_face_landmarks", ::LUA_MODULE_NAME::Object(refine_face_landmarks)},
-				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(!static_image_mode)},
+				{"model_complexity", ::LUA_MODULE_NAME::Object(L, model_complexity)},
+				{"smooth_landmarks", ::LUA_MODULE_NAME::Object(L, smooth_landmarks && !static_image_mode)},
+				{"enable_segmentation", ::LUA_MODULE_NAME::Object(L, enable_segmentation)},
+				{"smooth_segmentation", ::LUA_MODULE_NAME::Object(L, smooth_segmentation && !static_image_mode)},
+				{"refine_face_landmarks", ::LUA_MODULE_NAME::Object(L, refine_face_landmarks)},
+				{"use_prev_landmarks", ::LUA_MODULE_NAME::Object(L, !static_image_mode)},
 			},
 			{
 				"pose_landmarks", "pose_world_landmarks", "left_hand_landmarks",
@@ -104,7 +106,7 @@ namespace mediapipe::lua::solutions::holistic {
 
 	absl::Status Holistic::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		MP_RETURN_IF_ERROR(SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs));
 
 		bool is_valid;

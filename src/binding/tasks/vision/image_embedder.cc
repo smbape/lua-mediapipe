@@ -52,20 +52,21 @@ namespace mediapipe::tasks::lua::vision::image_embedder {
 	}
 
 	absl::StatusOr<std::shared_ptr<ImageEmbedder>> ImageEmbedder::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		VisionTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
 		using BaseVisionTaskApi = core::base_vision_task_api::BaseVisionTaskApi;
-		return BaseVisionTaskApi::create(graph_config, running_mode, std::move(packet_callback), static_cast<ImageEmbedder*>(nullptr));
+		return BaseVisionTaskApi::create(L, graph_config, running_mode, std::move(packet_callback), static_cast<ImageEmbedder*>(nullptr));
 	}
 
-	absl::StatusOr<std::shared_ptr<ImageEmbedder>> ImageEmbedder::create_from_model_path(const std::string& model_path) {
+	absl::StatusOr<std::shared_ptr<ImageEmbedder>> ImageEmbedder::create_from_model_path(lua_State* L, const std::string& model_path) {
 		auto base_options = std::make_shared<BaseOptions>(model_path);
-		return create_from_options(std::make_shared<ImageEmbedderOptions>(base_options, VisionTaskRunningMode::IMAGE));
+		return create_from_options(L, std::make_shared<ImageEmbedderOptions>(base_options, VisionTaskRunningMode::IMAGE));
 	}
 
-	absl::StatusOr<std::shared_ptr<ImageEmbedder>> ImageEmbedder::create_from_options(std::shared_ptr<ImageEmbedderOptions> options) {
+	absl::StatusOr<std::shared_ptr<ImageEmbedder>> ImageEmbedder::create_from_options(lua_State* L, std::shared_ptr<ImageEmbedderOptions> options) {
 		PacketsCallback packet_callback = nullptr;
 
 		if (options->result_callback) {
@@ -98,6 +99,7 @@ namespace mediapipe::tasks::lua::vision::image_embedder {
 		MP_ASSIGN_OR_RETURN(auto config, task_info.generate_graph_config(options->running_mode == VisionTaskRunningMode::LIVE_STREAM));
 
 		return create(
+			L,
 			*config,
 			options->running_mode,
 			std::move(packet_callback)

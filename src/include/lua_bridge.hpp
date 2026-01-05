@@ -14,11 +14,13 @@ namespace LUA_MODULE_NAME {
 	// absl::StatusOr
 	// ================================
 	template<typename T>
-	inline int lua_push(lua_State* L, const absl::StatusOr<T>& status_or) {
-		if (!status_or.status().ok()) {
-			return lua_push(L, status_or.status());
+	inline void lua_push(lua_State* L, const absl::StatusOr<T>& status_or) {
+		if (status_or.status().ok()) {
+			lua_push(L, status_or.value());
 		}
-		return lua_push(L, status_or.value());
+		else {
+			lua_push(L, status_or.status());
+		}
 	}
 
 
@@ -37,13 +39,13 @@ namespace LUA_MODULE_NAME {
 	}
 
 	template<class T>
-	inline int lua_push(lua_State* L, google::protobuf::RepeatedField<T>&& vec) {
-		return _stl_container_lua_push<google::protobuf::RepeatedField, T>(L, std::move(vec));
+	inline void lua_push(lua_State* L, google::protobuf::RepeatedField<T>&& vec) {
+		_stl_container_lua_push<google::protobuf::RepeatedField, T>(L, std::move(vec));
 	}
 
 	template<class T>
-	inline int lua_push(lua_State* L, const google::protobuf::RepeatedField<T>& vec) {
-		return _stl_container_lua_push<google::protobuf::RepeatedField, T>(L, vec);
+	inline void lua_push(lua_State* L, const google::protobuf::RepeatedField<T>& vec) {
+		_stl_container_lua_push<google::protobuf::RepeatedField, T>(L, vec);
 	}
 
 
@@ -62,13 +64,13 @@ namespace LUA_MODULE_NAME {
 	}
 
 	template<class T>
-	inline int lua_push(lua_State* L, google::protobuf::RepeatedPtrField<T>&& vec) {
-		return _stl_container_lua_push<google::protobuf::RepeatedPtrField, T>(L, std::move(vec));
+	inline void lua_push(lua_State* L, google::protobuf::RepeatedPtrField<T>&& vec) {
+		_stl_container_lua_push<google::protobuf::RepeatedPtrField, T>(L, std::move(vec));
 	}
 
 	template<class T>
-	inline int lua_push(lua_State* L, const google::protobuf::RepeatedPtrField<T>& vec) {
-		return _stl_container_lua_push<google::protobuf::RepeatedPtrField, T>(L, vec);
+	inline void lua_push(lua_State* L, const google::protobuf::RepeatedPtrField<T>& vec) {
+		_stl_container_lua_push<google::protobuf::RepeatedPtrField, T>(L, vec);
 	}
 
 	// TODO MapContainer

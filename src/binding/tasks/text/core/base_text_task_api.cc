@@ -11,13 +11,14 @@ namespace mediapipe::tasks::lua::text::core::base_text_task_api {
 	}
 
 	absl::StatusOr<std::shared_ptr<BaseTextTaskApi>> BaseTextTaskApi::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config
 	) {
-		return create(graph_config, static_cast<BaseTextTaskApi*>(nullptr));
+		return create(L, graph_config, static_cast<BaseTextTaskApi*>(nullptr));
 	}
 
 	absl::Status BaseTextTaskApi::close() {
-		::LUA_MODULE_NAME::GilYield yielder;
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return _runner->Close();
 	}
 }

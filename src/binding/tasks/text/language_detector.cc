@@ -56,18 +56,19 @@ namespace mediapipe::tasks::lua::text::language_detector {
 	}
 
 	absl::StatusOr<std::shared_ptr<LanguageDetector>> LanguageDetector::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config
 	) {
 		using BaseTextTaskApi = core::base_text_task_api::BaseTextTaskApi;
-		return BaseTextTaskApi::create(graph_config, static_cast<LanguageDetector*>(nullptr));
+		return BaseTextTaskApi::create(L, graph_config, static_cast<LanguageDetector*>(nullptr));
 	}
 
-	absl::StatusOr<std::shared_ptr<LanguageDetector>> LanguageDetector::create_from_model_path(const std::string& model_path) {
+	absl::StatusOr<std::shared_ptr<LanguageDetector>> LanguageDetector::create_from_model_path(lua_State* L, const std::string& model_path) {
 		auto base_options = std::make_shared<BaseOptions>(model_path);
-		return create_from_options(std::make_shared<LanguageDetectorOptions>(base_options));
+		return create_from_options(L, std::make_shared<LanguageDetectorOptions>(base_options));
 	}
 
-	absl::StatusOr<std::shared_ptr<LanguageDetector>> LanguageDetector::create_from_options(std::shared_ptr<LanguageDetectorOptions> options) {
+	absl::StatusOr<std::shared_ptr<LanguageDetector>> LanguageDetector::create_from_options(lua_State* L, std::shared_ptr<LanguageDetectorOptions> options) {
 		TaskInfo task_info;
 		task_info.task_graph = _TASK_GRAPH_NAME;
 		task_info.input_streams = { _TEXT_TAG + ":" + _TEXT_IN_STREAM_NAME };
@@ -76,7 +77,7 @@ namespace mediapipe::tasks::lua::text::language_detector {
 
 		MP_ASSIGN_OR_RETURN(auto config, task_info.generate_graph_config());
 
-		return create(*config);
+		return create(L, *config);
 	}
 
 	absl::StatusOr<std::shared_ptr<LanguageDetectorResult>> LanguageDetector::detect(const std::string& text) {

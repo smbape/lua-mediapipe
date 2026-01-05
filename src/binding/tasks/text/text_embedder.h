@@ -39,10 +39,11 @@ namespace mediapipe::tasks::lua::text::text_embedder {
 		using core::base_text_task_api::BaseTextTaskApi::BaseTextTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextEmbedder>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextEmbedder>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextEmbedder>> create_from_options(std::shared_ptr<TextEmbedderOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextEmbedder>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextEmbedder>> create_from_options(lua_State* L, std::shared_ptr<TextEmbedderOptions> options);
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<TextEmbedderResult>> embed(const std::string& text);
 		CV_WRAP [[nodiscard]] static absl::StatusOr<float> cosine_similarity(const components::containers::embedding_result::Embedding& u, const components::containers::embedding_result::Embedding& v);
 	};

@@ -63,20 +63,21 @@ namespace mediapipe::tasks::lua::vision::interactive_segmenter {
 	}
 
 	absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> InteractiveSegmenter::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		VisionTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
 		using BaseVisionTaskApi = core::base_vision_task_api::BaseVisionTaskApi;
-		return BaseVisionTaskApi::create(graph_config, running_mode, std::move(packet_callback), static_cast<InteractiveSegmenter*>(nullptr));
+		return BaseVisionTaskApi::create(L, graph_config, running_mode, std::move(packet_callback), static_cast<InteractiveSegmenter*>(nullptr));
 	}
 
-	absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> InteractiveSegmenter::create_from_model_path(const std::string& model_path) {
+	absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> InteractiveSegmenter::create_from_model_path(lua_State* L, const std::string& model_path) {
 		auto base_options = std::make_shared<BaseOptions>(model_path);
-		return create_from_options(std::make_shared<InteractiveSegmenterOptions>(base_options));
+		return create_from_options(L, std::make_shared<InteractiveSegmenterOptions>(base_options));
 	}
 
-	absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> InteractiveSegmenter::create_from_options(std::shared_ptr<InteractiveSegmenterOptions> options) {
+	absl::StatusOr<std::shared_ptr<InteractiveSegmenter>> InteractiveSegmenter::create_from_options(lua_State* L, std::shared_ptr<InteractiveSegmenterOptions> options) {
 		TaskInfo task_info;
 		task_info.task_graph = _TASK_GRAPH_NAME;
 		task_info.input_streams = {
@@ -100,6 +101,7 @@ namespace mediapipe::tasks::lua::vision::interactive_segmenter {
 		MP_ASSIGN_OR_RETURN(auto config, task_info.generate_graph_config(false));
 
 		return create(
+			L,
 			*config,
 			VisionTaskRunningMode::IMAGE
 		);

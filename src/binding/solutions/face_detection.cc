@@ -29,6 +29,7 @@ namespace mediapipe::lua::solutions::face_detection {
 	}
 
 	absl::StatusOr<std::shared_ptr<FaceDetection>> FaceDetection::create(
+		lua_State* L,
 		float min_detection_confidence,
 		uchar model_selection
 	) {
@@ -38,9 +39,10 @@ namespace mediapipe::lua::solutions::face_detection {
 		));
 		const auto& model_path = model_selection == 1 ? _FULL_RANGE_GRAPH_FILE_PATH : _SHORT_RANGE_GRAPH_FILE_PATH;
 
-		MP_ASSIGN_OR_RETURN(auto graph_options, SolutionBase::create_graph_options(std::make_shared<FaceDetectionOptions>(), { {"min_score_thresh", ::LUA_MODULE_NAME::Object(model_selection)} }));
+		MP_ASSIGN_OR_RETURN(auto graph_options, SolutionBase::create_graph_options(L, std::make_shared<FaceDetectionOptions>(), { {"min_score_thresh", ::LUA_MODULE_NAME::Object(L, model_selection)} }));
 
 		return SolutionBase::create(
+			L,
 			model_path,
 			noMap(),
 			graph_options,
@@ -55,7 +57,7 @@ namespace mediapipe::lua::solutions::face_detection {
 
 	absl::Status FaceDetection::process(const cv::Mat& image, CV_OUT std::map<std::string, ::LUA_MODULE_NAME::Object>& solution_outputs) {
 		return SolutionBase::process({
-			{ "image", ::LUA_MODULE_NAME::Object(image) }
+			{ "image", ::LUA_MODULE_NAME::Object(L, image) }
 		}, solution_outputs);
 	}
 }

@@ -20,10 +20,10 @@ namespace google::protobuf::lua {
 		bool m_dirty = true;
 	};
 
-	struct CV_EXPORTS_W_SIMPLE RepeatedContainer {
+	struct CV_EXPORTS_W RepeatedContainer {
 		using Comparator = std::function<bool(const ::LUA_MODULE_NAME::Object&, const ::LUA_MODULE_NAME::Object&)>;
 
-		CV_WRAP RepeatedContainer() = default;
+		CV_WRAP RepeatedContainer(lua_State* L) : L(L) {};
 		CV_WRAP RepeatedContainer(const RepeatedContainer& other) = default;
 		RepeatedContainer& operator=(const RepeatedContainer& other) = default;
 
@@ -57,8 +57,9 @@ namespace google::protobuf::lua {
 		iterator begin();
 		iterator end();
 
-		std::shared_ptr<Message> message;
-		std::shared_ptr<FieldDescriptor> field_descriptor;
+		lua_State* L;
+		std::shared_ptr<Message> message { };
+		std::shared_ptr<FieldDescriptor> field_descriptor { };
 	};
 
 	template<typename Element, typename _Tp>
@@ -73,7 +74,7 @@ namespace google::protobuf::lua {
 	[[nodiscard]] absl::StatusOr<Element*> RepeatedField_AddMessage(RepeatedPtrField<Element>* repeatedField, const Element* message);
 
 	template<typename Element>
-	[[nodiscard]] absl::StatusOr<Element*> RepeatedField_AddMessage(RepeatedPtrField<Element>* repeatedField, std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs);
+	[[nodiscard]] absl::StatusOr<Element*> RepeatedField_AddMessage(lua_State* L, RepeatedPtrField<Element>* repeatedField, std::map<std::string, ::LUA_MODULE_NAME::Object>& attrs);
 
 	template<typename Element, typename _Tp>
 	[[nodiscard]] absl::Status RepeatedField_SpliceScalar(_Tp* repeatedField, std::vector<Element>& list, ssize_t start, ssize_t deleteCount);
@@ -152,6 +153,7 @@ namespace google::protobuf::lua {
 
 	template<typename Element>
 	[[nodiscard]] absl::Status RepeatedField_ExtendMessage(
+		lua_State* L,
 		RepeatedPtrField<Element>* repeatedField,
 		const std::vector<::LUA_MODULE_NAME::Object>& items
 	);
@@ -172,5 +174,5 @@ namespace google::protobuf::lua {
 	void RepeatedField_Reverse(_Tp* repeatedField);
 
 	template<typename _Tr, typename _Ti>
-	[[nodiscard]] absl::Status RepeatedField_Set(Message& message, const std::string& field_name, ::LUA_MODULE_NAME::Object newVal, _Tr* repeated_field, _Ti& repeated_iterator);
+	[[nodiscard]] absl::Status RepeatedField_Set(lua_State* L, Message& message, const std::string& field_name, ::LUA_MODULE_NAME::Object newVal, _Tr* repeated_field, _Ti& repeated_iterator);
 }

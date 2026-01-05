@@ -16,6 +16,7 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 
 		template<typename _Tp>
 		[[nodiscard]] inline static absl::StatusOr<std::shared_ptr<_Tp>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			audio_task_running_mode::AudioTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback&& packet_callback,
@@ -31,15 +32,17 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 			}
 
 			MP_ASSIGN_OR_RETURN(auto runner, mediapipe::lua::task_runner::create(graph_config, std::move(packet_callback)));
-			return std::make_shared<_Tp>(runner, running_mode);
+			return std::make_shared<_Tp>(L, runner, running_mode);
 		}
 
 		BaseAudioTaskApi(
+			lua_State* L,
 			const std::shared_ptr<mediapipe::tasks::core::TaskRunner>& runner,
 			audio_task_running_mode::AudioTaskRunningMode running_mode
-		) : _runner(runner), _running_mode(running_mode) {}
+		) : L(L), _runner(runner), _running_mode(running_mode) {}
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<BaseAudioTaskApi>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			audio_task_running_mode::AudioTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback packet_callback = nullptr
@@ -49,6 +52,7 @@ namespace mediapipe::tasks::lua::audio::core::base_audio_task_api {
 		CV_WRAP [[nodiscard]] absl::Status _send_audio_stream_data(const std::map<std::string, Packet>& inputs);
 		CV_WRAP [[nodiscard]] absl::Status close();
 	protected:
+		lua_State* L;
 		std::shared_ptr<mediapipe::tasks::core::TaskRunner> _runner;
 		audio_task_running_mode::AudioTaskRunningMode _running_mode;
 		std::optional<float> _default_sample_rate;

@@ -79,6 +79,7 @@ namespace mediapipe::lua::solution_base {
 
 		template<typename _Tp>
 		[[nodiscard]] inline static absl::StatusOr<std::shared_ptr<_Tp>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 			const std::shared_ptr<google::protobuf::Message>& graph_options,
@@ -92,6 +93,7 @@ namespace mediapipe::lua::solution_base {
 			auto solution = std::make_shared<_Tp>();
 
 			MP_RETURN_IF_ERROR(solution->__init__(
+				L,
 				graph_config,
 				calculator_params,
 				graph_options,
@@ -108,6 +110,7 @@ namespace mediapipe::lua::solution_base {
 
 		template<typename _Tp>
 		[[nodiscard]] inline static absl::StatusOr<std::shared_ptr<_Tp>> create(
+			lua_State* L,
 			const std::string& binary_graph_path,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 			const std::shared_ptr<google::protobuf::Message>& graph_options,
@@ -121,6 +124,7 @@ namespace mediapipe::lua::solution_base {
 			CalculatorGraphConfig graph_config;
 			MP_RETURN_IF_ERROR(ReadCalculatorGraphConfigFromFile(GetResourcePath(binary_graph_path), graph_config));
 			return create(
+				L,
 				graph_config,
 				calculator_params,
 				graph_options,
@@ -134,6 +138,7 @@ namespace mediapipe::lua::solution_base {
 		}
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<SolutionBase>> create(
+			lua_State* L,
 			const std::string& binary_graph_path,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params = noMap(),
 			const std::shared_ptr<google::protobuf::Message>& graph_options = std::shared_ptr<google::protobuf::Message>(),
@@ -145,6 +150,7 @@ namespace mediapipe::lua::solution_base {
 		);
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<SolutionBase>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params = noMap(),
 			const std::shared_ptr<google::protobuf::Message>& graph_options = std::shared_ptr<google::protobuf::Message>(),
@@ -179,11 +185,15 @@ namespace mediapipe::lua::solution_base {
 		 *    the options protobuf message.
 		 */
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<google::protobuf::Message>> create_graph_options(
+			lua_State* L,
 			std::shared_ptr<google::protobuf::Message> options_message,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& values
 		);
 
 		virtual ~SolutionBase();
+
+	protected:
+		lua_State* L;
 
 	private:
 		// since I don't know the copy behaviour
@@ -192,6 +202,7 @@ namespace mediapipe::lua::solution_base {
 		SolutionBase& operator=(const SolutionBase&) = delete;
 
 		[[nodiscard]] absl::Status __init__(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 			const std::shared_ptr<google::protobuf::Message>& graph_options,

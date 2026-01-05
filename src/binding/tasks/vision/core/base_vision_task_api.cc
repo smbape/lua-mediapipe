@@ -14,11 +14,12 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 	}
 
 	absl::StatusOr<std::shared_ptr<BaseVisionTaskApi>> BaseVisionTaskApi::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		vision_task_running_mode::VisionTaskRunningMode running_mode,
 		mediapipe::lua::PacketsCallback packet_callback
 	) {
-		return create(graph_config, running_mode, std::move(packet_callback), static_cast<BaseVisionTaskApi*>(nullptr));
+		return create(L, graph_config, running_mode, std::move(packet_callback), static_cast<BaseVisionTaskApi*>(nullptr));
 	}
 
 	absl::StatusOr<std::map<std::string, Packet>> BaseVisionTaskApi::_process_image_data(const std::map<std::string, Packet>& inputs) {
@@ -92,7 +93,7 @@ namespace mediapipe::tasks::lua::vision::core::base_vision_task_api {
 	}
 
 	absl::Status BaseVisionTaskApi::close() {
-		::LUA_MODULE_NAME::GilYield yielder;
+		::LUA_MODULE_NAME::GilYield yielder(L);
 		return _runner->Close();
 	}
 

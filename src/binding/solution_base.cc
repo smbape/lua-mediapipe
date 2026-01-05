@@ -262,7 +262,7 @@ namespace {
 		return nested_map;
 	}
 
-	[[nodiscard]] absl::Status ModifyOptionsFields(Message& calculator_options, const OptionsFieldList& options_field_list) {
+	[[nodiscard]] absl::Status ModifyOptionsFields(lua_State* L, Message& calculator_options, const OptionsFieldList& options_field_list) {
 		const auto descriptor = calculator_options.GetDescriptor();
 
 		for (auto const& [field_name, field_value] : options_field_list) {
@@ -289,7 +289,7 @@ namespace {
 			// field (array-element-option).
 			MP_RETURN_IF_ERROR(ClearField(calculator_options, field_name));
 
-			RepeatedContainer repeated_container;
+			RepeatedContainer repeated_container(L);
 			repeated_container.message = ::LUA_MODULE_NAME::reference_internal(&calculator_options);
 			repeated_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 
@@ -303,6 +303,7 @@ namespace {
 
 	template<typename OptionsType>
 	[[nodiscard]] absl::Status ModifyCalculatorOption(
+		lua_State* L,
 		const MapOfStringAndOptionsFieldList& nested_calculator_params,
 		CalculatorGraphConfig::Node& node
 	) {
@@ -327,7 +328,7 @@ namespace {
 
 				OptionsType calculator_options;
 				MP_RETURN_IF_ERROR(MergeFromString(&calculator_options, elem.value()));
-				MP_RETURN_IF_ERROR(ModifyOptionsFields(calculator_options, options_field_list));
+				MP_RETURN_IF_ERROR(ModifyOptionsFields(L, calculator_options, options_field_list));
 				std::string serialized;
 				calculator_options.SerializeToString(&serialized);
 				elem.set_value(std::move(serialized));
@@ -339,7 +340,7 @@ namespace {
 			// node_options instead.
 			if (!node_options_modified) {
 				OptionsType calculator_options;
-				MP_RETURN_IF_ERROR(ModifyOptionsFields(calculator_options, options_field_list));
+				MP_RETURN_IF_ERROR(ModifyOptionsFields(L, calculator_options, options_field_list));
 				auto* new_node_options = node.add_node_options();
 				new_node_options->PackFrom(calculator_options);
 			}
@@ -347,7 +348,7 @@ namespace {
 		else if (node_has_options) {
 			// The "options" case for the proto2 syntax
 			OptionsType* calculator_options = node.mutable_options()->MutableExtension(OptionsType::ext);
-			MP_RETURN_IF_ERROR(ModifyOptionsFields(*calculator_options, options_field_list));
+			MP_RETURN_IF_ERROR(ModifyOptionsFields(L, *calculator_options, options_field_list));
 		}
 
 		return absl::OkStatus();
@@ -359,6 +360,7 @@ namespace {
 	 * @param calculator_params       [description]
 	 */
 	[[nodiscard]] absl::Status ModifyCalculatorOptions(
+		lua_State* L,
 		CalculatorGraphConfig& calculator_graph_config,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params
 	) {
@@ -374,25 +376,25 @@ namespace {
 
 			// TODO: Enable calculator options modification for more calculators.
 			if (calculator == "ConstantSidePacketCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ConstantSidePacketCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ConstantSidePacketCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "ImageTransformationCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ImageTransformationCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ImageTransformationCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "LandmarksSmoothingCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<LandmarksSmoothingCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<LandmarksSmoothingCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "LogicCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<LogicCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<LogicCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "ThresholdingCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ThresholdingCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<ThresholdingCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "TensorsToDetectionsCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<TensorsToDetectionsCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<TensorsToDetectionsCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else if (calculator == "Lift2DFrameAnnotationTo3DCalculator") {
-				MP_RETURN_IF_ERROR(ModifyCalculatorOption<Lift2DFrameAnnotationTo3DCalculatorOptions>(nested_calculator_params, node));
+				MP_RETURN_IF_ERROR(ModifyCalculatorOption<Lift2DFrameAnnotationTo3DCalculatorOptions>(L, nested_calculator_params, node));
 			}
 			else {
 				MP_ASSERT_RETURN_IF_ERROR(false, "Modifying the calculator options of " << node.name() << " is not supported.");
@@ -538,7 +540,7 @@ namespace {
 		}
 	}
 
-	[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> GetPacketContent(PacketDataType packet_data_type, const Packet& output_packet) {
+	[[nodiscard]] absl::StatusOr<::LUA_MODULE_NAME::Object> GetPacketContent(lua_State* L, PacketDataType packet_data_type, const Packet& output_packet) {
 		if (output_packet.IsEmpty()) {
 			return None;
 		}
@@ -548,30 +550,30 @@ namespace {
 		switch (packet_data_type) {
 		case PacketDataType::STRING: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& string_value, std::string, output_packet);
-			result = ::LUA_MODULE_NAME::Object(string_value);
+			result = ::LUA_MODULE_NAME::Object(L, string_value);
 			break;
 		}
 		case PacketDataType::BOOL: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& bool_value, bool, output_packet);
-			result = ::LUA_MODULE_NAME::Object(bool_value);
+			result = ::LUA_MODULE_NAME::Object(L, bool_value);
 			break;
 		}
 		case PacketDataType::BOOL_LIST: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& bool_list, std::vector<bool>, output_packet);
-			result = ::LUA_MODULE_NAME::Object(bool_list);
+			result = ::LUA_MODULE_NAME::Object(L, bool_list);
 			break;
 		}
 		case PacketDataType::INT:
-			result = ::LUA_MODULE_NAME::Object(get_int(output_packet));
+			result = ::LUA_MODULE_NAME::Object(L, get_int(output_packet));
 			break;
 		case PacketDataType::INT_LIST:
-			result = ::LUA_MODULE_NAME::Object(get_int_list(output_packet));
+			result = ::LUA_MODULE_NAME::Object(L, get_int_list(output_packet));
 			break;
 		case PacketDataType::FLOAT:
-			result = ::LUA_MODULE_NAME::Object(get_float(output_packet));
+			result = ::LUA_MODULE_NAME::Object(L, get_float(output_packet));
 			break;
 		case PacketDataType::FLOAT_LIST:
-			result = ::LUA_MODULE_NAME::Object(get_float_list(output_packet));
+			result = ::LUA_MODULE_NAME::Object(L, get_float_list(output_packet));
 			break;
 		case PacketDataType::AUDIO: {
 			using MatrixType = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
@@ -579,17 +581,17 @@ namespace {
 			const auto& matrix = Eigen::Ref<const MatrixType>(output_packet.Get<Matrix>());
 			std::shared_ptr<cv::Mat> mat_ptr { std::make_shared<cv::Mat>() };
 			cv::eigen2cv(matrix, *mat_ptr);
-			result = ::LUA_MODULE_NAME::Object(mat_ptr);
+			result = ::LUA_MODULE_NAME::Object(L, mat_ptr);
 			break;
 		}
 		case PacketDataType::IMAGE: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& image, Image, output_packet);
-			result = ::LUA_MODULE_NAME::Object(std::make_shared<cv::Mat>(mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone()));
+			result = ::LUA_MODULE_NAME::Object(L, std::make_shared<cv::Mat>(mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone()));
 			break;
 		}
 		case PacketDataType::IMAGE_FRAME: {
 			MP_PACKET_ASSIGN_OR_RETURN(const auto& image_frame, ImageFrame, output_packet);
-			result = ::LUA_MODULE_NAME::Object(std::make_shared<cv::Mat>(mediapipe::formats::MatView(&image_frame).clone()));
+			result = ::LUA_MODULE_NAME::Object(L, std::make_shared<cv::Mat>(mediapipe::formats::MatView(&image_frame).clone()));
 			break;
 		}
 		case PacketDataType::IMAGE_LIST: {
@@ -600,16 +602,16 @@ namespace {
 			for (const auto& image : image_list) {
 				mat_list[i++] = mediapipe::formats::MatView(image.GetImageFrameSharedPtr().get()).clone();
 			}
-			result = ::LUA_MODULE_NAME::Object(image_list);
+			result = ::LUA_MODULE_NAME::Object(L, image_list);
 			break;
 		}
 		case PacketDataType::PROTO:
-			result = ::LUA_MODULE_NAME::Object(get_proto(output_packet));
+			result = ::LUA_MODULE_NAME::Object(L, get_proto(output_packet));
 			break;
 		case PacketDataType::PROTO_LIST: {
 			std::vector<std::shared_ptr<Message>> proto_list;
 			MP_RETURN_IF_ERROR(get_proto_list(output_packet, proto_list));
-			result = ::LUA_MODULE_NAME::Object(proto_list);
+			result = ::LUA_MODULE_NAME::Object(L, proto_list);
 			break;
 		}
 		default:
@@ -673,14 +675,14 @@ namespace {
 		return canonical_graph_config_proto;
 	}
 
-	[[nodiscard]] absl::Status _create_graph_options(Message& options_message, const std::map<std::string, ::LUA_MODULE_NAME::Object>& values) {
+	[[nodiscard]] absl::Status _create_graph_options(lua_State* L, Message& options_message, const std::map<std::string, ::LUA_MODULE_NAME::Object>& values) {
 		for (const auto& [field, value] : values) {
 			auto fields = split(field, ".");
 			auto m = ::LUA_MODULE_NAME::reference_internal(&options_message);
 			auto last = fields.size() - 1;
 
 			for (int i = 0; i < last; i++) {
-				MP_ASSIGN_OR_RETURN(auto val, GetFieldValue(*m, fields[i]));
+				MP_ASSIGN_OR_RETURN(auto val, GetFieldValue(L, *m, fields[i]));
 				bool is_valid;
 				m = ::LUA_MODULE_NAME::lua_to(val, static_cast<decltype(m)*>(nullptr), is_valid);
 				MP_ASSERT_RETURN_IF_ERROR(is_valid, "property " << fields[i] << " is not a message");
@@ -690,7 +692,7 @@ namespace {
 			MP_ASSERT_RETURN_IF_ERROR(field_descriptor != nullptr, "Protocol message has no \"" << field << "\" field.");
 
 			if (field_descriptor->is_repeated()) {
-				RepeatedContainer local_container;
+				RepeatedContainer local_container(L);
 				local_container.message = ::LUA_MODULE_NAME::reference_internal(&options_message);
 				local_container.field_descriptor = ::LUA_MODULE_NAME::reference_internal(field_descriptor);
 
@@ -743,6 +745,7 @@ namespace mediapipe::lua::solution_base {
 	}
 
 	absl::StatusOr<std::shared_ptr<SolutionBase>> SolutionBase::create(
+		lua_State* L,
 		const std::string& binary_graph_path,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
@@ -755,6 +758,7 @@ namespace mediapipe::lua::solution_base {
 		CalculatorGraphConfig graph_config;
 		MP_RETURN_IF_ERROR(ReadCalculatorGraphConfigFromFile(GetResourcePath(binary_graph_path), graph_config));
 		return create(
+			L,
 			graph_config,
 			calculator_params,
 			graph_options,
@@ -767,6 +771,7 @@ namespace mediapipe::lua::solution_base {
 	}
 
 	absl::StatusOr<std::shared_ptr<SolutionBase>> SolutionBase::create(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
@@ -777,6 +782,7 @@ namespace mediapipe::lua::solution_base {
 		const std::optional<ExtraSettings>& extra_settings
 	) {
 		return create(
+			L,
 			graph_config,
 			calculator_params,
 			graph_options,
@@ -795,7 +801,7 @@ namespace mediapipe::lua::solution_base {
 		MP_ASSERT_RETURN_IF_ERROR(m_input_stream_type_info.size() == 1,
 			"Can't process single image input since the graph has more than one input streams.");
 
-		::LUA_MODULE_NAME::Object input_data_object(input_data);
+		::LUA_MODULE_NAME::Object input_data_object(L, input_data);
 		std::map<std::string, ::LUA_MODULE_NAME::Object> input_dict;
 		for (const auto& pair : m_input_stream_type_info) {
 			input_dict[pair.first] = input_data_object;
@@ -883,7 +889,7 @@ namespace mediapipe::lua::solution_base {
 
 		for (auto const& [stream_name, packet_data_type] : m_output_stream_type_info) {
 			if (m_graph_outputs.count(stream_name)) {
-				MP_ASSIGN_OR_RETURN(solution_outputs[stream_name], GetPacketContent(packet_data_type, m_graph_outputs[stream_name]));
+				MP_ASSIGN_OR_RETURN(solution_outputs[stream_name], GetPacketContent(L, packet_data_type, m_graph_outputs[stream_name]));
 			}
 			else {
 				solution_outputs[stream_name] = None;
@@ -897,7 +903,7 @@ namespace mediapipe::lua::solution_base {
 		MP_ASSERT_RETURN_IF_ERROR(static_cast<bool>(m_graph),
 			"Closing SolutionBase._graph which is already None");
 
-		MP_RETURN_IF_ERROR(calculator_graph::close(m_graph.get()));
+		MP_RETURN_IF_ERROR(calculator_graph::close(L, m_graph.get()));
 		m_graph.reset();
 		m_input_stream_type_info.clear();
 		m_output_stream_type_info.clear();
@@ -906,13 +912,14 @@ namespace mediapipe::lua::solution_base {
 
 	absl::Status SolutionBase::reset() {
 		if (m_graph) {
-			MP_RETURN_IF_ERROR(calculator_graph::close(m_graph.get()));
+			MP_RETURN_IF_ERROR(calculator_graph::close(L, m_graph.get()));
 			MP_RETURN_IF_ERROR(m_graph->StartRun(m_input_side_packets));
 		}
 		return absl::OkStatus();
 	}
 
 	absl::StatusOr<std::shared_ptr<Message>> SolutionBase::create_graph_options(
+		lua_State* L,
 		std::shared_ptr<Message> options_message,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& values
 	) {
@@ -923,15 +930,16 @@ namespace mediapipe::lua::solution_base {
 			auto items_holder = ::LUA_MODULE_NAME::lua_to(value, static_cast<Map*>(nullptr), is_valid);
 			MP_ASSERT_RETURN_IF_ERROR(is_valid, "items property must be a map<string, ::LUA_MODULE_NAME::Object>");
 			decltype(auto) items = ::LUA_MODULE_NAME::extract_holder(items_holder, static_cast<Map*>(nullptr));
-			MP_RETURN_IF_ERROR(_create_graph_options(*options_message, items));
+			MP_RETURN_IF_ERROR(_create_graph_options(L, *options_message, items));
 		}
 		else {
-			MP_RETURN_IF_ERROR(_create_graph_options(*options_message, values));
+			MP_RETURN_IF_ERROR(_create_graph_options(L, *options_message, values));
 		}
 		return options_message;
 	}
 
 	absl::Status SolutionBase::__init__(
+		lua_State* L,
 		const CalculatorGraphConfig& graph_config,
 		const std::map<std::string, ::LUA_MODULE_NAME::Object>& calculator_params,
 		const std::shared_ptr<google::protobuf::Message>& graph_options,
@@ -941,6 +949,8 @@ namespace mediapipe::lua::solution_base {
 		const std::map<std::string, PacketDataType>& side_packet_type_hints,
 		const std::optional<ExtraSettings>& extra_settings
 	) {
+		this->L = L;
+
 		m_graph = std::make_unique<CalculatorGraph>();
 
 		MP_ASSIGN_OR_RETURN(auto canonical_graph_config_proto, InitializeGraphInterface(
@@ -955,7 +965,7 @@ namespace mediapipe::lua::solution_base {
 		));
 
 		if (!calculator_params.empty()) {
-			MP_RETURN_IF_ERROR(ModifyCalculatorOptions(canonical_graph_config_proto, calculator_params));
+			MP_RETURN_IF_ERROR(ModifyCalculatorOptions(L, canonical_graph_config_proto, calculator_params));
 		}
 
 		if (graph_options) {

@@ -36,6 +36,7 @@ namespace mediapipe::lua::solutions::hands {
 		using SolutionBase::SolutionBase;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<Hands>> create(
+			lua_State* L,
 			bool static_image_mode = false,
 			int max_num_hands = 2,
 			uint8_t model_complexity = 1,

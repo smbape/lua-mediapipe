@@ -47,10 +47,11 @@ namespace mediapipe::tasks::lua::text::text_classifier {
 		using core::base_text_task_api::BaseTextTaskApi::BaseTextTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextClassifier>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextClassifier>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextClassifier>> create_from_options(std::shared_ptr<TextClassifierOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextClassifier>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<TextClassifier>> create_from_options(lua_State* L, std::shared_ptr<TextClassifierOptions> options);
 		CV_WRAP [[nodiscard]] absl::StatusOr<std::shared_ptr<TextClassifierResult>> classify(const std::string& text);
 	};
 }

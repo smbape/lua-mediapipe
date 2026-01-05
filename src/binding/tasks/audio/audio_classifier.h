@@ -58,12 +58,13 @@ namespace mediapipe::tasks::lua::audio::audio_classifier {
 		using core::base_audio_task_api::BaseAudioTaskApi::BaseAudioTaskApi;
 
 		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<AudioClassifier>> create(
+			lua_State* L,
 			const CalculatorGraphConfig& graph_config,
 			core::audio_task_running_mode::AudioTaskRunningMode running_mode,
 			mediapipe::lua::PacketsCallback packet_callback = nullptr
 		);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<AudioClassifier>> create_from_model_path(const std::string& model_path);
-		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<AudioClassifier>> create_from_options(std::shared_ptr<AudioClassifierOptions> options);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<AudioClassifier>> create_from_model_path(lua_State* L, const std::string& model_path);
+		CV_WRAP [[nodiscard]] static absl::StatusOr<std::shared_ptr<AudioClassifier>> create_from_options(lua_State* L, std::shared_ptr<AudioClassifierOptions> options);
 		CV_WRAP [[nodiscard]] absl::Status classify(CV_OUT std::vector<std::shared_ptr<AudioClassifierResult>>& output_list, const components::containers::audio_data::AudioData& audio_clip);
 		CV_WRAP [[nodiscard]] absl::Status classify_async(const components::containers::audio_data::AudioData& audio_block, int64_t timestamp_ms);
 	};
