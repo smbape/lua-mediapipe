@@ -57,9 +57,6 @@ if (UNIX)
     pip_install(build auditwheel)
 endif()
 
-# Needed python packages
-pip_install(absl-py numpy opencv-python)
-
 # ===============
 # Node
 # ===============

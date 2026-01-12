@@ -47488,14 +47488,14 @@ lua:
 ### VectorOfFloat.ptr
 
 ```cpp
-void* VectorOfFloat::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<float>> VectorOfFloat::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfFloat:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfFloat::ptr( void*          ptr,
-                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<float>> VectorOfFloat::ptr( void*          ptr,
+                                                                std::ptrdiff_t i = 0 );
 lua:
     VectorOfFloat.ptr( ptr[, i] ) -> retval
 ```
@@ -47745,14 +47745,14 @@ lua:
 ### VectorOfImage.ptr
 
 ```cpp
-void* VectorOfImage::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::Image>> VectorOfImage::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfImage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfImage::ptr( void*          ptr,
-                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::Image>> VectorOfImage::ptr( void*          ptr,
+                                                                           std::ptrdiff_t i = 0 );
 lua:
     VectorOfImage.ptr( ptr[, i] ) -> retval
 ```
@@ -48002,14 +48002,14 @@ lua:
 ### VectorOfInt.ptr
 
 ```cpp
-void* VectorOfInt::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<int>> VectorOfInt::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfInt:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfInt::ptr( void*          ptr,
-                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<int>> VectorOfInt::ptr( void*          ptr,
+                                                            std::ptrdiff_t i = 0 );
 lua:
     VectorOfInt.ptr( ptr[, i] ) -> retval
 ```
@@ -48259,14 +48259,14 @@ lua:
 ### VectorOfInt64\_t.ptr
 
 ```cpp
-void* VectorOfInt64_t::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<int64_t>> VectorOfInt64_t::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfInt64_t:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfInt64_t::ptr( void*          ptr,
-                                   std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<int64_t>> VectorOfInt64_t::ptr( void*          ptr,
+                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfInt64_t.ptr( ptr[, i] ) -> retval
 ```
@@ -48516,14 +48516,14 @@ lua:
 ### VectorOfMat.ptr
 
 ```cpp
-void* VectorOfMat::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<cv::Mat>> VectorOfMat::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfMat:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfMat::ptr( void*          ptr,
-                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<cv::Mat>> VectorOfMat::ptr( void*          ptr,
+                                                                std::ptrdiff_t i = 0 );
 lua:
     VectorOfMat.ptr( ptr[, i] ) -> retval
 ```
@@ -48773,14 +48773,14 @@ lua:
 ### VectorOfObjectron\_ObjectronOutputs.ptr
 
 ```cpp
-void* VectorOfObjectron_ObjectronOutputs::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::lua::solutions::objectron::ObjectronOutputs>> VectorOfObjectron_ObjectronOutputs::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfObjectron_ObjectronOutputs:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfObjectron_ObjectronOutputs::ptr( void*          ptr,
-                                                      std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::lua::solutions::objectron::ObjectronOutputs>> VectorOfObjectron_ObjectronOutputs::ptr( void*          ptr,
+                                                                                                                                      std::ptrdiff_t i = 0 );
 lua:
     VectorOfObjectron_ObjectronOutputs.ptr( ptr[, i] ) -> retval
 ```
@@ -49030,14 +49030,14 @@ lua:
 ### VectorOfPacket.ptr
 
 ```cpp
-void* VectorOfPacket::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::Packet>> VectorOfPacket::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPacket::ptr( void*          ptr,
-                                  std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::Packet>> VectorOfPacket::ptr( void*          ptr,
+                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfPacket.ptr( ptr[, i] ) -> retval
 ```
@@ -49287,14 +49287,14 @@ lua:
 ### VectorOfPairOfIntAndDrawing\_utils\_DrawingSpec.ptr
 
 ```cpp
-void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>> VectorOfPairOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOfIntAndDrawing_utils_DrawingSpec:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
-                                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>> VectorOfPairOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
+                                                                                                                                                                std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOfIntAndDrawing_utils_DrawingSpec.ptr( ptr[, i] ) -> retval
 ```
@@ -49544,14 +49544,14 @@ lua:
 ### VectorOfPairOfIntAndMapOfIntAndDrawing\_utils\_DrawingSpec.ptr
 
 ```cpp
-void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>>> VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
-                                                                            std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<int, std::map<int, mediapipe::lua::solutions::drawing_utils::DrawingSpec>>>> VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec::ptr( void*          ptr,
+                                                                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOfIntAndMapOfIntAndDrawing_utils_DrawingSpec.ptr( ptr[, i] ) -> retval
 ```
@@ -49801,14 +49801,14 @@ lua:
 ### VectorOfPairOfStringAndPacket.ptr
 
 ```cpp
-void* VectorOfPairOfStringAndPacket::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<std::string, mediapipe::Packet>>> VectorOfPairOfStringAndPacket::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOfStringAndPacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAndPacket::ptr( void*          ptr,
-                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<std::string, mediapipe::Packet>>> VectorOfPairOfStringAndPacket::ptr( void*          ptr,
+                                                                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOfStringAndPacket.ptr( ptr[, i] ) -> retval
 ```
@@ -50058,14 +50058,14 @@ lua:
 ### VectorOfPairOfStringAndPacketDataType.ptr
 
 ```cpp
-void* VectorOfPairOfStringAndPacketDataType::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<std::string, mediapipe::lua::solution_base::PacketDataType>>> VectorOfPairOfStringAndPacketDataType::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOfStringAndPacketDataType:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAndPacketDataType::ptr( void*          ptr,
-                                                         std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<std::string, mediapipe::lua::solution_base::PacketDataType>>> VectorOfPairOfStringAndPacketDataType::ptr( void*          ptr,
+                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOfStringAndPacketDataType.ptr( ptr[, i] ) -> retval
 ```
@@ -50315,14 +50315,14 @@ lua:
 ### VectorOfPairOfStringAnd\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOfPairOfStringAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<std::string, ::mediapipe_lua::Object>>> VectorOfPairOfStringAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOfStringAnd_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOfStringAnd_mediapipe_lua_Object::ptr( void*          ptr,
-                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<std::string, ::mediapipe_lua::Object>>> VectorOfPairOfStringAnd_mediapipe_lua_Object::ptr( void*          ptr,
+                                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOfStringAnd_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```
@@ -50572,14 +50572,14 @@ lua:
 ### VectorOfPairOf\_mediapipe\_lua\_ObjectAnd\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>> VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::ptr( void*          ptr,
-                                                                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::pair<::mediapipe_lua::Object, ::mediapipe_lua::Object>>> VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object::ptr( void*          ptr,
+                                                                                                                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfPairOf_mediapipe_lua_ObjectAnd_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```
@@ -50829,14 +50829,14 @@ lua:
 ### VectorOfSharedPtrOfARBlendShapeMap\_MapEntry.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry>>> VectorOfSharedPtrOfARBlendShapeMap_MapEntry::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARBlendShapeMap_MapEntry:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARBlendShapeMap_MapEntry::ptr( void*          ptr,
-                                                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARBlendShapeMap::MapEntry>>> VectorOfSharedPtrOfARBlendShapeMap_MapEntry::ptr( void*          ptr,
+                                                                                                                                              std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARBlendShapeMap_MapEntry.ptr( ptr[, i] ) -> retval
 ```
@@ -51086,14 +51086,14 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_TextureCoordinate.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate>>> VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_TextureCoordinate:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::ptr( void*          ptr,
-                                                                       std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARFaceGeometry::TextureCoordinate>>> VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate::ptr( void*          ptr,
+                                                                                                                                                              std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARFaceGeometry_TextureCoordinate.ptr( ptr[, i] ) -> retval
 ```
@@ -51343,14 +51343,14 @@ lua:
 ### VectorOfSharedPtrOfARFaceGeometry\_Vertex.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARFaceGeometry_Vertex::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARFaceGeometry::Vertex>>> VectorOfSharedPtrOfARFaceGeometry_Vertex::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARFaceGeometry_Vertex:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARFaceGeometry_Vertex::ptr( void*          ptr,
-                                                            std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARFaceGeometry::Vertex>>> VectorOfSharedPtrOfARFaceGeometry_Vertex::ptr( void*          ptr,
+                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARFaceGeometry_Vertex.ptr( ptr[, i] ) -> retval
 ```
@@ -51600,14 +51600,14 @@ lua:
 ### VectorOfSharedPtrOfARPlaneAnchor.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneAnchor::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneAnchor>>> VectorOfSharedPtrOfARPlaneAnchor::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARPlaneAnchor:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneAnchor::ptr( void*          ptr,
-                                                    std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneAnchor>>> VectorOfSharedPtrOfARPlaneAnchor::ptr( void*          ptr,
+                                                                                                                       std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARPlaneAnchor.ptr( ptr[, i] ) -> retval
 ```
@@ -51857,14 +51857,14 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_TextureCoordinate.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate>>> VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::ptr( void*          ptr,
-                                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneGeometry::TextureCoordinate>>> VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate::ptr( void*          ptr,
+                                                                                                                                                                std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARPlaneGeometry_TextureCoordinate.ptr( ptr[, i] ) -> retval
 ```
@@ -52114,14 +52114,14 @@ lua:
 ### VectorOfSharedPtrOfARPlaneGeometry\_Vertex.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex>>> VectorOfSharedPtrOfARPlaneGeometry_Vertex::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARPlaneGeometry_Vertex:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPlaneGeometry_Vertex::ptr( void*          ptr,
-                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPlaneGeometry::Vertex>>> VectorOfSharedPtrOfARPlaneGeometry_Vertex::ptr( void*          ptr,
+                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARPlaneGeometry_Vertex.ptr( ptr[, i] ) -> retval
 ```
@@ -52371,14 +52371,14 @@ lua:
 ### VectorOfSharedPtrOfARPointCloud\_Point.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfARPointCloud_Point::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPointCloud::Point>>> VectorOfSharedPtrOfARPointCloud_Point::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfARPointCloud_Point:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfARPointCloud_Point::ptr( void*          ptr,
-                                                         std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ARPointCloud::Point>>> VectorOfSharedPtrOfARPointCloud_Point::ptr( void*          ptr,
+                                                                                                                                  std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfARPointCloud_Point.ptr( ptr[, i] ) -> retval
 ```
@@ -52628,14 +52628,14 @@ lua:
 ### VectorOfSharedPtrOfAnnotatedKeyPoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfAnnotatedKeyPoint::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::AnnotatedKeyPoint>>> VectorOfSharedPtrOfAnnotatedKeyPoint::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfAnnotatedKeyPoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfAnnotatedKeyPoint::ptr( void*          ptr,
-                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::AnnotatedKeyPoint>>> VectorOfSharedPtrOfAnnotatedKeyPoint::ptr( void*          ptr,
+                                                                                                                               std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfAnnotatedKeyPoint.ptr( ptr[, i] ) -> retval
 ```
@@ -52885,14 +52885,14 @@ lua:
 ### VectorOfSharedPtrOfAny.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfAny::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<google::protobuf::Any>>> VectorOfSharedPtrOfAny::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfAny:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfAny::ptr( void*          ptr,
-                                          std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<google::protobuf::Any>>> VectorOfSharedPtrOfAny::ptr( void*          ptr,
+                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfAny.ptr( ptr[, i] ) -> retval
 ```
@@ -53142,14 +53142,14 @@ lua:
 ### VectorOfSharedPtrOfCalculatorGraphConfig\_Node.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::CalculatorGraphConfig::Node>>> VectorOfSharedPtrOfCalculatorGraphConfig_Node::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfCalculatorGraphConfig_Node:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfCalculatorGraphConfig_Node::ptr( void*          ptr,
-                                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::CalculatorGraphConfig::Node>>> VectorOfSharedPtrOfCalculatorGraphConfig_Node::ptr( void*          ptr,
+                                                                                                                                                  std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfCalculatorGraphConfig_Node.ptr( ptr[, i] ) -> retval
 ```
@@ -53399,14 +53399,14 @@ lua:
 ### VectorOfSharedPtrOfClassification.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfClassification::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Classification>>> VectorOfSharedPtrOfClassification::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfClassification:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfClassification::ptr( void*          ptr,
-                                                     std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Classification>>> VectorOfSharedPtrOfClassification::ptr( void*          ptr,
+                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfClassification.ptr( ptr[, i] ) -> retval
 ```
@@ -53656,14 +53656,14 @@ lua:
 ### VectorOfSharedPtrOfClassificationList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfClassificationList::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ClassificationList>>> VectorOfSharedPtrOfClassificationList::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfClassificationList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfClassificationList::ptr( void*          ptr,
-                                                         std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ClassificationList>>> VectorOfSharedPtrOfClassificationList::ptr( void*          ptr,
+                                                                                                                                 std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfClassificationList.ptr( ptr[, i] ) -> retval
 ```
@@ -53913,14 +53913,14 @@ lua:
 ### VectorOfSharedPtrOfConstantSidePacketCalculatorOptions\_ConstantSidePacket.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket>>> VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::ptr( void*          ptr,
-                                                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ConstantSidePacketCalculatorOptions::ConstantSidePacket>>> VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket::ptr( void*          ptr,
+                                                                                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfConstantSidePacketCalculatorOptions_ConstantSidePacket.ptr( ptr[, i] ) -> retval
 ```
@@ -54170,14 +54170,14 @@ lua:
 ### VectorOfSharedPtrOfDetection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfDetection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Detection>>> VectorOfSharedPtrOfDetection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfDetection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfDetection::ptr( void*          ptr,
-                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Detection>>> VectorOfSharedPtrOfDetection::ptr( void*          ptr,
+                                                                                                               std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfDetection.ptr( ptr[, i] ) -> retval
 ```
@@ -54427,14 +54427,14 @@ lua:
 ### VectorOfSharedPtrOfDetection\_AssociatedDetection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfDetection_AssociatedDetection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Detection::AssociatedDetection>>> VectorOfSharedPtrOfDetection_AssociatedDetection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfDetection_AssociatedDetection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfDetection_AssociatedDetection::ptr( void*          ptr,
-                                                                    std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Detection::AssociatedDetection>>> VectorOfSharedPtrOfDetection_AssociatedDetection::ptr( void*          ptr,
+                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfDetection_AssociatedDetection.ptr( ptr[, i] ) -> retval
 ```
@@ -54684,14 +54684,14 @@ lua:
 ### VectorOfSharedPtrOfEdge.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfEdge::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Edge>>> VectorOfSharedPtrOfEdge::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfEdge:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfEdge::ptr( void*          ptr,
-                                           std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Edge>>> VectorOfSharedPtrOfEdge::ptr( void*          ptr,
+                                                                                                     std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfEdge.ptr( ptr[, i] ) -> retval
 ```
@@ -54941,14 +54941,14 @@ lua:
 ### VectorOfSharedPtrOfExecutorConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfExecutorConfig::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ExecutorConfig>>> VectorOfSharedPtrOfExecutorConfig::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfExecutorConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfExecutorConfig::ptr( void*          ptr,
-                                                     std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ExecutorConfig>>> VectorOfSharedPtrOfExecutorConfig::ptr( void*          ptr,
+                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfExecutorConfig.ptr( ptr[, i] ) -> retval
 ```
@@ -55198,14 +55198,14 @@ lua:
 ### VectorOfSharedPtrOfFrameAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfFrameAnnotation::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::FrameAnnotation>>> VectorOfSharedPtrOfFrameAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfFrameAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfFrameAnnotation::ptr( void*          ptr,
-                                                      std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::FrameAnnotation>>> VectorOfSharedPtrOfFrameAnnotation::ptr( void*          ptr,
+                                                                                                                           std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfFrameAnnotation.ptr( ptr[, i] ) -> retval
 ```
@@ -55455,14 +55455,14 @@ lua:
 ### VectorOfSharedPtrOfImage.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfImage::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Image>>> VectorOfSharedPtrOfImage::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfImage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfImage::ptr( void*          ptr,
-                                            std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Image>>> VectorOfSharedPtrOfImage::ptr( void*          ptr,
+                                                                                                       std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfImage.ptr( ptr[, i] ) -> retval
 ```
@@ -55712,14 +55712,14 @@ lua:
 ### VectorOfSharedPtrOfImageFrame.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfImageFrame::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ImageFrame>>> VectorOfSharedPtrOfImageFrame::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfImageFrame:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfImageFrame::ptr( void*          ptr,
-                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ImageFrame>>> VectorOfSharedPtrOfImageFrame::ptr( void*          ptr,
+                                                                                                                 std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfImageFrame.ptr( ptr[, i] ) -> retval
 ```
@@ -55969,14 +55969,14 @@ lua:
 ### VectorOfSharedPtrOfInferenceCalculatorOptions\_InputOutputConfig\_FeedbackTensorLink.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink>>> VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::ptr( void*          ptr,
-                                                                                                      std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InferenceCalculatorOptions::InputOutputConfig::FeedbackTensorLink>>> VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink::ptr( void*          ptr,
+                                                                                                                                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfInferenceCalculatorOptions_InputOutputConfig_FeedbackTensorLink.ptr( ptr[, i] ) -> retval
 ```
@@ -56226,14 +56226,14 @@ lua:
 ### VectorOfSharedPtrOfInputCollection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInputCollection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InputCollection>>> VectorOfSharedPtrOfInputCollection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfInputCollection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInputCollection::ptr( void*          ptr,
-                                                      std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InputCollection>>> VectorOfSharedPtrOfInputCollection::ptr( void*          ptr,
+                                                                                                                           std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfInputCollection.ptr( ptr[, i] ) -> retval
 ```
@@ -56483,14 +56483,14 @@ lua:
 ### VectorOfSharedPtrOfInputStreamInfo.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfInputStreamInfo::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InputStreamInfo>>> VectorOfSharedPtrOfInputStreamInfo::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfInputStreamInfo:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfInputStreamInfo::ptr( void*          ptr,
-                                                      std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::InputStreamInfo>>> VectorOfSharedPtrOfInputStreamInfo::ptr( void*          ptr,
+                                                                                                                           std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfInputStreamInfo.ptr( ptr[, i] ) -> retval
 ```
@@ -56740,14 +56740,14 @@ lua:
 ### VectorOfSharedPtrOfKeyPoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfKeyPoint::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::KeyPoint>>> VectorOfSharedPtrOfKeyPoint::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfKeyPoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfKeyPoint::ptr( void*          ptr,
-                                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::KeyPoint>>> VectorOfSharedPtrOfKeyPoint::ptr( void*          ptr,
+                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfKeyPoint.ptr( ptr[, i] ) -> retval
 ```
@@ -56997,14 +56997,14 @@ lua:
 ### VectorOfSharedPtrOfLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLandmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Landmark>>> VectorOfSharedPtrOfLandmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLandmark::ptr( void*          ptr,
-                                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Landmark>>> VectorOfSharedPtrOfLandmark::ptr( void*          ptr,
+                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfLandmark.ptr( ptr[, i] ) -> retval
 ```
@@ -57254,14 +57254,14 @@ lua:
 ### VectorOfSharedPtrOfLandmarkList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLandmarkList::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::LandmarkList>>> VectorOfSharedPtrOfLandmarkList::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfLandmarkList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLandmarkList::ptr( void*          ptr,
-                                                   std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::LandmarkList>>> VectorOfSharedPtrOfLandmarkList::ptr( void*          ptr,
+                                                                                                                     std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfLandmarkList.ptr( ptr[, i] ) -> retval
 ```
@@ -57511,14 +57511,14 @@ lua:
 ### VectorOfSharedPtrOfLocationData\_RelativeKeypoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::LocationData::RelativeKeypoint>>> VectorOfSharedPtrOfLocationData_RelativeKeypoint::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfLocationData_RelativeKeypoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfLocationData_RelativeKeypoint::ptr( void*          ptr,
-                                                                    std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::LocationData::RelativeKeypoint>>> VectorOfSharedPtrOfLocationData_RelativeKeypoint::ptr( void*          ptr,
+                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfLocationData_RelativeKeypoint.ptr( ptr[, i] ) -> retval
 ```
@@ -57768,14 +57768,14 @@ lua:
 ### VectorOfSharedPtrOfMessage.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfMessage::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<google::protobuf::Message>>> VectorOfSharedPtrOfMessage::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfMessage:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfMessage::ptr( void*          ptr,
-                                              std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<google::protobuf::Message>>> VectorOfSharedPtrOfMessage::ptr( void*          ptr,
+                                                                                                                  std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfMessage.ptr( ptr[, i] ) -> retval
 ```
@@ -58025,14 +58025,14 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedLandmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedLandmark>>> VectorOfSharedPtrOfNormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedLandmark::ptr( void*          ptr,
-                                                         std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedLandmark>>> VectorOfSharedPtrOfNormalizedLandmark::ptr( void*          ptr,
+                                                                                                                                 std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfNormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
@@ -58282,14 +58282,14 @@ lua:
 ### VectorOfSharedPtrOfNormalizedLandmarkList.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedLandmarkList::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedLandmarkList>>> VectorOfSharedPtrOfNormalizedLandmarkList::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfNormalizedLandmarkList:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedLandmarkList::ptr( void*          ptr,
-                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedLandmarkList>>> VectorOfSharedPtrOfNormalizedLandmarkList::ptr( void*          ptr,
+                                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfNormalizedLandmarkList.ptr( ptr[, i] ) -> retval
 ```
@@ -58539,14 +58539,14 @@ lua:
 ### VectorOfSharedPtrOfNormalizedRect.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfNormalizedRect::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedRect>>> VectorOfSharedPtrOfNormalizedRect::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfNormalizedRect:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfNormalizedRect::ptr( void*          ptr,
-                                                     std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::NormalizedRect>>> VectorOfSharedPtrOfNormalizedRect::ptr( void*          ptr,
+                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfNormalizedRect.ptr( ptr[, i] ) -> retval
 ```
@@ -58796,14 +58796,14 @@ lua:
 ### VectorOfSharedPtrOfObject.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfObject::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Object>>> VectorOfSharedPtrOfObject::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfObject:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfObject::ptr( void*          ptr,
-                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Object>>> VectorOfSharedPtrOfObject::ptr( void*          ptr,
+                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfObject.ptr( ptr[, i] ) -> retval
 ```
@@ -59053,14 +59053,14 @@ lua:
 ### VectorOfSharedPtrOfObjectAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfObjectAnnotation::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ObjectAnnotation>>> VectorOfSharedPtrOfObjectAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfObjectAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfObjectAnnotation::ptr( void*          ptr,
-                                                       std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::ObjectAnnotation>>> VectorOfSharedPtrOfObjectAnnotation::ptr( void*          ptr,
+                                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfObjectAnnotation.ptr( ptr[, i] ) -> retval
 ```
@@ -59310,14 +59310,14 @@ lua:
 ### VectorOfSharedPtrOfPacketFactoryConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfPacketFactoryConfig::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::PacketFactoryConfig>>> VectorOfSharedPtrOfPacketFactoryConfig::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfPacketFactoryConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfPacketFactoryConfig::ptr( void*          ptr,
-                                                          std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::PacketFactoryConfig>>> VectorOfSharedPtrOfPacketFactoryConfig::ptr( void*          ptr,
+                                                                                                                                   std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfPacketFactoryConfig.ptr( ptr[, i] ) -> retval
 ```
@@ -59567,14 +59567,14 @@ lua:
 ### VectorOfSharedPtrOfPacketGeneratorConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfPacketGeneratorConfig::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::PacketGeneratorConfig>>> VectorOfSharedPtrOfPacketGeneratorConfig::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfPacketGeneratorConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfPacketGeneratorConfig::ptr( void*          ptr,
-                                                            std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::PacketGeneratorConfig>>> VectorOfSharedPtrOfPacketGeneratorConfig::ptr( void*          ptr,
+                                                                                                                                       std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfPacketGeneratorConfig.ptr( ptr[, i] ) -> retval
 ```
@@ -59824,14 +59824,14 @@ lua:
 ### VectorOfSharedPtrOfRasterization\_Interval.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRasterization_Interval::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Rasterization::Interval>>> VectorOfSharedPtrOfRasterization_Interval::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfRasterization_Interval:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRasterization_Interval::ptr( void*          ptr,
-                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Rasterization::Interval>>> VectorOfSharedPtrOfRasterization_Interval::ptr( void*          ptr,
+                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfRasterization_Interval.ptr( ptr[, i] ) -> retval
 ```
@@ -60081,14 +60081,14 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRenderAnnotation::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::RenderAnnotation>>> VectorOfSharedPtrOfRenderAnnotation::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRenderAnnotation::ptr( void*          ptr,
-                                                       std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::RenderAnnotation>>> VectorOfSharedPtrOfRenderAnnotation::ptr( void*          ptr,
+                                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfRenderAnnotation.ptr( ptr[, i] ) -> retval
 ```
@@ -60338,14 +60338,14 @@ lua:
 ### VectorOfSharedPtrOfRenderAnnotation\_Point.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfRenderAnnotation_Point::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::RenderAnnotation::Point>>> VectorOfSharedPtrOfRenderAnnotation_Point::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfRenderAnnotation_Point:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfRenderAnnotation_Point::ptr( void*          ptr,
-                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::RenderAnnotation::Point>>> VectorOfSharedPtrOfRenderAnnotation_Point::ptr( void*          ptr,
+                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfRenderAnnotation_Point.ptr( ptr[, i] ) -> retval
 ```
@@ -60595,14 +60595,14 @@ lua:
 ### VectorOfSharedPtrOfSkeleton.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfSkeleton::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Skeleton>>> VectorOfSharedPtrOfSkeleton::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfSkeleton:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfSkeleton::ptr( void*          ptr,
-                                               std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::Skeleton>>> VectorOfSharedPtrOfSkeleton::ptr( void*          ptr,
+                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfSkeleton.ptr( ptr[, i] ) -> retval
 ```
@@ -60852,14 +60852,14 @@ lua:
 ### VectorOfSharedPtrOfStatusHandlerConfig.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfStatusHandlerConfig::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::StatusHandlerConfig>>> VectorOfSharedPtrOfStatusHandlerConfig::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfStatusHandlerConfig:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfStatusHandlerConfig::ptr( void*          ptr,
-                                                          std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::StatusHandlerConfig>>> VectorOfSharedPtrOfStatusHandlerConfig::ptr( void*          ptr,
+                                                                                                                                   std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfStatusHandlerConfig.ptr( ptr[, i] ) -> retval
 ```
@@ -61109,14 +61109,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Classifications.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications>>> VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Classifications:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::ptr( void*          ptr,
-                                                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::components::containers::proto::Classifications>>> VectorOfSharedPtrOfTasks_components_containers_proto_Classifications::ptr( void*          ptr,
+                                                                                                                                                                                                   std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_components_containers_proto_Classifications.ptr( ptr[, i] ) -> retval
 ```
@@ -61366,14 +61366,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_components\_containers\_proto\_Embedding.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding>>> VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_components_containers_proto_Embedding:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::ptr( void*          ptr,
-                                                                                  std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::components::containers::proto::Embedding>>> VectorOfSharedPtrOfTasks_components_containers_proto_Embedding::ptr( void*          ptr,
+                                                                                                                                                                                       std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_components_containers_proto_Embedding.ptr( ptr[, i] ) -> retval
 ```
@@ -61623,14 +61623,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>> VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
-                                                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>> VectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
+                                                                                                                                                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr[, i] ) -> retval
 ```
@@ -61880,14 +61880,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_ClassificationResult.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult>>> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::ptr( void*          ptr,
-                                                                                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult>>> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult::ptr( void*          ptr,
+                                                                                                                                                                                                                                                      std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_ClassificationResult.ptr( ptr[, i] ) -> retval
 ```
@@ -62137,14 +62137,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_classification\_result\_Classifications.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications>>> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::ptr( void*          ptr,
-                                                                                                            std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::classification_result::Classifications>>> VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications::ptr( void*          ptr,
+                                                                                                                                                                                                                                            std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_classification_result_Classifications.ptr( ptr[, i] ) -> retval
 ```
@@ -62394,14 +62394,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_detections\_Detection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection>>> VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::ptr( void*          ptr,
-                                                                                           std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::detections::Detection>>> VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection::ptr( void*          ptr,
+                                                                                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_detections_Detection.ptr( ptr[, i] ) -> retval
 ```
@@ -62651,14 +62651,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_Embedding.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding>>> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::ptr( void*          ptr,
-                                                                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::Embedding>>> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding::ptr( void*          ptr,
+                                                                                                                                                                                                                      std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_Embedding.ptr( ptr[, i] ) -> retval
 ```
@@ -62908,14 +62908,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_embedding\_result\_EmbeddingResult.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult>>> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::ptr( void*          ptr,
-                                                                                                       std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult>>> VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult::ptr( void*          ptr,
+                                                                                                                                                                                                                                  std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_embedding_result_EmbeddingResult.ptr( ptr[, i] ) -> retval
 ```
@@ -63165,14 +63165,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_keypoint\_NormalizedKeypoint.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint>>> VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::ptr( void*          ptr,
-                                                                                                  std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::keypoint::NormalizedKeypoint>>> VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint::ptr( void*          ptr,
+                                                                                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_keypoint_NormalizedKeypoint.ptr( ptr[, i] ) -> retval
 ```
@@ -63422,14 +63422,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
-                                                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
+                                                                                                                                                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr[, i] ) -> retval
 ```
@@ -63679,14 +63679,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
-                                                                                                  std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>> VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
+                                                                                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
@@ -63936,14 +63936,14 @@ lua:
 ### VectorOfSharedPtrOfTasks\_lua\_text\_language\_detector\_LanguageDetectorResult\_Detection.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection>>> VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::ptr( void*          ptr,
-                                                                                                        std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::tasks::lua::text::language_detector::LanguageDetectorResult::Detection>>> VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection::ptr( void*          ptr,
+                                                                                                                                                                                                                                    std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTasks_lua_text_language_detector_LanguageDetectorResult_Detection.ptr( ptr[, i] ) -> retval
 ```
@@ -64193,14 +64193,14 @@ lua:
 ### VectorOfSharedPtrOfTemplateArgument.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateArgument::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateArgument>>> VectorOfSharedPtrOfTemplateArgument::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTemplateArgument:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateArgument::ptr( void*          ptr,
-                                                       std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateArgument>>> VectorOfSharedPtrOfTemplateArgument::ptr( void*          ptr,
+                                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTemplateArgument.ptr( ptr[, i] ) -> retval
 ```
@@ -64450,14 +64450,14 @@ lua:
 ### VectorOfSharedPtrOfTemplateDict\_Parameter.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateDict_Parameter::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateDict::Parameter>>> VectorOfSharedPtrOfTemplateDict_Parameter::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTemplateDict_Parameter:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateDict_Parameter::ptr( void*          ptr,
-                                                             std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateDict::Parameter>>> VectorOfSharedPtrOfTemplateDict_Parameter::ptr( void*          ptr,
+                                                                                                                                          std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTemplateDict_Parameter.ptr( ptr[, i] ) -> retval
 ```
@@ -64707,14 +64707,14 @@ lua:
 ### VectorOfSharedPtrOfTemplateExpression.ptr
 
 ```cpp
-void* VectorOfSharedPtrOfTemplateExpression::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateExpression>>> VectorOfSharedPtrOfTemplateExpression::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfSharedPtrOfTemplateExpression:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfSharedPtrOfTemplateExpression::ptr( void*          ptr,
-                                                         std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::shared_ptr<mediapipe::TemplateExpression>>> VectorOfSharedPtrOfTemplateExpression::ptr( void*          ptr,
+                                                                                                                                 std::ptrdiff_t i = 0 );
 lua:
     VectorOfSharedPtrOfTemplateExpression.ptr( ptr[, i] ) -> retval
 ```
@@ -64964,14 +64964,14 @@ lua:
 ### VectorOfString.ptr
 
 ```cpp
-void* VectorOfString::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::string>> VectorOfString::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfString:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfString::ptr( void*          ptr,
-                                  std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::string>> VectorOfString::ptr( void*          ptr,
+                                                                       std::ptrdiff_t i = 0 );
 lua:
     VectorOfString.ptr( ptr[, i] ) -> retval
 ```
@@ -65221,14 +65221,14 @@ lua:
 ### VectorOfTasks\_lua\_vision\_face\_landmarker\_FaceLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection>> VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::ptr( void*          ptr,
-                                                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::face_landmarker::FaceLandmarksConnections::Connection>> VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                                                                                                                              std::ptrdiff_t i = 0 );
 lua:
     VectorOfTasks_lua_vision_face_landmarker_FaceLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
@@ -65478,14 +65478,14 @@ lua:
 ### VectorOfTasks\_lua\_vision\_hand\_landmarker\_HandLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection>> VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::ptr( void*          ptr,
-                                                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::hand_landmarker::HandLandmarksConnections::Connection>> VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                                                                                                                              std::ptrdiff_t i = 0 );
 lua:
     VectorOfTasks_lua_vision_hand_landmarker_HandLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
@@ -65735,14 +65735,14 @@ lua:
 ### VectorOfTasks\_lua\_vision\_pose\_landmarker\_PoseLandmarksConnections\_Connection.ptr
 
 ```cpp
-void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection>> VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::ptr( void*          ptr,
-                                                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<mediapipe::tasks::lua::vision::pose_landmarker::PoseLandmarksConnections::Connection>> VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection::ptr( void*          ptr,
+                                                                                                                                                                                                              std::ptrdiff_t i = 0 );
 lua:
     VectorOfTasks_lua_vision_pose_landmarker_PoseLandmarksConnections_Connection.ptr( ptr[, i] ) -> retval
 ```
@@ -65992,14 +65992,14 @@ lua:
 ### VectorOfTupleIntAndInt.ptr
 
 ```cpp
-void* VectorOfTupleIntAndInt::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::tuple<int, int>>> VectorOfTupleIntAndInt::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfTupleIntAndInt:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTupleIntAndInt::ptr( void*          ptr,
-                                          std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::tuple<int, int>>> VectorOfTupleIntAndInt::ptr( void*          ptr,
+                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfTupleIntAndInt.ptr( ptr[, i] ) -> retval
 ```
@@ -66249,14 +66249,14 @@ lua:
 ### VectorOfTupleObjectron\_BoxLandmarkAndObjectron\_BoxLandmark.ptr
 
 ```cpp
-void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark>>> VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::ptr( void*          ptr,
-                                                                              std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::tuple<mediapipe::lua::solutions::objectron::BoxLandmark, mediapipe::lua::solutions::objectron::BoxLandmark>>> VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark::ptr( void*          ptr,
+                                                                                                                                                                                                                        std::ptrdiff_t i = 0 );
 lua:
     VectorOfTupleObjectron_BoxLandmarkAndObjectron_BoxLandmark.ptr( ptr[, i] ) -> retval
 ```
@@ -66506,14 +66506,14 @@ lua:
 ### VectorOfUint32\_t.ptr
 
 ```cpp
-void* VectorOfUint32_t::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<uint32_t>> VectorOfUint32_t::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfUint32_t:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfUint32_t::ptr( void*          ptr,
-                                    std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<uint32_t>> VectorOfUint32_t::ptr( void*          ptr,
+                                                                      std::ptrdiff_t i = 0 );
 lua:
     VectorOfUint32_t.ptr( ptr[, i] ) -> retval
 ```
@@ -66763,14 +66763,14 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_category\_Category.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
-                                                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::category::Category>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category::ptr( void*          ptr,
+                                                                                                                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_category_Category.ptr( ptr[, i] ) -> retval
 ```
@@ -67020,14 +67020,14 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_Landmark.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
-                                                                                                std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::Landmark>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark::ptr( void*          ptr,
+                                                                                                                                                                                                                         std::ptrdiff_t i = 0 );
 lua:
     VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_Landmark.ptr( ptr[, i] ) -> retval
 ```
@@ -67277,14 +67277,14 @@ lua:
 ### VectorOfVectorOfSharedPtrOfTasks\_lua\_components\_containers\_landmark\_NormalizedLandmark.ptr
 
 ```cpp
-void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
-                                                                                                          std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<std::vector<std::shared_ptr<mediapipe::tasks::lua::components::containers::landmark::NormalizedLandmark>>>> VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark::ptr( void*          ptr,
+                                                                                                                                                                                                                                             std::ptrdiff_t i = 0 );
 lua:
     VectorOfVectorOfSharedPtrOfTasks_lua_components_containers_landmark_NormalizedLandmark.ptr( ptr[, i] ) -> retval
 ```
@@ -67534,14 +67534,14 @@ lua:
 ### VectorOf\_mediapipe\_lua\_Object.ptr
 
 ```cpp
-void* VectorOf_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
+std::shared_ptr<PointerArray<::mediapipe_lua::Object>> VectorOf_mediapipe_lua_Object::data( std::ptrdiff_t i = 0 );
 lua:
     oVectorOf_mediapipe_lua_Object:ptr( [i] ) -> retval
 ```
 
 ```cpp
-static void* VectorOf_mediapipe_lua_Object::ptr( void*          ptr,
-                                                 std::ptrdiff_t i = 0 );
+static std::shared_ptr<PointerArray<::mediapipe_lua::Object>> VectorOf_mediapipe_lua_Object::ptr( void*          ptr,
+                                                                                                  std::ptrdiff_t i = 0 );
 lua:
     VectorOf_mediapipe_lua_Object.ptr( ptr[, i] ) -> retval
 ```

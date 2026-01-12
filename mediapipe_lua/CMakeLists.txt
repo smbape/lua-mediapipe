@@ -477,7 +477,8 @@ endif()
 # Mediapipe Lua Install
 # ===============
 if (WITH_LUA_ROCKS)
-    install(FILES "${TARGET_FILE}" DESTINATION lib)
+    file(RELATIVE_PATH INST_LIBDIR "${CMAKE_INSTALL_PREFIX}" "${LUA_INSTALL_LIBDIR}")
+    install(FILES "${TARGET_FILE}" DESTINATION "${INST_LIBDIR}")
 else()
     install(FILES "${TARGET_FILE}" DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 endif()
@@ -496,7 +497,7 @@ if (WITH_LUA_ROCKS)
     install(CODE "set(CMAKE_BINARY_DIR \"${CMAKE_BINARY_DIR}\")")
     install(CODE "set(CMAKE_CURRENT_BINARY_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")")
     install(CODE "set(CMAKE_CURRENT_SOURCE_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")")
-    install(CODE "set(CMAKE_INSTALL_LIBDIR \"lib\")")
+    install(CODE "set(CMAKE_INSTALL_LIBDIR \"${INST_LIBDIR}\")")
     install(CODE "set(CMAKE_SOURCE_DIR \"${CMAKE_SOURCE_DIR}\")")
 
     install(CODE "set(mediapipe_SOURCE_DIR \"${mediapipe_SOURCE_DIR}\")")
@@ -522,6 +523,9 @@ endif()
 if (WITH_LUA_ROCKS)
     return()
 endif()
+
+# Needed python packages
+pip_install(absl-py mediapipe<=0.10.21 numpy opencv-python)
 
 include(CTest)
 enable_testing()
