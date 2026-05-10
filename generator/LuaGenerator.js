@@ -1589,13 +1589,11 @@ class LuaGenerator {
                         }
                         expressions.unshift("is_valid = true;");
                         expressions.push(`return ${ lua_push_args.join(", ") };`);
+                    } else if (has_lua_State) {
+                        expressions.push(`lua_push(L, ${ lua_push_args.join(", ") });`);
                     } else {
-                        if (has_lua_State) {
-                            expressions.push(`lua_push(L, ${ lua_push_args.join(", ") });`);
-                        } else {
-                            expressions.unshift("get_thread_lock(L).unlock();");
-                            expressions.push(`lua_lock_and_push(L, ${ lua_push_args.join(", ") });`);
-                        }
+                        expressions.unshift("get_thread_lock(L).unlock();");
+                        expressions.push(`lua_lock_and_push(L, ${ lua_push_args.join(", ") });`);
                     }
 
                     retval.push([-1, `

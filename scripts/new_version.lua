@@ -60,7 +60,7 @@ if it already exists.]], util.see_also())
    cmd:flag("--repair", "Vendor in external shared library dependencies of the binary rock.")
    cmd:option("--plat", "Desired target platform.")
    cmd:flag("--strip", "Strip symbols in the resulting wheel.")
-   cmd:option("--exclude", "Exclude SONAME from grafting into the resulting wheel Please make sure wheel metadata reflects your dependencies. " .. 
+   cmd:option("--exclude", "Exclude SONAME from grafting into the resulting wheel Please make sure wheel metadata reflects your dependencies. " ..
                            "See https://github.com/pypa/auditwheel/pull/411#issuecomment-1500826281 (can contain wildcards, for example libfoo.so.*)")
    cmd:flag("--only-plat", "Do not check for higher policy compatibility.")
    cmd:flag("--disable-isa-ext-check", "Do not check for extended ISA compatibility (e.g. x86_64_v2)")

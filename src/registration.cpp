@@ -85,6 +85,65 @@ namespace {
 		lua_pushfuncs(L, funcs);
 		lua_rawset(L, -3);
 	}
+
+	/* trim.c - based on http://lua-users.org/lists/lua-l/2009-12/msg00951.html from Sean Conner */
+	int trim(lua_State* L) {
+		auto vargc = lua_gettop(L);
+		if (vargc == 0 || vargc > 3) {
+			return luaL_error(L, "1 to 3 argument expected, got %d", vargc);
+		}
+
+		if (lua_type(L, 1) != LUA_TSTRING) {
+			return luaL_typeerror(L, 1, "string");
+		}
+
+		if (vargc >= 2 && !lua_isboolean(L, 2)) {
+			return luaL_typeerror(L, 2, "boolean");
+		}
+
+		if (vargc == 3 && !lua_isboolean(L, 3)) {
+			return luaL_typeerror(L, 3, "boolean");
+		}
+
+		bool ltrim = vargc < 2 || lua_toboolean(L, 2);
+		bool rtrim = vargc < 3 || lua_toboolean(L, 3);
+
+		const char* front;
+		const char* end;
+		size_t size;
+
+		front = lua_tolstring(L, 1, &size);
+		end = &front[size - 1];
+
+		if (ltrim) {
+			while (size && isspace((unsigned char)*front)) {
+				size--;
+				front++;
+			}
+		}
+
+		if (rtrim) {
+			while (size && isspace((unsigned char)*end)) {
+				size--;
+				end--;
+			}
+		}
+
+		lua_pushlstring(L, front, size);
+		return 1;
+	}
+
+	void register_string(lua_State* L) {
+		const struct luaL_Reg funcs[] = {
+			{ "trim", trim },
+			{ NULL, NULL }
+		};
+
+		lua_pushliteral(L, "string");
+		lua_newtable(L);
+		lua_pushfuncs(L, funcs);
+		lua_rawset(L, -3);
+	}
 }
 
 #define _stringify(s) #s
@@ -107,6 +166,7 @@ int LUA_MODULE_LUAOPEN(lua_State* L) {
 	register_version(L);
 	register_bit(L);
 	register_math(L);
+	register_string(L);
 	register_all(L);
 	register_extensions(L);
 

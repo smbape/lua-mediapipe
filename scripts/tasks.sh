@@ -843,60 +843,65 @@ if [ -e /etc/os-release -a "$(uname -m)" == "x86_64" ]; then
     source /etc/os-release
     case $ID in
         ubuntu )
-            if [ "$VERSION_ID" == "20.04" -o "$VERSION_ID" == "22.04" -o "$VERSION_ID" == "24.04" ]; then
+            if [ "$VERSION_ID" == "22.04" -o "$VERSION_ID" == "24.04" ]; then
                 # https://superuser.com/questions/1749781/how-can-i-check-if-the-environment-is-wsl-from-a-shell-script#answer-1749811
                 if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-                    cura_repo=wsl-ubuntu
+                    cuda_repo=wsl-ubuntu
+                    cuda_version_ext=
                 else
-                    cura_repo=ubuntu${VERSION_ID/\./}
+                    cuda_repo=ubuntu${VERSION_ID/\./}
+                    cuda_version_ext=-595.45.04
                 fi
 
-                # ubuntu 22.04 cuda-toolkit
-                if ! dpkg -l cuda-toolkit-12-8 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cuda/repos/${cura_repo}/x86_64/cuda-keyring_1.1-1_all.deb && \
-                    dpkg -i cuda-keyring_1.1-1_all.deb && \
-                    rm -f cuda-keyring_1.1-1_all.deb && \
+                # ubuntu cuda-toolkit
+                if ! dpkg -l cuda-toolkit-13-2 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cuda/repos/${cuda_repo}/x86_64/cuda-${cuda_repo}.pin && \
+                    mv cuda-${cuda_repo}.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
+                    resume_download https://developer.download.nvidia.com/compute/cuda/13.2.0/local_installers/cuda-repo-${cuda_repo}-13-2-local_13.2.0${cuda_version_ext}-1_amd64.deb && \
+                    dpkg -i cuda-repo-${cuda_repo}-13-2-local_13.2.0${cuda_version_ext}-1_amd64.deb && \
+                    rm -f cuda-repo-${cuda_repo}-13-2-local_13.2.0${cuda_version_ext}-1_amd64.deb && \
+                    cp -f /var/cuda-repo-${cuda_repo}-13-2-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cuda-toolkit-12-8 || exit $?
+                    apt-get -y install cuda-toolkit-13-2 || exit $?
                 fi
 
                 # ubuntu cudnn
-                if ! dpkg -l cudnn9-cuda-12 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb && \
-                    dpkg -i cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb && \
-                    cp /var/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                if ! dpkg -l cudnn9-cuda-13 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.22.0/local_installers/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.22.0_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.22.0_1.0-1_amd64.deb && \
+                    rm -f cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.22.0_1.0-1_amd64.deb && \
+                    cp -f /var/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.22.0/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cudnn9-cuda-12 && \
-                    rm -f cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.8.0_1.0-1_amd64.deb
+                    apt-get -y install cudnn9-cuda-13
                 fi
             fi
             ;;
         debian )
-            if [ "$VERSION_ID" == "12" ]; then
-                # debian 12 cuda-toolkit
-                if ! dpkg -l cuda-toolkit-12-8 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb && \
-                    dpkg -i cuda-keyring_1.1-1_all.deb && \
-                    rm -f cuda-keyring_1.1-1_all.deb && \
+            if [ "$VERSION_ID" == "12" -o "$VERSION_ID" == "13" ]; then
+                # debian cuda-toolkit
+                if ! dpkg -l cuda-toolkit-13-2 &> /dev/null; then
+                    wget https://developer.download.nvidia.com/compute/cuda/13.2.0/local_installers/cuda-repo-debian${VERSION_ID}-13-2-local_13.2.0-595.45.04-1_amd64.deb && \
+                    dpkg -i cuda-repo-debian${VERSION_ID}-13-2-local_13.2.0-595.45.04-1_amd64.deb && \
+                    cp /var/cuda-repo-debian${VERSION_ID}-13-2-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cuda-toolkit-12-8 || exit $?
+                    apt-get -y install cuda-toolkit-13-2 || exit $?
                 fi
 
-                # debian 12 cudnn
-                if ! dpkg -l cudnn9-cuda-12 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb && \
-                    dpkg -i cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb && \
-                    cp /var/cuda-repo-debian12-9-8-local/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                # debian cudnn
+                if [ "$VERSION_ID" == "12" ] && ! dpkg -l cudnn9-cuda-13 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.22.0/local_installers/cudnn-local-repo-debian${VERSION_ID}-9.22.0_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-debian${VERSION_ID}-9.22.0_1.0-1_amd64.deb && \
+                    rm -f cudnn-local-repo-debian${VERSION_ID}-9.22.0_1.0-1_amd64.deb && \
+                    cp -f /var/cudnn-local-repo-debian${VERSION_ID}-9.22.0/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cudnn9-cuda-12 && \
-                    rm -f cudnn-local-repo-debian12-9.8.0_1.0-1_amd64.deb
+                    apt-get -y install cudnn9-cuda-13
                 fi
             fi
             ;;
     esac
 
     if [ -e /usr/local/cuda/include ]; then
-        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_12.2.72/Interface/*; do
+        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_13.0.37/Interface/*; do
             filename="$(basename "$ifile")"
             rm -f "/usr/local/cuda/include/$filename"
             ln -s "$ifile" "/usr/local/cuda/include/$filename"
@@ -904,11 +909,11 @@ if [ -e /etc/os-release -a "$(uname -m)" == "x86_64" ]; then
     fi
 
     if [ -e /usr/local/cuda/lib64 ]; then
-        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_12.2.72/Lib/linux/stubs/x86_64/*; do
+        for ifile in /mnt/d/Programs/NVIDIA/Video_Codec_SDK_13.0.37/Lib/linux/stubs/x86_64/*; do
             filename="$(basename "$ifile")"
-            rm -f "/usr/local/cuda/lib64/$filename" "/usr/local/cuda/lib64/$filename.1"
-            ln -s "$ifile" "/usr/local/cuda/lib64/$filename.1"
-            ln -s "$filename.1" "/usr/local/cuda/lib64/$filename"
+            rm -f "/usr/local/cuda/lib64/$filename" "/usr/local/cuda/lib64/${filename}.1"
+            ln -s "$ifile" "/usr/local/cuda/lib64/${filename}.1"
+            ln -s "${filename}.1" "/usr/local/cuda/lib64/$filename"
         done
     fi
 fi

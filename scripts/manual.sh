@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Update checks:
+#   - check changes in python
+
+
 # ================================
 # stash for release
 # ================================

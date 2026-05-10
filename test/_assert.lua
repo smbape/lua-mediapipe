@@ -5,70 +5,70 @@ local assert = require("luassert")
 local mediapipe_lua = require("mediapipe_lua")
 local round = mediapipe_lua.math.round
 
-local module = {}
+local exports = {}
 
 -- http://lua-users.org/wiki/StringRecipes
 local function starts_with(str, start)
     return str:sub(1, #start) == start
 end
 
-function module.assertTrue(expr, msg)
+function exports.assertTrue(expr, msg)
     if msg == nil then
         msg = "expecting " .. tostring(expr) .. " to be true"
     end
     assert.is_true(expr, msg)
 end
 
-function module.assertFalse(expr, msg)
+function exports.assertFalse(expr, msg)
     if msg == nil then
         msg = "expecting " .. tostring(expr) .. " to be false"
     end
     assert.is_false(expr, msg)
 end
 
-function module.assertEqual(first, second, msg)
+function exports.assertEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be equal to " .. tostring(second)
     end
     assert.are.equal(second, first, msg)
 end
 
-function module.assertNotEqual(first, second, msg)
+function exports.assertNotEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " not to be equal to " .. tostring(second)
     end
     assert.are_not.equal(second, first, msg)
 end
 
-function module.assertGreater(first, second, msg)
+function exports.assertGreater(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be greater than " .. tostring(second)
     end
     assert.is_true(first > second, msg)
 end
 
-function module.assertGreaterEqual(first, second, msg)
+function exports.assertGreaterEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be greater than or equal to " .. tostring(second)
     end
     assert.is_true(first >= second, msg)
 end
 
-function module.assertLess(first, second, msg)
+function exports.assertLess(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be less than " .. tostring(second)
     end
     assert.is_true(first < second, msg)
 end
 
-function module.assertLessEqual(first, second, msg)
+function exports.assertLessEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be less than or equal to " .. tostring(second)
     end
     assert.is_true(first <= second, msg)
 end
 
-function module.assertIsInstance(obj, cls, msg)
+function exports.assertIsInstance(obj, cls, msg)
     if msg == nil then
         msg = "expecting [" .. tostring(obj) .. "] to be an instance of [" .. tostring(cls) .. "]"
     end
@@ -90,7 +90,7 @@ function module.assertIsInstance(obj, cls, msg)
 end
 
 -- node scripts/func_kwargs.js module assertAlmostEqual first second '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
-function module.assertAlmostEqual(...)
+function exports.assertAlmostEqual(...)
     local args = { n = select("#", ...), ... }
     local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
     local kwargs = has_kwarg and args[args.n] or mediapipe_lua.kwargs()
@@ -221,7 +221,7 @@ function module.assertAlmostEqual(...)
 end
 
 -- node scripts/func_kwargs.js module assertAlmostIn member container '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
-function module.assertAlmostIn ( ... )
+function exports.assertAlmostIn ( ... )
     local args={n=select("#", ...), ...}
     local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
     local kwargs = has_kwarg and args[args.n] or mediapipe_lua.kwargs()
@@ -358,28 +358,28 @@ function module.assertAlmostIn ( ... )
     assert.is_true(false, msg)
 end
 
-function module.assertLen(container, len, msg)
+function exports.assertLen(container, len, msg)
     if msg == nil then
         msg = "expecting length of " .. tostring(container) .. " to be equal to " .. tostring(len)
     end
     assert.are.equal(len, #container, msg)
 end
 
-function module.assertEmpty(container, msg)
+function exports.assertEmpty(container, msg)
     if msg == nil then
         msg = "expecting length of " .. tostring(container) .. " to be empty"
     end
     assert.are.equal(0, #container, msg)
 end
 
-function module.assertNotEmpty(container, msg)
+function exports.assertNotEmpty(container, msg)
     if msg == nil then
         msg = "expecting length of " .. tostring(container) .. " to be not empty"
     end
     assert.are_not.equal(0, #container, msg)
 end
 
-function module.assertIsNone(expr, msg)
+function exports.assertIsNone(expr, msg)
     if type(expr) == "table" then
         if msg == nil then
             msg = "expecting table to be empty"
@@ -399,7 +399,7 @@ function module.assertIsNone(expr, msg)
     end
 end
 
-function module.assertIn(member, container, msg)
+function exports.assertIn(member, container, msg)
     for i = 1, #container do
         if container[i] == member then
             return
@@ -411,7 +411,7 @@ function module.assertIn(member, container, msg)
     assert.is_true(false, msg)
 end
 
-function module.assertNotIn(member, container, msg)
+function exports.assertNotIn(member, container, msg)
     for i = 1, #container do
         if container[i] == member then
             if msg == nil then
@@ -422,8 +422,8 @@ function module.assertNotIn(member, container, msg)
     end
 end
 
-function module.assertListEqual(first, second, msg)
-    module.assertEqual(#first, #second, "expecting sizes to be equal")
+function exports.assertListEqual(first, second, msg)
+    exports.assertEqual(#first, #second, "expecting sizes to be equal")
 
     for i = 1, #first do
         local imsg = msg
@@ -434,11 +434,11 @@ function module.assertListEqual(first, second, msg)
         end
 
         if type(ifirst) == type(isecond) and type(ifirst) == "table" then
-            module.assertListEqual(ifirst, isecond, imsg)
+            exports.assertListEqual(ifirst, isecond, imsg)
         else
-            module.assertEqual(ifirst, isecond, imsg)
+            exports.assertEqual(ifirst, isecond, imsg)
         end
     end
 end
 
-return module
+return exports
