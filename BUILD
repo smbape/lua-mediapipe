@@ -40,6 +40,9 @@ OUTPUT_NAME = "mediapipe_lua"
 
 add_library(OUTPUT_NAME + "_lib",
     pchhdrs = ["generated/lua_generated_pch.hpp"],
+    hdrs = [
+        "generated/bit_string.lua.inc",
+    ],
     includes = ["src/include/", "src/", "generated/"],
     local_defines = [
         "CVAPI_EXPORTS",

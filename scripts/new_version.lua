@@ -57,45 +57,45 @@ if it already exists.]], util.see_also())
    cmd:option("--prefix", "Install prefix.")
    cmd:option("--platform", "OS platform.")
 
-   cmd:flag("--repair", "Vendor in external shared library dependencies of the binary rock.")
-   cmd:option("--plat", "Desired target platform.")
-   cmd:flag("--strip", "Strip symbols in the resulting wheel.")
-   cmd:option("--exclude", "Exclude SONAME from grafting into the resulting wheel Please make sure wheel metadata reflects your dependencies. " ..
-                           "See https://github.com/pypa/auditwheel/pull/411#issuecomment-1500826281 (can contain wildcards, for example libfoo.so.*)")
-   cmd:flag("--only-plat", "Do not check for higher policy compatibility.")
-   cmd:flag("--disable-isa-ext-check", "Do not check for extended ISA compatibility (e.g. x86_64_v2)")
-
    cmd:option("--opencv-name", "OpenCV rock name.")
    cmd:option("--opencv-version", "OpenCV rock version.")
 end
 
-local function dump_table_as_python_array(tbl)
-   local str = "["
-   for k, v in pairs(tbl) do
-      if #str > 1 then
-         str = str .. ", "
-      end
-      if type(v) == "string" then
-         str = str .. "'" .. v .. "'"
-      elseif type(v) == "number" then
-         str = str .. v
-      elseif type(v) == "boolean" then
-         if v then
-            str = str .. "True"
-         else
-            str = str .. "False"
+---@param directory string
+---@param source string
+---@param destination table<integer|string, string>
+local function recursive_include(directory, source, destination)
+   ---@type string[]
+   local stack = { source .. "/" .. directory }
+   while #stack ~= 0 do
+      ---@type string
+      local filepath = table.remove(stack)
+      if fs.is_dir(filepath) then
+         ---@type string[]
+         local files = fs.list_dir(filepath)
+         for i = #files, 1, -1 do
+            stack[#stack + 1] = filepath .. "/" .. files[i]
          end
-      elseif type(v) == nil then
-         str = str .. "None"
+      elseif fs.is_file(filepath) then
+         local module_name = filepath:sub(#source + 2) ---@type string
+
+         local ext = module_name:match("(%..+)$") ---@type string?
+         if ext ~= nil then
+            module_name = module_name:sub(1, -#ext - 1):gsub("%.", "#"):gsub("/", ".")
+            if ext ~= ".lua" then
+               module_name = module_name .. ext:gsub("%.", "#")
+            end
+         end
+
+         destination[module_name] = filepath
       end
    end
-   str = str .. "]"
-   return str
+
 end
 
 function new_version.command(args)
-   local prefix = args.prefix or ""
-   local abi = args.abi
+   local prefix = args.prefix or "" ---@type string
+   local abi = args.abi ---@type string
 
    if prefix ~= "" and prefix:sub(-1) ~= "/" then
       prefix = prefix .. "/"
@@ -103,7 +103,6 @@ function new_version.command(args)
 
    local persist = require("luarocks.persist")
    local load_into_table = persist.load_into_table
-   local first_pass = true
 
    function persist.load_into_table(filename, tbl)
       local out_rs, err, errcode = load_into_table(filename, tbl)
@@ -126,8 +125,9 @@ function new_version.command(args)
          end
       end
 
+      local install_sharedir = prefix .. "share/lua/" .. abi
       local install_libdir = prefix .. "lib/lua/" .. abi
-      local shared_library_suffix
+      local shared_library_suffix ---@type string
 
       if args.platform == "win32" then
          shared_library_suffix = ".dll"
@@ -135,104 +135,17 @@ function new_version.command(args)
          shared_library_suffix = ".so"
       end
 
-      ---@type string[]
+      ---@type table<integer|string, string>
       local install_lib = {
          install_libdir .. "/mediapipe_lua" .. shared_library_suffix,
       }
-
+      recursive_include("mediapipe_lua", install_libdir, install_lib)
       out_rs.build.install.lib = install_lib
 
-      if args.platform ~= "win32" then
-         local package_data = { "mediapipe_lua.so" }
-
-         -- add repaired libs
-         if args.repair then
-            local install_libsdir = install_libdir .. "/mediapipe_lua/libs"
-
-            if first_pass then
-               first_pass = false
-               local install_prefix = fs.current_dir()
-               local cmake_args = {
-                  "-DENABLE_REPAIR=ON",
-                  "-DPACKAGE_DATA=" .. dump_table_as_python_array(package_data),
-                  "-DCMAKE_INSTALL_PREFIX=" .. install_prefix,
-                  "-DCMAKE_INSTALL_LIBDIR=" .. install_libdir,
-                  "-DCMAKE_INSTALL_LIBSDIR=" .. install_libsdir,
-               }
-
-               for _, flag in ipairs({
-                  "strip",
-                  "only_plat",
-                  "disable_isa_ext_check",
-               }) do
-                  if args[flag] then
-                     cmake_args[#cmake_args + 1] = "-DAUDITWHEEL_" .. flag .. "=ON"
-                  end
-               end
-
-               for _, option in ipairs({
-                  "plat",
-                  "exclude",
-               }) do
-                  if args[option] ~= nil then
-                     cmake_args[#cmake_args + 1] = "-DAUDITWHEEL_" .. option .. "=" .. args[option]
-                  end
-               end
-
-               cmake_args[#cmake_args + 1] = "-P"
-               cmake_args[#cmake_args + 1] = "mediapipe_lua/auditwheel_repair.cmake"
-
-               fs.change_dir(prefix .. "../..")
-               local ok, err = fs.execute("cmake", unpack(cmake_args))
-               fs.pop_dir()
-
-               if not ok then
-                  return nil, err
-               end
-            end
-
-            local files = fs.list_dir(install_libsdir)
-            for _, fname in ipairs(files) do
-               local lib_src = install_libsdir .. "/" .. fname
-               local module_path = lib_src:sub(#install_libdir + 2)
-               local ext = module_path:match("(%-[^-]+)$")
-               local module_name = module_path:sub(1, -#ext - 1):gsub("/", ".")
-
-               install_lib[module_name] = lib_src
-            end
-         end
-      end
-
-      -- add install_libdir .. "/mediapipe_lua" directory
-      ---@type string[]
-      local lib_includes = { install_libdir .. "/mediapipe_lua" }
-      while #lib_includes ~= 0 do
-         ---@type string
-         local include = table.remove(lib_includes)
-         if fs.is_dir(include) then
-            ---@type string[]
-            local files = fs.list_dir(include)
-            for i = #files, 1, -1 do
-               -- ignore allegro5_lua/libs directory because they are repaired files already inluded
-               if include ~= install_libdir .. "/mediapipe_lua" or files[i] ~= "libs" then
-                  lib_includes[#lib_includes + 1] = include .. "/" .. files[i]
-               end
-            end
-         elseif fs.is_file(include) then
-            local module_name = include:sub(#install_libdir + 2)
-
-            -- remove the extension
-            local ext = module_name:match("(%..+)$")
-            if ext ~= nil then
-               module_name = module_name:sub(1, -#ext - 1):gsub("/", ".")
-               if ext ~= ".lua" then
-                  module_name = module_name .. ext:gsub("%.", "#")
-               end
-            end
-
-            install_lib[module_name:gsub("/", ".")] = include
-         end
-      end
+      ---@type table<integer|string, string>
+      local install_lua = {}
+      recursive_include("mediapipe_lua", install_sharedir, install_lua)
+      out_rs.build.install.lua = install_lua
 
       if args.opencv_version then
          local opencv_name = args.opencv_name or "opencv_lua"

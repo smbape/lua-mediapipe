@@ -2,14 +2,13 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_detector/python/face_detector.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_detector/python/face_detector.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_detector/python/face_detector.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_detector/python/face_detector.ipynb
 
 Title: Face Detection with MediaPipe Tasks
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -50,7 +49,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -114,19 +113,19 @@ Args:
 Returns:
     Image with bounding boxes.
 --]]
-local function visualize(image, detection_result, scale)
+local function visualize(rgb_image, detection_result, scale)
     local MARGIN = math.floor(10 * scale) -- pixels
     local ROW_SIZE = 10                   -- pixels
     local FONT_SIZE = scale
     local FONT_THICKNESS = math.floor(2 * scale)
-    local TEXT_COLOR = { 255, 0, 0 }      -- red
+    local TEXT_COLOR = { 0, 0, 255 }      -- red
 
-    local annotated_image = image:copy()
-    local height, width, _ = unpack(image.shape)
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
+    local height, width, _ = unpack(rgb_image.shape)
 
     local color, thickness, radius = { 0, 255, 0 }, math.floor(2 * scale), math.floor(2 * scale)
 
-    for _, detection in ipairs(detection_result.detections) do
+    for _, detection in detection_result.detections:__ipairs() do
         -- Draw bounding_box
         local bbox = detection.bounding_box
         local start_point = { bbox.origin_x, bbox.origin_y }
@@ -134,14 +133,14 @@ local function visualize(image, detection_result, scale)
         cv2.rectangle(annotated_image, start_point, end_point, TEXT_COLOR, 3)
 
         -- Draw keypoints
-        for _, keypoint in ipairs(detection.keypoints) do
+        for _, keypoint in detection.keypoints:__ipairs() do
             local keypoint_px = _normalized_to_pixel_coordinates(keypoint.x, keypoint.y,
                 width, height)
             cv2.circle(annotated_image, keypoint_px, thickness, color, radius)
         end
 
         -- Draw label and score
-        local category = detection.categories[0 + INDEX_BASE]
+        local category = detection.categories[0]
         local category_name = category.category_name
         category_name = (function()
             if category_name == nil then return '' end
@@ -163,7 +162,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an FaceDetector object.
+-- STEP 2: Create a FaceDetector object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.FaceDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
 local detector = vision.FaceDetector.create_from_options(options)
@@ -172,14 +171,12 @@ local detector = vision.FaceDetector.create_from_options(options)
 local image = mp.Image.create_from_file(IMAGE_FILE)
 
 -- Compute the scale to make drawn elements visible when the image is resized for display
-local scale = 1 / resize_and_show(image, nil, false)
+local scale = 1 / resize_and_show(image:mat_view(), nil, false)
 
 -- STEP 4: Detect faces in the input image.
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the detection result. In this case, visualize it.
-local image_copy = image:mat_view()
-local annotated_image = visualize(image_copy, detection_result, scale)
-local bgr_annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR)
-resize_and_show(bgr_annotated_image, "face_detector")
+local annotated_image = visualize(image:mat_view(), detection_result, scale)
+resize_and_show(annotated_image, "face_detector")
 cv2.waitKey()

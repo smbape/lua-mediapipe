@@ -4,7 +4,7 @@
 #include <opencv2/core.hpp>
 #include "absl/status/status.h"
 #include "absl/status/statusor.h"
-#include <google/protobuf/repeated_field.h>
+#include "google/protobuf/repeated_field.h"
 #include "mediapipe/framework/timestamp.h"
 
 namespace LUA_MODULE_NAME {
@@ -23,13 +23,6 @@ namespace LUA_MODULE_NAME {
 	void lua_push(lua_State* L, const cv::Mat& obj);
 
 	void lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj);
-
-
-	// ================================
-	// mediapipe::Timestamp
-	// ================================
-
-	std::shared_ptr<mediapipe::Timestamp> lua_to(lua_State* L, int index, mediapipe::Timestamp* ptr, bool& is_valid);
 
 
 	// ================================

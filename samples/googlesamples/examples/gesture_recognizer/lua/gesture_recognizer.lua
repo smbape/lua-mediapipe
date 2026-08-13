@@ -2,13 +2,11 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/gesture_recognizer/python/gesture_recognizer.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/gesture_recognizer/python/gesture_recognizer.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/gesture_recognizer/python/gesture_recognizer.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/gesture_recognizer/python/gesture_recognizer.ipynb
 
 Title: Gesture Recognizer with MediaPipe Tasks
 --]]
-
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -48,7 +46,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -76,12 +74,11 @@ download_utils.download(mediapipe_lua.kwargs({
     hash = MODEL_HASH,
 }))
 
-local mp = mediapipe
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local mp = require("mediapipe_lua.mediapipe")
 
-local mp_hands = mp.solutions.hands
-local mp_drawing = mp.solutions.drawing_utils
-local mp_drawing_styles = mp.solutions.drawing_styles
+local mp_hands = mp.tasks.vision.HandLandmarksConnections
+local mp_drawing = mp.tasks.vision.drawing_utils
+local mp_drawing_styles = mp.tasks.vision.drawing_styles
 
 --[[ Displays an image with the gesture category and its score along with the hand landmarks. --]]
 local function display_image_with_gestures_and_hand_landmarks(image, gesture, hands_landmarks)
@@ -92,18 +89,10 @@ local function display_image_with_gestures_and_hand_landmarks(image, gesture, ha
     -- Compute the scale to make drawn elements visible when the image is resized for display
     local scale = 1 / resize_and_show(annotated_image, nil, false)
 
-    for _, hand_landmarks in ipairs(hands_landmarks) do
-        local hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
-
-        for _, landmark in ipairs(hand_landmarks) do
-            hand_landmarks_proto.landmark:append(landmark_pb2.NormalizedLandmark(
-                mediapipe_lua.kwargs({ x = landmark.x, y = landmark.y, z = landmark.z })
-            ))
-        end
-
+    for _, hand_landmarks in hands_landmarks:__ipairs() do
         mp_drawing.draw_landmarks(
             annotated_image,
-            hand_landmarks_proto,
+            hand_landmarks,
             mp_hands.HAND_CONNECTIONS,
             mp_drawing_styles.get_default_hand_landmarks_style(scale),
             mp_drawing_styles.get_default_hand_connections_style(scale))
@@ -116,7 +105,7 @@ end
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an GestureRecognizer object.
+-- STEP 2: Create a GestureRecognizer object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.GestureRecognizerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
 local recognizer = vision.GestureRecognizer.create_from_options(options)
@@ -129,7 +118,7 @@ for _, image_file_name in ipairs(IMAGE_FILENAMES) do
     local recognition_result = recognizer:recognize(image)
 
     -- STEP 5: Process the result. In this case, visualize it.
-    local top_gesture = recognition_result.gestures[0 + INDEX_BASE][0 + INDEX_BASE]
+    local top_gesture = recognition_result.gestures[0][0]
     local hands_landmarks = recognition_result.hand_landmarks
     display_image_with_gestures_and_hand_landmarks(image, top_gesture, hands_landmarks)
 end

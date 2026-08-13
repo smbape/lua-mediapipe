@@ -7,10 +7,12 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/face_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/face_detector_test.py
 --]]
 
+
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
+local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local test_utils = require("test_utils")
@@ -22,10 +24,11 @@ local std = mediapipe_lua.std
 
 local text_format = google.protobuf.text_format
 local detection_pb2 = mediapipe.framework.formats.detection_pb2
-local image_module = mediapipe.lua._framework_bindings.image
 local detections_module = mediapipe.tasks.lua.components.containers.detections
 local base_options_module = mediapipe.tasks.lua.core.base_options
+local proto_utils = mediapipe.tasks.lua.test.vision.proto_utils
 local face_detector = mediapipe.tasks.lua.vision.face_detector
+local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
@@ -38,14 +41,17 @@ local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _SHORT_RANGE_BLAZE_FACE_MODEL = 'face_detection_short_range.tflite'
+local _FULL_RANGE_BLAZE_FACE_MODEL = 'face_detection_full_range.tflite'
 local _PORTRAIT_IMAGE = 'portrait.jpg'
 local _PORTRAIT_EXPECTED_DETECTION = 'portrait_expected_detection.pbtxt'
+local _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION = 'portrait_expected_full_range_detection.pbtxt'
 local _PORTRAIT_ROTATED_IMAGE = 'portrait_rotated.jpg'
 local _PORTRAIT_ROTATED_EXPECTED_DETECTION = (
     'portrait_rotated_expected_detection.pbtxt'
 )
 local _CAT_IMAGE = 'cat.jpg'
 local _KEYPOINT_ERROR_THRESHOLD = 1e-2
+local _BOUNDING_BOX_ERROR_THRESHOLD = 5
 
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
 
@@ -56,9 +62,7 @@ local function _get_expected_face_detector_result(file_name)
     local f = io.open(face_detection_result_file_path, 'rb')
     local face_detection_proto = detection_pb2.Detection()
     text_format.Parse(f:read('*all'), face_detection_proto)
-    local face_detection = detections_module.Detection.create_from_pb2(
-        face_detection_proto
-    )
+    local face_detection = proto_utils.create_detection_from_proto(face_detection_proto)
     return FaceDetectorResult(mediapipe_lua.kwargs({ detections = { face_detection } }))
 end
 
@@ -73,8 +77,13 @@ local function setUp(self)
             output = _SHORT_RANGE_BLAZE_FACE_MODEL,
             url = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite"
         },
+        {
+            output = _FULL_RANGE_BLAZE_FACE_MODEL,
+            url = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_full_range/float16/1/blaze_face_full_range.tflite"
+        },
         _PORTRAIT_IMAGE,
         _PORTRAIT_EXPECTED_DETECTION,
+        _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION,
         _PORTRAIT_ROTATED_IMAGE,
         _PORTRAIT_ROTATED_EXPECTED_DETECTION,
         _CAT_IMAGE,
@@ -82,12 +91,14 @@ local function setUp(self)
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_PORTRAIT_IMAGE))
     self.model_path = test_utils.get_test_data_path(_SHORT_RANGE_BLAZE_FACE_MODEL)
+    self.full_range_model_path = test_utils.get_test_data_path(_FULL_RANGE_BLAZE_FACE_MODEL)
 end
 
 local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local detector = _FaceDetector.create_from_model_path(self.model_path)
     self.assertIsInstance(detector, _FaceDetector)
+    detector:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -96,6 +107,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _FaceDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local detector = _FaceDetector.create_from_options(options)
     self.assertIsInstance(detector, _FaceDetector)
+    detector:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -106,11 +118,12 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _FaceDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local detector = _FaceDetector.create_from_options(options)
     self.assertIsInstance(detector, _FaceDetector)
+    detector:close()
 end
 
 function _assert._expect_keypoints_correct(self, actual_keypoints, expected_keypoints)
     self.assertLen(actual_keypoints, #expected_keypoints)
-    for i = 1, #actual_keypoints do
+    for i = 0, #actual_keypoints - INDEX_BASE do
         self.assertAlmostEqual(
             actual_keypoints[i].x,
             expected_keypoints[i].x,
@@ -124,14 +137,37 @@ function _assert._expect_keypoints_correct(self, actual_keypoints, expected_keyp
     end
 end
 
+function _assert._expect_bounding_box_correct(self, actual_bbox, expected_bbox)
+    self.assertAlmostEqual(
+        actual_bbox.origin_x,
+        expected_bbox.origin_x,
+        mediapipe_lua.kwargs({ delta = _BOUNDING_BOX_ERROR_THRESHOLD })
+    )
+    self.assertAlmostEqual(
+        actual_bbox.origin_y,
+        expected_bbox.origin_y,
+        mediapipe_lua.kwargs({ delta = _BOUNDING_BOX_ERROR_THRESHOLD })
+    )
+    self.assertAlmostEqual(
+        actual_bbox.width,
+        expected_bbox.width,
+        mediapipe_lua.kwargs({ delta = _BOUNDING_BOX_ERROR_THRESHOLD })
+    )
+    self.assertAlmostEqual(
+        actual_bbox.height,
+        expected_bbox.height,
+        mediapipe_lua.kwargs({ delta = _BOUNDING_BOX_ERROR_THRESHOLD })
+    )
+end
+
 function _assert._expect_face_detector_results_correct(
     self, actual_results, expected_results
 )
     self.assertLen(actual_results.detections, #expected_results.detections)
-    for i = 1, #actual_results.detections do
+    for i = 0, #actual_results.detections - INDEX_BASE do
         local actual_bbox = actual_results.detections[i].bounding_box
         local expected_bbox = expected_results.detections[i].bounding_box
-        self.assertEqual(actual_bbox, expected_bbox)
+        self:_expect_bounding_box_correct(actual_bbox, expected_bbox)
         self.assertNotEmpty(actual_results.detections[i].keypoints)
         self:_expect_keypoints_correct(
             actual_results.detections[i].keypoints,
@@ -168,6 +204,25 @@ local function test_detect(self, model_file_type, expected_detection_result_file
     self:_expect_face_detector_results_correct(
         detection_result, expected_detection_result
     )
+end
+
+local function test_detect_succeeds_with_full_range_model(self)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.full_range_model_path }))
+    local options = _FaceDetectorOptions(mediapipe_lua.kwargs({
+        base_options = base_options,
+    }))
+    local detector = _FaceDetector.create_from_options(options)
+    -- Performs face detection on the input.
+    local detection_result = detector:detect(self.test_image)
+
+    -- Comparing results.
+    local expected_detection_result = _get_expected_face_detector_result(
+        _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION
+    )
+    self:_expect_face_detector_results_correct(
+        detection_result, expected_detection_result
+    )
+    detector:close()
 end
 
 local function test_detect_succeeds_with_rotated_image(self)
@@ -209,6 +264,27 @@ local function test_empty_detection_outputs(self)
     local detection_result = detector:detect(test_image)
 
     self.assertEmpty(detection_result.detections)
+end
+
+local function test_detect_for_video_succeeds_with_full_range_model(self)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.full_range_model_path }))
+    local options = _FaceDetectorOptions(mediapipe_lua.kwargs({
+        base_options = base_options,
+        running_mode = _RUNNING_MODE.VIDEO,
+    }))
+    local detector = _FaceDetector.create_from_options(options)
+    for timestamp = 0, 300 - 30, 30 do
+        -- Performs face detection on the input.
+        local detection_result = detector:detect_for_video(self.test_image, timestamp)
+        -- Comparing results.
+        local expected_detection_result = _get_expected_face_detector_result(
+            _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION
+        )
+        self:_expect_face_detector_results_correct(
+            detection_result, expected_detection_result
+        )
+    end
+    detector:close()
 end
 
 local function test_detect_for_video(
@@ -282,20 +358,27 @@ local function test_detect_async_calls(
     end
 
     local observed_timestamp_ms = -1
+    local test_image
+
+    local callback_event = test_utils.threading.Event()
 
     local function check_result(
         result,
-        unused_output_image, ---@diagnostic disable-line: unused-local
+        output_image,
         timestamp_ms
     )
         self:_expect_face_detector_results_correct(
             result, expected_detection_result
         )
+        self.assertEqual(output_image.width, test_image.width)
+        self.assertEqual(output_image.height, test_image.height)
 
         if timestamp_ms ~= mediapipe.Timestamp.DONE then
-            self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
+            self.assertLess(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _FaceDetectorOptions(mediapipe_lua.kwargs({
@@ -305,7 +388,7 @@ local function test_detect_async_calls(
     }))
 
     -- Load the test image.
-    local test_image = _Image.create_from_file(
+    test_image = _Image.create_from_file(
         test_utils.get_test_data_path(test_image_file_name)
     )
 
@@ -313,7 +396,6 @@ local function test_detect_async_calls(
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
@@ -322,6 +404,8 @@ local function test_detect_async_calls(
             rotation_degrees = rotation_degrees
         }))
         detector:detect_async(test_image, timestamp, image_processing_options)
+
+        callback_event:wait(300)
     end
 
     -- wait for detection end
@@ -354,12 +438,20 @@ describe("FaceDetectorTest", function()
         end)
     end
 
+    it("should test_detect_succeeds_with_full_range_model", function()
+        test_detect_succeeds_with_full_range_model(_assert)
+    end)
+
     it("should test_detect_succeeds_with_rotated_image", function()
         test_detect_succeeds_with_rotated_image(_assert)
     end)
 
     it("should test_empty_detection_outputs", function()
         test_empty_detection_outputs(_assert)
+    end)
+
+    it("should test_detect_for_video_succeeds_with_full_range_model", function()
+        test_detect_for_video_succeeds_with_full_range_model(_assert)
     end)
 
     for _, args in ipairs({

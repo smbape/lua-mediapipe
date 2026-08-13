@@ -353,11 +353,19 @@ const createRepository = (library, repositories, path, files, deps) => {
     return repository;
 };
 
-const normalizePaths = files => {
-    for (var i = 0; i < files.length; i++) {
-        files[i] = sysPath.normalize(files[i]).replaceAll("\\", "/");
+// Once generator expressions have been expanded,
+// some path may become invalid.
+// Therefore, remove them
+const isValidPath = path => !path.endsWith("/") && !path.endsWith(".rc");
+
+const normalizePaths = paths => {
+    for (let i = paths.length - 1; i >= 0; i--) {
+        paths[i] = sysPath.normalize(paths[i]).replaceAll("\\", "/");
+        if (!isValidPath(paths[i])) {
+            paths.splice(i, 1);
+        }
     }
-    return files;
+    return paths;
 };
 
 const createRepositories = (library, repositories, pkg, sourceDir) => {

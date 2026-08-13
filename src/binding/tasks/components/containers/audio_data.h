@@ -4,7 +4,7 @@
 #include "absl/status/statusor.h"
 #include <opencv2/core/mat.hpp>
 #include <optional>
-#include "binding/util.h"
+#include <lua_bridge_common.hpp>
 
 namespace mediapipe::tasks::lua::components::containers::audio_data {
 	struct CV_EXPORTS_W_SIMPLE AudioDataFormat {
@@ -20,8 +20,8 @@ namespace mediapipe::tasks::lua::components::containers::audio_data {
 		{}
 
 		bool operator== (const AudioDataFormat& other) const {
-			return ::mediapipe::lua::__eq__(num_channels, other.num_channels) &&
-				::mediapipe::lua::__eq__(sample_rate, other.sample_rate);
+			return ::LUA_MODULE_NAME::__eq__(num_channels, other.num_channels) &&
+				::LUA_MODULE_NAME::__eq__(sample_rate, other.sample_rate);
 		}
 
 		CV_PROP_RW int num_channels;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(mediapipe LANGUAGES C CXX ASM)
+project(mediapipe LANGUAGES C CXX)
 
 set(DEFAULT_BUILD_TYPE "Release")
 
@@ -51,10 +51,13 @@ endif()
 # ===============
 # Python
 # ===============
+# Python versions with available requirement_lock.txt files: 3.9, 3.10, 3.11, 3.12
 set(Python3_REQUESTED_VERSION "3.9...<3.13")
 include(cmake/UsePython3Venv.cmake)
 if (UNIX)
     pip_install(build auditwheel)
+elseif(WIN32)
+    pip_install(build delvewheel)
 endif()
 
 # ===============
@@ -89,10 +92,14 @@ if (WITH_LUA_ROCKS)
     unset(OpenCVLua_DIR CACHE)
 endif()
 
-find_package(OpenCVLua REQUIRED)
+find_package(OpenCVLua CONFIG REQUIRED)
 set(OpenCV_LIBS opencv_lua::opencv_lua)
 set(OpenCV_VERSION "${OpenCVLua_VERSION}")
 string(REPLACE "." "" OpenCV_DLLVERSION ${OpenCV_VERSION})
+
+if (NOT TARGET ${OpenCV_LIBS})
+    message(FATAL_ERROR "${OpenCV_LIBS} is not an existing target")
+endif()
 
 # ===============
 # CURL

@@ -56,9 +56,4 @@ module.exports = ({self, language}) => [
     ], "", ""],
 
     ["mediapipe.Timestamp.__tostring", "std::string", [`/Output="<mediapipe.Timestamp with value: " + mediapipe::${ language }::TimestampValueString(${ self }) + ">"`], [], "", ""],
-
-    // expose a Timestamp property like in mediapipe python
-    [`mediapipe.${ language }._framework_bindings.timestamp.`, "", ["/Properties"], [
-        ["mediapipe::Timestamp", "Timestamp", "", ["/R", "=this", "/S"]],
-    ], "", ""],
 ];

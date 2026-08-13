@@ -2,6 +2,7 @@
 
 # Update checks:
 #   - check changes in python
+#   - check changes https://github.com/google-ai-edge/mediapipe-samples/
 
 
 # ================================
@@ -57,21 +58,21 @@ source scripts/wsl_init.sh && \
 mkdir -p out/build/Linux-GCC-Release && \
 truncate -s 0 out/build/Linux-GCC-Release/test_all.sh
 " && \
-test_prepublished_binary_wsl --upgrade --bash \>\> \$sources/out/build/Linux-GCC-Release/test_all.sh' && \
+test_prepublished_binary_wsl --upgrade --bash \>\> \$sourceDir/out/build/Linux-GCC-Release/test_all.sh' && \
 bash -c 'source scripts/tasks.sh && wsl -c "source scripts/wsl_init.sh && chmod +x ./out/build/Linux-GCC-Release/test_all.sh && ./out/build/Linux-GCC-Release/test_all.sh"'
 
 # ================================
 # Docker images README.md samples check
 # ================================
-bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-20.04 ubuntu:20.04 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-22.04 ubuntu:22.04 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-24.04 ubuntu:24.04 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-ubuntu-26.04 ubuntu:26.04 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-11 debian:11 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-12 debian:12 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_debian test-binary-debian-13 debian:13 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-39 fedora:39 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-40 fedora:40 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-41 fedora:41 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-43 fedora:43 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-44 fedora:44 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-fedora-45 fedora:45 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-almalinux-8 amd64/almalinux:8 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-almalinux-9 amd64/almalinux:9 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_binary_fedora test-binary-almalinux-10 amd64/almalinux:10 -- test'
@@ -91,8 +92,8 @@ bash -c 'source scripts/tasks.sh && test_prepublished_source_wsl'
 # Docker images README.md install source rock
 # ================================
 bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-ubuntu-24.04 ubuntu:24.04 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-debian-13 debian:13 -- test'
-bash -c 'source scripts/tasks.sh && test_prepublished_source_fedora test-source-fedora-41 fedora:41 -- test'
+bash -c 'source scripts/tasks.sh && test_prepublished_source_debian test-source-debian-13 debian:13 -- test' # will fail. debian 11 & debian 12 have gcc < 14. debian 13 has python > 3.12
+bash -c 'source scripts/tasks.sh && test_prepublished_source_fedora test-source-fedora-44 fedora:44 -- test'
 bash -c 'source scripts/tasks.sh && test_prepublished_source_fedora test-source-almalinux-9 amd64/almalinux:9 -- test'
 
 

@@ -1,7 +1,12 @@
-.idea
+~$*
 .cache
+.idea
 .venv
 .vs
+generated
+/*.rock
+/*.rockspec
+/*.sublime-workspace
 /build.luarocks
 /node_modules
 /out
@@ -9,11 +14,3 @@
 /samples/testdata
 /scripts/configure_bazel.js
 /test/solutions/testdata/*
-/*.rock
-/*.rockspec
-/*.sublime-workspace
-generated
-~$*
-
-!/test/solutions/testdata/test_on_video_full_asl_hand.full.yml
-!/test/solutions/testdata/test_on_video_full_pose_squats.full.yml

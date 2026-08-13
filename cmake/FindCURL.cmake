@@ -9,27 +9,32 @@
 # ================================================================
 # Tell cmake that we will need zlib.
 # ================================================================
-set(ZLIB_VERSION 1.3.1)
-set(ZLIB_VERSION_SHA256 38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa73f883e32)
+set(ZLIB_VERSION 1.3.2)
+set(ZLIB_VERSION_SHA256 d7a0654783a4da529d1bb793b7ad9c3318020af77667bcae35f95d0e42a792f3)
 
 include(FetchContent)
 FetchContent_Populate(zlib
     URL           https://github.com/madler/zlib/releases/download/v${ZLIB_VERSION}/zlib-${ZLIB_VERSION}.tar.xz
     URL_HASH      SHA256=${ZLIB_VERSION_SHA256}
-    PATCH_COMMAND "${PATCH_EXECUTABLE}" -p1 -d "<SOURCE_DIR>" -i "${CMAKE_SOURCE_DIR}/patches/001-zlib-src.patch"
 )
+
+# Remove BUILD.bazel because we will generate a more suitable BUILD.bazel
+file(REMOVE "${zlib_SOURCE_DIR}/BUILD.bazel")
 
 set(SKIP_INSTALL_ALL ON)
 
 # Hack to ensure that zlib is built with BUILD_SHARED_LIBS OFF
 set(BUILD_SHARED_LIBS_BACKUP ${BUILD_SHARED_LIBS})
 set(BUILD_SHARED_LIBS OFF)
+set(ZLIB_BUILD_SHARED OFF)
 add_subdirectory("${zlib_SOURCE_DIR}" "${zlib_BINARY_DIR}")
 set_property(DIRECTORY "${zlib_SOURCE_DIR}" PROPERTY EXCLUDE_FROM_ALL TRUE)
 set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_BACKUP}) 
 
+unset(SKIP_INSTALL_ALL)
 
 add_library(ZLIB::ZLIB ALIAS zlibstatic)
+
 set(ZLIB_LIBRARY ZLIB::ZLIB)
 set(ZLIB_INCLUDE_DIR "${zlib_SOURCE_DIR}")
 # ================================================================
@@ -55,19 +60,21 @@ add_subdirectory("${zstd_SOURCE_DIR}/build/cmake" "${zstd_BINARY_DIR}")
 set_property(DIRECTORY "${zstd_SOURCE_DIR}/build/cmake" PROPERTY EXCLUDE_FROM_ALL TRUE)
 set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_BACKUP}) 
 
+add_library(ZSTD::ZSTD ALIAS libzstd_static)
+
 set(ZSTD_FOUND TRUE)
-set(ZSTD_LIBRARY libzstd)
+set(ZSTD_LIBRARY ZSTD::ZSTD)
 set(ZSTD_LIBRARIES ${ZSTD_LIBRARY})
-# libzstd is a cmake target, no need to ZSTD_INCLUDE_DIR
-# set(ZSTD_INCLUDE_DIR "${zstd_SOURCE_DIR}/lib")
+# libzstd is a cmake target, but we still need ZSTD_INCLUDE_DIR
+set(ZSTD_INCLUDE_DIR "${zstd_SOURCE_DIR}/lib")
 # ================================================================
 
 
 # ================================================================
 # Tell cmake that we will need brotli.
 # ================================================================
-set(BROTLI_VERSION 1.1.0)
-set(BROTLI_VERSION_SHA256 e720a6ca29428b803f4ad165371771f5398faba397edf6778837a18599ea13ff)
+set(BROTLI_VERSION 1.2.0)
+set(BROTLI_VERSION_SHA256 816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec)
 
 include(FetchContent)
 FetchContent_Populate(brotli
@@ -96,8 +103,8 @@ set(BROTLIDEC_FOUND TRUE)
 set(BROTLICOMMON_LIBRARY brotlicommon)
 set(BROTLIDEC_LIBRARY brotlidec)
 set(BROTLI_LIBRARIES ${BROTLIDEC_LIBRARY} ${BROTLICOMMON_LIBRARY})
-# brotlicommon is a cmake target, no need to BROTLI_INCLUDE_DIR
-# set(BROTLI_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
+# brotlicommon is a cmake target, but we still need BROTLI_INCLUDE_DIR
+set(BROTLI_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
 
 # For nghttp2
 set(LIBBROTLIENC_FOUND TRUE)
@@ -106,8 +113,8 @@ set(LIBBROTLIENC_FOUND TRUE)
 set(LIBBROTLIENC_LIBRARY brotlienc)
 set(LIBBROTLIENC_VERSION ${BROTLI_VERSION})
 set(LIBBROTLIENC_LIBRARIES ${LIBBROTLIENC_LIBRARY})
-# brotlienc is a cmake target, no need to LIBBROTLIENC_INCLUDE_DIR
-# set(LIBBROTLIENC_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
+# brotlienc is a cmake target, but we still need LIBBROTLIENC_INCLUDE_DIR
+set(LIBBROTLIENC_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
 
 set(LIBBROTLIDEC_FOUND TRUE)
 set(LIBBROTLIDEC_VERSION ${BROTLI_VERSION})
@@ -115,8 +122,8 @@ set(LIBBROTLIDEC_FOUND TRUE)
 set(LIBBROTLIDEC_LIBRARY brotlienc)
 set(LIBBROTLIDEC_VERSION ${BROTLI_VERSION})
 set(LIBBROTLIDEC_LIBRARIES ${LIBBROTLIDEC_LIBRARY})
-# brotlienc is a cmake target, no need to LIBBROTLIDEC_INCLUDE_DIR
-# set(LIBBROTLIDEC_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
+# brotlienc is a cmake target, but we still need LIBBROTLIDEC_INCLUDE_DIR
+set(LIBBROTLIDEC_INCLUDE_DIR "${brotli_SOURCE_DIR}/c/include")
 
 # ================================================================
 
@@ -124,8 +131,8 @@ set(LIBBROTLIDEC_LIBRARIES ${LIBBROTLIDEC_LIBRARY})
 # ================================================================
 # Tell cmake that we will need nghttp2.
 # ================================================================
-set(NGHTTP2_VERSION 1.65.0)
-set(NGHTTP2_VERSION_SHA256 f1b9df5f02e9942b31247e3d415483553bc4ac501c87aa39340b6d19c92a9331)
+set(NGHTTP2_VERSION 1.69.0)
+set(NGHTTP2_VERSION_SHA256 1fb324b6ec2c56f6bde0658f4139ffd8209fa9e77ce98fd7a5f63af8d0e508ad)
 
 include(FetchContent)
 FetchContent_Populate(nghttp2
@@ -142,22 +149,21 @@ add_subdirectory("${nghttp2_SOURCE_DIR}" "${nghttp2_BINARY_DIR}")
 set_property(DIRECTORY "${nghttp2_SOURCE_DIR}" PROPERTY EXCLUDE_FROM_ALL TRUE)
 set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_BACKUP}) 
 
-get_target_property(nghttp2_ALIASED_TARGET nghttp2::nghttp2 ALIASED_TARGET)
-unset(nghttp2_ALIASED_TARGET)
+add_library(nghttp2::nghttp2_static ALIAS nghttp2_static)
 
 set(NGHTTP2_FOUND TRUE)
-set(NGHTTP2_LIBRARY nghttp2::nghttp2)
+set(NGHTTP2_LIBRARY nghttp2::nghttp2_static)
 set(NGHTTP2_LIBRARIES ${NGHTTP2_LIBRARY})
-# nghttp2::nghttp2 is a cmake target, no need to NGHTTP2_INCLUDE_DIR
-# set(NGHTTP2_INCLUDE_DIR "${nghttp2_SOURCE_DIR}/lib/includes")
+# nghttp2::nghttp2 is a cmake target, but we still need NGHTTP2_INCLUDE_DIR
+set(NGHTTP2_INCLUDE_DIR "${nghttp2_SOURCE_DIR}/lib/includes")
 # ================================================================
 
 
 # ================================================================
 # Tell cmake that we will need curl.
 # ================================================================
-set(CURL_VERSION 8.12.1)
-set(CURL_VERSION_SHA256 0341f1ed97a26c811abaebd37d62b833956792b7607ea3f15d001613c76de202)
+set(CURL_VERSION 8.20.0)
+set(CURL_VERSION_SHA256 63fe2dc148ba0ceae89922ef838f7e5c946272c2e78b7c59fab4b79d3ce2b896)
 string(REPLACE "." "_" CURL_VERSION_UNDERSCORE ${CURL_VERSION})
 
 include(FetchContent)

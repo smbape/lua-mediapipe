@@ -37,7 +37,27 @@ const getOptions = output => {
         hasInheritanceSupport: true, // do not duplicate parent methods
 
         // used to lookup classes
-        namespaces: new Set([]),
+        namespaces: new Set([
+            "mediapipe::tasks::audio::audio_classifier",
+            "mediapipe::tasks::components::containers",
+            "mediapipe::tasks::components::processors",
+            "mediapipe::tasks::components::utils",
+            "mediapipe::tasks::core",
+            "mediapipe::tasks::text::language_detector",
+            "mediapipe::tasks::text::text_classifier",
+            "mediapipe::tasks::text::text_embedder",
+            "mediapipe::tasks::vision::core",
+            "mediapipe::tasks::vision::face_detector",
+            "mediapipe::tasks::vision::face_landmarker",
+            "mediapipe::tasks::vision::gesture_recognizer",
+            "mediapipe::tasks::vision::hand_landmarker",
+            "mediapipe::tasks::vision::holistic_landmarker",
+            "mediapipe::tasks::vision::image_classifier",
+            "mediapipe::tasks::vision::image_embedder",
+            "mediapipe::tasks::vision::image_segmenter",
+            "mediapipe::tasks::vision::interactive_segmenter",
+            "mediapipe::tasks::vision::pose_landmarker",
+        ]),
 
         other_namespaces: new Set(),
 
@@ -47,8 +67,6 @@ const getOptions = output => {
             "google::protobuf",
             "mediapipe",
             `mediapipe::${ language }`,
-            `mediapipe::${ language }::solution_base`,
-            `mediapipe::${ language }::solutions`,
             "std",
         ]),
 
@@ -57,10 +75,10 @@ const getOptions = output => {
             return name ? `self->${ name }` : "self";
         },
 
-        maxFilenameLength: os.platform() === "win32" ? 120 : 0,
+        maxFilenameLength: os.platform() === "win32" ? 100 : 0,
 
         meta_methods: new Map([
-            ["__eq__", "::mediapipe::lua::__eq__"],
+            ["__eq__", "::LUA_MODULE_NAME::__eq__"],
             ["__type__", null /* use default __type__ method */],
         ]),
 
@@ -78,6 +96,7 @@ const getOptions = output => {
         skip: new Set(),
 
         output: sysPath.join(output, "generated"),
+        generated: new Map(),
 
         onClass: (processor, coclass, opts) => {
             // Nothing to do
@@ -85,10 +104,6 @@ const getOptions = output => {
 
         onCoClass: (processor, coclass, opts) => {
             const {fqn} = coclass;
-
-            if (fqn === `mediapipe::${ language }::solutions::objectron::ObjectronOutputs`) {
-                processor.add_vector(`std::vector<${ fqn }>`, coclass, opts);
-            }
 
             // import mediapipe.python.solutions as solutions
             if (fqn.startsWith(`mediapipe::${ language }::`)) {
@@ -207,6 +222,81 @@ const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':", hdr_pars
 const options = getOptions(PROJECT_DIR);
 options.proto = LuaGenerator.proto;
 
+options.generated.set(sysPath.join(options.output, "bit_string.lua.inc"), true);
+
+options.beforeWriteFiles = (processor, files, opts, next) => {
+    const modulename = LuaGenerator.getModuleName(opts);
+
+    const loaders = LuaGenerator.getSortedFQNs(processor).map(fqn => {
+        const coclass = processor.classes.get(fqn);
+        const path = LuaGenerator.getColassProgId(coclass, opts);
+        const luaopen = `luaopen_${ modulename }_${ path.join("_") }`;
+
+        return `
+            LUAAPI(int) ${ luaopen }(lua_State* L) {
+                lua_getglobal(L, "require");
+                lua_pushliteral(L, "${ modulename }");
+                lua_call(L, 1, 1);  /* call 'require("${ modulename }")' */
+
+                ::LUA_MODULE_NAME::lua_rawget_create_if_nil(L, -1, { ${ path.map(name => JSON.stringify(name)).join(", ") } });
+                const auto ref = luaL_ref(L, LUA_REGISTRYINDEX);
+
+                lua_pop(L, 1); /* remove the result because we don't need it and to keep the stack consistent */
+
+                lua_rawgeti(L, LUA_REGISTRYINDEX, ref);
+                luaL_unref(L, LUA_REGISTRYINDEX, ref);
+
+                return 1;
+            }
+        `.replace(/^ {12}/mg, "").trim();
+    });
+
+    loaders.unshift((() => {
+        const luaopen = `luaopen_${ modulename }_mediapipe`;
+
+        return `
+            LUAAPI(int) ${ luaopen }(lua_State* L) {
+                lua_getglobal(L, "require");
+                lua_pushliteral(L, "${ modulename }");
+                lua_call(L, 1, 1);  /* call 'require("${ modulename }")' */
+
+                const auto moduleindex = lua_gettop(L);
+
+                lua_createtable(L, 0, 3);
+
+                lua_pushliteral(L, "tasks");
+                ::LUA_MODULE_NAME::lua_rawget_create_if_nil(L, moduleindex, { ${ "mediapipe.tasks.lua".split(".").map(name => JSON.stringify(name)).join(", ") } });
+                lua_rawset(L, -3);
+
+                lua_pushliteral(L, "Image");
+                ::LUA_MODULE_NAME::lua_rawget_create_if_nil(L, moduleindex, { ${ "mediapipe.tasks.lua.vision.core.image.Image".split(".").map(name => JSON.stringify(name)).join(", ") } });
+                lua_rawset(L, -3);
+
+                lua_pushliteral(L, "ImageFormat");
+                ::LUA_MODULE_NAME::lua_rawget_create_if_nil(L, moduleindex, { ${ "mediapipe.tasks.lua.vision.core.image.ImageFormat".split(".").map(name => JSON.stringify(name)).join(", ") } });
+                lua_rawset(L, -3);
+
+                const auto ref = luaL_ref(L, LUA_REGISTRYINDEX);
+
+                lua_pop(L, 1); /* remove the result because we don't need it and to keep the stack consistent */
+
+                lua_rawgeti(L, LUA_REGISTRYINDEX, ref);
+                luaL_unref(L, LUA_REGISTRYINDEX, ref);
+
+                return 1;
+            }
+        `.replace(/^ {12}/mg, "").trim();
+    })());
+
+    files.set(sysPath.join(options.output, "register_submodules.cpp"), `
+        #include <lua_bridge.hpp>
+
+        ${ loaders.join("\n\n").split("\n").join(`\n${ " ".repeat(8) }`) }
+    `.replace(/^ {8}/mg, "").trim());
+
+    next();
+};
+
 waterfall([
     next => {
         mkdirp(options.output).then(performed => {
@@ -217,7 +307,7 @@ waterfall([
     next => {
         const srcfiles = [];
         const protofiles = new Set();
-        const protomatcher = /#include "([^"]+)\.pb\.h"/g;
+        const protomatcher = /#include ["<]([^">]+)\.pb\.h[">]/g;
 
         explore(SRC_DIR, async (path, stats, next) => {
             const relpath = path.slice(SRC_DIR.length + 1);
@@ -240,7 +330,7 @@ waterfall([
 
             next();
         }, {followSymlink: true}, err => {
-            const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replace("\\", "/") }"`);
+            const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replaceAll("\\", "/") }"`);
             next(err, srcfiles, protofiles, generated_include);
         });
     },
@@ -270,6 +360,12 @@ waterfall([
             const abspath = opts.proto_path
                 .map(dirname => sysPath.join(dirname, filename))
                 .filter(candidate => fs.existsSync(candidate))[0];
+
+            if (abspath == null) {
+                next(new Error(`${ filename } not found`));
+                return;
+            }
+
             const parser = new Parser();
             parser.parseFile(fs.realpathSync(abspath), opts, outputs, cache);
         }

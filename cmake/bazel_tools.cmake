@@ -43,78 +43,146 @@ function(split_target_property output_prefix the_target property)
     set(${output_prefix}_INTERFACE ${values_INTERFACE} PARENT_SCOPE)
 endfunction()
 
-function(ImportLibrary_Populate the_target prefix)
-    if (NOT TARGET "${the_target}")
-        string(TOUPPER "${the_target}" the_target_prefix)
+function(ImportLibrary_Populate generated_targets_var)
+    set(options
+        LINKSHARED
+        LINKSTATIC
+        ALWAYSLINK
+    )
+    set(oneValueArgs
+        TARGET
+        IMPORTED_DEPS
+        TARGET_DEPS
+        SOURCES
+        DEPS
+        RULE
+    )
+    set(multiValueArgs)
+    cmake_parse_arguments(PARSE_ARGV 1 library
+        "${options}" "${oneValueArgs}" "${multiValueArgs}"
+    )
+
+    if (library_UNPARSED_ARGUMENTS)
+        string(REPLACE ";" ", " library_UNPARSED_ARGUMENTS "${library_UNPARSED_ARGUMENTS}")
+        message(FATAL_ERROR "Unknown arguments [${library_UNPARSED_ARGUMENTS}]")
+    endif()
+
+    foreach(keyword IN ITEMS OUTPUT_VARIABLE NAME PKGNAME)
+        if (NOT library_${keyword})
+            message(FATAL_ERROR "${keyword} argument is missing")
+        endif()
+    endforeach()
+
+    foreach(arg IN LISTS options)
+        if (library_${arg})
+            set(library_${arg} ${arg})
+        else()
+            unset(library_${arg})
+        endif()
+    endforeach()
+
+
+    if ((NOT TARGET "${library_TARGET}") AND (library_TARGET MATCHES "^[_a-zA-Z0-9]+$"))
+        string(TOUPPER "${library_TARGET}" library_TARGET_prefix)
         find_package(PkgConfig QUIET)
-        pkg_check_modules(${the_target_prefix} "lib${the_target}" IMPORTED_TARGET)
-        if(${the_target_prefix}_FOUND)
-            set(the_target "PkgConfig::${the_target_prefix}")
+        pkg_check_modules(${library_TARGET_prefix} "lib${library_TARGET}" IMPORTED_TARGET)
+        if(${library_TARGET_prefix}_FOUND)
+            set(library_TARGET "PkgConfig::${library_TARGET_prefix}")
         endif()
     endif()
 
-    if (NOT TARGET "${the_target}")
-        message(FATAL_ERROR "${the_target} is a non-existent target")
+    if (NOT TARGET "${library_TARGET}")
+        message(FATAL_ERROR "${library_TARGET} is not an existing target")
     endif()
 
-    get_target_property(library_ALIASED_TARGET ${the_target} ALIASED_TARGET)
+
+    if (library_TARGET IN_LIST ${generated_targets_var})
+        return()
+    endif()
+    list(APPEND ${generated_targets_var} ${library_TARGET})
+
+    get_target_property(library_ALIASED_TARGET ${library_TARGET} ALIASED_TARGET)
     if (library_ALIASED_TARGET)
-        set(the_target ${library_ALIASED_TARGET})
+        set(library_TARGET ${library_ALIASED_TARGET})
     endif()
 
-    get_target_property(__imported ${the_target} IMPORTED)
+    get_target_property(__imported ${library_TARGET} IMPORTED)
     if (NOT __imported)
-        message(FATAL_ERROR "link library ${the_target} is not an imported target")
+        message(FATAL_ERROR "link library ${library_TARGET} is not an imported target")
     endif()
 
     # Include directories
-    get_target_property(__interface_include_directories ${the_target} INTERFACE_INCLUDE_DIRECTORIES)
+    get_target_property(__interface_include_directories ${library_TARGET} INTERFACE_INCLUDE_DIRECTORIES)
     if (__interface_include_directories)
-        list(APPEND ${prefix}_INCLUDE_DIR ${__interface_include_directories})
-        list_cmake_convert(TO_CMAKE_PATH ${prefix}_INCLUDE_DIR)
-        list(REMOVE_DUPLICATES ${prefix}_INCLUDE_DIR)
-        set(${prefix}_INCLUDE_DIR "${${prefix}_INCLUDE_DIR}" PARENT_SCOPE)
+        list(APPEND ${library_IMPORTED_DEPS}_INCLUDE_DIR ${__interface_include_directories})
+        set(has_INCLUDE_DIR TRUE)
     endif()
 
     # Libraries
-    get_target_property(__interface_link_libraries ${the_target} INTERFACE_LINK_LIBRARIES)
+    get_target_property(__interface_link_libraries ${library_TARGET} INTERFACE_LINK_LIBRARIES)
     if (__interface_link_libraries)
         foreach(linked_library IN LISTS __interface_link_libraries)
-            if (TARGET "${linked_library}")
-                ImportLibrary_Populate(${linked_library} ${prefix})
-            else()
-                list(APPEND ${prefix}_LIBRARIES "${linked_library}")
-            endif()
+            _add_bazel_library(${generated_targets_var}
+                TARGET          ${linked_library}
+                IMPORTED_DEPS   ${library_IMPORTED_DEPS}
+                TARGET_DEPS     ${library_TARGET_DEPS}
+                SOURCES         ${library_SOURCES}
+                DEPS            ${library_DEPS}
+                RULE            ${library_RULE}
+                ${library_LINKSHARED}
+                ${library_LINKSTATIC}
+                ${library_ALWAYSLINK}
+            )
         endforeach()
+    endif()
+
+    # Compile options
+    get_target_property(__interface_compile_options ${library_TARGET} INTERFACE_COMPILE_OPTIONS)
+    if (__interface_compile_options)
+        list(APPEND ${library_IMPORTED_DEPS}_COMPILE_OPTIONS ${__interface_compile_options})
     endif()
 
     string(TOUPPER ${CMAKE_BUILD_TYPE} __imported_configuration)
 
-    get_target_property(__imported_configurations ${the_target} IMPORTED_CONFIGURATIONS)
+    get_target_property(__imported_configurations ${library_TARGET} IMPORTED_CONFIGURATIONS)
     if (__imported_configurations AND NOT __imported_configuration IN_LIST __imported_configurations)
         list(GET __imported_configurations 0 __imported_configuration)
     endif()
 
-    get_target_property(__imported_implib ${the_target} IMPORTED_IMPLIB_${__imported_configuration})
+    get_target_property(__imported_implib ${library_TARGET} IMPORTED_IMPLIB_${__imported_configuration})
     if (NOT __imported_implib)
-        get_target_property(__imported_implib ${the_target} IMPORTED_IMPLIB)
+        get_target_property(__imported_implib ${library_TARGET} IMPORTED_IMPLIB)
     endif()
     if (__imported_implib)
-        list(APPEND ${prefix}_LIBRARIES ${__imported_implib})
+        list(APPEND ${library_IMPORTED_DEPS}_LIBRARIES ${__imported_implib})
+        set(has_LIBRARIES TRUE)
     endif()
 
-    get_target_property(__imported_location ${the_target} IMPORTED_LOCATION_${__imported_configuration})
+    get_target_property(__imported_location ${library_TARGET} IMPORTED_LOCATION_${__imported_configuration})
     if (NOT __imported_location)
-        get_target_property(__imported_location ${the_target} IMPORTED_LOCATION)
+        get_target_property(__imported_location ${library_TARGET} IMPORTED_LOCATION)
     endif()
     if (__imported_location)
-        list(APPEND ${prefix}_LIBRARIES ${__imported_location})
+        list(APPEND ${library_IMPORTED_DEPS}_LIBRARIES ${__imported_location})
+        set(has_LIBRARIES TRUE)
     endif()
 
-    if (${prefix}_LIBRARIES)
-        list(REMOVE_DUPLICATES ${prefix}_LIBRARIES)
-        set(${prefix}_LIBRARIES "${${prefix}_LIBRARIES}" PARENT_SCOPE)
+    if (has_INCLUDE_DIR)
+        list_cmake_convert(TO_CMAKE_PATH ${library_IMPORTED_DEPS}_INCLUDE_DIR)
+        list(REMOVE_DUPLICATES ${library_IMPORTED_DEPS}_INCLUDE_DIR)
     endif()
+
+    if (has_LIBRARIES)
+        list(REMOVE_DUPLICATES ${library_IMPORTED_DEPS}_LIBRARIES)
+    endif()
+
+    set(${generated_targets_var} ${${generated_targets_var}} PARENT_SCOPE)
+
+    set(${library_IMPORTED_DEPS}_INCLUDE_DIR "${${library_IMPORTED_DEPS}_INCLUDE_DIR}" PARENT_SCOPE)
+    set(${library_IMPORTED_DEPS}_LIBRARIES "${${library_IMPORTED_DEPS}_LIBRARIES}" PARENT_SCOPE)
+    set(${library_TARGET_DEPS} "${${library_TARGET_DEPS}}" PARENT_SCOPE)
+    set(${library_SOURCES} "${${library_SOURCES}}" PARENT_SCOPE)
+    set(${library_DEPS} "${${library_DEPS}}" PARENT_SCOPE)
 endfunction()
 
 function(get_bazel_library)
@@ -249,8 +317,8 @@ function(get_bazel_library)
     if (library_SOURCES)
         # Some linux libraries (brotli, nghttp2) assumes -iquote .
         # However, bazel sandbox will not find related heades
-        # If they are not in the include directories.
-        # Therefores, manually add those headers to srcs attribute
+        # if they are not in the include directories.
+        # Therefore, manually add those headers to srcs attribute
         set(library_LOCAL_INCLUDES ${library_SOURCES})
         list_cmake_path(GET library_LOCAL_INCLUDES PARENT_PATH)
         list(REMOVE_DUPLICATES library_LOCAL_INCLUDES)
@@ -335,16 +403,22 @@ function(get_bazel_library)
     set(${library_OUTPUT_VARIABLE} "${library_OUPUT}" PARENT_SCOPE)
 endfunction()
 
-function(generate_bazel_library_imported)
-    set(options)
+function(generate_bazel_library_imported generated_targets_var)
+    set(options
+        LINKSHARED
+        LINKSTATIC
+        ALWAYSLINK
+    )
     set(oneValueArgs
         TARGET
         NAME
         PKGNAME
         OUTPUT_VARIABLE
+        RULE
+        LINKNAME
     )
     set(multiValueArgs)
-    cmake_parse_arguments(PARSE_ARGV 0 library
+    cmake_parse_arguments(PARSE_ARGV 1 library
         "${options}" "${oneValueArgs}" "${multiValueArgs}"
     )
 
@@ -359,24 +433,204 @@ function(generate_bazel_library_imported)
         endif()
     endforeach()
 
+    foreach(arg IN LISTS options)
+        if (library_${arg})
+            set(library_${arg} ${arg})
+        else()
+            unset(library_${arg})
+        endif()
+    endforeach()
+
     if (NOT TARGET "${library_TARGET}")
-        message(FATAL_ERROR "${library_TARGET} is a non-existent target")
+        message(FATAL_ERROR "${library_TARGET} is not an existing target")
     endif()
 
-    ImportLibrary_Populate(${library_TARGET} library)
+    if (library_TARGET IN_LIST ${generated_targets_var})
+        unset(${library_OUTPUT_VARIABLE} PARENT_SCOPE)
+        return()
+    endif()
 
-    get_bazel_library(
-        OUTPUT_VARIABLE ${library_OUTPUT_VARIABLE}
-        NAME            ${library_NAME}
-        PKGNAME         ${library_PKGNAME}
-        INCLUDES        ${library_INCLUDE_DIR}
-        SOURCES         ${library_LIBRARIES}
+    unset(_library_TARGET_DEPS)
+    unset(_library_SOURCES)
+    unset(_library_DEPS)
+
+    ImportLibrary_Populate(${generated_targets_var}
+        TARGET          ${library_TARGET}
+        IMPORTED_DEPS   library
+        TARGET_DEPS     _library_TARGET_DEPS
+        SOURCES         _library_SOURCES
+        DEPS            _library_DEPS
+        RULE            ${library_RULE}
+        ${library_LINKSHARED}
+        ${library_LINKSTATIC}
+        ${library_ALWAYSLINK}
     )
 
-    set(${library_OUTPUT_VARIABLE} "${${library_OUTPUT_VARIABLE}}" PARENT_SCOPE)
+    unset(_bazel_library)
+
+    get_bazel_library(
+        OUTPUT_VARIABLE _bazel_library
+        NAME            ${library_NAME}
+        PKGNAME         ${library_PKGNAME}
+        RULE            ${library_RULE}
+        LINKNAME        ${library_LINKNAME}
+        INCLUDES        ${library_INCLUDE_DIR}
+        SOURCES         ${_library_SOURCES} ${library_LIBRARIES}
+        COPTS           ${library_COMPILE_OPTIONS}
+        DEPS            ${_library_DEPS}
+        ${library_LINKSHARED}
+        ${library_LINKSTATIC}
+        ${library_ALWAYSLINK}
+    )
+
+    list(APPEND _library_TARGET_DEPS ${_bazel_library})
+
+    set(${library_OUTPUT_VARIABLE} ${_library_TARGET_DEPS} PARENT_SCOPE)
+    set(${generated_targets_var} ${${generated_targets_var}} PARENT_SCOPE)
 endfunction()
 
-function(_generate_bazel_library generated_list_var)
+function(_add_bazel_library generated_targets_var)
+    set(options
+        LINKSHARED
+        LINKSTATIC
+        ALWAYSLINK
+    )
+    set(oneValueArgs
+        TARGET
+        IMPORTED_DEPS
+        TARGET_DEPS
+        SOURCES
+        DEPS
+        RULE
+    )
+    set(multiValueArgs)
+    cmake_parse_arguments(PARSE_ARGV 1 library
+        "${options}" "${oneValueArgs}" "${multiValueArgs}"
+    )
+
+    if (library_UNPARSED_ARGUMENTS)
+        string(REPLACE ";" ", " library_UNPARSED_ARGUMENTS "${library_UNPARSED_ARGUMENTS}")
+        message(FATAL_ERROR "Unknown arguments [${library_UNPARSED_ARGUMENTS}]")
+    endif()
+
+    foreach(arg IN LISTS options)
+        if (library_${arg})
+            set(library_${arg} ${arg})
+        else()
+            unset(library_${arg})
+        endif()
+    endforeach()
+
+
+    # foreach is just an astuce to perform early return without creating other functions
+    foreach(item IN LISTS library_TARGET)
+        # TODO : avoid rechecking the same library
+
+        if (item MATCHES "(^-|\\${CMAKE_SHARED_LIBRARY_SUFFIX}$|\\${CMAKE_STATIC_LIBRARY_SUFFIX}$)")
+            list(APPEND library_LINKOPTS "${item}")
+            continue()
+        endif()
+
+        if (NOT TARGET "${item}")
+            unset(item_library)
+            find_library(item_library "${item}"
+                PATHS ${library_LINK_DIRECTORIES}
+                NO_CACHE
+            )
+
+            if (WIN32)
+                # Extension checking is case sensitive on bazel
+                cmake_path(GET item_library PARENT_PATH item_library_PARENT_PATH)
+                cmake_path(GET item_library FILENAME item_library_FILENAME)
+                string(TOLOWER "${item_library_FILENAME}" item_library_FILENAME)
+                set(item_library "${item_library_PARENT_PATH}/${item_library_FILENAME}")
+            endif()
+
+            if (item_library MATCHES "(\\${CMAKE_SHARED_LIBRARY_SUFFIX}|\\${CMAKE_STATIC_LIBRARY_SUFFIX})$")
+                list(APPEND ${library_IMPORTED_DEPS}_LIBRARIES "${item_library}")
+                continue()
+            endif()
+        endif()
+
+        if (item MATCHES "::")
+            string(REPLACE "::" ";" item_PARTS "${item}")
+            list(GET item_PARTS 0 item_NAME)
+            list(GET item_PARTS 1 item_PKGNAME)
+        else()
+            set(item_NAME "${item}")
+            set(item_PKGNAME "${item}")
+        endif()
+
+        if (DEFINED item_NEW_NAME_${item_NAME})
+            set(item_NAME "${item_NEW_NAME_${item_NAME}}")
+        endif()
+
+        if (DEFINED item_NEW_PKFNAME_${item_NAME}_${item_PKGNAME})
+            set(item_PKGNAME "${item_NEW_PKFNAME_${item_NAME}_${item_PKGNAME}}")
+        endif()
+
+        set(__imported TRUE)
+
+        if (TARGET "${item}")
+            get_target_property(__imported ${item} IMPORTED)
+        endif()
+
+        if (__imported)
+            ImportLibrary_Populate(${generated_targets_var}
+                TARGET          ${item}
+
+                IMPORTED_DEPS   ${library_IMPORTED_DEPS}
+                TARGET_DEPS     ${library_TARGET_DEPS}
+                SOURCES         ${library_SOURCES}
+                DEPS            ${library_DEPS}
+                RULE            ${library_RULE}
+                ${library_LINKSHARED}
+                ${library_LINKSTATIC}
+                ${library_ALWAYSLINK}
+            )
+        else()
+            unset(item_LINKNAME)
+            if (library_RULE STREQUAL "cc_object")
+                set(item_LINKNAME ${item_PKGNAME}_link)
+            endif()
+
+            unset(_bazel_library_item)
+            _generate_bazel_library(${generated_targets_var}
+                OUTPUT_VARIABLE _bazel_library_item
+                TARGET          ${item}
+                NAME            ${item_NAME}
+                PKGNAME         ${item_PKGNAME}
+                LINKNAME        ${item_LINKNAME}
+                RULE            ${library_RULE}
+                ${library_LINKSHARED}
+                ${library_LINKSTATIC}
+                ${library_ALWAYSLINK}
+            )
+
+            if (_bazel_library_item)
+                if (library_RULE STREQUAL "cc_object")
+                    list(APPEND ${library_SOURCES} "@${item_NAME}//:${item_PKGNAME}")
+                    list(APPEND ${library_DEPS} "@${item_NAME}//:${item_LINKNAME}")
+                else()
+                    list(APPEND ${library_DEPS} "@${item_NAME}//:${item_PKGNAME}")
+                endif()
+
+                list(APPEND ${library_TARGET_DEPS} ${_bazel_library_item})
+            endif()
+        endif()
+    endforeach()
+
+
+    set(${generated_targets_var} ${${generated_targets_var}} PARENT_SCOPE)
+
+    set(${library_IMPORTED_DEPS}_INCLUDE_DIR "${${library_IMPORTED_DEPS}_INCLUDE_DIR}" PARENT_SCOPE)
+    set(${library_IMPORTED_DEPS}_LIBRARIES "${${library_IMPORTED_DEPS}_LIBRARIES}" PARENT_SCOPE)
+    set(${library_TARGET_DEPS} "${${library_TARGET_DEPS}}" PARENT_SCOPE)
+    set(${library_SOURCES} "${${library_SOURCES}}" PARENT_SCOPE)
+    set(${library_DEPS} "${${library_DEPS}}" PARENT_SCOPE)
+endfunction()
+
+function(_generate_bazel_library generated_targets_var)
     set(options
         LINKSHARED
         LINKSTATIC
@@ -418,7 +672,7 @@ function(_generate_bazel_library generated_list_var)
     endforeach()
 
     if (NOT TARGET "${library_TARGET}")
-        message(FATAL_ERROR "${library_TARGET} is a non-existent target")
+        message(FATAL_ERROR "${library_TARGET} is not an existing target")
     endif()
 
     foreach(item IN LISTS library_NAME_OVERRIDES)
@@ -441,23 +695,31 @@ function(_generate_bazel_library generated_list_var)
         set(library_TARGET ${library_ALIASED_TARGET})
     endif()
 
-    if (library_TARGET IN_LIST ${generated_list_var})
-        unset(${library_OUTPUT_VARIABLE} PARENT_SCOPE)
-        return()
-    endif()
-    list(APPEND ${generated_list_var} ${library_TARGET})
-
     get_target_property(__imported ${library_TARGET} IMPORTED)
     if (__imported)
-        generate_bazel_library_imported(
-            OUTPUT_VARIABLE ${library_OUTPUT_VARIABLE}
+        unset(_bazel_library)
+        generate_bazel_library_imported(${generated_targets_var}
+            OUTPUT_VARIABLE _bazel_library
             TARGET          ${library_TARGET}
             NAME            ${library_NAME}
             PKGNAME         ${library_PKGNAME}
+
+            RULE            ${library_RULE}
+            LINKNAME        ${library_LINKNAME}
+            ${library_LINKSHARED}
+            ${library_LINKSTATIC}
+            ${library_ALWAYSLINK}
         )
-        set(${library_OUTPUT_VARIABLE} "${${library_OUTPUT_VARIABLE}}" PARENT_SCOPE)
+
+        set(${library_OUTPUT_VARIABLE} ${_bazel_library} PARENT_SCOPE)
         return()
     endif()
+
+    if (library_TARGET IN_LIST ${generated_targets_var})
+        unset(${library_OUTPUT_VARIABLE} PARENT_SCOPE)
+        return()
+    endif()
+    list(APPEND ${generated_targets_var} ${library_TARGET})
 
     # SOURCES
     get_target_property(library_SOURCE_DIR ${library_TARGET} SOURCE_DIR)
@@ -465,15 +727,12 @@ function(_generate_bazel_library generated_list_var)
         unset(library_SOURCE_DIR)
     endif()
 
-    get_target_property(library_SOURCES ${library_TARGET} SOURCES)
-    if (NOT library_SOURCES)
-        unset(library_SOURCES)
+    get_target_property(_library_SOURCES ${library_TARGET} SOURCES)
+    if (NOT _library_SOURCES)
+        unset(_library_SOURCES)
     else()
-        list_cmake_path(ABSOLUTE_PATH library_SOURCES BASE_DIRECTORY "${library_SOURCE_DIR}" NORMALIZE OUTPUT_VARIABLE)
+        list_cmake_path(ABSOLUTE_PATH _library_SOURCES BASE_DIRECTORY "${library_SOURCE_DIR}" NORMALIZE OUTPUT_VARIABLE)
     endif()
-
-    unset(library_LINKOPTS)
-    unset(library_DEPS)
 
     get_target_property(library_TYPE ${library_TARGET} TYPE)
 
@@ -525,15 +784,17 @@ function(_generate_bazel_library generated_list_var)
             list(APPEND library_LOCAL_DEFINES ${library_DIRECTORY_DEFINES})
         endif()
 
-        get_property(library_DIRECTORY_COPTS DIRECTORY "${library_SOURCE_DIR}" PROPERTY COMPILE_OPTIONS)
-        if (library_DIRECTORY_COPTS)
-            list(APPEND library_COPTS ${library_DIRECTORY_COPTS})
-        endif()
+        # This property is initialized by the COMPILE_OPTIONS directory property when a target is created
+        # get_property(library_DIRECTORY_COPTS DIRECTORY "${library_SOURCE_DIR}" PROPERTY COMPILE_OPTIONS)
+        # if (library_DIRECTORY_COPTS)
+        #     list(APPEND library_COPTS ${library_DIRECTORY_COPTS})
+        # endif()
 
-        get_property(library_DIRECTORY_LINKOPTS DIRECTORY "${library_SOURCE_DIR}" PROPERTY LINK_OPTIONS)
-        if (library_DIRECTORY_LINKOPTS)
-            list(APPEND library_LINKOPTS ${library_DIRECTORY_LINKOPTS})
-        endif()
+        # This property is initialized by the LINK_OPTIONS directory property when a target is created
+        # get_property(library_DIRECTORY_LINKOPTS DIRECTORY "${library_SOURCE_DIR}" PROPERTY LINK_OPTIONS)
+        # if (library_DIRECTORY_LINKOPTS)
+        #     list(APPEND library_LINKOPTS ${library_DIRECTORY_LINKOPTS})
+        # endif()
     endif()
 
     unset(library_LINK_DIRECTORIES)
@@ -555,160 +816,83 @@ function(_generate_bazel_library generated_list_var)
 
     # Traverse dependencies
     if (library_TYPE STREQUAL "INTERFACE_LIBRARY")
-        set(prop_PREFIX "INTERFACE_")
+        get_target_property(library_LINK_LIBRARIES ${library_TARGET} INTERFACE_LINK_LIBRARIES)
     else()
-        unset(prop_PREFIX)
+        get_target_property(library_LINK_LIBRARIES ${library_TARGET} LINK_LIBRARIES)
     endif()
-    get_target_property(library_LINK_LIBRARIES ${library_TARGET} ${prop_PREFIX}LINK_LIBRARIES)
     if (NOT library_LINK_LIBRARIES)
         unset(library_LINK_LIBRARIES)
     endif()
 
-    unset(bazel_library__item_deps)
-    unset(bazel_library_deps)
-    unset(${library_TARGET}_deps_INCLUDE_DIR)
-    unset(${library_TARGET}_deps_LIBRARIES)
+    unset(_library_TARGET_DEPS)
+    unset(_library_DEPS)
 
-    foreach(item IN LISTS library_LINK_LIBRARIES)
-        # TODO : avoid rechecking the samme library
-        if (item MATCHES "(^-|\\${CMAKE_SHARED_LIBRARY_SUFFIX}$|\\${CMAKE_STATIC_LIBRARY_SUFFIX}$)")
-            list(APPEND library_LINKOPTS "${item}")
-            continue()
-        endif()
-
-        if (NOT TARGET "${item}")
-            unset(item_library)
-            find_library(item_library "${item}"
-                PATHS ${library_LINK_DIRECTORIES}
-                NO_CACHE
-            )
-
-            if (WIN32)
-                # Extension checking is case sensitive on bazel
-                cmake_path(GET item_library PARENT_PATH item_library_PARENT_PATH)
-                cmake_path(GET item_library FILENAME item_library_FILENAME)
-                string(TOLOWER "${item_library_FILENAME}" item_library_FILENAME)
-                set(item_library "${item_library_PARENT_PATH}/${item_library_FILENAME}")
-            endif()
-
-            if (item_library MATCHES "(\\${CMAKE_SHARED_LIBRARY_SUFFIX}|\\${CMAKE_STATIC_LIBRARY_SUFFIX})$")
-                set(bazel_library_deps TRUE)
-                list(APPEND ${library_TARGET}_deps_LIBRARIES "${item_library}")
-                continue()
-            endif()
-        endif()
-
-        if (item MATCHES "::")
-            string(REPLACE "::" ";" item_PARTS "${item}")
-            list(GET item_PARTS 0 item_NAME)
-            list(GET item_PARTS 1 item_PKGNAME)
-        else()
-            set(item_NAME "${item}")
-            set(item_PKGNAME "${item}")
-        endif()
-
-        if (DEFINED item_NEW_NAME_${item_NAME})
-            set(item_NAME "${item_NEW_NAME_${item_NAME}}")
-        endif()
-
-        if (DEFINED item_NEW_PKFNAME_${item_NAME}_${item_PKGNAME})
-            set(item_PKGNAME "${item_NEW_PKFNAME_${item_NAME}_${item_PKGNAME}}")
-        endif()
-
-        set(__imported TRUE)
-
-        if (TARGET "${item}")
-            get_target_property(__imported ${item} IMPORTED)
-        endif()
-
-        if (__imported)
-            ImportLibrary_Populate(${item} ${library_TARGET}_deps)
-            set(bazel_library_deps TRUE)
-        else()
-            unset(item_LINKNAME)
-            if (library_RULE STREQUAL "cc_object")
-                set(item_LINKNAME ${item_PKGNAME}_link)
-            endif()
-
-            _generate_bazel_library(${generated_list_var}
-                OUTPUT_VARIABLE bazel_library_item
-                TARGET          ${item}
-                NAME            ${item_NAME}
-                PKGNAME         ${item_PKGNAME}
-                RULE            ${library_RULE}
-                LINKNAME        ${item_LINKNAME}
-                ${library_LINKSHARED}
-                ${library_LINKSTATIC}
-                ${library_ALWAYSLINK}
-            )
-
-            if (bazel_library_item)
-                if (library_RULE STREQUAL "cc_object")
-                    list(APPEND library_SOURCES "@${item_NAME}//:${item_PKGNAME}")
-                    list(APPEND library_DEPS "@${item_NAME}//:${item_PKGNAME}_link")
-                else()
-                    list(APPEND library_DEPS "@${item_NAME}//:${item_PKGNAME}")
-                endif()
-
-                list(APPEND bazel_library__item_deps "${bazel_library_item}")
-            endif()
-        endif()
+    foreach(linked_library IN LISTS library_LINK_LIBRARIES)
+        _add_bazel_library(${generated_targets_var}
+            TARGET          ${linked_library}
+            IMPORTED_DEPS   ${library_TARGET}_deps
+            TARGET_DEPS     _library_TARGET_DEPS
+            SOURCES         _library_SOURCES
+            DEPS            _library_DEPS
+            RULE            ${library_RULE}
+            ${library_LINKSHARED}
+            ${library_LINKSTATIC}
+            ${library_ALWAYSLINK}
+        )
     endforeach()
 
-    if (bazel_library_deps)
+    if (${library_TARGET}_deps_INCLUDE_DIR OR ${library_TARGET}_deps_LIBRARIES OR ${library_TARGET}_deps_COMPILE_OPTIONS)
+        unset(_bazel_library_deps)
         get_bazel_library(
-            OUTPUT_VARIABLE bazel_library_deps
+            OUTPUT_VARIABLE _bazel_library_deps
             NAME            ${library_PKGNAME}_${library_TARGET}_deps
             PKGNAME         deps
             INCLUDES        ${${library_TARGET}_deps_INCLUDE_DIR}
             SOURCES         ${${library_TARGET}_deps_LIBRARIES}
+            COPTS           ${${library_TARGET}_deps_COMPILE_OPTIONS}
         )
 
-        list(APPEND library_DEPS "@${library_PKGNAME}_${library_TARGET}_deps//:deps")
-        list(APPEND bazel_library__item_deps "${bazel_library_deps}")
+        list(APPEND _library_DEPS "@${library_PKGNAME}_${library_TARGET}_deps//:deps")
+        list(APPEND _library_TARGET_DEPS ${_bazel_library_deps})
     endif()
 
-    if (bazel_library__item_deps)
-        string(REPLACE ";" ", " bazel_library_deps "${bazel_library__item_deps}")
-    endif()
-
+    unset(_bazel_library)
     get_bazel_library(
-        OUTPUT_VARIABLE bazel_library
+        OUTPUT_VARIABLE _bazel_library
         NAME            ${library_NAME}
         PKGNAME         ${library_PKGNAME}
         RULE            ${library_RULE}
         LINKNAME        ${library_LINKNAME}
         INCLUDES        ${library_INCLUDES}
         LOCAL_INCLUDES  ${library_LOCAL_INCLUDES}
-        SOURCES         ${library_SOURCES}
+        SOURCES         ${_library_SOURCES}
         COPTS           ${library_COPTS}
         LINKOPTS        ${library_LINKOPTS}
         DEFINES         ${library_DEFINES}
         LOCAL_DEFINES   ${library_LOCAL_DEFINES}
-        DEPS            ${library_DEPS}
+        DEPS            ${_library_DEPS}
         ${library_LINKSHARED}
         ${library_LINKSTATIC}
         ${library_ALWAYSLINK}
     )
 
-    if (bazel_library_deps)
-        set(bazel_library "${bazel_library}, ${bazel_library_deps}")
-    endif()
+    list(APPEND _library_TARGET_DEPS ${_bazel_library})
 
-    set(${library_OUTPUT_VARIABLE} "${bazel_library}" PARENT_SCOPE)
-    set(${generated_list_var} ${${generated_list_var}} PARENT_SCOPE)
+    set(${library_OUTPUT_VARIABLE} ${_library_TARGET_DEPS} PARENT_SCOPE)
+    set(${generated_targets_var} ${${generated_targets_var}} PARENT_SCOPE)
 endfunction()
 
 function(generate_bazel_library)
     set(options)
     set(oneValueArgs
+        TARGET
         OUTPUT_VARIABLE
     )
     set(multiValueArgs)
     cmake_parse_arguments(PARSE_ARGV 0 library
         "${options}" "${oneValueArgs}" "${multiValueArgs}"
     )
-    unset(generated_list)
-    _generate_bazel_library(generated_list ${ARGV})
-    set(${library_OUTPUT_VARIABLE} "${${library_OUTPUT_VARIABLE}}" PARENT_SCOPE)
+    unset(_seen_targets)
+    _generate_bazel_library(_seen_targets ${ARGV})
+    set(${library_OUTPUT_VARIABLE} ${${library_OUTPUT_VARIABLE}} PARENT_SCOPE)
 endfunction()

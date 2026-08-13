@@ -1,6 +1,6 @@
 # Mediapipe bindings for lua
 
-Mediapipe bindings for luajit and lua 5.1/5.2/5.3/5.4.
+Mediapipe bindings for luajit and lua 5.1/5.2/5.3/5.4/5.5.
 
 The aim is to make it as easy to use as [mediapipe-python](https://pypi.org/project/mediapipe/).
 
@@ -24,7 +24,6 @@ Therefore the [Mediapipe documentation](https://github.com/google-ai-edge/mediap
 - [Examples](#examples)
   - [Face Detection with MediaPipe Tasks](#face-detection-with-mediapipe-tasks)
   - [Face Landmarks Detection with MediaPipe Tasks](#face-landmarks-detection-with-mediapipe-tasks)
-  - [Face Stylizer](#face-stylizer)
   - [Gesture Recognizer with MediaPipe Tasks](#gesture-recognizer-with-mediapipe-tasks)
   - [Hand Landmarks Detection with MediaPipe Tasks](#hand-landmarks-detection-with-mediapipe-tasks)
   - [Image Classifier with MediaPipe Tasks](#image-classifier-with-mediapipe-tasks)
@@ -55,7 +54,7 @@ Therefore the [Mediapipe documentation](https://github.com/google-ai-edge/mediap
 
 ## Installation
 
-Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5.1/5.2/5.3/5.4](https://www.lua.org/versions.html), and only on Windows and Linux.
+Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5.1/5.2/5.3/5.4/5.5](https://www.lua.org/versions.html), and only on Windows and Linux.
 
 ### Prerequisites to source rock install
 
@@ -64,10 +63,10 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
   - Install [Git](https://git-scm.com/)
   - Install [LuaRocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Windows)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Python 3.9...<3.13](https://www.python.org/downloads/)
   - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
-  - Install [Python](https://www.python.org/downloads/)
-  - Install [Visual Studio 2022 >= 17.13.0 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
-  - In your windows search, search and open the `x64 Native Tools Command Prompt for VS 2022`
+  - Install [Visual Studio 2026 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
+  - In your windows search, search and open the `x64 Native Tools Command Prompt for VS`
 
 #### Linux
 
@@ -75,7 +74,9 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
   - Install [LuaRocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix)
   - Install [Ninja](https://ninja-build.org/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Python 3.9...<3.13](https://www.python.org/downloads/)
   - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
+  - Install [gcc >= 14](https://gcc.gnu.org/) or [Clang >= 18](https://clang.llvm.org/)
   - Install needed packages (see below for you corresponding distribution).
   - Tell luarocks to use [Ninja](https://ninja-build.org/) as cmake generator `luarocks config --scope project cmake_generator Ninja`
 
@@ -83,52 +84,56 @@ Prebuilt binaries are available for [LuaJIT 2.1](https://luajit.org/) and [Lua 5
 
 ```sh
 sudo apt install -y build-essential curl git libavcodec-dev libavformat-dev libdc1394-dev \
-        libjpeg-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev libssl-dev \
-        patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip
+    liblapacke-dev libjpeg-dev libopenblas-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev \
+    patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip
 sudo apt install -y libtbbmalloc2 || apt install -y libtbb2
 ```
 
 ##### Fedora
 
 ```sh
-sudo dnf install -y curl gcc gcc-c++ git \
-        libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
-        libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel \
-        patchelf pkg-config python3-pip qt5-qtbase-devel unzip wget zip
+sudo dnf install -y curl dejavu-sans-fonts gcc gcc-c++ git \
+    lapack-devel libjpeg-devel libpng-devel make openblas-devel patch patchelf pkg-config \
+    python3-pip qt5-qtbase-devel readline-devel tbb-devel unzip wget zip \
+    libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel
 ```
 
 ##### Almalinux 8
 
 ```sh
-sudo dnf install -y curl gcc-toolset-12-gcc gcc-toolset-12-gcc-c++ git \
-        libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
-        pkg-config python3.12-pip qt5-qtbase-devel unzip wget zip && \
+sudo dnf install -y curl dejavu-sans-fonts git \
+    libjpeg-devel libpng-devel make patch pkg-config \
+    qt5-qtbase-devel readline-devel tbb-devel unzip wget zip \
+    openssl-devel && \
 sudo config-manager --set-enabled powertools && \
-sudo dnf install -y epel-release && \
+sudo dnf install -y almalinux-release-devel epel-release && \
 sudo dnf install -y https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm
 sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm && \
 sudo dnf update -y && \
-sudo dnf install -y ffmpeg-devel patchelf && \
+sudo dnf install -y ffmpeg-devel gcc-toolset-12-gcc gcc-toolset-12-gcc-c++ lapack-devel libdc1394-devel openblas-devel patchelf python3.12-pip && \
 source /opt/rh/gcc-toolset-12/enable
 ```
 
 ##### Almalinux 9, 10
 
 ```sh
-sudo dnf install -y curl gcc gcc-c++ git \
-        libjpeg-devel libpng-devel readline-devel make patch tbb-devel openssl-devel \
-        pkg-config python3-pip qt5-qtbase-devel unzip wget zip && \
+sudo dnf install -y curl dejavu-sans-fonts gcc gcc-c++ git \
+    libjpeg-devel libpng-devel make patch pkg-config \
+    python3-pip qt5-qtbase-devel readline-devel tbb-devel unzip wget zip \
+    openssl-devel && \
 sudo config-manager --set-enabled crb && \
-sudo dnf install -y epel-release && \
+sudo dnf install -y almalinux-release-devel epel-release && \
 sudo dnf install -y https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-9.noarch.rpm
 sudo dnf install -y https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-9.noarch.rpm && \
 sudo dnf update -y && \
-sudo dnf install -y libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel patchelf
+sudo dnf install -y lapack-devel libavcodec-free-devel libavformat-free-devel libdc1394-devel libswscale-free-devel openblas-devel patchelf
 ```
 
 ### How to install
 
-I recommend you to try installing the prebuilt binary, if you are not using luajit, with
+I recommend you to try to install the prebuilt binary.
+
+If you are not using luajit
 
 ```sh
 luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
@@ -137,24 +142,25 @@ luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/d
 Or to specify the target lua version with one of the following commands
 
 ```sh
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.4
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.3
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.2
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26lua5.1
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35luajit2.1
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35lua5.5
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35lua5.4
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35lua5.3
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35lua5.2
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35lua5.1
 ```
 
 Those prebuilt binaries should work on Windows and many linux distributions and have been tested on:
   - Windows 11
-  - Ubuntu 20.04
   - Ubuntu 22.04
   - Ubuntu 24.04
+  - Ubuntu 26.04
   - Debian 11
   - Debian 12
   - Debian 13
-  - Fedora 39
-  - Fedora 40
-  - Fedora 41
+  - Fedora 43
+  - Fedora 44
+  - Fedora 45
   - Almalinux 8
   - Almalinux 9
   - Almalinux 10
@@ -162,26 +168,11 @@ Those prebuilt binaries should work on Windows and many linux distributions and 
 If none of the above works for you, then install the source rock with
 
 ```sh
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 opencv_lua 4.12.0
-luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 opencv_lua 4.13.0
+luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35
 ```
 
 ## Examples
-
-On Windows, the lua_modules modules should be added to the PATH environment variable, as shown with `luarocks path`
-
-```cmd
-set "PATH=%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;%PATH%"
-```
-
-`LUA_MODULES` is a variable pointing to your lua_modules folder.
-
-For example, in your lua project, initialized with `luarocks init`, modify the file `lua.bat` and after the line with `set "LUAROCKS_SYSCONFDIR=`, add
-
-```cmd
-set LUA_MODULES=%~dp0lua_modules
-set "PATH=%LUA_MODULES%\lib\5.4;%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;%PATH%"
-```
 
 <!-- EXAMPLES_START generated examples please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN node scripts/update-readme.js TO UPDATE -->
@@ -191,14 +182,13 @@ set "PATH=%LUA_MODULES%\lib\5.4;%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;%PATH%"
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_detector/python/face_detector.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_detector/python/face_detector.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_detector/python/face_detector.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_detector/python/face_detector.ipynb
 
 Title: Face Detection with MediaPipe Tasks
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -239,7 +229,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -303,19 +293,19 @@ Args:
 Returns:
     Image with bounding boxes.
 --]]
-local function visualize(image, detection_result, scale)
+local function visualize(rgb_image, detection_result, scale)
     local MARGIN = math.floor(10 * scale) -- pixels
     local ROW_SIZE = 10                   -- pixels
     local FONT_SIZE = scale
     local FONT_THICKNESS = math.floor(2 * scale)
-    local TEXT_COLOR = { 255, 0, 0 }      -- red
+    local TEXT_COLOR = { 0, 0, 255 }      -- red
 
-    local annotated_image = image:copy()
-    local height, width, _ = unpack(image.shape)
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
+    local height, width, _ = unpack(rgb_image.shape)
 
     local color, thickness, radius = { 0, 255, 0 }, math.floor(2 * scale), math.floor(2 * scale)
 
-    for _, detection in ipairs(detection_result.detections) do
+    for _, detection in detection_result.detections:__ipairs() do
         -- Draw bounding_box
         local bbox = detection.bounding_box
         local start_point = { bbox.origin_x, bbox.origin_y }
@@ -323,14 +313,14 @@ local function visualize(image, detection_result, scale)
         cv2.rectangle(annotated_image, start_point, end_point, TEXT_COLOR, 3)
 
         -- Draw keypoints
-        for _, keypoint in ipairs(detection.keypoints) do
+        for _, keypoint in detection.keypoints:__ipairs() do
             local keypoint_px = _normalized_to_pixel_coordinates(keypoint.x, keypoint.y,
                 width, height)
             cv2.circle(annotated_image, keypoint_px, thickness, color, radius)
         end
 
         -- Draw label and score
-        local category = detection.categories[0 + INDEX_BASE]
+        local category = detection.categories[0]
         local category_name = category.category_name
         category_name = (function()
             if category_name == nil then return '' end
@@ -352,7 +342,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an FaceDetector object.
+-- STEP 2: Create a FaceDetector object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.FaceDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
 local detector = vision.FaceDetector.create_from_options(options)
@@ -361,16 +351,14 @@ local detector = vision.FaceDetector.create_from_options(options)
 local image = mp.Image.create_from_file(IMAGE_FILE)
 
 -- Compute the scale to make drawn elements visible when the image is resized for display
-local scale = 1 / resize_and_show(image, nil, false)
+local scale = 1 / resize_and_show(image:mat_view(), nil, false)
 
 -- STEP 4: Detect faces in the input image.
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the detection result. In this case, visualize it.
-local image_copy = image:mat_view()
-local annotated_image = visualize(image_copy, detection_result, scale)
-local bgr_annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR)
-resize_and_show(bgr_annotated_image, "face_detector")
+local annotated_image = visualize(image:mat_view(), detection_result, scale)
+resize_and_show(annotated_image, "face_detector")
 cv2.waitKey()
 
 ```
@@ -380,8 +368,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Face_Landmarker.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Face_Landmarker.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Face_Landmarker.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/face_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Face_Landmarker.ipynb
 
 Title: Face Landmarks Detection with MediaPipe Tasks
 --]]
@@ -424,7 +412,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -454,51 +442,49 @@ download_test_files({
     },
 })
 
-local solutions = mediapipe.solutions
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local vision = mediapipe.tasks.lua.vision
+local drawing_utils = mediapipe.tasks.lua.vision.drawing_utils
+local drawing_styles = mediapipe.tasks.lua.vision.drawing_styles
 
 local function draw_landmarks_on_image(rgb_image, detection_result)
     -- Compute the scale to make drawn elements visible when the image is resized for display
     local scale = 1 / resize_and_show(rgb_image, nil, false)
 
     local face_landmarks_list = detection_result.face_landmarks
-    local annotated_image = rgb_image:copy()
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
 
     -- Loop through the detected faces to visualize.
-    for idx = 1, #face_landmarks_list do
-        local face_landmarks = face_landmarks_list[idx]
-
+    for _, face_landmarks in ipairs(face_landmarks_list) do
         -- Draw the face landmarks.
-        local face_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
-        for _, landmark in ipairs(face_landmarks) do
-            face_landmarks_proto.landmark:append(
-                landmark_pb2.NormalizedLandmark(mediapipe_lua.kwargs({ x = landmark.x, y = landmark.y, z = landmark.z }))
-            )
-        end
 
-        solutions.drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
+
+        drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
             image = annotated_image,
-            landmark_list = face_landmarks_proto,
-            connections = solutions.face_mesh.FACEMESH_TESSELATION,
+            landmark_list = face_landmarks,
+            connections = vision.FaceLandmarksConnections.FACE_LANDMARKS_TESSELATION,
             landmark_drawing_spec = {},
-            connection_drawing_spec = solutions.drawing_styles
-                    .get_default_face_mesh_tesselation_style(scale)
+            connection_drawing_spec = drawing_styles.get_default_face_mesh_tesselation_style(scale)
         }))
-        solutions.drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
+        drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
             image = annotated_image,
-            landmark_list = face_landmarks_proto,
-            connections = solutions.face_mesh.FACEMESH_CONTOURS,
+            landmark_list = face_landmarks,
+            connections = vision.FaceLandmarksConnections.FACE_LANDMARKS_CONTOURS,
             landmark_drawing_spec = {},
-            connection_drawing_spec = solutions.drawing_styles
-                    .get_default_face_mesh_contours_style(mediapipe_lua.kwargs({ style = 1, scale = scale }))
+            connection_drawing_spec = drawing_styles.get_default_face_mesh_contours_style(mediapipe_lua.kwargs({ style = 1, scale = scale }))
         }))
-        solutions.drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
+        drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
             image = annotated_image,
-            landmark_list = face_landmarks_proto,
-            connections = solutions.face_mesh.FACEMESH_IRISES,
+            landmark_list = face_landmarks,
+            connections = vision.FaceLandmarksConnections.FACE_LANDMARKS_LEFT_IRIS,
             landmark_drawing_spec = {},
-            connection_drawing_spec = solutions.drawing_styles
-                    .get_default_face_mesh_iris_connections_style(scale)
+            connection_drawing_spec = drawing_styles.get_default_face_mesh_iris_connections_style(scale)
+        }))
+        drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
+            image = annotated_image,
+            landmark_list = face_landmarks,
+            connections = vision.FaceLandmarksConnections.FACE_LANDMARKS_RIGHT_IRIS,
+            landmark_drawing_spec = {},
+            connection_drawing_spec = drawing_styles.get_default_face_mesh_iris_connections_style(scale)
         }))
     end
 
@@ -511,7 +497,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an FaceLandmarker object.
+-- STEP 2: Create a FaceLandmarker object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.FaceLandmarkerOptions(mediapipe_lua.kwargs({
     base_options = base_options,
@@ -528,113 +514,8 @@ local image = mp.Image.create_from_file(IMAGE_FILE)
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the detection result. In this case, visualize it.
-local annotated_image = draw_landmarks_on_image(cv2.cvtColor(image:mat_view(), cv2.COLOR_RGB2BGR), detection_result)
+local annotated_image = draw_landmarks_on_image(image:mat_view(), detection_result)
 resize_and_show(annotated_image, "face_landmarker")
-cv2.waitKey()
-
-```
-
-### Face Stylizer
-
-```lua
---[[
-Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_stylizer/python/face_stylizer.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/face_stylizer/python/face_stylizer.ipynb
-
-Title: Face Stylizer
---]]
-
-local mediapipe_lua = require("mediapipe_lua")
-local mediapipe = mediapipe_lua.mediapipe
-
-local opencv_lua = require("opencv_lua")
-local cv2 = opencv_lua.cv
-
-local function resize_and_show(image, title, show)
-    if title == nil then title = "" end
-    if show == nil then show = true end
-
-    local DESIRED_HEIGHT = 480
-    local DESIRED_WIDTH = 480
-    local w = image.width
-    local h = image.height
-
-    if h < w then
-        h = math.floor(h / (w / DESIRED_WIDTH))
-        w = DESIRED_WIDTH
-    else
-        w = math.floor(w / (h / DESIRED_HEIGHT))
-        h = DESIRED_HEIGHT
-    end
-
-    local interpolation = (function()
-        if DESIRED_WIDTH > image.width or DESIRED_HEIGHT > image.height then
-            return cv2.INTER_CUBIC
-        end
-        return cv2.INTER_AREA
-    end)()
-
-    if show then
-        local img = cv2.resize(image, { w, h }, opencv_lua.kwargs(({ interpolation = interpolation })))
-        cv2.imshow(title, img)
-    end
-
-    return w / image.width
-end
-
-local download_utils = mediapipe.lua.solutions.download_utils
-
-local function download_test_files(test_files)
-    for _, kwargs in ipairs(test_files) do
-        download_utils.download(mediapipe_lua.kwargs(kwargs))
-    end
-end
-
-local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
-
-local IMAGE_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/business-person.png"
-local IMAGE_URL = "https://storage.googleapis.com/mediapipe-assets/business-person.png"
-local IMAGE_HASH = "sha256=1f61cf0603cef77ffca4e24848ddf8290b5651d03b957e93b742c9ef963b5c11"
-local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/face_stylizer_color_sketch.task"
-local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/face_stylizer/blaze_face_stylizer/float32/latest/face_stylizer_color_sketch.task"
-local MODEL_HASH = "sha256=c22ae91703d9c3432f00b419c93590f3be3f3b98f7714b22431a702f8e76afff"
-
-download_test_files({
-    {
-        output = IMAGE_FILE,
-        url = IMAGE_URL,
-        hash = IMAGE_HASH,
-    },
-    {
-        output = MODEL_FILE,
-        url = MODEL_URL,
-        hash = MODEL_HASH,
-    },
-})
-
--- STEP 1: Import the necessary modules.
-local mp = mediapipe
-local lua = mediapipe.tasks.lua
-local vision = mediapipe.tasks.lua.vision
-
--- Preview the images.
-resize_and_show(cv2.imread(IMAGE_FILE), "face_stylizer: preview")
-
--- STEP 2: Create an FaceLandmarker object.
-local base_options = lua.BaseOptions(mediapipe_lua.kwargs(({ model_asset_path = MODEL_FILE })))
-local options = vision.FaceStylizerOptions(mediapipe_lua.kwargs(({ base_options = base_options })))
-local stylizer = vision.FaceStylizer.create_from_options(options)
-
--- STEP 3: Load the input image.
-local image = mp.Image.create_from_file(IMAGE_FILE)
-
--- STEP 4: Retrieve the stylized image
-local stylized_image = stylizer:stylize(image)
-
--- STEP 5: Show the stylized image
-local rgb_stylized_image = cv2.cvtColor(stylized_image:mat_view(), cv2.COLOR_RGB2BGR)
-resize_and_show(rgb_stylized_image, "face_stylizer: stylized")
 cv2.waitKey()
 
 ```
@@ -644,13 +525,11 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/gesture_recognizer/python/gesture_recognizer.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/gesture_recognizer/python/gesture_recognizer.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/gesture_recognizer/python/gesture_recognizer.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/gesture_recognizer/python/gesture_recognizer.ipynb
 
 Title: Gesture Recognizer with MediaPipe Tasks
 --]]
-
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -690,7 +569,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -718,12 +597,11 @@ download_utils.download(mediapipe_lua.kwargs({
     hash = MODEL_HASH,
 }))
 
-local mp = mediapipe
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local mp = require("mediapipe_lua.mediapipe")
 
-local mp_hands = mp.solutions.hands
-local mp_drawing = mp.solutions.drawing_utils
-local mp_drawing_styles = mp.solutions.drawing_styles
+local mp_hands = mp.tasks.vision.HandLandmarksConnections
+local mp_drawing = mp.tasks.vision.drawing_utils
+local mp_drawing_styles = mp.tasks.vision.drawing_styles
 
 --[[ Displays an image with the gesture category and its score along with the hand landmarks. --]]
 local function display_image_with_gestures_and_hand_landmarks(image, gesture, hands_landmarks)
@@ -734,18 +612,10 @@ local function display_image_with_gestures_and_hand_landmarks(image, gesture, ha
     -- Compute the scale to make drawn elements visible when the image is resized for display
     local scale = 1 / resize_and_show(annotated_image, nil, false)
 
-    for _, hand_landmarks in ipairs(hands_landmarks) do
-        local hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
-
-        for _, landmark in ipairs(hand_landmarks) do
-            hand_landmarks_proto.landmark:append(landmark_pb2.NormalizedLandmark(
-                mediapipe_lua.kwargs({ x = landmark.x, y = landmark.y, z = landmark.z })
-            ))
-        end
-
+    for _, hand_landmarks in hands_landmarks:__ipairs() do
         mp_drawing.draw_landmarks(
             annotated_image,
-            hand_landmarks_proto,
+            hand_landmarks,
             mp_hands.HAND_CONNECTIONS,
             mp_drawing_styles.get_default_hand_landmarks_style(scale),
             mp_drawing_styles.get_default_hand_connections_style(scale))
@@ -758,7 +628,7 @@ end
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an GestureRecognizer object.
+-- STEP 2: Create a GestureRecognizer object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.GestureRecognizerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
 local recognizer = vision.GestureRecognizer.create_from_options(options)
@@ -771,7 +641,7 @@ for _, image_file_name in ipairs(IMAGE_FILENAMES) do
     local recognition_result = recognizer:recognize(image)
 
     -- STEP 5: Process the result. In this case, visualize it.
-    local top_gesture = recognition_result.gestures[0 + INDEX_BASE][0 + INDEX_BASE]
+    local top_gesture = recognition_result.gestures[0][0]
     local hands_landmarks = recognition_result.hand_landmarks
     display_image_with_gestures_and_hand_landmarks(image, top_gesture, hands_landmarks)
 end
@@ -785,8 +655,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/hand_landmarker/python/hand_landmarker.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/hand_landmarker/python/hand_landmarker.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/hand_landmarker/python/hand_landmarker.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/hand_landmarker/python/hand_landmarker.ipynb
 
 Title: Hand Landmarks Detection with MediaPipe Tasks
 --]]
@@ -833,7 +703,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -863,8 +733,11 @@ download_test_files({
     },
 })
 
-local solutions = mediapipe.solutions
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local mp = require("mediapipe_lua.mediapipe")
+
+local mp_hands = mp.tasks.vision.HandLandmarksConnections
+local mp_drawing = mp.tasks.vision.drawing_utils
+local mp_drawing_styles = mp.tasks.vision.drawing_styles
 
 local function draw_landmarks_on_image(rgb_image, detection_result)
     -- Compute the scale to make drawn elements visible when the image is resized for display
@@ -877,7 +750,7 @@ local function draw_landmarks_on_image(rgb_image, detection_result)
 
     local hand_landmarks_list = detection_result.hand_landmarks
     local handedness_list = detection_result.handedness
-    local annotated_image = rgb_image:copy()
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
 
     -- Loop through the detected hands to visualize.
     for idx = 1, #hand_landmarks_list do
@@ -886,25 +759,18 @@ local function draw_landmarks_on_image(rgb_image, detection_result)
         local min_x = 1
         local min_y = 1
 
-        -- Draw the hand landmarks.
-        local hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
         for _, landmark in ipairs(hand_landmarks) do
-            hand_landmarks_proto.landmark:append(landmark_pb2.NormalizedLandmark(mediapipe_lua.kwargs({
-                x = landmark.x,
-                y =
-                        landmark.y,
-                z = landmark.z
-            })))
             min_x = math.min(min_x, landmark.x)
             min_y = math.min(min_y, landmark.y)
         end
 
-        solutions.drawing_utils.draw_landmarks(
+        -- Draw the hand landmarks.
+        mp_drawing.draw_landmarks(
             annotated_image,
-            hand_landmarks_proto,
-            solutions.hands.HAND_CONNECTIONS,
-            solutions.drawing_styles.get_default_hand_landmarks_style(),
-            solutions.drawing_styles.get_default_hand_connections_style())
+            hand_landmarks,
+            mp_hands.HAND_CONNECTIONS,
+            mp_drawing_styles.get_default_hand_landmarks_style(scale),
+            mp_drawing_styles.get_default_hand_connections_style(scale))
 
         -- Get the top left corner of the detected hand's bounding box.
         local height, width, _ = unpack(annotated_image.shape)
@@ -925,7 +791,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an HandLandmarker object.
+-- STEP 2: Create a HandLandmarker object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.HandLandmarkerOptions(mediapipe_lua.kwargs({
     base_options = base_options,
@@ -940,7 +806,7 @@ local image = mp.Image.create_from_file(IMAGE_FILE)
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the classification result. In this case, visualize it.
-local annotated_image = draw_landmarks_on_image(cv2.cvtColor(image:mat_view(), cv2.COLOR_RGB2BGR), detection_result)
+local annotated_image = draw_landmarks_on_image(image:mat_view(), detection_result)
 resize_and_show(annotated_image, "hand_landmarker")
 cv2.waitKey()
 
@@ -951,13 +817,11 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_classification/python/image_classifier.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_classification/python/image_classifier.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_classification/python/image_classifier.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_classification/python/image_classifier.ipynb
 
 Title: Image Classifier with MediaPipe Tasks
 --]]
-
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -997,7 +861,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1042,7 +906,7 @@ for _, image_name in ipairs(IMAGE_FILENAMES) do
     local classification_result = classifier:classify(image)
 
     -- STEP 5: Process the classification result. In this case, visualize it.
-    local top_category = classification_result.classifications[0 + INDEX_BASE].categories[0 + INDEX_BASE]
+    local top_category = classification_result.classifications[0].categories[0]
     local title = ("%s (%.2f)"):format(top_category.category_name, top_category.score)
     resize_and_show(cv2.cvtColor(image:mat_view(), cv2.COLOR_RGB2BGR), title)
 end
@@ -1056,8 +920,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_embedder/python/image_embedder.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_embedder/python/image_embedder.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_embedder/python/image_embedder.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_embedder/python/image_embedder.ipynb
 
 Title: Image Embedding with MediaPipe Tasks
 --]]
@@ -1102,7 +966,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1151,8 +1015,8 @@ local second_embedding_result = embedder:embed(second_image)
 
 -- STEP 5: Calculate and print similarity
 local similarity = vision.ImageEmbedder.cosine_similarity(
-    first_embedding_result.embeddings[0 + INDEX_BASE],
-    second_embedding_result.embeddings[0 + INDEX_BASE])
+    first_embedding_result.embeddings[0],
+    second_embedding_result.embeddings[0])
 print("similarity = " .. similarity)
 
 -- Display images
@@ -1167,8 +1031,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_segmentation/python/image_segmentation.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_segmentation/python/image_segmentation.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_segmentation/python/image_segmentation.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_segmentation/python/image_segmentation.ipynb
 
 Title: Image Segmenter
 --]]
@@ -1211,7 +1075,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1293,8 +1157,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/interactive_segmentation/python/interactive_segmenter.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/interactive_segmentation/python/interactive_segmenter.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/interactive_segmentation/python/interactive_segmenter.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/interactive_segmentation/python/interactive_segmenter.ipynb
 
 Title: Interactive Image Segmenter
 --]]
@@ -1339,7 +1203,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1504,8 +1368,8 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/language_detector/python/%5BMediaPipe_Python_Tasks%5D_Language_Detector.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/language_detector/python/%5BMediaPipe_Python_Tasks%5D_Language_Detector.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/language_detector/python/%5BMediaPipe_Python_Tasks%5D_Language_Detector.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/language_detector/python/%5BMediaPipe_Python_Tasks%5D_Language_Detector.ipynb
 
 Title: Language Detector with MediaPipe Tasks
 --]]
@@ -1513,7 +1377,7 @@ Title: Language Detector with MediaPipe Tasks
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1544,7 +1408,7 @@ local detection_result = detector:detect(INPUT_TEXT)
 
 -- STEP 4: Process the detection result and print the languages detected and
 -- their scores.
-for _, detection in ipairs(detection_result.detections) do
+for _, detection in detection_result.detections:__ipairs() do
     print(("%s: (%.2f)"):format(detection.language_code, detection.probability))
 end
 
@@ -1555,13 +1419,12 @@ end
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/object_detection/python/object_detector.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/object_detection/python/object_detector.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/object_detection/python/object_detector.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/object_detection/python/object_detector.ipynb
 
 Title: Object Detection with MediaPipe Tasks
 --]]
 
-local INDEX_BASE = 1 -- lua is 1-based indexed
 local int = math.floor
 
 local mediapipe_lua = require("mediapipe_lua")
@@ -1603,7 +1466,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -1636,13 +1499,13 @@ download_test_files({
 --[[
 Draws bounding boxes on the input image and return it.
   Args:
-    image: The input RGB image.
+    rgb_image: The input RGB image.
     detection_result: The list of all "Detection" entities to be visualize.
   Returns:
     Image with bounding boxes.
 ]]
 local function visualize(
-    image,
+    rgb_image,
     detection_result,
     scale
 )
@@ -1650,27 +1513,29 @@ local function visualize(
     local ROW_SIZE = 10            -- pixels
     local FONT_SIZE = scale
     local FONT_THICKNESS = int(scale)
-    local TEXT_COLOR = { 255, 0, 0 } -- red
+    local TEXT_COLOR = { 0, 0, 255 } -- red
 
-    for _, detection in ipairs(detection_result.detections) do
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
+
+    for _, detection in detection_result.detections:__ipairs() do
         -- Draw bounding_box
         local bbox = detection.bounding_box
         local start_point = { bbox.origin_x, bbox.origin_y }
         local end_point = { bbox.origin_x + bbox.width, bbox.origin_y + bbox.height }
-        cv2.rectangle(image, start_point, end_point, TEXT_COLOR, 3)
+        cv2.rectangle(annotated_image, start_point, end_point, TEXT_COLOR, 3)
 
         -- Draw label and score
-        local category = detection.categories[0 + INDEX_BASE]
+        local category = detection.categories[0]
         local category_name = category.category_name
         local probability = round(category.score, 2)
         local result_text = category_name .. ' (' .. tostring(probability) .. ')'
         local text_location = { MARGIN + bbox.origin_x,
             MARGIN + ROW_SIZE + bbox.origin_y }
-        cv2.putText(image, result_text, text_location, cv2.FONT_HERSHEY_PLAIN,
+        cv2.putText(annotated_image, result_text, text_location, cv2.FONT_HERSHEY_PLAIN,
             FONT_SIZE, TEXT_COLOR, FONT_THICKNESS)
     end
 
-    return image
+    return annotated_image
 end
 
 -- STEP 1: Import the necessary modules.
@@ -1696,10 +1561,8 @@ local scale = 1 / resize_and_show(image, nil, false)
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the detection result. In this case, visualize it.
-local image_copy = image:mat_view()
-local annotated_image = visualize(image_copy, detection_result, scale)
-local rgb_annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB)
-resize_and_show(rgb_annotated_image, "object_detection")
+local annotated_image = visualize(image:mat_view(), detection_result, scale)
+resize_and_show(annotated_image, "object_detection")
 cv2.waitKey()
 
 ```
@@ -1709,13 +1572,11 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/pose_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Pose_Landmarker.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/pose_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Pose_Landmarker.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/pose_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Pose_Landmarker.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/pose_landmarker/python/%5BMediaPipe_Python_Tasks%5D_Pose_Landmarker.ipynb
 
 Title: Pose Landmarks Detection with MediaPipe Tasks
 --]]
-
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -1755,7 +1616,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -1769,7 +1630,8 @@ local IMAGE_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/girl-4051811_960_720.jpg"
 local IMAGE_URL = "https://cdn.pixabay.com/photo/2019/03/12/20/39/girl-4051811_960_720.jpg"
 local IMAGE_HASH = "sha256=99e0649aa4f2553b0213982f544146565a1028877c4bb9fbe3884453659d8cdc"
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/pose_landmarker_heavy.task"
-local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/1/pose_landmarker_heavy.task"
+local MODEL_URL =
+"https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/1/pose_landmarker_heavy.task"
 local MODEL_HASH = "sha256=64437af838a65d18e5ba7a0d39b465540069bc8aae8308de3e318aad31fcbc7b"
 
 download_test_files({
@@ -1785,32 +1647,28 @@ download_test_files({
     },
 })
 
-local solutions = mediapipe.solutions
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local drawing_utils = mediapipe.tasks.lua.vision.drawing_utils
+local drawing_styles = mediapipe.tasks.lua.vision.drawing_styles
+local vision = mediapipe.tasks.lua.vision
 
 local function draw_landmarks_on_image(rgb_image, detection_result)
     local scale = 1 / resize_and_show(rgb_image, nil, false)
     local pose_landmarks_list = detection_result.pose_landmarks
-    local annotated_image = rgb_image:copy()
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
 
-    -- Loop through the detected poses to visualize.
-    for idx = 1, #pose_landmarks_list do
-        local pose_landmarks = pose_landmarks_list[idx]
+    local pose_landmark_style = drawing_styles.get_default_pose_landmarks_style(scale)
+    local pose_connection_style = drawing_utils.DrawingSpec(mediapipe_lua.kwargs({ color = { 0, 255, 0 }, thickness = 2 }))
 
-        -- Draw the pose landmarks.
-        local pose_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
-        for _, landmark in ipairs(pose_landmarks) do
-            pose_landmarks_proto.landmark:append(
-                landmark_pb2.NormalizedLandmark(mediapipe_lua.kwargs({ x = landmark.x, y = landmark.y, z = landmark.z }))
-            )
-        end
-
-        solutions.drawing_utils.draw_landmarks(
-            annotated_image,
-            pose_landmarks_proto,
-            solutions.pose.POSE_CONNECTIONS,
-            solutions.drawing_styles.get_default_pose_landmarks_style(scale))
+    for _, pose_landmarks in ipairs(pose_landmarks_list) do
+        drawing_utils.draw_landmarks(mediapipe_lua.kwargs({
+            image = annotated_image,
+            landmark_list = pose_landmarks,
+            connections = vision.PoseLandmarksConnections.POSE_LANDMARKS,
+            landmark_drawing_spec = pose_landmark_style,
+            connection_drawing_spec = pose_connection_style
+        }))
     end
+
     return annotated_image
 end
 
@@ -1819,7 +1677,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an PoseLandmarker object.
+-- STEP 2: Create a PoseLandmarker object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.PoseLandmarkerOptions(mediapipe_lua.kwargs({
     base_options = base_options,
@@ -1837,10 +1695,10 @@ local detection_result = detector:detect(image)
 local annotated_image = draw_landmarks_on_image(image:mat_view(), detection_result)
 
 -- Display the image
-resize_and_show(cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR), "Pose Landmarks Detection with MediaPipe Tasks : Image")
+resize_and_show(annotated_image, "Pose Landmarks Detection with MediaPipe Tasks : Image")
 
 -- Visualize the pose segmentation mask.
-local segmentation_mask = detection_result.segmentation_masks[0 + INDEX_BASE]:mat_view()
+local segmentation_mask = detection_result.segmentation_masks[0]:mat_view()
 local visualized_mask = segmentation_mask:convertTo(cv2.CV_8U, opencv_lua.kwargs({ alpha = 255 }))
 resize_and_show(visualized_mask, "Pose Landmarks Detection with MediaPipe Tasks : Mask")
 
@@ -1853,18 +1711,16 @@ cv2.waitKey()
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_classification/python/text_classifier.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_classification/python/text_classifier.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_classification/python/text_classifier.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_classification/python/text_classifier.ipynb
 
 Title: Text Classifier with MediaPipe Tasks
 --]]
 
-local INDEX_BASE = 1 -- lua is 1-based indexed
-
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1885,7 +1741,7 @@ local INPUT_TEXT = "I'm looking forward to what will come next."
 local lua = mediapipe.tasks.lua
 local text = mediapipe.tasks.lua.text
 
--- STEP 2: Create an TextClassifier object.
+-- STEP 2: Create a TextClassifier object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = text.TextClassifierOptions(mediapipe_lua.kwargs({ base_options = base_options }))
 local classifier = text.TextClassifier.create_from_options(options)
@@ -1894,7 +1750,7 @@ local classifier = text.TextClassifier.create_from_options(options)
 local classification_result = classifier:classify(INPUT_TEXT)
 
 -- STEP 4: Process the classification result. In this case, print out the most likely category.
-local top_category = classification_result.classifications[0 + INDEX_BASE].categories[0 + INDEX_BASE]
+local top_category = classification_result.classifications[0].categories[0]
 print(("%s: (%.2f)"):format(top_category.category_name, top_category.score))
 
 ```
@@ -1904,18 +1760,16 @@ print(("%s: (%.2f)"):format(top_category.category_name, top_category.score))
 ```lua
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_embedder/python/text_embedder.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_embedder/python/text_embedder.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_embedder/python/text_embedder.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_embedder/python/text_embedder.ipynb
 
 Title: Text Embedding with MediaPipe Tasks
 --]]
 
-local INDEX_BASE = 1 -- lua is 1-based indexed
-
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -1954,8 +1808,8 @@ local second_embedding_result = embedder:embed(second_text)
 
 -- Calculate and print similarity
 local similarity = text.TextEmbedder.cosine_similarity(
-    first_embedding_result.embeddings[0 + INDEX_BASE],
-    second_embedding_result.embeddings[0 + INDEX_BASE])
+    first_embedding_result.embeddings[0],
+    second_embedding_result.embeddings[0])
 print("similarity = " .. similarity)
 
 ```
@@ -1972,8 +1826,8 @@ All the examples in the samples directory can be run by folling theses instructi
 
   - Install [Git](https://git-scm.com/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
-  - Install [Visual Studio 2022 >= 17.13.0 with '.NET desktop development' and 'Desktop development with C++'](https://visualstudio.microsoft.com/fr/downloads/)
-  - In your windows search, search and open the `x64 Native Tools Command Prompt for VS 2022`
+  - Install [Visual Studio 2026 with '.NET desktop development' and 'Desktop development with C++'](https://visualstudio.microsoft.com/fr/downloads/)
+  - In your windows search, search and open the `x64 Native Tools Command Prompt for VS`
 
 #### Linux
 
@@ -1990,13 +1844,13 @@ All the examples in the samples directory can be run by folling theses instructi
 #### Windows
 
 ```cmd
-git clone --depth 1 --branch v0.1.1 https://github.com/smbape/lua-mediapipe.git
+git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git
 cd lua-mediapipe
 @REM build.bat "-DLua_VERSION=luajit-2.1" --target luajit --install
-@REM available versions are 5.1, 5.2, 5.3, 5.4
-build.bat "-DLua_VERSION=5.4" --target lua --install
-build.bat "-DLua_VERSION=5.4" --target luarocks
-@REM luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
+@REM available versions are 5.1, 5.2, 5.3, 5.4, 5.5
+build.bat "-DLua_VERSION=5.5" --target lua --install
+build.bat "-DLua_VERSION=5.5" --target luarocks
+@REM luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35luajit2.1
 luarocks\luarocks.bat install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 luarocks\luarocks.bat install --deps-only samples\samples-scm-1.rockspec
 luarocks\luarocks.bat install --deps-only test\test-scm-1.rockspec
@@ -2007,13 +1861,13 @@ node scripts\test.js --Release
 #### Linux
 
 ```sh
-git clone --depth 1 --branch v0.1.1 https://github.com/smbape/lua-mediapipe.git
+git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git
 cd lua-mediapipe
 # ./build.sh "-DLua_VERSION=luajit-2.1" --target luajit --install
-# available versions are 5.1, 5.2, 5.3, 5.4
-./build.sh "-DLua_VERSION=5.4" --target lua --install
-./build.sh "-DLua_VERSION=5.4" --target luarocks
-# ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.26luajit2.1
+# available versions are 5.1, 5.2, 5.3, 5.4, 5.5
+./build.sh "-DLua_VERSION=5.5" --target lua --install
+./build.sh "-DLua_VERSION=5.5" --target luarocks
+# ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua 0.10.35luajit2.1
 ./luarocks/luarocks install --server=https://github.com/smbape/luarocks-binaries/releases/download/v0.0.1 mediapipe_lua
 ./luarocks/luarocks install --deps-only samples/samples-scm-1.rockspec
 ./luarocks/luarocks install --deps-only test/test-scm-1.rockspec
@@ -2130,7 +1984,7 @@ print(("%s: (%.2f)"):format(top_category.category_name, top_category.score))
 
 ### 1-indexed
 
-Arrays are 1-indexed in `lua`, and 0-indexed in python. Therefore, if you see in python `p[0]`, you should write in lua `p[1]`
+Arrays are 1-indexed in `lua`, and 0-indexed in python/c/c++. Therefore, if you see in python/c/c++ `p[0]` for arrays or tuples, you should write in lua `p[1]`
 
 For example, in python
 

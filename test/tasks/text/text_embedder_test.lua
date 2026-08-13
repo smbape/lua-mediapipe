@@ -7,11 +7,10 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/text/text_embedder_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/text_embedder_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local test_utils = require("test_utils")
@@ -81,14 +80,14 @@ end
 function _assert._check_embedding_value(self, result, expected_first_value)
     -- Check embedding first value.
     self.assertAlmostIn(
-        result.embeddings[0 + INDEX_BASE].embedding[0], expected_first_value,
+        result.embeddings[0].embedding[0], expected_first_value,
         mediapipe_lua.kwargs({ delta = _EPSILON }))
 end
 
 function _assert._check_embedding_size(self, result, quantize, expected_embedding_size)
     -- Check embedding size.
     self.assertLen(result.embeddings, 1)
-    local embedding_result = result.embeddings[0 + INDEX_BASE]
+    local embedding_result = result.embeddings[0]
     self.assertEqual(embedding_result.embedding:total(), expected_embedding_size)
     if quantize then
         self.assertEqual(embedding_result.embedding:depth(), cv2.CV_8U)
@@ -99,8 +98,8 @@ end
 
 function _assert._check_cosine_similarity(self, result0, result1, expected_similarity)
     -- Checks cosine similarity.
-    local similarity = _TextEmbedder.cosine_similarity(result0.embeddings[0 + INDEX_BASE],
-        result1.embeddings[0 + INDEX_BASE])
+    local similarity = _TextEmbedder.cosine_similarity(result0.embeddings[0],
+        result1.embeddings[0])
     self.assertAlmostIn(
         similarity, expected_similarity, mediapipe_lua.kwargs({ delta = _SIMILARITY_TOLERANCE }))
 end
@@ -160,7 +159,7 @@ local function test_embed_with_different_themes(self, model_file, expected_simil
     local result1 = embedder:embed(text1)
 
     local similarity = _TextEmbedder.cosine_similarity(
-        result0.embeddings[0 + INDEX_BASE], result1.embeddings[0 + INDEX_BASE]
+        result0.embeddings[0], result1.embeddings[0]
     )
 
     self.assertAlmostIn(

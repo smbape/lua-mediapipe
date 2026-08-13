@@ -9,7 +9,7 @@ description = {
    license = "*** please specify a license ***"
 }
 dependencies = {
-   "lua >= 5.1, < 5.5",
+   "lua >= 5.1",
    "inspect >= 3.1.3",
 }
 test_dependencies = {

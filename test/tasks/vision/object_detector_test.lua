@@ -3,15 +3,14 @@
 require "busted.runner" ()
 
 package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:sub(1, 1)) ..
-        arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
+    arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/object_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/object_detector_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local _mat_utils = require("_mat_utils") ---@diagnostic disable-line: unused-local
@@ -21,12 +20,12 @@ local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 local std = mediapipe_lua.std
 
-local image_module = mediapipe.lua._framework_bindings.image
 local bounding_box_module = mediapipe.tasks.lua.components.containers.bounding_box
 local category_module = mediapipe.tasks.lua.components.containers.category
 local detections_module = mediapipe.tasks.lua.components.containers.detections
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local object_detector = mediapipe.tasks.lua.vision.object_detector
+local image_module = mediapipe.tasks.lua.vision.core.image
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local _BaseOptions = base_options_module.BaseOptions
@@ -127,7 +126,8 @@ local function setUp(self)
         _MODEL_FILE,
         {
             output = _NO_NMS_MODEL_FILE,
-            url = "https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/float16/1/efficientdet_lite0.tflite",
+            url =
+            "https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/float16/1/efficientdet_lite0.tflite",
         },
         _IMAGE_FILE,
     })
@@ -142,6 +142,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local detector = _ObjectDetector.create_from_model_path(self.model_path)
     self.assertIsInstance(detector, _ObjectDetector)
+    detector:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -150,6 +151,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _ObjectDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local detector = _ObjectDetector.create_from_options(options)
     self.assertIsInstance(detector, _ObjectDetector)
+    detector:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -160,6 +162,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _ObjectDetectorOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local detector = _ObjectDetector.create_from_options(options)
     self.assertIsInstance(detector, _ObjectDetector)
+    detector:close()
 end
 
 local function test_detect(
@@ -202,8 +205,8 @@ local function test_score_threshold_option(self)
     local detection_result = detector:detect(self.test_image)
     local detections = detection_result.detections
 
-    for _, detection in ipairs(detections) do
-        local score = detection.categories[0 + INDEX_BASE].score
+    for _, detection in detections:__ipairs() do
+        local score = detection.categories[0].score
         self.assertGreaterEqual(
             score,
             _SCORE_THRESHOLD,
@@ -239,8 +242,8 @@ local function test_allow_list_option(self)
     local detection_result = detector:detect(self.test_image)
     local detections = detection_result.detections
 
-    for _, detection in ipairs(detections) do
-        local label = detection.categories[0 + INDEX_BASE].category_name
+    for _, detection in detections:__ipairs() do
+        local label = detection.categories[0].category_name
         self.assertIn(
             label,
             _ALLOW_LIST,
@@ -260,8 +263,8 @@ local function test_deny_list_option(self)
     local detection_result = detector:detect(self.test_image)
     local detections = detection_result.detections
 
-    for _, detection in ipairs(detections) do
-        local label = detection.categories[0 + INDEX_BASE].category_name
+    for _, detection in detections:__ipairs() do
+        local label = detection.categories[0].category_name
         self.assertNotIn(
             label, _DENY_LIST, 'Label ' .. label .. ' found but in deny list.'
         )
@@ -284,7 +287,10 @@ end
 local function test_empty_detection_outputs_without_in_model_nms(self)
     local options = _ObjectDetectorOptions(mediapipe_lua.kwargs({
         base_options = _BaseOptions(mediapipe_lua.kwargs({
-            model_asset_path = test_utils.get_test_data_path(_NO_NMS_MODEL_FILE) })),
+            model_asset_path = test_utils.get_test_data_path(
+                _NO_NMS_MODEL_FILE
+            )
+        })),
         score_threshold = 1,
     }))
     local detector = _ObjectDetector.create_from_options(options)
@@ -313,6 +319,8 @@ end
 local function test_detect_async_calls(self, threshold, expected_result)
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         self.assertEqual(result, expected_result)
         self.assertMatEqual(output_image:mat_view(), self.test_image:mat_view())
@@ -321,6 +329,8 @@ local function test_detect_async_calls(self, threshold, expected_result)
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ObjectDetectorOptions(mediapipe_lua.kwargs({
@@ -335,11 +345,12 @@ local function test_detect_async_calls(self, threshold, expected_result)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         detector:detect_async(self.test_image, timestamp)
+
+        callback_event:wait(500)
     end
 
     -- wait for detection end

@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 
 project(mediapipe)
 
-set(Mediapipe_VERSION 0.10.26 CACHE STRING "Choose the mediapipe version.")
-set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.26" "0.10.24" "0.10.23")
+set(Mediapipe_VERSION 0.10.35 CACHE STRING "Choose the mediapipe version.")
+set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.35" "0.10.33" "0.10.32")
 string(REPLACE "." "" Mediapipe_DLLVERSION ${Mediapipe_VERSION})
 
-set(Mediapipe_URL_HASH_SHA256_01026 51cbd4d538716e3722b55b8412cab9e3713270a6e9a6f09af6b52d357718e6d7)
-set(Mediapipe_URL_HASH_SHA256_01024 ff4a2a85d0ac0c73ff1acdf5ceda47cb3640566e0430e056c7f12e44cb5c81bd)
-set(Mediapipe_URL_HASH_SHA256_01023 5bc3e7b7d5ffdcb0a0e7d2057c7ea5c344f65371516cf6e42cc8b4bf77ae5ff8)
+set(Mediapipe_URL_HASH_SHA256_01035 6b0e8490ab7f0f783937d4b25486cff469431adfe05c6f0217a5e63f68532113)
+set(Mediapipe_URL_HASH_SHA256_01033 460697149eb104bc0ba645b3cc0b35560ed7176f45f3a3966516431b955f7601)
+set(Mediapipe_URL_HASH_SHA256_01032 fa4272055992cc2d42d615a6ed2870f5607067bcdde9eea20bba569bc1e5454e)
 
 string(REPLACE "." ";" Mediapipe_VERSION_LIST ${Mediapipe_VERSION})
 list(GET Mediapipe_VERSION_LIST 0 Mediapipe_VERSION_MAJOR)
@@ -18,24 +18,24 @@ list(GET Mediapipe_VERSION_LIST 2 Mediapipe_VERSION_PATCH)
 cmake_path(RELATIVE_PATH CMAKE_CURRENT_BINARY_DIR BASE_DIRECTORY "${CMAKE_SOURCE_DIR}" OUTPUT_VARIABLE CMAKE_CURRENT_RELATIVE_BINARY_DIR)
 string(REGEX REPLACE "/$" "" CMAKE_CURRENT_RELATIVE_BINARY_DIR "${CMAKE_CURRENT_RELATIVE_BINARY_DIR}")
 
-if (LUAJIT_VERSION_STRING)
-    string(REPLACE "." ";" LUAJIT_VERSION_STRING_PARTS "${LUAJIT_VERSION_STRING}")
-    list(GET LUAJIT_VERSION_STRING_PARTS 0 LUAJIT_VERSION_MAJOR)
-    list(GET LUAJIT_VERSION_STRING_PARTS 1 LUAJIT_VERSION_MINOR)
-    set(MEDIAPIPE_ADDON_PACKAGE "mediapipe/luajit-${LUAJIT_VERSION_MAJOR}.${LUAJIT_VERSION_MINOR}")
-elseif(LUA_VERSION_STRING)
-    string(REPLACE "." ";" LUA_VERSION_STRING_PARTS "${LUA_VERSION_STRING}")
-    list(GET LUA_VERSION_STRING_PARTS 0 LUA_VERSION_MAJOR)
-    list(GET LUA_VERSION_STRING_PARTS 1 LUA_VERSION_MINOR)
-    set(MEDIAPIPE_ADDON_PACKAGE "mediapipe/lua-${LUA_VERSION_MAJOR}.${LUA_VERSION_MINOR}")
+if (Luajit_VERSION)
+    string(REPLACE "." ";" Luajit_VERSION_PARTS "${Luajit_VERSION}")
+    list(GET Luajit_VERSION_PARTS 0 Luajit_VERSION_MAJOR)
+    list(GET Luajit_VERSION_PARTS 1 Luajit_VERSION_MINOR)
+    set(MEDIAPIPE_ADDON_PACKAGE "mediapipe/luajit-${Luajit_VERSION_MAJOR}.${Luajit_VERSION_MINOR}")
+elseif(Lua_VERSION)
+    string(REPLACE "." ";" LUA_VERSION_STRING_PARTS "${Lua_VERSION}")
+    list(GET LUA_VERSION_STRING_PARTS 0 Lua_VERSION_MAJOR)
+    list(GET LUA_VERSION_STRING_PARTS 1 Lua_VERSION_MINOR)
+    set(MEDIAPIPE_ADDON_PACKAGE "mediapipe/lua-${Lua_VERSION_MAJOR}.${Lua_VERSION_MINOR}")
 else()
-    message(FATAL_ERROR "LUAJIT_VERSION_STRING or LUA_VERSION_STRING mmust be defined")
+    message(FATAL_ERROR "Luajit_VERSION or Lua_VERSION mmust be defined")
 endif()
 
 set(MEDIAPIPE_ADDON_REPOSITORIES ":${CMAKE_CURRENT_RELATIVE_BINARY_DIR}/third_party/repositories.bzl")
 set(MEDIAPIPE_ADDON_RULES_DEPENDENCIES "lua_rules_dependencies")
 
-configure_file("${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch.in" "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch" @ONLY)
+configure_file("${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch.in" "${CMAKE_SOURCE_DIR}/patches/001-mediapipe-src.patch" @ONLY NEWLINE_STYLE LF)
 
 # Tell cmake that we will need mediapipe.
 include(FetchContent)
@@ -148,7 +148,7 @@ get_bazel_library(
     INCLUDES        ${Lua_INCLUDE_DIR}
     SOURCES         ${Lua_LIBRARIES}
 )
-list(APPEND bazel_repositories "${bazel_lua}")
+list(APPEND bazel_repositories ${bazel_lua})
 
 # Add opencv to bazel repositories
 if (WIN32)
@@ -162,25 +162,17 @@ generate_bazel_library(
     NAME            ${OpenCV_PLATFORM}
     PKGNAME         opencv
 )
-list(APPEND bazel_repositories "${bazel_opencv}")
+list(APPEND bazel_repositories ${bazel_opencv})
 
 # specific files needed to perform sha256sum
 # without explicetly include an ssl library
 # ============================================
-function(create_link file src dst)
-    set(src "${src}/${file}")
-    set(dst "${dst}/${file}")
-    cmake_path(GET dst PARENT_PATH dst_parent)
-    file(MAKE_DIRECTORY "${dst_parent}")
-    file(CREATE_LINK "${src}" "${dst}" SYMBOLIC)
-endfunction()
-
 get_target_property(curl_SOURCE_FILES curl SOURCES)
 list(FILTER curl_SOURCE_FILES INCLUDE REGEX "\\.c(c|pp|xx)?$")
 list(TRANSFORM curl_SOURCE_FILES PREPEND "${curl_SOURCE_DIR}/src/")
 list(TRANSFORM curl_SOURCE_FILES REPLACE "/src/../" "/")
 
-file(GLOB curl_tool_SOURCE_FILES
+file(GLOB_RECURSE curl_tool_SOURCE_FILES
     "${curl_SOURCE_DIR}/lib/*.h"
     "${curl_SOURCE_DIR}/lib/*.hh"
     "${curl_SOURCE_DIR}/lib/*.hpp"
@@ -230,19 +222,39 @@ generate_bazel_library(
     NAME_OVERRIDES    "ZLIB,zlib_bundled"
     PKGNAME_OVERRIDES "zlib_bundled,ZLIB,zlib"
 )
-list(APPEND bazel_repositories "${bazel_libcurl_tool}")
+list(APPEND bazel_repositories ${bazel_libcurl_tool})
 # ============================================
 
 string(REPLACE ";" ", " bazel_repositories "${bazel_repositories}")
 
-configure_file("${CMAKE_SOURCE_DIR}/scripts/configure_bazel.js.in" "${CMAKE_SOURCE_DIR}/scripts/configure_bazel.js" @ONLY)
+# This handles variable names
+configure_file("${CMAKE_SOURCE_DIR}/scripts/configure_bazel.js.in" "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js.in" @ONLY)
 
-execute_process(
-    COMMAND "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings scripts/configure_bazel.js
-    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-    COMMAND_ECHO STDERR
-    COMMAND_ERROR_IS_FATAL ANY
+# This handles generator expressions (absolute paths to avoid policy CMP0070 issues)
+file(
+    GENERATE
+    OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js"
+    INPUT "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js.in"
 )
+
+# Because the script that generates repositories.bzl is a file(GENERATE) file,
+# it won't be available at configuration time.
+# Therefore, add a custom command to run the script a build time
+set(MEDIAPIPE_REPOSITORIES_OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/third_party/repositories.bzl")
+set(MEDIAPIPE_REPOSITORIES_gen_cmd
+    "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings scripts/configure_bazel.js
+)
+add_custom_command(OUTPUT "${MEDIAPIPE_REPOSITORIES_OUTPUT}"
+    COMMAND           "${CMAKE_COMMAND}" -E echo ${MEDIAPIPE_REPOSITORIES_gen_cmd}
+    COMMAND           ${MEDIAPIPE_REPOSITORIES_gen_cmd}
+    COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${MEDIAPIPE_REPOSITORIES_OUTPUT}"
+    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+    DEPENDS           "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js"
+    VERBATIM
+    USES_TERMINAL
+)
+add_custom_target(MEDIAPIPE_REPOSITORIES_generated DEPENDS "${MEDIAPIPE_REPOSITORIES_OUTPUT}" "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js.in")
+
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     set(COMPILATION_MODE dbg)
@@ -259,6 +271,8 @@ endif()
 set(COMPILATION_MODE "${COMPILATION_MODE}" PARENT_SCOPE)
 set(MEDIAPIPE_ADDON_PACKAGE "${MEDIAPIPE_ADDON_PACKAGE}" PARENT_SCOPE)
 set(MEDIAPIPE_ADDON_REPOSITORIES "${MEDIAPIPE_ADDON_REPOSITORIES}" PARENT_SCOPE)
+set(MEDIAPIPE_REPOSITORIES_OUTPUT "${MEDIAPIPE_REPOSITORIES_OUTPUT}" PARENT_SCOPE)
+set(MEDIAPIPE_REPOSITORIES_DEPENDS "${MEDIAPIPE_REPOSITORIES_OUTPUT}" MEDIAPIPE_REPOSITORIES_generated "${CMAKE_CURRENT_BINARY_DIR}/scripts/configure_bazel.js.in" PARENT_SCOPE)
 set(MEDIAPIPE_ADDON_RULES_DEPENDENCIES "${MEDIAPIPE_ADDON_RULES_DEPENDENCIES}" PARENT_SCOPE)
 set(mediapipe_BINARY_DIR "${mediapipe_BINARY_DIR}" PARENT_SCOPE)
 set(mediapipe_SOURCE_DIR "${mediapipe_SOURCE_DIR}" PARENT_SCOPE)

@@ -2,13 +2,11 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_classification/python/image_classifier.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/image_classification/python/image_classifier.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_classification/python/image_classifier.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/image_classification/python/image_classifier.ipynb
 
 Title: Image Classifier with MediaPipe Tasks
 --]]
-
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
@@ -48,7 +46,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -93,7 +91,7 @@ for _, image_name in ipairs(IMAGE_FILENAMES) do
     local classification_result = classifier:classify(image)
 
     -- STEP 5: Process the classification result. In this case, visualize it.
-    local top_category = classification_result.classifications[0 + INDEX_BASE].categories[0 + INDEX_BASE]
+    local top_category = classification_result.classifications[0].categories[0]
     local title = ("%s (%.2f)"):format(top_category.category_name, top_category.score)
     resize_and_show(cv2.cvtColor(image:mat_view(), cv2.COLOR_RGB2BGR), title)
 end

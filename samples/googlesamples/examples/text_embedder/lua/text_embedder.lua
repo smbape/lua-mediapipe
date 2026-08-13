@@ -2,18 +2,16 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_embedder/python/text_embedder.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/text_embedder/python/text_embedder.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_embedder/python/text_embedder.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/text_embedder/python/text_embedder.ipynb
 
 Title: Text Embedding with MediaPipe Tasks
 --]]
 
-local INDEX_BASE = 1 -- lua is 1-based indexed
-
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = mediapipe_lua.fs_utils.findFile("samples") .. "/testdata"
 
@@ -52,6 +50,6 @@ local second_embedding_result = embedder:embed(second_text)
 
 -- Calculate and print similarity
 local similarity = text.TextEmbedder.cosine_similarity(
-    first_embedding_result.embeddings[0 + INDEX_BASE],
-    second_embedding_result.embeddings[0 + INDEX_BASE])
+    first_embedding_result.embeddings[0],
+    second_embedding_result.embeddings[0])
 print("similarity = " .. similarity)

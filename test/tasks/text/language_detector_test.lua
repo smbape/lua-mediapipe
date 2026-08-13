@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/text/language_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/language_detector_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -69,7 +69,7 @@ function _assert._expect_language_detector_result_correct(
     actual_result,
     expect_result
 )
-    for i, prediction in ipairs(actual_result.detections) do
+    for i, prediction in actual_result.detections:__ipairs() do
         local expected_prediction = expect_result.detections[i]
         self.assertEqual(
             prediction.language_code,

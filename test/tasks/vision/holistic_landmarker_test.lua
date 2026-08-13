@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/holistic_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/holistic_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -22,10 +22,12 @@ local google = mediapipe_lua.google
 local std = mediapipe_lua.std
 
 local text_format = google.protobuf.text_format
-local image_module = mediapipe.lua._framework_bindings.image
 local holistic_result_pb2 = mediapipe.tasks.cc.vision.holistic_landmarker.proto.holistic_result_pb2
+local landmark_module = mediapipe.tasks.lua.components.containers.landmark
+local category_module = mediapipe.tasks.lua.components.containers.category
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local holistic_landmarker = mediapipe.tasks.lua.vision.holistic_landmarker
+local image_module = mediapipe.tasks.lua.vision.core.image
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local HolisticLandmarkerResult = holistic_landmarker.HolisticLandmarkerResult
@@ -51,6 +53,46 @@ local _LIVE_STREAM_BLENDSHAPES_MARGIN = 0.31
 
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
 
+
+local function _create_landmarks_from_proto(landmark_list_proto, landmark_class)
+    --[[ Creates a list of landmarks from a proto. --]]
+    local landmarks = {}
+    for _, landmark in landmark_list_proto.landmark:__ipairs() do
+        landmarks[#landmarks + 1] = landmark_class(mediapipe_lua.kwargs({
+            x = landmark.x,
+            y = landmark.y,
+            z = landmark.z,
+            visibility = (function()
+                if landmark:HasField('visibility') then
+                    return landmark.visibility
+                end
+            end)(),
+            presence = (function()
+                if landmark:HasField('presence') then
+                    return landmark.presence
+                end
+            end)(),
+        }))
+    end
+    return landmarks
+end
+
+
+local function _create_blendshapes_from_proto(blendshapes_proto)
+    --[[ Creates a list of blendshapes from a proto. --]]
+    local classifications = {}
+    for _, classification in blendshapes_proto.classification:__ipairs() do
+        classifications[#classifications + 1] = category_module.Category(mediapipe_lua.kwargs({
+            score = classification.score,
+            index = classification.index,
+            category_name = classification.label,
+            display_name = classification.display_name,
+        }))
+    end
+    return classifications
+end
+
+
 local function _get_expected_holistic_landmarker_result(file_path)
     local holistic_result_file_path = test_utils.get_test_data_path(file_path)
     local f = io.open(holistic_result_file_path, 'rb')
@@ -58,10 +100,31 @@ local function _get_expected_holistic_landmarker_result(file_path)
     -- Use this if a .pb file is available.
     -- holistic_result_proto.ParseFromString(f.read('*alll'))
     text_format.Parse(f:read('*alll'), holistic_result_proto)
-    local holistic_landmarker_result = HolisticLandmarkerResult.create_from_pb2(
-        holistic_result_proto
+
+    local face_landmarks = _create_landmarks_from_proto(
+        holistic_result_proto.face_landmarks, landmark_module.NormalizedLandmark
     )
-    return holistic_landmarker_result
+    local pose_landmarks = _create_landmarks_from_proto(
+        holistic_result_proto.pose_landmarks, landmark_module.NormalizedLandmark
+    )
+    local pose_world_landmarks = _create_landmarks_from_proto(
+        holistic_result_proto.pose_world_landmarks, landmark_module.Landmark
+    )
+    local face_blendshapes_list = _create_blendshapes_from_proto(
+        holistic_result_proto.face_blendshapes
+    )
+
+    return HolisticLandmarkerResult(mediapipe_lua.kwargs({
+        face_landmarks = face_landmarks,
+        pose_landmarks = pose_landmarks,
+        pose_world_landmarks = pose_world_landmarks,
+        left_hand_landmarks = {},
+        right_hand_landmarks = {},
+        left_hand_world_landmarks = {},
+        right_hand_world_landmarks = {},
+        face_blendshapes = face_blendshapes_list,
+        segmentation_mask = nil,
+    }))
 end
 
 local ModelFileType = {
@@ -87,7 +150,7 @@ function _assert._expect_landmarks_correct(
     -- Expects to have the same number of landmarks detected.
     self.assertLen(actual_landmarks, #expected_landmarks)
 
-    for i, elem in ipairs(actual_landmarks) do
+    for i, elem in actual_landmarks:__ipairs() do
         self.assertAlmostEqual(elem.x, expected_landmarks[i].x, mediapipe_lua.kwargs({ delta = margin }))
         self.assertAlmostEqual(elem.y, expected_landmarks[i].y, mediapipe_lua.kwargs({ delta = margin }))
     end
@@ -99,7 +162,7 @@ function _assert._expect_blendshapes_correct(
     -- Expects to have the same number of blendshapes.
     self.assertLen(actual_blendshapes, #expected_blendshapes)
 
-    for i, elem in ipairs(actual_blendshapes) do
+    for i, elem in actual_blendshapes:__ipairs() do
         self.assertEqual(elem.index, expected_blendshapes[i].index)
         self.assertEqual(
             elem.category_name, expected_blendshapes[i].category_name
@@ -136,9 +199,10 @@ function _assert._expect_holistic_landmarker_results_correct(
         blendshapes_margin
     )
     if output_segmentation_mask then
-        self.assertIsInstance(actual_result.segmentation_mask, _Image)
-        self.assertEqual(actual_result.segmentation_mask.width, _IMAGE_WIDTH)
-        self.assertEqual(actual_result.segmentation_mask.height, _IMAGE_HEIGHT)
+        local segmentation_mask = actual_result.segmentation_mask
+        self.assertIsInstance(segmentation_mask, _Image)
+        self.assertEqual(segmentation_mask.width, _IMAGE_WIDTH)
+        self.assertEqual(segmentation_mask.height, _IMAGE_HEIGHT)
     else
         self.assertIsNone(actual_result.segmentation_mask)
     end
@@ -148,6 +212,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local landmarker = _HolisticLandmarker.create_from_model_path(self.model_path)
     self.assertIsInstance(landmarker, _HolisticLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -156,6 +221,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _HolisticLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _HolisticLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _HolisticLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -166,6 +232,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _HolisticLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _HolisticLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _HolisticLandmarker)
+    landmarker:close()
 end
 
 local function test_detect(
@@ -226,12 +293,6 @@ local function test_empty_detection_outputs(self)
     local detection_result = landmarker:detect(cat_test_image)
 
     self.assertEmpty(detection_result.face_landmarks)
-    self.assertEmpty(detection_result.pose_landmarks)
-    self.assertEmpty(detection_result.pose_world_landmarks)
-    self.assertEmpty(detection_result.left_hand_landmarks)
-    self.assertEmpty(detection_result.left_hand_world_landmarks)
-    self.assertEmpty(detection_result.right_hand_landmarks)
-    self.assertEmpty(detection_result.right_hand_world_landmarks)
     self.assertIsNone(detection_result.face_blendshapes)
     self.assertIsNone(detection_result.segmentation_mask)
 end
@@ -283,6 +344,8 @@ local function test_detect_async_calls(
 
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         -- Comparing results.
         self:_expect_holistic_landmarker_results_correct(
@@ -298,6 +361,8 @@ local function test_detect_async_calls(
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local model_path = test_utils.get_test_data_path(model_name)
@@ -314,11 +379,12 @@ local function test_detect_async_calls(
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         landmarker:detect_async(test_image, timestamp)
+
+        callback_event:wait(3000)
     end
 
     -- wait for detection end

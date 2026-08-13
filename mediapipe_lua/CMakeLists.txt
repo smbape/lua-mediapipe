@@ -1,5 +1,29 @@
 cmake_minimum_required(VERSION 3.25)
 
+# ================================================================
+# bit.lua
+# ================================================================
+function(mediapipe_write_bit_lua)
+    set(mediapipe_GENERATED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/generated")
+    file(READ "${CMAKE_SOURCE_DIR}/src/lua/bit.lua" _new_bit_string)
+
+    set(_new_bit_string "R\"cdata(${_new_bit_string})cdata\"")
+    set(bit_lua_FILE "${mediapipe_GENERATED_INCLUDE_DIR}/bit_string.lua.inc")
+
+    if(EXISTS "${bit_lua_FILE}")
+        file(READ "${bit_lua_FILE}" _old_bit_string)
+    else()
+        set(_old_bit_string "")
+    endif()
+
+    if(NOT (_old_bit_string STREQUAL _new_bit_string))
+        file(WRITE "${bit_lua_FILE}" "${_new_bit_string}")
+    endif()
+endfunction()
+
+mediapipe_write_bit_lua()
+# ================================================================
+
 # ===============
 # Mediapipe Lua
 # ===============
@@ -17,9 +41,11 @@ file(GLOB_RECURSE files_to_change
     ${relative_SOURCE_DIR}generator/index.js
     ${relative_SOURCE_DIR}luarocks/${target_name}-scm-1.rockspec
     ${relative_SOURCE_DIR}samples/*.lua
+    ${relative_SOURCE_DIR}test/*.lua
     ${relative_SOURCE_DIR}scripts/new_version.lua
     ${relative_SOURCE_DIR}scripts/pack.js
     ${relative_SOURCE_DIR}scripts/prepublish.js
+    ${relative_SOURCE_DIR}scripts/manual.sh
     ${relative_SOURCE_DIR}scripts/tasks.sh
     ${relative_SOURCE_DIR}BUILD
 )
@@ -113,6 +139,7 @@ list(APPEND BAZEL_BUILD
     --verbose_failures
 
     # --keep_going
+    # --sandbox_debug
 
     # https://github.com/bazelbuild/bazel/issues/8444#issuecomment-513204396
     # --spawn_strategy=local
@@ -136,18 +163,14 @@ if (WITH_CUDA)
 endif()
 
 if (WITH_CUDA)
-    find_package(CUDA REQUIRED)
-
-    # Compute the version.
-    execute_process(COMMAND "${CUDA_NVCC_EXECUTABLE}" "--version" OUTPUT_VARIABLE NVCC_OUT)
-    string(REGEX REPLACE ".*release [0-9]+\\.[0-9]+, V([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" CUDA_VERSION_STRING "${NVCC_OUT}")
+    find_package(CUDAToolkit REQUIRED)
 
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/.bazelrc#L223-L231
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/third_party/gpus/cuda/hermetic/cuda_json_init_repository.bzl#L41-L44
     list(APPEND BAZEL_BUILD_OPTIONS
         "--repo_env=TF_NEED_CUDA=1"
-        "--repo_env=HERMETIC_CUDA_VERSION=${CUDA_VERSION_STRING}"
-        "--repo_env=LOCAL_CUDA_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
+        "--repo_env=HERMETIC_CUDA_VERSION=${CUDAToolkit_VERSION}"
+        "--repo_env=LOCAL_CUDA_PATH=${CUDAToolkit_LIBRARY_ROOT}"
         # --crosstool_top=@local_config_cuda//crosstool:toolchain
         # --@local_config_cuda//:enable_cuda
         # --@local_config_cuda//cuda:include_cuda_libs=true
@@ -165,13 +188,27 @@ if (WITH_CUDA)
 endif()
 
 if (WITH_CUDNN)
+    set(CUDA_TOOLKIT_ROOT ${CUDAToolkit_LIBRARY_ROOT})
     find_package(CUDNN REQUIRED)
+
+    # ================================
+    # create a LOCAL_CUDNN_PATH
+    # ================================
+    set(LOCAL_CUDNN_PATH "${CMAKE_CURRENT_BINARY_DIR}/cudnn")
+    file(MAKE_DIRECTORY "${LOCAL_CUDNN_PATH}/lib")
+
+    file(CREATE_LINK "${CUDNN_INCLUDE_DIR}" "${LOCAL_CUDNN_PATH}/include" SYMBOLIC)
+
+    cmake_path(GET CUDNN_LIBRARY FILENAME CUDNN_LIBRARY_FILENAME)
+    file(CREATE_LINK "${CUDNN_LIBRARY}" "${LOCAL_CUDNN_PATH}/lib/${CUDNN_LIBRARY_FILENAME}" SYMBOLIC)
+    unset(CUDNN_LIBRARY_FILENAME)
+    # ================================
 
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/.bazelrc#L229
     # https://github.com/tensorflow/tensorflow/blob/v2.19.0/third_party/gpus/cuda/hermetic/cuda_json_init_repository.bzl#L45-L46
     list(APPEND BAZEL_BUILD_OPTIONS
         "--repo_env=HERMETIC_CUDNN_VERSION=${CUDNN_VERSION}"
-        "--repo_env=LOCAL_CUDNN_PATH=${CUDA_TOOLKIT_ROOT_DIR}"
+        "--repo_env=LOCAL_CUDNN_PATH=${LOCAL_CUDNN_PATH}"
     )
 endif()
 
@@ -232,13 +269,20 @@ list(APPEND BAZEL_BUILD ${BAZEL_GPU_OPTIONS} ${BAZEL_BUILD_OPTIONS})
 # If bazel-out already exists, bazel won't touch it, and generated files will be inacessible.
 # The choosen work around is to delete bazel-out if it is not a symbolic link.
 # Therefore, allowing bazel to create the symbolic link
-set(ensure_SYMBOLIC_BAZEL_OUT "${CMAKE_COMMAND}" -E)
-if (IS_SYMLINK "${mediapipe_SOURCE_DIR}/bazel-out")
-    list(APPEND ensure_SYMBOLIC_BAZEL_OUT echo)
+set(invalid_SYMLINKS)
+foreach(directory IN ITEMS bazel-bin bazel-out bazel-mediapipe-src)
+    if (NOT IS_SYMLINK "${mediapipe_SOURCE_DIR}/${directory}")
+        list(APPEND invalid_SYMLINKS "${mediapipe_SOURCE_DIR}/${directory}")
+    endif()
+endforeach()
+set(ensure_SYMBOLIC_BAZEL_SYMLINKS "${CMAKE_COMMAND}" -E)
+if (invalid_SYMLINKS)
+    list(APPEND ensure_SYMBOLIC_BAZEL_SYMLINKS rm -rf ${invalid_SYMLINKS})
+else()
+    list(APPEND ensure_SYMBOLIC_BAZEL_SYMLINKS echo "Checked symlinks")
 endif()
-list(APPEND ensure_SYMBOLIC_BAZEL_OUT rm -rf "${mediapipe_SOURCE_DIR}/bazel-out")
 
-set(builtin_calculators_DEPENDS)
+set(mediapipe_source_DEPENDS)
 
 option(BUILD_python_wheel "Build mediapipe python wheel" OFF)
 
@@ -271,8 +315,8 @@ if (BUILD_python_wheel)
     set(python_wheel_OUTPUT "${mediapipe_SOURCE_DIR}/dist/mediapipe-${Mediapipe_VERSION}-cp${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR}-cp${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR}-${wheel_suffix}.whl")
 
     set(python_wheel_COMMANDS
+        COMMAND     ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
         COMMAND     "${Python3_EXECUTABLE}" -m pip install numpy torch wheel
-        COMMAND     ${ensure_SYMBOLIC_BAZEL_OUT}
         COMMAND     "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
         COMMAND     "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
         COMMAND     "${CMAKE_COMMAND}" -E echo "${Python3_EXECUTABLE}" setup.py bdist_wheel clean --all
@@ -304,26 +348,22 @@ if (BUILD_python_wheel)
     )
     add_custom_target(${target_name}_python_wheel DEPENDS "${python_wheel_OUTPUT}")
 
-    list(APPEND builtin_calculators_DEPENDS ${target_name}_python_wheel)
+    list(APPEND mediapipe_source_DEPENDS ${target_name}_python_wheel)
 endif()
 
-if (WIN32)
-    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_registry.lo${CMAKE_STATIC_LIBRARY_SUFFIX}")
-else()
-    set(builtin_calculators_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/calculators/tensor/${CMAKE_SHARED_LIBRARY_PREFIX}inference_calculator_options_registry${CMAKE_SHARED_LIBRARY_SUFFIX}")
-endif()
+set(mediapipe_source_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/tasks/c/${CMAKE_SHARED_LIBRARY_PREFIX}mediapipe_source${CMAKE_SHARED_LIBRARY_SUFFIX}")
 
-add_custom_command(OUTPUT "${builtin_calculators_OUTPUT}"
-    COMMAND           ${ensure_SYMBOLIC_BAZEL_OUT}
-    COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} mediapipe/python:builtin_calculators
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} mediapipe/python:builtin_calculators
-    COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${builtin_calculators_OUTPUT}"
+add_custom_command(OUTPUT "${mediapipe_source_OUTPUT}"
+    COMMAND           ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
+    COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} //mediapipe/tasks/c:mediapipe_source
+    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} //mediapipe/tasks/c:mediapipe_source
+    COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${mediapipe_source_OUTPUT}"
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
-    DEPENDS           ${builtin_calculators_DEPENDS}
+    DEPENDS           ${mediapipe_source_DEPENDS} ${MEDIAPIPE_REPOSITORIES_DEPENDS}
     VERBATIM
     USES_TERMINAL
 )
-add_custom_target(${target_name}_builtin_calculators DEPENDS "${builtin_calculators_OUTPUT}")
+add_custom_target(${target_name}_mediapipe_source DEPENDS "${mediapipe_source_OUTPUT}" ${MEDIAPIPE_REPOSITORIES_DEPENDS})
 
 set(src_gen_cmd "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings generator/index.js)
 if (ENABLE_ODML_CONVERTER)
@@ -347,7 +387,7 @@ add_custom_command(OUTPUT "${generated_OUTPUT}"
     COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}" "Python3_EXECUTABLE=${Python3_EXECUTABLE}" -- ${src_gen_cmd}
     COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${generated_OUTPUT}"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-    DEPENDS           ${project_source_headers} ${target_name}_builtin_calculators ${generator_files}
+    DEPENDS           ${project_source_headers} ${target_name}_mediapipe_source ${generator_files}
     VERBATIM
     USES_TERMINAL
 )
@@ -363,10 +403,6 @@ file(GLOB_RECURSE project_source_headers
     "${relative_SOURCE_DIR}src/*.hh"
     "${relative_SOURCE_DIR}src/*.hpp"
     "${relative_SOURCE_DIR}src/*.hxx"
-    "${relative_SOURCE_DIR}generated/*.h"
-    "${relative_SOURCE_DIR}generated/*.hh"
-    "${relative_SOURCE_DIR}generated/*.hpp"
-    "${relative_SOURCE_DIR}generated/*.hxx"
 )
 
 file(GLOB_RECURSE project_source_files
@@ -374,10 +410,10 @@ file(GLOB_RECURSE project_source_files
     "${relative_SOURCE_DIR}src/*.cc"
     "${relative_SOURCE_DIR}src/*.cpp"
     "${relative_SOURCE_DIR}src/*.cxx"
-    "${relative_SOURCE_DIR}generated/*.c"
-    "${relative_SOURCE_DIR}generated/*.cc"
-    "${relative_SOURCE_DIR}generated/*.cpp"
-    "${relative_SOURCE_DIR}generated/*.cxx"
+)
+
+file(GLOB_RECURSE project_lua_files
+    "${relative_SOURCE_DIR}src/*.lua"
 )
 
 set(BAZEL_OUTPUT_NAME "${CMAKE_SHARED_LIBRARY_PREFIX}${target_name}")
@@ -393,16 +429,15 @@ else()
 endif()
 
 add_custom_command(OUTPUT "${BAZEL_OUTPUT_LIBRARY}"
-    # Make sure bazel-out is a symbolic link
-    COMMAND           ${ensure_SYMBOLIC_BAZEL_OUT}
+    COMMAND           ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
     COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
-    DEPENDS           ${project_source_files} ${project_rules_files} ${target_name}_generated
+    DEPENDS           ${project_source_headers} ${project_source_files} ${project_lua_files} ${project_rules_files} ${target_name}_generated ${MEDIAPIPE_REPOSITORIES_DEPENDS}
     VERBATIM
     USES_TERMINAL
 )
-add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUTPUT_LIBRARY}")
+add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUTPUT_LIBRARY}" ${MEDIAPIPE_REPOSITORIES_DEPENDS})
 
 add_custom_target(${target_name} ALL DEPENDS ${target_name}_lib)
 
@@ -435,8 +470,11 @@ if (WIN32)
 else()
     set(TARGET_FILE "${LIBRARY_OUTPUT_PATH}/${OUTPUT_LIBRARY_NAME}")
 
-    add_custom_command(TARGET ${target_name} POST_BUILD
+    add_custom_command(
+        TARGET ${target_name}
+        POST_BUILD
         COMMAND "${CMAKE_COMMAND}"
+        ARGS
             "-DORIGIN_FILE=${BAZEL_OUTPUT_LIBRARY}"
             "-DTARGET_FILE=${TARGET_FILE}"
             -P "${CMAKE_CURRENT_SOURCE_DIR}/copy_soname.cmake"
@@ -478,12 +516,18 @@ endif()
 # ===============
 if (WITH_LUA_ROCKS)
     file(RELATIVE_PATH INST_LIBDIR "${CMAKE_INSTALL_PREFIX}" "${LUA_INSTALL_LIBDIR}")
-    install(FILES "${TARGET_FILE}" DESTINATION "${INST_LIBDIR}")
+    file(RELATIVE_PATH INST_LUADIR "${CMAKE_INSTALL_PREFIX}" "${LUA_INSTALL_LUADIR}")
+
+    set(LIBRAY_DESTINATION "${INST_LIBDIR}")
+    set(ARCHIVE_DESTINATION "${INST_LIBDIR}/${target_name}/devel/lib")
+    set(LUAMOD_DESTINATION "${INST_LUADIR}")
 else()
-    install(FILES "${TARGET_FILE}" DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+    set(LIBRAY_DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+    set(ARCHIVE_DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+    set(LUAMOD_DESTINATION "lua")
 endif()
 
-# TODO : remove rpath when installing on unix
+install(FILES "${TARGET_FILE}" DESTINATION "${LIBRAY_DESTINATION}")
 
 if (WIN32)
     install(
@@ -493,26 +537,123 @@ if (WIN32)
     )
 endif()
 
-if (WITH_LUA_ROCKS)
-    install(CODE "set(CMAKE_BINARY_DIR \"${CMAKE_BINARY_DIR}\")")
-    install(CODE "set(CMAKE_CURRENT_BINARY_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")")
-    install(CODE "set(CMAKE_CURRENT_SOURCE_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")")
-    install(CODE "set(CMAKE_INSTALL_LIBDIR \"${INST_LIBDIR}\")")
-    install(CODE "set(CMAKE_SOURCE_DIR \"${CMAKE_SOURCE_DIR}\")")
+# ===============
+# Allegro5 Lua Repair
+# ===============
+install(CODE "
+set(TARGET_EXPORT_NAME ${TARGET_EXPORT_NAME})
+set(LIBRAY_DESTINATION ${LIBRAY_DESTINATION})
+set(ARCHIVE_DESTINATION ${ARCHIVE_DESTINATION})
+set(CMAKE_CONFIG_DESTINATION ${CMAKE_CONFIG_DESTINATION})
+set(LUAMOD_DESTINATION ${LUAMOD_DESTINATION})
+")
 
+if (WITH_LUA_ROCKS)
+    cmake_path(RELATIVE_PATH mediapipe_BINARY_DIR BASE_DIRECTORY "${CMAKE_BINARY_DIR}" OUTPUT_VARIABLE mediapipe_RELATIVE_BINARY_DIR)
     install(CODE "set(mediapipe_SOURCE_DIR \"${mediapipe_SOURCE_DIR}\")")
     install(CODE "set(mediapipe_BINARY_DIR \"${mediapipe_BINARY_DIR}\")")
-    install(CODE "set(TARGET_FILE \"${TARGET_FILE}\")")
+    install(CODE "set(mediapipe_RELATIVE_BINARY_DIR \"${mediapipe_RELATIVE_BINARY_DIR}\")")
     install(SCRIPT "install_generated_files.cmake")
+endif()
 
-    if (UNIX)
-        # Add any variables you need during post install.
-        install(CODE "set(PROJECT_VERSION \"${PROJECT_VERSION}\")")
-        install(CODE "set(Python3_EXECUTABLE \"${Python3_EXECUTABLE}\")")
-        install(CODE "set(target_name \"${target_name}\")")
+option(ENABLE_REPAIR "Repair installed library to ease distribution" OFF)
 
-        # CMake will execute this last in the build.
-        # Install the script that does the post install work.
+if (ENABLE_REPAIR)
+    if (WIN32)
+        add_library(${target_name}_loader SHARED loader.cpp)
+
+        target_compile_definitions(${target_name}_loader PRIVATE
+            LUA_MODULE_NAME=${target_name}
+            LUA_MODULE_VERSION=${LUA_MODULE_VERSION}
+            LUA_MODULE_LIB_NAME=Allegro5
+            LUA_MODULE_LIB_VERSION=${Allegro5_VERSION}
+            LUAAPI_EXPORTS
+        )
+
+        target_include_directories(${target_name}_loader PRIVATE
+            "${CMAKE_SOURCE_DIR}/src/include"
+        )
+
+        target_link_libraries(${target_name}_loader PRIVATE ${LUA_LIBRARIES})
+        target_include_directories(${target_name}_loader PRIVATE ${LUA_INCLUDE_DIR})
+
+        install(TARGETS ${target_name}_loader
+            LIBRARY DESTINATION "${LIBRAY_DESTINATION}/${target_name}"
+            RUNTIME DESTINATION "${LIBRAY_DESTINATION}/${target_name}"
+            ARCHIVE DESTINATION "${ARCHIVE_DESTINATION}/${target_name}"
+        )
+
+        set(REPAIR_DIR repaired)
+
+        set(repair_CODE
+            "set(TARGET_NAME ${target_name})"
+            "set(ORIGIN_FILE \"${BAZEL_OUTPUT_LIBRARY}\")"
+            "set(PROJECT_VERSION ${PROJECT_VERSION})"
+            "set(Python3_EXECUTABLE \"${Python3_EXECUTABLE}\")"
+            "set(TARGET_SOURCE_DIR \"${CMAKE_SOURCE_DIR}\")"
+            "set(TARGET_CURRENT_SOURCE_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")"
+            "set(TARGET_CURRENT_BINARY_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")"
+            "set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})"
+            "set(REPAIR_DIR ${REPAIR_DIR})"
+            "set(PACKAGE_DATA \"${target_name}${CMAKE_SHARED_LIBRARY_SUFFIX}\")"
+            "unset(DLL_DIRECTORIES)"
+        )
+
+        if (VCPKG_INSTALLED_DIR)
+            if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+                list(APPEND repair_CODE "list(APPEND DLL_DIRECTORIES \"${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/bin\")")
+            endif()
+
+            list(APPEND repair_CODE "list(APPEND DLL_DIRECTORIES \"${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin\")")
+        endif()
+
+        foreach(flag IN ITEMS ignore_existing ignore_in_wheel no_mangle_all with_mangle strip custom_patch include_symbols include_imports)
+            if (DELVEWHEEL_${flag})
+                list(APPEND repair_CODE "set(DELVEWHEEL_${flag} ON)")
+            endif()
+        endforeach()
+
+        foreach(option IN ITEMS add_path include add_dll exclude no_dll wheel_dir no_mangle lib_sdir namespace_pkg)
+            foreach(value IN LISTS DELVEWHEEL_${option})
+                list(APPEND repair_CODE "list(APPEND DELVEWHEEL_${option} \"${value}\")")
+            endforeach()
+        endforeach()
+
+        list(JOIN repair_CODE "\n  " repair_CODE)
+        install(CODE "${repair_CODE}")
+
+        install(SCRIPT "delvewheel_repair.cmake")
+    elseif (UNIX)
+        set(REPAIR_DIR repaired)
+
+        set(repair_CODE
+            "set(TARGET_NAME ${target_name})"
+            "set(ORIGIN_FILE \"${BAZEL_OUTPUT_LIBRARY}\")"
+            "set(PROJECT_VERSION ${PROJECT_VERSION})"
+            "set(Python3_EXECUTABLE \"${Python3_EXECUTABLE}\")"
+            "set(TARGET_SOURCE_DIR \"${CMAKE_SOURCE_DIR}\")"
+            "set(TARGET_CURRENT_SOURCE_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")"
+            "set(TARGET_CURRENT_BINARY_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")"
+            "set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})"
+            "set(REPAIR_DIR ${REPAIR_DIR})"
+            "set(PACKAGE_DATA \"${target_name}${CMAKE_SHARED_LIBRARY_SUFFIX}\")"
+        )
+
+        foreach(flag IN ITEMS strip only_plat disable_isa_ext_check)
+            if (AUDITWHEEL_${flag})
+                list(APPEND repair_CODE "set(AUDITWHEEL_${flag} ON)")
+            endif()
+        endforeach()
+
+        foreach(option IN ITEMS plat exclude)
+            foreach(value IN LISTS AUDITWHEEL_${option})
+                list(APPEND repair_CODE "list(APPEND AUDITWHEEL_${option} \"${value}\")")
+            endforeach()
+        endforeach()
+
+        list(JOIN repair_CODE "\n  " repair_CODE)
+        install(CODE "${repair_CODE}")
+
         install(SCRIPT "auditwheel_repair.cmake")
     endif()
 endif()
@@ -525,7 +666,7 @@ if (WITH_LUA_ROCKS)
 endif()
 
 # Needed python packages
-pip_install(absl-py mediapipe<=0.10.21 numpy opencv-python)
+pip_install(absl-py mediapipe>=0.10.35 numpy opencv-python)
 
 include(CTest)
 enable_testing()
@@ -538,10 +679,10 @@ add_test(
 
 set_tests_properties(test_build PROPERTIES DEPENDS ${target_name})
 
-if(EXISTS "${CMAKE_INSTALL_PREFIX}/bin/lua${LUA_SUFFIX}${CMAKE_EXECUTABLE_SUFFIX}")
+if(EXISTS "${CMAKE_INSTALL_PREFIX}/bin/lua${Lua_SUFFIX}${CMAKE_EXECUTABLE_SUFFIX}")
     add_test(
         NAME test_install
-        COMMAND "${CMAKE_INSTALL_PREFIX}/bin/lua${LUA_SUFFIX}${CMAKE_EXECUTABLE_SUFFIX}" "samples/01-face_detection.lua"
+        COMMAND "${CMAKE_INSTALL_PREFIX}/bin/lua${Lua_SUFFIX}${CMAKE_EXECUTABLE_SUFFIX}" "samples/01-face_detection.lua"
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
     )
 
@@ -552,76 +693,3 @@ endif()
 include(CPack)
 set(CPACK_PROJECT_NAME ${target_name})
 set(CPACK_PROJECT_VERSION ${LUA_MODULE_VERSION})
-
-include(../cmake/get_temp_dir.cmake)
-get_temp_dir(TEMPDIR)
-
-if (NOT TEMPDIR)
-    return()
-endif()
-
-if(WIN32)
-    set(SILENT_OUT 2> NUL || type NUL > NUL)
-else()
-    set(SILENT_OUT 2> /dev/null || true > /dev/null)
-endif()
-set(mediapipe_SOLUTIONS_DIR "${mediapipe_SOURCE_DIR}/mediapipe/python/solutions")
-
-set(item_target test_on_video_fullasl_hand_full_npz)
-set(item_test_data "${CMAKE_SOURCE_DIR}/test/solutions/testdata")
-set(item_output "${item_test_data}/test_on_video_full_asl_hand.full.yml")
-
-include(ExternalProject)
-ExternalProject_Add(
-    asl_hand_25fps_mp4
-    URL https://github.com/tensorflow/tfjs-models/raw/master/hand-pose-detection/test_data/asl_hand.25fps.mp4
-    URL_HASH SHA256=57c10fb1eb76639edf43e9675213dcc495c51851e32a3592cacaa9437be4f37e
-    DOWNLOAD_NO_EXTRACT TRUE
-    DOWNLOAD_DIR      "${mediapipe_SOLUTIONS_DIR}/testdata"
-    SOURCE_DIR        "${mediapipe_SOLUTIONS_DIR}/testdata"
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND     ""
-    INSTALL_COMMAND   "${CMAKE_COMMAND}" -E copy_if_different "<DOWNLOAD_DIR>/asl_hand.25fps.mp4" "${item_test_data}/asl_hand.25fps.mp4"
-)
-
-add_custom_command(OUTPUT "${item_output}"
-    COMMAND "${Python3_EXECUTABLE}" hands_test.py -- -k test_on_video ${SILENT_OUT}
-    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/test/solutions/npz_convert.py" "${TEMPDIR}/test_on_video_fullasl_hand.full.npz" -o "${item_output}"
-    DEPENDS ${target_name}_lib asl_hand_25fps_mp4
-    WORKING_DIRECTORY "${mediapipe_SOLUTIONS_DIR}"
-    VERBATIM
-)
-add_custom_target(${item_target} DEPENDS "${item_output}")
-
-add_dependencies(${target_name} ${item_target})
-
-set(item_target test_on_video_fullpose_squats_npz)
-set(item_test_data "${CMAKE_SOURCE_DIR}/test/solutions/testdata")
-set(item_output "${item_test_data}/test_on_video_full_pose_squats.full.yml")
-
-include(ExternalProject)
-ExternalProject_Add(
-    pose_squats_mp4
-    URL https://github.com/tensorflow/tfjs-models/raw/master/pose-detection/test_data/pose_squats.mp4
-    URL_HASH SHA256=ea9151e447b301985d5d65666551ef863b369a2e0f3a71ddd58abef2e722f96a
-    DOWNLOAD_NO_EXTRACT TRUE
-    DOWNLOAD_DIR      "${mediapipe_SOLUTIONS_DIR}/testdata"
-    SOURCE_DIR        "${mediapipe_SOLUTIONS_DIR}/testdata"
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND     ""
-    INSTALL_COMMAND   "${CMAKE_COMMAND}" -E copy_if_different "<DOWNLOAD_DIR>/pose_squats.mp4" "${item_test_data}/pose_squats.mp4"
-)
-
-add_custom_command(OUTPUT "${item_output}"
-    COMMAND "${Python3_EXECUTABLE}" pose_test.py -- -k test_on_video ${SILENT_OUT}
-    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/test/solutions/npz_convert.py" "${TEMPDIR}/test_on_video_fullpose_squats.full.npz" -o "${item_output}"
-    DEPENDS ${target_name}_lib pose_squats_mp4
-    WORKING_DIRECTORY "${mediapipe_SOLUTIONS_DIR}"
-    VERBATIM
-)
-add_custom_target(${item_target} DEPENDS "${item_output}")
-
-add_dependencies(${target_name} ${item_target})
-
-unset(item_output)
-unset(item_target)

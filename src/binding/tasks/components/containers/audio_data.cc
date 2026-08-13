@@ -1,4 +1,5 @@
 #include "binding/tasks/components/containers/audio_data.h"
+#include <lua_bridge_common.hpp>
 
 namespace mediapipe::tasks::lua::components::containers::audio_data {
 	absl::Status AudioData::load_from_mat(cv::Mat src, int offset, int size) {

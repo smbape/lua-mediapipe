@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/hand_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/hand_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -23,17 +23,20 @@ local google = mediapipe_lua.google
 local std = mediapipe_lua.std
 
 local text_format = google.protobuf.text_format
-local image_module = mediapipe.lua._framework_bindings.image
 local landmarks_detection_result_pb2 = mediapipe.tasks.cc.components.containers.proto.landmarks_detection_result_pb2
 local landmark_detection_result_module = mediapipe.tasks.lua.components.containers.landmark_detection_result
+local rect_module = mediapipe.tasks.lua.components.containers.rect
 local base_options_module = mediapipe.tasks.lua.core.base_options
+local proto_utils = mediapipe.tasks.lua.test.vision.proto_utils
 local hand_landmarker = mediapipe.tasks.lua.vision.hand_landmarker
+local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local _LandmarksDetectionResultProto = (
     landmarks_detection_result_pb2.LandmarksDetectionResult)
 local _BaseOptions = base_options_module.BaseOptions
+local _RectF = rect_module.RectF
 local _LandmarksDetectionResult = (
     landmark_detection_result_module.LandmarksDetectionResult)
 local _Image = image_module.Image
@@ -69,8 +72,11 @@ local function _get_expected_hand_landmarker_result(file_path)
     -- Use this if a .pb file is available.
     -- landmarks_detection_result_proto.ParseFromString(f:read('*all'))
     text_format.Parse(f:read('*all'), landmarks_detection_result_proto)
-    local landmarks_detection_result = _LandmarksDetectionResult.create_from_pb2(
-        landmarks_detection_result_proto)
+    local landmarks_detection_result = (
+        proto_utils.create_landmarks_detection_result_from_proto(
+            landmarks_detection_result_proto
+        )
+    )
     return _HandLandmarkerResult(mediapipe_lua.kwargs({
         handedness = { landmarks_detection_result.categories },
         hand_landmarks = { landmarks_detection_result.landmarks },
@@ -152,6 +158,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local landmarker = _HandLandmarker.create_from_model_path(self.model_path)
     self.assertIsInstance(landmarker, _HandLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -160,6 +167,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _HandLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _HandLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _HandLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -170,6 +178,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _HandLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _HandLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _HandLandmarker)
+    landmarker:close()
 end
 
 local function test_detect(self, model_file_type, expected_detection_result)
@@ -292,6 +301,8 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
 
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         if (result.hand_landmarks and result.hand_world_landmarks and
                 result.handedness) then
@@ -305,6 +316,8 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _HandLandmarkerOptions(mediapipe_lua.kwargs({
@@ -317,11 +330,12 @@ local function test_detect_async_calls(self, image_path, rotation, expected_resu
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         landmarker:detect_async(test_image, timestamp, image_processing_options)
+
+        callback_event:wait(300)
     end
 
     -- wait for detection end

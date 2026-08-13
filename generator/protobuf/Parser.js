@@ -189,7 +189,7 @@ class Parser {
 
         const globalOptions = [];
         const { decls, typedefs } = outputs;
-        const { self_get, language, vargc } = options;
+        const { self_get, language } = options;
 
         this.consumeCommentOrSpace();
         this.maybeSyntax();
@@ -308,8 +308,7 @@ class Parser {
 
                     ${ body.join("\n").trim().split("\n").join(`\n${ " ".repeat(20) }`) }
 
-                    lua_push(L, shared_message);
-                    return lua_gettop(L) - ${ vargc };
+                    lua_push(L, shared_message)
                 `.trim().replace(/^ {20}/mg, ""));
             }
 
@@ -1010,9 +1009,18 @@ class Parser {
 
             [`${ fqn }.size`, "int", ["=__len"], [], "", ""],
 
-            [`${ fqn }.${ byref ? "Mutable" : "Get" }`, `${ value_type }${ byref }`, ["=__index"], [
+            [`${ fqn }.sol::meta_function::index`, value_type, ["=__index", "/Ref", "/Call=_stl_container__index", `/Expr=L, ${ self }, $0`], [
                 ["int", "index", "", []],
             ], "", ""],
+
+            [`${ fqn }.sol::meta_function::new_index`, "void", ["/Call=_stl_container__newindex", `/Expr=L, ${ self }, $0`], [
+                ["size_t", "index", "", []],
+                [value_type, "value", "", ["/C", "/Ref"]],
+            ], "", ""],
+
+            [`${ fqn }.sol::meta_function::pairs`, "void", ["/Call=_stl_container__ipairs", `/Expr=L, ${ self }`], [], "", ""],
+
+            [`${ fqn }.sol::meta_function::ipairs`, "void", ["/Call=_stl_container__ipairs", `/Expr=L, ${ self }`], [], "", ""],
         ]);
 
         if (byref) {

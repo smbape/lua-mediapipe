@@ -2,8 +2,8 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/hand_landmarker/python/hand_landmarker.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/hand_landmarker/python/hand_landmarker.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/hand_landmarker/python/hand_landmarker.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/hand_landmarker/python/hand_landmarker.ipynb
 
 Title: Hand Landmarks Detection with MediaPipe Tasks
 --]]
@@ -50,7 +50,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -80,8 +80,11 @@ download_test_files({
     },
 })
 
-local solutions = mediapipe.solutions
-local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
+local mp = require("mediapipe_lua.mediapipe")
+
+local mp_hands = mp.tasks.vision.HandLandmarksConnections
+local mp_drawing = mp.tasks.vision.drawing_utils
+local mp_drawing_styles = mp.tasks.vision.drawing_styles
 
 local function draw_landmarks_on_image(rgb_image, detection_result)
     -- Compute the scale to make drawn elements visible when the image is resized for display
@@ -94,7 +97,7 @@ local function draw_landmarks_on_image(rgb_image, detection_result)
 
     local hand_landmarks_list = detection_result.hand_landmarks
     local handedness_list = detection_result.handedness
-    local annotated_image = rgb_image:copy()
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
 
     -- Loop through the detected hands to visualize.
     for idx = 1, #hand_landmarks_list do
@@ -103,25 +106,18 @@ local function draw_landmarks_on_image(rgb_image, detection_result)
         local min_x = 1
         local min_y = 1
 
-        -- Draw the hand landmarks.
-        local hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
         for _, landmark in ipairs(hand_landmarks) do
-            hand_landmarks_proto.landmark:append(landmark_pb2.NormalizedLandmark(mediapipe_lua.kwargs({
-                x = landmark.x,
-                y =
-                        landmark.y,
-                z = landmark.z
-            })))
             min_x = math.min(min_x, landmark.x)
             min_y = math.min(min_y, landmark.y)
         end
 
-        solutions.drawing_utils.draw_landmarks(
+        -- Draw the hand landmarks.
+        mp_drawing.draw_landmarks(
             annotated_image,
-            hand_landmarks_proto,
-            solutions.hands.HAND_CONNECTIONS,
-            solutions.drawing_styles.get_default_hand_landmarks_style(),
-            solutions.drawing_styles.get_default_hand_connections_style())
+            hand_landmarks,
+            mp_hands.HAND_CONNECTIONS,
+            mp_drawing_styles.get_default_hand_landmarks_style(scale),
+            mp_drawing_styles.get_default_hand_connections_style(scale))
 
         -- Get the top left corner of the detected hand's bounding box.
         local height, width, _ = unpack(annotated_image.shape)
@@ -142,7 +138,7 @@ local mp = mediapipe
 local lua = mediapipe.tasks.lua
 local vision = mediapipe.tasks.lua.vision
 
--- STEP 2: Create an HandLandmarker object.
+-- STEP 2: Create a HandLandmarker object.
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
 local options = vision.HandLandmarkerOptions(mediapipe_lua.kwargs({
     base_options = base_options,
@@ -157,6 +153,6 @@ local image = mp.Image.create_from_file(IMAGE_FILE)
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the classification result. In this case, visualize it.
-local annotated_image = draw_landmarks_on_image(cv2.cvtColor(image:mat_view(), cv2.COLOR_RGB2BGR), detection_result)
+local annotated_image = draw_landmarks_on_image(image:mat_view(), detection_result)
 resize_and_show(annotated_image, "hand_landmarker")
 cv2.waitKey()

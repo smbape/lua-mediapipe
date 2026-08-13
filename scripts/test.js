@@ -78,7 +78,6 @@ if (os.platform() === "win32") {
 
     const OpenCVLua_CPATH = [];
     if (fs.existsSync(OpenCVLua_DIR)) {
-        const OpenCVLua_BINDIR = sysPath.resolve(OpenCVLua_DIR, "bin");
         const OpenCVLua_LIBDIR = sysPath.resolve(OpenCVLua_DIR, "lib");
 
         OpenCVLua_CPATH.push(...[
@@ -86,15 +85,15 @@ if (os.platform() === "win32") {
             `${ OpenCVLua_LIBDIR }/loadall.dll`,
         ]);
 
-        config.Debug.env.PATH = `${ OpenCVLua_LIBDIR };${ OpenCVLua_BINDIR };${ config.Debug.env.PATH }`;
+        config.Debug.env.PATH = `${ OpenCVLua_LIBDIR };${ config.Debug.env.PATH }`;
     }
 
     config.Debug.argv = [
         "-e",
         [
             `package.path="${ [
-                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib").replaceAll("\\", "/") }/?.lua`,
-                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib").replaceAll("\\", "/") }/?/init.lua`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lua").replaceAll("\\", "/") }/?.lua`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lua").replaceAll("\\", "/") }/?/init.lua`,
                 `${ LUA_MODULES }/share/lua/${ ABIVER }/?.lua`,
                 `${ LUA_MODULES }/share/lua/${ ABIVER }/?/init.lua`,
                 `${ APPDATA }/luarocks/share/lua/${ ABIVER }/?.lua`,
@@ -129,8 +128,8 @@ if (os.platform() === "win32") {
         "-e",
         [
             `package.path="${ [
-                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib") }/?.lua`,
-                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lib") }/?/init.lua`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lua") }/?.lua`,
+                `${ sysPath.resolve(LUA_BINDIR_DEBUG, "..", "lua") }/?/init.lua`,
                 `${ LUA_MODULES }/share/lua/${ ABIVER }/?.lua`,
                 `${ LUA_MODULES }/share/lua/${ ABIVER }/?/init.lua`,
             ].join(";").replace(/[\\]/g, "/") };"..package.path`,
@@ -195,13 +194,13 @@ const run = (file, env, options, next) => {
     if (extname === ".lua") {
         const argv = [...config[env.BUILD_TYPE].argv, file, ...options.argv];
         if (file.split(sysPath.sep)[0] === "test" && file.endsWith("_test.lua") && options.argv.length === 0) {
-            argv.push("-v");
+            argv.push("-v", "--output=gtest");
         }
         args.push(config[env.BUILD_TYPE].exe, argv);
     } else if (extname === ".py") {
         args.push(PYTHON, [file, ...options.argv]);
     } else {
-        throw new Error(`Unsupported extenstion ${ extname }`);
+        throw new Error(`Unsupported extenstion ${ extname } for file ${ file }`);
     }
 
     const cmd = [keys.map(key => unixEnv(key, env[key])).join(" "), unixCmd(args.flat())].join(" ");
@@ -251,7 +250,29 @@ const run = (file, env, options, next) => {
 
 const bash_init = "#!/usr/bin/env bash\n\nset -o pipefail\n";
 
-const main = (options, next) => {
+const runFile = (file, options, cb) => {
+    waterfall([
+        next => {
+            run(file, {
+                BUILD_TYPE: "Release",
+                MEDIAPIPE_BUILD_TYPE: "Release",
+                OPENCV_BUILD_TYPE: "Release",
+            }, options, next);
+        },
+
+        (signal, next) => {
+            run(file, {
+                BUILD_TYPE: "Debug",
+                MEDIAPIPE_BUILD_TYPE: "Debug",
+                OPENCV_BUILD_TYPE: "Debug",
+            }, options, next);
+        },
+    ], (code, signal) => {
+        cb(code);
+    });
+};
+
+const main = (options, cb) => {
     options = Object.assign({
         cwd: WORKSPACE_ROOT,
         includes: [],
@@ -263,8 +284,6 @@ const main = (options, next) => {
 
     const { cwd, includes, includes_ext, excludes } = options;
 
-    excludes.push(...["init.lua", "common.lua", "download_model.py"]);
-
     if (options.bash) {
         console.log([
             bash_init,
@@ -273,48 +292,51 @@ const main = (options, next) => {
         ].join("\n"));
     }
 
-    eachOfLimit(["test", "samples"], 1, (folder, i, next) => {
-        explore(sysPath.join(cwd, folder), (path, stats, next) => {
-            const file = sysPath.relative(cwd, path);
-            const basename = sysPath.basename(file);
-            const extname = sysPath.extname(file);
+    const runs = new Set();
 
-            if (
-                includes.length === 0 && folder === "test" && !file.endsWith("_test.lua") ||
-                (includes.length === 0 || !includes.some(include => basename.startsWith(include))) && [ "_", "." ].includes(basename[0]) ||
-                !includes_ext.includes(extname) ||
-                excludes.some(exclude => basename.startsWith(exclude)) ||
-                includes.length !== 0 && !includes.some(include => basename.includes(include))
-            ) {
-                next();
-                return;
-            }
+    waterfall([
+        next => {
+            eachOfLimit(["test", "samples"], 1, (directory, i, next) => {
+                explore(sysPath.join(cwd, directory), (path, stats, next) => {
+                    const file = sysPath.relative(cwd, path);
+                    const basename = sysPath.basename(file);
+                    const extname = sysPath.extname(file);
 
-            waterfall([
-                next => {
-                    run(file, {
-                        BUILD_TYPE: "Release",
-                        MEDIAPIPE_BUILD_TYPE: "Release",
-                        OPENCV_BUILD_TYPE: "Release",
-                    }, options, next);
-                },
+                    if (
+                        directory === "test" && !file.endsWith("_test.lua") ||
+                        (includes.length === 0 || !includes.some(include => basename.startsWith(include))) && [ "_", "." ].includes(basename[0]) ||
+                        !includes_ext.includes(extname) ||
+                        excludes.some(exclude => basename.startsWith(exclude)) ||
+                        includes.length !== 0 && !includes.some(include => basename.includes(include))
+                    ) {
+                        next();
+                        return;
+                    }
 
-                (signal, next) => {
-                    run(file, {
-                        BUILD_TYPE: "Debug",
-                        MEDIAPIPE_BUILD_TYPE: "Debug",
-                        OPENCV_BUILD_TYPE: "Debug",
-                    }, options, next);
-                },
-            ], (code, signal) => {
-                next(code);
-            });
-        }, (path, stats, files, state, next) => {
-            const basename = sysPath.basename(path);
-            const skip = state === "begin" && (basename[0] === "." || basename === "BackUp");
-            next(null, skip);
-        }, next);
-    }, next);
+                    runs.add(file.replaceAll("\\", "/"));
+                    runFile(file, options, next);
+                }, (path, stats, files, state, next) => {
+                    const basename = sysPath.basename(path);
+                    const skip = state === "begin" && (basename[0] === "." || basename === "BackUp");
+                    next(null, skip);
+                }, err => {
+                    if (err && err.code === "ENOENT") {
+                        err = null;
+                    }
+                    next(err);
+                });
+            }, next);
+        },
+        next => {
+            eachOfLimit(includes, 1, (file, i, next) => {
+                if (fs.existsSync(file) && !fs.lstatSync(file).isDirectory() && !runs.has(file.replaceAll("\\", "/"))) {
+                    runFile(file, options, next);
+                } else {
+                    next();
+                }
+            }, next);
+        },
+    ], cb);
 };
 
 exports.main = main;

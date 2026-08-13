@@ -63,25 +63,6 @@ namespace LUA_MODULE_NAME {
 
 
 	// ================================
-	// mediapipe::Timestamp
-	// ================================
-
-	std::shared_ptr<mediapipe::Timestamp> lua_to(lua_State* L, int index, mediapipe::Timestamp*, bool& is_valid) {
-		auto ptr = usertype_info<mediapipe::Timestamp>::lua_userdata_to(L, index, is_valid);
-		if (is_valid) {
-			return ptr;
-		}
-
-		auto timestamp = lua_to(L, index, static_cast<int64_t*>(nullptr), is_valid);
-		if (is_valid) {
-			return std::make_shared<mediapipe::Timestamp>(timestamp);
-		}
-
-		return std::shared_ptr<mediapipe::Timestamp>();
-	}
-
-
-	// ================================
 	// absl::Status
 	// ================================
 
@@ -99,9 +80,6 @@ namespace LUA_MODULE_NAME {
 
 namespace fs = std::filesystem;
 
-#define _stringify(s) #s
-#define stringify(s) _stringify(s)
-
 #ifdef __linux__
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
@@ -117,7 +95,7 @@ namespace {
 		Dl_info info;
 		auto res = dladdr((void const*)&LUA_MODULE_LUAOPEN, &info);
 		if (res) {
-			return fs::absolute(info.dli_fname);
+			return fs::canonical(info.dli_fname);
 		}
 
 		// Unable to get the path
@@ -144,7 +122,7 @@ namespace {
 			auto sz = GetModuleFileNameW(m, lpFilename, nSize);
 			if (sz > 0 && sz < nSize) {
 				lpFilename[sz] = '\0';
-				return fs::absolute(lpFilename);
+				return fs::canonical(lpFilename);
 			}
 		}
 
@@ -210,49 +188,66 @@ namespace {
 	void require_opencv_lua(lua_State* L) {
 		lua_getglobal(L, "require");
 		lua_pushliteral(L, "opencv_lua");
-		lua_call(L, 1, 1);  /* call 'require("opencv_lua")' */
-		lua_pop(L, 1); /* remove the result because we don't need it and to keep the stack consistent */
+		lua_call(L, 1, 0);  /* call 'require("opencv_lua")' */
 	}
 
-	void set_resource_dir() {
-		std::vector<std::string> hints = {
+	int get_resource_dir(lua_State* L) {
+		static std::string resource_dir = []() {
+			std::vector<std::string> hints = {
 #ifdef _MSC_VER
 #if _DEBUG
-			"out/build/x64-Debug/mediapipe/mediapipe-src/bazel-out/x64_windows-dbg/bin",
+				"out/build/x64-Debug/mediapipe/mediapipe-src/bazel-out/x64_windows-dbg/bin",
 #else
-			"out/build/x64-Release/mediapipe/mediapipe-src/bazel-out/x64_windows-opt/bin",
+				"out/build/x64-Release/mediapipe/mediapipe-src/bazel-out/x64_windows-opt/bin",
 #endif
 #else
 #ifndef NDEBUG
-			"out/build/Linux-GCC-Debug/mediapipe/mediapipe-src/bazel-out/k8-dbg/bin",
+				"out/build/Linux-GCC-Debug/mediapipe/mediapipe-src/bazel-out/k8-dbg/bin",
 #else
-			"out/build/Linux-GCC-Release/mediapipe/mediapipe-src/bazel-out/k8-opt/bin",
+				"out/build/Linux-GCC-Release/mediapipe/mediapipe-src/bazel-out/k8-opt/bin",
 #endif
 #endif
+			};
+
+			auto module_filename = get_module_filename();
+			if (!module_filename.empty()) {
+				auto base_directory = module_filename.parent_path() / LUA_MODULE_NAME_STR;
+				if (fs::exists(base_directory)) {
+					hints.insert(hints.begin(), _string_type_to_string(base_directory.native()));
+				}
+			}
+
+			constexpr auto graph_file = "mediapipe/modules/face_detection/face_detection_short_range_cpu.binarypb";
+			const auto& directory = std::filesystem::current_path().string();
+			const auto& filter = "";
+			auto graph_file_found = fs_utils::findFile(graph_file, directory, filter, hints);
+			if (!graph_file_found.empty()) {
+				return graph_file_found.substr(0, graph_file_found.size() - cstr_len(graph_file) - 1);
+			}
+
+			return std::string();
+		}();
+
+		lua_push(L, resource_dir);
+		return 1;
+	}
+
+	void register_resource_dir(lua_State* L) {
+		const struct luaL_Reg funcs[] = {
+			{ "get_resource_dir", get_resource_dir },
+			{ NULL, NULL }
 		};
 
-		auto module_filename = get_module_filename();
-		if (!module_filename.empty()) {
-			auto base_directory = module_filename.parent_path() / stringify(LUA_MODULE_NAME);
-			if (fs::exists(base_directory)) {
-				hints.insert(hints.begin(), _string_type_to_string(base_directory.native()));
-			}
-		}
-
-		constexpr auto graph_file = "mediapipe/modules/face_detection/face_detection_short_range_cpu.binarypb";
-		const auto& directory = std::filesystem::current_path().string();
-		const auto& filter = "";
-		auto graph_file_found = fs_utils::findFile(graph_file, directory, filter, hints);
-		if (!graph_file_found.empty()) {
-			const auto& root_path = graph_file_found.substr(0, graph_file_found.size() - cstr_len(graph_file) - 1);
-			mediapipe::lua::_framework_bindings::resource_util::set_resource_dir(root_path);
-		}
+		lua_pushliteral(L, "resource_util");
+		lua_newtable(L);
+		lua_pushfuncs(L, funcs);
+		lua_rawset(L, -3);
 	}
 }
 
 namespace LUA_MODULE_NAME {
 	void register_extensions(lua_State* L) {
 		require_opencv_lua(L);
-		set_resource_dir();
+		register_resource_dir(L);
 	}
 }

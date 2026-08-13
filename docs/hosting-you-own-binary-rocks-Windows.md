@@ -32,12 +32,12 @@ The procedure has been tested on:
   - Install [CMake >= 3.25](https://cmake.org/download/)
   - Install [Git](https://git-scm.com/)
   - Install [NodeJS](https://nodejs.org/en/download/current)
+  - Install [Python 3.9...<3.13](https://www.python.org/downloads/)
   - Install [Bazelisk](https://github.com/bazelbuild/bazelisk)
-  - Install [Python](https://www.python.org/downloads/)
-  - Install [Visual Studio 2022 >= 17.13.0](https://visualstudio.microsoft.com/fr/downloads/)
+  - Install [Visual Studio 2026](https://visualstudio.microsoft.com/fr/downloads/)
   - \[optional\] [Hosted you own opencv_lua binary rocks on Windows with NVIDIA CUDA support](https://github.com/smbape/lua-opencv/blob/main/docs/hosting-you-own-binary-rocks-Windows.md)
 
-In your windows search, search and open the `x64 Native Tools Command Prompt for VS 2022`
+In your windows search, search and open the `x64 Native Tools Command Prompt for VS`
 
 From here on, commands will be executed within the opened Command Prompt.
 
@@ -50,7 +50,7 @@ In this example, we will use the following directories:
   - The **LuaRocks binary directory** is _D:\luarocks-binaries-custom\lua-mediapipe\out\prepublish\build\mediapipe_lua-custom\out\build.luaonly\x64-Release\luarocks\luarocks-prefix\src\luarocks_
   - The **build directory** is _D:\luarocks-binaries-custom\build_
   - The **server directory** is _D:\luarocks-binaries-custom\server_
-  - The **test directory** is _D:\luarocks-binaries-custom\test_
+  - The **test directory** is _D:\luarocks-binaries-custom\test\lua-mediapipe_
 
 ## Open GIT BASH in the **build directory**
 
@@ -61,7 +61,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.1.1 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
+git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
 cd /d/luarocks-binaries-custom/lua-mediapipe && \
 npm ci
 ```
@@ -69,12 +69,16 @@ npm ci
 ## Build
 
 ```sh
-# --lua-versions luajit-2.1,5.1,5.2,5.3,5.4
+# --lua-versions luajit-2.1,5.1,5.2,5.3,5.4,5.5
 TMPDIR=/d/luarocks-binaries-custom/tmp && \
 node scripts/prepublish.js --pack --server="/d/luarocks-binaries-custom/server" --lua-versions luajit-2.1 --name=mediapipe_lua-custom \
+    -DENABLE_REPAIR=ON \
+    -DDELVEWHEEL_exclude="opencv_lua.dll" \
     --opencv-server=/d/luarocks-binaries-custom/server \
     --opencv-name=opencv_lua-custom
 ```
+
+  - `-DDELVEWHEEL_exclude="opencv_lua.dll"`: exclude shared libraries that, if vendored, may conflict with the system shared libraries or heavily increase (+850 Mo) the size of the binary rock.
 
 ## Testing our custom prebuilt binary
 
@@ -95,23 +99,10 @@ set PATH=D:\luarocks-binaries-custom\lua-mediapipe\out\prepublish\build\mediapip
 ### Initialize our test project and install our custom prebuilt binary
 
 ```cmd
-mkdir "D:\luarocks-binaries-custom\test"
-cd /d "D:\luarocks-binaries-custom\test"
-luarocks --lua-version "5.1" --lua-dir "D:\luarocks-binaries-custom\lua-mediapipe\out\prepublish\build\mediapipe_lua-custom\out\install\x64-Release" init --lua-versions "5.1,5.2,5.3,5.4"
+mkdir "D:\luarocks-binaries-custom\test\lua-mediapipe"
+cd /d "D:\luarocks-binaries-custom\test\lua-mediapipe"
+luarocks --lua-version "5.1" init --lua-versions "5.1,5.2,5.3,5.4,5.5"
 luarocks install "--server=D:\luarocks-binaries-custom\server" mediapipe_lua-custom
-```
-
-Replace the content of `lua.bat` with the following content
-
-```cmd
-@echo off
-setlocal
-IF "%*"=="" (set I=-i) ELSE (set I=)
-set "LUAROCKS_SYSCONFDIR=C:\Program Files\luarocks"
-set LUA_MODULES=%~dp0lua_modules
-set "PATH=%LUA_MODULES%\lib\lua\5.1;%LUA_MODULES%\bin;%APPDATA%\luarocks\bin;C:\vcpkg\installed\x64-windows\bin;%PATH%"
-"D:\luarocks-binaries-custom\lua-mediapipe\out\prepublish\build\mediapipe_lua-custom\out\install\x64-Release\bin\luajit.exe" -e "package.path=\"%LUA_MODULES:\=\\%\\share\\lua\\5.1\\?.lua;%LUA_MODULES:\=\\%\\share\\lua\\5.1\\?\\init.lua;%APPDATA:\=\\%\\luarocks\\share\\lua\\5.1\\?.lua;%APPDATA:\=\\%\\luarocks\\share\\lua\\5.1\\?\\init.lua;\"..package.path;package.cpath=\"%LUA_MODULES:\=\\%\\lib\\lua\\5.1\\?.dll;%APPDATA:\=\\%\\luarocks\\lib\\lua\\5.1\\?.dll;\"..package.cpath" %I% %*
-exit /b %ERRORLEVEL%
 ```
 
 ### Test
@@ -119,12 +110,10 @@ exit /b %ERRORLEVEL%
 Create a file `test-mediapipe.lua`
 
 ```lua
-local INDEX_BASE = 1 -- lua is 1-based indexed
-
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local MEDIAPIPE_SAMPLES_DATA_PATH = "testdata"
 
@@ -154,7 +143,7 @@ local classifier = text.TextClassifier.create_from_options(options)
 local classification_result = classifier:classify(INPUT_TEXT)
 
 -- STEP 4: Process the classification result. In this case, print out the most likely category.
-local top_category = classification_result.classifications[0 + INDEX_BASE].categories[0 + INDEX_BASE]
+local top_category = classification_result.classifications[0].categories[0]
 print(("%s: (%.2f)"):format(top_category.category_name, top_category.score))
 
 ```

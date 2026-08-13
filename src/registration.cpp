@@ -13,13 +13,27 @@ namespace {
 	void register_bit(lua_State* L) {
 #ifdef LUA_BITLIBNAME
 		lua_pushliteral(L, "bit");
-		lua_getglobal(L, "bit");
+		lua_getglobal(L, LUA_BITLIBNAME);
 		lua_rawset(L, -3);
 #else
 		lua_pushliteral(L, "bit");
 		lua_newtable(L);
 		luaopen_bit(L);
 		lua_rawset(L, -3);
+
+#if LUA_VERSION_NUM >= 503
+		// Lua supports the following bitwise operators
+		lua_pushliteral(L, "bit");
+		lua_rawget(L, -2); // push bit table
+		const char* bit_string =
+#include "bit_string.lua.inc"
+		;
+		luaL_dostring(L, bit_string);
+		lua_pushvalue(L, -2);
+		lua_call(L, 1, 0);
+		lua_pop(L, 1); // pop bit table
+#endif
+
 #endif
 	}
 
@@ -146,18 +160,46 @@ namespace {
 	}
 }
 
-#define _stringify(s) #s
-#define stringify(s) _stringify(s)
-
 int LUA_MODULE_LUAOPEN(lua_State* L) {
-#if LUA_VERSION_NUM < 502
-	const struct luaL_Reg no_funcs[] = {
-		{ NULL, NULL }
-	};
-	luaL_register(L, stringify(LUA_MODULE_NAME), no_funcs);
-#else
-	lua_newtable(L);
-#endif
+	// ================================================================
+	// to avoid multiple registration, which cause class metatables to not be found,
+	// make the call from c equivalent to require(modname)
+	// ================================================================
+	lua_getglobal(L, "package"); // get package
+	if (lua_isnil(L, -1)) {
+		luaL_error(L, "global variable 'package' wast not found");
+	}
+
+	lua_getfield(L, -1, "loaded"); // get package.loaded
+	if (lua_isnil(L, -1)) {
+		luaL_error(L, "'package.loaded' was not found");
+	}
+
+	lua_getfield(L, -1, LUA_MODULE_NAME_STR); // get package.loaded[modname]
+
+	if (!lua_istable(L, -1)) {
+		lua_pop(L, 1);
+
+		lua_pushliteral(L, LUA_MODULE_NAME_STR);
+		lua_newtable(L);
+		lua_rawset(L, -3); // set package.loaded[modname]
+
+		lua_pushliteral(L, LUA_MODULE_NAME_STR);
+		lua_rawget(L, -2); // get package.loaded[modname]
+
+		int ref = luaL_ref(L, LUA_REGISTRYINDEX);
+		lua_pop(L, 2); // remove package.loaded, package
+		lua_rawgeti(L, LUA_REGISTRYINDEX, ref);
+		luaL_unref(L, LUA_REGISTRYINDEX, ref);
+	}
+	else {
+		int ref = luaL_ref(L, LUA_REGISTRYINDEX);
+		lua_pop(L, 2); // remove package.loaded, package
+		lua_rawgeti(L, LUA_REGISTRYINDEX, ref);
+		luaL_unref(L, LUA_REGISTRYINDEX, ref);
+		return 1;
+	}
+	// ================================================================
 
 	using namespace LUA_MODULE_NAME;
 

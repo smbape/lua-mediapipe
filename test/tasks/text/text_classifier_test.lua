@@ -3,17 +3,16 @@
 require "busted.runner" ()
 
 package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:sub(1, 1)) ..
-        arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
+    arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/text/text_classifier_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/text_classifier_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
 
 local _assert = require("_assert")
-local _proto_utils = require("_proto_utils") ---@diagnostic disable-line: unused-local
 local test_utils = require("test_utils")
 
 local mediapipe_lua = require("mediapipe_lua")
@@ -37,7 +36,7 @@ local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testda
 
 local _NEGATIVE_TEXT = 'What a waste of my time.'
 local _POSITIVE_TEXT = ('This is the best movie I’ve seen in recent years.' ..
-        'Strongly recommend it!')
+    'Strongly recommend it!')
 
 local _BERT_NEGATIVE_RESULTS = TextClassifierResult(mediapipe_lua.kwargs({
     classifications = {
@@ -145,6 +144,41 @@ local function setUp(self)
     self.model_path = test_utils.get_test_data_path(_BERT_MODEL_FILE)
 end
 
+function _assert.assertTextClassifierResultEquals(
+    self,
+    result,
+    expected_result
+)
+    self.assertEqual(result.timestamp_ms, expected_result.timestamp_ms)
+    self.assertLen(result.classifications, #expected_result.classifications)
+    for i, actual_classification in result.classifications:__ipairs() do
+        local expected_classification = expected_result.classifications[i]
+        self.assertEqual(
+            actual_classification.head_index, expected_classification.head_index
+        )
+        self.assertEqual(
+            actual_classification.head_name, expected_classification.head_name
+        )
+        self.assertLen(
+            actual_classification.categories,
+            #expected_classification.categories
+        )
+        for j, actual_category in actual_classification.categories:__ipairs() do
+            local expected_category = expected_classification.categories[j]
+            self.assertEqual(actual_category.index, expected_category.index)
+            self.assertEqual(
+                actual_category.display_name or '', expected_category.display_name
+            )
+            self.assertEqual(
+                actual_category.category_name, expected_category.category_name
+            )
+            self.assertAlmostEqual(
+                actual_category.score, expected_category.score, 1e-4
+            )
+        end
+    end
+end
+
 local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local classifier = _TextClassifier.create_from_model_path(self.model_path)
@@ -167,6 +201,36 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _TextClassifierOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local classifier = _TextClassifier.create_from_options(options)
     self.assertIsInstance(classifier, _TextClassifier)
+end
+
+local function test_create_from_options_succeeds_with_allow_list(self)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.model_path }))
+    local options = _TextClassifierOptions(mediapipe_lua.kwargs({
+        base_options = base_options, category_allowlist = { 'positive' }
+    }))
+    local classifier = _TextClassifier.create_from_options(options)
+    self.assertIsInstance(classifier, _TextClassifier)
+    classifier:close()
+end
+
+local function test_create_from_options_succeeds_with_deny_list(self)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.model_path }))
+    local options = _TextClassifierOptions(mediapipe_lua.kwargs({
+        base_options = base_options, category_denylist = { 'negative' }
+    }))
+    local classifier = _TextClassifier.create_from_options(options)
+    self.assertIsInstance(classifier, _TextClassifier)
+    classifier:close()
+end
+
+local function test_create_from_options_succeeds_with_display_names_locale(self)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.model_path }))
+    local options = _TextClassifierOptions(mediapipe_lua.kwargs({
+        base_options = base_options, display_names_locale = 'en'
+    }))
+    local classifier = _TextClassifier.create_from_options(options)
+    self.assertIsInstance(classifier, _TextClassifier)
+    classifier:close()
 end
 
 local function test_classify(self, model_file_type, model_name, text, expected_classification_result)
@@ -192,8 +256,7 @@ local function test_classify(self, model_file_type, model_name, text, expected_c
     local text_result = classifier:classify(text)
 
     -- Comparing results.
-    self.assertProtoEquals(text_result:to_pb2(),
-        expected_classification_result:to_pb2())
+    self:assertTextClassifierResultEquals(text_result, expected_classification_result)
 end
 
 describe("TextClassifierTest", function()
@@ -209,6 +272,18 @@ describe("TextClassifierTest", function()
 
     it("should test_create_from_options_succeeds_with_valid_model_content", function()
         test_create_from_options_succeeds_with_valid_model_content(_assert)
+    end)
+
+    it("should test_create_from_options_succeeds_with_allow_list", function()
+        test_create_from_options_succeeds_with_allow_list(_assert)
+    end)
+
+    it("should test_create_from_options_succeeds_with_deny_list", function()
+        test_create_from_options_succeeds_with_deny_list(_assert)
+    end)
+
+    it("should test_create_from_options_succeeds_with_display_names_locale", function()
+        test_create_from_options_succeeds_with_display_names_locale(_assert)
     end)
 
     for _, args in ipairs({

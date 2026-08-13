@@ -2,13 +2,12 @@
 
 --[[
 Sources:
-    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/object_detection/python/object_detector.ipynb
-    https://github.com/google-ai-edge/mediapipe-samples/blob/8c1d61ad6eb12f1f98ed95c3c8b64cb9801f3230/examples/object_detection/python/object_detector.ipynb
+    https://colab.research.google.com/github/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/object_detection/python/object_detector.ipynb
+    https://github.com/google-ai-edge/mediapipe-samples/blob/3d23f0e459907af064c3e7494dbb180851e1694c/examples/object_detection/python/object_detector.ipynb
 
 Title: Object Detection with MediaPipe Tasks
 --]]
 
-local INDEX_BASE = 1 -- lua is 1-based indexed
 local int = math.floor
 
 local mediapipe_lua = require("mediapipe_lua")
@@ -50,7 +49,7 @@ local function resize_and_show(image, title, show)
     return w / image.width
 end
 
-local download_utils = mediapipe.lua.solutions.download_utils
+local download_utils = mediapipe.tasks.lua.core.download_utils
 
 local function download_test_files(test_files)
     for _, kwargs in ipairs(test_files) do
@@ -83,13 +82,13 @@ download_test_files({
 --[[
 Draws bounding boxes on the input image and return it.
   Args:
-    image: The input RGB image.
+    rgb_image: The input RGB image.
     detection_result: The list of all "Detection" entities to be visualize.
   Returns:
     Image with bounding boxes.
 ]]
 local function visualize(
-    image,
+    rgb_image,
     detection_result,
     scale
 )
@@ -97,27 +96,29 @@ local function visualize(
     local ROW_SIZE = 10            -- pixels
     local FONT_SIZE = scale
     local FONT_THICKNESS = int(scale)
-    local TEXT_COLOR = { 255, 0, 0 } -- red
+    local TEXT_COLOR = { 0, 0, 255 } -- red
 
-    for _, detection in ipairs(detection_result.detections) do
+    local annotated_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
+
+    for _, detection in detection_result.detections:__ipairs() do
         -- Draw bounding_box
         local bbox = detection.bounding_box
         local start_point = { bbox.origin_x, bbox.origin_y }
         local end_point = { bbox.origin_x + bbox.width, bbox.origin_y + bbox.height }
-        cv2.rectangle(image, start_point, end_point, TEXT_COLOR, 3)
+        cv2.rectangle(annotated_image, start_point, end_point, TEXT_COLOR, 3)
 
         -- Draw label and score
-        local category = detection.categories[0 + INDEX_BASE]
+        local category = detection.categories[0]
         local category_name = category.category_name
         local probability = round(category.score, 2)
         local result_text = category_name .. ' (' .. tostring(probability) .. ')'
         local text_location = { MARGIN + bbox.origin_x,
             MARGIN + ROW_SIZE + bbox.origin_y }
-        cv2.putText(image, result_text, text_location, cv2.FONT_HERSHEY_PLAIN,
+        cv2.putText(annotated_image, result_text, text_location, cv2.FONT_HERSHEY_PLAIN,
             FONT_SIZE, TEXT_COLOR, FONT_THICKNESS)
     end
 
-    return image
+    return annotated_image
 end
 
 -- STEP 1: Import the necessary modules.
@@ -143,8 +144,6 @@ local scale = 1 / resize_and_show(image, nil, false)
 local detection_result = detector:detect(image)
 
 -- STEP 5: Process the detection result. In this case, visualize it.
-local image_copy = image:mat_view()
-local annotated_image = visualize(image_copy, detection_result, scale)
-local rgb_annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB)
-resize_and_show(rgb_annotated_image, "object_detection")
+local annotated_image = visualize(image:mat_view(), detection_result, scale)
+resize_and_show(annotated_image, "object_detection")
 cv2.waitKey()

@@ -58,22 +58,18 @@ exports.ALIASES = new Map([
 
     ["LUA_MODULE_NAME", "mediapipe_lua"],
 
-    ["mediapipe::solutions::face_detection::SolutionBase", "mediapipe::lua::solution_base::SolutionBase"],
     ["DrawingColor", "std::tuple<int, int, int>"],
 
-    ["tasks::components::processors::proto::ClassifierOptions", "mediapipe::tasks::components::processors::proto::ClassifierOptions"],
+    ["TextEmbedderResult", "mediapipe::tasks::components::containers::EmbeddingResult"],
+    ["ImageEmbedderResult", "mediapipe::tasks::components::containers::EmbeddingResult"],
 
-    ["AudioEmbedderResult", "mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult"],
-    ["TextEmbedderResult", "mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult"],
-    ["ImageEmbedderResult", "mediapipe::tasks::lua::components::containers::embedding_result::EmbeddingResult"],
+    ["AudioClassifierResult", "mediapipe::tasks::components::containers::ClassificationResult"],
+    ["TextClassifierResult", "mediapipe::tasks::components::containers::ClassificationResult"],
+    ["ImageClassifierResult", "mediapipe::tasks::components::containers::ClassificationResult"],
 
-    ["AudioClassifierResult", "mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult"],
-    ["TextClassifierResult", "mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult"],
-    ["ImageClassifierResult", "mediapipe::tasks::lua::components::containers::classification_result::ClassificationResult"],
+    ["ObjectDetectorResult", "mediapipe::tasks::components::containers::DetectionResult"],
 
-    ["ObjectDetectorResult", "mediapipe::tasks::lua::components::containers::detections::DetectionResult"],
-
-    ["FaceDetectorResult", "mediapipe::tasks::lua::components::containers::detections::DetectionResult"],
+    ["FaceDetectorResult", "mediapipe::tasks::components::containers::DetectionResult"],
 ]);
 
 exports.CLASS_PTR = new Set([]);

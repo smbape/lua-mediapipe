@@ -3,40 +3,38 @@
 require "busted.runner" ()
 
 package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:sub(1, 1)) ..
-        arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
+    arg[0]:gsub("[^/\\]+%.lua", '../../?.lua;'):gsub('/', package.config:sub(1, 1)) .. package.path
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/image_classifier_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_classifier_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local _mat_utils = require("_mat_utils") ---@diagnostic disable-line: unused-local
-local _proto_utils = require("_proto_utils") ---@diagnostic disable-line: unused-local
 local test_utils = require("test_utils")
 
 local mediapipe_lua = require("mediapipe_lua")
 local mediapipe = mediapipe_lua.mediapipe
 local std = mediapipe_lua.std
 
-local image = mediapipe.lua._framework_bindings.image
 local category_module = mediapipe.tasks.lua.components.containers.category
 local classification_result_module = mediapipe.tasks.lua.components.containers.classification_result
-local rect = mediapipe.tasks.lua.components.containers.rect
+local rect_module = mediapipe.tasks.lua.components.containers.rect
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local image_classifier = mediapipe.tasks.lua.vision.image_classifier
+local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 local vision_task_running_mode = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local ImageClassifierResult = classification_result_module.ClassificationResult
-local _Rect = rect.Rect
+local _RectF = rect_module.RectF
 local _BaseOptions = base_options_module.BaseOptions
 local _Category = category_module.Category
 local _Classifications = classification_result_module.Classifications
-local _Image = image.Image
+local _Image = image_module.Image
 local _ImageClassifier = image_classifier.ImageClassifier
 local _ImageClassifierOptions = image_classifier.ImageClassifierOptions
 local _RUNNING_MODE = vision_task_running_mode.VisionTaskRunningMode
@@ -151,10 +149,44 @@ local function setUp(self)
     self.model_path = test_utils.get_test_data_path(_MODEL_FILE)
 end
 
+function _assert.assertCategoryAlmostEqual(
+    self, actual, expected, delta
+)
+    if delta == nil then delta = 1e-6 end
+    self.assertEqual(actual.index, expected.index)
+    self.assertAlmostEqual(actual.score, expected.score, mediapipe_lua.kwargs({ delta = delta }))
+    self.assertEqual(actual.display_name or '', expected.display_name)
+    self.assertEqual(actual.category_name, expected.category_name)
+end
+
+function _assert.assertClassificationsAlmostEqual(
+    self, actual, expected
+)
+    self.assertEqual(actual.head_index, expected.head_index)
+    self.assertEqual(actual.head_name, expected.head_name)
+    self.assertLen(actual.categories, #expected.categories)
+    for i, actual_category in actual.categories:__ipairs() do
+        self:assertCategoryAlmostEqual(actual_category, expected.categories[i])
+    end
+end
+
+function _assert.assertClassificationResultCorrect(
+    self, actual, expected
+)
+    self.assertEqual(actual.timestamp_ms, expected.timestamp_ms)
+    self.assertLen(actual.classifications, #expected.classifications)
+    for i, actual_classifications in actual.classifications:__ipairs() do
+        self:assertClassificationsAlmostEqual(
+            actual_classifications, expected.classifications[i]
+        )
+    end
+end
+
 local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local classifier = _ImageClassifier.create_from_model_path(self.model_path)
     self.assertIsInstance(classifier, _ImageClassifier)
+    classifier:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -163,6 +195,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local classifier = _ImageClassifier.create_from_options(options)
     self.assertIsInstance(classifier, _ImageClassifier)
+    classifier:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -173,6 +206,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local classifier = _ImageClassifier.create_from_options(options)
     self.assertIsInstance(classifier, _ImageClassifier)
+    classifier:close()
 end
 
 local function test_classify(
@@ -202,8 +236,8 @@ local function test_classify(
     local image_result = classifier:classify(self.test_image)
 
     -- Comparing results.
-    self.assertProtoEquals(
-        image_result:to_pb2(), expected_classification_result:to_pb2()
+    self:assertClassificationResultCorrect(
+        image_result, expected_classification_result
     )
 end
 
@@ -218,15 +252,15 @@ local function test_classify_succeeds_with_region_of_interest(self)
     )
 
     -- Region-of-interest around the soccer ball.
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
     local image_processing_options = _ImageProcessingOptions(roi)
 
     -- Performs image classification on the input.
     local image_result = classifier:classify(test_image, image_processing_options)
 
     -- Comparing results.
-    self.assertProtoEquals(
-        image_result:to_pb2(), _generate_soccer_ball_results():to_pb2()
+    self:assertClassificationResultCorrect(
+        image_result, _generate_soccer_ball_results()
     )
 end
 
@@ -277,9 +311,7 @@ local function test_classify_succeeds_with_rotation(self)
         timestamp_ms = 0,
     }))
 
-    self.assertProtoEquals(
-        image_result:to_pb2(), expected:to_pb2()
-    )
+    self:assertClassificationResultCorrect(image_result, expected)
 end
 
 local function test_classify_succeeds_with_region_of_interest_and_rotation(self)
@@ -294,7 +326,7 @@ local function test_classify_succeeds_with_region_of_interest_and_rotation(self)
 
     -- Region-of-interest around the soccer ball, with 90° anti-clockwise
     -- rotation.
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0.2655, top = 0.45, right = 0.6925, bottom = 0.614 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0.2655, top = 0.45, right = 0.6925, bottom = 0.614 }))
     local image_processing_options = _ImageProcessingOptions(roi, -90)
 
     -- Performs image classification on the input.
@@ -319,9 +351,7 @@ local function test_classify_succeeds_with_region_of_interest_and_rotation(self)
         timestamp_ms = 0,
     }))
 
-    self.assertProtoEquals(
-        image_result:to_pb2(), expected:to_pb2()
-    )
+    self:assertClassificationResultCorrect(image_result, expected)
 end
 
 local function test_score_threshold_option(self)
@@ -335,8 +365,8 @@ local function test_score_threshold_option(self)
     local image_result = classifier:classify(self.test_image)
     local classifications = image_result.classifications
 
-    for _, classification in ipairs(classifications) do
-        for _, category in ipairs(classification.categories) do
+    for _, classification in classifications:__ipairs() do
+        for _, category in classification.categories:__ipairs() do
             local score = category.score
             self.assertGreaterEqual(
                 score,
@@ -359,7 +389,7 @@ local function test_max_results_option(self)
 
     -- Performs image classification on the input.
     local image_result = classifier:classify(self.test_image)
-    local categories = image_result.classifications[0 + INDEX_BASE].categories
+    local categories = image_result.classifications[0].categories
 
     self.assertLessEqual(
         #categories, _MAX_RESULTS, 'Too many results returned.'
@@ -377,8 +407,8 @@ local function test_allow_list_option(self)
     local image_result = classifier:classify(self.test_image)
     local classifications = image_result.classifications
 
-    for _, classification in ipairs(classifications) do
-        for _, category in ipairs(classification.categories) do
+    for _, classification in classifications:__ipairs() do
+        for _, category in classification.categories:__ipairs() do
             local label = category.category_name
             self.assertIn(
                 label,
@@ -400,8 +430,8 @@ local function test_deny_list_option(self)
     local image_result = classifier:classify(self.test_image)
     local classifications = image_result.classifications
 
-    for _, classification in ipairs(classifications) do
-        for _, category in ipairs(classification.categories) do
+    for _, classification in classifications:__ipairs() do
+        for _, category in classification.categories:__ipairs() do
             local label = category.category_name
             self.assertNotIn(
                 label, _DENY_LIST, 'Label ' .. label .. ' found but in deny list.'
@@ -419,7 +449,7 @@ local function test_empty_classification_outputs(self)
 
     -- Performs image classification on the input.
     local image_result = classifier:classify(self.test_image)
-    self.assertEmpty(image_result.classifications[0 + INDEX_BASE].categories)
+    self.assertEmpty(image_result.classifications[0].categories)
 end
 
 local function test_classify_for_video(self)
@@ -434,9 +464,8 @@ local function test_classify_for_video(self)
         local classification_result = classifier:classify_for_video(
             self.test_image, timestamp
         )
-        self.assertProtoEquals(
-            classification_result:to_pb2(),
-            _generate_burger_results(timestamp):to_pb2()
+        self:assertClassificationResultCorrect(
+            classification_result, _generate_burger_results(timestamp)
         )
     end
 end
@@ -455,16 +484,15 @@ local function test_classify_for_video_succeeds_with_region_of_interest(self)
     )
 
     -- Region-of-interest around the soccer ball.
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
     local image_processing_options = _ImageProcessingOptions(roi)
 
     for timestamp = 0, 300 - 30, 30 do
         local classification_result = classifier:classify_for_video(
             test_image, timestamp, image_processing_options
         )
-        self.assertProtoEquals(
-            classification_result:to_pb2(),
-            _generate_soccer_ball_results(timestamp):to_pb2()
+        self:assertClassificationResultCorrect(
+            classification_result, _generate_soccer_ball_results(timestamp)
         )
     end
 end
@@ -472,9 +500,11 @@ end
 local function test_classify_async_calls(self, threshold, generate_expected_result)
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
-        self.assertProtoEquals(
-            result:to_pb2(), generate_expected_result(timestamp_ms):to_pb2()
+        self:assertClassificationResultCorrect(
+            result, generate_expected_result(timestamp_ms)
         )
         self.assertMatEqual(output_image:mat_view(), self.test_image:mat_view())
 
@@ -482,6 +512,8 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({
@@ -497,34 +529,37 @@ local function test_classify_async_calls(self, threshold, generate_expected_resu
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         classifier:classify_async(self.test_image, timestamp)
+
+        callback_event:wait(300)
     end
 
-    -- wait for detection end
+    -- wait for classification end
     classifier:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
 end
 
 local function test_classify_async_succeeds_with_region_of_interest(self)
+    local callback_event = test_utils.threading.Event()
+
     -- Load the test image.
     local test_image = _Image.create_from_file(
         test_utils.get_test_data_path(_IMAGE_ROI_FILE)
     )
 
     -- Region-of-interest around the soccer ball.
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0.45, top = 0.3075, right = 0.614, bottom = 0.7345 }))
     local image_processing_options = _ImageProcessingOptions(roi)
 
     local observed_timestamp_ms = -1
 
     local function check_result(result, output_image, timestamp_ms)
-        self.assertProtoEquals(
-            result:to_pb2(), _generate_soccer_ball_results(timestamp_ms):to_pb2()
+        self:assertClassificationResultCorrect(
+            result, _generate_soccer_ball_results(timestamp_ms)
         )
         self.assertEqual(output_image.width, test_image.width)
         self.assertEqual(output_image.height, test_image.height)
@@ -533,6 +568,8 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageClassifierOptions(mediapipe_lua.kwargs({
@@ -546,14 +583,15 @@ local function test_classify_async_succeeds_with_region_of_interest(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         classifier:classify_async(test_image, timestamp, image_processing_options)
+
+        callback_event:wait(300)
     end
 
-    -- wait for detection end
+    -- wait for classification end
     classifier:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)

@@ -1,35 +1,19 @@
 cmake_minimum_required(VERSION 3.25)
 
-set(mediapipe_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/mediapipe_lua")
+set(mediapipe_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${LIBRAY_DESTINATION}/mediapipe_lua")
 
 function(install_file src dst)
-    file(SHA256 "${src}" src_hash)
+    cmake_path(GET dst PARENT_PATH dst_parent)
+    cmake_path(GET dst FILENAME dst_filename)
 
-    set(dst_hash)
-    if (EXISTS "${dst}")
-        file(SHA256 "${dst}" dst_hash)
-    endif()
-
-    if (EXISTS "${dst}" AND src_hash STREQUAL dst_hash)
-        message(STATUS "Up-to-date: ${dst}")
-    else()
-        message(STATUS "Installing: ${dst}")
-
-        cmake_path(GET dst PARENT_PATH dst_parent)
-        file(MAKE_DIRECTORY "${dst_parent}")
-
-        file(COPY_FILE "${src}" "${dst}")
-        file(INSTALL "${src}" DESTINATION "${dst_parent}")
-
-        cmake_path(GET src FILENAME src_filename)
-        cmake_path(GET dst FILENAME dst_filename)
-        if (NOT src_filename STREQUAL dst_filename)
-            file(RENAME "${dst_parent}/${src_filename}" "${dst_parent}/${dst_filename}")
-        endif()
-    endif()
+    file(INSTALL
+        TYPE FILE
+        FILES "${src}"
+        DESTINATION "${dst_parent}"
+        RENAME "${dst_filename}"
+    )
 endfunction()
 
-cmake_path(RELATIVE_PATH mediapipe_BINARY_DIR BASE_DIRECTORY "${CMAKE_BINARY_DIR}" OUTPUT_VARIABLE mediapipe_RELATIVE_BINARY_DIR)
 cmake_path(NORMAL_PATH mediapipe_RELATIVE_BINARY_DIR)
 if (mediapipe_RELATIVE_BINARY_DIR STREQUAL ".")
     set(mediapipe_RELATIVE_BINARY_DIR)

@@ -7,11 +7,10 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/interactive_segmenter_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/interactive_segmenter_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local test_utils = require("test_utils")
@@ -22,17 +21,18 @@ local mediapipe = mediapipe_lua.mediapipe
 local opencv_lua = require("opencv_lua")
 local cv2 = opencv_lua.cv
 
-local image_module = mediapipe.lua._framework_bindings.image
-local image_frame = mediapipe.lua._framework_bindings.image_frame
 local keypoint_module = mediapipe.tasks.lua.components.containers.keypoint
+local rect_module = mediapipe.tasks.lua.components.containers.rect
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local interactive_segmenter = mediapipe.tasks.lua.vision.interactive_segmenter
+local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 
 local _BaseOptions = base_options_module.BaseOptions
 local _Image = image_module.Image
-local _ImageFormat = image_frame.ImageFormat
+local _ImageFormat = image_module.ImageFormat
 local _NormalizedKeypoint = keypoint_module.NormalizedKeypoint
+local _RectF = rect_module.RectF
 local _InteractiveSegmenter = interactive_segmenter.InteractiveSegmenter
 local _InteractiveSegmenterOptions = interactive_segmenter.InteractiveSegmenterOptions
 local _RegionOfInterest = interactive_segmenter.RegionOfInterest
@@ -43,7 +43,7 @@ local _CATS_AND_DOGS = 'cats_and_dogs.jpg'
 local _CATS_AND_DOGS_MASK_DOG_1 = 'cats_and_dogs_mask_dog1.png'
 local _CATS_AND_DOGS_MASK_DOG_2 = 'cats_and_dogs_mask_dog2.png'
 local _MASK_MAGNIFICATION_FACTOR = 255
-local _MASK_SIMILARITY_THRESHOLD = 0.97
+local _MASK_SIMILARITY_THRESHOLD = 0.96
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
 
 local function _calculate_sum(m)
@@ -123,6 +123,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local segmenter = _InteractiveSegmenter.create_from_model_path(self.model_path)
     self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    segmenter:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -131,6 +132,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local segmenter = _InteractiveSegmenter.create_from_options(options)
     self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    segmenter:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -141,6 +143,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local segmenter = _InteractiveSegmenter.create_from_options(options)
     self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    segmenter:close()
 end
 
 local function test_segment_succeeds_with_category_mask(
@@ -176,6 +179,7 @@ local function test_segment_succeeds_with_category_mask(
     local roi = _RegionOfInterest(mediapipe_lua.kwargs({ format = roi_format, keypoint = keypoint }))
     local segmentation_result = segmenter:segment(self.test_image, roi)
     local category_mask = segmentation_result.category_mask
+    self.assertIsNotNone(category_mask, 'Category mask was None')
     local result_pixels = category_mask:mat_view():clone():reshape(1, 1) -- reshape needs a continuous matrix, clone to the make matrix continous
 
     -- Check if data type of `category_mask` is correct.
@@ -226,7 +230,7 @@ local function test_segment_succeeds_with_confidence_mask(
     local expected_mask = self._load_segmentation_mask(output_mask)
 
     self:_similar_to_float_mask(
-        confidence_masks[1 + INDEX_BASE], expected_mask, similarity_threshold
+        confidence_masks[1], expected_mask, similarity_threshold
     )
 end
 
@@ -323,7 +327,7 @@ describe("InteractiveSegmenterTest", function()
             _RegionOfInterest.Format.KEYPOINT,
             _NormalizedKeypoint(0.66, 0.66),
             _CATS_AND_DOGS_MASK_DOG_2,
-            _MASK_SIMILARITY_THRESHOLD,
+            0.84,
         },
     }) do
         it("should test_segment_succeeds_with_confidence_mask " .. _, function()

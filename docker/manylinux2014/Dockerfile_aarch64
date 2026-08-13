@@ -5,19 +5,20 @@
 # $ docker run -it --name mp_pip_package_container -d mp_manylinux:latest bash
 
 # Make a container for MediaPipe
-FROM quay.io/pypa/manylinux2014_aarch64:2025.11.24-1
+FROM quay.io/pypa/manylinux2014_aarch64:2026.07.11-2
 
 
-ARG BAZELISK_VERSION=1.25.0
-ARG NINJA_VERSION=1.12.1
-ARG OPENSSL_VERSION=1_1_1w
-ARG PROTOBUF_VERSION=30.1
+ARG BAZELISK_VERSION=1.29.0
+ARG NINJA_VERSION=1.13.2
+ARG OPENSSL_VERSION=3.6.3
+ARG PROTOBUF_VERSION=35.0
 
 
 # Install OpenSSL
-RUN mkdir -p /opt/openssl/build /opt/openssl/src && \
+RUN yum install -y perl-IPC-Cmd perl-Test-Simple perl-Time-Piece && \
+    mkdir -p /opt/openssl/build /opt/openssl/src && \
     cd /opt/openssl && \
-    curl -L https://github.com/openssl/openssl/archive/OpenSSL_${OPENSSL_VERSION}.tar.gz -o openssl.tar.gz && \
+    curl -L https://github.com/openssl/openssl/releases/download/openssl-${OPENSSL_VERSION}/openssl-${OPENSSL_VERSION}.tar.gz -o openssl.tar.gz && \
     tar -xf openssl.tar.gz -C /opt/openssl/src --strip-components 1 && \
     cd /opt/openssl/build && \
     ../src/config --prefix="/opt/openssl/install" --openssldir="/opt/openssl/install" no-pinshared shared zlib && \
@@ -66,10 +67,22 @@ RUN mkdir  /opt/protoc && \
     rm -rf  /opt/protoc
 
 
+# Install other dependencies
+RUN yum install -y dejavu-sans-fonts readline-devel zip && \
+    yum clean all
+
+
 # Prioritize /usr/local
 ENV PATH="/usr/local/bin:$PATH"
 ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+
+# Allow openssl to be found
+ENV OPENSSL_ROOT_DIR=="/opt/openssl/install"
+ENV PATH="/opt/openssl/install/bin:$PATH"
+ENV LDFLAGS="-L/opt/openssl/install/lib"
+ENV PKG_CONFIG_PATH="/opt/openssl/install/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 
 # GitHub Actions user`s UID is 1001
@@ -84,9 +97,4 @@ USER ci
 
 # Git security vulnerability: https://github.blog/2022-04-12-git-security-vulnerability-announced
 RUN git config --global --add safe.directory /io
-
-
-# Allow openssl to be found
-ENV LDFLAGS="-L/opt/openssl/install/lib"
-ENV PKG_CONFIG_PATH="/opt/openssl/install/lib/pkgconfig:$PKG_CONFIG_PATH"
 

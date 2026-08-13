@@ -5,18 +5,28 @@ local assert = require("luassert")
 local mediapipe_lua = require("mediapipe_lua")
 local round = mediapipe_lua.math.round
 
-local exports = {}
+local null = setmetatable({}, {
+    __tostring = function() return "null" end
+})
+
+local exports = {
+    null = null
+}
 
 -- http://lua-users.org/wiki/StringRecipes
 local function starts_with(str, start)
     return str:sub(1, #start) == start
 end
 
+local function is_list(obj)
+    return type(obj) == "table" and obj ~= null or type(obj) == "userdata" and starts_with(obj.__type(), "std::vector<")
+end
+
 function exports.assertTrue(expr, msg)
     if msg == nil then
         msg = "expecting " .. tostring(expr) .. " to be true"
     end
-    assert.is_true(expr, msg)
+    assert.are.equal(true, expr, msg)
 end
 
 function exports.assertFalse(expr, msg)
@@ -44,28 +54,28 @@ function exports.assertGreater(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be greater than " .. tostring(second)
     end
-    assert.is_true(first > second, msg)
+    assert.are.equal(true, first > second, msg)
 end
 
 function exports.assertGreaterEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be greater than or equal to " .. tostring(second)
     end
-    assert.is_true(first >= second, msg)
+    assert.are.equal(true, first >= second, msg)
 end
 
 function exports.assertLess(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be less than " .. tostring(second)
     end
-    assert.is_true(first < second, msg)
+    assert.are.equal(true, first < second, msg)
 end
 
 function exports.assertLessEqual(first, second, msg)
     if msg == nil then
         msg = "expecting " .. tostring(first) .. " to be less than or equal to " .. tostring(second)
     end
-    assert.is_true(first <= second, msg)
+    assert.are.equal(true, first <= second, msg)
 end
 
 function exports.assertIsInstance(obj, cls, msg)
@@ -73,8 +83,8 @@ function exports.assertIsInstance(obj, cls, msg)
         msg = "expecting [" .. tostring(obj) .. "] to be an instance of [" .. tostring(cls) .. "]"
     end
 
-    if type(cls) == "table" and type(cls.isinstance) == "function" then
-        assert.is_true(cls.isinstance(obj), msg)
+    if type(cls) == "table" and cls ~= null and type(cls.isinstance) == "function" then
+        assert.are.equal(true, cls.isinstance(obj), msg)
         return
     end
 
@@ -86,10 +96,10 @@ function exports.assertIsInstance(obj, cls, msg)
         return
     end
 
-    assert.is_true(false, "unexpected: " .. msg)
+    assert.are.equal(true, false, "unexpected: " .. msg)
 end
 
--- node scripts/func_kwargs.js module assertAlmostEqual first second '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
+-- node scripts/func_kwargs.js exports assertAlmostEqual first second '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
 function exports.assertAlmostEqual(...)
     local args = { n = select("#", ...), ... }
     local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
@@ -210,17 +220,34 @@ function exports.assertAlmostEqual(...)
         tostring(second) .. " with decimal places of " .. tostring(places) .. " with a delta of " .. tostring(delta)
     end
 
-    first = round(first, places)
-    second = round(second, places)
+    if type(first) == "number" then
+        first = round(first, places)
+    else
+        delta = nil
+
+        if first == null then
+            first = nil
+        end
+    end
+
+    if type(second) == "number" then
+        second = round(second, places)
+    else
+        if second == null then
+            second = nil
+        end
+
+        delta = nil
+    end
 
     if delta == nil then
         assert.are.equal(second, first, msg)
     else
-        assert.is_true(math.abs(first - second) < delta, msg)
+        assert.are.equal(true, math.abs(first - second) < delta, msg)
     end
 end
 
--- node scripts/func_kwargs.js module assertAlmostIn member container '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
+-- node scripts/func_kwargs.js exports assertAlmostIn member container '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
 function exports.assertAlmostIn ( ... )
     local args={n=select("#", ...), ...}
     local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
@@ -355,7 +382,7 @@ function exports.assertAlmostIn ( ... )
     if msg == nil then
         msg = "expecting " .. tostring(member) .. " to be in the collection " .. inspect(container)
     end
-    assert.is_true(false, msg)
+    assert.are.equal(true, false, msg)
 end
 
 function exports.assertLen(container, len, msg)
@@ -380,7 +407,7 @@ function exports.assertNotEmpty(container, msg)
 end
 
 function exports.assertIsNone(expr, msg)
-    if type(expr) == "table" then
+    if type(expr) == "table" and expr ~= null or type(expr) == "string" then
         if msg == nil then
             msg = "expecting table to be empty"
         end
@@ -389,13 +416,32 @@ function exports.assertIsNone(expr, msg)
         if msg == nil then
             msg = "expecting userdata to be an empty vector"
         end
-        assert.is_true(starts_with(expr.__type(), "std::vector<"), msg)
+        assert.are.equal(true, starts_with(expr.__type(), "std::vector<"), msg)
         assert.are.equal(0, #expr, msg)
     else
         if msg == nil then
             msg = "expecting value to be none"
         end
         assert.are.equal(nil, expr, msg)
+    end
+end
+
+function exports.assertIsNotNone(expr, msg)
+    if type(expr) == "table" and expr ~= null or type(expr) == "string" then
+        if msg == nil then
+            msg = "expecting table to not be empty"
+        end
+        assert.are_not.equal(0, #expr, msg)
+    elseif type(expr) == "userdata" and starts_with(expr.__type(), "std::vector<") then
+        if msg == nil then
+            msg = "expecting userdata to not be an empty vector"
+        end
+        assert.are_not.equal(0, #expr, msg)
+    else
+        if msg == nil then
+            msg = "expecting value to not be none"
+        end
+        assert.are_not.equal(nil, expr, msg)
     end
 end
 
@@ -408,7 +454,7 @@ function exports.assertIn(member, container, msg)
     if msg == nil then
         msg = "expecting " .. tostring(member) .. " to be in the collection"
     end
-    assert.is_true(false, msg)
+    assert.are.equal(true, false, msg)
 end
 
 function exports.assertNotIn(member, container, msg)
@@ -417,13 +463,15 @@ function exports.assertNotIn(member, container, msg)
             if msg == nil then
                 msg = "expecting " .. tostring(member) .. " to be in the collection"
             end
-            assert.is_true(false, msg)
+            assert.are.equal(true, false, msg)
         end
     end
 end
 
 function exports.assertListEqual(first, second, msg)
-    exports.assertEqual(#first, #second, "expecting sizes to be equal")
+    assert.are.equal(true, is_list(first), function() if msg ~= nil then return msg else return "expecting first to be a list" end end)
+    assert.are.equal(true, is_list(second), function() if msg ~= nil then return msg else return "expecting second to be a list" end end)
+    exports.assertEqual(#first, #second, function() if msg ~= nil then return msg else return "expecting sizes to be equal" end end)
 
     for i = 1, #first do
         local imsg = msg
@@ -433,12 +481,275 @@ function exports.assertListEqual(first, second, msg)
             imsg = "at index " .. i .. ": expecting " .. tostring(ifirst) .. " to be equal to " .. tostring(isecond)
         end
 
-        if type(ifirst) == type(isecond) and type(ifirst) == "table" then
+        if is_list(ifirst) or is_list(isecond) then
             exports.assertListEqual(ifirst, isecond, imsg)
         else
             exports.assertEqual(ifirst, isecond, imsg)
         end
     end
+end
+
+-- node scripts/func_kwargs.js exports assertListAlmostEqual first second '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
+function exports.assertListAlmostEqual ( ... )
+    local args={n=select("#", ...), ...}
+    local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
+    local kwargs = has_kwarg and args[args.n] or mediapipe_lua.kwargs()
+    local usedkw = 0
+
+    -- get argument first
+    local first
+    local has_first = false
+    if (not has_kwarg) or args.n > 1 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("first") then
+            error("first was both specified as a Positional and NamedParameter")
+        end
+        has_first = args.n >= 1
+        if has_first then
+            first = args[1]
+        end
+    elseif kwargs:has("first") then
+        -- named parameter
+        has_first = true
+        first = kwargs:get("first")
+        usedkw = usedkw + 1
+    else
+        error("first is mandatory")
+    end
+
+    -- get argument second
+    local second
+    local has_second = false
+    if (not has_kwarg) or args.n > 2 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("second") then
+            error("second was both specified as a Positional and NamedParameter")
+        end
+        has_second = args.n >= 2
+        if has_second then
+            second = args[2]
+        end
+    elseif kwargs:has("second") then
+        -- named parameter
+        has_second = true
+        second = kwargs:get("second")
+        usedkw = usedkw + 1
+    else
+        error("second is mandatory")
+    end
+
+    -- get argument places
+    local places = 7
+    local has_places = false
+    if (not has_kwarg) or args.n > 3 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("places") then
+            error("places was both specified as a Positional and NamedParameter")
+        end
+        has_places = args.n >= 3
+        if has_places then
+            places = args[3]
+        end
+    elseif kwargs:has("places") then
+        -- named parameter
+        has_places = true
+        places = kwargs:get("places")
+        usedkw = usedkw + 1
+    end
+
+    -- get argument msg
+    local msg = nil
+    local has_msg = false
+    if (not has_kwarg) or args.n > 4 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("msg") then
+            error("msg was both specified as a Positional and NamedParameter")
+        end
+        has_msg = args.n >= 4
+        if has_msg then
+            msg = args[4]
+        end
+    elseif kwargs:has("msg") then
+        -- named parameter
+        has_msg = true
+        msg = kwargs:get("msg")
+        usedkw = usedkw + 1
+    end
+
+    -- get argument delta
+    local delta = nil
+    local has_delta = false
+    if (not has_kwarg) or args.n > 5 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("delta") then
+            error("delta was both specified as a Positional and NamedParameter")
+        end
+        has_delta = args.n >= 5
+        if has_delta then
+            delta = args[5]
+        end
+    elseif kwargs:has("delta") then
+        -- named parameter
+        has_delta = true
+        delta = kwargs:get("delta")
+        usedkw = usedkw + 1
+    end
+
+    if usedkw ~= kwargs:size() then
+        error("there are " .. (kwargs:size() - usedkw) .. " unknown named parameters")
+    end
+
+    --- ====================== ---
+    --- CODE LOGIC STARTS HERE ---
+    --- ====================== ---
+
+    assert.are.equal(true, is_list(first), function() if msg ~= nil then return msg else return "expecting first to be a list" end end)
+    assert.are.equal(true, is_list(second), function() if msg ~= nil then return msg else return "expecting second to be a list" end end)
+    exports.assertEqual(#first, #second, function() if msg ~= nil then return msg else return "expecting sizes to be equal" end end)
+
+    for i = 1, #first do
+        local imsg = msg
+        local ifirst = first[i]
+        local isecond = second[i]
+        if imsg == nil then
+            imsg = "at index " .. i .. ": expecting " .. tostring(ifirst) .. " to be equal to " .. tostring(isecond)
+        end
+
+        if is_list(ifirst) or is_list(isecond) then
+            exports.assertListAlmostEqual(ifirst, isecond, places, imsg, delta)
+        else
+            exports.assertAlmostEqual(ifirst, isecond, places, imsg, delta)
+        end
+    end
+end
+
+-- node scripts/func_kwargs.js exports assertDictAlmostEqual obj dict '["places",,7]' '["msg",,"nil"]' '["delta",,"nil"]' | clip
+function exports.assertDictAlmostEqual ( ... )
+    local args={n=select("#", ...), ...}
+    local has_kwarg = mediapipe_lua.kwargs.isinstance(args[args.n])
+    local kwargs = has_kwarg and args[args.n] or mediapipe_lua.kwargs()
+    local usedkw = 0
+
+    -- get argument obj
+    local obj
+    local has_obj = false
+    if (not has_kwarg) or args.n > 1 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("obj") then
+            error("obj was both specified as a Positional and NamedParameter")
+        end
+        has_obj = args.n >= 1
+        if has_obj then
+            obj = args[1]
+        end
+    elseif kwargs:has("obj") then
+        -- named parameter
+        has_obj = true
+        obj = kwargs:get("obj")
+        usedkw = usedkw + 1
+    else
+        error("obj is mandatory")
+    end
+
+    -- get argument dict
+    local dict
+    local has_dict = false
+    if (not has_kwarg) or args.n > 2 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("dict") then
+            error("dict was both specified as a Positional and NamedParameter")
+        end
+        has_dict = args.n >= 2
+        if has_dict then
+            dict = args[2]
+        end
+    elseif kwargs:has("dict") then
+        -- named parameter
+        has_dict = true
+        dict = kwargs:get("dict")
+        usedkw = usedkw + 1
+    else
+        error("dict is mandatory")
+    end
+
+    -- get argument places
+    local places = 7
+    local has_places = false
+    if (not has_kwarg) or args.n > 3 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("places") then
+            error("places was both specified as a Positional and NamedParameter")
+        end
+        has_places = args.n >= 3
+        if has_places then
+            places = args[3]
+        end
+    elseif kwargs:has("places") then
+        -- named parameter
+        has_places = true
+        places = kwargs:get("places")
+        usedkw = usedkw + 1
+    end
+
+    -- get argument msg
+    local msg = nil
+    local has_msg = false
+    if (not has_kwarg) or args.n > 4 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("msg") then
+            error("msg was both specified as a Positional and NamedParameter")
+        end
+        has_msg = args.n >= 4
+        if has_msg then
+            msg = args[4]
+        end
+    elseif kwargs:has("msg") then
+        -- named parameter
+        has_msg = true
+        msg = kwargs:get("msg")
+        usedkw = usedkw + 1
+    end
+
+    -- get argument delta
+    local delta = nil
+    local has_delta = false
+    if (not has_kwarg) or args.n > 5 then
+        -- positional parameter should not be a named parameter
+        if has_kwarg and kwargs:has("delta") then
+            error("delta was both specified as a Positional and NamedParameter")
+        end
+        has_delta = args.n >= 5
+        if has_delta then
+            delta = args[5]
+        end
+    elseif kwargs:has("delta") then
+        -- named parameter
+        has_delta = true
+        delta = kwargs:get("delta")
+        usedkw = usedkw + 1
+    end
+
+    if usedkw ~= kwargs:size() then
+        error("there are " .. (kwargs:size() - usedkw) .. " unknown named parameters")
+    end
+
+    --- ====================== ---
+    --- CODE LOGIC STARTS HERE ---
+    --- ====================== ---
+
+    for key, expected in pairs(dict) do
+        local actual = obj[key]
+        local actual_is_list = is_list(actual)
+        local expected_is_list = is_list(expected)
+        local imsg = (function() if msg == nil then return "Key [" .. key .. "]: expecting --[" .. tostring(actual) .. "]-- to be equal to --[" .. tostring(expected) .. "]--" else return msg end end)()
+
+        if actual_is_list or expected_is_list then
+            exports.assertListAlmostEqual(actual, expected, places, imsg, delta)
+        else
+            exports.assertAlmostEqual(actual, expected, places, imsg, delta)
+        end
+    end
+
 end
 
 return exports

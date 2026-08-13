@@ -7,11 +7,10 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/image_embedder_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_embedder_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local _mat_utils = require("_mat_utils") ---@diagnostic disable-line: unused-local
@@ -24,14 +23,14 @@ local std = mediapipe_lua.std
 local opencv_lua = require("opencv_lua")
 local cv2 = opencv_lua.cv
 
-local image_module = mediapipe.lua._framework_bindings.image
-local rect = mediapipe.tasks.lua.components.containers.rect
+local rect_module = mediapipe.tasks.lua.components.containers.rect
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local image_embedder = mediapipe.tasks.lua.vision.image_embedder
+local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
-local _Rect = rect.Rect
+local _RectF = rect_module.RectF
 local _BaseOptions = base_options_module.BaseOptions
 local _Image = image_module.Image
 local _ImageEmbedder = image_embedder.ImageEmbedder
@@ -72,6 +71,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local embedder = _ImageEmbedder.create_from_model_path(self.model_path)
     self.assertIsInstance(embedder, _ImageEmbedder)
+    embedder:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -80,6 +80,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local embedder = _ImageEmbedder.create_from_options(options)
     self.assertIsInstance(embedder, _ImageEmbedder)
+    embedder:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -90,12 +91,13 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local embedder = _ImageEmbedder.create_from_options(options)
     self.assertIsInstance(embedder, _ImageEmbedder)
+    embedder:close()
 end
 
 function _assert._check_embedding_value(self, result, expected_first_value)
     -- Check embedding first value.
     self.assertAlmostEqual(
-        result.embeddings[0 + INDEX_BASE].embedding[0],
+        result.embeddings[0].embedding[0],
         expected_first_value,
         mediapipe_lua.kwargs({ delta = _EPSILON })
     )
@@ -104,7 +106,7 @@ end
 function _assert._check_embedding_size(self, result, quantize, expected_embedding_size)
     -- Check embedding size.
     self.assertLen(result.embeddings, 1)
-    local embedding_result = result.embeddings[0 + INDEX_BASE]
+    local embedding_result = result.embeddings[0]
     self.assertEqual(embedding_result.embedding:total(), expected_embedding_size)
     if quantize then
         self.assertEqual(embedding_result.embedding:depth(), cv2.CV_8U)
@@ -192,8 +194,8 @@ function _assert._check_cosine_similarity(self, ...)
     --- ====================== ---
 
     -- Checks cosine similarity.
-    local similarity = _ImageEmbedder.cosine_similarity(result0.embeddings[0 + INDEX_BASE],
-        result1.embeddings[0 + INDEX_BASE])
+    local similarity = _ImageEmbedder.cosine_similarity(result0.embeddings[0],
+        result1.embeddings[0])
     self.assertAlmostEqual(
         similarity, expected_similarity, mediapipe_lua.kwargs({ delta = _SIMILARITY_TOLERANCE }))
 end
@@ -221,7 +223,7 @@ local function test_embed(self, l2_normalize, quantize, with_roi, model_file_typ
     local image_processing_options = nil
     if with_roi then
         -- Region-of-interest in "burger.jpg" corresponding to "burger_crop.jpg".
-        local roi = _Rect(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
+        local roi = _RectF(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
         image_processing_options = _ImageProcessingOptions(roi)
     end
 
@@ -267,7 +269,7 @@ local function test_embed_for_video_succeeds_with_region_of_interest(self)
     local embedder1 = _ImageEmbedder.create_from_options(options)
 
     -- Region-of-interest in "burger.jpg" corresponding to "burger_crop.jpg".
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
     local image_processing_options = _ImageProcessingOptions(roi)
 
     for timestamp = 0, 300 - 30, 30 do
@@ -294,6 +296,8 @@ local function test_embed_async_calls(self)
 
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         -- Checks cosine similarity.
         self:_check_cosine_similarity(
@@ -305,6 +309,8 @@ local function test_embed_async_calls(self)
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({
@@ -318,14 +324,15 @@ local function test_embed_async_calls(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         embedder:embed_async(self.test_image, timestamp)
+
+        callback_event:wait(300)
     end
 
-    -- wait for detection end
+    -- wait for embedding end
     embedder:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
@@ -341,9 +348,11 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
     local crop_result = embedder:embed(self.test_cropped_image)
 
     -- Region-of-interest in "burger.jpg" corresponding to "burger_crop.jpg".
-    local roi = _Rect(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
+    local roi = _RectF(mediapipe_lua.kwargs({ left = 0, top = 0, right = 0.833333, bottom = 1 }))
     local image_processing_options = _ImageProcessingOptions(roi)
     local observed_timestamp_ms = -1
+
+    local callback_event = test_utils.threading.Event()
 
     local function check_result(result, output_image, timestamp_ms)
         -- Checks cosine similarity.
@@ -356,6 +365,8 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageEmbedderOptions(mediapipe_lua.kwargs({
@@ -368,14 +379,15 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         embedder:embed_async(self.test_image, timestamp, image_processing_options)
+
+        callback_event:wait(300)
     end
 
-    -- wait for detection end
+    -- wait for embedding end
     embedder:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)

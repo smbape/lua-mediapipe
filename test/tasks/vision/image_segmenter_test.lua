@@ -7,11 +7,10 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/image_segmenter_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_segmenter_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
-local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local test_utils = require("test_utils")
@@ -23,15 +22,14 @@ local std = mediapipe_lua.std
 local opencv_lua = require("opencv_lua")
 local cv2 = opencv_lua.cv
 
-local image_module = mediapipe.lua._framework_bindings.image
-local image_frame = mediapipe.lua._framework_bindings.image_frame
 local base_options_module = mediapipe.tasks.lua.core.base_options
 local image_segmenter = mediapipe.tasks.lua.vision.image_segmenter
+local image_module = mediapipe.tasks.lua.vision.core.image
 local vision_task_running_mode = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local _BaseOptions = base_options_module.BaseOptions
 local _Image = image_module.Image
-local _ImageFormat = image_frame.ImageFormat
+local _ImageFormat = image_module.ImageFormat
 local _ImageSegmenter = image_segmenter.ImageSegmenter
 local _ImageSegmenterOptions = image_segmenter.ImageSegmenterOptions
 local _RUNNING_MODE = vision_task_running_mode.VisionTaskRunningMode
@@ -89,6 +87,7 @@ local function _calculate_soft_iou(m1, m2)
 end
 
 function _assert._similar_to_float_mask(self, actual_mask, expected_mask, similarity_threshold)
+    self.assertIsNotNone(actual_mask, 'Result mask used for comparison was None')
     actual_mask = actual_mask:mat_view()
     expected_mask = expected_mask:mat_view():convertTo(cv2.CV_32F, opencv_lua.kwargs({alpha = 1 / 255.0}))
 
@@ -96,7 +95,8 @@ function _assert._similar_to_float_mask(self, actual_mask, expected_mask, simila
     self.assertGreater(_calculate_soft_iou(actual_mask, expected_mask), similarity_threshold)
 end
 
-local function _similar_to_uint8_mask(actual_mask, expected_mask, similarity_threshold)
+function _assert._similar_to_uint8_mask(self, actual_mask, expected_mask, similarity_threshold)
+    self.assertIsNotNone(actual_mask, 'Result mask used for comparison was None')
     local actual_mask_pixels = actual_mask:mat_view():convertTo(-1,
         opencv_lua.kwargs({ alpha = _MASK_MAGNIFICATION_FACTOR }))
     local expected_mask_pixels = expected_mask:mat_view()
@@ -150,6 +150,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local segmenter = _ImageSegmenter.create_from_model_path(self.model_path)
     self.assertIsInstance(segmenter, _ImageSegmenter)
+    segmenter:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -158,6 +159,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local segmenter = _ImageSegmenter.create_from_options(options)
     self.assertIsInstance(segmenter, _ImageSegmenter)
+    segmenter:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -168,6 +170,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local segmenter = _ImageSegmenter.create_from_options(options)
     self.assertIsInstance(segmenter, _ImageSegmenter)
+    segmenter:close()
 end
 
 local function test_segment_succeeds_with_category_mask(self, model_file_type)
@@ -195,13 +198,14 @@ local function test_segment_succeeds_with_category_mask(self, model_file_type)
     -- Performs image segmentation on the input.
     local segmentation_result = segmenter:segment(self.test_image)
     local category_mask = segmentation_result.category_mask
+    self.assertIsNotNone(category_mask, 'Result category mask was None')
     local result_pixels = category_mask:mat_view():clone():reshape(1, 1) -- reshape needs a continuous matrix, clone to the make matrix continous
 
     -- Check if data type of `category_mask` is correct.
     self.assertEqual(result_pixels:depth(), cv2.CV_8U)
 
     self.assertTrue(
-        _similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
+        self:_similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
         (
             'Number of pixels in the candidate mask differing from that of the' ..
             ' ground truth mask exceeds ' .. _MASK_SIMILARITY_THRESHOLD .. '.'
@@ -240,7 +244,7 @@ local function test_segment_succeeds_with_confidence_mask(self)
     local expected_mask = self._load_segmentation_mask(_CAT_MASK)
 
     self:_similar_to_float_mask(
-        confidence_masks[8 + INDEX_BASE], expected_mask, _MASK_SIMILARITY_THRESHOLD
+        confidence_masks[8], expected_mask, _MASK_SIMILARITY_THRESHOLD
     )
 end
 
@@ -274,7 +278,7 @@ local function test_segment_for_video_in_category_mask_mode(self)
         )
         local category_mask = segmentation_result.category_mask
         self.assertTrue(
-            _similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
+            self:_similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
             (
                 'Number of pixels in the candidate mask differing from that of' ..
                 ' the ground truth mask exceeds ' .. _MASK_SIMILARITY_THRESHOLD .. '.'
@@ -311,13 +315,15 @@ local function test_segment_for_video_in_confidence_mask_mode(self)
         -- Loads ground truth segmentation file.
         local expected_mask = self._load_segmentation_mask(_CAT_MASK)
         self:_similar_to_float_mask(
-            confidence_masks[8 + INDEX_BASE], expected_mask, _MASK_SIMILARITY_THRESHOLD
+            confidence_masks[8], expected_mask, _MASK_SIMILARITY_THRESHOLD
         )
     end
 end
 
 local function test_segment_async_calls_in_category_mask_mode(self)
     local observed_timestamp_ms = -1
+
+    local callback_event = test_utils.threading.Event()
 
     local function check_result(result, output_image, timestamp_ms)
         -- Get the output category mask.
@@ -327,7 +333,7 @@ local function test_segment_async_calls_in_category_mask_mode(self)
         self.assertEqual(output_image.width, self.test_seg_image.width)
         self.assertEqual(output_image.height, self.test_seg_image.height)
         self.assertTrue(
-            _similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
+            self:_similar_to_uint8_mask(category_mask, self.test_seg_image, _MASK_SIMILARITY_THRESHOLD),
             (
                 'Number of pixels in the candidate mask differing from that of' ..
                 ' the ground truth mask exceeds ' .. _MASK_SIMILARITY_THRESHOLD .. '.'
@@ -338,6 +344,8 @@ local function test_segment_async_calls_in_category_mask_mode(self)
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({
@@ -352,14 +360,15 @@ local function test_segment_async_calls_in_category_mask_mode(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         segmenter:segment_async(self.test_image, timestamp)
+
+        callback_event:wait(3000)
     end
 
-    -- wait for detection end
+    -- wait for segmentation end
     segmenter:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)
@@ -375,6 +384,8 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
     local expected_mask = self._load_segmentation_mask(_CAT_MASK)
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         -- Get the output category mask.
         local confidence_masks = result.confidence_masks
@@ -388,13 +399,15 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
         self.assertEqual(output_image.width, test_image.width)
         self.assertEqual(output_image.height, test_image.height)
         self:_similar_to_float_mask(
-            confidence_masks[8 + INDEX_BASE], expected_mask, _MASK_SIMILARITY_THRESHOLD
+            confidence_masks[8], expected_mask, _MASK_SIMILARITY_THRESHOLD
         )
 
         if timestamp_ms ~= mediapipe.Timestamp.DONE then
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local options = _ImageSegmenterOptions(mediapipe_lua.kwargs({
@@ -410,14 +423,15 @@ local function test_segment_async_calls_in_confidence_mask_mode(self)
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         segmenter:segment_async(test_image, timestamp)
+
+        callback_event:wait(3000)
     end
 
-    -- wait for detection end
+    -- wait for segmentation end
     segmenter:close()
 
     self.assertEqual(observed_timestamp_ms, 300 - 30)

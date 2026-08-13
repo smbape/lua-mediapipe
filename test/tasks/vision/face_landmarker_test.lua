@@ -7,10 +7,11 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.14/mediapipe/tasks/python/test/vision/face_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/face_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
+local INDEX_BASE = 1 -- lua is 1-based indexed
 
 local _assert = require("_assert")
 local _mat_utils = require("_mat_utils") ---@diagnostic disable-line: unused-local
@@ -21,12 +22,17 @@ local mediapipe = mediapipe_lua.mediapipe
 local google = mediapipe_lua.google
 local std = mediapipe_lua.std
 
+local opencv_lua = require("opencv_lua")
+local cv = opencv_lua.cv
+
 local text_format = google.protobuf.text_format
+local classification_pb2 = mediapipe.framework.formats.classification_pb2
 local landmark_pb2 = mediapipe.framework.formats.landmark_pb2
-local image_module = mediapipe.lua._framework_bindings.image
 local landmark_module = mediapipe.tasks.lua.components.containers.landmark
 local base_options_module = mediapipe.tasks.lua.core.base_options
+local proto_utils = mediapipe.tasks.lua.test.vision.proto_utils
 local face_landmarker = mediapipe.tasks.lua.vision.face_landmarker
+local image_module = mediapipe.tasks.lua.vision.core.image
 local running_mode_module = mediapipe.tasks.lua.vision.core.vision_task_running_mode
 
 local _BaseOptions = base_options_module.BaseOptions
@@ -56,13 +62,38 @@ local function _get_expected_face_landmarks(file_path)
     local f = io.open(proto_file_path, 'rb')
     local proto = landmark_pb2.NormalizedLandmarkList()
     text_format.Parse(f:read('*all'), proto)
-    local face_landmarks = {}
-    for _, landmark in ipairs(proto.landmark:table()) do
-        face_landmarks[#face_landmarks + 1] = _NormalizedLandmark.create_from_pb2(landmark)
-    end
+    local face_landmarks = proto_utils.create_normalized_landmark_list_from_proto(proto)
     face_landmarks_results[#face_landmarks_results + 1] = face_landmarks
     return face_landmarks_results
 end
+
+
+---@diagnostic disable-next-line: unused-function
+local function _get_expected_face_blendshapes(file_path)
+    local proto_file_path = test_utils.get_test_data_path(file_path)
+    local face_blendshapes_results = {}
+    local f = io.open(proto_file_path, 'rb')
+    local proto = classification_pb2.ClassificationList()
+    text_format.Parse(f:read('*all'), proto)
+    local face_blendshapes_categories = proto_utils.create_classification_list_from_proto(proto)
+    face_blendshapes_results[#face_blendshapes_results + 1] = face_blendshapes_categories
+    return face_blendshapes_results
+end
+
+
+---@diagnostic disable-next-line: unused-function
+local function _get_expected_facial_transformation_matrixes()
+  local matrix = cv.Mat.createFromArray({
+      {0.9995292, -0.01294756, 0.038823195, -0.3691378},
+      {0.0072318087, 0.9937692, -0.1101321, 22.75809},
+      {-0.03715533, 0.11070588, 0.99315894, -65.765925},
+      {0, 0, 0, 1},
+  })
+  local facial_transformation_matrixes_results = {}
+  facial_transformation_matrixes_results[#facial_transformation_matrixes_results + 1] = matrix
+  return facial_transformation_matrixes_results
+end
+
 
 local ModelFileType = {
     FILE_CONTENT = 1,
@@ -104,12 +135,12 @@ function _assert._expect_blendshapes_correct(
     -- Expects to have the same number of blendshapes.
     self.assertLen(actual_blendshapes, #expected_blendshapes)
 
-    for i = 1, #actual_blendshapes do
-        for j, elem in ipairs(actual_blendshapes[i]) do
-            self.assertEqual(elem.index, expected_blendshapes[i][j].index)
+    for i = 0, #actual_blendshapes - INDEX_BASE do
+        for j, elem in actual_blendshapes[i]:__ipairs() do
+            self.assertEqual(elem.index, expected_blendshapes[i + INDEX_BASE][j + INDEX_BASE].index)
             self.assertAlmostEqual(
                 elem.score,
-                expected_blendshapes[i][j].score,
+                expected_blendshapes[i + INDEX_BASE][j + INDEX_BASE].score,
                 mediapipe_lua.kwargs({ delta = _BLENDSHAPES_MARGIN })
             )
         end
@@ -121,12 +152,10 @@ function _assert._expect_facial_transformation_matrixes_correct(
 )
     self.assertLen(actual_matrix_list, #expected_matrix_list)
 
-    for i, elem in ipairs(actual_matrix_list) do
-        self.assertEqual(elem.shape[0], expected_matrix_list[i].shape[0])
-        self.assertEqual(elem.shape[1], expected_matrix_list[i].shape[1])
-        self.assertSequenceAlmostEqual(
-            elem.flatten(),
-            expected_matrix_list[i].flatten(),
+    for i, elem in actual_matrix_list:__ipairs() do
+        self.assertMatAlmostEqual(
+            elem,
+            expected_matrix_list[i + INDEX_BASE],
             mediapipe_lua.kwargs({ delta = _FACIAL_TRANSFORMATION_MATRIX_MARGIN })
         )
     end
@@ -136,6 +165,7 @@ local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
     local landmarker = _FaceLandmarker.create_from_model_path(self.model_path)
     self.assertIsInstance(landmarker, _FaceLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
@@ -144,6 +174,7 @@ local function test_create_from_options_succeeds_with_valid_model_path(self)
     local options = _FaceLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _FaceLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _FaceLandmarker)
+    landmarker:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_content(self)
@@ -154,6 +185,7 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local options = _FaceLandmarkerOptions(mediapipe_lua.kwargs({ base_options = base_options }))
     local landmarker = _FaceLandmarker.create_from_options(options)
     self.assertIsInstance(landmarker, _FaceLandmarker)
+    landmarker:close()
 end
 
 local function test_detect(
@@ -225,8 +257,8 @@ local function test_empty_detection_outputs(self)
     local detection_result = landmarker:detect(no_faces_test_image)
 
     self.assertEmpty(detection_result.face_landmarks)
-    self.assertEmpty(detection_result.face_blendshapes)
-    self.assertEmpty(detection_result.facial_transformation_matrixes)
+    self.assertIsNone(detection_result.face_blendshapes)
+    self.assertIsNone(detection_result.facial_transformation_matrixes)
 end
 
 local function test_detect_for_video(
@@ -290,6 +322,8 @@ local function test_detect_async_calls(
 
     local observed_timestamp_ms = -1
 
+    local callback_event = test_utils.threading.Event()
+
     local function check_result(result, output_image, timestamp_ms)
         -- Comparing results.
         if expected_face_landmarks ~= nil then
@@ -317,6 +351,8 @@ local function test_detect_async_calls(
             self.assertLessEqual(observed_timestamp_ms, timestamp_ms)
             observed_timestamp_ms = timestamp_ms
         end
+
+        callback_event:set()
     end
 
     local model_path = test_utils.get_test_data_path(model_name)
@@ -332,11 +368,12 @@ local function test_detect_async_calls(
     local now = std.chrono.steady_clock.now()
     for timestamp = 0, 300 - 30, 30 do
         if timestamp > 0 then
-            mediapipe_lua.yield()
             std.this_thread.sleep_until(now + std.chrono.milliseconds(timestamp))
         end
 
         landmarker:detect_async(test_image, timestamp)
+
+        callback_event:wait(300)
     end
 
     -- wait for detection end

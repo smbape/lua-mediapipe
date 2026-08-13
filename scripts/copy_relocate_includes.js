@@ -40,12 +40,10 @@ eachOfLimit(files, cpus, (file, i, next) => {
 
             ([srcBuffer, dstBuffer], next) => {
                 const dstContent = srcBuffer.toString().replace(/#include "([^"]+)"/mg, (match, include) => {
-                    if (files.includes(`lib/${ include }`)) {
-                        return `#include <${ basename }/lib/${ include }>`;
-                    }
-
-                    if (files.includes(`src/${ include }`)) {
-                        return `#include <${ basename }/src/${ include }>`;
+                    for (const dir of ["lib", "src", "toolx", "curlx"]) {
+                        if (files.includes(`${ dir }/${ include }`)) {
+                            return `#include <${ basename }/${ dir }/${ include }>`;
+                        }
                     }
 
                     return match;
