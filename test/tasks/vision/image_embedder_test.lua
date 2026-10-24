@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_embedder_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/image_embedder_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -39,8 +39,14 @@ local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _MODEL_FILE = 'mobilenet_v3_small_100_224_embedder.tflite'
+local _MODEL_FILE_HASH = 'sha256=f7b9a563cb803bdcba76e8c7e82abde06f5c7a8e67b5e54e43e23095dfe79a78'
+local _MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/mobilenet_v3_small_100_224_embedder.tflite?generation=1782184982945130'
 local _BURGER_IMAGE_FILE = 'burger.jpg'
+local _BURGER_IMAGE_FILE_HASH = 'sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf'
+local _BURGER_IMAGE_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/burger.jpg?generation=1782184424868164'
 local _BURGER_CROPPED_IMAGE_FILE = 'burger_crop.jpg'
+local _BURGER_CROPPED_IMAGE_FILE_HASH = 'sha256=8f58de573f0bf59a49c3d86cfabb9ad4061481f574aa049177e8da3963dddc50'
+local _BURGER_CROPPED_IMAGE_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/burger_crop.jpg?generation=1782184432033088'
 
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
 
@@ -57,9 +63,21 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _MODEL_FILE,
-        _BURGER_IMAGE_FILE,
-        _BURGER_CROPPED_IMAGE_FILE,
+        {
+            output = _MODEL_FILE,
+            hash = _MODEL_FILE_HASH,
+            url = _MODEL_FILE_URL,
+        },
+        {
+            output = _BURGER_IMAGE_FILE,
+            hash = _BURGER_IMAGE_FILE_HASH,
+            url = _BURGER_IMAGE_FILE_URL,
+        },
+        {
+            output = _BURGER_CROPPED_IMAGE_FILE,
+            hash = _BURGER_CROPPED_IMAGE_FILE_HASH,
+            url = _BURGER_CROPPED_IMAGE_FILE_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_BURGER_IMAGE_FILE))
@@ -256,7 +274,7 @@ local function test_embed_for_video(self)
             timestamp)
         -- Checks cosine similarity.
         self:_check_cosine_similarity(
-            image_result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.925519 }))
+            image_result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.925090 }))
     end
 end
 
@@ -281,7 +299,7 @@ local function test_embed_for_video_succeeds_with_region_of_interest(self)
 
         -- Checks cosine similarity.
         self:_check_cosine_similarity(
-            image_result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.999931 }))
+            image_result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.999924 }))
     end
 end
 
@@ -301,7 +319,7 @@ local function test_embed_async_calls(self)
     local function check_result(result, output_image, timestamp_ms)
         -- Checks cosine similarity.
         self:_check_cosine_similarity(
-            result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.925519 }))
+            result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.925090 }))
         self.assertMatEqual(output_image:mat_view(),
             self.test_image:mat_view())
 
@@ -357,7 +375,7 @@ local function test_embed_async_succeeds_with_region_of_interest(self)
     local function check_result(result, output_image, timestamp_ms)
         -- Checks cosine similarity.
         self:_check_cosine_similarity(
-            result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.999931 }))
+            result, crop_result, mediapipe_lua.kwargs({ expected_similarity = 0.999924 }))
         self.assertMatEqual(output_image:mat_view(),
             self.test_image:mat_view())
 
@@ -414,25 +432,25 @@ describe("ImageEmbedderTest", function()
             false,
             false,
             ModelFileType.FILE_NAME,
-            0.925519,
+            0.925090,
             1024,
-            { -0.2101883, -0.193027 },
+            { -0.212500, -0.197960 },
         },
         {
             true,
             false,
             false,
             ModelFileType.FILE_NAME,
-            0.925519,
+            0.925090,
             1024,
-            { -0.0142344, -0.0131606 },
+            { -0.0144054, -0.0135252 },
         },
         {
             false,
             true,
             false,
             ModelFileType.FILE_NAME,
-            0.926791,
+            0.927121,
             1024,
             { 229, 231 },
         },
@@ -441,9 +459,9 @@ describe("ImageEmbedderTest", function()
             false,
             true,
             ModelFileType.FILE_CONTENT,
-            0.999931,
+            0.999924,
             1024,
-            { -0.195062, -0.193027 },
+            { -0.199679, -0.197960 },
         },
     }) do
         it("should test_embed " .. _, function()

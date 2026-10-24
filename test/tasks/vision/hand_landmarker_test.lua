@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/hand_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/hand_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -47,14 +47,32 @@ local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _HAND_LANDMARKER_BUNDLE_ASSET_FILE = 'hand_landmarker.task'
+local _HAND_LANDMARKER_BUNDLE_ASSET_FILE_HASH = 'sha256=32d1eab97e80a9a20edb29231e15301ce65abfd0fa9d41cf1757e0ecc8078a4e'
+local _HAND_LANDMARKER_BUNDLE_ASSET_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/hand_landmarker.task?generation=1782184791153758'
 local _NO_HANDS_IMAGE = 'cats_and_dogs.jpg'
+local _NO_HANDS_IMAGE_HASH = 'sha256=a2eaa7ad3a1aae4e623dd362a5f737e8a88d122597ecd1a02b3e1444db56df9c'
+local _NO_HANDS_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cats_and_dogs.jpg?generation=1782184491144775'
 local _TWO_HANDS_IMAGE = 'right_hands.jpg'
+local _TWO_HANDS_IMAGE_HASH = 'sha256=4b5134daa4cb60465535239535f9f74c2842aba3aa5fd30bf04ef5678f93d87f'
+local _TWO_HANDS_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/right_hands.jpg?generation=1782185275057115'
 local _THUMB_UP_IMAGE = 'thumb_up.jpg'
+local _THUMB_UP_IMAGE_HASH = 'sha256=5d673c081ab13b8a1812269ff57047066f9c33c07db5f4178089e8cb3fdc0291'
+local _THUMB_UP_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/thumb_up.jpg?generation=1782185354353621'
 local _THUMB_UP_LANDMARKS = 'thumb_up_landmarks.pbtxt'
+local _THUMB_UP_LANDMARKS_HASH = 'sha256=feddaa81e188b9bceae12a96766f71e8ff3b2b316b4a31d64054d8a329e6015e'
+local _THUMB_UP_LANDMARKS_URL = nil
 local _POINTING_UP_IMAGE = 'pointing_up.jpg'
+local _POINTING_UP_IMAGE_HASH = 'sha256=ecf8ca2611d08fa25948a4fc10710af9120e88243a54da6356bacea17ff3e36e'
+local _POINTING_UP_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/pointing_up.jpg?generation=1782185079090086'
 local _POINTING_UP_LANDMARKS = 'pointing_up_landmarks.pbtxt'
+local _POINTING_UP_LANDMARKS_HASH = 'sha256=6bfcd360c0caa82559396d387ac30e1d59efab3b3d96b5512f4f018d0abae7c4'
+local _POINTING_UP_LANDMARKS_URL = nil
 local _POINTING_UP_ROTATED_IMAGE = 'pointing_up_rotated.jpg'
+local _POINTING_UP_ROTATED_IMAGE_HASH = 'sha256=50ff66f50281207072a038e5bb6648c43f4aacbfb8204a4d2591868756aaeff1'
+local _POINTING_UP_ROTATED_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/pointing_up_rotated.jpg?generation=1782185093709880'
 local _POINTING_UP_ROTATED_LANDMARKS = 'pointing_up_rotated_landmarks.pbtxt'
+local _POINTING_UP_ROTATED_LANDMARKS_HASH = 'sha256=cc58cbe1ead8c5051e643d2b90b77d00843cab2f1227af3489513d2b02359dd1'
+local _POINTING_UP_ROTATED_LANDMARKS_URL = nil
 local _LANDMARKS_MARGIN = 0.03
 local _HANDEDNESS_MARGIN = 0.05
 
@@ -88,16 +106,49 @@ local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
         {
             output = _HAND_LANDMARKER_BUNDLE_ASSET_FILE,
-            url = "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
+            hash = _HAND_LANDMARKER_BUNDLE_ASSET_FILE_HASH,
+            url = _HAND_LANDMARKER_BUNDLE_ASSET_FILE_URL,
         },
-        _NO_HANDS_IMAGE,
-        _TWO_HANDS_IMAGE,
-        _THUMB_UP_IMAGE,
-        _THUMB_UP_LANDMARKS,
-        _POINTING_UP_IMAGE,
-        _POINTING_UP_LANDMARKS,
-        _POINTING_UP_ROTATED_IMAGE,
-        _POINTING_UP_ROTATED_LANDMARKS,
+        {
+            output = _NO_HANDS_IMAGE,
+            hash = _NO_HANDS_IMAGE_HASH,
+            url = _NO_HANDS_IMAGE_URL,
+        },
+        {
+            output = _TWO_HANDS_IMAGE,
+            hash = _TWO_HANDS_IMAGE_HASH,
+            url = _TWO_HANDS_IMAGE_URL,
+        },
+        {
+            output = _THUMB_UP_IMAGE,
+            hash = _THUMB_UP_IMAGE_HASH,
+            url = _THUMB_UP_IMAGE_URL,
+        },
+        {
+            output = _THUMB_UP_LANDMARKS,
+            hash = _THUMB_UP_LANDMARKS_HASH,
+            url = _THUMB_UP_LANDMARKS_URL,
+        },
+        {
+            output = _POINTING_UP_IMAGE,
+            hash = _POINTING_UP_IMAGE_HASH,
+            url = _POINTING_UP_IMAGE_URL,
+        },
+        {
+            output = _POINTING_UP_LANDMARKS,
+            hash = _POINTING_UP_LANDMARKS_HASH,
+            url = _POINTING_UP_LANDMARKS_URL,
+        },
+        {
+            output = _POINTING_UP_ROTATED_IMAGE,
+            hash = _POINTING_UP_ROTATED_IMAGE_HASH,
+            url = _POINTING_UP_ROTATED_IMAGE_URL,
+        },
+        {
+            output = _POINTING_UP_ROTATED_LANDMARKS,
+            hash = _POINTING_UP_ROTATED_LANDMARKS_HASH,
+            url = _POINTING_UP_ROTATED_LANDMARKS_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_THUMB_UP_IMAGE))

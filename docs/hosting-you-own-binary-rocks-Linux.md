@@ -49,9 +49,13 @@ The procedure has been tested on :
 
 ### [Debian, Ubuntu] Install needed packages:
 ```sh
-sudo apt install -y build-essential curl git libavcodec-dev libavformat-dev libdc1394-dev \
-    liblapacke-dev libjpeg-dev libopenblas-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev \
-    patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip
+sudo apt install -y mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils && \
+sudo apt install -y build-essential curl git \
+        libavcodec-dev libavformat-dev libdc1394-dev libjpeg-dev \
+        liblapacke-dev libopenblas-dev libpng-dev libreadline-dev \
+        libssl-dev libswscale-dev libtbb-dev \
+        nasm patchelf pkg-config python3-pip python3-venv \
+        qtbase5-dev unzip wget zip
 sudo apt install -y libtbbmalloc2 || apt install -y libtbb2
 ```
 
@@ -106,7 +110,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
+git clone --depth 1 --branch v1.0.0-1 https://github.com/smbape/lua-mediapipe.git /io/luarocks-binaries-custom/build && \
 cd /io/luarocks-binaries-custom/build && \
 npm ci
 ```

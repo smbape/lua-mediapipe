@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/pose_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/pose_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -48,9 +48,17 @@ local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _POSE_LANDMARKER_BUNDLE_ASSET_FILE = 'pose_landmarker.task'
+local _POSE_LANDMARKER_BUNDLE_ASSET_FILE_HASH = 'sha256=fb9cc326c88fc2a4d9a6d355c28520d5deacfbaa375b56243b0141b546080596'
+local _POSE_LANDMARKER_BUNDLE_ASSET_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/pose_landmarker.task?generation=1782185245556889'
 local _BURGER_IMAGE = 'burger.jpg'
+local _BURGER_IMAGE_HASH = 'sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf'
+local _BURGER_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/burger.jpg?generation=1782184424868164'
 local _POSE_IMAGE = 'pose.jpg'
+local _POSE_IMAGE_HASH = 'sha256=c8a830ed683c0276d713dd5aeda28f415f10cd6291972084a40d0d8b934ed62b'
+local _POSE_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/pose.jpg?generation=1782185208547605'
 local _POSE_LANDMARKS = 'pose_landmarks.pbtxt'
+local _POSE_LANDMARKS_HASH = 'sha256=69c79cdf3964d7819776eab1172e47e70684139d72a6d7edcbdd62dbb2ca5527'
+local _POSE_LANDMARKS_URL = nil
 local _LANDMARKS_MARGIN = 0.03
 
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
@@ -85,10 +93,26 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _POSE_LANDMARKER_BUNDLE_ASSET_FILE,
-        _BURGER_IMAGE,
-        _POSE_IMAGE,
-        _POSE_LANDMARKS,
+        {
+            output = _POSE_LANDMARKER_BUNDLE_ASSET_FILE,
+            hash = _POSE_LANDMARKER_BUNDLE_ASSET_FILE_HASH,
+            url = _POSE_LANDMARKER_BUNDLE_ASSET_FILE_URL,
+        },
+        {
+            output = _BURGER_IMAGE,
+            hash = _BURGER_IMAGE_HASH,
+            url = _BURGER_IMAGE_URL,
+        },
+        {
+            output = _POSE_IMAGE,
+            hash = _POSE_IMAGE_HASH,
+            url = _POSE_IMAGE_URL,
+        },
+        {
+            output = _POSE_LANDMARKS,
+            hash = _POSE_LANDMARKS_HASH,
+            url = _POSE_LANDMARKS_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(

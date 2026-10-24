@@ -7,6 +7,43 @@ const waterfall = require("async/waterfall");
 const doctoc = require("../generator/doctoc");
 
 const version = process.env.npm_package_version || require("../package.json").version;
+
+const versions = (() => {
+    const semvers = [];
+
+    for (let i = 0, last_index = 0, pre_realease = false; i <= version.length; i++) {
+        if (i === version.length || version[i] === "." || !pre_realease && version[i] === "-") {
+            if (pre_realease && semvers.length < 3) {
+                for (let j = semvers.length; j < 3; j++) {
+                    semvers[j] = "0";
+                }
+            }
+
+            if (i !== version.length && version[i] === "-") {
+                pre_realease = true;
+            }
+
+            const part = version.slice(last_index, i);
+            if (!/^\d+$/.test(part)) {
+                break;
+            }
+
+            semvers.push(part);
+            last_index = i + 1;
+        }
+    }
+
+    return semvers;
+})();
+
+if (versions.length > 4) {
+    versions.length = 4;
+}
+
+for (let i = versions.length; i < 4; i++) {
+    versions[i] = 0;
+}
+
 const workspaceRoot = sysPath.resolve(__dirname, "..");
 
 const updateContent = (file, replacer, cb) => {
@@ -52,15 +89,19 @@ const files_to_change = [
     "docs/hosting-you-own-binary-rocks-Windows.md",
     "docs/hosting-you-own-binary-rocks-Linux.md",
     "luarocks/mediapipe_lua-scm-1.rockspec",
+    "scripts/tasks.sh",
 ];
+
+const VERSION_REG = "[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9]+)?";
 
 waterfall([
     next => {
         eachOfLimit(files_to_change, os.cpus().length, (filename, i, next) => {
             updateContent(sysPath.join(workspaceRoot, filename), oldContent => {
                 return oldContent
-                    .replace(new RegExp("(/lua-mediapipe/releases/download/v|/lua-mediapipe/tree/v)[0-9]+\\.[0-9]+\\.[0-9]+", "g"), `$1${ version }`)
-                    .replace(new RegExp("(--branch v)[0-9]+\\.[0-9]+\\.[0-9]+( https://github.com/smbape/lua-mediapipe)", "g"), `$1${ version }$2`);
+                    .replace(new RegExp(`(/lua-mediapipe/releases/download/v|/lua-mediapipe/tree/v)${ VERSION_REG }`, "g"), `$1${ version }`)
+                    .replace(new RegExp(`(--branch v)${ VERSION_REG }( https://github.com/smbape/lua-mediapipe)`, "g"), `$1${ version }$2`)
+                    .replace(new RegExp(`\\\$\\\{DIST_VERSION:-\\d+\\\}`, "g"), `\${DIST_VERSION:-${ versions[3] }}`);
             }, (err, hasChanged) => {
                 next(err);
             });

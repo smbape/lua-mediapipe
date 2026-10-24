@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/interactive_segmenter_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/interactive_segmenter_legacy_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -24,7 +24,7 @@ local cv2 = opencv_lua.cv
 local keypoint_module = mediapipe.tasks.lua.components.containers.keypoint
 local rect_module = mediapipe.tasks.lua.components.containers.rect
 local base_options_module = mediapipe.tasks.lua.core.base_options
-local interactive_segmenter = mediapipe.tasks.lua.vision.interactive_segmenter
+local interactive_segmenter_legacy = mediapipe.tasks.lua.vision.interactive_segmenter_legacy
 local image_module = mediapipe.tasks.lua.vision.core.image
 local image_processing_options_module = mediapipe.tasks.lua.vision.core.image_processing_options
 
@@ -33,15 +33,23 @@ local _Image = image_module.Image
 local _ImageFormat = image_module.ImageFormat
 local _NormalizedKeypoint = keypoint_module.NormalizedKeypoint
 local _RectF = rect_module.RectF
-local _InteractiveSegmenter = interactive_segmenter.InteractiveSegmenter
-local _InteractiveSegmenterOptions = interactive_segmenter.InteractiveSegmenterOptions
-local _RegionOfInterest = interactive_segmenter.RegionOfInterest
+local _InteractiveSegmenterLegacy = interactive_segmenter_legacy.InteractiveSegmenterLegacy
+local _InteractiveSegmenterLegacyOptions = interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions
+local _RegionOfInterest = interactive_segmenter_legacy.RegionOfInterest
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _MODEL_FILE = 'ptm_512_hdt_ptm_woid.tflite'
+local _MODEL_FILE_HASH = 'sha256=2baa1c9783d03dd26f91e3c49efbcab11dd1361ff80e40e7209e81f84f281b6a'
+local _MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/ptm_512_hdt_ptm_woid.tflite?generation=1782185267734223'
 local _CATS_AND_DOGS = 'cats_and_dogs.jpg'
+local _CATS_AND_DOGS_HASH = 'sha256=a2eaa7ad3a1aae4e623dd362a5f737e8a88d122597ecd1a02b3e1444db56df9c'
+local _CATS_AND_DOGS_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cats_and_dogs.jpg?generation=1782184491144775'
 local _CATS_AND_DOGS_MASK_DOG_1 = 'cats_and_dogs_mask_dog1.png'
+local _CATS_AND_DOGS_MASK_DOG_1_HASH = 'sha256=2ab37d56ba1e46e70b3ddbfe35dac51b18b597b76904c68d7d34c7c74c677d4c'
+local _CATS_AND_DOGS_MASK_DOG_1_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cats_and_dogs_mask_dog1.png?generation=1782184498359575'
 local _CATS_AND_DOGS_MASK_DOG_2 = 'cats_and_dogs_mask_dog2.png'
+local _CATS_AND_DOGS_MASK_DOG_2_HASH = 'sha256=2010850e2dd7f520fe53b9086d70913b6fb53b178cae15a373e5ee7ffb46824a'
+local _CATS_AND_DOGS_MASK_DOG_2_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cats_and_dogs_mask_dog2.png?generation=1782184505567649'
 local _MASK_MAGNIFICATION_FACTOR = 255
 local _MASK_SIMILARITY_THRESHOLD = 0.96
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
@@ -93,10 +101,26 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _MODEL_FILE,
-        _CATS_AND_DOGS,
-        _CATS_AND_DOGS_MASK_DOG_1,
-        _CATS_AND_DOGS_MASK_DOG_2,
+        {
+            output = _MODEL_FILE,
+            hash = _MODEL_FILE_HASH,
+            url = _MODEL_FILE_URL,
+        },
+        {
+            output = _CATS_AND_DOGS,
+            hash = _CATS_AND_DOGS_HASH,
+            url = _CATS_AND_DOGS_URL,
+        },
+        {
+            output = _CATS_AND_DOGS_MASK_DOG_1,
+            hash = _CATS_AND_DOGS_MASK_DOG_1_HASH,
+            url = _CATS_AND_DOGS_MASK_DOG_1_URL,
+        },
+        {
+            output = _CATS_AND_DOGS_MASK_DOG_2,
+            hash = _CATS_AND_DOGS_MASK_DOG_2_HASH,
+            url = _CATS_AND_DOGS_MASK_DOG_2_URL,
+        },
     })
 
     -- Load the test input image.
@@ -121,17 +145,17 @@ end
 
 local function test_create_from_file_succeeds_with_valid_model_path(self)
     -- Creates with default option and valid model file successfully.
-    local segmenter = _InteractiveSegmenter.create_from_model_path(self.model_path)
-    self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    local segmenter = _InteractiveSegmenterLegacy.create_from_model_path(self.model_path)
+    self.assertIsInstance(segmenter, _InteractiveSegmenterLegacy)
     segmenter:close()
 end
 
 local function test_create_from_options_succeeds_with_valid_model_path(self)
     -- Creates with options containing model file successfully.
     local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = self.model_path }))
-    local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
-    local segmenter = _InteractiveSegmenter.create_from_options(options)
-    self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    local options = _InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({ base_options = base_options }))
+    local segmenter = _InteractiveSegmenterLegacy.create_from_options(options)
+    self.assertIsInstance(segmenter, _InteractiveSegmenterLegacy)
     segmenter:close()
 end
 
@@ -140,9 +164,9 @@ local function test_create_from_options_succeeds_with_valid_model_content(self)
     local f = io.open(self.model_path, 'rb')
     local model_content = f:read('*all')
     local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_buffer = model_content }))
-    local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({ base_options = base_options }))
-    local segmenter = _InteractiveSegmenter.create_from_options(options)
-    self.assertIsInstance(segmenter, _InteractiveSegmenter)
+    local options = _InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({ base_options = base_options }))
+    local segmenter = _InteractiveSegmenterLegacy.create_from_options(options)
+    self.assertIsInstance(segmenter, _InteractiveSegmenterLegacy)
     segmenter:close()
 end
 
@@ -168,12 +192,12 @@ local function test_segment_succeeds_with_category_mask(
         error('model_file_type is invalid.')
     end
 
-    local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({
+    local options = _InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({
         base_options = base_options,
         output_category_mask = true,
         output_confidence_masks = false,
     }))
-    local segmenter = _InteractiveSegmenter.create_from_options(options)
+    local segmenter = _InteractiveSegmenterLegacy.create_from_options(options)
 
     -- Performs image segmentation on the input.
     local roi = _RegionOfInterest(mediapipe_lua.kwargs({ format = roi_format, keypoint = keypoint }))
@@ -207,13 +231,13 @@ local function test_segment_succeeds_with_confidence_mask(
     local roi = _RegionOfInterest(mediapipe_lua.kwargs({ format = roi_format, keypoint = keypoint }))
 
     -- Run segmentation on the model in CONFIDENCE_MASK mode.
-    local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({
+    local options = _InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({
         base_options = base_options,
         output_category_mask = false,
         output_confidence_masks = true,
     }))
 
-    local segmenter = _InteractiveSegmenter.create_from_options(options)
+    local segmenter = _InteractiveSegmenterLegacy.create_from_options(options)
 
     -- Perform segmentation
     local segmentation_result = segmenter:segment(self.test_image, roi)
@@ -243,13 +267,13 @@ local function test_segment_succeeds_with_rotation(self)
     }))
 
     -- Run segmentation on the model in CONFIDENCE_MASK mode.
-    local options = _InteractiveSegmenterOptions(mediapipe_lua.kwargs({
+    local options = _InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({
         base_options = base_options,
         output_category_mask = false,
         output_confidence_masks = true,
     }))
 
-    local segmenter = _InteractiveSegmenter.create_from_options(options)
+    local segmenter = _InteractiveSegmenterLegacy.create_from_options(options)
 
     -- Perform segmentation
     local image_processing_options = _ImageProcessingOptions(mediapipe_lua.kwargs({ rotation_degrees = -90 }))
@@ -266,7 +290,7 @@ local function test_segment_succeeds_with_rotation(self)
     )
 end
 
-describe("InteractiveSegmenterTest", function()
+describe("InteractiveSegmenterLegacyTest", function()
     setUp(_assert)
 
     it("should test_create_from_file_succeeds_with_valid_model_path", function()

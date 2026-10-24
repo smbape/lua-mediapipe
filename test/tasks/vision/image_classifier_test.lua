@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_classifier_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/image_classifier_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -41,10 +41,20 @@ local _RUNNING_MODE = vision_task_running_mode.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _MODEL_FILE = 'mobilenet_v2_1.0_224.tflite'
+local _MODEL_FILE_HASH = 'sha256=ff5cb7f9e62c92ebdad971f8a98aa6b3106d82a64587a7787c6a385c9e791339'
+local _MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/mobilenet_v2_1.0_224.tflite?generation=1782184975266616'
 local _IMAGE_FILE = 'burger.jpg'
+local _IMAGE_FILE_HASH = 'sha256=97c15bbbf3cf3615063b1031c85d669de55839f59262bbe145d15ca75b36ecbf'
+local _IMAGE_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/burger.jpg?generation=1782184424868164'
 local _IMAGE_ROTATED_FILE = 'burger_rotated.jpg'
+local _IMAGE_ROTATED_FILE_HASH = 'sha256=b7bb5e59ef778f3ce6b3e616c511908a53d513b83a56aae58b7453e14b0a4b2a'
+local _IMAGE_ROTATED_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/burger_rotated.jpg?generation=1782184439219970'
 local _IMAGE_ROI_FILE = 'multi_objects.jpg'
+local _IMAGE_ROI_FILE_HASH = 'sha256=ada6e36b40519cf0a4fbdf1b535de7fa7d0c472f2c0a08ada8ee5728e16c0c68'
+local _IMAGE_ROI_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/multi_objects.jpg?generation=1782185019846965'
 local _IMAGE_ROI_ROTATED_FILE = 'multi_objects_rotated.jpg'
+local _IMAGE_ROI_ROTATED_FILE_HASH = 'sha256=175f6c572ffbab6554e382fd5056d09720eef931ccc4ed79481bdc47a8443911'
+local _IMAGE_ROI_ROTATED_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/multi_objects_rotated.jpg?generation=1782185026792297'
 local _ALLOW_LIST = { 'cheeseburger', 'guacamole' }
 local _DENY_LIST = { 'cheeseburger' }
 local _SCORE_THRESHOLD = 0.5
@@ -76,25 +86,25 @@ local function _generate_burger_results(timestamp_ms)
                 categories = {
                     _Category(mediapipe_lua.kwargs({
                         index = 934,
-                        score = 0.793959,
+                        score = 0.791890,
                         display_name = '',
                         category_name = 'cheeseburger'
                     })),
                     _Category(mediapipe_lua.kwargs({
                         index = 932,
-                        score = 0.0273929,
+                        score = 0.0269587,
                         display_name = '',
                         category_name = 'bagel'
                     })),
                     _Category(mediapipe_lua.kwargs({
                         index = 925,
-                        score = 0.0193408,
+                        score = 0.0198468,
                         display_name = '',
                         category_name = 'guacamole'
                     })),
                     _Category(mediapipe_lua.kwargs({
                         index = 963,
-                        score = 0.00632786,
+                        score = 0.00646646,
                         display_name = '',
                         category_name = 'meat loaf'
                     })),
@@ -118,7 +128,7 @@ local function _generate_soccer_ball_results(timestamp_ms)
                 categories = {
                     _Category(mediapipe_lua.kwargs({
                         index = 806,
-                        score = 0.996527,
+                        score = 0.996778,
                         display_name = '',
                         category_name = 'soccer ball',
                     }))
@@ -138,11 +148,31 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _MODEL_FILE,
-        _IMAGE_FILE,
-        _IMAGE_ROI_FILE,
-        _IMAGE_ROTATED_FILE,
-        _IMAGE_ROI_ROTATED_FILE,
+        {
+            output = _MODEL_FILE,
+            hash = _MODEL_FILE_HASH,
+            url = _MODEL_FILE_URL,
+        },
+        {
+            output = _IMAGE_FILE,
+            hash = _IMAGE_FILE_HASH,
+            url = _IMAGE_FILE_URL,
+        },
+        {
+            output = _IMAGE_ROI_FILE,
+            hash = _IMAGE_ROI_FILE_HASH,
+            url = _IMAGE_ROI_FILE_URL,
+        },
+        {
+            output = _IMAGE_ROTATED_FILE,
+            hash = _IMAGE_ROTATED_FILE_HASH,
+            url = _IMAGE_ROTATED_FILE_URL,
+        },
+        {
+            output = _IMAGE_ROI_ROTATED_FILE,
+            hash = _IMAGE_ROI_ROTATED_FILE_HASH,
+            url = _IMAGE_ROI_ROTATED_FILE_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_IMAGE_FILE))
@@ -287,19 +317,19 @@ local function test_classify_succeeds_with_rotation(self)
                 categories = {
                     _Category(mediapipe_lua.kwargs({
                         index = 934,
-                        score = 0.754467,
+                        score = 0.756169,
                         display_name = '',
                         category_name = 'cheeseburger',
                     })),
                     _Category(mediapipe_lua.kwargs({
                         index = 925,
-                        score = 0.0288028,
+                        score = 0.0288833,
                         display_name = '',
                         category_name = 'guacamole',
                     })),
                     _Category(mediapipe_lua.kwargs({
                         index = 932,
-                        score = 0.0286119,
+                        score = 0.0287597,
                         display_name = '',
                         category_name = 'bagel',
                     })),
@@ -339,7 +369,7 @@ local function test_classify_succeeds_with_region_of_interest_and_rotation(self)
                 categories = {
                     _Category(mediapipe_lua.kwargs({
                         index = 806,
-                        score = 0.997684,
+                        score = 0.997655,
                         display_name = '',
                         category_name = 'soccer ball',
                     })),

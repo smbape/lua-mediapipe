@@ -179,11 +179,11 @@ DOCKER_IMAGE_MANY_LINUX_aarch64=docker/manylinux_2_28/Dockerfile_aarch64
 
 DIST_VERSION=${DIST_VERSION:-1}
 WSL_DISTNAME=${WSL_DISTNAME:-Ubuntu}
-MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-0.10.35}
-OPENCV_VERSION=${OPENCV_VERSION:-4.13.0}
-# EXCLUDED_TESTS=${WINDOWS_EXCLUDED_TESTS:-"'!ex_convert.lua' '!ex_dualies.lua' '!ex_fs_resize.lua' '!ex_winfull.lua'"}
-# WINDOWS_EXCLUDED_TESTS=${WINDOWS_EXCLUDED_TESTS:-"$EXCLUDED_TESTS"}
-# WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"$EXCLUDED_TESTS"}
+MEDIAPIPE_VERSION=${MEDIAPIPE_VERSION:-1.0.0}
+OPENCV_VERSION=${OPENCV_VERSION:-5.0.0}
+EXCLUDED_TESTS=${EXCLUDED_TESTS:-""}
+WINDOWS_EXCLUDED_TESTS=${WINDOWS_EXCLUDED_TESTS:-"$EXCLUDED_TESTS"}
+WSL_EXCLUDED_TESTS=${WSL_EXCLUDED_TESTS:-"$EXCLUDED_TESTS"}
 CONTAINER_NAME=${CONTAINER_NAME:-${CONTAINER_NAME_MANY_LINUX_x86_64}}
 DOCKER_IMAGE=${DOCKER_IMAGE:-${DOCKER_IMAGE_MANY_LINUX_x86_64}}
 
@@ -294,12 +294,12 @@ esac
 
 # https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line/865294#865294
 if ! command -v cmake &>/dev/null; then
-    CMAKE_VERSION=4.4.0
+    CMAKE_VERSION=4.4.4
     CMAKE_INSTALL_SCRIPT=/opt/cmake/dl/cmake-${CMAKE_VERSION}-linux-${cpu_arch_alt}.sh
     case $cpu_arch_alt in
-        x86_64)  CMAKE_VERSION_SHA256=6e7cdca8b054a3f6a5adcb1fa012e591e4c669bd744a009788681575aac96f50 ;;
-        aarch64) CMAKE_VERSION_SHA256=9668922a215e89d04e7f82ceccc6e433358eb25f9cf24e6eb325b1db99b1b2db ;;
-        *)       echo "Unsupported cpu arch for cmake"; exit 1 ;;
+        x86_64)  CMAKE_VERSION_SHA256=9c5c78ff9f5c8c1acc5c496a7d27adafacb3a78d5b2d39b3cd4d97103656bf5b ;;
+        aarch64) CMAKE_VERSION_SHA256=307b4de9bb52356aaa4bc8659a0af8901862b03b099baa00c0b901ade24659ac ;;
+        *)       echo "Unsupported cpu arch for cmake" 1>&2; exit 1 ;;
     esac
 
     mkdir -p /opt/cmake/dl
@@ -397,8 +397,6 @@ fi'
 function open_git_project() {
     local remote="$1"
     local project="$2"
-    local email="${3:-"$(git config user.email || echo 'you@example.com')"}"
-    local name="${4:-"$(git config user.name || echo 'Your Name')"}"
     local branch="${GIT_BRANCH:-develop}"
 
     if [ ! -d "${project}" ]; then
@@ -470,7 +468,7 @@ function docker_run_bash() {
         local binaries=$(realpath "${PWD}/../luarocks-binaries")
         local args='--gpus all -it'
 
-        if command -v node &>/dev/null; then
+        if command -v code &>/dev/null; then
             binpath="$(dirname "$(command -v code)")"
             args="$args -v '/mnt$binpath:/mnt$binpath'"
         fi
@@ -602,8 +600,8 @@ function set_url_github() {
 }
 
 function push_all() {
-    git push --all --progress  -- origin && git push --tags --progress  -- origin && \
-    git push --all --progress  -- github && git push --tags --progress  -- github
+    git push --all --progress -- origin && git push --tags --progress -- origin && \
+    git push --all --progress -- github && git push --tags --progress -- github
 }
 
 function prepublish_stash_push() {
@@ -611,18 +609,18 @@ function prepublish_stash_push() {
 
     bash -c "
 for version in ${LUA_VERSIONS}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script}
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 
     wsl -c "
 source scripts/wsl_init.sh
 for version in ${LUA_VERSIONS}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script}
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 }
@@ -632,18 +630,18 @@ function prepublish_stash_pop() {
 
     bash -c "
 for version in ${LUA_VERSIONS}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script}
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 
     wsl -c "
 source scripts/wsl_init.sh
 for version in ${LUA_VERSIONS}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script}
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 }
@@ -684,7 +682,7 @@ function reset_luarocks() {
         -maxdepth 1 \
         -type d \( -name 'x64-*' -o -name 'Linux-GCC-*' \) \
         -exec rm -rf '{}/luarocks/luarocks-prefix/src/luarocks-stamp' \;
-    rm -rf luarocks/lua_modules
+    rm -rf luarocks/lua_modules luarocks/lua${LUAROCKS_SUFFIX} luarocks/luarocks${LUAROCKS_SUFFIX}
 
     source scripts/vcvars_restore_start.sh
     local _PATH="$PATH"
@@ -959,27 +957,27 @@ if [ -e /etc/os-release -a "$(uname -m)" == "x86_64" ]; then
                     cuda_version_ext=
                 else
                     cuda_repo=ubuntu${VERSION_ID/\./}
-                    cuda_version_ext=-595.58.03
+                    cuda_version_ext=-610.43.02
                 fi
 
                 # ubuntu cuda-toolkit
-                if ! dpkg -l cuda-toolkit-13-2 &> /dev/null; then
+                if ! dpkg -l cuda-toolkit-13-3 &> /dev/null; then
                     resume_download https://developer.download.nvidia.com/compute/cuda/repos/${cuda_repo}/x86_64/cuda-${cuda_repo}.pin && \
                     mv cuda-${cuda_repo}.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-                    resume_download https://developer.download.nvidia.com/compute/cuda/13.2.1/local_installers/cuda-repo-${cuda_repo}-13-2-local_13.2.1${cuda_version_ext}-1_amd64.deb && \
-                    dpkg -i cuda-repo-${cuda_repo}-13-2-local_13.2.1${cuda_version_ext}-1_amd64.deb && \
-                    rm -f cuda-repo-${cuda_repo}-13-2-local_13.2.1${cuda_version_ext}-1_amd64.deb && \
-                    cp -f /var/cuda-repo-${cuda_repo}-13-2-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
+                    resume_download https://developer.download.nvidia.com/compute/cuda/13.3.1/local_installers/cuda-repo-${cuda_repo}-13-3-local_13.3.1${cuda_version_ext}-1_amd64.deb && \
+                    dpkg -i cuda-repo-${cuda_repo}-13-3-local_13.3.1${cuda_version_ext}-1_amd64.deb && \
+                    rm -f cuda-repo-${cuda_repo}-13-3-local_13.3.1${cuda_version_ext}-1_amd64.deb && \
+                    cp -f /var/cuda-repo-${cuda_repo}-13-3-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cuda-toolkit-13-2 || exit $?
+                    apt-get -y install cuda-toolkit-13-3 || exit $?
                 fi
 
                 # ubuntu cudnn
                 if ! dpkg -l cudnn9-cuda-13 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.23.2/local_installers/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.23.2_1.0-1_amd64.deb && \
-                    dpkg -i cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.23.2_1.0-1_amd64.deb && \
-                    rm -f cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.23.2_1.0-1_amd64.deb && \
-                    cp -f /var/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.23.2/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.25.1/local_installers/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.25.1_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.25.1_1.0-1_amd64.deb && \
+                    rm -f cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.25.1_1.0-1_amd64.deb && \
+                    cp -f /var/cudnn-local-repo-ubuntu${VERSION_ID/\./}-9.25.1/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
                     apt-get -y install cudnn9-cuda-13
                 fi
@@ -987,23 +985,23 @@ if [ -e /etc/os-release -a "$(uname -m)" == "x86_64" ]; then
             ;;
         debian )
             if [ "$VERSION_ID" == "12" -o "$VERSION_ID" == "13" ]; then
-                cuda_version_ext=-595.58.03
+                cuda_version_ext=-610.43.02
 
                 # debian cuda-toolkit
-                if ! dpkg -l cuda-toolkit-13-2 &> /dev/null; then
-                    wget https://developer.download.nvidia.com/compute/cuda/13.2.1/local_installers/cuda-repo-debian${VERSION_ID}-13-2-local_13.2.1${cuda_version_ext}-1_amd64.deb && \
-                    dpkg -i cuda-repo-debian${VERSION_ID}-13-2-local_13.2.1${cuda_version_ext}-1_amd64.deb && \
-                    cp /var/cuda-repo-debian${VERSION_ID}-13-2-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
+                if ! dpkg -l cuda-toolkit-13-3 &> /dev/null; then
+                    resume_download https://developer.download.nvidia.com/compute/cuda/13.3.1/local_installers/cuda-repo-debian${VERSION_ID}-13-3-local_13.3.1${cuda_version_ext}-1_amd64.deb && \
+                    dpkg -i cuda-repo-debian${VERSION_ID}-13-3-local_13.3.1${cuda_version_ext}-1_amd64.deb && \
+                    cp /var/cuda-repo-debian${VERSION_ID}-13-3-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
-                    apt-get -y install cuda-toolkit-13-2 || exit $?
+                    apt-get -y install cuda-toolkit-13-3 || exit $?
                 fi
 
                 # debian cudnn
                 if [ "$VERSION_ID" == "12" ] && ! dpkg -l cudnn9-cuda-13 &> /dev/null; then
-                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.23.2/local_installers/cudnn-local-repo-debian${VERSION_ID}-9.23.2_1.0-1_amd64.deb && \
-                    dpkg -i cudnn-local-repo-debian${VERSION_ID}-9.23.2_1.0-1_amd64.deb && \
-                    rm -f cudnn-local-repo-debian${VERSION_ID}-9.23.2_1.0-1_amd64.deb && \
-                    cp -f /var/cudnn-local-repo-debian${VERSION_ID}-9.23.2/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
+                    resume_download https://developer.download.nvidia.com/compute/cudnn/9.25.1/local_installers/cudnn-local-repo-debian${VERSION_ID}-9.25.1_1.0-1_amd64.deb && \
+                    dpkg -i cudnn-local-repo-debian${VERSION_ID}-9.25.1_1.0-1_amd64.deb && \
+                    rm -f cudnn-local-repo-debian${VERSION_ID}-9.25.1_1.0-1_amd64.deb && \
+                    cp -f /var/cudnn-local-repo-debian${VERSION_ID}-9.25.1/cudnn-*-keyring.gpg /usr/share/keyrings/ && \
                     apt-get update && \
                     apt-get -y install cudnn9-cuda-13
                 fi
@@ -1065,9 +1063,12 @@ export DEBIAN_FRONTEND=noninteractive
 export TZ=Europe/Paris
 apt update && \
 apt install -y mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils && \
-apt install -y build-essential curl git libavcodec-dev libavformat-dev libdc1394-dev \
-        liblapacke-dev libjpeg-dev libopenblas-dev libpng-dev libreadline-dev libswscale-dev libtbb-dev libssl-dev \
-        patchelf pkg-config python3-pip python3-venv qtbase5-dev unzip wget zip || exit $?
+apt install -y build-essential curl git \
+        libavcodec-dev libavformat-dev libdc1394-dev libjpeg-dev \
+        liblapacke-dev libopenblas-dev libpng-dev libreadline-dev \
+        libssl-dev libswscale-dev libtbb-dev \
+        nasm patchelf pkg-config python3-pip python3-venv \
+        qtbase5-dev unzip wget zip || exit $?
 apt install -y libtbbmalloc2 || apt install -y libtbb2'
 }
 
@@ -1191,6 +1192,7 @@ function build_windows_debug() {
     OpenCVLua_DIR="$(realpath "${PWD//mediapipe/opencv}/out/install/x64-Debug")" \
     PATH="$_PATH" \
     ./build${SCRIPT_SUFFIX} -d "-DLua_VERSION=${version}" --install \
+        -DENABLE_REPAIR=ON \
         -DDELVEWHEEL_exclude="opencv_lua.dll;cublas*;cudnn*;cufft*;nvcuda*;nvcuvid*;nvidia*;npp*; " \
     "$@"
 }
@@ -1198,6 +1200,10 @@ function build_windows_debug() {
 function build_wsl_debug() {
     local script='
 source scripts/wsl_init.sh || exit $?
+
+if ! command -v node &>/dev/null; then
+    make_available_nvs && nvs add 16 && nvs use 16 || exit $?
+fi
 
 if [ ! -e luarocks/lua${LUAROCKS_SUFFIX} ] || ! ./luarocks/lua${LUAROCKS_SUFFIX} -v &> /dev/null; then
     use_wsl_luajit_modules || exit $?
@@ -1290,7 +1296,7 @@ source "${projectDir}/scripts/tasks.sh" || exit $?
 # Install node_modules in a separate folder and link to it
 # ================================
 if [ "${projectDir}" != "${PWD}" ]; then
-    open_git_project "file://${projectDir}" "${CWD}/out/test/build.node_modules" || exit $?
+    open_git_project "file://${projectDir}" "${CWD}/out/test/build.node_modules" 1>&2 || exit $?
     [ -d node_modules ] || npm ci || exit $?
 else
     [ -d node_modules ] || npm ci || exit $?
@@ -1313,7 +1319,7 @@ fi
 # Install lua and luarocks
 # ================================
 [ "${version:0:6}" == luajit ] && target=luajit || target=lua
-open_git_project "file://${projectDir}" "${CWD}/out/test/build.luaonly/${version}/src" || exit $?
+open_git_project "file://${projectDir}" "${CWD}/out/test/build.luaonly/${version}/src" 1>&2 || exit $?
 
 export PATH="${PWD}/out/install/${ARCH}-Release/bin${PATH:+:${PATH}}"
 export PATH="${PWD}/out/build.luaonly/${ARCH}-Release/luarocks/luarocks-prefix/src/luarocks${LUAROCKS_BINDIR}${PATH:+:${PATH}}"
@@ -1327,13 +1333,13 @@ command -v luarocks${EXE_SUFFIX} &>/dev/null || die "Failed to find luarocks exe
 # ================================
 # Initialize the lua project
 # ================================
-open_git_project "file://${projectDir}" "${CWD}/out/test/${rock_type}/${version}/src" || exit $?
+open_git_project "file://${projectDir}" "${CWD}/out/test/${rock_type}/${version}/src" 1>&2 || exit $?
 [ "${version:0:6}" == luajit ] && lua_abi=5.1 || lua_abi=${version}
 
 if [ ${IS_WINDOWS} -eq 1 ]; then
     cd luarocks && \
-    luarocks.exe --lua-version "${lua_abi}" --lua-dir "$(cygpath -w "$(dirname "$(dirname "$(command -v ${target}.exe)")")")" init --lua-versions "5.1,5.2,5.3,5.4,5.5" && \
-    luarocks.exe config --scope project cmake_generator Ninja && \
+    luarocks.exe --lua-version "${lua_abi}" --lua-dir "$(cygpath -w "$(dirname "$(dirname "$(command -v ${target}.exe)")")")" init --lua-versions "5.1,5.2,5.3,5.4,5.5" 1>&2 && \
+    luarocks.exe config --scope project cmake_generator Ninja 1>&2 && \
     cd .. || exit $?
 else
     cd luarocks && \
@@ -1343,8 +1349,8 @@ else
     cd .. || exit $?
 fi
 
-luarocks_cmd install --deps-only samples/samples-scm-1.rockspec || exit $?
-luarocks_cmd install --deps-only test/test-scm-1.rockspec || exit $?
+luarocks_cmd install --deps-only samples/samples-scm-1.rockspec 1>&2 || exit $?
+luarocks_cmd install --deps-only test/test-scm-1.rockspec 1>&2 || exit $?
 
 function uninstall_local_rock() {
     local rock_name="$1"
@@ -1357,7 +1363,6 @@ function uninstall_local_rock() {
 function install_local_rock() {
     local rock_name="$1"
     local rock_version="$2"
-    local rock_type="${3:-$rock_type}"
 
     # Should we use an exact version?
     if [ "${rock_type}" == "binary" ]; then
@@ -1387,10 +1392,10 @@ function install_local_rock() {
 # ================================
 # Install rock
 # ================================
-[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock ${PROJECT_ID}_lua || exit $?
-[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock opencv_lua || exit $?
-[ "${rock_type}" == "binary" ] || install_local_rock opencv_lua ${OPENCV_VERSION} || exit $?
-install_local_rock ${PROJECT_ID}_lua ${PROJECT_VERSION} || exit $?
+[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock ${PROJECT_ID}_lua 1>&2 || exit $?
+[ ${upgrade_rock} -eq 0 ] || uninstall_local_rock opencv_lua 1>&2 || exit $?
+install_local_rock opencv_lua ${OPENCV_VERSION} 1>&2 || exit $?
+install_local_rock ${PROJECT_ID}_lua ${PROJECT_VERSION} 1>&2 || exit $?
 
 # ================================
 # Run the tests
@@ -1421,10 +1426,13 @@ node --trace-uncaught --unhandled-rejections=strict scripts/test.js --Release'
 function test_prepublished_windows() {
     local rock_type=$1; shift
 
-    local script="$(test_rock_script $rock_type "$@")"
-    if [ ${#WINDOWS_EXCLUDED_TESTS} -ne 0 ]; then
-        script="$script $WINDOWS_EXCLUDED_TESTS"
+    local upgrade_rock
+    if [ "$1" == "--upgrade" ]; then
+        upgrade_rock=--upgrade
+        shift
     fi
+
+    local script="$(test_rock_script $rock_type $upgrade_rock $WINDOWS_EXCLUDED_TESTS "$@")"
 
     local versions
     if [ "$rock_type" == "source" ]; then
@@ -1437,9 +1445,9 @@ function test_prepublished_windows() {
 $(export_shared_env)
 
 for version in ${versions}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script} || exit \$?
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 }
@@ -1455,10 +1463,13 @@ function test_prepublished_source_windows() {
 function test_prepublished_wsl() {
     local rock_type=$1; shift
 
-    local script="$(test_rock_script $rock_type "$@")"
-    if [ ${#WSL_EXCLUDED_TESTS} -ne 0 ]; then
-        script="$script $WSL_EXCLUDED_TESTS"
+    local upgrade_rock
+    if [ "$1" == "--upgrade" ]; then
+        upgrade_rock=--upgrade
+        shift
     fi
+
+    local script="$(test_rock_script $rock_type $upgrade_rock $WSL_EXCLUDED_TESTS "$@")"
 
     local versions
     if [ "$rock_type" == "source" ]; then
@@ -1472,9 +1483,9 @@ $(export_shared_env /mnt)
 source \${projectDir}/scripts/wsl_init.sh || exit \$?
 
 for version in ${versions}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script} || exit \$?
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 }
@@ -1491,10 +1502,13 @@ function test_prepublished_docker() {
     local name=$1; shift
     local rock_type=$1; shift
 
-    local script="$(test_rock_script $rock_type "$@")"
-    if [ ${#WSL_EXCLUDED_TESTS} -ne 0 ]; then
-        script="$script $WSL_EXCLUDED_TESTS"
+    local upgrade_rock
+    if [ "$1" == "--upgrade" ]; then
+        upgrade_rock=--upgrade
+        shift
     fi
+
+    local script="$(test_rock_script $rock_type $upgrade_rock $WSL_EXCLUDED_TESTS "$@")"
 
     local versions
 
@@ -1516,14 +1530,14 @@ cd /io || exit \$?
 $(export_shared_env '' /mnt/sources/lua-${PROJECT_ID})
 
 for version in ${versions}; do
-    _PATH=\$PATH; pushd \${PWD}
+    _PATH=\$PATH; pushd \${PWD} 1>&2
     ${script} || exit \$?
-    popd; PATH=\$_PATH; unset _PATH
+    popd 1>&2; PATH=\$_PATH; unset _PATH
 done
 "
 }
 
-function install_test_essentials_debian() {
+function install_test_essentials_docker_debian() {
     local name=$1; shift
     local image=$1; shift
 
@@ -1541,7 +1555,7 @@ function test_prepublished_binary_debian() {
     local name=$1; shift
     local image=$1; shift
 
-    install_test_essentials_debian ${name} ${image} && \
+    install_test_essentials_docker_debian ${name} ${image} && \
     test_prepublished_docker ${name} binary "$@"
 }
 
@@ -1640,11 +1654,8 @@ find out/prepublish/ -type f \( -name CMakeCache.txt \) -delete
 
 function test_debug_windows() {
     local script='
-local OpenCVLua_BUILD_DIR="${PWD//mediapipe/opencv}/out/build/x64-Debug"
-local OpenCVLua_INSTALL_DIR="${PWD//mediapipe/opencv}/out/install/x64-Debug"
-
 PYTHON_VENV_PATH="${PWD}/out/test/.venv" \
-OpenCVLua_DIR="${OpenCVLua_INSTALL_DIR}" \
+OpenCVLua_DIR="${PWD//mediapipe/opencv}/out/install/x64-Debug" \
 node --trace-uncaught --unhandled-rejections=strict scripts/test.js --Debug'
 
     for arg in "$@"; do
@@ -1661,10 +1672,8 @@ node --trace-uncaught --unhandled-rejections=strict scripts/test.js --Debug'
 function test_debug_wsl() {
     local script='
 source scripts/wsl_init.sh || exit $?
-./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only samples/samples-scm-1.rockspec || exit $?
-./luarocks/luarocks${LUAROCKS_SUFFIX} install --deps-only test/test-scm-1.rockspec || exit $?
-OpenCVLua_DIR="$HOME/.vs/lua-opencv/out/install/Linux-GCC-Debug" \
 PYTHON_VENV_PATH="${PWD}/out/test/.venv" \
+OpenCVLua_DIR="${PWD//mediapipe/opencv}/out/install/Linux-GCC-Debug" \
 node --trace-uncaught --unhandled-rejections=strict scripts/test.js --Debug'
 
     for arg in "$@"; do

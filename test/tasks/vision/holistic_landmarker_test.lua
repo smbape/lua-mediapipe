@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/holistic_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/holistic_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -39,9 +39,17 @@ local _HolisticLandmarkerOptions = holistic_landmarker.HolisticLandmarkerOptions
 local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 
 local _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE = 'holistic_landmarker.task'
+local _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE_HASH = 'sha256=e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8'
+local _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/holistic_landmarker.task?generation=1782184828108467'
 local _POSE_IMAGE = 'male_full_height_hands.jpg'
+local _POSE_IMAGE_HASH = 'sha256=8a7fe5be8b90d6078b09913ca28f7e5d342f8d3cde856ab4e3327d2970b887f8'
+local _POSE_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/male_full_height_hands.jpg?generation=1782184892683350'
 local _CAT_IMAGE = 'cat.jpg'
+local _CAT_IMAGE_HASH = 'sha256=2533197401eebe9410ea4d063f86c43fbd2666f3e8165a38aca155c0d09c21be'
+local _CAT_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cat.jpg?generation=1782184446508641'
 local _EXPECTED_HOLISTIC_RESULT = 'male_full_height_hands_result_cpu.pbtxt'
+local _EXPECTED_HOLISTIC_RESULT_HASH = 'sha256=f4a53dec51b621abeb1dbd854087dd0b02a3d40472f5fdbc5e836315bcb704f3'
+local _EXPECTED_HOLISTIC_RESULT_URL = nil
 local _IMAGE_WIDTH = 638
 local _IMAGE_HEIGHT = 1000
 local _LANDMARKS_MARGIN = 0.03
@@ -134,10 +142,26 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE,
-        _POSE_IMAGE,
-        _CAT_IMAGE,
-        _EXPECTED_HOLISTIC_RESULT,
+        {
+            output = _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE,
+            hash = _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE_HASH,
+            url = _HOLISTIC_LANDMARKER_BUNDLE_ASSET_FILE_URL,
+        },
+        {
+            output = _POSE_IMAGE,
+            hash = _POSE_IMAGE_HASH,
+            url = _POSE_IMAGE_URL,
+        },
+        {
+            output = _CAT_IMAGE,
+            hash = _CAT_IMAGE_HASH,
+            url = _CAT_IMAGE_URL,
+        },
+        {
+            output = _EXPECTED_HOLISTIC_RESULT,
+            hash = _EXPECTED_HOLISTIC_RESULT_HASH,
+            url = _EXPECTED_HOLISTIC_RESULT_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_POSE_IMAGE))
