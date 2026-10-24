@@ -2041,7 +2041,7 @@ All the examples in the samples directory can be run by folling theses instructi
 #### Windows
 
 ```cmd
-git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git
+git clone --depth 1 --branch v1.0.0-1 https://github.com/smbape/lua-mediapipe.git
 cd lua-mediapipe
 @REM build.bat "-DLua_VERSION=luajit-2.1" --target luajit --install
 @REM available versions are 5.1, 5.2, 5.3, 5.4, 5.5
@@ -2058,7 +2058,7 @@ node scripts\test.js --Release
 #### Linux
 
 ```sh
-git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git
+git clone --depth 1 --branch v1.0.0-1 https://github.com/smbape/lua-mediapipe.git
 cd lua-mediapipe
 # ./build.sh "-DLua_VERSION=luajit-2.1" --target luajit --install
 # available versions are 5.1, 5.2, 5.3, 5.4, 5.5
