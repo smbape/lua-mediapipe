@@ -7,8 +7,8 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/python/image_test.py
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/image_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/python/image_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/image_test.py
 --]]
 
 local _assert = require("_assert")
@@ -24,11 +24,17 @@ local cv2 = opencv_lua.cv
 local image = mediapipe.tasks.lua.vision.core.image
 
 local _IMAGE_FILE = 'portrait.jpg'
+local _IMAGE_FILE_HASH = 'sha256=a6f11efaa834706db23f275b6115058fa87fc7f14362681e6abe14e82749de3e'
+local _IMAGE_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/portrait.jpg?generation=1782185108020964'
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/vision'
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _IMAGE_FILE,
+        {
+            output = _IMAGE_FILE,
+            hash = _IMAGE_FILE_HASH,
+            url = _IMAGE_FILE_URL,
+        },
     })
 
     self.test_image_path = test_utils.get_test_data_path(_IMAGE_FILE)

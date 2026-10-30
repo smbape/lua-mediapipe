@@ -51,8 +51,6 @@ endif()
 # ===============
 # Python
 # ===============
-# Python versions with available requirement_lock.txt files: 3.9, 3.10, 3.11, 3.12
-set(Python3_REQUESTED_VERSION "3.9...<3.13")
 include(cmake/UsePython3Venv.cmake)
 if (UNIX)
     pip_install(build auditwheel)

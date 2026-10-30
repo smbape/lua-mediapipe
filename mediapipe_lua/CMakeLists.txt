@@ -1,27 +1,30 @@
 cmake_minimum_required(VERSION 3.25)
 
-# ================================================================
-# bit.lua
-# ================================================================
-function(mediapipe_write_bit_lua)
-    set(mediapipe_GENERATED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/generated")
-    file(READ "${CMAKE_SOURCE_DIR}/src/lua/bit.lua" _new_bit_string)
+set(VERSION_REG "[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9]+)?")
 
-    set(_new_bit_string "R\"cdata(${_new_bit_string})cdata\"")
-    set(bit_lua_FILE "${mediapipe_GENERATED_INCLUDE_DIR}/bit_string.lua.inc")
+# ================================================================
+# lua files
+# ================================================================
+function(embed_lua_file filename)
+    set(allegro5_GENERATED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/generated")
+    file(READ "${CMAKE_SOURCE_DIR}/src/lua/${filename}.lua" _new_${filename}_string)
 
-    if(EXISTS "${bit_lua_FILE}")
-        file(READ "${bit_lua_FILE}" _old_bit_string)
+    set(_new_${filename}_string "R\"cdata(${_new_${filename}_string})cdata\"")
+    set(${filename}_lua_FILE "${allegro5_GENERATED_INCLUDE_DIR}/${filename}_string.lua.inc")
+
+    if(EXISTS "${${filename}_lua_FILE}")
+        file(READ "${${filename}_lua_FILE}" _old_${filename}_string)
     else()
-        set(_old_bit_string "")
+        set(_old_${filename}_string "")
     endif()
 
-    if(NOT (_old_bit_string STREQUAL _new_bit_string))
-        file(WRITE "${bit_lua_FILE}" "${_new_bit_string}")
+    if(NOT (_old_${filename}_string STREQUAL _new_${filename}_string))
+        file(WRITE "${${filename}_lua_FILE}" "${_new_${filename}_string}")
     endif()
 endfunction()
 
-mediapipe_write_bit_lua()
+embed_lua_file("bit")
+embed_lua_file("cdata_utils")
 # ================================================================
 
 # ===============
@@ -51,11 +54,11 @@ file(GLOB_RECURSE files_to_change
 )
 
 foreach(item ${files_to_change})
-    vcpkg_regex_replace_string("${item}" "(/lua-mediapipe/releases/download/v|/lua-mediapipe/tree/v)[0-9]+\\.[0-9]+\\.[0-9]+" "\\1${PROJECT_VERSION}")
+    vcpkg_regex_replace_string("${item}" "(/lua-mediapipe/releases/download/v|/lua-mediapipe/tree/v)${VERSION_REG}" "\\1${PROJECT_VERSION}")
     vcpkg_regex_replace_string("${item}" "(/google-ai-edge/mediapipe/archive/refs/tags/v|/google-ai-edge/mediapipe/blob/v|mediapipe-|MEDIAPIPE_VERSION:-|${target_name} )[0-9]+(\\.[0-9]+)+" "\\1${Mediapipe_VERSION}")
     vcpkg_regex_replace_string("${item}" "MEDIAPIPE_VERSION = \"[0-9]+(\\.[0-9]+)+\"" "MEDIAPIPE_VERSION = \"${Mediapipe_VERSION}\"")
     vcpkg_regex_replace_string("${item}" "/v[0-9]+(\\.[0-9]+)+/mediapipe/" "/v${Mediapipe_VERSION}/mediapipe/")
-    vcpkg_regex_replace_string("${item}" "(--branch v)[0-9]+\\.[0-9]+\\.[0-9]+( https://github.com/smbape/lua-mediapipe)" "\\1${PROJECT_VERSION}\\2")
+    vcpkg_regex_replace_string("${item}" "(--branch v)${VERSION_REG}( https://github.com/smbape/lua-mediapipe)" "\\1${PROJECT_VERSION}\\3")
     vcpkg_regex_replace_string("${item}" "(opencv-|/opencv/opencv/blob/|opencv_lua |OPENCV_VERSION:-)[0-9]+\\.[0-9]+\\.[0-9]+" "\\1${OpenCV_VERSION}")
 endforeach()
 
@@ -125,10 +128,16 @@ endif()
 
 string(REPLACE ";" "$<SEMICOLON>" ENV_PATH "$ENV{PATH}")
 
+set(BAZEL_ENV
+    "PATH=${ENV_PATH}"
+    "CC=${CMAKE_C_COMPILER}"
+    "CXX=${CMAKE_CXX_COMPILER}"
+)
+
 if (UNIX)
     # [Running bazel in a subshell causes subshell to hang](https://github.com/bazelbuild/bazel/issues/19309)
     execute_process(
-        COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} info server_pid
+        COMMAND           "${CMAKE_COMMAND}" -E env ${BAZEL_ENV} -- ${BAZEL_BUILD} info server_pid
         WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     )
 endif()
@@ -137,6 +146,8 @@ list(APPEND BAZEL_BUILD
     build -c ${COMPILATION_MODE}
     --strip=never
     --verbose_failures
+
+    # -s
 
     # --keep_going
     # --sandbox_debug
@@ -212,8 +223,18 @@ if (WITH_CUDNN)
     )
 endif()
 
-if (ENABLE_ODML_CONVERTER)
-    list(APPEND BAZEL_BUILD_OPTIONS --define ENABLE_ODML_CONVERTER=1)
+if (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT DEFINED ENV{BAZEL_LLVM})
+    cmake_path(GET CMAKE_C_COMPILER PARENT_PATH BAZEL_LLVM)
+    cmake_path(GET BAZEL_LLVM PARENT_PATH BAZEL_LLVM)
+    list(APPEND BAZEL_ENV "BAZEL_LLVM=${BAZEL_LLVM}")
+    list(APPEND BAZEL_BUILD_OPTIONS
+        --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
+        --extra_execution_platforms=//:x64_windows-clang-cl
+    )
+endif()
+
+if (MSVC)
+    list(APPEND BAZEL_BUILD_OPTIONS --define=protobuf_allow_msvc=true)
 endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -318,7 +339,7 @@ if (BUILD_python_wheel)
         COMMAND     ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
         COMMAND     "${Python3_EXECUTABLE}" -m pip install numpy torch wheel
         COMMAND     "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
-        COMMAND     "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
+        COMMAND     "${CMAKE_COMMAND}" -E env ${BAZEL_ENV} -- ${BAZEL_BUILD} "@com_google_protobuf//:protoc"
         COMMAND     "${CMAKE_COMMAND}" -E echo "${Python3_EXECUTABLE}" setup.py bdist_wheel clean --all
         COMMAND     "${CMAKE_COMMAND}" -E env
                         "PATH=${ENV_PATH}"
@@ -356,7 +377,7 @@ set(mediapipe_source_OUTPUT "${mediapipe_BINARY_DIR}/mediapipe/tasks/c/${CMAKE_S
 add_custom_command(OUTPUT "${mediapipe_source_OUTPUT}"
     COMMAND           ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} //mediapipe/tasks/c:mediapipe_source
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} //mediapipe/tasks/c:mediapipe_source
+    COMMAND           "${CMAKE_COMMAND}" -E env ${BAZEL_ENV} -- ${BAZEL_BUILD} //mediapipe/tasks/c:mediapipe_source
     COMMAND           "${CMAKE_COMMAND}" -E touch_nocreate "${mediapipe_source_OUTPUT}"
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
     DEPENDS           ${mediapipe_source_DEPENDS} ${MEDIAPIPE_REPOSITORIES_DEPENDS}
@@ -366,9 +387,6 @@ add_custom_command(OUTPUT "${mediapipe_source_OUTPUT}"
 add_custom_target(${target_name}_mediapipe_source DEPENDS "${mediapipe_source_OUTPUT}" ${MEDIAPIPE_REPOSITORIES_DEPENDS})
 
 set(src_gen_cmd "${NODE_EXECUTABLE}" --unhandled-rejections=strict --trace-uncaught --trace-warnings generator/index.js)
-if (ENABLE_ODML_CONVERTER)
-    list(APPEND src_gen_cmd -DENABLE_ODML_CONVERTER)
-endif()
 
 file(GLOB_RECURSE project_source_headers
     "${relative_SOURCE_DIR}src/*.h"
@@ -412,8 +430,31 @@ file(GLOB_RECURSE project_source_files
     "${relative_SOURCE_DIR}src/*.cxx"
 )
 
+file(GLOB_RECURSE project_generated_headers
+    "${relative_SOURCE_DIR}generated/*.h"
+    "${relative_SOURCE_DIR}generated/*.hh"
+    "${relative_SOURCE_DIR}generated/*.hpp"
+    "${relative_SOURCE_DIR}generated/*.hxx"
+)
+
+file(GLOB_RECURSE project_generated_files
+    "${relative_SOURCE_DIR}generated/*.c"
+    "${relative_SOURCE_DIR}generated/*.cc"
+    "${relative_SOURCE_DIR}generated/*.cpp"
+    "${relative_SOURCE_DIR}generated/*.cxx"
+)
+
 file(GLOB_RECURSE project_lua_files
     "${relative_SOURCE_DIR}src/*.lua"
+)
+
+set(project_depends_files
+    ${project_source_headers}
+    ${project_source_files}
+    ${project_generated_headers}
+    ${project_generated_files}
+    ${project_rules_files}
+    ${project_lua_files}
 )
 
 set(BAZEL_OUTPUT_NAME "${CMAKE_SHARED_LIBRARY_PREFIX}${target_name}")
@@ -431,13 +472,13 @@ endif()
 add_custom_command(OUTPUT "${BAZEL_OUTPUT_LIBRARY}"
     COMMAND           ${ensure_SYMBOLIC_BAZEL_SYMLINKS}
     COMMAND           "${CMAKE_COMMAND}" -E echo ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
-    COMMAND           "${CMAKE_COMMAND}" -E env "PATH=${ENV_PATH}" -- ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
+    COMMAND           "${CMAKE_COMMAND}" -E env ${BAZEL_ENV} -- ${BAZEL_BUILD} ${MEDIAPIPE_ADDON_PACKAGE}:lib
     WORKING_DIRECTORY "${mediapipe_SOURCE_DIR}"
-    DEPENDS           ${project_source_headers} ${project_source_files} ${project_lua_files} ${project_rules_files} ${target_name}_generated ${MEDIAPIPE_REPOSITORIES_DEPENDS}
+    DEPENDS           ${project_depends_files} ${target_name}_generated ${MEDIAPIPE_REPOSITORIES_DEPENDS}
     VERBATIM
     USES_TERMINAL
 )
-add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUTPUT_LIBRARY}" ${MEDIAPIPE_REPOSITORIES_DEPENDS})
+add_custom_target(${target_name}_lib DEPENDS "${BAZEL_OUTPUT_LIBRARY}" ${project_depends_files} ${MEDIAPIPE_REPOSITORIES_DEPENDS})
 
 add_custom_target(${target_name} ALL DEPENDS ${target_name}_lib)
 
@@ -556,7 +597,12 @@ if (WITH_LUA_ROCKS)
     install(SCRIPT "install_generated_files.cmake")
 endif()
 
-option(ENABLE_REPAIR "Repair installed library to ease distribution" OFF)
+set(DEFAULT_ENABLE_REPAIR OFF)
+if (WITH_LUA_ROCKS AND WIN32)
+    set(DEFAULT_ENABLE_REPAIR ON)
+    set(DELVEWHEEL_exclude "*" CACHE STRING "Name(s) of DLL(s) to specifically exclude from the wheel")
+endif()
+option(ENABLE_REPAIR "Repair installed library to ease distribution" ${DEFAULT_ENABLE_REPAIR})
 
 if (ENABLE_REPAIR)
     if (WIN32)
@@ -574,7 +620,10 @@ if (ENABLE_REPAIR)
             "${CMAKE_SOURCE_DIR}/src/include"
         )
 
-        target_link_libraries(${target_name}_loader PRIVATE ${LUA_LIBRARIES})
+        # On Linux it does not link to Lua: the interpreter provides the symbols.
+        if (WIN32)
+            target_link_libraries(${target_name}_loader PRIVATE ${LUA_LIBRARIES})
+        endif()
         target_include_directories(${target_name}_loader PRIVATE ${LUA_INCLUDE_DIR})
 
         install(TARGETS ${target_name}_loader
@@ -666,7 +715,8 @@ if (WITH_LUA_ROCKS)
 endif()
 
 # Needed python packages
-pip_install(absl-py mediapipe>=0.10.35 numpy opencv-python)
+math(EXPR Mediapipe_NEXT_VERSION_MAJOR "${Mediapipe_VERSION_MAJOR} + 1")
+pip_install(absl-py "mediapipe>=${Mediapipe_VERSION},<${Mediapipe_NEXT_VERSION_MAJOR}.0.0" numpy opencv-python)
 
 include(CTest)
 enable_testing()

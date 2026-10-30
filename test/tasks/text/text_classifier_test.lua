@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/text_classifier_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/text/text_classifier_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -31,7 +31,11 @@ local _TextClassifier = text_classifier.TextClassifier
 local _TextClassifierOptions = text_classifier.TextClassifierOptions
 
 local _BERT_MODEL_FILE = 'bert_text_classifier.tflite'
+local _BERT_MODEL_FILE_HASH = 'sha256=1e5a550c09bff0a13e61858bcfac7654d7fcc6d42106b4f15e11117695069600'
+local _BERT_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/bert_text_classifier.tflite?generation=1782184296163140'
 local _REGEX_MODEL_FILE = 'test_model_text_classifier_with_regex_tokenizer.tflite'
+local _REGEX_MODEL_FILE_HASH = 'sha256=cb12618d084b813cb7b90ceb39c9fe4b18dae4de9880b912cdcd4b577cd65b4f'
+local _REGEX_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/test_model_text_classifier_with_regex_tokenizer.tflite?generation=1782184388044917'
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/text'
 
 local _NEGATIVE_TEXT = 'What a waste of my time.'
@@ -138,8 +142,16 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _BERT_MODEL_FILE,
-        _REGEX_MODEL_FILE,
+        {
+            output = _BERT_MODEL_FILE,
+            hash = _BERT_MODEL_FILE_HASH,
+            url = _BERT_MODEL_FILE_URL,
+        },
+        {
+            output = _REGEX_MODEL_FILE,
+            hash = _REGEX_MODEL_FILE_HASH,
+            url = _REGEX_MODEL_FILE_URL,
+        },
     })
     self.model_path = test_utils.get_test_data_path(_BERT_MODEL_FILE)
 end

@@ -58,7 +58,6 @@ if it already exists.]], util.see_also())
    cmd:option("--platform", "OS platform.")
 
    cmd:option("--opencv-name", "OpenCV rock name.")
-   cmd:option("--opencv-version", "OpenCV rock version.")
 end
 
 ---@param directory string
@@ -146,17 +145,6 @@ function new_version.command(args)
       local install_lua = {}
       recursive_include("mediapipe_lua", install_sharedir, install_lua)
       out_rs.build.install.lua = install_lua
-
-      if args.opencv_version then
-         local opencv_name = args.opencv_name or "opencv_lua"
-
-         for k, dependency in pairs(dependencies) do
-            if dependency:sub(1, 11) == "opencv_lua " or dependency:sub(1, #opencv_name + 1) == opencv_name .. " " then
-               local opencv_version = args.opencv_version or dependency:sub(12, -1)
-               dependencies[k] = opencv_name .. " == " .. opencv_version
-            end
-         end
-      end
 
       return out_rs, err, errcode
    end

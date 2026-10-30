@@ -75,13 +75,13 @@ def add_library(name, **kwargs):
     }) + select({
         ":windows-opt-dbg": ["/Z7"],
         "//conditions:default": [],
-    }) + select({
-        ":enable_odml_converter": ["-DENABLE_ODML_CONVERTER"],
-        "//conditions:default": [],
     })
 
     kwargs["local_defines"] = kwargs.get("local_defines", []) + select({
         "@platforms//os:windows": WINDOWS_DLL_LOCAL_DEFINES,
+        "//conditions:default": [],
+    }) + select({
+        "//mediapipe/gpu:disable_gpu": ["MEDIAPIPE_DISABLE_GPU=1"],
         "//conditions:default": [],
     })
 
@@ -90,11 +90,6 @@ def add_library(name, **kwargs):
             "/DEBUG",
             # "/PDB:" + pdb
         ],
-        "//conditions:default": [],
-    }) + select({
-        "@platforms//os:linux": ["-Wl,--no-undefined"],
-        "@platforms//os:macos": ["-Wl,-undefined,error"],
-        "@platforms//os:windows": [],
         "//conditions:default": [],
     })
 
@@ -128,6 +123,7 @@ def add_library(name, **kwargs):
         # image
         "//mediapipe/framework:type_map",
         "//mediapipe/framework/formats:image",
+        "@easyexif//:easyexif",
         "@stblib//:stb_image",
 
         # packet
@@ -235,18 +231,10 @@ def add_library(name, **kwargs):
         "//mediapipe/tasks/cc/vision/image_classifier:image_classifier",
         "//mediapipe/tasks/cc/vision/image_embedder:image_embedder",
         "//mediapipe/tasks/cc/vision/image_segmenter:image_segmenter",
-        "//mediapipe/tasks/cc/vision/interactive_segmenter:interactive_segmenter",
+        "//mediapipe/tasks/cc/vision/interactive_segmenter_legacy:interactive_segmenter_legacy",
         "//mediapipe/tasks/cc/vision/object_detector:object_detector",
         "//mediapipe/tasks/cc/vision/pose_landmarker:pose_landmarker",
-    ] + select({
-        # model_ckpt_util
-        "//conditions:default": [],
-        ":enable_odml_converter": [
-            "//mediapipe/tasks/cc/text/utils:vocab_convert_utils",
-            "@odml//odml/infra/genai/inference/ml_drift/llm/tensor_loaders:model_ckpt_util",
-            "@odml//odml/infra/genai/inference/utils/xnn_utils:model_ckpt_util",
-        ],
-    })
+    ]
 
     kwargs["data"] = kwargs.get("data", []) + [
         # audio

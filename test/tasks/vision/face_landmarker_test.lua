@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/face_landmarker_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/face_landmarker_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -43,10 +43,20 @@ local _FaceLandmarkerOptions = face_landmarker.FaceLandmarkerOptions
 local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 
 local _FACE_LANDMARKER_BUNDLE_ASSET_FILE = 'face_landmarker_v2.task'
+local _FACE_LANDMARKER_BUNDLE_ASSET_FILE_HASH = 'sha256=af23fc7c1ff21d034deaa2b7fc1d56bb670ce69a4cbdc9579b6f1afd680835f4'
+local _FACE_LANDMARKER_BUNDLE_ASSET_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/face_landmarker_v2.task?generation=1782184681283568'
 local _PORTRAIT_IMAGE = 'portrait.jpg'
+local _PORTRAIT_IMAGE_HASH = 'sha256=a6f11efaa834706db23f275b6115058fa87fc7f14362681e6abe14e82749de3e'
+local _PORTRAIT_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/portrait.jpg?generation=1782185108020964'
 local _CAT_IMAGE = 'cat.jpg'
+local _CAT_IMAGE_HASH = 'sha256=2533197401eebe9410ea4d063f86c43fbd2666f3e8165a38aca155c0d09c21be'
+local _CAT_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cat.jpg?generation=1782184446508641'
 local _PORTRAIT_EXPECTED_FACE_LANDMARKS = 'portrait_expected_face_landmarks.pbtxt'
+local _PORTRAIT_EXPECTED_FACE_LANDMARKS_HASH = 'sha256=dae959456f001015278f3a1535bd03c9fa0990a3df951135645ce23293be0613'
+local _PORTRAIT_EXPECTED_FACE_LANDMARKS_URL = nil
 local _PORTRAIT_EXPECTED_BLENDSHAPES = 'portrait_expected_blendshapes.pbtxt'
+local _PORTRAIT_EXPECTED_BLENDSHAPES_HASH = 'sha256=3f8f698d8ed81346c6f13d1cc85190fd4a58b021e664d336997d29818b8ffbb6'
+local _PORTRAIT_EXPECTED_BLENDSHAPES_URL = nil
 local _LANDMARKS_MARGIN = 0.03
 local _BLENDSHAPES_MARGIN = 0.13
 local _FACIAL_TRANSFORMATION_MATRIX_MARGIN = 0.02
@@ -102,11 +112,31 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _FACE_LANDMARKER_BUNDLE_ASSET_FILE,
-        _PORTRAIT_IMAGE,
-        _CAT_IMAGE,
-        _PORTRAIT_EXPECTED_FACE_LANDMARKS,
-        _PORTRAIT_EXPECTED_BLENDSHAPES,
+        {
+            output = _FACE_LANDMARKER_BUNDLE_ASSET_FILE,
+            hash = _FACE_LANDMARKER_BUNDLE_ASSET_FILE_HASH,
+            url = _FACE_LANDMARKER_BUNDLE_ASSET_FILE_URL,
+        },
+        {
+            output = _PORTRAIT_IMAGE,
+            hash = _PORTRAIT_IMAGE_HASH,
+            url = _PORTRAIT_IMAGE_URL,
+        },
+        {
+            output = _CAT_IMAGE,
+            hash = _CAT_IMAGE_HASH,
+            url = _CAT_IMAGE_URL,
+        },
+        {
+            output = _PORTRAIT_EXPECTED_FACE_LANDMARKS,
+            hash = _PORTRAIT_EXPECTED_FACE_LANDMARKS_HASH,
+            url = _PORTRAIT_EXPECTED_FACE_LANDMARKS_URL,
+        },
+        {
+            output = _PORTRAIT_EXPECTED_BLENDSHAPES,
+            hash = _PORTRAIT_EXPECTED_BLENDSHAPES_HASH,
+            url = _PORTRAIT_EXPECTED_BLENDSHAPES_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_PORTRAIT_IMAGE))

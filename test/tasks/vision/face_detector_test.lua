@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/face_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/face_detector_test.py
 --]]
 
 
@@ -41,15 +41,29 @@ local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 local _ImageProcessingOptions = image_processing_options_module.ImageProcessingOptions
 
 local _SHORT_RANGE_BLAZE_FACE_MODEL = 'face_detection_short_range.tflite'
+local _SHORT_RANGE_BLAZE_FACE_MODEL_HASH = 'sha256=bbff11cebd1eb27a1e004cae0b0e63ec8c551cbf34a4451148b4908b8db3eca8'
+local _SHORT_RANGE_BLAZE_FACE_MODEL_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/face_detection_short_range.tflite?generation=1782184645070605'
 local _FULL_RANGE_BLAZE_FACE_MODEL = 'face_detection_full_range.tflite'
+local _FULL_RANGE_BLAZE_FACE_MODEL_HASH = 'sha256=3698b18f063835bc609069ef052228fbe86d9c9a6dc8dcb7c7c2d69aed2b181b'
+local _FULL_RANGE_BLAZE_FACE_MODEL_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/face_detection_full_range.tflite?generation=1782184630620789'
 local _PORTRAIT_IMAGE = 'portrait.jpg'
+local _PORTRAIT_IMAGE_HASH = 'sha256=a6f11efaa834706db23f275b6115058fa87fc7f14362681e6abe14e82749de3e'
+local _PORTRAIT_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/portrait.jpg?generation=1782185108020964'
 local _PORTRAIT_EXPECTED_DETECTION = 'portrait_expected_detection.pbtxt'
+local _PORTRAIT_EXPECTED_DETECTION_HASH = 'sha256=ace755f0fd0ba3b2d75e4f8bb1b08d2f65975fd5570898004540dfef735c1c3d'
+local _PORTRAIT_EXPECTED_DETECTION_URL = nil
 local _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION = 'portrait_expected_full_range_detection.pbtxt'
+local _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION_HASH = 'sha256=503ba35b747582dcfb22c6cc82afa0ba3c767332e02ec2ea17ce800cce44e1e3'
+local _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION_URL = nil
 local _PORTRAIT_ROTATED_IMAGE = 'portrait_rotated.jpg'
-local _PORTRAIT_ROTATED_EXPECTED_DETECTION = (
-    'portrait_rotated_expected_detection.pbtxt'
-)
+local _PORTRAIT_ROTATED_IMAGE_HASH = 'sha256=f91ca0e4f827b06e9ac037cf58d95f1f3ffbe34238119b7d47eda35456007f33'
+local _PORTRAIT_ROTATED_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/portrait_rotated.jpg?generation=1782185165784604'
+local _PORTRAIT_ROTATED_EXPECTED_DETECTION = 'portrait_rotated_expected_detection.pbtxt'
+local _PORTRAIT_ROTATED_EXPECTED_DETECTION_HASH = 'sha256=7e680fe0918d1e8409b0e0e4576a982e20afa871e6af9c13b7a626de1d5341a2'
+local _PORTRAIT_ROTATED_EXPECTED_DETECTION_URL = nil
 local _CAT_IMAGE = 'cat.jpg'
+local _CAT_IMAGE_HASH = 'sha256=2533197401eebe9410ea4d063f86c43fbd2666f3e8165a38aca155c0d09c21be'
+local _CAT_IMAGE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cat.jpg?generation=1782184446508641'
 local _KEYPOINT_ERROR_THRESHOLD = 1e-2
 local _BOUNDING_BOX_ERROR_THRESHOLD = 5
 
@@ -75,18 +89,44 @@ local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
         {
             output = _SHORT_RANGE_BLAZE_FACE_MODEL,
-            url = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite"
+            hash = _SHORT_RANGE_BLAZE_FACE_MODEL_HASH,
+            url = _SHORT_RANGE_BLAZE_FACE_MODEL_URL,
         },
         {
             output = _FULL_RANGE_BLAZE_FACE_MODEL,
-            url = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_full_range/float16/1/blaze_face_full_range.tflite"
+            hash = _FULL_RANGE_BLAZE_FACE_MODEL_HASH,
+            url = _FULL_RANGE_BLAZE_FACE_MODEL_URL,
         },
-        _PORTRAIT_IMAGE,
-        _PORTRAIT_EXPECTED_DETECTION,
-        _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION,
-        _PORTRAIT_ROTATED_IMAGE,
-        _PORTRAIT_ROTATED_EXPECTED_DETECTION,
-        _CAT_IMAGE,
+        {
+            output = _PORTRAIT_IMAGE,
+            hash = _PORTRAIT_IMAGE_HASH,
+            url = _PORTRAIT_IMAGE_URL,
+        },
+        {
+            output = _PORTRAIT_EXPECTED_DETECTION,
+            hash = _PORTRAIT_EXPECTED_DETECTION_HASH,
+            url = _PORTRAIT_EXPECTED_DETECTION_URL,
+        },
+        {
+            output = _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION,
+            hash = _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION_HASH,
+            url = _PORTRAIT_EXPECTED_FULL_RANGE_DETECTION_URL,
+        },
+        {
+            output = _PORTRAIT_ROTATED_IMAGE,
+            hash = _PORTRAIT_ROTATED_IMAGE_HASH,
+            url = _PORTRAIT_ROTATED_IMAGE_URL,
+        },
+        {
+            output = _PORTRAIT_ROTATED_EXPECTED_DETECTION,
+            hash = _PORTRAIT_ROTATED_EXPECTED_DETECTION_HASH,
+            url = _PORTRAIT_ROTATED_EXPECTED_DETECTION_URL,
+        },
+        {
+            output = _CAT_IMAGE,
+            hash = _CAT_IMAGE_HASH,
+            url = _CAT_IMAGE_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(test_utils.get_test_data_path(_PORTRAIT_IMAGE))

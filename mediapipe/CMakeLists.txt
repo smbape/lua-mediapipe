@@ -2,13 +2,11 @@ cmake_minimum_required(VERSION 3.25)
 
 project(mediapipe)
 
-set(Mediapipe_VERSION 0.10.35 CACHE STRING "Choose the mediapipe version.")
-set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "0.10.35" "0.10.33" "0.10.32")
+set(Mediapipe_VERSION 1.0.0 CACHE STRING "Choose the mediapipe version.")
+set_property(CACHE Mediapipe_VERSION PROPERTY STRINGS "1.0.0")
 string(REPLACE "." "" Mediapipe_DLLVERSION ${Mediapipe_VERSION})
 
-set(Mediapipe_URL_HASH_SHA256_01035 6b0e8490ab7f0f783937d4b25486cff469431adfe05c6f0217a5e63f68532113)
-set(Mediapipe_URL_HASH_SHA256_01033 460697149eb104bc0ba645b3cc0b35560ed7176f45f3a3966516431b955f7601)
-set(Mediapipe_URL_HASH_SHA256_01032 fa4272055992cc2d42d615a6ed2870f5607067bcdde9eea20bba569bc1e5454e)
+set(Mediapipe_URL_HASH_SHA256_100 6343314dad0f4112610807ca723eee63feea00711dc2be9360928b6f0a5eba12)
 
 string(REPLACE "." ";" Mediapipe_VERSION_LIST ${Mediapipe_VERSION})
 list(GET Mediapipe_VERSION_LIST 0 Mediapipe_VERSION_MAJOR)
@@ -140,13 +138,18 @@ include(../cmake/bazel_tools.cmake)
 # Add lua to bazel repositories
 set(Lua_INCLUDE_DIR "${LUA_INCLUDE_DIR}")
 list_cmake_convert(TO_CMAKE_PATH Lua_INCLUDE_DIR)
-set(Lua_LIBRARIES "${LUA_LIBRARIES}")
+if (WIN32)
+    set(Lua_SOURCES SOURCES "${LUA_LIBRARIES}")
+else()
+    # On Linux it does not link to Lua: the interpreter provides the symbols.
+    set(Lua_SOURCES)
+endif()
 get_bazel_library(
     OUTPUT_VARIABLE bazel_lua
     NAME            lua
     PKGNAME         lua
     INCLUDES        ${Lua_INCLUDE_DIR}
-    SOURCES         ${Lua_LIBRARIES}
+    ${Lua_SOURCES}
 )
 list(APPEND bazel_repositories ${bazel_lua})
 
@@ -268,6 +271,9 @@ else()
     set(mediapipe_BINARY_DIR "${mediapipe_SOURCE_DIR}/bazel-out/k8-${COMPILATION_MODE}/bin")
 endif()
 
+set(Mediapipe_VERSION_MAJOR "${Mediapipe_VERSION_MAJOR}" PARENT_SCOPE)
+set(Mediapipe_VERSION_MINOR "${Mediapipe_VERSION_MINOR}" PARENT_SCOPE)
+set(Mediapipe_VERSION_PATCH "${Mediapipe_VERSION_PATCH}" PARENT_SCOPE)
 set(COMPILATION_MODE "${COMPILATION_MODE}" PARENT_SCOPE)
 set(MEDIAPIPE_ADDON_PACKAGE "${MEDIAPIPE_ADDON_PACKAGE}" PARENT_SCOPE)
 set(MEDIAPIPE_ADDON_REPOSITORIES "${MEDIAPIPE_ADDON_REPOSITORIES}" PARENT_SCOPE)

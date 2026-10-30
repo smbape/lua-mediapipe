@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(opencv_hdr_parser)
 
-set(OpenCV_HDR_PARSER_URL_HASH_SHA256_4130 6ddf96f573249e276734f8bcb72eab07d6f04be05d2e64f3af85bd9dcc49c936)
+set(OpenCV_HDR_PARSER_URL_HASH_SHA256_500 619cfc4e00987a905e06e11e780b963d90b3b0b86d41a8278a9b3a9d81780702)
 
 # Tell cmake that we will need hdr_parser.
 include(FetchContent)
