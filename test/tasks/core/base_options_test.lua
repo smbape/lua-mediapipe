@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/core/base_options_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/core/base_options_test.py
 --]]
 
 local _assert = require("_assert")
@@ -23,6 +23,7 @@ local function test_convert_to_ctypes_with_model_asset_path(self)
     self.assertEqual(
         options.delegate, base_options_lib.BaseOptions.Delegate.CPU
     )
+    self.assertEqual(options.file_descriptor, -1)
 end
 
 local function test_convert_to_ctypes_with_model_asset_buffer(self)
@@ -32,6 +33,7 @@ local function test_convert_to_ctypes_with_model_asset_buffer(self)
     self.assertEqual(
         options.delegate, base_options_lib.BaseOptions.Delegate.CPU
     )
+    self.assertEqual(options.file_descriptor, -1)
 end
 
 local function test_convert_to_ctypes_with_gpu_delegate(self)
@@ -43,6 +45,7 @@ local function test_convert_to_ctypes_with_gpu_delegate(self)
     self.assertEqual(
         options.delegate, base_options_lib.BaseOptions.Delegate.GPU
     )
+    self.assertEqual(options.file_descriptor, -1)
 end
 
 local function test_convert_to_ctypes_without_delegate(self)
@@ -53,6 +56,7 @@ local function test_convert_to_ctypes_without_delegate(self)
     self.assertEqual(
         options.delegate, base_options_lib.BaseOptions.Delegate.CPU
     )
+    self.assertEqual(options.file_descriptor, -1)
 end
 
 describe("BaseOptionsTest", function()

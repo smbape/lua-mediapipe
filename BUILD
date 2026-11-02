@@ -27,12 +27,6 @@ config_setting(
     values = {"compilation_mode": "dbg"},
 )
 
-config_setting(
-    name = "enable_odml_converter",
-    define_values = {"ENABLE_ODML_CONVERTER": "1"},
-    visibility = ["//visibility:public"],
-)
-
 
 MEDIAIPIPE_VERSION = ""
 OUTPUT_NAME = "mediapipe_lua"
@@ -42,6 +36,7 @@ add_library(OUTPUT_NAME + "_lib",
     pchhdrs = ["generated/lua_generated_pch.hpp"],
     hdrs = [
         "generated/bit_string.lua.inc",
+        "generated/cdata_utils_string.lua.inc",
     ],
     includes = ["src/include/", "src/", "generated/"],
     local_defines = [

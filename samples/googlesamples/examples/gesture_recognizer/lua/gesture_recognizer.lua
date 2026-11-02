@@ -68,6 +68,7 @@ end
 local MODEL_FILE = MEDIAPIPE_SAMPLES_DATA_PATH .. "/gesture_recognizer.task"
 local MODEL_URL = "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task"
 local MODEL_HASH = "sha256=97952348cf6a6a4915c2ea1496b4b37ebabc50cbbf80571435643c455f2b0482"
+
 download_utils.download(mediapipe_lua.kwargs({
     output = MODEL_FILE,
     url = MODEL_URL,

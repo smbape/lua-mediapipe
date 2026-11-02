@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/language_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/text/language_detector_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -28,6 +28,8 @@ local _LanguageDetector = language_detector.LanguageDetector
 local _LanguageDetectorOptions = language_detector.LanguageDetectorOptions
 
 local _LANGUAGE_DETECTOR_MODEL = "language_detector.tflite"
+local _LANGUAGE_DETECTOR_MODEL_HASH = "sha256=5f64d821110dd2a3280546e8cd59dff09547e25d5f5c9711ec3f03416414dbb2"
+local _LANGUAGE_DETECTOR_MODEL_URL = "https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/language_detector.tflite?generation=1782184334735649"
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. "/mediapipe/tasks/testdata/text"
 
 local _SCORE_THRESHOLD = 0.3
@@ -59,7 +61,11 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _LANGUAGE_DETECTOR_MODEL,
+        {
+           output =  _LANGUAGE_DETECTOR_MODEL,
+           hash =  _LANGUAGE_DETECTOR_MODEL_HASH,
+           url =  _LANGUAGE_DETECTOR_MODEL_URL,
+        },
     })
     self.model_path = test_utils.get_test_data_path(_LANGUAGE_DETECTOR_MODEL)
 end

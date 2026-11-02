@@ -263,6 +263,10 @@
         "iid": "1465f6a1-bbbd-4768-94c8-8dd90ddbd153",
         "clsid": "0678648d-9caa-490a-9799-f0aa810a4810"
     },
+    "google::protobuf::FeatureSet::VisibilityFeature": {
+        "iid": "573faf08-7e2d-4bb8-89f8-69f65a13e557",
+        "clsid": "f009b7df-88be-4860-93f2-aab72f096147"
+    },
     "google::protobuf::FeatureSetDefaults": {
         "iid": "a2e747f0-8daf-4a12-9b4e-5aba3aedfb9b",
         "clsid": "de45b0bd-cf1d-4098-bed6-ebd9be882bbd"
@@ -727,6 +731,18 @@
         "iid": "32b24fe9-b7e5-449b-a504-23d5430f0bd4",
         "clsid": "4f60faae-c87b-42d8-834e-c4bc6f329822"
     },
+    "mediapipe::tasks::core::BaseOptions::CpuOptions": {
+        "iid": "2674a641-0cd4-4f2e-9044-1648fed9b690",
+        "clsid": "2362b2f5-2277-471f-8fed-0b99d7943211"
+    },
+    "mediapipe::tasks::core::BaseOptions::GpuOptions": {
+        "iid": "76f43039-8a40-4f8d-88a4-7e70511fd909",
+        "clsid": "f51d7aa3-2bca-44cb-ba0b-2f6fa272d5e4"
+    },
+    "mediapipe::tasks::core::BaseOptions::FileDescriptorMeta": {
+        "iid": "27071e46-67e0-403a-b826-e8a76aab4125",
+        "clsid": "b474cd17-dfe2-4d47-a418-09cdb21c1cb9"
+    },
     "mediapipe::tasks::lua::test::vision::proto_utils": {
         "iid": "16def9ac-0bad-4915-b673-694c834105ad",
         "clsid": "5737fcc0-0899-4c6c-8d1c-f637d20d5695"
@@ -770,6 +786,18 @@
     "mediapipe::tasks::lua::text::text_embedder": {
         "iid": "e9f6f722-a6a4-4dcc-8c66-556aae92f4ac",
         "clsid": "a9706cf4-4379-4f8c-b582-dd9a5ffca5e9"
+    },
+    "mediapipe::tasks::text::text_embedder::EmbeddingType": {
+        "iid": "28620394-9e75-42fc-baa1-e65ff2905417",
+        "clsid": "31371e62-ab22-425b-8f3c-bdee1fbf4391"
+    },
+    "mediapipe::tasks::text::text_embedder::TextRole": {
+        "iid": "6c7d5876-9ac2-41e9-add3-72a727996115",
+        "clsid": "33493a89-16b3-4b6c-aebb-0fc1b2923197"
+    },
+    "mediapipe::tasks::text::text_embedder::TextFormatContext": {
+        "iid": "e3edf8f4-0a46-441c-8fef-d482fe06f34d",
+        "clsid": "14c824ad-13cd-4796-9b06-f4dc3d857427"
     },
     "mediapipe::tasks::text::text_embedder::TextEmbedderOptions": {
         "iid": "5a5d2431-be23-4451-8e70-5b7956464c75",
@@ -931,25 +959,25 @@
         "iid": "3aebac27-3e71-433d-9d53-46f97ea89385",
         "clsid": "a6724507-6835-4690-a73b-945a2bdef09a"
     },
-    "mediapipe::tasks::lua::vision::interactive_segmenter": {
-        "iid": "906f2ee3-8426-4836-8d97-b07e08105b1e",
-        "clsid": "018455c3-4bef-4d11-8b44-8fd55f9497c0"
+    "mediapipe::tasks::lua::vision::interactive_segmenter_legacy": {
+        "iid": "b80af31b-8eca-4f85-a52e-f76ee918834d",
+        "clsid": "a3cd813e-330d-4e6a-a1fb-a6a3997833ce"
     },
-    "mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions": {
-        "iid": "d5f84b6c-6748-4b26-aefb-e654cc9cf2d8",
-        "clsid": "99b4e924-b2cf-4bda-a312-28248523e502"
+    "mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions": {
+        "iid": "c10e27a8-2653-4bad-8ddd-d69de45570ac",
+        "clsid": "5501b058-85d5-48c5-9bb1-f21756b33a91"
     },
-    "mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest": {
-        "iid": "58cadfeb-1578-4c40-91d1-c11445301114",
-        "clsid": "e9eb271e-424a-4adf-9e53-2c79ebc27268"
+    "mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest": {
+        "iid": "c9af1221-aa3f-46d5-a584-d9c8ffb2dcb0",
+        "clsid": "cc3247ae-187e-4d77-8ea1-7309dac27aae"
     },
-    "mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format": {
-        "iid": "b2b64265-0be4-46a8-86de-52097a7e8cac",
-        "clsid": "bf2e8db5-04e0-4b55-af09-4eca50c8bf21"
+    "mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format": {
+        "iid": "2397a648-a4c9-4029-8587-c655bbe53bc1",
+        "clsid": "33ed76e5-ea3c-4e07-9036-7c07d85cddb1"
     },
-    "mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter": {
-        "iid": "7665401d-e052-49f4-ba63-6d9422d63d03",
-        "clsid": "8b2c486a-63ca-4ca0-b3d9-35acb2e3aee7"
+    "mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy": {
+        "iid": "d015183d-e029-4403-a241-091adb6d0b55",
+        "clsid": "f9047b98-16cf-402e-9985-1ad2ae6b0aac"
     },
     "mediapipe::tasks::lua::vision::object_detector": {
         "iid": "b97d107c-7520-41b5-a321-0d651a70a783",

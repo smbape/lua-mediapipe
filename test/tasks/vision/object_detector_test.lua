@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/vision/object_detector_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/vision/object_detector_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -40,8 +40,14 @@ local _ObjectDetectorOptions = object_detector.ObjectDetectorOptions
 local _RUNNING_MODE = running_mode_module.VisionTaskRunningMode
 
 local _MODEL_FILE = 'coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.tflite'
+local _MODEL_FILE_HASH = 'sha256=61d598093ed03ed41aa47c3a39a28ac01e960d6a810a5419b9a5016a1e9c469b'
+local _MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.tflite?generation=1782184535239215'
 local _NO_NMS_MODEL_FILE = 'efficientdet_lite0_fp16_no_nms.tflite'
+local _NO_NMS_MODEL_FILE_HASH = 'sha256=237a58389081333e5cf4154e42b593ce7dd357445536fcaf4ca5bc51c2c50f1c'
+local _NO_NMS_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/efficientdet_lite0_fp16_no_nms.tflite?generation=1782184572419696'
 local _IMAGE_FILE = 'cats_and_dogs.jpg'
+local _IMAGE_FILE_HASH = 'sha256=a2eaa7ad3a1aae4e623dd362a5f737e8a88d122597ecd1a02b3e1444db56df9c'
+local _IMAGE_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/vision/cats_and_dogs.jpg?generation=1782184491144775'
 local _EXPECTED_DETECTION_RESULT = _DetectionResult(mediapipe_lua.kwargs({
     detections = {
         _Detection(mediapipe_lua.kwargs({
@@ -123,13 +129,21 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _MODEL_FILE,
+        {
+            output = _MODEL_FILE,
+            hash = _MODEL_FILE_HASH,
+            url = _MODEL_FILE_URL,
+        },
         {
             output = _NO_NMS_MODEL_FILE,
-            url =
-            "https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite0/float16/1/efficientdet_lite0.tflite",
+            hash = _NO_NMS_MODEL_FILE_HASH,
+            url = _NO_NMS_MODEL_FILE_URL,
         },
-        _IMAGE_FILE,
+        {
+            output = _IMAGE_FILE,
+            hash = _IMAGE_FILE_HASH,
+            url = _IMAGE_FILE_URL,
+        },
     })
 
     self.test_image = _Image.create_from_file(

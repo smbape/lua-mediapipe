@@ -30,6 +30,9 @@
   - [protobuf.EDITION\_99998\_TEST\_ONLY](#protobufedition%5C_99998%5C_test%5C_only)
   - [protobuf.EDITION\_99999\_TEST\_ONLY](#protobufedition%5C_99999%5C_test%5C_only)
   - [protobuf.EDITION\_MAX](#protobufedition%5C_max)
+  - [protobuf.VISIBILITY\_UNSET](#protobufvisibility%5C_unset)
+  - [protobuf.VISIBILITY\_LOCAL](#protobufvisibility%5C_local)
+  - [protobuf.VISIBILITY\_EXPORT](#protobufvisibility%5C_export)
 - [google::protobuf::Any](#googleprotobufany)
   - [Any.type\_url](#anytype%5C_url)
   - [Any.value](#anyvalue)
@@ -48,6 +51,7 @@
   - [DescriptorProto.options](#descriptorprotooptions)
   - [DescriptorProto.reserved\_range](#descriptorprotoreserved%5C_range)
   - [DescriptorProto.reserved\_name](#descriptorprotoreserved%5C_name)
+  - [DescriptorProto.visibility](#descriptorprotovisibility)
   - [google.protobuf.DescriptorProto.new](#googleprotobufdescriptorprotonew)
   - [google.protobuf.DescriptorProto.\_\_type](#googleprotobufdescriptorproto%5C_%5C_type)
 - [google::protobuf::DescriptorProto::ExtensionRange](#googleprotobufdescriptorprotoextensionrange)
@@ -67,6 +71,7 @@
   - [EnumDescriptorProto.options](#enumdescriptorprotooptions)
   - [EnumDescriptorProto.reserved\_range](#enumdescriptorprotoreserved%5C_range)
   - [EnumDescriptorProto.reserved\_name](#enumdescriptorprotoreserved%5C_name)
+  - [EnumDescriptorProto.visibility](#enumdescriptorprotovisibility)
   - [google.protobuf.EnumDescriptorProto.new](#googleprotobufenumdescriptorprotonew)
   - [google.protobuf.EnumDescriptorProto.\_\_type](#googleprotobufenumdescriptorproto%5C_%5C_type)
 - [google::protobuf::EnumDescriptorProto::EnumReservedRange](#googleprotobufenumdescriptorprotoenumreservedrange)
@@ -120,6 +125,8 @@
   - [FeatureSet.utf8\_validation](#featuresetutf8%5C_validation)
   - [FeatureSet.message\_encoding](#featuresetmessage%5C_encoding)
   - [FeatureSet.json\_format](#featuresetjson%5C_format)
+  - [FeatureSet.enforce\_naming\_style](#featuresetenforce%5C_naming%5C_style)
+  - [FeatureSet.default\_symbol\_visibility](#featuresetdefault%5C_symbol%5C_visibility)
   - [FeatureSet.FIELD\_PRESENCE\_UNKNOWN](#featuresetfield%5C_presence%5C_unknown)
   - [FeatureSet.EXPLICIT](#featuresetexplicit)
   - [FeatureSet.IMPLICIT](#featuresetimplicit)
@@ -139,8 +146,19 @@
   - [FeatureSet.JSON\_FORMAT\_UNKNOWN](#featuresetjson%5C_format%5C_unknown)
   - [FeatureSet.ALLOW](#featuresetallow)
   - [FeatureSet.LEGACY\_BEST\_EFFORT](#featuresetlegacy%5C_best%5C_effort)
+  - [FeatureSet.ENFORCE\_NAMING\_STYLE\_UNKNOWN](#featuresetenforce%5C_naming%5C_style%5C_unknown)
+  - [FeatureSet.STYLE2024](#featuresetstyle2024)
+  - [FeatureSet.STYLE\_LEGACY](#featuresetstyle%5C_legacy)
   - [google.protobuf.FeatureSet.new](#googleprotobuffeaturesetnew)
   - [google.protobuf.FeatureSet.\_\_type](#googleprotobuffeatureset%5C_%5C_type)
+- [google::protobuf::FeatureSet::VisibilityFeature](#googleprotobuffeaturesetvisibilityfeature)
+  - [VisibilityFeature.DEFAULT\_SYMBOL\_VISIBILITY\_UNKNOWN](#visibilityfeaturedefault%5C_symbol%5C_visibility%5C_unknown)
+  - [VisibilityFeature.EXPORT\_ALL](#visibilityfeatureexport%5C_all)
+  - [VisibilityFeature.EXPORT\_TOP\_LEVEL](#visibilityfeatureexport%5C_top%5C_level)
+  - [VisibilityFeature.LOCAL\_ALL](#visibilityfeaturelocal%5C_all)
+  - [VisibilityFeature.STRICT](#visibilityfeaturestrict)
+  - [google.protobuf.FeatureSet.VisibilityFeature.new](#googleprotobuffeaturesetvisibilityfeaturenew)
+  - [google.protobuf.FeatureSet.VisibilityFeature.\_\_type](#googleprotobuffeaturesetvisibilityfeature%5C_%5C_type)
 - [google::protobuf::FeatureSetDefaults](#googleprotobuffeaturesetdefaults)
   - [FeatureSetDefaults.defaults](#featuresetdefaultsdefaults)
   - [FeatureSetDefaults.minimum\_edition](#featuresetdefaultsminimum%5C_edition)
@@ -246,6 +264,7 @@
   - [FileDescriptorProto.dependency](#filedescriptorprotodependency)
   - [FileDescriptorProto.public\_dependency](#filedescriptorprotopublic%5C_dependency)
   - [FileDescriptorProto.weak\_dependency](#filedescriptorprotoweak%5C_dependency)
+  - [FileDescriptorProto.option\_dependency](#filedescriptorprotooption%5C_dependency)
   - [FileDescriptorProto.message\_type](#filedescriptorprotomessage%5C_type)
   - [FileDescriptorProto.enum\_type](#filedescriptorprotoenum%5C_type)
   - [FileDescriptorProto.service](#filedescriptorprotoservice)
@@ -1746,17 +1765,41 @@
   - [BaseOptions.model\_asset\_buffer](#baseoptionsmodel%5C_asset%5C_buffer)
   - [BaseOptions.model\_asset\_path](#baseoptionsmodel%5C_asset%5C_path)
   - [BaseOptions.delegate](#baseoptionsdelegate)
+  - [BaseOptions.model\_asset\_descriptor\_meta](#baseoptionsmodel%5C_asset%5C_descriptor%5C_meta)
+  - [BaseOptions.file\_descriptor](#baseoptionsfile%5C_descriptor)
+  - [BaseOptions.delegate\_options](#baseoptionsdelegate%5C_options)
+  - [BaseOptions.disable\_default\_service](#baseoptionsdisable%5C_default%5C_service)
   - [BaseOptions.host\_system](#baseoptionshost%5C_system)
   - [BaseOptions.host\_environment](#baseoptionshost%5C_environment)
   - [BaseOptions.host\_version](#baseoptionshost%5C_version)
   - [BaseOptions.ca\_bundle\_path](#baseoptionsca%5C_bundle%5C_path)
+  - [BaseOptions.app\_id](#baseoptionsapp%5C_id)
+  - [BaseOptions.app\_version](#baseoptionsapp%5C_version)
   - [mediapipe.tasks.core.BaseOptions.new](#mediapipetaskscorebaseoptionsnew)
   - [mediapipe.tasks.core.BaseOptions.\_\_type](#mediapipetaskscorebaseoptions%5C_%5C_type)
   - [mediapipe.tasks.core.BaseOptions.operator==](#mediapipetaskscorebaseoptionsoperator)
+- [mediapipe::tasks::core::BaseOptions::CpuOptions](#mediapipetaskscorebaseoptionscpuoptions)
+  - [mediapipe.tasks.core.BaseOptions.CpuOptions.new](#mediapipetaskscorebaseoptionscpuoptionsnew)
+  - [mediapipe.tasks.core.BaseOptions.CpuOptions.\_\_type](#mediapipetaskscorebaseoptionscpuoptions%5C_%5C_type)
+  - [mediapipe.tasks.core.BaseOptions.CpuOptions.operator==](#mediapipetaskscorebaseoptionscpuoptionsoperator)
 - [mediapipe::tasks::core::BaseOptions::Delegate](#mediapipetaskscorebaseoptionsdelegate)
   - [Delegate.CPU](#delegatecpu)
   - [Delegate.GPU](#delegategpu)
   - [Delegate.EDGETPU\_NNAPI](#delegateedgetpu%5C_nnapi)
+- [mediapipe::tasks::core::BaseOptions::FileDescriptorMeta](#mediapipetaskscorebaseoptionsfiledescriptormeta)
+  - [FileDescriptorMeta.fd](#filedescriptormetafd)
+  - [FileDescriptorMeta.length](#filedescriptormetalength)
+  - [FileDescriptorMeta.offset](#filedescriptormetaoffset)
+  - [mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.new](#mediapipetaskscorebaseoptionsfiledescriptormetanew)
+  - [mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.\_\_type](#mediapipetaskscorebaseoptionsfiledescriptormeta%5C_%5C_type)
+  - [mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.operator==](#mediapipetaskscorebaseoptionsfiledescriptormetaoperator)
+- [mediapipe::tasks::core::BaseOptions::GpuOptions](#mediapipetaskscorebaseoptionsgpuoptions)
+  - [GpuOptions.cached\_kernel\_path](#gpuoptionscached%5C_kernel%5C_path)
+  - [GpuOptions.serialized\_model\_dir](#gpuoptionsserialized%5C_model%5C_dir)
+  - [GpuOptions.model\_token](#gpuoptionsmodel%5C_token)
+  - [mediapipe.tasks.core.BaseOptions.GpuOptions.new](#mediapipetaskscorebaseoptionsgpuoptionsnew)
+  - [mediapipe.tasks.core.BaseOptions.GpuOptions.\_\_type](#mediapipetaskscorebaseoptionsgpuoptions%5C_%5C_type)
+  - [mediapipe.tasks.core.BaseOptions.GpuOptions.operator==](#mediapipetaskscorebaseoptionsgpuoptionsoperator)
 - [mediapipe::tasks::lua](#mediapipetaskslua)
   - [lua.BaseOptions](#luabaseoptions)
 - [mediapipe::tasks::lua::audio](#mediapipetasksluaaudio)
@@ -1878,6 +1921,8 @@
   - [text.TextEmbedder](#texttextembedder)
   - [text.TextEmbedderOptions](#texttextembedderoptions)
   - [text.TextEmbedderResult](#texttextembedderresult)
+  - [text.TextEmbeddingType](#texttextembeddingtype)
+  - [text.TextEmbeddingTextRole](#texttextembeddingtextrole)
 - [mediapipe::tasks::lua::text::language\_detector](#mediapipetasksluatextlanguage%5C_detector)
   - [language\_detector.LanguageDetectorOptions](#language%5C_detectorlanguagedetectoroptions)
   - [language\_detector.LanguageDetector](#language%5C_detectorlanguagedetector)
@@ -1893,6 +1938,9 @@
   - [text\_classifier.TextClassifier](#text%5C_classifiertextclassifier)
   - [text\_classifier.TextClassifierResult](#text%5C_classifiertextclassifierresult)
 - [mediapipe::tasks::lua::text::text\_embedder](#mediapipetasksluatexttext%5C_embedder)
+  - [text\_embedder.EmbeddingType](#text%5C_embedderembeddingtype)
+  - [text\_embedder.TextRole](#text%5C_embeddertextrole)
+  - [text\_embedder.TextFormatContext](#text%5C_embeddertextformatcontext)
   - [text\_embedder.TextEmbedderOptions](#text%5C_embeddertextembedderoptions)
   - [text\_embedder.TextEmbedder](#text%5C_embeddertextembedder)
   - [text\_embedder.TextEmbedderResult](#text%5C_embeddertextembedderresult)
@@ -1923,9 +1971,9 @@
   - [vision.ImageSegmenter](#visionimagesegmenter)
   - [vision.ImageSegmenterOptions](#visionimagesegmenteroptions)
   - [vision.ImageProcessingOptions](#visionimageprocessingoptions)
-  - [vision.InteractiveSegmenter](#visioninteractivesegmenter)
-  - [vision.InteractiveSegmenterOptions](#visioninteractivesegmenteroptions)
-  - [vision.InteractiveSegmenterRegionOfInterest](#visioninteractivesegmenterregionofinterest)
+  - [vision.InteractiveSegmenterLegacy](#visioninteractivesegmenterlegacy)
+  - [vision.InteractiveSegmenterLegacyOptions](#visioninteractivesegmenterlegacyoptions)
+  - [vision.InteractiveSegmenterLegacyRegionOfInterest](#visioninteractivesegmenterlegacyregionofinterest)
   - [vision.ObjectDetector](#visionobjectdetector)
   - [vision.ObjectDetectorOptions](#visionobjectdetectoroptions)
   - [vision.ObjectDetectorResult](#visionobjectdetectorresult)
@@ -2008,11 +2056,11 @@
   - [image\_segmenter.ImageSegmenterOptions](#image%5C_segmenterimagesegmenteroptions)
   - [image\_segmenter.ImageSegmenter](#image%5C_segmenterimagesegmenter)
   - [image\_segmenter.ImageSegmenterResult](#image%5C_segmenterimagesegmenterresult)
-- [mediapipe::tasks::lua::vision::interactive\_segmenter](#mediapipetasksluavisioninteractive%5C_segmenter)
-  - [interactive\_segmenter.InteractiveSegmenterOptions](#interactive%5C_segmenterinteractivesegmenteroptions)
-  - [interactive\_segmenter.InteractiveSegmenter](#interactive%5C_segmenterinteractivesegmenter)
-  - [interactive\_segmenter.RegionOfInterest](#interactive%5C_segmenterregionofinterest)
-  - [interactive\_segmenter.InteractiveSegmenterResult](#interactive%5C_segmenterinteractivesegmenterresult)
+- [mediapipe::tasks::lua::vision::interactive\_segmenter\_legacy](#mediapipetasksluavisioninteractive%5C_segmenter%5C_legacy)
+  - [interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions](#interactive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoptions)
+  - [interactive\_segmenter\_legacy.InteractiveSegmenterLegacy](#interactive%5C_segmenter%5C_legacyinteractivesegmenterlegacy)
+  - [interactive\_segmenter\_legacy.RegionOfInterest](#interactive%5C_segmenter%5C_legacyregionofinterest)
+  - [interactive\_segmenter\_legacy.InteractiveSegmenterLegacyResult](#interactive%5C_segmenter%5C_legacyinteractivesegmenterlegacyresult)
 - [mediapipe::tasks::lua::vision::object\_detector](#mediapipetasksluavisionobject%5C_detector)
   - [object\_detector.ObjectDetectorOptions](#object%5C_detectorobjectdetectoroptions)
   - [object\_detector.ObjectDetector](#object%5C_detectorobjectdetector)
@@ -2063,6 +2111,15 @@
   - [mediapipe.tasks.text.text\_classifier.TextClassifierOptions.new](#mediapipetaskstexttext%5C_classifiertextclassifieroptionsnew)
   - [mediapipe.tasks.text.text\_classifier.TextClassifierOptions.\_\_type](#mediapipetaskstexttext%5C_classifiertextclassifieroptions%5C_%5C_type)
   - [mediapipe.tasks.text.text\_classifier.TextClassifierOptions.operator==](#mediapipetaskstexttext%5C_classifiertextclassifieroptionsoperator)
+- [mediapipe::tasks::text::text\_embedder::EmbeddingType](#mediapipetaskstexttext%5C_embedderembeddingtype)
+  - [EmbeddingType.RETRIEVAL\_QUERY](#embeddingtyperetrieval%5C_query)
+  - [EmbeddingType.RETRIEVAL\_DOCUMENT](#embeddingtyperetrieval%5C_document)
+  - [EmbeddingType.SEMANTIC\_SIMILARITY](#embeddingtypesemantic%5C_similarity)
+  - [EmbeddingType.CLASSIFICATION](#embeddingtypeclassification)
+  - [EmbeddingType.CLUSTERING](#embeddingtypeclustering)
+  - [EmbeddingType.QUESTION\_ANSWERING](#embeddingtypequestion%5C_answering)
+  - [EmbeddingType.FACT\_CHECKING](#embeddingtypefact%5C_checking)
+  - [EmbeddingType.CODE\_RETRIEVAL](#embeddingtypecode%5C_retrieval)
 - [mediapipe::tasks::text::text\_embedder::TextEmbedder](#mediapipetaskstexttext%5C_embeddertextembedder)
   - [mediapipe.tasks.text.text\_embedder.TextEmbedder.\_\_type](#mediapipetaskstexttext%5C_embeddertextembedder%5C_%5C_type)
   - [mediapipe.tasks.text.text\_embedder.TextEmbedder.close](#mediapipetaskstexttext%5C_embeddertextembedderclose)
@@ -2079,6 +2136,16 @@
   - [mediapipe.tasks.text.text\_embedder.TextEmbedderOptions.new](#mediapipetaskstexttext%5C_embeddertextembedderoptionsnew)
   - [mediapipe.tasks.text.text\_embedder.TextEmbedderOptions.\_\_type](#mediapipetaskstexttext%5C_embeddertextembedderoptions%5C_%5C_type)
   - [mediapipe.tasks.text.text\_embedder.TextEmbedderOptions.operator==](#mediapipetaskstexttext%5C_embeddertextembedderoptionsoperator)
+- [mediapipe::tasks::text::text\_embedder::TextFormatContext](#mediapipetaskstexttext%5C_embeddertextformatcontext)
+  - [TextFormatContext.task\_type](#textformatcontexttask%5C_type)
+  - [TextFormatContext.title](#textformatcontexttitle)
+  - [TextFormatContext.role](#textformatcontextrole)
+  - [mediapipe.tasks.text.text\_embedder.TextFormatContext.new](#mediapipetaskstexttext%5C_embeddertextformatcontextnew)
+  - [mediapipe.tasks.text.text\_embedder.TextFormatContext.\_\_type](#mediapipetaskstexttext%5C_embeddertextformatcontext%5C_%5C_type)
+  - [mediapipe.tasks.text.text\_embedder.TextFormatContext.operator==](#mediapipetaskstexttext%5C_embeddertextformatcontextoperator)
+- [mediapipe::tasks::text::text\_embedder::TextRole](#mediapipetaskstexttext%5C_embeddertextrole)
+  - [TextRole.QUERY](#textrolequery)
+  - [TextRole.DOCUMENT](#textroledocument)
 - [mediapipe::tasks::vision::NonMaxSuppressionOptions](#mediapipetasksvisionnonmaxsuppressionoptions)
   - [NonMaxSuppressionOptions.multiclass\_nms](#nonmaxsuppressionoptionsmulticlass%5C_nms)
   - [NonMaxSuppressionOptions.min\_suppression\_threshold](#nonmaxsuppressionoptionsmin%5C_suppression%5C_threshold)
@@ -2428,28 +2495,28 @@
   - [mediapipe.tasks.vision.image\_segmenter.ImageSegmenterResult.new](#mediapipetasksvisionimage%5C_segmenterimagesegmenterresultnew)
   - [mediapipe.tasks.vision.image\_segmenter.ImageSegmenterResult.\_\_type](#mediapipetasksvisionimage%5C_segmenterimagesegmenterresult%5C_%5C_type)
   - [mediapipe.tasks.vision.image\_segmenter.ImageSegmenterResult.operator==](#mediapipetasksvisionimage%5C_segmenterimagesegmenterresultoperator)
-- [mediapipe::tasks::vision::interactive\_segmenter::InteractiveSegmenter](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenter)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.\_\_type](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenter%5C_%5C_type)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.close](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenterclose)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_model\_path](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmentercreate%5C_from%5C_model%5C_path)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_options](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmentercreate%5C_from%5C_options)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.operator==](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenteroperator)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.segment](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmentersegment)
-- [mediapipe::tasks::vision::interactive\_segmenter::InteractiveSegmenterOptions](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenteroptions)
-  - [InteractiveSegmenterOptions.base\_options](#interactivesegmenteroptionsbase%5C_options)
-  - [InteractiveSegmenterOptions.output\_confidence\_masks](#interactivesegmenteroptionsoutput%5C_confidence%5C_masks)
-  - [InteractiveSegmenterOptions.output\_category\_mask](#interactivesegmenteroptionsoutput%5C_category%5C_mask)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.new](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenteroptionsnew)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.\_\_type](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenteroptions%5C_%5C_type)
-  - [mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.operator==](#mediapipetasksvisioninteractive%5C_segmenterinteractivesegmenteroptionsoperator)
-- [mediapipe::tasks::vision::interactive\_segmenter::RegionOfInterest](#mediapipetasksvisioninteractive%5C_segmenterregionofinterest)
+- [mediapipe::tasks::vision::interactive\_segmenter\_legacy::InteractiveSegmenterLegacy](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacy)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.\_\_type](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacy%5C_%5C_type)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.close](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyclose)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.create\_from\_model\_path](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacycreate%5C_from%5C_model%5C_path)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.create\_from\_options](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacycreate%5C_from%5C_options)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.operator==](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoperator)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.segment](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacysegment)
+- [mediapipe::tasks::vision::interactive\_segmenter\_legacy::InteractiveSegmenterLegacyOptions](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoptions)
+  - [InteractiveSegmenterLegacyOptions.base\_options](#interactivesegmenterlegacyoptionsbase%5C_options)
+  - [InteractiveSegmenterLegacyOptions.output\_confidence\_masks](#interactivesegmenterlegacyoptionsoutput%5C_confidence%5C_masks)
+  - [InteractiveSegmenterLegacyOptions.output\_category\_mask](#interactivesegmenterlegacyoptionsoutput%5C_category%5C_mask)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.new](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoptionsnew)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.\_\_type](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoptions%5C_%5C_type)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.operator==](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyinteractivesegmenterlegacyoptionsoperator)
+- [mediapipe::tasks::vision::interactive\_segmenter\_legacy::RegionOfInterest](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyregionofinterest)
   - [RegionOfInterest.format](#regionofinterestformat)
   - [RegionOfInterest.keypoint](#regionofinterestkeypoint)
   - [RegionOfInterest.scribble](#regionofinterestscribble)
-  - [mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.new](#mediapipetasksvisioninteractive%5C_segmenterregionofinterestnew)
-  - [mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.\_\_type](#mediapipetasksvisioninteractive%5C_segmenterregionofinterest%5C_%5C_type)
-  - [mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.operator==](#mediapipetasksvisioninteractive%5C_segmenterregionofinterestoperator)
-- [mediapipe::tasks::vision::interactive\_segmenter::RegionOfInterest::Format](#mediapipetasksvisioninteractive%5C_segmenterregionofinterestformat)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.new](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyregionofinterestnew)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.\_\_type](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyregionofinterest%5C_%5C_type)
+  - [mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.operator==](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyregionofinterestoperator)
+- [mediapipe::tasks::vision::interactive\_segmenter\_legacy::RegionOfInterest::Format](#mediapipetasksvisioninteractive%5C_segmenter%5C_legacyregionofinterestformat)
   - [Format.UNSPECIFIED](#formatunspecified)
   - [Format.KEYPOINT](#formatkeypoint)
   - [Format.SCRIBBLE](#formatscribble)
@@ -4364,6 +4431,30 @@ lua:
     [propget] protobuf.EDITION_MAX
 ```
 
+### protobuf.VISIBILITY\_UNSET
+
+```cpp
+int google::protobuf::VISIBILITY_UNSET
+lua:
+    [propget] protobuf.VISIBILITY_UNSET
+```
+
+### protobuf.VISIBILITY\_LOCAL
+
+```cpp
+int google::protobuf::VISIBILITY_LOCAL
+lua:
+    [propget] protobuf.VISIBILITY_LOCAL
+```
+
+### protobuf.VISIBILITY\_EXPORT
+
+```cpp
+int google::protobuf::VISIBILITY_EXPORT
+lua:
+    [propget] protobuf.VISIBILITY_EXPORT
+```
+
 ## google::protobuf::Any
 
 ### Any.type\_url
@@ -4498,6 +4589,14 @@ lua:
     [propget, propput] oDescriptorProto.reserved_name
 ```
 
+### DescriptorProto.visibility
+
+```cpp
+google::protobuf::SymbolVisibility google::protobuf::DescriptorProto::visibility
+lua:
+    [propget, propput] oDescriptorProto.visibility
+```
+
 ### google.protobuf.DescriptorProto.new
 
 ```cpp
@@ -4510,10 +4609,11 @@ google::protobuf::DescriptorProto( std::optional<std::string>                   
                                    ::mediapipe_lua::Object                           oneof_decl = ::LUA_MODULE_NAME::Object(),
                                    std::shared_ptr<google::protobuf::MessageOptions> options = std::shared_ptr<google::protobuf::MessageOptions>(),
                                    ::mediapipe_lua::Object                           reserved_range = ::LUA_MODULE_NAME::Object(),
-                                   ::mediapipe_lua::Object                           reserved_name = ::LUA_MODULE_NAME::Object() );
+                                   ::mediapipe_lua::Object                           reserved_name = ::LUA_MODULE_NAME::Object(),
+                                   std::optional<google::protobuf::SymbolVisibility> visibility = std::optional<google::protobuf::SymbolVisibility>() );
 lua:
-    google.protobuf.DescriptorProto.new( [name[, field[, extension[, nested_type[, enum_type[, extension_range[, oneof_decl[, options[, reserved_range[, reserved_name]]]]]]]]]] ) -> <google::protobuf::DescriptorProto object>
-    google.protobuf.DescriptorProto( [name[, field[, extension[, nested_type[, enum_type[, extension_range[, oneof_decl[, options[, reserved_range[, reserved_name]]]]]]]]]] ) -> <google::protobuf::DescriptorProto object>
+    google.protobuf.DescriptorProto.new( [name[, field[, extension[, nested_type[, enum_type[, extension_range[, oneof_decl[, options[, reserved_range[, reserved_name[, visibility]]]]]]]]]]] ) -> <google::protobuf::DescriptorProto object>
+    google.protobuf.DescriptorProto( [name[, field[, extension[, nested_type[, enum_type[, extension_range[, oneof_decl[, options[, reserved_range[, reserved_name[, visibility]]]]]]]]]]] ) -> <google::protobuf::DescriptorProto object>
 ```
 
 ### google.protobuf.DescriptorProto.\_\_type
@@ -4647,17 +4747,26 @@ lua:
     [propget, propput] oEnumDescriptorProto.reserved_name
 ```
 
+### EnumDescriptorProto.visibility
+
+```cpp
+google::protobuf::SymbolVisibility google::protobuf::EnumDescriptorProto::visibility
+lua:
+    [propget, propput] oEnumDescriptorProto.visibility
+```
+
 ### google.protobuf.EnumDescriptorProto.new
 
 ```cpp
-google::protobuf::EnumDescriptorProto( std::optional<std::string>                     name = std::optional<std::string>(),
-                                       ::mediapipe_lua::Object                        value = ::LUA_MODULE_NAME::Object(),
-                                       std::shared_ptr<google::protobuf::EnumOptions> options = std::shared_ptr<google::protobuf::EnumOptions>(),
-                                       ::mediapipe_lua::Object                        reserved_range = ::LUA_MODULE_NAME::Object(),
-                                       ::mediapipe_lua::Object                        reserved_name = ::LUA_MODULE_NAME::Object() );
+google::protobuf::EnumDescriptorProto( std::optional<std::string>                        name = std::optional<std::string>(),
+                                       ::mediapipe_lua::Object                           value = ::LUA_MODULE_NAME::Object(),
+                                       std::shared_ptr<google::protobuf::EnumOptions>    options = std::shared_ptr<google::protobuf::EnumOptions>(),
+                                       ::mediapipe_lua::Object                           reserved_range = ::LUA_MODULE_NAME::Object(),
+                                       ::mediapipe_lua::Object                           reserved_name = ::LUA_MODULE_NAME::Object(),
+                                       std::optional<google::protobuf::SymbolVisibility> visibility = std::optional<google::protobuf::SymbolVisibility>() );
 lua:
-    google.protobuf.EnumDescriptorProto.new( [name[, value[, options[, reserved_range[, reserved_name]]]]] ) -> <google::protobuf::EnumDescriptorProto object>
-    google.protobuf.EnumDescriptorProto( [name[, value[, options[, reserved_range[, reserved_name]]]]] ) -> <google::protobuf::EnumDescriptorProto object>
+    google.protobuf.EnumDescriptorProto.new( [name[, value[, options[, reserved_range[, reserved_name[, visibility]]]]]] ) -> <google::protobuf::EnumDescriptorProto object>
+    google.protobuf.EnumDescriptorProto( [name[, value[, options[, reserved_range[, reserved_name[, visibility]]]]]] ) -> <google::protobuf::EnumDescriptorProto object>
 ```
 
 ### google.protobuf.EnumDescriptorProto.\_\_type
@@ -5058,6 +5167,22 @@ lua:
     [propget, propput] oFeatureSet.json_format
 ```
 
+### FeatureSet.enforce\_naming\_style
+
+```cpp
+google::protobuf::FeatureSet::EnforceNamingStyle google::protobuf::FeatureSet::enforce_naming_style
+lua:
+    [propget, propput] oFeatureSet.enforce_naming_style
+```
+
+### FeatureSet.default\_symbol\_visibility
+
+```cpp
+google::protobuf::FeatureSet::VisibilityFeature::DefaultSymbolVisibility google::protobuf::FeatureSet::default_symbol_visibility
+lua:
+    [propget, propput] oFeatureSet.default_symbol_visibility
+```
+
 ### FeatureSet.FIELD\_PRESENCE\_UNKNOWN
 
 ```cpp
@@ -5210,18 +5335,44 @@ lua:
     [propget] FeatureSet.LEGACY_BEST_EFFORT
 ```
 
+### FeatureSet.ENFORCE\_NAMING\_STYLE\_UNKNOWN
+
+```cpp
+static int google::protobuf::FeatureSet::ENFORCE_NAMING_STYLE_UNKNOWN
+lua:
+    [propget] FeatureSet.ENFORCE_NAMING_STYLE_UNKNOWN
+```
+
+### FeatureSet.STYLE2024
+
+```cpp
+static int google::protobuf::FeatureSet::STYLE2024
+lua:
+    [propget] FeatureSet.STYLE2024
+```
+
+### FeatureSet.STYLE\_LEGACY
+
+```cpp
+static int google::protobuf::FeatureSet::STYLE_LEGACY
+lua:
+    [propget] FeatureSet.STYLE_LEGACY
+```
+
 ### google.protobuf.FeatureSet.new
 
 ```cpp
-google::protobuf::FeatureSet( std::optional<google::protobuf::FeatureSet::FieldPresence>         field_presence = std::optional<google::protobuf::FeatureSet::FieldPresence>(),
-                              std::optional<google::protobuf::FeatureSet::EnumType>              enum_type = std::optional<google::protobuf::FeatureSet::EnumType>(),
-                              std::optional<google::protobuf::FeatureSet::RepeatedFieldEncoding> repeated_field_encoding = std::optional<google::protobuf::FeatureSet::RepeatedFieldEncoding>(),
-                              std::optional<google::protobuf::FeatureSet::Utf8Validation>        utf8_validation = std::optional<google::protobuf::FeatureSet::Utf8Validation>(),
-                              std::optional<google::protobuf::FeatureSet::MessageEncoding>       message_encoding = std::optional<google::protobuf::FeatureSet::MessageEncoding>(),
-                              std::optional<google::protobuf::FeatureSet::JsonFormat>            json_format = std::optional<google::protobuf::FeatureSet::JsonFormat>() );
+google::protobuf::FeatureSet( std::optional<google::protobuf::FeatureSet::FieldPresence>                              field_presence = std::optional<google::protobuf::FeatureSet::FieldPresence>(),
+                              std::optional<google::protobuf::FeatureSet::EnumType>                                   enum_type = std::optional<google::protobuf::FeatureSet::EnumType>(),
+                              std::optional<google::protobuf::FeatureSet::RepeatedFieldEncoding>                      repeated_field_encoding = std::optional<google::protobuf::FeatureSet::RepeatedFieldEncoding>(),
+                              std::optional<google::protobuf::FeatureSet::Utf8Validation>                             utf8_validation = std::optional<google::protobuf::FeatureSet::Utf8Validation>(),
+                              std::optional<google::protobuf::FeatureSet::MessageEncoding>                            message_encoding = std::optional<google::protobuf::FeatureSet::MessageEncoding>(),
+                              std::optional<google::protobuf::FeatureSet::JsonFormat>                                 json_format = std::optional<google::protobuf::FeatureSet::JsonFormat>(),
+                              std::optional<google::protobuf::FeatureSet::EnforceNamingStyle>                         enforce_naming_style = std::optional<google::protobuf::FeatureSet::EnforceNamingStyle>(),
+                              std::optional<google::protobuf::FeatureSet::VisibilityFeature::DefaultSymbolVisibility> default_symbol_visibility = std::optional<google::protobuf::FeatureSet::VisibilityFeature::DefaultSymbolVisibility>() );
 lua:
-    google.protobuf.FeatureSet.new( [field_presence[, enum_type[, repeated_field_encoding[, utf8_validation[, message_encoding[, json_format]]]]]] ) -> <google::protobuf::FeatureSet object>
-    google.protobuf.FeatureSet( [field_presence[, enum_type[, repeated_field_encoding[, utf8_validation[, message_encoding[, json_format]]]]]] ) -> <google::protobuf::FeatureSet object>
+    google.protobuf.FeatureSet.new( [field_presence[, enum_type[, repeated_field_encoding[, utf8_validation[, message_encoding[, json_format[, enforce_naming_style[, default_symbol_visibility]]]]]]]] ) -> <google::protobuf::FeatureSet object>
+    google.protobuf.FeatureSet( [field_presence[, enum_type[, repeated_field_encoding[, utf8_validation[, message_encoding[, json_format[, enforce_naming_style[, default_symbol_visibility]]]]]]]] ) -> <google::protobuf::FeatureSet object>
 ```
 
 ### google.protobuf.FeatureSet.\_\_type
@@ -5230,6 +5381,65 @@ lua:
 static std::string google::protobuf::FeatureSet::__type();
 lua:
     google.protobuf.FeatureSet.__type() -> retval
+```
+
+## google::protobuf::FeatureSet::VisibilityFeature
+
+### VisibilityFeature.DEFAULT\_SYMBOL\_VISIBILITY\_UNKNOWN
+
+```cpp
+static int google::protobuf::FeatureSet::VisibilityFeature::DEFAULT_SYMBOL_VISIBILITY_UNKNOWN
+lua:
+    [propget] VisibilityFeature.DEFAULT_SYMBOL_VISIBILITY_UNKNOWN
+```
+
+### VisibilityFeature.EXPORT\_ALL
+
+```cpp
+static int google::protobuf::FeatureSet::VisibilityFeature::EXPORT_ALL
+lua:
+    [propget] VisibilityFeature.EXPORT_ALL
+```
+
+### VisibilityFeature.EXPORT\_TOP\_LEVEL
+
+```cpp
+static int google::protobuf::FeatureSet::VisibilityFeature::EXPORT_TOP_LEVEL
+lua:
+    [propget] VisibilityFeature.EXPORT_TOP_LEVEL
+```
+
+### VisibilityFeature.LOCAL\_ALL
+
+```cpp
+static int google::protobuf::FeatureSet::VisibilityFeature::LOCAL_ALL
+lua:
+    [propget] VisibilityFeature.LOCAL_ALL
+```
+
+### VisibilityFeature.STRICT
+
+```cpp
+static int google::protobuf::FeatureSet::VisibilityFeature::STRICT
+lua:
+    [propget] VisibilityFeature.STRICT
+```
+
+### google.protobuf.FeatureSet.VisibilityFeature.new
+
+```cpp
+google::protobuf::FeatureSet::VisibilityFeature();
+lua:
+    google.protobuf.FeatureSet.VisibilityFeature.new() -> <google::protobuf::FeatureSet::VisibilityFeature object>
+    google.protobuf.FeatureSet.VisibilityFeature() -> <google::protobuf::FeatureSet::VisibilityFeature object>
+```
+
+### google.protobuf.FeatureSet.VisibilityFeature.\_\_type
+
+```cpp
+static std::string google::protobuf::FeatureSet::VisibilityFeature::__type();
+lua:
+    google.protobuf.FeatureSet.VisibilityFeature.__type() -> retval
 ```
 
 ## google::protobuf::FeatureSetDefaults
@@ -6067,6 +6277,14 @@ lua:
     [propget, propput] oFileDescriptorProto.weak_dependency
 ```
 
+### FileDescriptorProto.option\_dependency
+
+```cpp
+::mediapipe_lua::Object google::protobuf::FileDescriptorProto::option_dependency
+lua:
+    [propget, propput] oFileDescriptorProto.option_dependency
+```
+
 ### FileDescriptorProto.message\_type
 
 ```cpp
@@ -6139,6 +6357,7 @@ google::protobuf::FileDescriptorProto( std::optional<std::string>               
                                        ::mediapipe_lua::Object                           dependency = ::LUA_MODULE_NAME::Object(),
                                        ::mediapipe_lua::Object                           public_dependency = ::LUA_MODULE_NAME::Object(),
                                        ::mediapipe_lua::Object                           weak_dependency = ::LUA_MODULE_NAME::Object(),
+                                       ::mediapipe_lua::Object                           option_dependency = ::LUA_MODULE_NAME::Object(),
                                        ::mediapipe_lua::Object                           message_type = ::LUA_MODULE_NAME::Object(),
                                        ::mediapipe_lua::Object                           enum_type = ::LUA_MODULE_NAME::Object(),
                                        ::mediapipe_lua::Object                           service = ::LUA_MODULE_NAME::Object(),
@@ -6148,8 +6367,8 @@ google::protobuf::FileDescriptorProto( std::optional<std::string>               
                                        std::optional<std::string>                        syntax = std::optional<std::string>(),
                                        std::optional<google::protobuf::Edition>          edition = std::optional<google::protobuf::Edition>() );
 lua:
-    google.protobuf.FileDescriptorProto.new( [name[, package[, dependency[, public_dependency[, weak_dependency[, message_type[, enum_type[, service[, extension[, options[, source_code_info[, syntax[, edition]]]]]]]]]]]]] ) -> <google::protobuf::FileDescriptorProto object>
-    google.protobuf.FileDescriptorProto( [name[, package[, dependency[, public_dependency[, weak_dependency[, message_type[, enum_type[, service[, extension[, options[, source_code_info[, syntax[, edition]]]]]]]]]]]]] ) -> <google::protobuf::FileDescriptorProto object>
+    google.protobuf.FileDescriptorProto.new( [name[, package[, dependency[, public_dependency[, weak_dependency[, option_dependency[, message_type[, enum_type[, service[, extension[, options[, source_code_info[, syntax[, edition]]]]]]]]]]]]]] ) -> <google::protobuf::FileDescriptorProto object>
+    google.protobuf.FileDescriptorProto( [name[, package[, dependency[, public_dependency[, weak_dependency[, option_dependency[, message_type[, enum_type[, service[, extension[, options[, source_code_info[, syntax[, edition]]]]]]]]]]]]]] ) -> <google::protobuf::FileDescriptorProto object>
 ```
 
 ### google.protobuf.FileDescriptorProto.\_\_type
@@ -16279,22 +16498,22 @@ lua:
 ```
 
 ```cpp
-static std::shared_ptr<mediapipe::Image> mediapipe::Image::new( mediapipe::ImageFormat::Format image_format,
-                                                                const cv::Mat&                 data,
-                                                                bool                           copy = true );
+static absl::StatusOr<std::shared_ptr<mediapipe::Image>> mediapipe::Image::new( mediapipe::ImageFormat::Format image_format,
+                                                                                const cv::Mat&                 data,
+                                                                                bool                           copy = true );
 lua:
     mediapipe.Image.new( image_format, data[, copy] ) -> retval
 ```
 
 ```cpp
-static std::shared_ptr<mediapipe::Image> mediapipe::Image::new( const cv::Mat& data,
-                                                                bool           copy = true );
+static absl::StatusOr<std::shared_ptr<mediapipe::Image>> mediapipe::Image::new( const cv::Mat& data,
+                                                                                bool           copy = true );
 lua:
     mediapipe.Image.new( data[, copy] ) -> retval
 ```
 
 ```cpp
-static std::shared_ptr<mediapipe::Image> mediapipe::Image::new( const std::string& file_name );
+static absl::StatusOr<std::shared_ptr<mediapipe::Image>> mediapipe::Image::new( const std::string& file_name );
 lua:
     mediapipe.Image.new( file_name ) -> retval
 ```
@@ -16310,7 +16529,7 @@ lua:
 ### mediapipe.Image.create\_from\_file
 
 ```cpp
-static std::shared_ptr<mediapipe::Image> mediapipe::Image::create_from_file( const std::string& file_name );
+static absl::StatusOr<std::shared_ptr<mediapipe::Image>> mediapipe::Image::create_from_file( const std::string& file_name );
 lua:
     mediapipe.Image.create_from_file( file_name ) -> retval
 ```
@@ -16667,22 +16886,22 @@ lua:
 ### mediapipe.ImageFrame.new
 
 ```cpp
-static std::shared_ptr<mediapipe::ImageFrame> mediapipe::ImageFrame::new( mediapipe::ImageFormat::Format image_format,
-                                                                          const cv::Mat&                 data,
-                                                                          bool                           copy = true );
+static absl::StatusOr<std::shared_ptr<mediapipe::ImageFrame>> mediapipe::ImageFrame::new( mediapipe::ImageFormat::Format image_format,
+                                                                                          const cv::Mat&                 data,
+                                                                                          bool                           copy = true );
 lua:
     mediapipe.ImageFrame.new( image_format, data[, copy] ) -> retval
 ```
 
 ```cpp
-static std::shared_ptr<mediapipe::ImageFrame> mediapipe::ImageFrame::new( const cv::Mat& data,
-                                                                          bool           copy = true );
+static absl::StatusOr<std::shared_ptr<mediapipe::ImageFrame>> mediapipe::ImageFrame::new( const cv::Mat& data,
+                                                                                          bool           copy = true );
 lua:
     mediapipe.ImageFrame.new( data[, copy] ) -> retval
 ```
 
 ```cpp
-static std::shared_ptr<mediapipe::ImageFrame> mediapipe::ImageFrame::new( const std::string& file_name );
+static absl::StatusOr<std::shared_ptr<mediapipe::ImageFrame>> mediapipe::ImageFrame::new( const std::string& file_name );
 lua:
     mediapipe.ImageFrame.new( file_name ) -> retval
 ```
@@ -16698,7 +16917,7 @@ lua:
 ### mediapipe.ImageFrame.create\_from\_file
 
 ```cpp
-static std::shared_ptr<mediapipe::ImageFrame> mediapipe::ImageFrame::create_from_file( const std::string& file_name );
+static absl::StatusOr<std::shared_ptr<mediapipe::ImageFrame>> mediapipe::ImageFrame::create_from_file( const std::string& file_name );
 lua:
     mediapipe.ImageFrame.create_from_file( file_name ) -> retval
 ```
@@ -19650,6 +19869,38 @@ lua:
     [propget, propput] oBaseOptions.delegate
 ```
 
+### BaseOptions.model\_asset\_descriptor\_meta
+
+```cpp
+mediapipe::tasks::core::BaseOptions::FileDescriptorMeta mediapipe::tasks::core::BaseOptions::model_asset_descriptor_meta
+lua:
+    [propget, propput] oBaseOptions.model_asset_descriptor_meta
+```
+
+### BaseOptions.file\_descriptor
+
+```cpp
+int mediapipe::tasks::core::BaseOptions::file_descriptor
+lua:
+    [propget, propput] oBaseOptions.file_descriptor
+```
+
+### BaseOptions.delegate\_options
+
+```cpp
+std::optional<std::variant<mediapipe::tasks::core::BaseOptions::CpuOptions, mediapipe::tasks::core::BaseOptions::GpuOptions>> mediapipe::tasks::core::BaseOptions::delegate_options
+lua:
+    [propget, propput] oBaseOptions.delegate_options
+```
+
+### BaseOptions.disable\_default\_service
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::disable_default_service
+lua:
+    [propget, propput] oBaseOptions.disable_default_service
+```
+
 ### BaseOptions.host\_system
 
 ```cpp
@@ -19682,23 +19933,45 @@ lua:
     [propget, propput] oBaseOptions.ca_bundle_path
 ```
 
+### BaseOptions.app\_id
+
+```cpp
+std::string mediapipe::tasks::core::BaseOptions::app_id
+lua:
+    [propget, propput] oBaseOptions.app_id
+```
+
+### BaseOptions.app\_version
+
+```cpp
+std::string mediapipe::tasks::core::BaseOptions::app_version
+lua:
+    [propget, propput] oBaseOptions.app_version
+```
+
 ### mediapipe.tasks.core.BaseOptions.new
 
 ```cpp
-mediapipe::tasks::core::BaseOptions( const std::optional<std::optional<std::string>>                    model_asset_buffer = std::nullopt,
-                                     const std::optional<std::string>                                   model_asset_path = std::nullopt,
-                                     const std::optional<mediapipe::tasks::core::BaseOptions::Delegate> delegate = std::optional<mediapipe::tasks::core::BaseOptions::Delegate>(BaseOptions::CPU),
-                                     const std::optional<mediapipe::tasks::core::HostSystem>            host_system = std::optional<mediapipe::tasks::core::HostSystem>(HostSystem::HOST_SYSTEM_WINDOWS),
-                                     const std::optional<mediapipe::tasks::core::HostEnvironment>       host_environment = std::optional<mediapipe::tasks::core::HostEnvironment>(HostEnvironment::HOST_ENVIRONMENT_UNKNOWN),
-                                     const std::optional<std::string>                                   host_version = std::nullopt,
-                                     const std::optional<std::string>                                   ca_bundle_path = std::nullopt );
+mediapipe::tasks::core::BaseOptions( const std::optional<std::optional<std::string>>                                                                                                    model_asset_buffer = std::nullopt,
+                                     const std::optional<std::string>                                                                                                                   model_asset_path = std::nullopt,
+                                     const std::optional<mediapipe::tasks::core::BaseOptions::Delegate>                                                                                 delegate = std::optional<mediapipe::tasks::core::BaseOptions::Delegate>(BaseOptions::CPU),
+                                     const std::optional<mediapipe::tasks::core::BaseOptions::FileDescriptorMeta>                                                                       model_asset_descriptor_meta = std::nullopt,
+                                     const std::optional<int>                                                                                                                           file_descriptor = std::nullopt,
+                                     const std::optional<std::optional<std::variant<mediapipe::tasks::core::BaseOptions::CpuOptions, mediapipe::tasks::core::BaseOptions::GpuOptions>>> delegate_options = std::nullopt,
+                                     const std::optional<bool>                                                                                                                          disable_default_service = std::optional<bool>(false),
+                                     const std::optional<mediapipe::tasks::core::HostSystem>                                                                                            host_system = std::optional<mediapipe::tasks::core::HostSystem>(HostSystem::HOST_SYSTEM_WINDOWS),
+                                     const std::optional<mediapipe::tasks::core::HostEnvironment>                                                                                       host_environment = std::optional<mediapipe::tasks::core::HostEnvironment>(HostEnvironment::HOST_ENVIRONMENT_UNKNOWN),
+                                     const std::optional<std::string>                                                                                                                   host_version = std::nullopt,
+                                     const std::optional<std::string>                                                                                                                   ca_bundle_path = std::nullopt,
+                                     const std::optional<std::string>                                                                                                                   app_id = std::nullopt,
+                                     const std::optional<std::string>                                                                                                                   app_version = std::nullopt );
 lua:
-    mediapipe.tasks.core.BaseOptions.new( [model_asset_buffer[, model_asset_path[, delegate[, host_system[, host_environment[, host_version[, ca_bundle_path]]]]]]] ) -> <mediapipe::tasks::core::BaseOptions object>
-    mediapipe.tasks.core.BaseOptions( [model_asset_buffer[, model_asset_path[, delegate[, host_system[, host_environment[, host_version[, ca_bundle_path]]]]]]] ) -> <mediapipe::tasks::core::BaseOptions object>
+    mediapipe.tasks.core.BaseOptions.new( [model_asset_buffer[, model_asset_path[, delegate[, model_asset_descriptor_meta[, file_descriptor[, delegate_options[, disable_default_service[, host_system[, host_environment[, host_version[, ca_bundle_path[, app_id[, app_version]]]]]]]]]]]]] ) -> <mediapipe::tasks::core::BaseOptions object>
+    mediapipe.tasks.core.BaseOptions( [model_asset_buffer[, model_asset_path[, delegate[, model_asset_descriptor_meta[, file_descriptor[, delegate_options[, disable_default_service[, host_system[, host_environment[, host_version[, ca_bundle_path[, app_id[, app_version]]]]]]]]]]]]] ) -> <mediapipe::tasks::core::BaseOptions object>
 ```
 
 ```cpp
-mediapipe::tasks::core::BaseOptions( std::tuple<std::optional<std::string>, std::string, mediapipe::tasks::core::BaseOptions::Delegate, mediapipe::tasks::core::HostSystem, mediapipe::tasks::core::HostEnvironment, std::string, std::string> args );
+mediapipe::tasks::core::BaseOptions( std::tuple<std::optional<std::string>, std::string, mediapipe::tasks::core::BaseOptions::Delegate, mediapipe::tasks::core::BaseOptions::FileDescriptorMeta, int, std::optional<std::variant<mediapipe::tasks::core::BaseOptions::CpuOptions, mediapipe::tasks::core::BaseOptions::GpuOptions>>, bool, mediapipe::tasks::core::HostSystem, mediapipe::tasks::core::HostEnvironment, std::string, std::string, std::string, std::string> args );
 lua:
     mediapipe.tasks.core.BaseOptions.new( args ) -> <mediapipe::tasks::core::BaseOptions object>
     mediapipe.tasks.core.BaseOptions( args ) -> <mediapipe::tasks::core::BaseOptions object>
@@ -19726,6 +19999,39 @@ lua:
     oBaseOptions:__eq( other ) -> retval
 ```
 
+## mediapipe::tasks::core::BaseOptions::CpuOptions
+
+### mediapipe.tasks.core.BaseOptions.CpuOptions.new
+
+```cpp
+mediapipe::tasks::core::BaseOptions::CpuOptions();
+lua:
+    mediapipe.tasks.core.BaseOptions.CpuOptions.new() -> <mediapipe::tasks::core::BaseOptions::CpuOptions object>
+    mediapipe.tasks.core.BaseOptions.CpuOptions() -> <mediapipe::tasks::core::BaseOptions::CpuOptions object>
+```
+
+### mediapipe.tasks.core.BaseOptions.CpuOptions.\_\_type
+
+```cpp
+static std::string mediapipe::tasks::core::BaseOptions::CpuOptions::__type();
+lua:
+    mediapipe.tasks.core.BaseOptions.CpuOptions.__type() -> retval
+```
+
+### mediapipe.tasks.core.BaseOptions.CpuOptions.operator==
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::CpuOptions::operator==( const mediapipe::tasks::core::BaseOptions::CpuOptions& other );
+lua:
+    oCpuOptions:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::CpuOptions::operator==( ::mediapipe_lua::Object other );
+lua:
+    oCpuOptions:__eq( other ) -> retval
+```
+
 ## mediapipe::tasks::core::BaseOptions::Delegate
 
 ### Delegate.CPU
@@ -19750,6 +20056,138 @@ lua:
 int mediapipe::tasks::core::BaseOptions::Delegate::API
 lua:
     [propget] Delegate.EDGETPU_NNAPI
+```
+
+## mediapipe::tasks::core::BaseOptions::FileDescriptorMeta
+
+### FileDescriptorMeta.fd
+
+```cpp
+int mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::fd
+lua:
+    [propget, propput] oFileDescriptorMeta.fd
+```
+
+### FileDescriptorMeta.length
+
+```cpp
+int mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::length
+lua:
+    [propget, propput] oFileDescriptorMeta.length
+```
+
+### FileDescriptorMeta.offset
+
+```cpp
+int mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::offset
+lua:
+    [propget, propput] oFileDescriptorMeta.offset
+```
+
+### mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.new
+
+```cpp
+mediapipe::tasks::core::BaseOptions::FileDescriptorMeta( const std::optional<int> fd = std::optional<int>(-1),
+                                                         const std::optional<int> length = std::optional<int>(-1),
+                                                         const std::optional<int> offset = std::optional<int>(-1) );
+lua:
+    mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.new( [fd[, length[, offset]]] ) -> <mediapipe::tasks::core::BaseOptions::FileDescriptorMeta object>
+    mediapipe.tasks.core.BaseOptions.FileDescriptorMeta( [fd[, length[, offset]]] ) -> <mediapipe::tasks::core::BaseOptions::FileDescriptorMeta object>
+```
+
+```cpp
+mediapipe::tasks::core::BaseOptions::FileDescriptorMeta( std::tuple<int, int, int> args );
+lua:
+    mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.new( args ) -> <mediapipe::tasks::core::BaseOptions::FileDescriptorMeta object>
+    mediapipe.tasks.core.BaseOptions.FileDescriptorMeta( args ) -> <mediapipe::tasks::core::BaseOptions::FileDescriptorMeta object>
+```
+
+### mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.\_\_type
+
+```cpp
+static std::string mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::__type();
+lua:
+    mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.__type() -> retval
+```
+
+### mediapipe.tasks.core.BaseOptions.FileDescriptorMeta.operator==
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::operator==( const mediapipe::tasks::core::BaseOptions::FileDescriptorMeta& other );
+lua:
+    oFileDescriptorMeta:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::FileDescriptorMeta::operator==( ::mediapipe_lua::Object other );
+lua:
+    oFileDescriptorMeta:__eq( other ) -> retval
+```
+
+## mediapipe::tasks::core::BaseOptions::GpuOptions
+
+### GpuOptions.cached\_kernel\_path
+
+```cpp
+std::string mediapipe::tasks::core::BaseOptions::GpuOptions::cached_kernel_path
+lua:
+    [propget, propput] oGpuOptions.cached_kernel_path
+```
+
+### GpuOptions.serialized\_model\_dir
+
+```cpp
+std::string mediapipe::tasks::core::BaseOptions::GpuOptions::serialized_model_dir
+lua:
+    [propget, propput] oGpuOptions.serialized_model_dir
+```
+
+### GpuOptions.model\_token
+
+```cpp
+std::string mediapipe::tasks::core::BaseOptions::GpuOptions::model_token
+lua:
+    [propget, propput] oGpuOptions.model_token
+```
+
+### mediapipe.tasks.core.BaseOptions.GpuOptions.new
+
+```cpp
+mediapipe::tasks::core::BaseOptions::GpuOptions( const std::optional<std::string> cached_kernel_path = std::nullopt,
+                                                 const std::optional<std::string> serialized_model_dir = std::nullopt,
+                                                 const std::optional<std::string> model_token = std::nullopt );
+lua:
+    mediapipe.tasks.core.BaseOptions.GpuOptions.new( [cached_kernel_path[, serialized_model_dir[, model_token]]] ) -> <mediapipe::tasks::core::BaseOptions::GpuOptions object>
+    mediapipe.tasks.core.BaseOptions.GpuOptions( [cached_kernel_path[, serialized_model_dir[, model_token]]] ) -> <mediapipe::tasks::core::BaseOptions::GpuOptions object>
+```
+
+```cpp
+mediapipe::tasks::core::BaseOptions::GpuOptions( std::tuple<std::string, std::string, std::string> args );
+lua:
+    mediapipe.tasks.core.BaseOptions.GpuOptions.new( args ) -> <mediapipe::tasks::core::BaseOptions::GpuOptions object>
+    mediapipe.tasks.core.BaseOptions.GpuOptions( args ) -> <mediapipe::tasks::core::BaseOptions::GpuOptions object>
+```
+
+### mediapipe.tasks.core.BaseOptions.GpuOptions.\_\_type
+
+```cpp
+static std::string mediapipe::tasks::core::BaseOptions::GpuOptions::__type();
+lua:
+    mediapipe.tasks.core.BaseOptions.GpuOptions.__type() -> retval
+```
+
+### mediapipe.tasks.core.BaseOptions.GpuOptions.operator==
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::GpuOptions::operator==( const mediapipe::tasks::core::BaseOptions::GpuOptions& other );
+lua:
+    oGpuOptions:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::core::BaseOptions::GpuOptions::operator==( ::mediapipe_lua::Object other );
+lua:
+    oGpuOptions:__eq( other ) -> retval
 ```
 
 ## mediapipe::tasks::lua
@@ -20610,6 +21048,22 @@ lua:
     [propget] text.TextEmbedderResult
 ```
 
+### text.TextEmbeddingType
+
+```cpp
+mediapipe::tasks::text::text_embedder::EmbeddingType
+lua:
+    [propget] text.TextEmbeddingType
+```
+
+### text.TextEmbeddingTextRole
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextRole
+lua:
+    [propget] text.TextEmbeddingTextRole
+```
+
 ## mediapipe::tasks::lua::text::language\_detector
 
 ### language\_detector.LanguageDetectorOptions
@@ -20719,6 +21173,30 @@ lua:
 ```
 
 ## mediapipe::tasks::lua::text::text\_embedder
+
+### text\_embedder.EmbeddingType
+
+```cpp
+mediapipe::tasks::text::text_embedder::EmbeddingType
+lua:
+    [propget] text_embedder.EmbeddingType
+```
+
+### text\_embedder.TextRole
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextRole
+lua:
+    [propget] text_embedder.TextRole
+```
+
+### text\_embedder.TextFormatContext
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextFormatContext
+lua:
+    [propget] text_embedder.TextFormatContext
+```
 
 ### text\_embedder.TextEmbedderOptions
 
@@ -20954,28 +21432,28 @@ lua:
     [propget] vision.ImageProcessingOptions
 ```
 
-### vision.InteractiveSegmenter
+### vision.InteractiveSegmenterLegacy
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy
 lua:
-    [propget] vision.InteractiveSegmenter
+    [propget] vision.InteractiveSegmenterLegacy
 ```
 
-### vision.InteractiveSegmenterOptions
+### vision.InteractiveSegmenterLegacyOptions
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions
 lua:
-    [propget] vision.InteractiveSegmenterOptions
+    [propget] vision.InteractiveSegmenterLegacyOptions
 ```
 
-### vision.InteractiveSegmenterRegionOfInterest
+### vision.InteractiveSegmenterLegacyRegionOfInterest
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest
+mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest
 lua:
-    [propget] vision.InteractiveSegmenterRegionOfInterest
+    [propget] vision.InteractiveSegmenterLegacyRegionOfInterest
 ```
 
 ### vision.ObjectDetector
@@ -21613,38 +22091,38 @@ lua:
     [propget] image_segmenter.ImageSegmenterResult
 ```
 
-## mediapipe::tasks::lua::vision::interactive\_segmenter
+## mediapipe::tasks::lua::vision::interactive\_segmenter\_legacy
 
-### interactive\_segmenter.InteractiveSegmenterOptions
-
-```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions
-lua:
-    [propget] interactive_segmenter.InteractiveSegmenterOptions
-```
-
-### interactive\_segmenter.InteractiveSegmenter
+### interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions
 lua:
-    [propget] interactive_segmenter.InteractiveSegmenter
+    [propget] interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions
 ```
 
-### interactive\_segmenter.RegionOfInterest
+### interactive\_segmenter\_legacy.InteractiveSegmenterLegacy
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy
 lua:
-    [propget] interactive_segmenter.RegionOfInterest
+    [propget] interactive_segmenter_legacy.InteractiveSegmenterLegacy
 ```
 
-### interactive\_segmenter.InteractiveSegmenterResult
+### interactive\_segmenter\_legacy.RegionOfInterest
+
+```cpp
+mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest
+lua:
+    [propget] interactive_segmenter_legacy.RegionOfInterest
+```
+
+### interactive\_segmenter\_legacy.InteractiveSegmenterLegacyResult
 
 ```cpp
 mediapipe::tasks::vision::image_segmenter::ImageSegmenterResult
 lua:
-    [propget] interactive_segmenter.InteractiveSegmenterResult
+    [propget] interactive_segmenter_legacy.InteractiveSegmenterLegacyResult
 ```
 
 ## mediapipe::tasks::lua::vision::object\_detector
@@ -22058,6 +22536,72 @@ lua:
     oTextClassifierOptions:__eq( other ) -> retval
 ```
 
+## mediapipe::tasks::text::text\_embedder::EmbeddingType
+
+### EmbeddingType.RETRIEVAL\_QUERY
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::RETRIEVAL_QUERY
+lua:
+    [propget] EmbeddingType.RETRIEVAL_QUERY
+```
+
+### EmbeddingType.RETRIEVAL\_DOCUMENT
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::RETRIEVAL_DOCUMENT
+lua:
+    [propget] EmbeddingType.RETRIEVAL_DOCUMENT
+```
+
+### EmbeddingType.SEMANTIC\_SIMILARITY
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::SEMANTIC_SIMILARITY
+lua:
+    [propget] EmbeddingType.SEMANTIC_SIMILARITY
+```
+
+### EmbeddingType.CLASSIFICATION
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::CLASSIFICATION
+lua:
+    [propget] EmbeddingType.CLASSIFICATION
+```
+
+### EmbeddingType.CLUSTERING
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::CLUSTERING
+lua:
+    [propget] EmbeddingType.CLUSTERING
+```
+
+### EmbeddingType.QUESTION\_ANSWERING
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::QUESTION_ANSWERING
+lua:
+    [propget] EmbeddingType.QUESTION_ANSWERING
+```
+
+### EmbeddingType.FACT\_CHECKING
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::FACT_CHECKING
+lua:
+    [propget] EmbeddingType.FACT_CHECKING
+```
+
+### EmbeddingType.CODE\_RETRIEVAL
+
+```cpp
+int mediapipe::tasks::text::text_embedder::EmbeddingType::CODE_RETRIEVAL
+lua:
+    [propget] EmbeddingType.CODE_RETRIEVAL
+```
+
 ## mediapipe::tasks::text::text\_embedder::TextEmbedder
 
 ### mediapipe.tasks.text.text\_embedder.TextEmbedder.\_\_type
@@ -22107,6 +22651,13 @@ lua:
 absl::StatusOr<mediapipe::tasks::components::containers::EmbeddingResult> mediapipe::tasks::text::text_embedder::TextEmbedder::Embed( std::string text );
 lua:
     oTextEmbedder:embed( text ) -> retval
+```
+
+```cpp
+absl::StatusOr<mediapipe::tasks::components::containers::EmbeddingResult> mediapipe::tasks::text::text_embedder::TextEmbedder::Embed( std::string                                                     text,
+                                                                                                                                      const mediapipe::tasks::text::text_embedder::TextFormatContext& format_context );
+lua:
+    oTextEmbedder:embed( text, format_context ) -> retval
 ```
 
 ### mediapipe.tasks.text.text\_embedder.TextEmbedder.operator==
@@ -22189,6 +22740,90 @@ lua:
 bool mediapipe::tasks::text::text_embedder::TextEmbedderOptions::operator==( ::mediapipe_lua::Object other );
 lua:
     oTextEmbedderOptions:__eq( other ) -> retval
+```
+
+## mediapipe::tasks::text::text\_embedder::TextFormatContext
+
+### TextFormatContext.task\_type
+
+```cpp
+mediapipe::tasks::text::text_embedder::EmbeddingType mediapipe::tasks::text::text_embedder::TextFormatContext::task_type
+lua:
+    [propget, propput] oTextFormatContext.task_type
+```
+
+### TextFormatContext.title
+
+```cpp
+std::optional<std::string> mediapipe::tasks::text::text_embedder::TextFormatContext::title
+lua:
+    [propget, propput] oTextFormatContext.title
+```
+
+### TextFormatContext.role
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextRole mediapipe::tasks::text::text_embedder::TextFormatContext::role
+lua:
+    [propget, propput] oTextFormatContext.role
+```
+
+### mediapipe.tasks.text.text\_embedder.TextFormatContext.new
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextFormatContext( const std::optional<mediapipe::tasks::text::text_embedder::EmbeddingType> task_type = std::nullopt,
+                                                          const std::optional<std::optional<std::string>>                           title = std::optional<std::optional<std::string>>(std::nullopt),
+                                                          const std::optional<mediapipe::tasks::text::text_embedder::TextRole>      role = std::optional<mediapipe::tasks::text::text_embedder::TextRole>(TextRole::kQuery) );
+lua:
+    mediapipe.tasks.text.text_embedder.TextFormatContext.new( [task_type[, title[, role]]] ) -> <mediapipe::tasks::text::text_embedder::TextFormatContext object>
+    mediapipe.tasks.text.text_embedder.TextFormatContext( [task_type[, title[, role]]] ) -> <mediapipe::tasks::text::text_embedder::TextFormatContext object>
+```
+
+```cpp
+mediapipe::tasks::text::text_embedder::TextFormatContext( std::tuple<mediapipe::tasks::text::text_embedder::EmbeddingType, std::optional<std::string>, mediapipe::tasks::text::text_embedder::TextRole> args );
+lua:
+    mediapipe.tasks.text.text_embedder.TextFormatContext.new( args ) -> <mediapipe::tasks::text::text_embedder::TextFormatContext object>
+    mediapipe.tasks.text.text_embedder.TextFormatContext( args ) -> <mediapipe::tasks::text::text_embedder::TextFormatContext object>
+```
+
+### mediapipe.tasks.text.text\_embedder.TextFormatContext.\_\_type
+
+```cpp
+static std::string mediapipe::tasks::text::text_embedder::TextFormatContext::__type();
+lua:
+    mediapipe.tasks.text.text_embedder.TextFormatContext.__type() -> retval
+```
+
+### mediapipe.tasks.text.text\_embedder.TextFormatContext.operator==
+
+```cpp
+bool mediapipe::tasks::text::text_embedder::TextFormatContext::operator==( const mediapipe::tasks::text::text_embedder::TextFormatContext& other );
+lua:
+    oTextFormatContext:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::text::text_embedder::TextFormatContext::operator==( ::mediapipe_lua::Object other );
+lua:
+    oTextFormatContext:__eq( other ) -> retval
+```
+
+## mediapipe::tasks::text::text\_embedder::TextRole
+
+### TextRole.QUERY
+
+```cpp
+int mediapipe::tasks::text::text_embedder::TextRole::kQuery
+lua:
+    [propget] TextRole.QUERY
+```
+
+### TextRole.DOCUMENT
+
+```cpp
+int mediapipe::tasks::text::text_embedder::TextRole::kDocument
+lua:
+    [propget] TextRole.DOCUMENT
 ```
 
 ## mediapipe::tasks::vision::NonMaxSuppressionOptions
@@ -25216,136 +25851,136 @@ lua:
     oImageSegmenterResult:__eq( other ) -> retval
 ```
 
-## mediapipe::tasks::vision::interactive\_segmenter::InteractiveSegmenter
+## mediapipe::tasks::vision::interactive\_segmenter\_legacy::InteractiveSegmenterLegacy
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.\_\_type
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.\_\_type
 
 ```cpp
-static std::string mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::__type();
+static std::string mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::__type();
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenter.__type() -> retval
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacy.__type() -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.close
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.close
 
 ```cpp
-absl::Status mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::Close();
+absl::Status mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::Close();
 lua:
-    oInteractiveSegmenter:close() -> retval
+    oInteractiveSegmenterLegacy:close() -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_model\_path
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.create\_from\_model\_path
 
 ```cpp
-static std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter> mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::Create( std::string model_path );
+static std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy> mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::Create( std::string model_path );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenter.create_from_model_path( model_path ) -> retval
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacy.create_from_model_path( model_path ) -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.create\_from\_options
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.create\_from\_options
 
 ```cpp
-static std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter> mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::Create( std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions> options );
+static std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy> mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::Create( std::shared_ptr<mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions> options );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenter.create_from_options( options ) -> retval
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacy.create_from_options( options ) -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.operator==
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.operator==
 
 ```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::operator==( const mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter& other );
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::operator==( const mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy& other );
 lua:
-    oInteractiveSegmenter:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::operator==( ::mediapipe_lua::Object other );
-lua:
-    oInteractiveSegmenter:__eq( other ) -> retval
-```
-
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenter.segment
-
-```cpp
-absl::StatusOr<InteractiveSegmenterResult> mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenter::Segment( mediapipe::Image                                                         image,
-                                                                                                                           const mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest& roi,
-                                                                                                                           std::optional<mediapipe::tasks::vision::core::ImageProcessingOptions>    image_processing_options = std::nullopt );
-lua:
-    oInteractiveSegmenter:segment( image, roi[, image_processing_options] ) -> retval
-```
-
-## mediapipe::tasks::vision::interactive\_segmenter::InteractiveSegmenterOptions
-
-### InteractiveSegmenterOptions.base\_options
-
-```cpp
-mediapipe::tasks::core::BaseOptions mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::base_options
-lua:
-    [propget, propput] oInteractiveSegmenterOptions.base_options
-```
-
-### InteractiveSegmenterOptions.output\_confidence\_masks
-
-```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::output_confidence_masks
-lua:
-    [propget, propput] oInteractiveSegmenterOptions.output_confidence_masks
-```
-
-### InteractiveSegmenterOptions.output\_category\_mask
-
-```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::output_category_mask
-lua:
-    [propget, propput] oInteractiveSegmenterOptions.output_category_mask
-```
-
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.new
-
-```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions( const std::optional<mediapipe::tasks::core::BaseOptions> base_options = std::nullopt,
-                                                                              const std::optional<bool>                                output_confidence_masks = std::optional<bool>(true),
-                                                                              const std::optional<bool>                                output_category_mask = std::optional<bool>(false) );
-lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterOptions.new( [base_options[, output_confidence_masks[, output_category_mask]]] ) -> <mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions object>
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterOptions( [base_options[, output_confidence_masks[, output_category_mask]]] ) -> <mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions object>
+    oInteractiveSegmenterLegacy:__eq( other ) -> retval
 ```
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions( std::tuple<mediapipe::tasks::core::BaseOptions, bool, bool> args );
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::operator==( ::mediapipe_lua::Object other );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterOptions.new( args ) -> <mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions object>
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterOptions( args ) -> <mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions object>
+    oInteractiveSegmenterLegacy:__eq( other ) -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.\_\_type
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacy.segment
 
 ```cpp
-static std::string mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::__type();
+absl::StatusOr<InteractiveSegmenterLegacyResult> mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacy::Segment( mediapipe::Image                                                                image,
+                                                                                                                                              const mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest& roi,
+                                                                                                                                              std::optional<mediapipe::tasks::vision::core::ImageProcessingOptions>           image_processing_options = std::nullopt );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterOptions.__type() -> retval
+    oInteractiveSegmenterLegacy:segment( image, roi[, image_processing_options] ) -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.InteractiveSegmenterOptions.operator==
+## mediapipe::tasks::vision::interactive\_segmenter\_legacy::InteractiveSegmenterLegacyOptions
+
+### InteractiveSegmenterLegacyOptions.base\_options
 
 ```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::operator==( const mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions& other );
+mediapipe::tasks::core::BaseOptions mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::base_options
 lua:
-    oInteractiveSegmenterOptions:__eq( other ) -> retval
+    [propget, propput] oInteractiveSegmenterLegacyOptions.base_options
+```
+
+### InteractiveSegmenterLegacyOptions.output\_confidence\_masks
+
+```cpp
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::output_confidence_masks
+lua:
+    [propget, propput] oInteractiveSegmenterLegacyOptions.output_confidence_masks
+```
+
+### InteractiveSegmenterLegacyOptions.output\_category\_mask
+
+```cpp
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::output_category_mask
+lua:
+    [propget, propput] oInteractiveSegmenterLegacyOptions.output_category_mask
+```
+
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.new
+
+```cpp
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions( const std::optional<mediapipe::tasks::core::BaseOptions> base_options = std::nullopt,
+                                                                                           const std::optional<bool>                                output_confidence_masks = std::optional<bool>(true),
+                                                                                           const std::optional<bool>                                output_category_mask = std::optional<bool>(false) );
+lua:
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions.new( [base_options[, output_confidence_masks[, output_category_mask]]] ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions( [base_options[, output_confidence_masks[, output_category_mask]]] ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions object>
 ```
 
 ```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::InteractiveSegmenterOptions::operator==( ::mediapipe_lua::Object other );
+mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions( std::tuple<mediapipe::tasks::core::BaseOptions, bool, bool> args );
 lua:
-    oInteractiveSegmenterOptions:__eq( other ) -> retval
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions.new( args ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions( args ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions object>
 ```
 
-## mediapipe::tasks::vision::interactive\_segmenter::RegionOfInterest
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.\_\_type
+
+```cpp
+static std::string mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::__type();
+lua:
+    mediapipe.tasks.vision.interactive_segmenter_legacy.InteractiveSegmenterLegacyOptions.__type() -> retval
+```
+
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.InteractiveSegmenterLegacyOptions.operator==
+
+```cpp
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::operator==( const mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions& other );
+lua:
+    oInteractiveSegmenterLegacyOptions:__eq( other ) -> retval
+```
+
+```cpp
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::InteractiveSegmenterLegacyOptions::operator==( ::mediapipe_lua::Object other );
+lua:
+    oInteractiveSegmenterLegacyOptions:__eq( other ) -> retval
+```
+
+## mediapipe::tasks::vision::interactive\_segmenter\_legacy::RegionOfInterest
 
 ### RegionOfInterest.format
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::format
+mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::format
 lua:
     [propget, propput] oRegionOfInterest.format
 ```
@@ -25353,7 +25988,7 @@ lua:
 ### RegionOfInterest.keypoint
 
 ```cpp
-std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint> mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::keypoint
+std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint> mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::keypoint
 lua:
     [propget, propput] oRegionOfInterest.keypoint
 ```
@@ -25361,57 +25996,57 @@ lua:
 ### RegionOfInterest.scribble
 
 ```cpp
-std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>> mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::scribble
+std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>> mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::scribble
 lua:
     [propget, propput] oRegionOfInterest.scribble
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.new
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.new
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest( const std::optional<mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format>                format = std::optional<mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format>(RegionOfInterest::Format::kUnspecified),
-                                                                   const std::optional<std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint>>              keypoint = std::nullopt,
-                                                                   const std::optional<std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>>> scribble = std::nullopt );
+mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest( const std::optional<mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format>         format = std::optional<mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format>(RegionOfInterest::Format::kUnspecified),
+                                                                          const std::optional<std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint>>              keypoint = std::nullopt,
+                                                                          const std::optional<std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>>> scribble = std::nullopt );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.RegionOfInterest.new( [format[, keypoint[, scribble]]] ) -> <mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest object>
-    mediapipe.tasks.vision.interactive_segmenter.RegionOfInterest( [format[, keypoint[, scribble]]] ) -> <mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.RegionOfInterest.new( [format[, keypoint[, scribble]]] ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.RegionOfInterest( [format[, keypoint[, scribble]]] ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest object>
 ```
 
 ```cpp
-mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest( std::tuple<mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format, std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint>, std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>>> args );
+mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest( std::tuple<mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format, std::optional<mediapipe::tasks::components::containers::NormalizedKeypoint>, std::optional<std::vector<mediapipe::tasks::components::containers::NormalizedKeypoint>>> args );
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.RegionOfInterest.new( args ) -> <mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest object>
-    mediapipe.tasks.vision.interactive_segmenter.RegionOfInterest( args ) -> <mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.RegionOfInterest.new( args ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest object>
+    mediapipe.tasks.vision.interactive_segmenter_legacy.RegionOfInterest( args ) -> <mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest object>
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.\_\_type
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.\_\_type
 
 ```cpp
-static std::string mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::__type();
+static std::string mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::__type();
 lua:
-    mediapipe.tasks.vision.interactive_segmenter.RegionOfInterest.__type() -> retval
+    mediapipe.tasks.vision.interactive_segmenter_legacy.RegionOfInterest.__type() -> retval
 ```
 
-### mediapipe.tasks.vision.interactive\_segmenter.RegionOfInterest.operator==
+### mediapipe.tasks.vision.interactive\_segmenter\_legacy.RegionOfInterest.operator==
 
 ```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::operator==( const mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest& other );
-lua:
-    oRegionOfInterest:__eq( other ) -> retval
-```
-
-```cpp
-bool mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::operator==( ::mediapipe_lua::Object other );
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::operator==( const mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest& other );
 lua:
     oRegionOfInterest:__eq( other ) -> retval
 ```
 
-## mediapipe::tasks::vision::interactive\_segmenter::RegionOfInterest::Format
+```cpp
+bool mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::operator==( ::mediapipe_lua::Object other );
+lua:
+    oRegionOfInterest:__eq( other ) -> retval
+```
+
+## mediapipe::tasks::vision::interactive\_segmenter\_legacy::RegionOfInterest::Format
 
 ### Format.UNSPECIFIED
 
 ```cpp
-int mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format::kUnspecified
+int mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format::kUnspecified
 lua:
     [propget] Format.UNSPECIFIED
 ```
@@ -25419,7 +26054,7 @@ lua:
 ### Format.KEYPOINT
 
 ```cpp
-int mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format::kKeyPoint
+int mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format::kKeyPoint
 lua:
     [propget] Format.KEYPOINT
 ```
@@ -25427,7 +26062,7 @@ lua:
 ### Format.SCRIBBLE
 
 ```cpp
-int mediapipe::tasks::vision::interactive_segmenter::RegionOfInterest::Format::kScribble
+int mediapipe::tasks::vision::interactive_segmenter_legacy::RegionOfInterest::Format::kScribble
 lua:
     [propget] Format.SCRIBBLE
 ```

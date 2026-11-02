@@ -61,7 +61,7 @@ In this example, we will use the following directories:
 ## Download the source code
 
 ```sh
-git clone --depth 1 --branch v0.2.0 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
+git clone --depth 1 --branch v1.0.0-1 https://github.com/smbape/lua-mediapipe.git /d/luarocks-binaries-custom/lua-mediapipe && \
 cd /d/luarocks-binaries-custom/lua-mediapipe && \
 npm ci
 ```

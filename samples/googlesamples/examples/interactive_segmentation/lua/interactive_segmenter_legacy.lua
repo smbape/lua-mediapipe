@@ -115,18 +115,18 @@ local BG_COLOR = { 192, 192, 192 }  -- gray
 local FG_COLOR = { 255, 255, 255 }  -- white
 local OVERLAY_COLOR = { 100, 100, 0 } -- cyan
 
-local RegionOfInterest = vision.InteractiveSegmenterRegionOfInterest
+local RegionOfInterest = vision.InteractiveSegmenterLegacyRegionOfInterest
 local NormalizedKeypoint = containers.keypoint.NormalizedKeypoint
 
--- Create the options that will be used for InteractiveSegmenter
+-- Create the options that will be used for InteractiveSegmenterLegacy
 local base_options = lua.BaseOptions(mediapipe_lua.kwargs({ model_asset_path = MODEL_FILE }))
-local options = vision.InteractiveSegmenterOptions(mediapipe_lua.kwargs({
+local options = vision.InteractiveSegmenterLegacyOptions(mediapipe_lua.kwargs({
     base_options = base_options,
     output_category_mask = true
 }))
 
 -- Create the interactive segmenter
-local segmenter = vision.InteractiveSegmenter.create_from_options(options)
+local segmenter = vision.InteractiveSegmenterLegacy.create_from_options(options)
 
 local color = { 255, 255, 0 }
 

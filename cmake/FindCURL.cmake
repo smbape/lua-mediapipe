@@ -73,8 +73,8 @@ set(ZSTD_INCLUDE_DIR "${zstd_SOURCE_DIR}/lib")
 # ================================================================
 # Tell cmake that we will need brotli.
 # ================================================================
-set(BROTLI_VERSION 1.2.0)
-set(BROTLI_VERSION_SHA256 816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec)
+set(BROTLI_VERSION 1.2.1)
+set(BROTLI_VERSION_SHA256 98d35d11a78dc453aebb7d10c3748f3f73ff78c8267c0dc697b8631f67bf7e8f)
 
 include(FetchContent)
 FetchContent_Populate(brotli
@@ -162,8 +162,8 @@ set(NGHTTP2_INCLUDE_DIR "${nghttp2_SOURCE_DIR}/lib/includes")
 # ================================================================
 # Tell cmake that we will need curl.
 # ================================================================
-set(CURL_VERSION 8.20.0)
-set(CURL_VERSION_SHA256 63fe2dc148ba0ceae89922ef838f7e5c946272c2e78b7c59fab4b79d3ce2b896)
+set(CURL_VERSION 8.23.0)
+set(CURL_VERSION_SHA256 8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5)
 string(REPLACE "." "_" CURL_VERSION_UNDERSCORE ${CURL_VERSION})
 
 include(FetchContent)

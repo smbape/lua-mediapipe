@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/tasks/python/test/text/text_embedder_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/tasks/python/test/text/text_embedder_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated
@@ -31,8 +31,17 @@ _TextEmbedder = text_embedder.TextEmbedder
 _TextEmbedderOptions = text_embedder.TextEmbedderOptions
 
 local _BERT_MODEL_FILE = 'mobilebert_embedding_with_metadata.tflite'
+local _BERT_MODEL_FILE_HASH = 'sha256=fa47142dcc6f446168bc672f2df9605b6da5d0c0d6264e9be62870282365b95c'
+local _BERT_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/mobilebert_embedding_with_metadata.tflite?generation=1782184342485189'
 local _REGEX_MODEL_FILE = 'regex_one_embedding_with_metadata.tflite'
+local _REGEX_MODEL_FILE_HASH = 'sha256=b8f5d6d090c2c73984b2b92cd2fda27e5630562741a93d127b9a744d60505bc0'
+local _REGEX_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/regex_one_embedding_with_metadata.tflite?generation=1782184366258926'
 local _USE_MODEL_FILE = 'universal_sentence_encoder_qa_with_metadata.tflite'
+local _USE_MODEL_FILE_HASH = 'sha256=82c2d0450aa458adbec2f78eff33cfbf2a41b606b44246726ab67373926e32bc'
+local _USE_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/universal_sentence_encoder_qa_with_metadata.tflite?generation=1782184395846019'
+local _GECKO_MODEL_FILE = 'gecko.task'
+local _GECKO_MODEL_FILE_HASH = 'sha256=165aded023aa067d8c29dae73eece2bbdec49bcb48e83c69083b83ff3928bc9c'
+local _GECKO_MODEL_FILE_URL = 'https://storage.googleapis.com/mediapipe-assets/tasks/testdata/text/gecko.task?generation=1782184327811387'
 local _TEST_DATA_DIR = test_utils.get_resource_dir() .. '/mediapipe/tasks/testdata/text'
 -- Tolerance for embedding vector coordinate values.
 local _EPSILON = 1e-4
@@ -46,9 +55,26 @@ local ModelFileType = {
 
 local function setUp(self)
     test_utils.download_test_files(_TEST_DATA_DIR, {
-        _BERT_MODEL_FILE,
-        _REGEX_MODEL_FILE,
-        _USE_MODEL_FILE,
+        {
+            output = _BERT_MODEL_FILE,
+            hash = _BERT_MODEL_FILE_HASH,
+            url = _BERT_MODEL_FILE_URL,
+        },
+        {
+            output = _REGEX_MODEL_FILE,
+            hash = _REGEX_MODEL_FILE_HASH,
+            url = _REGEX_MODEL_FILE_URL,
+        },
+        {
+            output = _USE_MODEL_FILE,
+            hash = _USE_MODEL_FILE_HASH,
+            url = _USE_MODEL_FILE_URL,
+        },
+        {
+            output = _GECKO_MODEL_FILE,
+            hash = _GECKO_MODEL_FILE_HASH,
+            url = _GECKO_MODEL_FILE_URL,
+        },
     })
     self.model_path = test_utils.get_test_data_path(_BERT_MODEL_FILE)
 end
@@ -167,6 +193,38 @@ local function test_embed_with_different_themes(self, model_file, expected_simil
     )
 end
 
+local function test_embed_succeeds_with_gecko(self)
+    local model_path = test_utils.get_test_data_path(_GECKO_MODEL_FILE)
+    local base_options = _BaseOptions(mediapipe_lua.kwargs({ model_asset_path = model_path }))
+    local options = _TextEmbedderOptions(mediapipe_lua.kwargs({ base_options = base_options }))
+
+    -- Creates embedder.
+    local embedder = _TextEmbedder.create_from_options(options)
+    local format_context = text_embedder.TextFormatContext(mediapipe_lua.kwargs({
+        task_type = text_embedder.EmbeddingType.RETRIEVAL_QUERY,
+        role = text_embedder.TextRole.QUERY,
+    }))
+
+    -- Extracts both embeddings.
+    local positive_text0 = "it's a charming and often affecting journey"
+    local positive_text1 = 'what a great and fantastic trip'
+
+    local result0 = embedder:embed(positive_text0, format_context)
+    local result1 = embedder:embed(positive_text1, format_context)
+
+    -- Checks embeddings and cosine similarity.
+    local quantize = false
+    local expected_size = 768
+    local expected_result0_value = 0.037564
+    local expected_result1_value = 0.031340
+    local expected_similarity = 0.789902
+    self:_check_embedding_size(result0, quantize, expected_size)
+    self:_check_embedding_size(result1, quantize, expected_size)
+    self:_check_embedding_value(result0, expected_result0_value)
+    self:_check_embedding_value(result1, expected_result1_value)
+    self:_check_cosine_similarity(result0, result1, expected_similarity)
+end
+
 describe("TextEmbedderTest", function()
     setUp(_assert)
 
@@ -190,14 +248,14 @@ describe("TextEmbedderTest", function()
             ModelFileType.FILE_NAME,
             { 0.962427, 0.974150 },
             512,
-            { 21.2054, { 19.684337, 22.257518 } },
+            { 21.2054,  { 19.684337, 22.257518 } },
         },
         {
             true,
             false,
             _BERT_MODEL_FILE,
             ModelFileType.FILE_NAME,
-            { 0.962427, 0.974150 },
+            { 0.962427,  0.974150 },
             512,
             { 0.0625787, { 0.0673937, 0.0708920 } },
         },
@@ -252,4 +310,8 @@ describe("TextEmbedderTest", function()
             test_embed_with_different_themes(_assert, unpack(args))
         end)
     end
+
+    it("should test_embed_succeeds_with_gecko", function()
+        test_embed_succeeds_with_gecko(_assert)
+    end)
 end)

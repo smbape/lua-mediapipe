@@ -152,7 +152,7 @@ local image = mp.Image.create_from_file(IMAGE_FILE)
 -- STEP 4: Detect hand landmarks from the input image.
 local detection_result = detector:detect(image)
 
--- STEP 5: Process the classification result. In this case, visualize it.
+-- STEP 5: Process the detection result. In this case, visualize it.
 local annotated_image = draw_landmarks_on_image(image:mat_view(), detection_result)
 resize_and_show(annotated_image, "hand_landmarker")
 cv2.waitKey()

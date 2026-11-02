@@ -2,6 +2,8 @@
 
 # Update checks:
 #   - check changes in python
+#   - check changes in setup.py
+#   - check changes in requirements.txt
 #   - check changes https://github.com/google-ai-edge/mediapipe-samples/
 
 

@@ -7,7 +7,7 @@ const waterfall = require("async/waterfall");
 const prepublishRoot = sysPath.resolve(__dirname, "..", "out", "prepublish");
 const wrapperSuffix = os.platform() === "win32" ? ".bat" : "";
 const shellSuffix = os.platform() === "win32" ? ".bat" : ".sh";
-const OpenCV_NAME_VERSION = "opencv-4.13.0";
+const OpenCV_NAME_VERSION = "opencv-5.0.0";
 const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
 
 const unixEscape = (arg, verbatim = true) => {
@@ -312,6 +312,14 @@ for (let i = 0; i < argv.length; i++) {
             throw new Error(`${ key } is a flag not, therefore, cannot have a value`);
         }
         options[key.slice("--".length)] = value;
+        continue;
+    }
+
+    if (key.startsWith("--no-") && optionValueKeys.has(`--${ key.slice("--no-".length) }`)) {
+        if (value !== true) {
+            throw new Error(`${ key } is a flag not, therefore, cannot have a value`);
+        }
+        options[key.slice("--no-".length)] = !value;
         continue;
     }
 

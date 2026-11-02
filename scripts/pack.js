@@ -7,9 +7,7 @@ const waterfall = require("async/waterfall");
 const pkg = require("../package.json");
 
 const version = process.env.npm_package_version || pkg.version;
-const OpenCV_NAME_VERSION = "opencv-4.13.0";
-const OpenCV_VERSION = OpenCV_NAME_VERSION.slice("opencv-".length);
-const Mediapipe_NAME_VERSION = "mediapipe-0.10.35";
+const Mediapipe_NAME_VERSION = "mediapipe-1.0.0";
 const Mediapipe_VERSION = Mediapipe_NAME_VERSION.slice("mediapipe-".length);
 const distVersion = process.env.DIST_VERSION || "1"; // TODO : find a way to automatically update it
 const workspaceRoot = sysPath.resolve(__dirname, "..");
@@ -130,6 +128,14 @@ for (let i = 0; i < argv.length; i++) {
         continue;
     }
 
+    if (key.startsWith("--no-") && optionValueKeys.has(`--${ key.slice("--no-".length) }`)) {
+        if (value !== true) {
+            throw new Error(`${ key } is a flag not, therefore, cannot have a value`);
+        }
+        options[key.slice("--no-".length)] = !value;
+        continue;
+    }
+
     if (oneValueKeys.has(key)) {
         if (eq === -1) {
             value = argv[++i];
@@ -211,14 +217,13 @@ const getTasksBinaryRock = srcRockSpec => {
 
             const opencvServer = options["opencv-server"] || options.server;
             const opencvName = options["opencv-name"] || "opencv_lua";
-            const opencvVersion = `${ OpenCV_VERSION }${ target }${ ver }`;
             const binary = `${ Mediapipe_VERSION }${ target }${ ver }-${ distVersion }`;
             const binaryRockSpec = `${ srcRockSpec.slice(0, -`${ Mediapipe_VERSION }-${ distVersion }.rockspec`.length) }${ binary }.rockspec`;
             const lua_modules = sysPath.join(luarocksDir, "lua_modules");
 
             waterfall([
                 next => {
-                    const args = [new_version, options.rockspec, binary, abi, "--platform", os.platform(), "--opencv-name", opencvName, "--opencv-version", opencvVersion];
+                    const args = [new_version, options.rockspec, binary, abi, "--platform", os.platform(), "--opencv-name", opencvName];
 
                     spawnExec(lua, args, {
                         stdio: "inherit",

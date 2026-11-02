@@ -7,7 +7,7 @@ package.path = arg[0]:gsub("[^/\\]+%.lua", '?.lua;'):gsub('/', package.config:su
 
 --[[
 Sources:
-    https://github.com/google-ai-edge/mediapipe/blob/v0.10.35/mediapipe/python/solutions/drawing_utils_test.py
+    https://github.com/google-ai-edge/mediapipe/blob/v1.0.0/mediapipe/python/solutions/drawing_utils_test.py
 --]]
 
 local unpack = table.unpack or unpack ---@diagnostic disable-line: deprecated

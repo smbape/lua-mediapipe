@@ -42,3 +42,13 @@ foreach(item IN LISTS source_FILES)
     set(dst_file "${mediapipe_INSTALL_DIR}/${item}")
     install_file("${src_file}" "${dst_file}")
 endforeach()
+
+if (NOT (WIN32 OR ENABLE_REPAIR))
+    set(lib_FILEPATH "${CMAKE_INSTALL_PREFIX}/${LIBRAY_DESTINATION}/mediapipe_lua.so")
+
+    message(STATUS "Set non-toolchain portion of runtime path of \"${lib_FILEPATH}\" to \"$ORIGIN\"")
+    execute_process(
+        COMMAND patchelf --force-rpath --set-rpath "$ORIGIN" "${lib_FILEPATH}"
+        COMMAND_ERROR_IS_FATAL ANY
+    )
+endif()

@@ -55,7 +55,7 @@ const getOptions = output => {
             "mediapipe::tasks::vision::image_classifier",
             "mediapipe::tasks::vision::image_embedder",
             "mediapipe::tasks::vision::image_segmenter",
-            "mediapipe::tasks::vision::interactive_segmenter",
+            "mediapipe::tasks::vision::interactive_segmenter_legacy",
             "mediapipe::tasks::vision::pose_landmarker",
         ]),
 
@@ -223,6 +223,7 @@ const options = getOptions(PROJECT_DIR);
 options.proto = LuaGenerator.proto;
 
 options.generated.set(sysPath.join(options.output, "bit_string.lua.inc"), true);
+options.generated.set(sysPath.join(options.output, "cdata_utils_string.lua.inc"), true);
 
 options.beforeWriteFiles = (processor, files, opts, next) => {
     const modulename = LuaGenerator.getModuleName(opts);
@@ -337,7 +338,7 @@ waterfall([
 
     (srcfiles, protofiles, generated_include, next) => {
         const mediapipe_SOURCE_DIR = findSourceDir("mediapipe/mediapipe-src");
-        const protobuf_SOURCE_DIR = fs.realpathSync(`${ mediapipe_SOURCE_DIR }/bazel-mediapipe-src/external/com_google_protobuf/src`);
+        const protobuf_SOURCE_DIR = fs.realpathSync(`${ mediapipe_SOURCE_DIR }/bazel-mediapipe-src/external/protobuf~/src`);
 
         const outputs = Parser.createOutputs();
         const cache = new Map();
@@ -440,13 +441,13 @@ waterfall([
                     "MEDIAPIPE_DISABLE_GPU": 1,
                 }
             )
+
             all_decls = []
+
             for hdr in srcfiles:
                 decls = parser.parse(hdr)
-                if len(decls) == 0 or hdr.find('/python/') != -1:
-                    continue
-
-                all_decls += decls
+                if len(decls) != 0:
+                    all_decls += decls
 
             # parser.print_decls(all_decls)
             print(json.dumps({"decls": all_decls, "namespaces": sorted(parser.namespaces)}, indent=4))
