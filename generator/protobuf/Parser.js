@@ -968,7 +968,7 @@ class Parser {
         ]]);
 
         body.push(`
-            if (${ largc } > ${ i + 1 } || has_kwargs && Keywords::has(L, ${ vargc }, "${ field_name }")) {
+            if (call_info.has(${ i })) {
                 ${ setter.split("\n").join(`\n${ " ".repeat(16) }`) };
             }
         `.trim().replace(/^ {12}/mg, "").replaceAll(newVal, field_name));

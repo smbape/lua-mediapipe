@@ -1,25 +1,84 @@
 #include <lua_bridge.hpp>
 
-#ifndef OPENCV_LUA_API
-# if (defined _WIN32 || defined WINCE || defined __CYGWIN__)
-#   define OPENCV_LUA_API __declspec(dllimport)
-# else
-#   define OPENCV_LUA_API extern
-# endif
-#endif
-
 namespace opencv_lua {
-	template<typename T>
-	OPENCV_LUA_API std::shared_ptr<T> exported_lua_to(lua_State* L, int index, T* ptr, bool& is_valid);
+	// ================================
+	// LuaStateContext
+	// ================================
+
+	void lua_module_push_context(lua_State* L);
+
+
+	// ================================
+	// is_usertype generics
+	// ================================
 
 	template<typename T>
-	OPENCV_LUA_API void exported_lua_push(lua_State* L, T* ptr);
+	struct is_usertype : std::false_type {};
 
 	template<typename T>
-	OPENCV_LUA_API void exported_lua_push(lua_State* L, T&& obj);
+	constexpr inline bool is_usertype_v = is_usertype<T>::value;
+
+	// ================================
+	// lua_reference_push
+	// ================================
 
 	template<typename T>
-	OPENCV_LUA_API void exported_lua_push(lua_State* L, const T& obj);
+	std::enable_if_t<is_usertype_v<T>> lua_reference_push(lua_State* L, T& value);
+
+
+	// ================================
+	// T if is_usertype_v<T>
+	// ================================
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, std::shared_ptr<T>> lua_to(lua_State* L, int index, std::shared_ptr<T>*, bool& is_valid);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, std::shared_ptr<T>> lua_to(lua_State* L, int index, T* ptr, bool& is_valid);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, T*> lua_to(lua_State* L, int index, T**, bool& is_valid);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, void> lua_push(lua_State* L, T* ptr);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, void> lua_push(lua_State* L, const T* ptr);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, void> lua_push(lua_State* L, T&& obj);
+
+	template<typename T>
+	inline std::enable_if_t<is_usertype_v<T>, void> lua_push(lua_State* L, const T& obj);
+
+
+	// ================================
+	// std::shared_ptr
+	// ================================
+
+	template<typename T>
+	inline std::enable_if_t<!is_usertype_v<T>, std::shared_ptr<T>> lua_to(lua_State* L, int index, std::shared_ptr<T>*, bool& is_valid);
+
+	template<typename T>
+	inline void lua_push(lua_State* L, const std::shared_ptr<T>& ptr);
+
+
+	// ================================
+	// opencv_lua usertypes
+	// ================================
+
+	template<>
+	struct is_usertype<cv::Mat> : std::true_type {};
+}
+
+namespace {
+	using namespace LUA_MODULE_NAME;
+
+	template <std::invocable F>
+	decltype(auto) switch_dependency(lua_State* L, int upvalue, int depencency_id, F&& fn) {
+		auto guard = get_context_from_upvalue(L)->switch_dependency(L, upvalue, depencency_id);
+		return std::invoke(std::forward<F>(fn));
+	}
 }
 
 namespace LUA_MODULE_NAME {
@@ -42,23 +101,33 @@ namespace LUA_MODULE_NAME {
 	// ================================
 
 	std::shared_ptr<cv::Mat> lua_to(lua_State* L, int index, cv::Mat* ptr, bool& is_valid) {
-		return opencv_lua::exported_lua_to(L, index, ptr, is_valid);
+		return switch_dependency(L, /* upvalue */ 1, /* depencency_id */ 0, [&] {
+			return opencv_lua::lua_to(L, index, ptr, is_valid);
+		});
 	}
 
 	void lua_push(lua_State* L, cv::Mat* ptr) {
-		opencv_lua::exported_lua_push(L, ptr);
+		switch_dependency(L, /* upvalue */ 1, /* depencency_id */ 0, [&] {
+			opencv_lua::lua_push(L, ptr);
+		});
 	}
 
 	void lua_push(lua_State* L, cv::Mat&& obj) {
-		opencv_lua::exported_lua_push(L, std::move(obj));
+		switch_dependency(L, /* upvalue */ 1, /* depencency_id */ 0, [&] {
+			opencv_lua::lua_push(L, std::move(obj));
+		});
 	}
 
 	void lua_push(lua_State* L, const cv::Mat& obj) {
-		opencv_lua::exported_lua_push(L, obj);
+		switch_dependency(L, /* upvalue */ 1, /* depencency_id */ 0, [&] {
+			opencv_lua::lua_push(L, obj);
+		});
 	}
 
 	void lua_push(lua_State* L, const std::shared_ptr<cv::Mat>& obj) {
-		opencv_lua::exported_lua_push(L, obj);
+		switch_dependency(L, /* upvalue */ 1, /* depencency_id */ 0, [&] {
+			opencv_lua::lua_push(L, obj);
+		});
 	}
 
 
@@ -189,6 +258,9 @@ namespace {
 		lua_getglobal(L, "require");
 		lua_pushliteral(L, "opencv_lua");
 		lua_call(L, 1, 0);  /* call 'require("opencv_lua")' */
+
+		opencv_lua::lua_module_push_context(L);
+		get_context_from_registry(L)->add_dependecy(L);
 	}
 
 	int get_resource_dir(lua_State* L) {
@@ -240,7 +312,7 @@ namespace {
 
 		lua_pushliteral(L, "resource_util");
 		lua_newtable(L);
-		lua_pushfuncs(L, funcs);
+		lua_module_setfuncs(L, funcs);
 		lua_rawset(L, -3);
 	}
 }
