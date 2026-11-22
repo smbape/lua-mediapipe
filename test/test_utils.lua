@@ -249,11 +249,15 @@ function Event.set(self)
 end
 
 ---@param self Event
----@param timeout integer the maximum duration in milliseconds to wait
+---@param timeout integer? the maximum duration in milliseconds to wait
 function Event.wait(self, timeout)
-    local status = self.cv:wait_for(std.chrono.milliseconds(timeout))
-    if status == std.cv_status.timeout then
-        error(string.format("wait_for %d ms timeout", timeout))
+    if wait ~= nil and wait > 0 then
+        local status = self.cv:wait_for(std.chrono.milliseconds(timeout))
+        if status == std.cv_status.timeout then
+            error(string.format("wait_for %d ms timeout", timeout))
+        end
+    else
+        self.cv:wait()
     end
 end
 
